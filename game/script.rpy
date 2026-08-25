@@ -115,6 +115,8 @@ image laplage thumb_up = speaker_sprite("laplage", "images/personnages/laplage/t
 image laplage thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/thumb_horizontal.png")
 image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/minecraft.png")
 
+$ renpy.music.register_channel("ambiant1", "ambiant", loop=None)
+$ renpy.music.register_channel("ambiant2", "ambiant", loop=None)
 
 transform char_left:
     xalign 0.18

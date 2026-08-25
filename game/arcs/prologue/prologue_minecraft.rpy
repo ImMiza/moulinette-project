@@ -7,6 +7,8 @@ define pmi = Character("IlonaGaming", color="#ffb0d0", callback=speaker_callback
 define pmx = Character("lorddarktime", color="#b9f2c8", callback=speaker_callback("alex"))
 
 label prologue_minecraft:
+
+    play music "music/Haggstrom.mp3" loop
     scene bg prologue house afternoon
     with fade
     show jessy minecraft at char_left
@@ -21,15 +23,18 @@ label prologue_minecraft:
     systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot 'développement'."
 
     systeme "Il descend finalement jusqu'à l'entrée, comme si le bâtiment pouvait encore recevoir des visiteurs sans les perdre."
+    play sound "fx/minecraft-walking-on-grass.mp3"
     scene bg prologue house entrance
     with dissolve
     show jessy minecraft at char_left
+    play sound "fx/minecraft-wood-break-place.mp3"
     systeme "Devant l'entrée, Jessy plante une pancarte."
     systeme "NE PAS ENTRER. SAUF SI TU AS UNE BONNE IDÉE."
 
+    play sound "fx/minecraft-walking-on-grass.mp3"
     show ilona minecraft at char_right
     with dissolve
-
+    
     systeme "Quelques minutes plus tard, une joueuse s'arrête devant la maison."
     pmi "c'est chez toi ?"
     pmj "techniquement"
@@ -46,6 +51,7 @@ label prologue_minecraft:
     pmi "promis, je respecte la vie intérieure des pièces inutiles"
 
     systeme "Ilona passe le seuil. De l'intérieur, la maison ressemble moins à un plan qu'à une conversation interrompue plusieurs fois."
+    play sound "fx/minecraft-door.mp3"
     scene bg prologue weird interior
     with dissolve
     show jessy minecraft at char_left
@@ -63,10 +69,11 @@ label prologue_minecraft:
     systeme "En montant, Ilona arrive dans une zone encore moins terminée que les autres. Il y a là des blocs qui donnent l'impression de tenir par politesse."
     scene bg prologue accident floor
     with Dissolve(0.8)
+    play sound "fx/stones-falling.mp3"
+    with hpunch
     show jessy minecraft at char_left
     show ilona minecraft at char_right
     systeme "À l'étage, Ilona retire un bloc qu'elle pense décoratif."
-    with hpunch
     systeme "Le mur interprète ce geste comme une invitation à tomber. Une partie du plafond suit. Une poule tombe aussi, avec l'air de n'avoir signé aucun formulaire."
     $ renpy.pause(0.5, hard=True)
 
@@ -147,6 +154,7 @@ label prologue_minecraft:
             pmi "parfait. L'incompréhension, c'est une très bonne fondation."
             systeme "Ils déplacent les blocs cassés au lieu de les effacer. Petit à petit, le trou devient une idée."
             scene bg prologue greenhouse branch
+            play sound "fx/construction.mp3"
             with dissolve
             show jessy minecraft at char_left
             show ilona minecraft at char_right
@@ -163,6 +171,7 @@ label prologue_minecraft:
             pmj "je regretterai peut-être dans quatre seaux d'eau"
             systeme "Ils commencent par poser une petite source. La petite source gagne rapidement un statut politique."
             scene bg prologue pool branch
+            play sound "fx/water-minecraft.mp3"
             with dissolve
             show jessy minecraft at char_left
             show ilona minecraft at char_right
@@ -180,6 +189,7 @@ label prologue_minecraft:
             pmj "j'aurais préféré l'inventer dans une pièce moins trouée"
             systeme "Ils testent des angles, ratent deux arrivées, puis décident que l'inutilité doit au moins être pratique."
             scene bg prologue slide branch
+            play sound "fx/construction.mp3"
             with dissolve
             show jessy minecraft at char_left
             show ilona minecraft at char_right
@@ -196,6 +206,7 @@ label prologue_minecraft:
             pmi "tu viens de dire ça avec beaucoup trop de sérieux"
             systeme "Le projet quitte alors la catégorie des réparations pour entrer dans une zone administrative inconnue."
             scene bg prologue chicken roof branch
+            play sound "fx/big-Chicken.mp3"
             with dissolve
             show jessy minecraft at char_left
             show ilona minecraft at char_right
@@ -204,12 +215,14 @@ label prologue_minecraft:
             pmi "il protège la cuisine"
 
     systeme "Quand la grande idée cesse de prendre toute la place, Ilona remarque un coin plus discret, caché derrière les escaliers et les murs ajoutés trop vite."
+    play sound "fx/minecraft-door.mp3"
     scene bg prologue secret room
     with fade
     show jessy minecraft at char_left
     show ilona minecraft at char_right
 
     systeme "Après plusieurs détours, ils transforment ce renfoncement en petite salle secrète."
+    play sound "fx/minecraft-wood-break-place.mp3"
     systeme "Ilona ajoute une porte inutile, posée presque pour le principe."
     pmj "cette porte sert à quoi ?"
     pmi "à garder le mystère"
@@ -224,6 +237,7 @@ label prologue_minecraft:
     pmi "parfait. Ça met la pression à personne."
 
     systeme "Ils ressortent ensuite de leur cachette improvisée. La maison n'est pas vraiment plus logique, mais elle commence à avoir des souvenirs dans les murs."
+    play sound "fx/minecraft-walking-on-grass.mp3"
     if maison_minecraft_transformation == "serre":
         scene bg prologue greenhouse branch
     elif maison_minecraft_transformation == "piscine":
@@ -269,6 +283,8 @@ label prologue_minecraft:
             pmj "juste une minute, je dois retrouver mon casque et mon courage"
             pmi "prends le casque d'abord. Le courage peut arriver après."
 
+    play sound "fx/discord-call-sound.mp3" volume 0.6
+    $ renpy.pause(1.8, hard=True)
     systeme "Le premier appel commence avec une maladresse simple."
     j "Salut. Enfin... re-salut."
     i "Tu as une voix moins carrée que ton bâtiment."
@@ -283,6 +299,7 @@ label prologue_minecraft:
     i "C'est pas grave. C'est juste drôle."
     systeme "Elle ne force pas la porte. Lui ne prétend pas être déjà à l'aise. Ils continuent simplement à construire."
 
+    play sound "fx/villager.mp3"
     show alex minecraft at char_center
     with dissolve
     if maison_minecraft_transformation == "poulet":
@@ -309,12 +326,14 @@ label prologue_minecraft:
         pmx "le mystère est vide ?"
     pmx "techniquement inhabitable."
     pmx "donc parfaite."
+    play sound "fx/minecraft-wood-break-place.mp3"
     systeme "Alexandre pose une pancarte à l'entrée, comme s'il venait de rendre un verdict technique."
     systeme "NE SURTOUT PAS RENDRE ÇA NORMAL."
     hide alex
     with dissolve
 
     systeme "Alexandre se déconnecte aussi vite qu'il est arrivé. Sa pancarte reste, beaucoup trop convaincue d'avoir raison."
+    play music "music/Subwoofer-Lullaby.mp3" volume 0.8 fadeout 1.0
     scene bg prologue roof night
     with Dissolve(2.5)
     show jessy minecraft at char_left
@@ -334,6 +353,8 @@ label prologue_minecraft:
     with dissolve
     show jessy minecraft at char_left
     show ilona minecraft at char_right
+    $ renpy.pause(0.5, hard=True)
+    play sound "fx/re-zero-return.mp3"
     show laplage minecraft at char_center
     with dissolve
     $ jugement_laplage += 1
@@ -357,4 +378,5 @@ label prologue_minecraft:
     $ renpy.pause(2.0, hard=True)
     systeme "La dernière image reste sur la maison éclairée dans la nuit : maladroite, immense, inutile par endroits, mais désormais construite à deux."
 
+    stop music fadeout 1.0
     jump arc_1_printemps
