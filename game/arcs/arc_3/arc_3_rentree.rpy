@@ -662,7 +662,7 @@ label arc_3_rentree:
         "Lui dire qu'il l'aime trop pour faire semblant.":
             $ arc3_reaction_laplage = "demander_besoin"
             $ communication += 2
-            $ autonomie_ilona += 2
+            $ autonomie_ilona += 1
             $ confiance += 1
             $ ilona_peut_finir_ses_phrases += 1
             j "Je ne peux pas faire semblant que ça ne me tue pas un peu."
@@ -678,7 +678,7 @@ label arc_3_rentree:
         "S'excuser sans se rendre petit.":
             $ arc3_reaction_laplage = "excuse_precise"
             $ communication += 2
-            $ autonomie_ilona += 1
+            $ autonomie_ilona += 2
             $ confiance += 1
             if arc3_aide_stand == "blague_defense" or arc3_reaction_rumeur == "blague_desarm":
                 $ remember("jessy_repare")
@@ -936,15 +936,6 @@ label arc_3_rentree:
         $ lien_jessy_ilona -= 1
         $ maison_minecraft_destructions.append("cuisine_ete_arc3")
         $ souvenirs["maison_respectee"] = False
-    elif arc3_aide_stand == "distance_honnete":
-        $ arc3_fin_minecraft = "sortie_temporaire"
-        $ confiance += 1
-        i "Je vais ajouter une sortie temporaire derrière le stand."
-        j "Pour revenir ?"
-        i "Pour partir sans disparaître."
-        j "C'est une bonne porte."
-        i "Elle est en période d'essai."
-        $ maison_minecraft_ajouts.append("sortie_temporaire_arc3")
     else:
         $ arc3_fin_minecraft = "lanterne_cour"
         $ lien_jessy_ilona += 1

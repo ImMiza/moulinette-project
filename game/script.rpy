@@ -112,6 +112,7 @@ image sofiane shy = speaker_sprite("sofiane", "images/personnages/Sofiane/shy_em
 
 image laplage neutral = speaker_sprite("laplage", "images/personnages/laplage/neutral.png")
 image laplage thumb_up = speaker_sprite("laplage", "images/personnages/laplage/thumb_up.png")
+image laplage thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/thumb_horizontal.png")
 image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/minecraft.png")
 
 init python:
@@ -210,57 +211,7 @@ label start:
 
     jump prologue_minecraft
 
-
-label arc_4_noel:
-    scene bg winter
-    with fade
-    show jessy embarrassed at char_left
-    show ilona neutral at char_right
-
-    systeme "Arc IV - Noël : le cadeau qui dit trop de choses."
-
-    menu:
-        "Quel sens Jessy donne-t-il à son cadeau ?"
-
-        "Offrir une miniature de la maison Minecraft avec ses erreurs conservées.":
-            $ lien_jessy_ilona += 2
-            $ confiance += 1
-            $ remember("maison_respectee")
-            j "Je n'ai pas corrigé le couloir sans sortie."
-            i "Pourquoi ?"
-            j "Parce qu'il raconte quelque chose de nous."
-
-        "Offrir un cadeau coûteux mais impersonnel.":
-            $ lien_jessy_ilona += 1
-            $ confiance -= 1
-            $ influence_theo += 1
-            $ pression_stream += 1
-            j "Je voulais être sûr que ça fasse assez."
-            i "Assez pour quoi ?"
-
-        "Offrir un cadeau lié à une blague interne.":
-            $ lien_jessy_ilona += 1
-            j "C'est ridicule, mais c'est notre ridicule."
-            i "Notre ridicule a une facture ?"
-
-        "Ne rien offrir et choisir une discussion honnête.":
-            $ communication += 2
-            $ confiance += 1
-            j "Je crois que je voulais acheter une réponse. Je préfère te parler."
-            i "C'est peut-être le premier cadeau qui respire."
-
-    $ remember("ilona_pose_une_limite")
-    i "Ce n'est pas parce que tu connais mes goûts que tu sais ce que je veux."
-
-    show allan doubt at char_midleft
-    show alex concerned at char_midright
-    a "Se souvenir suffit vraiment à comprendre quelqu'un ?"
-    x "Non. Mais oublier n'aide pas beaucoup non plus."
-    hide allan
-    hide alex
-
-    jump arc_5_examens
-
+# Arc IV complet : arcs/arc_4/arc_4_noel.rpy
 
 label arc_5_examens:
     scene bg library
