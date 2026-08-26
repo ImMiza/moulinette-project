@@ -1057,7 +1057,7 @@ label arc_4_noel:
     
     # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
     if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
-        call arc_4_5_maid_cafe
+        call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
     
     hide jessy
     hide ilona

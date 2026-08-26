@@ -173,7 +173,7 @@ label arc_1_printemps:
     hide ilona
     with dissolve
     stop ambiant1 fadeout 0.2
-    play ambiant1 audio.trainInside volume 0.2 fadein 1.5 loop
+    play ambiant1 audio.trainInside volume 0.4 fadein 1.5 loop
     scene bg arc1 train inside
     with dissolve
     show jessy neutral at char_left
@@ -218,6 +218,7 @@ label arc_1_printemps:
             j "Attends. Refais. Je peux faire pire."
             i "C'est ambitieux."
             j "Je crois en moi."
+            play sound "fx/photo-taken.mp3"
             i "Magnifique. On dirait une photo de carte de club refusée."
 
     systeme "La photo reste un sujet pendant deux jours."
@@ -237,7 +238,8 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-    play music "music/kombini.mp3" fadeout 1.0 fadein 0.5
+    play sound "fx/kombini_open.mp3"
+    play music "music/kombini.mp3" fadeout 1.0 fadein 2.0 volume 0.7
     scene bg arc1 konbini
     with fade
     show jessy neutral at char_left
@@ -263,7 +265,7 @@ label arc_1_printemps:
     j "Évidemment."
 
     $ renpy.pause(0.5, hard=True)
-    play sound "fx/re-zero-return.mp3"
+    play sound "fx/re-zero-return.mp3" volume 1.0
     show laplage neutral at char_center
     with dissolve
 
@@ -331,7 +333,7 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-    play music audio.ecole fadeout 1.0 fadein 1.0 loop
+    play music audio.ecole fadeout 1.0 fadein 1.0 loop volume 1.0
     scene bg arc1 school corridor
     with fade
     show jessy embarrassed at char_left
@@ -359,10 +361,11 @@ label arc_1_printemps:
     a "Pardon ?"
     i "Le monsieur au pouce levé. Dans le rayon boissons."
     x "Cette école devient intéressante."
+    stop music fadeout 2.0
     play sound "fx/snake-alert.mp3"
     a "Donc... vous sortez ensemble ?"
     systeme "Jessy ouvre la bouche, puis la referme."
-    play music "music/Metal-gear.mp3" fadeout 0.3 loop
+    play music "music/Metal-gear.mp3" loop
     $ renpy.pause(0.8, hard=True)
     menu:
         "Allan vient de poser la question un peu trop fort."
@@ -387,7 +390,7 @@ label arc_1_printemps:
 
         "Faire une blague pour détendre l'atmosphère.":
             $ lien_jessy_ilona += 1
-            play music audio.ecole fadeout 1.0 fadein 1.0 loop
+            play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "On partage une maison impossible. C'est déjà beaucoup."
             i "Il esquive."
             j "Un peu."
@@ -400,7 +403,7 @@ label arc_1_printemps:
             $ autonomie_ilona += 1
             $ ilona_peut_finir_ses_phrases += 1
             $ communication += 1
-            play music audio.ecole fadeout 1.0 fadein 1.0 loop
+            play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "Je te laisse répondre si tu veux."
             i "Je sais pas trop."
             j "C'est une réponse aussi."
@@ -409,7 +412,7 @@ label arc_1_printemps:
         "Nier trop vite.":
             $ communication -= 1
             $ jalousie += 1
-            play music audio.ecole fadeout 1.0 fadein 1.0 loop
+            play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "Non, non. Pas du tout."
             show ilona neutral at char_right
             i "Ah."
@@ -498,7 +501,7 @@ label arc_1_printemps:
     hide ilona
     with dissolve
     play music audio.ecole fadeout 1.0 fadein 1.0 loop volume 1.0
-    play ambiant1 "ambience/crowd-noise.mp3" volume 0.2
+    play ambiant1 "ambience/crowd-noise.mp3" volume 0.4
     #music ecole + ambiance foule
     scene bg arc1 cafeteria
     with fade
@@ -555,5 +558,6 @@ label arc_1_printemps:
 
     systeme "Ilona rit. Jessy aussi."
     systeme "Ce n'est pas encore simple entre eux. Mais maintenant, ce n'est plus seulement dans Minecraft."
+    stop ambiant1
     stop music fadeout 1.0
     jump arc_2_plage
