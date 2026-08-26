@@ -10,6 +10,7 @@ image bg arc1 cafeteria = im.Scale("images/scenes/arc_1/bg_arc1_school_cafeteria
 
 
 label arc_1_printemps:
+    play music audio.ecole loop
     scene bg arc1 school corridor
     with fade
 
@@ -67,6 +68,8 @@ label arc_1_printemps:
         j "Tu dis ça comme si c'était normal."
         i "Ça l'est, pour nous."
 
+    play sound "fx/japanese-school-bell-sound-488954.mp3" #modif fin de son
+    $ renpy.pause(2.0, hard=True)
     systeme "La sonnerie coupe la suite."
     i "Je dois y aller."
     j "Moi aussi."
@@ -81,6 +84,8 @@ label arc_1_printemps:
     hide ilona
     with dissolve
 
+    play music audio.ecoleroof fadeout 1.0 fadein 2.0 loop
+    play ambiant1 audio.windBirds volume 1 loop 
     scene bg arc1 rooftop
     with fade
     show jessy neutral at char_left
@@ -144,10 +149,12 @@ label arc_1_printemps:
     systeme "Ils se croisent surtout par petits morceaux : un salut dans l'escalier, un message envoyé trop tard, une blague Minecraft pendant une pause."
     systeme "Au bout de quelques jours, ces petits morceaux commencent à ressembler à une habitude."
 
+    stop ambiant1 fadeout 0.2
     hide jessy
     hide ilona
     with dissolve
-
+    play music audio.ecolenight fadeout 1.0 fadein 1.0 loop
+    play ambiant1 audio.windBirds volume 1 loop
     scene bg arc1 train platform
     with fade
     show jessy neutral at char_left
@@ -159,13 +166,14 @@ label arc_1_printemps:
     i "Donc on aurait pu se croiser depuis des mois."
     j "Et on a choisi Minecraft."
     i "Très bon choix, honnêtement."
-
+    play sound "fx/train-stop.mp3" volume 0.6
     systeme "Le train arrive. Ils montent sans trop savoir s'ils doivent continuer la conversation ou regarder par la fenêtre."
 
     hide jessy
     hide ilona
     with dissolve
-
+    stop ambiant1 fadeout 0.2
+    play ambiant1 audio.trainInside volume 0.2 fadein 1.5 loop
     scene bg arc1 train inside
     with dissolve
     show jessy neutral at char_left
@@ -174,6 +182,7 @@ label arc_1_printemps:
     systeme "Dans le wagon, Ilona sort son téléphone."
     i "Bouge pas."
     j "Pourquoi ?"
+    play sound "fx/photo-taken.mp3"
     systeme "Elle prend une photo avant qu'il ait le temps de comprendre."
     j "Oh non."
     i "Oh si."
@@ -214,6 +223,8 @@ label arc_1_printemps:
     systeme "La photo reste un sujet pendant deux jours."
     systeme "Ilona menace de l'utiliser comme preuve que Jessy existe en dehors de Minecraft. Jessy négocie des droits d'auteur imaginaires."
     systeme "Un soir, alors qu'ils sont encore dans le train, Jessy essaie de dire quelque chose d'important."
+    stop ambiant1 fadeout 1.0
+    play sound "fx/train-stop.mp3" volume 0.6
     j "Ilona, je voulais te dire que—"
     systeme "Le train s'arrête brutalement. La sonnerie de fermeture des portes couvre la fin de sa phrase."
     i "Quoi ?"
@@ -226,7 +237,7 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-
+    play music "music/kombini.mp3" fadeout 1.0 fadein 0.5
     scene bg arc1 konbini
     with fade
     show jessy neutral at char_left
@@ -251,6 +262,8 @@ label arc_1_printemps:
     i "Si ça donne des pouvoirs."
     j "Évidemment."
 
+    $ renpy.pause(0.5, hard=True)
+    play sound "fx/re-zero-return.mp3"
     show laplage neutral at char_center
     with dissolve
 
@@ -318,7 +331,7 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-
+    play music audio.ecole fadeout 1.0 fadein 1.0 loop
     scene bg arc1 school corridor
     with fade
     show jessy embarrassed at char_left
@@ -346,17 +359,18 @@ label arc_1_printemps:
     a "Pardon ?"
     i "Le monsieur au pouce levé. Dans le rayon boissons."
     x "Cette école devient intéressante."
+    play sound "fx/snake-alert.mp3"
     a "Donc... vous sortez ensemble ?"
-
     systeme "Jessy ouvre la bouche, puis la referme."
+    play music "music/Metal-gear.mp3" fadeout 0.3 loop
     $ renpy.pause(0.8, hard=True)
-
     menu:
         "Allan vient de poser la question un peu trop fort."
 
         "Répondre sincèrement : \"J'aimerais bien.\"":
             $ lien_jessy_ilona += 1
             $ communication += 1
+            play music audio.ecole fadeout 1.0 fadein 1.0 loop
             j "J'aimerais bien."
             $ renpy.pause(0.8, hard=True)
             show ilona embarrassed at char_right
@@ -373,6 +387,7 @@ label arc_1_printemps:
 
         "Faire une blague pour détendre l'atmosphère.":
             $ lien_jessy_ilona += 1
+            play music audio.ecole fadeout 1.0 fadein 1.0 loop
             j "On partage une maison impossible. C'est déjà beaucoup."
             i "Il esquive."
             j "Un peu."
@@ -385,6 +400,7 @@ label arc_1_printemps:
             $ autonomie_ilona += 1
             $ ilona_peut_finir_ses_phrases += 1
             $ communication += 1
+            play music audio.ecole fadeout 1.0 fadein 1.0 loop
             j "Je te laisse répondre si tu veux."
             i "Je sais pas trop."
             j "C'est une réponse aussi."
@@ -393,6 +409,7 @@ label arc_1_printemps:
         "Nier trop vite.":
             $ communication -= 1
             $ jalousie += 1
+            play music audio.ecole fadeout 1.0 fadein 1.0 loop
             j "Non, non. Pas du tout."
             show ilona neutral at char_right
             i "Ah."
@@ -412,7 +429,8 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-
+    play music audio.ecoleroof fadeout 1.0 fadein 1.0 loop
+    play ambiant1 audio.windBirds volume 1 loop
     scene bg arc1 rooftop
     with fade
     show jessy neutral at char_left
@@ -479,7 +497,9 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-
+    play music audio.ecole fadeout 1.0 fadein 1.0 loop volume 1.0
+    play ambiant1 "ambience/crowd-noise.mp3" volume 0.2
+    #music ecole + ambiance foule
     scene bg arc1 cafeteria
     with fade
     show jessy neutral at char_left
@@ -523,7 +543,7 @@ label arc_1_printemps:
         j "Pire. Il a des vagues maintenant."
         i "On a ajouté un toboggan aquatique."
         a "Vous réparez rien, en fait."
-
+    #music soso ?
     show sofiane observation at char_center
     with dissolve
     s "Les premiers liens font beaucoup de bruit quand personne ne sait encore quoi dire."
@@ -535,5 +555,5 @@ label arc_1_printemps:
 
     systeme "Ilona rit. Jessy aussi."
     systeme "Ce n'est pas encore simple entre eux. Mais maintenant, ce n'est plus seulement dans Minecraft."
-
+    stop music fadeout 1.0
     jump arc_2_plage

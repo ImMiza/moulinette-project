@@ -114,8 +114,16 @@ image laplage neutral = speaker_sprite("laplage", "images/personnages/laplage/ne
 image laplage thumb_up = speaker_sprite("laplage", "images/personnages/laplage/thumb_up.png")
 image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/minecraft.png")
 
-$ renpy.music.register_channel("ambiant1", "ambiant", loop=None)
-$ renpy.music.register_channel("ambiant2", "ambiant", loop=None)
+init python:
+    renpy.music.register_channel("ambiant1", mixer="sfx", loop=True)
+
+
+define audio.ecole = "audio/music/ecole-music.mp3"
+define audio.mcnight = "audio/music/Subwoofer-Lullaby.mp3"
+define audio.ecoleroof = "audio/music/ecole-roof.ogg"
+define audio.ecolenight = "audio/music/ecole-nuit.mp3"
+define audio.windBirds = "audio/ambience/breeze-birds.mp3"
+define audio.trainInside = "audio/ambience/tram-inside.mp3"
 
 transform char_left:
     xalign 0.18
