@@ -125,6 +125,10 @@ define audio.ecoleroof = "audio/music/ecole-roof.ogg"
 define audio.ecolenight = "audio/music/ecole-nuit.mp3"
 define audio.windBirds = "audio/ambience/breeze-birds.mp3"
 define audio.trainInside = "audio/ambience/tram-inside.mp3"
+define audio.eating = "audio/fx/aaughmp3.mp3"
+define audio.sadPiano = "audio/music/sad-piano.mp3"
+define audio.melanPiano = "audio/music/melancolique-piano.mp3"
+define audio.tensePiano = "audio/music/tense-piano.mp3"
 
 transform char_left:
     xalign 0.18

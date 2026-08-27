@@ -10,7 +10,7 @@ image bg arc1 cafeteria = im.Scale("images/scenes/arc_1/bg_arc1_school_cafeteria
 
 
 label arc_1_printemps:
-    play music audio.ecole loop
+    play music audio.ecole loop fadein 2.0
     scene bg arc1 school corridor
     with fade
 
@@ -68,7 +68,7 @@ label arc_1_printemps:
         j "Tu dis ça comme si c'était normal."
         i "Ça l'est, pour nous."
 
-    play sound "fx/japanese-school-bell-sound-488954.mp3" #modif fin de son
+    play sound "fx/japanese-school-bell-sound-488954.mp3"
     $ renpy.pause(2.0, hard=True)
     systeme "La sonnerie coupe la suite."
     i "Je dois y aller."
@@ -84,7 +84,7 @@ label arc_1_printemps:
     hide ilona
     with dissolve
 
-    play music audio.ecoleroof fadeout 1.0 fadein 2.0 loop
+    play music audio.ecoleroof fadeout 1.0 fadein 2.0 loop volume 0.9
     play ambiant1 audio.windBirds volume 1 loop 
     scene bg arc1 rooftop
     with fade
@@ -239,7 +239,7 @@ label arc_1_printemps:
     hide ilona
     with dissolve
     play sound "fx/kombini_open.mp3"
-    play music "music/kombini.mp3" fadeout 1.0 fadein 2.0 volume 0.7
+    play music "music/kombini.mp3" fadeout 1.0 fadein 2.0 volume 0.6
     scene bg arc1 konbini
     with fade
     show jessy neutral at char_left
@@ -311,6 +311,7 @@ label arc_1_printemps:
         "La laisser manger l'étoile.":
             $ ilonanium_points += 1
             $ lien_jessy_ilona += 1
+            play sound audio.eating volume 1.0
             i "Trop tard."
             j "Et ?"
             i "Sucre."
@@ -365,7 +366,7 @@ label arc_1_printemps:
     play sound "fx/snake-alert.mp3"
     a "Donc... vous sortez ensemble ?"
     systeme "Jessy ouvre la bouche, puis la referme."
-    play music "music/Metal-gear.mp3" loop
+    play music "music/Metal-gear.mp3" loop volume 0.8
     $ renpy.pause(0.8, hard=True)
     menu:
         "Allan vient de poser la question un peu trop fort."
@@ -432,7 +433,7 @@ label arc_1_printemps:
     hide jessy
     hide ilona
     with dissolve
-    play music audio.ecoleroof fadeout 1.0 fadein 1.0 loop
+    play music audio.ecoleroof fadeout 1.0 fadein 1.0 loop volume 0.8
     play ambiant1 audio.windBirds volume 1 loop
     scene bg arc1 rooftop
     with fade
