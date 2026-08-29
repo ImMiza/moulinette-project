@@ -204,61 +204,7 @@ label start:
     jump prologue_minecraft
 
 # Arc IV complet : arcs/arc_4/arc_4_noel.rpy
-
-label arc_5_examens:
-    scene bg library
-    with fade
-    show jessy neutral at char_left
-    show ilona fatigue at char_right
-
-    systeme "Arc V - Examens, Saint-Valentin et White Day : ce qu'on ne dit pas."
-    systeme "La fatigue rend les bonnes intentions plus fragiles."
-
-    show theo smirk at char_center
-    t "Je peux gérer certaines choses à ta place. Tu as déjà assez à porter."
-    $ influence_theo += 1
-    $ pression_stream += 1
-    hide theo
-
-    i "Est-ce que tu as peur de me perdre... ou est-ce que tu ne me fais pas confiance ?"
-
-    menu:
-        "Comment Jessy répond-il ?"
-
-        "Admettre sa peur et vouloir apprendre la confiance.":
-            $ lien_jessy_ilona += 1
-            $ communication += 2
-            $ confiance += 2
-            $ autonomie_ilona += 1
-            $ remember("jessy_nomme_sa_peur")
-            j "J'ai peur. Mais je veux apprendre à te faire confiance au lieu de te faire porter ma peur."
-
-        "Dire qu'Ilona devrait déjà savoir ce qu'il ressent.":
-            $ communication -= 1
-            $ pression_stream += 1
-            $ interruptions_ilona += 1
-            j "Tu devrais déjà savoir ce que je ressens."
-            i "Et toi, tu devrais peut-être me demander ce que je porte."
-
-        "Désigner Théo comme unique problème.":
-            $ jalousie += 2
-            $ influence_theo += 1
-            $ pression_stream += 1
-            j "Le problème, c'est Théo."
-            i "Non. Le problème, c'est que je parle de nous et que tu réponds par lui."
-
-        "Reporter la discussion.":
-            $ communication -= 1
-            $ pression_stream += 1
-            j "On en parlera plus tard."
-            systeme "Plus tard peut être un soin. Répété trop souvent, cela devient une disparition."
-
-    $ confidences_laplage += 1
-    show laplage thumb_up at char_center
-    laplage "Les gens confondent souvent être proche et être propriétaire."
-    hide laplage
-
-    jump arc_6_diplomes
+# Arc V complet : arcs/arc_5/arc_5_examens.rpy
 
 
 label arc_6_diplomes:

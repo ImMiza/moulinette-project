@@ -10,6 +10,7 @@ image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_min
 
 image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 843, 1264)
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
+image laplage christmas thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_horizontal.png", 843, 1264)
 
 # Variables locales d'arc : elles gardent la trace du sens donne aux cadeaux et aux limites posees.
 default arc4_cadeau_jessy = ""
@@ -18,6 +19,7 @@ default arc4_limite_ilona = ""
 default arc4_fin_minecraft = ""
 default arc4_carte_sofiane_lue = False
 default arc4_mochi_cosmique = False
+default arc4_ilona_avec_theo = False
 
 
 label arc_4_noel:
@@ -431,7 +433,7 @@ label arc_4_noel:
     systeme "Théo s'éloigne du stand, les mains dans les poches. Il ne sourit pas. Il ne sourit jamais vraiment après ces moments."
     systeme "Il pense déjà à ce qu'il dira la prochaine fois. Quel détail il sortira. Quel silence il remplira."
     
-    show laplage neutral at char_right
+    show laplage christmas neutral at char_right
     with dissolve
     
     systeme "Monsieur Laplage se tient devant un stand de cartes postales. Il ne vend rien. Il ne fait rien. Il observe."
@@ -449,7 +451,7 @@ label arc_4_noel:
     t "Je ne force personne à rester."
     laplage "Non. Mais tu gardes la clé."
     systeme "Le silence s'installe. Théo ne se défend pas. Laplage ne l'accuse pas non plus."
-    show laplage thumb_horizontal at char_right
+    show laplage christmas thumb_horizontal at char_right
     systeme "Laplage lève le pouce. Ni levé. Ni baissé. Juste... horizontal. Comme une question."
     systeme "Théo reste immobile. Puis il s'éloigne sans un mot."
     
@@ -591,13 +593,12 @@ label arc_4_noel:
     systeme "Ilona serre le carnet. Pas pour le garder précieusement. Pour sentir qu'elle a encore le choix de ce qu'il signifie."
     systeme "Laplage se retourne vers son stand. Il revient avec un gobelet de café chaud."
     laplage "Les décisions froides méritent une main chaude."
-    show laplage thumb_up at char_center
     systeme "Il tend le gobelet."
     i "Vous vendez du café maintenant ?"
     laplage "Je vends surtout des pauses."
-    systeme "Ilona prend le café. Il réchauffe ses doigts engourdis par le froid."
+    show laplage christmas thumb_up at char_right
+    systeme "Il lève le pouce. Ilona prend le café. Il réchauffe ses doigts engourdis par le froid."
     i "Merci."
-    show laplage thumb_up at char_center
     systeme "Laplage acquiesce. Puis repart vers son stand."
     systeme "Ilona reste avec le carnet dans une main, le café dans l'autre."
     systeme "Le café ne résout rien. Mais il lui donne quelques secondes où elle peut juste respirer."
@@ -1049,6 +1050,58 @@ label arc_4_noel:
     hide theo
     with dissolve
 
+    # Arc 4.5 alternatif - Ilona accepte de marcher avec Théo (route Théo)
+    if influence_theo >= 5 and confiance <= 2 and arc4_limite_ilona == "demande_theo":
+        systeme "Mais quelque chose change."
+        
+        show ilona neutral at char_right
+        
+        i "Attends."
+        
+        systeme "Théo s'arrête. Il ne se retourne pas tout de suite. Comme s'il savait déjà."
+        
+        show theo neutral at char_center
+        with dissolve
+        
+        i "Finalement... je veux bien marcher un peu. Avant de rentrer."
+        
+        systeme "Jessy sent quelque chose se glacer dans sa poitrine."
+        
+        j "Ilona..."
+        
+        show ilona frustrated at char_right
+        
+        i "Jessy, je suis fatiguée. De tout ça."
+        i "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
+        
+        systeme "Le mot 'rassurer' claque."
+        
+        t "On ne va pas loin. Juste jusqu'à la station."
+        
+        systeme "Théo ne triomphe pas. Mais il ne refuse pas non plus."
+        
+        a "Ilona, tu es sûre que..."
+        i "Allan. S'il te plaît."
+        
+        systeme "Elle prend son sac. Théo attend près de la sortie."
+        
+        systeme "Jessy reste immobile. Alexandre le regarde sans savoir quoi dire."
+        systeme "Allan pose une main sur son épaule. C'est la seule chose qu'il puisse faire."
+        
+        i "On se voit demain."
+        
+        systeme "Elle part avec Théo. Pas main dans la main. Mais côte à côte."
+        systeme "Quelque chose vient de se déplacer. Jessy ne sait pas encore si c'est réparable."
+        
+        $ influence_theo += 2
+        $ pression_stream += 2
+        $ confiance -= 1
+        $ arc4_ilona_avec_theo = True
+        
+        hide ilona
+        hide theo
+        with dissolve
+
     systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
 
     hide allan
@@ -1057,7 +1110,11 @@ label arc_4_noel:
     
     # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
     if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
-        call arc_4_5_maid_cafe
+        call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
+    
+    # Arc 4.5 - Scène marche Théo/Ilona (si route Théo)
+    if arc4_ilona_avec_theo:
+        call arc_4_5_theo from _call_arc_4_5_theo
     
     hide jessy
     hide ilona
