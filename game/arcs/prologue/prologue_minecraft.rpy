@@ -333,7 +333,7 @@ label prologue_minecraft:
     with dissolve
 
     systeme "Alexandre se déconnecte aussi vite qu'il est arrivé. Sa pancarte reste, beaucoup trop convaincue d'avoir raison."
-    play music "music/Subwoofer-Lullaby.mp3" volume 0.8 fadeout 1.0
+    play music audio.mcnight volume 0.8 fadeout 1.0
     scene bg prologue roof night
     with Dissolve(2.5)
     show jessy minecraft at char_left

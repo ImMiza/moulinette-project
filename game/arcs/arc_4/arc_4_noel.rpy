@@ -599,6 +599,7 @@ label arc_4_noel:
     show laplage christmas thumb_up at char_right
     systeme "Il lève le pouce. Ilona prend le café. Il réchauffe ses doigts engourdis par le froid."
     i "Merci."
+    show laplage thumb_up at char_center
     systeme "Laplage acquiesce. Puis repart vers son stand."
     systeme "Ilona reste avec le carnet dans une main, le café dans l'autre."
     systeme "Le café ne résout rien. Mais il lui donne quelques secondes où elle peut juste respirer."
@@ -1053,51 +1054,51 @@ label arc_4_noel:
     # Arc 4.5 alternatif - Ilona accepte de marcher avec Théo (route Théo)
     if influence_theo >= 5 and confiance <= 2 and arc4_limite_ilona == "demande_theo":
         systeme "Mais quelque chose change."
-        
+
         show ilona neutral at char_right
-        
+
         i "Attends."
-        
+
         systeme "Théo s'arrête. Il ne se retourne pas tout de suite. Comme s'il savait déjà."
-        
+
         show theo neutral at char_center
         with dissolve
-        
+
         i "Finalement... je veux bien marcher un peu. Avant de rentrer."
-        
+
         systeme "Jessy sent quelque chose se glacer dans sa poitrine."
-        
+
         j "Ilona..."
-        
+
         show ilona frustrated at char_right
-        
+
         i "Jessy, je suis fatiguée. De tout ça."
         i "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
-        
+
         systeme "Le mot 'rassurer' claque."
-        
+
         t "On ne va pas loin. Juste jusqu'à la station."
-        
+
         systeme "Théo ne triomphe pas. Mais il ne refuse pas non plus."
-        
+
         a "Ilona, tu es sûre que..."
         i "Allan. S'il te plaît."
-        
+
         systeme "Elle prend son sac. Théo attend près de la sortie."
-        
+
         systeme "Jessy reste immobile. Alexandre le regarde sans savoir quoi dire."
         systeme "Allan pose une main sur son épaule. C'est la seule chose qu'il puisse faire."
-        
+
         i "On se voit demain."
-        
+
         systeme "Elle part avec Théo. Pas main dans la main. Mais côte à côte."
         systeme "Quelque chose vient de se déplacer. Jessy ne sait pas encore si c'est réparable."
-        
+
         $ influence_theo += 2
         $ pression_stream += 2
         $ confiance -= 1
         $ arc4_ilona_avec_theo = True
-        
+
         hide ilona
         hide theo
         with dissolve
@@ -1111,7 +1112,7 @@ label arc_4_noel:
     # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
     if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
         call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
-    
+
     # Arc 4.5 - Scène marche Théo/Ilona (si route Théo)
     if arc4_ilona_avec_theo:
         call arc_4_5_theo from _call_arc_4_5_theo

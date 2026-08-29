@@ -15,8 +15,13 @@ default arc3_ilona_a_choisi_theme = False
 default arc3_rumeur_aggravee = False
 default arc3_theo_message_festival = False
 
+define audio.festi = "audio/music/festival.mp3"
+define audio.festiMC = "audio/music/cafeMC.mp3"
+
 
 label arc_3_rentree:
+    play music audio.mornPiano volume 0.9 fadein 3.0 loop
+    play ambiant1 audio.trainInside volume 0.8 fadein 1.5 loop
     scene bg shared train inside
     with fade
 
@@ -88,11 +93,13 @@ label arc_3_rentree:
     systeme "Il l'est."
     systeme "Et il remarque quand même que Théo va aider à construire ce souvenir avec eux."
 
+    stop ambient1 fadeout 2.0
     hide allan
     hide jessy
     hide ilona
     with dissolve
-
+    stop ambiant1 fadeout 1.0
+    play music audio.festi volume 0.8 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 festival hallway
     with fade
     show jessy neutral at char_left
@@ -125,7 +132,9 @@ label arc_3_rentree:
     hide alex
     hide allan
     with dissolve
-
+    #music ecole + ambience foule
+    play music audio.festiMC loop volume 0.4 fadeout 1.0 fadein 1.0
+    play sound audio.foule loop volume 0.4 fadein 1.5
     scene bg arc3 festival stand
     with fade
     show jessy neutral at char_left
@@ -139,7 +148,7 @@ label arc_3_rentree:
     i "Justement. Personne ne comprendra, donc personne ne pourra contester."
     t "Je peux peindre le panneau si vous voulez."
     i "Oui, merci."
-
+    play sound "fx/whispers.mp3" volume 1.0
     systeme "Dans le couloir, deux élèves ralentissent en passant."
     systeme "Leur voix est assez basse pour prétendre ne rien dire, assez haute pour être entendue."
     systeme "\"C'est celle qui s'est fait ramener son porte-clés par l'autre, à la plage.\""
@@ -250,7 +259,8 @@ label arc_3_rentree:
     hide jessy
     hide ilona
     with dissolve
-
+    #music festival + ambience foule volume high
+    play sound audio.foule loop volume 0.8 fadein 1.5
     scene bg arc3 festival stand
     with fade
     show jessy neutral at char_left
@@ -354,7 +364,8 @@ label arc_3_rentree:
     hide ilona
     hide theo
     with dissolve
-
+    stop ambiant1 fadeout 2.0
+    play music audio.festi volume 0.8 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 festival hallway
     with fade
     show allan doubt at char_left
@@ -401,7 +412,7 @@ label arc_3_rentree:
     hide allan
     hide alex
     with dissolve
-
+    play ambiant1 audio.foule loop volume 0.6 fadein 1.5
     scene bg arc3 festival courtyard
     with fade
     show ilona fatigue at char_left
@@ -417,6 +428,10 @@ label arc_3_rentree:
     i "Toi, tu as l'air de savoir ne rien décider."
     systeme "Elle glisse l'étoile dans son sac, puis reprend sa marche jusqu'au stand de takoyaki."
 
+    play ambiant1 audio.foule loop volume 0.4 fadeout 1.0 fadein 1.0
+    #laplage 
+    $ renpy.pause(0.5, hard=True)
+    play sound "fx/re-zero-return.mp3"
     show laplage neutral at char_center
     with dissolve
 
@@ -433,6 +448,8 @@ label arc_3_rentree:
     $ renpy.pause(1.0, hard=True)
     i "Je suis..."
     systeme "Elle s'arrête. Cherche le mot."
+    play music audio.sadPiano fadeout 1.0 fadein 0.5 loop volume 0.8
+    stop ambiant1 fadeout 1.5
     i "Je suis en colère."
     laplage "Contre qui ?"
     i "Jessy. Les gens. Moi."
@@ -470,6 +487,9 @@ label arc_3_rentree:
     systeme "Monsieur Laplage, lui, discute maintenant avec une cliente qui jure qu'il était au stand de tir il y a trente secondes."
     systeme "Ilona respire une fois, puis reprend le chemin du café."
 
+    #music festival
+    play music audio.festi volume 0.8 fadeout 1.0 fadein 1.0 loop
+    stop ambiant1 fadeout 1.0
     scene bg arc3 festival hallway
     with fade
     show jessy neutral at char_left
@@ -504,6 +524,7 @@ label arc_3_rentree:
     $ arc3_theo_message_festival = True
     $ remember("theo_utilise_une_verite")
 
+    play music audio.tensePiano fadeout 1.5 fadein 1.0 loop
     systeme "Jessy sent la phrase entrer exactement là où elle voulait entrer."
     systeme "Ce n'est pas une insulte. C'est pire : une vérité utilisée comme une lame."
 
@@ -571,12 +592,13 @@ label arc_3_rentree:
     systeme "Jessy déteste Théo à cet instant."
     systeme "Il le déteste d'autant plus qu'une partie de ce qu'il a dit restera vraie même si Théo disparaissait."
 
+    stop music fadeout 2.0
     hide theo
     with dissolve
 
     systeme "Théo s'éloigne. Jessy reste seul dans le couloir."
     systeme "Ses mains tremblent. Pas de colère. D'épuisement."
-
+    play music audio.sadPiano fadein 1.0 loop
     show sofiane observation at char_center
     with dissolve
 
@@ -778,6 +800,7 @@ label arc_3_rentree:
     hide ilona
     with dissolve
 
+    play music audio.ecolenight loop volume 0.8 fadeout 1.0 fadein 1.0
     scene bg arc3 classroom evening
     with fade
     show allan neutral at char_left
@@ -868,6 +891,7 @@ label arc_3_rentree:
     hide ilona
     with dissolve
 
+    play music audio.mcnight volume 0.8 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 minecraft night
     with Dissolve(2.0)
     show jessy minecraft at char_left
@@ -919,18 +943,23 @@ label arc_3_rentree:
         systeme "Puis elle entre dans la cuisine d'été. Celle qu'elle avait construite après la plage."
         systeme "Elle regarde les blocs. Les murs. Le toit."
         $ renpy.pause(1.0, hard=True)
-        systeme "Elle détruit le premier bloc."
+        #fx casser + tremblement + music tense
+        play music audio.tensePiano fadeout 0.5 fadein 0.5 loop
+        play sound "fx/stones-falling.mp3"
+        systeme "Elle détruit le premier bloc." with hpunch
         j "Qu'est-ce que tu fais ?"
         i "Je détruis."
         j "Pourquoi ?"
         i "Parce que j'en ai besoin."
-        systeme "Elle détruit le deuxième. Le troisième. Tout le mur."
+        play sound "fx/stones-falling.mp3"
+        systeme "Elle détruit le deuxième. Le troisième. Tout le mur." with hpunch
         j "Ilona—"
         i "Tais-toi."
         systeme "Jessy se tait. Il regarde Ilona effacer la cuisine qu'elle avait construite avec soin."
         systeme "Quand elle a fini, il ne reste qu'un trou dans la maison."
         $ renpy.pause(1.5, hard=True)
         i "Voilà."
+        play music audio.mcnight volume 0.8 fadeout 1.0 fadein 1.0 loop
         systeme "Elle se déconnecte."
         $ pression_stream += 2
         $ lien_jessy_ilona -= 1
@@ -959,6 +988,7 @@ label arc_3_rentree:
                 i "Elle a survécu à toute la journée."
                 j "Elle mérite le repos éternel ?"
                 i "Elle mérite d'être mangée."
+                play sound audio.eating
                 systeme "L'univers perd encore un fragment de prudence."
 
             "Proposer d'en garder une trace dans la salle secrète.":
@@ -975,6 +1005,7 @@ label arc_3_rentree:
     systeme "Elle a seulement rendu les regards visibles."
     systeme "Et maintenant que tout le monde a vu quelque chose, il va devenir plus difficile de prétendre que rien ne change."
 
+    stop music fadeout 1.0
     jump arc_4_noel
 
 
