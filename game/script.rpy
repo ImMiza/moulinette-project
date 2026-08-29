@@ -129,6 +129,8 @@ define audio.eating = "audio/fx/aaughmp3.mp3"
 define audio.sadPiano = "audio/music/sad-piano.mp3"
 define audio.melanPiano = "audio/music/melancolique-piano.mp3"
 define audio.tensePiano = "audio/music/tense-piano.mp3"
+define audio.mornPiano = "audio/music/morning-piano.mp3"
+define audio.foule = "audio/ambience/crowd-noise.mp3"
 
 transform char_left:
     xalign 0.18

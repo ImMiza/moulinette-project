@@ -84,6 +84,7 @@ label arc_2_plage:
     hide jessy
     hide ilona
     with dissolve
+    play music audio.mornPiano volume 0.9 fadeout 1.0 fadein 1.0 loop
     play ambiant1 audio.trainInside volume 0.8 fadein 1.5 loop
     scene bg shared train inside
     with fade
