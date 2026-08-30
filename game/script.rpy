@@ -261,65 +261,9 @@ define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 #   arc_7_jessy = Ilona reste dans un endroit ou elle peut parler.
 #   arc_7_theo  = Ilona part vers un endroit ou on lui epargne de parler.
 #
-# TODO : ces deux labels sont des SQUELETTES. Ils portent la logique de
-# routage definitive vers les fins, mais pas encore le contenu narratif
-# (festival d'ete + sequence AE86 pour la route Jessy, "le monde apres la
-# maison" en POV alterne pour la route Theo).
+# Le contenu des routes est dans arcs/arc_7/arc_7_jessy.rpy et
+# arcs/arc_7/arc_7_theo.rpy.
 # =============================================================================
-
-label arc_7_jessy:
-    $ derniere_route = "Route Jessy"
-
-    scene bg festival
-    with fade
-    show jessy smile at char_left
-    show ilona smile at char_right
-
-    systeme "Arc VII - Festival d'ete : les lanternes ne choisissent pas."
-    systeme "Ilona a choisi un endroit ou elle peut parler. Ce n'est pas une victoire de Jessy. C'est une place qu'elle a prise."
-
-    # Le 6e objet cosmique (bloc-lune) se collecte ici, juste avant le menu final.
-    if ilonanium_points >= 5:
-        systeme "Sur un stand, entre deux masques, il y a un bloc qui ressemble beaucoup trop a un morceau de lune."
-        i "Je le prends."
-        j "C'est un bonbon."
-        i "C'est un bloc-lune, Jessy."
-        $ ilonanium_points += 1
-
-    menu:
-        "Comment se termine le festival ?"
-
-        "Rester ensemble, sans se mettre ensemble.":
-            jump ending_no_contact
-
-        "Laisser Ilona finir la planete." if ilonanium_points >= 6:
-            jump ending_ilonanium
-
-        "Dire ce qu'il veut, en la laissant repondre non." if arc6_score >= SEUIL_ROMANCE and lien_jessy_ilona >= SEUIL_LIEN:
-            if souvenirs["jessy_repare"] and souvenirs["maison_respectee"] and interruptions_reparees >= 1:
-                jump ending_family
-            else:
-                jump ending_jessy_ilona
-
-
-label arc_7_theo:
-    $ derniere_route = "Route Theo"
-
-    scene bg stream
-    with fade
-    show jessy listening at char_center
-
-    systeme "Arc VII - Le monde apres la maison."
-    systeme "Ilona n'a pas choisi Theo. Elle est partie vers l'endroit ou on lui epargnait de parler. Ce n'est pas la meme chose, et c'est pire."
-
-    menu:
-        "Ce qui se passe apres le depart."
-
-        "Ilona s'extrait elle-meme." if confidences_laplage >= 3 and influence_theo <= 6:
-            jump ending_monsieur_laplage
-
-        "La dette se referme.":
-            jump ending_theo_vtuber
 
 
 label ending_family:

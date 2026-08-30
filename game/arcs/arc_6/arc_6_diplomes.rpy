@@ -1802,6 +1802,10 @@ label arc_6_diplomes:
 #   RÉCIDIVE : pénalité d'accumulation d'évitements et de contrôles.
 #   ARC6_MOD : le menu pivot du toit, de -20 à +25.
 #
+# Sorties :
+#   arc_7_jessy -> game/arcs/arc_7/arc_7_jessy.rpy
+#   arc_7_theo  -> game/arcs/arc_7/arc_7_theo.rpy
+#
 # lien_jessy_ilona est VOLONTAIREMENT absent de la porte : on ne gagne pas
 # Ilona avec des points d'affection. Il ne sert qu'à l'intérieur d'arc_7_jessy
 # pour départager « ami » et « romance ».
@@ -1857,13 +1861,16 @@ label arc_6_calcul:
     # quel que soit le score. C'est le seul comportement non rachetable.
     if controle_repetitif >= 3:
         $ arc6_route = "theo"
+        # Route Theo : Ilona part vers un endroit ou on lui epargne de parler.
         jump arc_7_theo
 
     if arc6_score >= SEUIL_JESSY:
         $ arc6_route = "jessy"
+        # Route Jessy : Ilona reste dans un endroit ou elle peut parler.
         jump arc_7_jessy
     else:
         $ arc6_route = "theo"
+        # Route Theo : dette trop lourde autour d'Ilona.
         jump arc_7_theo
 
 
