@@ -462,7 +462,7 @@ label arc_6_diplomes:
 # l'année à voix haute. Le joueur voit sa partie racontée par la personne
 # qui l'a subie. Aucune jauge affichée, et l'état est parfaitement lisible.
 #
-# Sélection par variables, PAS par chronologie. Maximum 5 vignettes.
+# Sélection par variables, PAS par chronologie. Maximum 8 vignettes.
 # =============================================================================
 
     stop music fadeout 2.0
@@ -552,7 +552,7 @@ label arc_6_diplomes:
         with Dissolve(1.5)
 
     # --- V1 : LA PLAGE ---
-    if arc6_vignettes_count < 5 and arc2_choix_activite_theo != "":
+    if arc6_vignettes_count < 8 and arc2_choix_activite_theo != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("plage")
 
@@ -593,7 +593,7 @@ label arc_6_diplomes:
             i "J'ai ri. Je ris toujours. C'est plus simple que de demander laquelle des deux c'était."
 
     # --- V2 : LA RUMEUR ---
-    if arc6_vignettes_count < 5 and arc3_reaction_rumeur != "":
+    if arc6_vignettes_count < 8 and arc3_reaction_rumeur != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("rumeur")
 
@@ -627,7 +627,7 @@ label arc_6_diplomes:
             i "Je suis très bonne à ce jeu-là. C'est pas une qualité."
 
     # --- V3 : LA MAISON ---
-    if arc6_vignettes_count < 5 and arc3_fin_minecraft != "":
+    if arc6_vignettes_count < 8 and arc3_fin_minecraft != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("maison")
 
@@ -686,7 +686,7 @@ label arc_6_diplomes:
     i "Alors je le remets."
 
     # --- V4 : NOËL ---
-    if arc6_vignettes_count < 5 and arc4_limite_ilona != "":
+    if arc6_vignettes_count < 8 and arc4_limite_ilona != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("noel")
 
@@ -743,7 +743,7 @@ label arc_6_diplomes:
 
     # --- V5 : LA NUIT AVEC THÉO ---
     # La plus importante : le joueur a vu cette nuit, Jessy non. Ilona la lui donne.
-    if arc6_vignettes_count < 5 and arc4_ilona_avec_theo:
+    if arc6_vignettes_count < 8 and arc4_ilona_avec_theo:
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("nuit_theo")
 
@@ -794,7 +794,7 @@ label arc_6_diplomes:
         systeme "Il y a eu une nuit entière dont Jessy ne saura jamais rien. Il vient d'en recevoir quelques phrases. C'est tout ce qu'il aura."
 
     # --- V6 : LA GARE ---
-    if arc6_vignettes_count < 5 and arc5_question_reponse != "":
+    if arc6_vignettes_count < 8 and arc5_question_reponse != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("gare")
 
@@ -881,7 +881,7 @@ label arc_6_diplomes:
     # --- V7 : LA PHRASE JAMAIS FINIE ---
     # Pas de flashback. Salle de classe, plein jour.
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
-    if arc6_vignettes_count < 5 and controle_repetitif > 0:
+    if arc6_vignettes_count < 8 and controle_repetitif > 0:
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("phrase_finie")
 
