@@ -1,5 +1,5 @@
 ﻿# Arc prologue - Minecraft : une maison beaucoup trop grande.
-# Les variables importantes restent centralisees dans script.rpy.
+# Les variables importantes restent centralisées dans script.rpy.
 # Ces alias de chat sont propres au prologue Minecraft.
 
 define pmj = Character("jessyCube", color="#8fb7ff", callback=speaker_callback("jessy"))
@@ -20,7 +20,7 @@ label prologue_minecraft:
     systeme "La maison s'étale sur la colline comme si plusieurs idées avaient signé le même bail sans se parler."
     $ maison_minecraft_detail = "couloir"
     systeme "Il y a trop de fenêtres, trop de toits, une passerelle qui semble avoir une opinion, et une tour construite pour justifier l'existence d'une autre tour."
-    systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot 'développement'."
+    systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot « développement »."
 
     systeme "Il descend finalement jusqu'à l'entrée, comme si le bâtiment pouvait encore recevoir des visiteurs sans les perdre."
     play sound "fx/minecraft-walking-on-grass.mp3"
@@ -89,29 +89,23 @@ label prologue_minecraft:
     menu:
         "La maison vient de perdre un mur, un bout de plafond et une certaine dignité. Comment Jessy réagit-il ?"
 
-        "Réparer ensemble.":
-            $ prologue_reaction = "reparer"
+        "Déclarer une guerre de poulets.":
+            $ prologue_reaction = "poulets"
             $ lien_jessy_ilona += 2
-            $ confiance += 1
-            $ communication += 1
-            $ remember("maison_respectee")
-            pmj "ce n'est pas grave. On répare ensemble."
-            pmi "tu dis ça parce que tu es gentil, ou parce que tu n'as pas encore vu les dégâts ?"
-            pmj "les deux peuvent être vrais"
-            systeme "Ilona cesse de reculer. Ce n'est pas encore de la confiance. C'est une première planche posée au-dessus du vide."
+            pmj "très bien. Guerre de poulets."
+            pmi "c'est une sanction ?"
+            pmj "c'est une procédure officielle"
+            pmi "je refuse de perdre contre quelqu'un qui vit dans un couloir sans sortie"
+            systeme "La première guerre de poulets commence dans une dignité inexistante. La poule survivante refuse de choisir un camp."
+            systeme "L'humour transforme l'accident en complicité. Ce n'est pas encore une réparation, mais c'est déjà une façon de parler."
 
-        "Faire une blague avant de regarder les dégâts.":
-            $ prologue_reaction = "blague"
-            $ lien_jessy_ilona += 2
-            $ communication += 1
-            pmj "je crois que la maison vient de choisir une nouvelle personnalité"
-            pmi "elle avait déjà une personnalité ?"
-            pmj "elle est compliquée"
-            pmi "comme tous les bâtiments qui ont trois cuisines"
 
         "Réagir trop vite.":
             $ prologue_reaction = "trop_vite"
-            $ communication += 1
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
             pmj "attends, ne touche plus à rien deux secondes"
             pmi "...d'accord"
             $ renpy.pause(1.2, hard=True)
@@ -123,17 +117,25 @@ label prologue_minecraft:
             pmj "cette fois, on regarde les blocs avant de les casser"
             pmi "je ne promets rien"
 
-        "Déclarer une guerre de poulets.":
-            $ prologue_reaction = "poulets"
-            $ lien_jessy_ilona += 1
-            $ communication += 1
-            pmj "très bien. Guerre de poulets."
-            pmi "c'est une sanction ?"
-            pmj "c'est une procédure officielle"
-            pmi "je refuse de perdre contre quelqu'un qui vit dans un couloir sans sortie"
-            systeme "La première guerre de poulets commence dans une dignité inexistante. La poule survivante refuse de choisir un camp."
-            systeme "L'humour transforme l'accident en complicité. Ce n'est pas encore une réparation, mais c'est déjà une façon de parler."
+        "Faire une blague avant de regarder les dégâts.":
+            $ prologue_reaction = "blague"
+            $ lien_jessy_ilona += 2
+            pmj "je crois que la maison vient de choisir une nouvelle personnalité"
+            pmi "elle avait déjà une personnalité ?"
+            pmj "elle est compliquée"
+            pmi "comme tous les bâtiments qui ont trois cuisines"
 
+        "Réparer ensemble.":
+            $ prologue_reaction = "reparer"
+            $ communication += 2
+            $ confiance += 1
+            $ jalousie = max(0, jalousie - 1)
+            $ lien_jessy_ilona += 1
+            $ remember("maison_respectee")
+            pmj "ce n'est pas grave. On répare ensemble."
+            pmi "tu dis ça parce que tu es gentil, ou parce que tu n'as pas encore vu les dégâts ?"
+            pmj "les deux peuvent être vrais"
+            systeme "Ilona cesse de reculer. Ce n'est pas encore de la confiance. C'est une première planche posée au-dessus du vide."
     systeme "Jessy pense reconstruire le mur. Ilona regarde le trou dans le plafond avec une gêne qui essaie déjà de devenir une idée."
     pmi "on peut réparer le mur"
     pmi "ou faire un truc mieux qu'un mur"
@@ -147,8 +149,10 @@ label prologue_minecraft:
 
         "La laisser essayer son idée de serre.":
             $ maison_minecraft_transformation = "serre"
-            $ lien_jessy_ilona += 1
-            $ autonomie_ilona += 1
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
             pmj "vas-y"
             pmj "je ne comprends pas encore, mais vas-y"
             pmi "parfait. L'incompréhension, c'est une très bonne fondation."
@@ -163,43 +167,9 @@ label prologue_minecraft:
             pmj "et si quelqu'un demande pourquoi elle existe ?"
             pmi "on se déconnecte"
 
-        "Proposer d'assumer le désastre jusqu'au bout.":
-            $ maison_minecraft_transformation = "piscine"
-            $ lien_jessy_ilona += 1
-            pmj "si le plafond est déjà ouvert, on peut arrêter de faire semblant que cette maison est normale"
-            pmi "j'aime beaucoup cette phrase dangereuse"
-            pmj "je regretterai peut-être dans quatre seaux d'eau"
-            systeme "Ils commencent par poser une petite source. La petite source gagne rapidement un statut politique."
-            scene bg prologue pool branch
-            play sound "fx/water-minecraft.mp3"
-            with dissolve
-            show jessy minecraft at char_left
-            show ilona minecraft at char_right
-            systeme "La piscine traverse deux pièces, condamne un escalier et transforme une partie de la maison en station balnéaire non homologuée."
-            pmj "il y a de l'eau dans le couloir"
-            pmi "maintenant il mène quelque part"
-            pmj "vers une assurance habitation"
-
-        "Chercher avec elle une solution franchement inutile.":
-            $ maison_minecraft_transformation = "toboggan"
-            $ lien_jessy_ilona += 1
-            $ communication += 1
-            pmj "et si on faisait quelque chose qui ne répare rien, mais qui explique pourquoi c'est cassé ?"
-            pmi "tu viens d'inventer l'architecture narrative"
-            pmj "j'aurais préféré l'inventer dans une pièce moins trouée"
-            systeme "Ils testent des angles, ratent deux arrivées, puis décident que l'inutilité doit au moins être pratique."
-            scene bg prologue slide branch
-            play sound "fx/construction.mp3"
-            with dissolve
-            show jessy minecraft at char_left
-            show ilona minecraft at char_right
-            systeme "Le toboggan part d'une chambre inachevée et arrive devant un coffre vide. Ilona affirme que c'est une expérience narrative."
-            pmi "on descend littéralement vers le mystère"
-            pmj "le mystère contient trois graines"
-
         "Répondre par une idée encore plus stupide.":
             $ maison_minecraft_transformation = "poulet"
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 2
             pmj "il faut un gardien"
             pmi "un gardien ?"
             pmj "un poulet géant"
@@ -214,6 +184,39 @@ label prologue_minecraft:
             pmj "il nous juge"
             pmi "il protège la cuisine"
 
+
+        "Chercher avec elle une solution franchement inutile.":
+            $ maison_minecraft_transformation = "toboggan"
+            $ lien_jessy_ilona += 2
+            pmj "et si on faisait quelque chose qui ne répare rien, mais qui explique pourquoi c'est cassé ?"
+            pmi "tu viens d'inventer l'architecture narrative"
+            pmj "j'aurais préféré l'inventer dans une pièce moins trouée"
+            systeme "Ils testent des angles, ratent deux arrivées, puis décident que l'inutilité doit au moins être pratique."
+            scene bg prologue slide branch
+            play sound "fx/construction.mp3"
+            with dissolve
+            show jessy minecraft at char_left
+            show ilona minecraft at char_right
+            systeme "Le toboggan part d'une chambre inachevée et arrive devant un coffre vide. Ilona affirme que c'est une expérience narrative."
+            pmi "on descend littéralement vers le mystère"
+            pmj "le mystère contient trois graines"
+
+        "Proposer d'assumer le désastre jusqu'au bout.":
+            $ maison_minecraft_transformation = "piscine"
+            $ lien_jessy_ilona += 2
+            pmj "si le plafond est déjà ouvert, on peut arrêter de faire semblant que cette maison est normale"
+            pmi "j'aime beaucoup cette phrase dangereuse"
+            pmj "je regretterai peut-être dans quatre seaux d'eau"
+            systeme "Ils commencent par poser une petite source. La petite source gagne rapidement un statut politique."
+            scene bg prologue pool branch
+            play sound "fx/water-minecraft.mp3"
+            with dissolve
+            show jessy minecraft at char_left
+            show ilona minecraft at char_right
+            systeme "La piscine traverse deux pièces, condamne un escalier et transforme une partie de la maison en station balnéaire non homologuée."
+            pmj "il y a de l'eau dans le couloir"
+            pmi "maintenant il mène quelque part"
+            pmj "vers une assurance habitation"
     systeme "Quand la grande idée cesse de prendre toute la place, Ilona remarque un coin plus discret, caché derrière les escaliers et les murs ajoutés trop vite."
     play sound "fx/minecraft-door.mp3"
     scene bg prologue secret room
@@ -257,28 +260,33 @@ label prologue_minecraft:
     pmj "il y a trois murs derrière le mur"
     pmi "exactement"
     pmi "on passe en vocal ?"
-    pmi "ça ira plus vite que d'écrire non pas ce mur quarante fois"
+    pmi "ça ira plus vite que d'écrire « non pas ce mur » quarante fois"
 
     menu:
         "Comment Jessy répond-il à la proposition d'appel vocal ?"
 
         "Accepter tout de suite.":
             $ prologue_appel_discord = "direct"
+            $ communication += 2
             $ confiance += 1
-            $ communication += 1
+            $ jalousie = max(0, jalousie - 1)
+            $ lien_jessy_ilona += 1
             pmj "oui"
             pmj "enfin oui, bonne idée"
 
         "Faire une blague avant d'accepter.":
             $ prologue_appel_discord = "blague"
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 2
             pmj "seulement si tu promets de ne pas casser ma voix aussi"
             pmi "je ne promets rien"
             pmj "alors oui"
 
         "Demander une minute pour se préparer.":
             $ prologue_appel_discord = "minute"
-            $ communication += 1
+            $ communication += 2
+            $ confiance += 1
+            $ jalousie = max(0, jalousie - 1)
+            $ lien_jessy_ilona += 1
             pmj "oui"
             pmj "juste une minute, je dois retrouver mon casque et mon courage"
             pmi "prends le casque d'abord. Le courage peut arriver après."
@@ -324,8 +332,8 @@ label prologue_minecraft:
         pmj "c'est temporaire"
         pmi "c'est une descente vers le mystère"
         pmx "le mystère est vide ?"
-    pmx "techniquement inhabitable."
-    pmx "donc parfaite."
+    pmx "Techniquement inhabitable."
+    pmx "Donc parfaite."
     play sound "fx/minecraft-wood-break-place.mp3"
     systeme "Alexandre pose une pancarte à l'entrée, comme s'il venait de rendre un verdict technique."
     systeme "NE SURTOUT PAS RENDRE ÇA NORMAL."

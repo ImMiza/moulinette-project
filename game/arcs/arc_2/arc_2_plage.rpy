@@ -1,5 +1,5 @@
-# Arc II - Vacances d'ete : la plage.
-# Les variables importantes restent centralisees dans script.rpy.
+﻿# Arc II - Vacances d'été : la plage.
+# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc2 beach main = im.Scale("images/scenes/arc_2/bg_arc2_beach_main.jpg", 1920, 1080)
 image bg arc2 beach sunset = im.Scale("images/scenes/arc_2/bg_arc2_beach_sunset.jpg", 1920, 1080)
@@ -46,24 +46,32 @@ label arc_2_plage:
     menu:
         "Allan vient d'annoncer que Théo sera là."
 
+        "Faire une blague sur le château de sable impossible.":
+            $ arc2_reaction_invitation = "blague"
+            $ lien_jessy_ilona += 2
+            j "Alexandre va construire un château techniquement inhabitable."
+            x "Je vise l'illégalité architecturale."
+            i "Notre maison Minecraft a formé toute une génération."
+
         "Demander simplement qui vient.":
             $ arc2_reaction_invitation = "simple"
-            $ communication += 1
+            $ communication += 2
+            $ confiance += 1
+            $ jalousie = max(0, jalousie - 1)
+            $ lien_jessy_ilona += 1
             j "D'accord. On sera combien ?"
             a "Cinq. Six si Sofiane apparaît comme une énigme de fin de chapitre."
             i "Il fait ça souvent ?"
             x "Il respire en cliffhanger."
 
-        "Faire une blague sur le château de sable impossible.":
-            $ arc2_reaction_invitation = "blague"
-            $ lien_jessy_ilona += 1
-            j "Alexandre va construire un château techniquement inhabitable."
-            x "Je vise l'illégalité architecturale."
-            i "Notre maison Minecraft a formé toute une génération."
-
         "Répondre trop vite à propos de Théo.":
             $ arc2_reaction_invitation = "theo_trop_vite"
-            $ jalousie += 1
+            $ autonomie_ilona -= 2
+            $ confiance -= 2
+            $ influence_theo += 1
+            $ jalousie += 3
+            $ lien_jessy_ilona -= 1
+            $ controles += 1
             j "Ah. Théo aussi ?"
             i "Oui."
             $ renpy.pause(0.7)
@@ -75,7 +83,10 @@ label arc_2_plage:
 
         "Se taire.":
             $ arc2_reaction_invitation = "silence"
-            $ communication -= 1
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
             systeme "Jessy hoche la tête."
             systeme "Ilona sourit encore. Son regard attend une phrase qui ne vient pas."
 
@@ -102,7 +113,7 @@ label arc_2_plage:
         i "Au printemps, tu m'as laissée répondre à mon rythme."
         j "J'essaie."
         i "Ça se voit."
-    elif communication < 1:
+    elif communication < 0:
         i "C'est plus simple quand personne ne nous demande ce qu'on est."
         j "Oui."
         systeme "La réponse n'est pas fausse. Elle n'ouvre pas grand-chose non plus."
@@ -151,23 +162,29 @@ label arc_2_plage:
         "Ilona cherche une place pour sa serviette."
 
         "L'aider sans commenter son désordre.":
-            $ lien_jessy_ilona += 1
-            $ autonomie_ilona += 1
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
             j "Je te garde ce coin ?"
             i "Oui. Merci."
             systeme "Jessy pose simplement le sac. Le geste ne cherche pas à devenir une preuve."
 
         "Faire une blague sur la zone Ilona.":
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 2
             j "Attention, zone Ilona. Stock de snacks instable."
-            if lien_jessy_ilona >= 5:
+            if lien_jessy_ilona >= 10:
                 i "Très instable. Ne pas approcher sans offrande."
             else:
                 i "Je peux avoir une zone sans panneau ?"
-                $ communication -= 1
 
         "Regarder surtout ce que fait Théo.":
-            $ jalousie += 1
+            $ autonomie_ilona -= 2
+            $ confiance -= 2
+            $ influence_theo += 1
+            $ jalousie += 3
+            $ lien_jessy_ilona -= 1
+            $ controles += 1
             systeme "Jessy regarde Théo organiser les sacs et les parasols."
             $ renpy.pause(0.8)
             show ilona neutral at char_right
@@ -200,12 +217,25 @@ label arc_2_plage:
     show jessy neutral at char_midleft
     show theo neutral at char_midright
 
-    systeme "Plus tard, Ilona revient du stand de kakigōri en fouillant son sac."
+    systeme "Plus tard, Ilona revient du stand de kakigōri avec deux gobelets, en parlant toute seule."
+    i "Alors. Sirop bleu contre sirop vert. Le bleu a l'air plus dangereux, mais le vert a un arrière-goût de médicament, donc objectivement le vrai choix c'est—"
+    j "Tu parles à qui ?"
+
+    show ilona embarrassed at char_left
+    systeme "Elle s'arrête net, au milieu de la phrase, et regarde les deux gobelets comme s'ils venaient de la trahir."
+    i "À personne."
+    i "C'est plus facile de choisir quand j'explique à voix haute."
+    t "Tu fais ça souvent ?"
+    i "Non."
+    systeme "Elle a répondu une demi-seconde trop vite. Théo ne relance pas. Il range juste l'information quelque part, comme il range tout."
+
+    show ilona neutral at char_left
+    systeme "Elle fouille son sac."
     i "Attendez."
     i "Mon porte-clés bloc."
     j "Celui de la maison ?"
     i "Oui."
-    systeme "Jessy cherche tout de suite dans le sable, avec assez d'empressement pour déplacer plus de sable que d'air."
+    systeme "Jessy cherche tout de suite au sol, avec assez d'empressement pour déplacer plus de sable que d'air."
     show jessy embarrassed at char_midleft
     j "Il était accroché où exactement ?"
     i "À la fermeture du sac."
@@ -233,10 +263,19 @@ label arc_2_plage:
     menu:
         "Théo vient de briller là où Jessy a échoué. Ilona le regarde encore."
 
+        "Le remercier sincèrement.":
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
+            j "Merci. Vraiment."
+            t "De rien."
+            systeme "Théo sourit. Jessy aussi."
+            systeme "Mais le sourire de Jessy travaille déjà. Il vient d'accepter de ne pas être celui qui répare."
+            systeme "C'est mature. Mais ça lui coûte plus qu'il ne le montre."
+
         "Chercher aussi et trouver autre chose.":
-            $ communication += 1
-            $ jalousie += 1
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 4
             systeme "Jessy se baisse. Il fouille le sable à son tour."
             systeme "Il ne trouve pas le porte-clés. Il trouve une petite coquille blanche."
             j "J'ai trouvé ça."
@@ -244,39 +283,32 @@ label arc_2_plage:
             j "Je sais. Mais tu aimes bien les trucs inutiles."
             systeme "Ilona regarde la coquille. Puis elle sourit."
             i "C'est vrai."
-            systeme "Elle prend la coquille. Garde le porte-clés que Théo a trouvé."
+            systeme "Elle prend la coquille, et garde le porte-clés que Théo a trouvé."
             systeme "Jessy n'a pas gagné. Mais il n'a pas disparu non plus."
 
-        "Faire blague pour masquer blessure.":
-            $ jalousie += 1
-            $ communication -= 1
+        "Faire une blague pour masquer sa blessure.":
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             j "Bon. Le sable est officiellement innocent."
             systeme "La blague tombe plate. Personne ne rit."
             i "Jessy..."
             systeme "Elle le regarde comme si elle venait de voir quelque chose se fissurer."
             systeme "La blague n'a pas caché la blessure. Elle l'a soulignée."
 
-        "Le remercier sincèrement.":
-            $ confiance += 1
-            $ autonomie_ilona += 1
-            $ lien_jessy_ilona += 1
-            j "Merci. Vraiment."
-            t "De rien."
-            systeme "Théo sourit. Jessy aussi."
-            systeme "Mais le sourire de Jessy travaille déjà. Il vient d'accepter de ne pas être celui qui répare."
-            systeme "C'est mature. Mais ça lui coûte plus qu'il ne le montre."
-
         "Se taire et encaisser.":
-            $ jalousie += 2
-            $ communication -= 1
-            $ influence_theo += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             systeme "Jessy ne dit rien. La phrase reste coincée dans sa gorge."
             systeme "Ilona attend une réponse qui ne vient pas. Puis elle range le porte-clés."
             systeme "Théo observe le silence. Il le note."
 
     systeme "Ils retournent vers les autres avec le porte-clés retrouvé."
     systeme "Allan parle d'une boisson renversée, Alexandre accuse le vent, mais Jessy voit bien qu'Ilona tient encore le porte-clés comme si c'était Théo qui le lui avait offert."
-    if jalousie >= 2:
+    if jalousie >= 6:
         systeme "Jessy sent quelque chose de sombre se tordre dans sa poitrine. Ce n'est pas de la colère. C'est pire : c'est de l'impuissance."
     stop ambiant1 fadeout 2.0
     hide jessy
@@ -304,19 +336,24 @@ label arc_2_plage:
     menu:
         "La photo n'a rien décidé. Jessy la regarde pourtant comme si elle avait pris parti."
 
-        "Dire que composition bizarre sans insister.":
-            $ arc2_photo_reaction = "remarque_neutre"
-            $ communication += 1
-            j "Composition bizarre."
-            a "Désolé. J'ai bougé trop vite."
-            j "C'est pas grave."
-            systeme "Jessy a reconnu le malaise sans le transformer en crise."
-            systeme "Mais Allan voit bien que la phrase cachait quelque chose de plus lourd."
+        "Se taire et garder pour soi.":
+            $ arc2_photo_reaction = "silence_photo"
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
+            systeme "Jessy regarde la photo. Ne dit rien."
+            systeme "La phrase reste dans sa gorge. Elle n'y gagne pas en légèreté."
+            systeme "Ilona range le téléphone. Elle a senti le silence."
 
-        "Proposer refaire photo, légèrement.":
+        "Proposer de refaire la photo, avec légèreté.":
             $ arc2_photo_reaction = "refaire_doux"
-            $ communication += 1
-            $ jalousie += 1
+            $ autonomie_ilona -= 2
+            $ confiance -= 2
+            $ influence_theo += 1
+            $ jalousie += 3
+            $ lien_jessy_ilona -= 1
+            $ controles += 1
             j "On en refait une où je suis moins exilé ?"
             i "Oui."
             t "Bonne idée."
@@ -324,19 +361,22 @@ label arc_2_plage:
             systeme "La première photo reste. La deuxième existe aussi."
             systeme "Jessy a exprimé son besoin. Mais il sait aussi qu'il vient de montrer son insécurité."
 
-        "Se taire et garder pour soi.":
-            $ arc2_photo_reaction = "silence_photo"
-            $ jalousie += 1
-            $ communication -= 1
-            systeme "Jessy regarde la photo. Ne dit rien."
-            systeme "La phrase reste dans sa gorge. Elle n'y gagne pas en légèreté."
-            systeme "Ilona range le téléphone. Elle a senti le silence."
-
-        "Accepter photo et complimenter Ilona.":
-            $ arc2_photo_reaction = "accepter_compliment"
+        "Dire que la composition est bizarre, sans insister.":
+            $ arc2_photo_reaction = "remarque_neutre"
+            $ communication += 2
             $ confiance += 1
+            $ jalousie = max(0, jalousie - 1)
             $ lien_jessy_ilona += 1
-            j "Elle est bien. Tu souris vraiment dessus."
+            j "Composition bizarre."
+            a "Désolé. J'ai reculé trop vite."
+            j "C'est pas grave."
+            systeme "Jessy a reconnu le malaise sans le transformer en crise."
+            systeme "Mais Allan voit bien que la phrase cachait quelque chose de plus lourd."
+
+        "Accepter la photo et complimenter Ilona.":
+            $ arc2_photo_reaction = "accepter_compliment"
+            $ lien_jessy_ilona += 2
+            j "Elle est bien. Tu souris vraiment, sur celle-là."
             i "Oui."
             systeme "Ilona le regarde, surprise par la simplicité de la réponse."
             i "Merci."
@@ -367,7 +407,7 @@ label arc_2_plage:
     show ilona neutral at char_center
     show theo neutral at char_right
 
-    systeme "Plus tard, Ilona revient du stand de kakigōri avec la gelée marine lumineuse qu'elle avait repérée."
+    systeme "Plus tard, Ilona rapporte du stand la gelée marine lumineuse qu'elle avait repérée."
     systeme "Allan distribue aussi les boissons avec l'air de quelqu'un qui a accepté une mission trop collante."
     a "Tu l'as vraiment prise, la gelée radioactive ?"
     i "Oui. Et je voulais aller voir les petites mares vers—"
@@ -403,7 +443,7 @@ label arc_2_plage:
     systeme "Jessy voit Ilona hésiter. Pas longtemps. Juste assez pour que ce soit visible."
     i "Jessy ?"
     systeme "Elle le regarde. Pas pour demander la permission. Pour vérifier s'il va exploser ou se taire."
-    if jalousie >= 2:
+    if jalousie >= 6:
         systeme "Depuis le porte-clés, la photo, les regards, Jessy sent que quelque chose est en train de lui échapper."
     elif jalousie == 1:
         systeme "Jessy a déjà ressenti cette pointe aujourd'hui. Elle revient, plus aiguë."
@@ -415,76 +455,33 @@ label arc_2_plage:
     menu:
         "Ilona attend. Théo aussi. Comment Jessy gère-t-il ?"
 
-        "Dire qu'il a besoin de dix minutes pour respirer.":
-            play music audio.sadPiano fadeout 0.5 fadein 2.0 loop
-            $ arc2_choix_activite_theo = "dix_minutes"
-            $ lien_jessy_ilona += 1
-            $ jalousie += 1
-            $ communication += 2
-            $ confiance += 1
-            $ remember("jessy_nomme_sa_peur")
-            j "Ça me met mal à l'aise."
-            i "Pourquoi ?"
-            j "Parce que j'ai peur."
-            systeme "Ilona cligne des yeux. Elle ne s'attendait pas à ça."
-            i "De quoi ?"
-            j "Que tu reviennes différente. Ou que tu reviennes pas du tout."
-            t "Je ramène pas les gens dans une autre dimension."
-            j "Je sais. Mais j'ai quand même peur."
-            systeme "Théo hausse un sourcil. Ilona soupire."
-            i "D'accord. Je reviens dans dix minutes. Chronomètre-moi si tu veux."
-            j "Non. Prends ton temps. J'avais juste besoin de le dire."
-
-        "Partir sans répondre.":
-            $ arc2_choix_activite_theo = "disparaitre"
-            $ jalousie += 2
-            $ communication -= 2
-            $ influence_theo += 1
-            j "Faites ce que vous voulez."
-            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
-            i "Jessy—"
-            systeme "Il est déjà parti. Il entend son prénom, mais il continue de marcher."
-            systeme "Derrière lui, il entend Théo murmurer quelque chose à Ilona. Puis leurs pas s'éloignent dans l'autre direction."
-
         "Lui faire confiance et proposer d'en parler au retour.":
             $ arc2_choix_activite_theo = "confiance"
-            $ lien_jessy_ilona += 1
-            $ confiance += 2
-            $ autonomie_ilona += 2
-            $ communication += 1
+            $ autonomie_ilona += 6
+            $ communication += 3
+            $ confiance += 3
+            $ pression_stream = max(0, pression_stream - 3)
             $ remember("ilona_libre_sans_abandon")
             j "Vas-y."
             systeme "Ilona attend la suite. Il n'y en a pas."
             i "C'est tout ?"
             j "Oui. Amuse-toi bien."
-            systeme "Elle le regarde comme si elle cherchait le piège. Il n'y en a pas."
+            systeme "Elle le regarde comme si elle cherchait le piège. Elle n'en trouve pas."
             i "... Merci."
             j "Tu me raconteras au retour ?"
             i "Oui."
             systeme "Théo ne dit rien. Il se lève, attend Ilona, et ils partent."
             systeme "Jessy les regarde s'éloigner. Il serre les poings, mais il ne bouge pas."
 
-        "Cacher sa jalousie derrière une blague.":
-            $ arc2_choix_activite_theo = "blague_jalouse"
-            $ jalousie += 2
-            $ lien_jessy_ilona -= 1
-            j "Ouais, vas-y. Je vais surveiller le sable."
-            i "Jessy."
-            j "Quoi ? C'était une blague."
-            i "Non. C'était une pique."
-            systeme "Théo se lève sans attendre."
-            t "On y va ?"
-            i "Oui."
-            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
-            systeme "Elle ne regarde même pas Jessy en partant."
-
         "Dire oui, puis les suivre discrètement.":
             $ arc2_choix_activite_theo = "suivre"
-            $ jalousie += 3
-            $ confiance -= 2
-            $ autonomie_ilona -= 2
-            $ influence_theo += 1
+            $ autonomie_ilona -= 6
+            $ confiance -= 6
+            $ influence_theo += 3
             $ interruptions_ilona += 1
+            $ jalousie += 9
+            $ lien_jessy_ilona -= 3
+            $ controles += 1
             j "Oui. Vas-y."
             i "T'es sûr ?"
             j "Oui."
@@ -500,6 +497,55 @@ label arc_2_plage:
             t "Tu voulais venir ou tu voulais surveiller ?"
             systeme "Jessy ouvre la bouche. Rien ne sort."
 
+
+        "Cacher sa jalousie derrière une blague.":
+            $ arc2_choix_activite_theo = "blague_jalouse"
+            $ communication -= 6
+            $ confiance -= 3
+            $ jalousie += 2
+            $ pression_stream += 3
+            $ evitements += 1
+            j "Ouais, vas-y. Je vais surveiller le sable."
+            i "Jessy."
+            j "Quoi ? C'était une blague."
+            i "Non. C'était une pique."
+            systeme "Théo se lève sans attendre."
+            t "On y va ?"
+            i "Oui."
+            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
+            systeme "Elle ne regarde même pas Jessy en partant."
+
+        "Dire qu'il a besoin de dix minutes pour respirer.":
+            play music audio.sadPiano fadeout 0.5 fadein 2.0 loop
+            $ arc2_choix_activite_theo = "dix_minutes"
+            $ communication += 6
+            $ confiance += 3
+            $ jalousie = max(0, jalousie - 3)
+            $ lien_jessy_ilona += 3
+            $ remember("jessy_nomme_sa_peur")
+            j "Ça me met mal à l'aise."
+            i "Pourquoi ?"
+            j "Parce que j'ai peur."
+            systeme "Ilona cligne des yeux. Elle ne s'attendait pas à ça."
+            i "De quoi ?"
+            j "Que tu reviennes différente. Ou que tu reviennes pas du tout."
+            t "Je ramène pas les gens dans une autre dimension."
+            j "Je sais. Mais j'ai quand même peur."
+            systeme "Théo hausse un sourcil. Ilona soupire."
+            i "D'accord. Je reviens dans dix minutes. Chronomètre-moi si tu veux."
+            j "Non. Prends ton temps. J'avais juste besoin de le dire."
+
+        "Partir sans répondre.":
+            $ arc2_choix_activite_theo = "disparaitre"
+            $ communication -= 6
+            $ confiance -= 3
+            $ pression_stream += 3
+            $ evitements += 1
+            j "Faites ce que vous voulez."
+            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
+            i "Jessy—"
+            systeme "Il est déjà parti. Il entend son prénom, mais il continue de marcher."
+            systeme "Derrière lui, il entend Théo murmurer quelque chose à Ilona. Puis leurs pas s'éloignent dans l'autre direction."
     if arc2_choix_activite_theo == "confiance":
         hide ilona
         hide theo
@@ -585,7 +631,7 @@ label arc_2_plage:
         $ renpy.pause(2.0)
         $ lien_ilona_theo += 2
 
-        if autonomie_ilona >= 3:
+        if autonomie_ilona >= 12:
             $ renpy.pause(1.0)
             show ilona determined at char_left
             i "Je vais y retourner."
@@ -630,7 +676,7 @@ label arc_2_plage:
         i "Je voulais marcher. Pas passer un test de fidélité."
         j "C'était pas ça—"
         i "Alors c'était quoi ?"
-        systeme "Jessy ouvre la bouche. Rien ne sort."
+        systeme "Jessy ouvre la bouche, puis la referme."
         i "Je rentre."
         systeme "Elle part. Théo reste une seconde, regarde Jessy, puis secoue la tête."
         t "T'as tout gâché, mec."
@@ -651,7 +697,7 @@ label arc_2_plage:
         t "Il a juste peur."
         i "De quoi ?"
         t "De te perdre."
-        i "En me laissant voir des mares ?"
+        i "En me laissant aller voir des mares ?"
         t "Non. En te laissant exister sans lui."
         systeme "Ilona serre son gobelet. La gelée commence à fondre."
         i "C'est con."
@@ -729,7 +775,7 @@ label arc_2_plage:
 
     show allan doubt at char_midright
     a "Ça va ?"
-    a "Sur une échelle de \"tranquille\" à \"je jette la gelée à la mer\" ?"
+    a "Sur une échelle de « tranquille » à « je jette la gelée à la mer » ?"
     i "Je garde la gelée."
     i "Donc plutôt tranquille."
     i "Mais disons que je la tiens plus fermement qu'au début de la journée."
@@ -751,7 +797,7 @@ label arc_2_plage:
     i "S'il vous plaît, non."
     a "D'accord. Pas de comité."
     show alex grin at char_right
-    x "Dommage. J'avais un titre : Commission temporaire des phrases inachevées."
+    x "Dommage. J'avais un titre : « Commission temporaire des phrases inachevées »."
     i "Refusé."
     x "Je respecte la décision administrative."
     show allan neutral at char_midright
@@ -853,10 +899,12 @@ label arc_2_plage:
         "Le coucher de soleil commence. Que fait Jessy ?"
 
         "Se taire trop longtemps.":
-            $ communication -= 2
-            $ pression_stream += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             show ilona fatigue at char_right
-            systeme "Jessy ouvre la bouche. Rien ne sort."
+            systeme "Jessy ouvre la bouche. Aucun mot ne vient."
             systeme "Ilona attend. Cinq secondes. Dix. Vingt."
             i "T'as rien à dire ?"
             systeme "Jessy secoue la tête."
@@ -864,28 +912,11 @@ label arc_2_plage:
             systeme "Elle se lève et part vers les serviettes."
             systeme "Le silence n'est pas violent. Mais il tue quand même quelque chose."
 
-        "Demander ce qui s'est passé avec Théo.":
-            $ jalousie += 2
-            $ communication -= 1
-            $ autonomie_ilona -= 1
-            show jessy embarrassed at char_left
-            j "Il s'est passé quelque chose ?"
-            i "Quoi ?"
-            j "Avec Théo. Il s'est passé quelque chose ?"
-            show ilona frustrated at char_right
-            i "Tu me demandes si j'ai trompé en allant voir des mares ?"
-            j "Non ! Je—"
-            i "Parce que ça ressemble beaucoup à ça."
-            j "Je veux juste savoir—"
-            i "Si je suis restée fidèle ? Si j'ai résisté à la tentation ?"
-            systeme "Elle crache les mots comme du venin."
-            i "Va te faire foutre, Jessy."
-            with hpunch
-
         "Reconnaître précisément son erreur.":
-            $ communication += 2
-            $ autonomie_ilona += 1
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             if arc2_choix_activite_theo in ("blague_jalouse", "suivre", "disparaitre"):
                 $ remember("jessy_repare")
             if interruptions_ilona > interruptions_reconnues:
@@ -925,9 +956,32 @@ label arc_2_plage:
                 systeme "Elle ne répond pas tout de suite. Puis elle soupire."
                 i "T'as de la chance que je sois fatiguée."
 
+        "Demander ce qui s'est passé avec Théo.":
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            show jessy embarrassed at char_left
+            j "Il s'est passé quelque chose ?"
+            i "Quoi ?"
+            j "Avec Théo. Il s'est passé quelque chose ?"
+            show ilona frustrated at char_right
+            i "Tu me demandes si j'ai trompé en allant voir des mares ?"
+            j "Non ! Je—"
+            i "Parce que ça ressemble beaucoup à ça."
+            j "Je veux juste savoir—"
+            i "Si je suis restée fidèle ? Si j'ai résisté à la tentation ?"
+            systeme "Elle crache les mots comme du venin."
+            i "Va te faire foutre, Jessy."
+            with hpunch
+
         "Nommer sa peur sans accuser.":
-            $ communication += 2
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             $ remember("jessy_nomme_sa_peur")
             $ renpy.pause(1.0)
             show jessy embarrassed at char_left
@@ -968,10 +1022,10 @@ label arc_2_plage:
     $ renpy.pause(1.0)
 
     if arc2_choix_activite_theo in ("confiance", "dix_minutes"):
-        if communication >= 4:
+        if communication >= 12:
             $ arc2_retour_minecraft = "sortie_couloir"
             i "Je vais ajouter une sortie au couloir sans issue."
-            j "Il sera plus sans issue, alors."
+            j "Il ne sera plus sans issue, alors."
             i "C'est le but."
             $ renpy.pause(0.8)
             i "Comme ça, si quelqu'un a besoin de marcher, il peut revenir."
@@ -1007,7 +1061,21 @@ label arc_2_plage:
     menu:
         "Dans le jeu, Ilona place un bloc lumineux bleu dans l'inventaire."
 
-        "Poser bloc lumineux dehors sans rien dire.":
+        "Construire une version Minecraft de la gelée lumineuse dans la salle secrète.":
+            if arc2_choix_activite_theo not in ("suivre", "disparaitre"):
+                $ remember("maison_respectee")
+                $ ilonanium_points += 1
+                $ lien_jessy_ilona += 2
+                j "On en fait une version Minecraft dans la salle moyennement importante ?"
+                i "Très bon niveau d'importance."
+                systeme "Ils construisent ensemble. Pas parfaitement. Mais ensemble quand même."
+            else:
+                j "On pourrait—"
+                i "Non."
+                systeme "Jessy referme la bouche. Il a compris."
+
+
+        "Poser un bloc lumineux dehors sans rien dire.":
             $ renpy.pause(1.0)
             systeme "Ilona place un seul bloc lumineux devant l'entrée."
             if arc2_choix_activite_theo in ("confiance", "dix_minutes"):
@@ -1017,25 +1085,11 @@ label arc_2_plage:
             else:
                 systeme "Jessy regarde le bloc. Il ne dit rien."
                 systeme "Ilona non plus."
-
-        "Construire une version gelée lumineux dans salle secrète.":
-            if arc2_choix_activite_theo not in ("suivre", "disparaitre"):
-                $ remember("maison_respectee")
-                $ lien_jessy_ilona += 1
-                $ ilonanium_points += 1
-                j "On en fait une version Minecraft dans la salle moyennement importante ?"
-                i "Très bon niveau d'importance."
-                systeme "Ils construisent ensemble. Pas parfaitement. Mais ensemble quand même."
-            else:
-                j "On pourrait—"
-                i "Non."
-                systeme "Jessy referme la bouche. Il a compris."
-
     if arc2_choix_activite_theo in ("suivre", "disparaitre"):
         systeme "L'été ne répare rien."
         systeme "Il laisse une photo, quelques mots de Théo qui résonnent encore, et une fissure dans la maison Minecraft."
         systeme "Le sable dans les chaussures ne partira pas facilement non plus."
-    elif jalousie >= 3:
+    elif jalousie >= 9:
         systeme "L'été ne tranche rien."
         systeme "Il laisse une photo, un porte-clés retrouvé par quelqu'un d'autre, et une question qui n'a pas de réponse simple."
         systeme "Théo reste dans l'air comme du sel sur la peau."

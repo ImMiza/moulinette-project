@@ -183,6 +183,11 @@ default interruptions_reconnues = 0
 default interruptions_reparees = 0
 default ilona_peut_finir_ses_phrases = 0
 
+# Compteurs de recidive : incrementes par les choix de tier C (evitement)
+# et de tier D (controle). Lus uniquement par la porte de l'arc 6.
+default evitements = 0
+default controles = 0
+
 # Tracker état maison Minecraft pour cohérence arcs futurs
 default maison_minecraft_destructions = []
 default maison_minecraft_ajouts = []
@@ -194,6 +199,7 @@ default souvenirs = {
     "theo_utilise_une_verite": False,
     "ilona_pose_une_limite": False,
     "maison_respectee": False,
+    "ilona_veut_streamer_serieusement": False,
 }
 
 default endings_seen = []
@@ -228,210 +234,92 @@ label start:
 # Arc V complet : arcs/arc_5/arc_5_examens.rpy
 
 
-label arc_6_diplomes:
-    scene bg graduation
-    with fade
-    show jessy determined at char_left
-    show ilona neutral at char_right
+# =============================================================================
+# ARC VI - REMISE DES DIPLOMES
+# Le contenu complet est dans arcs/arc_6/arc_6_diplomes.rpy
+# (labels arc_6_diplomes, arc_6_calcul, arc_6_debug_score)
+# =============================================================================
 
-    systeme "Arc VI - Remise des diplômes : après aujourd'hui."
-
-    menu:
-        "Le cadre scolaire disparaît. Quelle question Jessy pose-t-il ?"
-
-        "Tu veux continuer avec moi après l'école ?":
-            $ lien_jessy_ilona += 1
-            $ jalousie += 1
-            j "Tu veux continuer avec moi après l'école ?"
-            i "Je veux répondre. Mais j'ai besoin que la question ne soit pas seulement ta peur."
-
-        "Qu'est-ce que tu veux vraiment pour la suite ?":
-            $ lien_jessy_ilona += 1
-            $ communication += 2
-            $ autonomie_ilona += 2
-            $ ilona_peut_finir_ses_phrases += 1
-            j "Qu'est-ce que tu veux vraiment pour la suite ?"
-            i "Je crois que c'est la première fois que la question a assez de place."
-
-        "Éviter la conversation.":
-            $ communication -= 2
-            $ pression_stream += 1
-            systeme "Aucun cri. Juste une phrase qui reste coincée."
-
-        "Partir avant sa réponse.":
-            $ communication -= 2
-            $ confiance -= 1
-            $ influence_theo += 1
-            $ pression_stream += 1
-            $ interruptions_ilona += 1
-            systeme "Ilona ouvre la bouche. Jessy est déjà trop loin pour entendre."
-
-    jump arc_7_randonnee
+# Seuils du turning point de l'arc 6.
+# Calibres empiriquement sur le code reel (38 menus, prologue -> arc 6).
+# Reperes de mesure :
+#   score max theorique  572   (que du tier S, lien 18)
+#   run "premiere option" 246  (lien 46)
+#   run "derniere option" -395
+#   parties aleatoires    mediane -104, p95 92
+# Frontiere score/lien : environ -7 points de score par point de lien gagne
+# (le tier B ne donne que du lien). La fenetre romance est lien 35..64.
+define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
+define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
+define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 
 
-label arc_7_randonnee:
-    scene bg mountain
-    with fade
-    show sofiane intense at char_center
+# =============================================================================
+# ARC VII - DEUX ARCS DISTINCTS
+# La bascule est calculee en fin d'arc 6 (label arc_6_calcul).
+#
+#   arc_7_jessy = Ilona reste dans un endroit ou elle peut parler.
+#   arc_7_theo  = Ilona part vers un endroit ou on lui epargne de parler.
+#
+# TODO : ces deux labels sont des SQUELETTES. Ils portent la logique de
+# routage definitive vers les fins, mais pas encore le contenu narratif
+# (festival d'ete + sequence AE86 pour la route Jessy, "le monde apres la
+# maison" en POV alterne pour la route Theo).
+# =============================================================================
 
-    systeme "Arc VII - Randonnée : le chemin sans itinéraire."
-    systeme "Le bus est annulé. Sofiane sort silencieusement des clés."
-    s "La route ne vous a pas abandonnés. Elle vérifie seulement si vous êtes prêts à la suivre."
+label arc_7_jessy:
+    $ derniere_route = "Route Jessy"
 
-    show laplage thumb_up at char_right
-    laplage "Bonne trajectoire émotionnelle."
-    hide laplage
-
-    show allan surprise at char_left
-    show alex awkward at char_right
-    a "Il avait une voiture d'anime depuis tout ce temps ?"
-    x "Je révise mentalement toute notre hiérarchie de mystères."
-    hide allan
-    hide alex
-    hide sofiane
-
-    show jessy listening at char_left
-    show ilona fatigue at char_right
-    systeme "Sans public, sans réseau et sans échappatoire immédiate, la conversation arrive enfin."
-
-    menu:
-        "Comment Jessy choisit-il de parler ?"
-
-        "Nommer sa peur et écouter.":
-            $ lien_jessy_ilona += 1
-            $ communication += 2
-            $ confiance += 2
-            $ autonomie_ilona += 1
-            $ remember("jessy_nomme_sa_peur")
-            j "J'ai peur de te perdre. Mais je veux t'entendre avant de me défendre."
-
-        "Accuser Théo.":
-            $ jalousie += 2
-            $ communication -= 1
-            $ influence_theo += 1
-            $ pression_stream += 1
-            j "C'est lui qui a mis tout ça entre nous."
-            i "Il n'a pas créé tous nos silences."
-
-        "Exiger une réponse immédiate.":
-            $ jalousie += 2
-            $ autonomie_ilona -= 2
-            $ confiance -= 1
-            $ influence_theo += 1
-            $ pression_stream += 1
-            j "J'ai besoin que tu me répondes maintenant."
-            i "Moi, j'ai besoin de respirer."
-
-        "Faire semblant que tout va bien.":
-            $ communication -= 2
-            $ pression_stream += 1
-            j "Non, ça va. Tout va bien."
-            i "Je crois que c'est exactement ce qui me fatigue."
-
-        "Laisser Ilona finir sans l'interrompre.":
-            $ lien_jessy_ilona += 1
-            $ communication += 2
-            $ autonomie_ilona += 2
-            $ confiance += 1
-            $ ilona_peut_finir_ses_phrases += 2
-            i "Ne réponds pas tout de suite. J'ai besoin de finir."
-            j "D'accord. Je t'écoute."
-
-    if interruptions_ilona > interruptions_reconnues:
-        jump scene_reparation_interruption
-
-    jump choose_ending
-
-
-label scene_reparation_interruption:
-    show jessy listening at char_left
-    show ilona neutral at char_right
-
-    j "L'autre jour, je t'ai coupée. Je crois que j'ai répondu à ma peur au lieu de t'écouter."
-
-    menu:
-        "Réparer l'interruption ?"
-
-        "Te laisser reprendre, sans te demander de me rassurer.":
-            $ interruptions_reconnues += 1
-            $ interruptions_reparees += 1
-            $ communication += 1
-            $ autonomie_ilona += 1
-            $ ilona_peut_finir_ses_phrases += 1
-            $ remember("jessy_repare")
-            j "Tu peux reprendre, si tu en as encore envie. Et tu n'as pas besoin de faire attention à ma réaction."
-
-        "Expliquer immédiatement pourquoi Jessy avait peur.":
-            $ interruptions_reconnues += 1
-            j "Je sais que je t'ai coupée, mais tu comprends aussi pourquoi ça m'a fait peur, non ?"
-            i "Oui. Mais tu viens encore de déplacer la conversation vers toi."
-
-    jump choose_ending
-
-
-label choose_ending:
-    $ ecoute_reelle = ilona_peut_finir_ses_phrases + interruptions_reparees
-    $ controle_repetitif = interruptions_ilona - interruptions_reparees
-
-    if ilonanium_points >= 6:
-        jump ending_ilonanium
-
-    if autonomie_ilona >= 5 and communication >= 6 and ecoute_reelle >= 4:
-        jump evaluate_ilona_route
-    else:
-        jump evaluate_separation_route
-
-
-label evaluate_ilona_route:
-    if confiance >= 7 and lien_jessy_ilona >= 8 and souvenirs["jessy_nomme_sa_peur"] and controle_repetitif <= 1:
-        jump route_festival_ilona
-    else:
-        jump ending_jessy_ilona
-
-
-label route_festival_ilona:
     scene bg festival
     with fade
     show jessy smile at char_left
     show ilona smile at char_right
 
-    systeme "Route Ilona - Festival d'été : les lanternes ne choisissent pas."
-    systeme "Il ne s'agit pas d'une relation sans erreur, mais d'une relation où les erreurs ne prennent pas toute la place."
+    systeme "Arc VII - Festival d'ete : les lanternes ne choisissent pas."
+    systeme "Ilona a choisi un endroit ou elle peut parler. Ce n'est pas une victoire de Jessy. C'est une place qu'elle a prise."
+
+    # Le 6e objet cosmique (bloc-lune) se collecte ici, juste avant le menu final.
+    if ilonanium_points >= 5:
+        systeme "Sur un stand, entre deux masques, il y a un bloc qui ressemble beaucoup trop a un morceau de lune."
+        i "Je le prends."
+        j "C'est un bonbon."
+        i "C'est un bloc-lune, Jessy."
+        $ ilonanium_points += 1
 
     menu:
-        "Conclusion du festival."
+        "Comment se termine le festival ?"
 
-        "Faire une promesse immense, mais reconnaître l'incertitude.":
-            $ lien_jessy_ilona += 1
-            $ confiance += 1
-            j "Je ne sais pas tout ce qu'on deviendra. Je sais juste que je veux continuer à construire sans t'enfermer."
+        "Rester ensemble, sans se mettre ensemble.":
+            jump ending_no_contact
 
-        "Dire simplement : je veux continuer avec toi.":
-            $ communication += 1
-            j "Je veux continuer avec toi."
+        "Laisser Ilona finir la planete." if ilonanium_points >= 6:
+            jump ending_ilonanium
 
-        "Rater une déclaration parfaite et l'accepter.":
-            $ lien_jessy_ilona += 1
-            j "J'avais préparé une phrase. Elle était trop longue et probablement illégale."
-            i "Celle-là est mieux."
-
-        "Prendre sa main avec réciprocité visible.":
-            $ confiance += 1
-            systeme "Ilona serre la main de Jessy avant qu'il ait besoin de demander une preuve."
-
-    if lien_jessy_ilona >= 10 and confiance >= 9 and communication >= 8 and souvenirs["jessy_repare"] and souvenirs["maison_respectee"] and interruptions_reparees >= 1 and controle_repetitif <= 0:
-        jump ending_family
-    else:
-        jump ending_jessy_ilona
+        "Dire ce qu'il veut, en la laissant repondre non." if arc6_score >= SEUIL_ROMANCE and lien_jessy_ilona >= SEUIL_LIEN:
+            if souvenirs["jessy_repare"] and souvenirs["maison_respectee"] and interruptions_reparees >= 1:
+                jump ending_family
+            else:
+                jump ending_jessy_ilona
 
 
-label evaluate_separation_route:
-    if influence_theo >= 6 and pression_stream >= 6:
-        jump ending_theo_vtuber
-    elif confidences_laplage >= 3 and influence_theo <= 3:
-        jump ending_monsieur_laplage
-    else:
-        jump ending_no_contact
+label arc_7_theo:
+    $ derniere_route = "Route Theo"
+
+    scene bg stream
+    with fade
+    show jessy listening at char_center
+
+    systeme "Arc VII - Le monde apres la maison."
+    systeme "Ilona n'a pas choisi Theo. Elle est partie vers l'endroit ou on lui epargnait de parler. Ce n'est pas la meme chose, et c'est pire."
+
+    menu:
+        "Ce qui se passe apres le depart."
+
+        "Ilona s'extrait elle-meme." if confidences_laplage >= 3 and influence_theo <= 6:
+            jump ending_monsieur_laplage
+
+        "La dette se referme.":
+            jump ending_theo_vtuber
 
 
 label ending_family:

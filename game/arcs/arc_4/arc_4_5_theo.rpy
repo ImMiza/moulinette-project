@@ -6,7 +6,7 @@
 # Elle a dit à Jessy : "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
 
 # Images
-# Le parc residentiel sert aux plans de marche et de banc tant que la rue dediee n'existe pas.
+# Le parc résidentiel sert aux plans de marche et de banc tant que la rue dédiée n'existe pas.
 image bg arc4_5 street winter night = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 image bg arc4_5 park bench = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 
@@ -46,7 +46,7 @@ label arc_4_5_theo:
     show ilona fatigue at char_right
     with dissolve
     
-    systeme "Théo et Ilona suivent le chemin d'un petit parc résidentiel. Le froid mord, mais aucun des deux ne propose de rentrer."
+    systeme "Théo et Ilona suivent l'allée d'un petit parc résidentiel. Le froid mord, mais aucun des deux ne propose de rentrer."
     systeme "Dans son sac, Ilona sent le poids du carnet que Théo lui a offert. Et la question de Jessy, encore chaude."
     systeme "« Son cadeau... ça veut dire quelque chose pour toi ? »"
     systeme "Elle avait répondu : « Tu me demandes de te rassurer avant même que j'aie le temps de comprendre ce que moi je ressens. »"
@@ -71,7 +71,7 @@ label arc_4_5_theo:
     
     $ lien_ilona_theo += 1
     
-    # Pause au banc, dans le meme parc residentiel.
+    # Pause au banc, dans le même parc résidentiel.
     systeme "Ils ralentissent près du banc sous le lampadaire. Les illuminations de Noël clignotent au loin."
 
     show theo neutral at char_left
@@ -94,13 +94,13 @@ label arc_4_5_theo:
     
     show theo reassuring
     
-    t "Parce que essayer et réussir, c'est pas la même chose. Et tu as le droit d'attendre plus qu'un effort."
+    t "Parce qu'essayer et réussir, c'est pas la même chose. Et tu as le droit d'attendre plus qu'un effort."
     
     systeme "Ce n'est pas faux. C'est même vrai. C'est exactement ce qu'Ilona a ressenti au marché."
     systeme "Mais Théo sait que les vérités bien placées ouvrent des portes."
     systeme "Et qu'elles créent aussi des dettes."
     
-    $ influence_theo += 1
+    $ influence_theo += 2
     
     i "Il a peur de me perdre."
     t "Oui."
@@ -147,11 +147,23 @@ label arc_4_5_theo:
     
     systeme "La neige tombe plus fort. Ilona doit décider ce qu'elle fait de cette conversation."
     
-    if influence_theo >= 7 and autonomie_ilona <= 2:
-        # Ilona est épuisée et vulnérable, elle accepte l'aide de Théo
+    # Détermination de la réaction d'Ilona.
+    # L'ordre compte : une emprise déjà forte de Théo court-circuite tout le reste,
+    # même si Jessy a bien communiqué. Sinon, ce que Jessy a construit décide.
+    # Seuils calés sur le barème de game/agents/recalibrage.md.
+    if influence_theo >= 14 and autonomie_ilona <= 0:
         $ arc4_5_ilona_reaction = "accepte"
-        $ influence_theo += 2
-        $ autonomie_ilona -= 1
+    elif communication >= 15 or ilona_peut_finir_ses_phrases >= 3:
+        $ arc4_5_ilona_reaction = "directe"
+    elif autonomie_ilona >= 15:
+        $ arc4_5_ilona_reaction = "prudente"
+    else:
+        $ arc4_5_ilona_reaction = "accepte"
+
+    if arc4_5_ilona_reaction == "accepte":
+        # Ilona est épuisée et vulnérable, elle accepte l'aide de Théo
+        $ influence_theo += 3
+        $ autonomie_ilona -= 3
         
         show ilona neutral
         
@@ -183,17 +195,15 @@ label arc_4_5_theo:
         t "Comme quoi ?"
         i "Je sais pas. Peut-être... streamer. Pour de vrai."
         
-        systeme "Elle dit ça presque timidement. Comme si c'était pas sérieux. Comme si c'était juste un rêve."
+        systeme "Elle dit ça presque timidement. Comme si ce n'était pas sérieux. Comme si c'était juste un rêve."
         
         i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
         
-        show theo smirk at char_left
+        show theo reassuring at char_left
         
         t "Tu sais, je pourrais t'aider avec ça."
         
         systeme "Ilona lève les yeux. Théo sourit. Pas le sourire moqueur. Le sourire rassurant."
-        
-        show theo reassuring
         
         t "Modérer le chat. Gérer les horaires. Filtrer les commentaires qui te fatiguent."
         t "Pas en prenant ta place. Juste en protégeant l'espace que tu veux construire."
@@ -210,14 +220,13 @@ label arc_4_5_theo:
         systeme "Ilona ne voit pas encore la cage. Elle voit juste quelqu'un qui écoute ses rêves et propose de les rendre possibles."
         
         $ arc4_5_theo_proposition = "gestion_stream"
-        $ pression_stream += 2
+        $ pression_stream += 4
         $ remember("theo_utilise_une_verite")
         $ remember("ilona_veut_streamer_serieusement")
     
-    elif communication >= 4 or ilona_peut_finir_ses_phrases >= 2:
+    elif arc4_5_ilona_reaction == "directe":
         # Ilona a appris à poser des questions directes
-        $ arc4_5_ilona_reaction = "directe"
-        $ communication += 1
+        $ communication += 3
         
         show ilona determined
         
@@ -237,17 +246,16 @@ label arc_4_5_theo:
         show theo neutral
         
         t "Je... je veux t'aider. Vraiment."
-        i "Je sais. Mais 'vraiment', ça veut dire quoi, pour toi ?"
+        i "Je sais. Mais « vraiment », ça veut dire quoi, pour toi ?"
         
         systeme "Il n'a pas de réponse. Pas ce soir."
         
         $ arc4_5_theo_proposition = "question"
-        $ influence_theo -= 1
+        $ influence_theo = max(0, influence_theo - 3)
     
-    elif autonomie_ilona >= 3:
+    else:
         # Ilona garde une distance prudente
-        $ arc4_5_ilona_reaction = "prudente"
-        $ autonomie_ilona += 1
+        $ autonomie_ilona += 3
         
         show ilona determined
         
@@ -257,7 +265,7 @@ label arc_4_5_theo:
         
         t "Je comprends."
         
-        systeme "Il comprend. C'est vrai. Mais comprendre et accepter, c'est pas la même chose."
+        systeme "Il comprend. C'est vrai. Mais comprendre et accepter, ce n'est pas la même chose."
         
         i "Jessy fait des erreurs. Toi aussi, parfois."
         t "Moi ?"
@@ -273,72 +281,6 @@ label arc_4_5_theo:
         
         $ arc4_5_theo_proposition = "temps"
     
-    else:
-        # Ilona est fatiguée et accepte par défaut
-        $ arc4_5_ilona_reaction = "accepte"
-        $ influence_theo += 2
-        $ autonomie_ilona -= 1
-        
-        show ilona neutral
-        
-        i "Un espace... c'est peut-être ce dont j'ai besoin."
-        
-        systeme "Elle soupire. La fatigue transparaît."
-        
-        show ilona fatigue
-        
-        i "J'ai l'impression que tout le monde... attend quelque chose de moi."
-        
-        show theo neutral at char_left
-        
-        t "Qu'est-ce que toi, tu veux ?"
-        
-        systeme "La question est simple. Directe. Ilona ne s'y attendait pas."
-        
-        show ilona embarrassed
-        
-        i "Je... je sais pas."
-        t "Pas maintenant. Plus tard. Dans six mois. Dans un an."
-        t "Qu'est-ce que tu veux faire ?"
-        
-        systeme "Ilona réfléchit. Personne ne lui demande ça. On lui demande ce qu'elle ressent. Ce qu'elle veut dire. Mais jamais ce qu'elle veut faire."
-        
-        show ilona neutral
-        
-        i "J'aimerais... avoir un truc à moi. Un espace où je décide."
-        t "Comme quoi ?"
-        i "Je sais pas. Peut-être... streamer. Pour de vrai."
-        
-        systeme "Elle dit ça presque timidement. Comme si c'était pas sérieux. Comme si c'était juste un rêve."
-        
-        i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
-        
-        show theo smirk at char_left
-        
-        t "Tu sais, je pourrais t'aider avec ça."
-        
-        systeme "Ilona lève les yeux. Théo sourit. Pas le sourire moqueur. Le sourire rassurant."
-        
-        show theo reassuring
-        
-        t "Modérer le chat. Gérer les horaires. Filtrer les commentaires qui te fatiguent."
-        t "Pas en prenant ta place. Juste en protégeant l'espace que tu veux construire."
-        
-        systeme "Il dit ça avec une douceur naturelle. Comme si c'était évident."
-        systeme "Comme si aider, c'était juste ça. Simple. Généreux. Sans contrepartie."
-        
-        show ilona neutral
-        
-        i "Tu ferais ça ?"
-        t "Bien sûr."
-        
-        systeme "« Bien sûr. » Deux mots. Une dette qui commence."
-        systeme "Ilona ne voit pas encore la cage. Elle voit juste quelqu'un qui écoute ses rêves et propose de les rendre possibles."
-        
-        $ arc4_5_theo_proposition = "gestion_stream"
-        $ pression_stream += 2
-        $ remember("theo_utilise_une_verite")
-        $ remember("ilona_veut_streamer_serieusement")
     
     # Transition maid café
     scene black
@@ -356,7 +298,7 @@ label arc_4_5_theo:
     
     systeme "Ils arrivent dans une petite rue commerçante presque vide, encore mouillée par la neige."
     systeme "La plupart des boutiques ont déjà baissé leur rideau."
-    systeme "Mais une vitrine reste allumée, chaude au milieu du bleu de la nuit, avec une pancarte : 'MAID CAFÉ - OUVERT JUSQU'À MINUIT'."
+    systeme "Mais une vitrine reste allumée, chaude au milieu du bleu de la nuit, avec une pancarte : « MAID CAFÉ — OUVERT JUSQU'À MINUIT »."
     
     t "On devrait se réchauffer."
     
@@ -400,7 +342,7 @@ label arc_4_5_theo:
     
     laplage "Théo. Ilona."
     
-    systeme "Il pose le verre. Continue d'essuyer un autre. Aucune surprise dans son ton."
+    systeme "Il pose le verre. En prend un autre. Aucune surprise dans son ton."
     
     show ilona neutral
     
@@ -430,7 +372,7 @@ label arc_4_5_theo:
     laplage "Les chemins qui divergent font moins de bruit."
     laplage "Mais le silence n'est pas toujours une paix."
     
-    systeme "Il lève son pouce. Ni levé. Ni baissé. Juste horizontal."
+    systeme "Il tend son pouce. Ni levé. Ni baissé. Juste horizontal."
     systeme "Puis il retourne au comptoir et disparaît dans l'ombre."
     
     $ jugement_laplage += 1
