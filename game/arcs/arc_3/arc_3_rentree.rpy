@@ -1,4 +1,4 @@
-# Arc III - Rentree : les regards.
+﻿# Arc III - Rentree : les regards.
 # Les variables importantes restent centralisees dans script.rpy.
 
 image bg arc3 festival hallway = im.Scale("images/scenes/arc_3/bg_arc3_festival_hallway.jpg", 1920, 1080)
@@ -69,7 +69,7 @@ label arc_3_rentree:
     a "Il y aura des horaires, des listes et Alexandre avec des idées de portes inutiles."
     j "On est condamnés."
 
-    if jalousie >= 2:
+    if jalousie >= 6:
         systeme "Le prénom de Théo accroche Jessy un peu plus fort qu'il ne voudrait."
     elif souvenirs["jessy_nomme_sa_peur"]:
         systeme "Jessy sent la gêne monter, mais il la reconnaît assez tôt pour ne pas lui laisser toute la phrase."
@@ -93,7 +93,7 @@ label arc_3_rentree:
     systeme "Il l'est."
     systeme "Et il remarque quand même que Théo va aider à construire ce souvenir avec eux."
 
-    stop ambient1 fadeout 2.0
+    stop ambiant1 fadeout 2.0
     hide allan
     hide jessy
     hide ilona
@@ -169,24 +169,13 @@ label arc_3_rentree:
     menu:
         "La rumeur vient de tomber devant Ilona, Jessy et Théo."
 
-        "Faire une blague pour désamorcer.":
-            $ arc3_reaction_rumeur = "blague_desarm"
-            $ communication += 1
-            $ jalousie += 1
-            $ lien_jessy_ilona += 1
-            j "Techniquement, je suis surtout en train d'hésiter entre fuir et m'enterrer sous les menus."
-            systeme "Ilona le regarde. Puis elle souffle un petit rire."
-            show ilona smile at char_center
-            i "Option trois : finir les panneaux et ignorer les cons."
-            j "Validé."
-            systeme "La blague a marché. Mais Jessy voit bien qu'Ilona sourit un peu trop fort."
-            systeme "Ils viennent d'éviter la confrontation. Pas la blessure."
-
         "Regarder Ilona d'abord.":
             $ arc3_reaction_rumeur = "demander_ilona"
+            $ autonomie_ilona += 4
             $ communication += 2
-            $ autonomie_ilona += 2
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
+            $ pression_stream = max(0, pression_stream - 2)
             systeme "Jessy se tourne vers Ilona. Pas vers les élèves."
             j "Tu veux que je dise quelque chose ?"
             show ilona neutral at char_center
@@ -203,8 +192,10 @@ label arc_3_rentree:
 
         "Se taire et laisser passer.":
             $ arc3_reaction_rumeur = "silence_paralysie"
-            $ communication -= 1
-            $ pression_stream += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             $ arc3_rumeur_aggravee = True
             systeme "Jessy baisse les yeux sur les menus."
             systeme "Il pourrait parler. Il devrait peut-être."
@@ -215,8 +206,12 @@ label arc_3_rentree:
 
         "Défendre Ilona immédiatement.":
             $ arc3_reaction_rumeur = "defendre_immediat"
-            $ communication += 1
-            $ jalousie += 1
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             j "Hé."
             systeme "Les deux élèves se retournent."
             j "Si vous voulez inventer une histoire, au moins ayez le courage de la dire en face."
@@ -230,6 +225,17 @@ label arc_3_rentree:
             j "Je sais."
             systeme "Jessy a défendu Ilona. Mais il a aussi parlé pour elle sans demander."
 
+
+        "Faire une blague pour désamorcer.":
+            $ arc3_reaction_rumeur = "blague_desarm"
+            $ lien_jessy_ilona += 4
+            j "Techniquement, je suis surtout en train d'hésiter entre fuir et m'enterrer sous les menus."
+            systeme "Ilona le regarde. Puis elle souffle un petit rire."
+            show ilona smile at char_center
+            i "Option trois : finir les panneaux et ignorer les cons."
+            j "Validé."
+            systeme "La blague a marché. Mais Jessy voit bien qu'Ilona sourit un peu trop fort."
+            systeme "Ils viennent d'éviter la confrontation. Pas la blessure."
     systeme "Théo reprend le pinceau. Son regard reste sur Ilona."
     t "Ils sont bêtes."
     i "..."
@@ -287,6 +293,27 @@ label arc_3_rentree:
     i "Deux choses peuvent être vraies."
 
     systeme "Pendant quelques minutes, le stand fonctionne presque."
+
+    systeme "Ilona a pris la file en charge sans que personne le lui demande. Elle annonce les commandes, présente le thème, explique la porte inutile à des inconnus qui repartent en riant."
+    systeme "Elle fait ça depuis deux heures. Elle n'a pas l'air fatiguée. Elle a l'air branchée sur le secteur."
+
+    x "Elle est bonne."
+    a "Elle est très bonne."
+    x "Non mais elle est {i}bonne{/i}. Genre les gens font la queue en trop et ils restent quand même."
+    a "Ilona, t'as déjà pensé à faire ça ailleurs qu'à un stand de café ?"
+
+    show ilona neutral at char_midleft
+    with dissolve
+
+    i "Faire quoi ?"
+    a "Ça."
+    i "C'est un stand de café, Allan."
+
+    systeme "Elle a répondu à côté. Ce n'est pas de la modestie : c'est quelqu'un qui refuse de nommer une chose devant témoins."
+
+    show ilona smile at char_midleft
+    with dissolve
+
     systeme "Puis la file s'allonge, les rumeurs reviennent par fragments, et chaque déplacement met quelqu'un trop près ou trop loin de quelqu'un d'autre."
 
     hide alex
@@ -296,25 +323,12 @@ label arc_3_rentree:
     menu:
         "Ilona et Théo travaillent côte à côte au stand. Comment Jessy choisit-il d'être présent ?"
 
-        "Aider sans se mettre au centre.":
-            $ arc3_aide_stand = "aider_retrait"
-            $ lien_jessy_ilona += 1
-            $ autonomie_ilona += 1
-            $ communication += 1
-            $ confiance += 1
-            j "Dis-moi où tu as besoin de moi."
-            show ilona smile at char_midleft
-            i "La caisse déborde. Prends les commandes avec Allan."
-            j "Reçu."
-            systeme "Jessy s'éloigne de deux mètres. Chaque mètre pique. Il le fait quand même."
-            systeme "Il a choisi d'être utile plutôt que d'être visible."
-            systeme "Mais il sait aussi qu'il recule parce qu'il a peur de ce qu'il pourrait dire s'il restait."
-
         "Annoncer besoin d'air et revenir.":
             $ arc3_aide_stand = "distance_honnete"
-            $ jalousie += 1
-            $ communication += 2
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             $ remember("jessy_nomme_sa_peur")
             j "Je suis jaloux."
             systeme "Ilona lève les yeux. Théo arrête de bouger."
@@ -327,12 +341,26 @@ label arc_3_rentree:
             j "Oui."
             systeme "Jessy a été honnête. Mais il sait aussi qu'il vient de mettre sa jalousie dans l'espace entre eux."
 
+        "Aider sans se mettre au centre.":
+            $ arc3_aide_stand = "aider_retrait"
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ pression_stream = max(0, pression_stream - 2)
+            j "Dis-moi où tu as besoin de moi."
+            show ilona smile at char_midleft
+            i "La caisse déborde. Prends les commandes avec Allan."
+            j "Reçu."
+            systeme "Jessy s'éloigne de deux mètres. Chaque mètre pique. Il le fait quand même."
+            systeme "Il a choisi d'être utile plutôt que d'être visible."
+            systeme "Mais il sait aussi qu'il recule parce qu'il a peur de ce qu'il pourrait dire s'il restait."
+
         "Demander franchement ce qu'elle ressent.":
             $ arc3_aide_stand = "demande_directe"
-            $ lien_jessy_ilona += 1
-            $ communication += 1
-            $ jalousie += 1
-            $ autonomie_ilona += 1
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ pression_stream = max(0, pression_stream - 2)
             j "J'ai l'impression de te perdre dans une pièce où je suis juste à côté de toi."
             systeme "Théo s'écarte légèrement. Ilona pose son panneau."
             show ilona neutral at char_midleft
@@ -347,10 +375,12 @@ label arc_3_rentree:
 
         "Faire blague acide pour cacher blessure.":
             $ arc3_aide_stand = "blague_defense"
-            $ jalousie += 2
-            $ communication -= 1
-            $ autonomie_ilona -= 1
-            $ pression_stream += 1
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             j "Je peux mettre une pancarte : attention, rivalité servie avec supplément malaise ?"
             show ilona frustrated at char_midleft
             i "Tu crois vraiment que j'avais besoin de ça ?"
@@ -435,7 +465,10 @@ label arc_3_rentree:
     show laplage neutral at char_center
     with dissolve
 
-    $ confidences_laplage += 1
+    # Ilona ne se confie a Laplage que si personne d'autre ne la laisse finir.
+    # Chaque confidence est une dette, pas un credit : voir la porte de l'arc 6.
+    if ilona_peut_finir_ses_phrases < 2:
+        $ confidences_laplage += 1
     $ jugement_laplage += 1
 
     laplage "Takoyaki."
@@ -531,35 +564,11 @@ label arc_3_rentree:
     menu:
         "Théo vient de toucher juste, et Jessy le sait."
 
-        "Admettre la blessure sans baisser les yeux.":
-            $ communication += 1
-            $ confiance += 1
-            j "Oui."
-            j "Parfois je l'écoute mal parce que j'ai peur."
-            j "Mais toi, tu l'écoutes comme si chaque silence était une place à prendre."
-            show theo neutral at char_right
-            t "Tu dis ça parce que ça t'arrange de me voir comme le problème."
-            j "Non."
-            j "Je dis ça parce que tu attends toujours le moment où j'ai honte pour devenir indispensable."
-            systeme "Le visage de Théo ne change presque pas. Ses doigts, eux, se referment sur le bord de la table."
-
-        "Lui rentrer dedans.":
-            $ jalousie += 2
-            $ influence_theo += 1
-            $ communication -= 1
-            j "Tu préparais cette phrase depuis combien de temps ?"
-            show theo annoyed at char_right
-            t "Depuis que je t'ai vu la regarder comme si elle te devait une preuve."
-            j "Et toi, depuis quand tu fais semblant de l'aider alors que tu veux juste être celui qu'elle choisit quand elle est fatiguée ?"
-            t "Attention, Jessy."
-            j "Non. Toi, attention."
-            j "Arrête de parler doucement comme si ça rendait tes coups plus propres."
-            systeme "Cette fois, le ton monte. Deux élèves se retournent au bout du couloir."
-
         "Se taire pour ne pas exploser.":
-            $ communication -= 1
-            $ pression_stream += 1
-            $ influence_theo += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             systeme "Jessy serre la mâchoire."
             systeme "Il pourrait répondre. Il a même trois phrases prêtes, toutes trop violentes, toutes un peu vraies."
             systeme "Théo le regarde se retenir. Puis il sourit. Pas beaucoup. Juste assez."
@@ -576,10 +585,26 @@ label arc_3_rentree:
                 systeme "Théo dit ça sans hausser la voix. Il n'a pas besoin. Le coup est déjà parti."
             systeme "Le silence ne protège personne. Il laisse juste Théo remplir le vide."
 
+        "Admettre la blessure sans baisser les yeux.":
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
+            j "Oui."
+            j "Parfois je l'écoute mal parce que j'ai peur."
+            j "Mais toi, tu l'écoutes comme si chaque silence était une place à prendre."
+            show theo neutral at char_right
+            t "Tu dis ça parce que ça t'arrange de me voir comme le problème."
+            j "Non."
+            j "Je dis ça parce que tu attends toujours le moment où j'ai honte pour devenir indispensable."
+            systeme "Le visage de Théo ne change presque pas. Ses doigts, eux, se referment sur le bord de la table."
+
         "Refuser le duel, mais pas la colère.":
+            $ autonomie_ilona += 4
             $ communication += 2
-            $ autonomie_ilona += 1
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
+            $ pression_stream = max(0, pression_stream - 2)
             j "J'ai envie de te répondre."
             j "J'ai très envie."
             j "Mais ce serait encore deux gars qui règlent leur fierté sur son dos."
@@ -588,6 +613,22 @@ label arc_3_rentree:
             j "Ce n'est pas de la morale."
             j "C'est moi qui essaie de ne pas devenir exactement ce que tu attends."
 
+
+        "Lui rentrer dedans.":
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            j "Tu préparais cette phrase depuis combien de temps ?"
+            show theo annoyed at char_right
+            t "Depuis que je t'ai vu la regarder comme si elle te devait une preuve."
+            j "Et toi, depuis quand tu fais semblant de l'aider alors que tu veux juste être celui qu'elle choisit quand elle est fatiguée ?"
+            t "Attention, Jessy."
+            j "Non. Toi, attention."
+            j "Arrête de parler doucement comme si ça rendait tes coups plus propres."
+            systeme "Cette fois, le ton monte. Deux élèves se retournent au bout du couloir."
     systeme "Pendant une seconde, le couloir paraît trop petit pour eux deux."
     systeme "Jessy déteste Théo à cet instant."
     systeme "Il le déteste d'autant plus qu'une partie de ce qu'il a dit restera vraie même si Théo disparaissait."
@@ -663,10 +704,10 @@ label arc_3_rentree:
     i "Une blague à nous, cachée dans un concept scolaire."
     i "Je l'ai proposée parce que je pensais à nous."
     i "Et maintenant, quand je regarde les panneaux, j'ai l'impression que tout le monde a mis ses doigts dans un souvenir qui n'était pas à eux."
-    if jalousie >= 3 or arc3_reaction_rumeur == "silence_paralysie" or arc3_aide_stand == "blague_defense":
+    if jalousie >= 9 or arc3_reaction_rumeur == "silence_paralysie" or arc3_aide_stand == "blague_defense":
         i "Je suis en colère contre toi."
         i "Je suis aussi contente quand tu me cherches dans une foule."
-    elif jalousie >= 1 or arc3_reaction_rumeur == "defendre_immediat":
+    elif jalousie >= 3 or arc3_reaction_rumeur == "defendre_immediat":
         i "Je suis frustrée."
         i "Parce que tu fais des efforts, mais parfois tes efforts ressemblent à de la surveillance."
         i "Et je suis aussi contente quand tu me cherches dans une foule."
@@ -683,10 +724,11 @@ label arc_3_rentree:
 
         "Lui dire qu'il l'aime trop pour faire semblant.":
             $ arc3_reaction_laplage = "demander_besoin"
-            $ communication += 2
-            $ autonomie_ilona += 1
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             j "Je ne peux pas faire semblant que ça ne me tue pas un peu."
             j "Quand tu ris avec lui, quand il voit ce que je rate, quand tu reviens avec cet air que je ne sais plus lire..."
             j "Je déteste ça."
@@ -699,9 +741,10 @@ label arc_3_rentree:
 
         "S'excuser sans se rendre petit.":
             $ arc3_reaction_laplage = "excuse_precise"
-            $ communication += 2
-            $ autonomie_ilona += 2
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             if arc3_aide_stand == "blague_defense" or arc3_reaction_rumeur == "blague_desarm":
                 $ remember("jessy_repare")
             if interruptions_ilona > interruptions_reconnues:
@@ -719,26 +762,14 @@ label arc_3_rentree:
             j "Mérité."
             i "Un peu."
 
-        "Promettre que Théo ne compte pas.":
-            $ arc3_reaction_laplage = "promesse_theo"
-            $ jalousie += 1
-            $ communication -= 1
-            $ autonomie_ilona -= 1
-            j "Théo ne compte pas. Je te le promets."
-            show ilona frustrated at char_right
-            i "Tu ne peux pas promettre ça à ma place."
-            j "Je voulais dire que je te fais confiance."
-            i "Non."
-            i "Tu voulais que je dise que rien ne tremble."
-            i "Et je ne peux pas te donner ça juste pour que tu respires."
-
         "Demander une réponse sur ses sentiments.":
             $ arc3_reaction_laplage = "demande_reponse"
-            $ jalousie += 2
-            $ confiance -= 1
-            $ autonomie_ilona -= 1
-            $ influence_theo += 1
-            $ pression_stream += 1
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             j "Et moi ?"
             j "Je suis où, là-dedans ?"
             show ilona fatigue at char_right
@@ -749,6 +780,20 @@ label arc_3_rentree:
             j "Je te force ?"
             i "Là ? Oui."
 
+
+        "Promettre que Théo ne compte pas.":
+            $ arc3_reaction_laplage = "promesse_theo"
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            j "Théo ne compte pas. Je te le promets."
+            show ilona frustrated at char_right
+            i "Tu ne peux pas promettre ça à ma place."
+            j "Je voulais dire que je te fais confiance."
+            i "Non."
+            i "Tu voulais que je dise que rien ne tremble."
+            i "Et je ne peux pas te donner ça juste pour que tu respires."
     if arc3_reaction_laplage == "demander_besoin":
         systeme "Ilona baisse les yeux sur les serviettes qu'elle serre encore contre elle."
         i "Reste à côté de moi pour les dernières commandes."
@@ -891,6 +936,28 @@ label arc_3_rentree:
     hide ilona
     with dissolve
 
+    # Allan seul - première fissure
+    scene bg arc3 classroom evening
+    with fade
+
+    show allan doubt at char_center
+    with dissolve
+
+    systeme "Allan reste seul dans la salle après le départ du groupe."
+    systeme "Il regarde son téléphone. Trois messages non envoyés dans les brouillons."
+    systeme "Un pour Jessy. Un pour Ilona. Un pour Théo."
+    systeme "Tous commencent par 'En vrai, moi je pense que—'"
+    systeme "Aucun n'a de fin."
+
+    $ renpy.pause(1.0, hard=True)
+
+    systeme "Il efface les trois. C'est plus simple comme ça."
+    systeme "Allan est très bon pour expliquer ce que les autres veulent dire."
+    systeme "Il ne sait juste pas encore ce qu'il veut dire, lui."
+
+    hide allan
+    with dissolve
+
     play music audio.mcnight volume 0.8 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 minecraft night
     with Dissolve(2.0)
@@ -983,17 +1050,9 @@ label arc_3_rentree:
         menu:
             "Ilona retrouve dans son sac une petite étoile en sucre achetée au festival."
 
-            "La laisser la manger pendant qu'elle réfléchit.":
-                $ ilonanium_points += 1
-                i "Elle a survécu à toute la journée."
-                j "Elle mérite le repos éternel ?"
-                i "Elle mérite d'être mangée."
-                play sound audio.eating
-                systeme "L'univers perd encore un fragment de prudence."
-
             "Proposer d'en garder une trace dans la salle secrète.":
                 $ remember("maison_respectee")
-                $ lien_jessy_ilona += 1
+                $ lien_jessy_ilona += 2
                 j "On ne peut pas mettre la vraie étoile dans Minecraft."
                 i "Oui, merci, je connais les frontières élémentaires de l'univers."
                 j "Mais on peut en refaire une trace avec des blocs lumineux, dans la salle secrète."
@@ -1001,6 +1060,18 @@ label arc_3_rentree:
                 j "Comme preuve qu'une journée bizarre peut laisser autre chose qu'une rumeur."
                 i "D'accord. La vraie reste sur mon bureau."
 
+
+            "La laisser la manger pendant qu'elle réfléchit.":
+                $ autonomie_ilona += 2
+                $ communication += 1
+                $ confiance += 1
+                $ ilonanium_points += 1
+                $ pression_stream = max(0, pression_stream - 1)
+                i "Elle a survécu à toute la journée."
+                j "Elle mérite le repos éternel ?"
+                i "Elle mérite d'être mangée."
+                play sound audio.eating
+                systeme "L'univers perd encore un fragment de prudence."
     systeme "La rentrée n'a rien tranché."
     systeme "Elle a seulement rendu les regards visibles."
     systeme "Et maintenant que tout le monde a vu quelque chose, il va devenir plus difficile de prétendre que rien ne change."

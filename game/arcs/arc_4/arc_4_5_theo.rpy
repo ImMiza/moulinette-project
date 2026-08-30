@@ -99,7 +99,7 @@ label arc_4_5_theo:
     systeme "Mais Théo sait que les vérités bien placées ouvrent des portes."
     systeme "Et qu'elles créent aussi des dettes."
     
-    $ influence_theo += 1
+    $ influence_theo += 2
     
     i "Il a peur de me perdre."
     t "Oui."
@@ -146,11 +146,23 @@ label arc_4_5_theo:
     
     systeme "La neige tombe plus fort. Ilona doit décider ce qu'elle fait de cette conversation."
     
-    if influence_theo >= 7 and autonomie_ilona <= 2:
-        # Ilona est épuisée et vulnérable, elle accepte l'aide de Théo
+    # Determination de la reaction d'Ilona.
+    # L'ordre compte : une emprise deja forte de Theo court-circuite tout le reste,
+    # meme si Jessy a bien communique. Sinon, ce que Jessy a construit decide.
+    # Seuils cales sur le bareme de game/agents/recalibrage.md.
+    if influence_theo >= 14 and autonomie_ilona <= 0:
         $ arc4_5_ilona_reaction = "accepte"
-        $ influence_theo += 2
-        $ autonomie_ilona -= 1
+    elif communication >= 15 or ilona_peut_finir_ses_phrases >= 3:
+        $ arc4_5_ilona_reaction = "directe"
+    elif autonomie_ilona >= 15:
+        $ arc4_5_ilona_reaction = "prudente"
+    else:
+        $ arc4_5_ilona_reaction = "accepte"
+
+    if arc4_5_ilona_reaction == "accepte":
+        # Ilona est épuisée et vulnérable, elle accepte l'aide de Théo
+        $ influence_theo += 3
+        $ autonomie_ilona -= 3
         
         show ilona neutral
         
@@ -186,13 +198,11 @@ label arc_4_5_theo:
         
         i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
         
-        show theo smirk at char_left
+        show theo reassuring at char_left
         
         t "Tu sais, je pourrais t'aider avec ça."
         
         systeme "Ilona lève les yeux. Théo sourit. Pas le sourire moqueur. Le sourire rassurant."
-        
-        show theo reassuring
         
         t "Modérer le chat. Gérer les horaires. Filtrer les commentaires qui te fatiguent."
         t "Pas en prenant ta place. Juste en protégeant l'espace que tu veux construire."
@@ -209,14 +219,13 @@ label arc_4_5_theo:
         systeme "Ilona ne voit pas encore la cage. Elle voit juste quelqu'un qui écoute ses rêves et propose de les rendre possibles."
         
         $ arc4_5_theo_proposition = "gestion_stream"
-        $ pression_stream += 2
+        $ pression_stream += 4
         $ remember("theo_utilise_une_verite")
         $ remember("ilona_veut_streamer_serieusement")
     
-    elif communication >= 4 or ilona_peut_finir_ses_phrases >= 2:
+    elif arc4_5_ilona_reaction == "directe":
         # Ilona a appris à poser des questions directes
-        $ arc4_5_ilona_reaction = "directe"
-        $ communication += 1
+        $ communication += 3
         
         show ilona determined
         
@@ -241,12 +250,11 @@ label arc_4_5_theo:
         systeme "Il n'a pas de réponse. Pas ce soir."
         
         $ arc4_5_theo_proposition = "question"
-        $ influence_theo -= 1
+        $ influence_theo = max(0, influence_theo - 3)
     
-    elif autonomie_ilona >= 3:
+    else:
         # Ilona garde une distance prudente
-        $ arc4_5_ilona_reaction = "prudente"
-        $ autonomie_ilona += 1
+        $ autonomie_ilona += 3
         
         show ilona determined
         
@@ -272,72 +280,6 @@ label arc_4_5_theo:
         
         $ arc4_5_theo_proposition = "temps"
     
-    else:
-        # Ilona est fatiguée et accepte par défaut
-        $ arc4_5_ilona_reaction = "accepte"
-        $ influence_theo += 2
-        $ autonomie_ilona -= 1
-        
-        show ilona neutral
-        
-        i "Un espace... c'est peut-être ce dont j'ai besoin."
-        
-        systeme "Elle soupire. La fatigue transparaît."
-        
-        show ilona fatigue
-        
-        i "J'ai l'impression que tout le monde... attend quelque chose de moi."
-        
-        show theo neutral at char_left
-        
-        t "Qu'est-ce que toi, tu veux ?"
-        
-        systeme "La question est simple. Directe. Ilona ne s'y attendait pas."
-        
-        show ilona embarrassed
-        
-        i "Je... je sais pas."
-        t "Pas maintenant. Plus tard. Dans six mois. Dans un an."
-        t "Qu'est-ce que tu veux faire ?"
-        
-        systeme "Ilona réfléchit. Personne ne lui demande ça. On lui demande ce qu'elle ressent. Ce qu'elle veut dire. Mais jamais ce qu'elle veut faire."
-        
-        show ilona neutral
-        
-        i "J'aimerais... avoir un truc à moi. Un espace où je décide."
-        t "Comme quoi ?"
-        i "Je sais pas. Peut-être... streamer. Pour de vrai."
-        
-        systeme "Elle dit ça presque timidement. Comme si c'était pas sérieux. Comme si c'était juste un rêve."
-        
-        i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
-        
-        show theo smirk at char_left
-        
-        t "Tu sais, je pourrais t'aider avec ça."
-        
-        systeme "Ilona lève les yeux. Théo sourit. Pas le sourire moqueur. Le sourire rassurant."
-        
-        show theo reassuring
-        
-        t "Modérer le chat. Gérer les horaires. Filtrer les commentaires qui te fatiguent."
-        t "Pas en prenant ta place. Juste en protégeant l'espace que tu veux construire."
-        
-        systeme "Il dit ça avec une douceur naturelle. Comme si c'était évident."
-        systeme "Comme si aider, c'était juste ça. Simple. Généreux. Sans contrepartie."
-        
-        show ilona neutral
-        
-        i "Tu ferais ça ?"
-        t "Bien sûr."
-        
-        systeme "« Bien sûr. » Deux mots. Une dette qui commence."
-        systeme "Ilona ne voit pas encore la cage. Elle voit juste quelqu'un qui écoute ses rêves et propose de les rendre possibles."
-        
-        $ arc4_5_theo_proposition = "gestion_stream"
-        $ pression_stream += 2
-        $ remember("theo_utilise_une_verite")
-        $ remember("ilona_veut_streamer_serieusement")
     
     # Transition maid café
     scene black

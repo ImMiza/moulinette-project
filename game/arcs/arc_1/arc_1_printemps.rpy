@@ -111,33 +111,29 @@ label arc_1_printemps:
     menu:
         "Ilona lui propose un morceau de son repas."
 
-        "Faire une blague sur Minecraft.":
-            $ lien_jessy_ilona += 1
-            j "Après mon plafond, tu attaques mon repas."
-            i "Je partage, là."
-            j "C'est vrai. Pardon à l'omelette."
-            i "Elle accepte."
-
-        "Lui demander si elle en a vraiment envie.":
-            $ communication += 1
-            $ confiance += 1
-            $ autonomie_ilona += 1
-            j "Tu le proposes parce que tu veux, ou parce que tu te sens obligée ?"
-            i "Parce que je veux."
-            j "D'accord."
-            i "Mais merci de demander."
-
         "Accepter et partager ses biscuits.":
-            $ lien_jessy_ilona += 1
-            $ communication += 1
+            $ lien_jessy_ilona += 2
             j "Merci. J'ai des biscuits, si tu veux."
             i "Ils ont survécu au trajet ?"
             j "Plus ou moins."
             i "Je prends les morceaux les moins tristes."
             systeme "Ils mangent en silence. Cette fois, le silence gêne moins."
 
+        "Lui demander si elle en a vraiment envie.":
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
+            j "Tu le proposes parce que tu veux, ou parce que tu te sens obligée ?"
+            i "Parce que je veux."
+            j "D'accord."
+            i "Mais merci de demander."
+
         "Refuser trop vite.":
-            $ communication -= 1
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
             j "Non, non, garde."
             i "D'accord."
             systeme "Ilona reprend le morceau sans faire d'histoire."
@@ -145,6 +141,13 @@ label arc_1_printemps:
             i "Tu peux juste dire non. C'est pas grave."
             j "D'accord. Je m'entraîne."
 
+
+        "Faire une blague sur Minecraft.":
+            $ lien_jessy_ilona += 2
+            j "Après mon plafond, tu attaques mon repas."
+            i "Je partage, là."
+            j "C'est vrai. Pardon à l'omelette."
+            i "Elle accepte."
     systeme "Après ce midi-là, ils ne deviennent pas soudain naturels."
     systeme "Ils se croisent surtout par petits morceaux : un salut dans l'escalier, un message envoyé trop tard, une blague Minecraft pendant une pause."
     systeme "Au bout de quelques jours, ces petits morceaux commencent à ressembler à une habitude."
@@ -194,17 +197,11 @@ label arc_1_printemps:
     menu:
         "Ilona regarde la photo en souriant."
 
-        "Lui demander de la garder si elle l'aime bien.":
-            $ communication += 1
-            $ confiance += 1
-            j "Tu peux la garder si elle est pas trop horrible."
-            i "Elle est bien."
-            j "Vraiment ?"
-            i "Oui. On voit que tu réfléchis trop."
-            j "C'est mon expression de base."
-
         "Lui demander de supprimer.":
-            $ communication -= 1
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
             j "Tu peux supprimer ?"
             i "Oui."
             systeme "Elle le fait tout de suite."
@@ -212,8 +209,19 @@ label arc_1_printemps:
             i "Pas besoin de faire cette tête. Je te demanderai la prochaine fois."
             j "Désolé."
 
+        "Lui demander de la garder si elle l'aime bien.":
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
+            j "Tu peux la garder si elle est pas trop horrible."
+            i "Elle est bien."
+            j "Vraiment ?"
+            i "Oui. On voit que tu réfléchis trop."
+            j "C'est mon expression de base."
+
         "Poser pour une deuxième photo.":
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 2
             show jessy determined at char_left
             j "Attends. Refais. Je peux faire pire."
             i "C'est ambitieux."
@@ -298,19 +306,21 @@ label arc_1_printemps:
     menu:
         "Ilona lève le bonbon étoile comme si c'était très sérieux."
 
-        "Mentionner Monsieur Laplage.":
-            $ ilonanium_points += 1
-            $ lien_jessy_ilona += 1
-            j "Attention. Monsieur Laplage a peut-être un avis sur les étoiles."
-            i "Il sait déjà trop de choses."
-            j "C'est vrai."
-            i "Donc on la garde pour plus tard."
-            j "Stratégie raisonnable."
-            systeme "Le bonbon rejoint la poche d'Ilona. Ils ne savent pas encore ce qu'ils font de cette petite chose."
+        "Proposer de la garder pour la maison Minecraft.":
+            $ lien_jessy_ilona += 2
+            j "On pourrait la mettre dans la salle secrète."
+            i "Comme décoration ?"
+            j "Comme objet important sans utilité."
+            i "Ça va très bien avec la pièce."
+            systeme "Jessy propose de garder une petite chose ensemble. Ce n'est pas encore un serment, juste un geste qui dit : ce qu'on construit compte."
+
 
         "La laisser manger l'étoile.":
             $ ilonanium_points += 1
-            $ lien_jessy_ilona += 1
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
             play sound audio.eating volume 1.0
             i "Trop tard."
             j "Et ?"
@@ -319,14 +329,15 @@ label arc_1_printemps:
             i "Pas encore."
             systeme "Ilona garde un air sérieux beaucoup trop longtemps."
 
-        "Proposer de la garder pour la maison Minecraft.":
-            $ lien_jessy_ilona += 1
-            j "On pourrait la mettre dans la salle secrète."
-            i "Comme décoration ?"
-            j "Comme objet important sans utilité."
-            i "Ça va très bien avec la pièce."
-            systeme "Jessy propose de garder une petite chose ensemble. Ce n'est pas encore un serment, juste un geste qui dit : ce qu'on construit compte."
-
+        "Mentionner Monsieur Laplage.":
+            $ ilonanium_points += 1
+            $ lien_jessy_ilona += 2
+            j "Attention. Monsieur Laplage a peut-être un avis sur les étoiles."
+            i "Il sait déjà trop de choses."
+            j "C'est vrai."
+            i "Donc on la garde pour plus tard."
+            j "Stratégie raisonnable."
+            systeme "Le bonbon rejoint la poche d'Ilona. Ils ne savent pas encore ce qu'ils font de cette petite chose."
     systeme "Le week-end passe avec cette histoire coincée quelque part entre eux."
     systeme "Ils en reparlent par messages, puis arrêtent, puis recommencent."
     systeme "Le lundi, au premier intercours, ils finissent par résumer l'histoire d'une façon très simple : un monsieur sorti de nulle part a donné son avis sur un bonbon."
@@ -372,38 +383,38 @@ label arc_1_printemps:
         "Allan vient de poser la question un peu trop fort."
 
         "Répondre sincèrement : \"J'aimerais bien.\"":
-            $ lien_jessy_ilona += 1
-            $ communication += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             play music audio.ecole fadeout 1.0 fadein 1.0 loop
             j "J'aimerais bien."
             $ renpy.pause(0.8, hard=True)
             show ilona embarrassed at char_right
             systeme "Ilona rougit, mais elle ne recule pas."
             j "Enfin... je veux pas répondre pour toi."
-            $ autonomie_ilona += 1
-            $ ilona_peut_finir_ses_phrases += 1
             $ renpy.pause(0.5, hard=True)
             show ilona smile at char_right
             i "Merci."
             i "Je sais pas encore. Mais merci."
-            if lien_jessy_ilona >= 3:
+            if lien_jessy_ilona >= 6:
                 systeme "Allan et Alexandre échangent un regard entendu, puis reprennent leur conversation comme si de rien n'était."
 
         "Faire une blague pour détendre l'atmosphère.":
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 4
             play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "On partage une maison impossible. C'est déjà beaucoup."
             i "Il esquive."
             j "Un peu."
             j "Mais je veux pas te mettre dans une réponse devant tout le monde."
-            $ communication += 1
-            $ autonomie_ilona += 1
             i "Ça, je prends."
 
         "Laisser Ilona répondre.":
-            $ autonomie_ilona += 1
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
-            $ communication += 1
+            $ pression_stream = max(0, pression_stream - 2)
             play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "Je te laisse répondre si tu veux."
             i "Je sais pas trop."
@@ -411,8 +422,10 @@ label arc_1_printemps:
             i "Oui. Pour l'instant, c'est celle-là."
 
         "Nier trop vite.":
-            $ communication -= 1
-            $ jalousie += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             play music audio.ecole fadeout 2.0 fadein 1.0 loop
             j "Non, non. Pas du tout."
             show ilona neutral at char_right
@@ -455,28 +468,23 @@ label arc_1_printemps:
     menu:
         "Ilona parle doucement, sans chercher la bonne phrase."
 
-        "Lui dire qu'elle peut prendre son temps.":
-            $ communication += 1
-            $ confiance += 1
-            $ autonomie_ilona += 1
+        "Lui demander ce qui l'aiderait.":
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
-            j "Tu peux prendre ton temps avec moi."
-            j "Même si je suis maladroit."
-            show ilona smile at char_right
-            i "Tu l'es un peu."
-            j "Je sais."
-            i "Mais c'est mieux quand tu le sais."
+            $ pression_stream = max(0, pression_stream - 2)
+            j "Tu veux que je parle plus ? Ou juste que je reste là ?"
+            i "Je sais pas encore."
+            j "Alors on verra."
+            i "Oui. On verra."
 
-        "Se défendre.":
-            $ communication -= 1
-            j "Je fais pas exprès d'être bizarre."
-            i "Je sais."
-            i "Je disais pas ça contre toi."
-            systeme "Jessy hoche la tête, gêné. Il a répondu trop vite."
 
         "Faire une petite blague, puis répondre vraiment.":
-            $ lien_jessy_ilona += 1
-            $ communication += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             j "On peut mettre un panneau : silence en travaux."
             i "Comme dans ta maison."
             j "Exactement."
@@ -484,16 +492,28 @@ label arc_1_printemps:
             j "Mais je comprends. Je veux pas que tu te sentes pressée."
             i "Merci."
 
-        "Lui demander ce qui l'aiderait.":
-            $ communication += 2
-            $ confiance += 1
-            $ autonomie_ilona += 1
-            $ ilona_peut_finir_ses_phrases += 1
-            j "Tu veux que je parle plus ? Ou juste que je reste là ?"
-            i "Je sais pas encore."
-            j "Alors on verra."
-            i "Oui. On verra."
+        "Se défendre.":
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            j "Je fais pas exprès d'être bizarre."
+            i "Je sais."
+            i "Je disais pas ça contre toi."
+            systeme "Jessy hoche la tête, gêné. Il a répondu trop vite."
 
+        "Lui dire qu'elle peut prendre son temps.":
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ ilona_peut_finir_ses_phrases += 1
+            $ pression_stream = max(0, pression_stream - 2)
+            j "Tu peux prendre ton temps avec moi."
+            j "Même si je suis maladroit."
+            show ilona smile at char_right
+            i "Tu l'es un peu."
+            j "Je sais."
+            i "Mais c'est mieux quand tu le sais."
     systeme "Cette fois, ils ne repartent pas tout de suite."
     systeme "Ils restent jusqu'à ce que le toit se vide, sans trouver une conclusion parfaite."
     systeme "Le lendemain midi, Allan arrive à la cantine avec l'air de quelqu'un qui a gardé une information beaucoup trop longtemps."

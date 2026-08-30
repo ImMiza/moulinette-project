@@ -9,12 +9,8 @@ image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_
 default arc4_5_maid_cafe_visite = False
 default arc4_5_sofiane_maid = False
 
-label arc_4_5_maid_cafe_check:
-    # Condition accès : synergie bonne
-    if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
-        jump arc_4_5_maid_cafe
-    else:
-        return
+# La condition d'acces est evaluee inline dans arc_4_noel.rpy avant le call.
+# L'ancien label arc_4_5_maid_cafe_check n'etait appele nulle part : supprime.
 
 label arc_4_5_maid_cafe:
     $ arc4_5_maid_cafe_visite = True
@@ -83,8 +79,7 @@ label arc_4_5_maid_cafe:
         "Jessy doit répondre."
         
         "Accepter avec curiosité honnête.":
-            $ lien_jessy_ilona += 1
-            $ communication += 1
+            $ lien_jessy_ilona += 2
             j "Pourquoi pas. J'ai jamais vraiment vu ça en vrai."
             i "Moi non plus."
             i "Donc on va découvrir ensemble si c'est adorable ou terrifiant."
@@ -92,7 +87,7 @@ label arc_4_5_maid_cafe:
             systeme "Ils poussent la porte."
         
         "Faire une blague pour désamorcer la gêne.":
-            $ lien_jessy_ilona += 1
+            $ lien_jessy_ilona += 2
             j "Si Alexandre apprend qu'on est allés dans un maid café sans lui, il va théoriser notre disparition."
             show ilona smile at char_left
             i "Il va dessiner un schéma avec des flèches rouges."
@@ -101,6 +96,10 @@ label arc_4_5_maid_cafe:
             systeme "Ils poussent la porte en riant."
         
         "Demander si Ilona est sûre.":
+            $ autonomie_ilona += 2
+            $ communication += 1
+            $ confiance += 1
+            $ pression_stream = max(0, pression_stream - 1)
             j "Tu es sûre ?"
             i "Pourquoi je serais pas sûre ?"
             j "Je sais pas. C'est... particulier ?"
@@ -192,9 +191,10 @@ label arc_4_5_maid_cafe:
     hide sofiane
     with dissolve
     
+    # Seule soupape de pression du jeu. Recompense de complicite (tier B) :
+    # pas de gain de communication, la scene ne resout rien.
     $ lien_jessy_ilona += 2
-    $ communication += 1
-    $ pression_stream -= 1
+    $ pression_stream = max(0, pression_stream - 1)
     $ arc4_5_sofiane_maid = True
     
     systeme "Ils restent une demi-heure. Boivent leur chocolat. Parlent de tout sauf de Théo, des cadeaux, des décisions."

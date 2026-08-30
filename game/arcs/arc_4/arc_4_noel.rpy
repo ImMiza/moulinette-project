@@ -1,4 +1,4 @@
-# Arc IV - Noel : le cadeau qui dit trop de choses.
+﻿# Arc IV - Noel : le cadeau qui dit trop de choses.
 # Les variables importantes restent centralisees dans script.rpy.
 
 image bg arc4 train inside = im.Scale("images/scenes/arc_4/bg_arc4_train_inside.jpg", 1920, 1080)
@@ -10,7 +10,6 @@ image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_min
 
 image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 843, 1264)
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
-image laplage christmas thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_horizontal.png", 843, 1264)
 
 # Variables locales d'arc : elles gardent la trace du sens donne aux cadeaux et aux limites posees.
 default arc4_cadeau_jessy = ""
@@ -71,10 +70,10 @@ label arc_4_noel:
 
     systeme "Le train ralentit près de la grande galerie commerciale. Des guirlandes clignotent déjà au-dessus des escalators."
     
-    if jalousie >= 3:
+    if jalousie >= 9:
         systeme "Jessy regarde Ilona. Elle regarde la vitre. Il y a trois mois, il aurait demandé à quoi elle pense."
         systeme "Maintenant, il a peur de la réponse."
-    elif confiance >= 3 and communication >= 3:
+    elif confiance >= 15 and communication >= 15:
         systeme "Le silence entre eux tient sans se casser. Pas toujours confortable. Mais moins dangereux qu'avant."
     
     i "Allan a envoyé le planning ?"
@@ -84,7 +83,7 @@ label arc_4_noel:
     i "Je ne veux pas savoir."
     systeme "Elle sourit, puis regarde les illuminations qui passent derrière la vitre."
     
-    if pression_stream >= 2:
+    if pression_stream >= 6:
         systeme "Le sourire ne monte pas jusqu'aux yeux. Ilona est fatiguée. Jessy le voit. Il ne sait pas encore quoi en faire."
     
     i "Tu viens ce soir ?"
@@ -152,12 +151,27 @@ label arc_4_noel:
     menu:
         "Alexandre attend. La miniature pèse dans le sac de Jessy. Il doit décider ce qu'elle porte."
 
+        "Offrir la miniature en avouant qu'elle porte trop de choses.":
+            $ arc4_cadeau_jessy = "miniature_aveu"
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
+            $ remember("maison_respectee")
+            j "Je vais lui donner. Mais je vais aussi lui dire que je sais que ça veut trop dire."
+            x "Tu vas offrir un cadeau avec un avertissement ?"
+            j "Oui. Parce que je refuse de faire comme si c'était juste un objet mignon."
+            x "C'est honnête. C'est aussi un peu flippant."
+            j "Tout est flippant ce soir."
+            systeme "Alexandre acquiesce. Il ne peut pas le contredire."
+
+
         "Offrir la miniature avec ses erreurs, comme témoin de ce qui a existé.":
             $ arc4_cadeau_jessy = "miniature_souvenir"
-            $ lien_jessy_ilona += 1
-            $ confiance += 1
-            $ communication += 1
-            $ jalousie += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             $ remember("maison_respectee")
             j "Je vais lui offrir ce qu'on a construit. Avec le couloir inutile. Avec la pièce cassée."
             x "Donc un souvenir, pas une promesse."
@@ -167,29 +181,12 @@ label arc_4_noel:
             systeme "Alexandre regarde la boîte. Il ne dit pas que c'est une bonne idée. Il ne dit pas que c'est une mauvaise."
             x "Au moins, c'est honnête."
 
-        "Offrir la miniature mais en blague, pour désamorcer le poids.":
-            $ arc4_cadeau_jessy = "blague_interne"
-            $ lien_jessy_ilona += 2
-            $ communication += 2
-            $ pression_stream -= 1
-            $ confiance += 1
-            j "Je vais ajouter un panneau ridicule. Pièce moyennement importante, édition neige."
-            x "Tu transformes un souvenir lourd en connivence."
-            j "Oui."
-            x "C'est lâche ou malin ?"
-            j "Les deux. Surtout lâche."
-            x "Mais elle va rire."
-            j "J'espère. Et j'espère que le rire cache pas juste que j'ai eu trop peur de dire un truc sérieux."
-            systeme "Alexandre sourit. Petit."
-            x "Bienvenue dans l'humanité, Jessy."
-
         "Paniquer et acheter un cadeau neutre à la place.":
             $ arc4_cadeau_jessy = "cadeau_couteux"
-            $ lien_jessy_ilona -= 1
-            $ confiance -= 1
-            $ jalousie += 2
-            $ influence_theo += 2
+            $ communication -= 4
+            $ confiance -= 2
             $ pression_stream += 2
+            $ evitements += 1
             systeme "Jessy range la miniature au fond de son sac. Trop fort. Comme pour l'étouffer."
             j "Je vais prendre autre chose."
             x "Comme quoi ?"
@@ -200,12 +197,25 @@ label arc_4_noel:
             systeme "Jessy achète une écharpe. Belle. Chère. Vide."
             systeme "Alexandre ne dit rien. Son silence pèse plus lourd que le prix du cadeau."
 
+        "Offrir la miniature mais en blague, pour désamorcer le poids.":
+            $ arc4_cadeau_jessy = "blague_interne"
+            $ lien_jessy_ilona += 4
+            j "Je vais ajouter un panneau ridicule. Pièce moyennement importante, édition neige."
+            x "Tu transformes un souvenir lourd en connivence."
+            j "Oui."
+            x "C'est lâche ou malin ?"
+            j "Les deux. Surtout lâche."
+            x "Mais elle va rire."
+            j "J'espère. Et j'espère que le rire cache pas juste que j'ai eu trop peur de dire un truc sérieux."
+            systeme "Alexandre sourit. Petit."
+            x "Bienvenue dans l'humanité, Jessy."
+
         "Ne rien offrir ce soir et miser sur la conversation seule.":
             $ arc4_cadeau_jessy = "discussion_honnete"
-            $ communication += 3
+            $ autonomie_ilona += 4
+            $ communication += 2
             $ confiance += 2
-            $ autonomie_ilona += 2
-            $ jalousie -= 1
+            $ pression_stream = max(0, pression_stream - 2)
             $ remember("jessy_nomme_sa_peur")
             j "Je crois que j'ai fait cette miniature pour éviter de parler."
             x "Et ?"
@@ -214,22 +224,6 @@ label arc_4_noel:
             j "Ouais."
             x "Donc probablement le plus juste."
             systeme "Jessy range la boîte. Elle reste dans le sac. Pas jetée. Juste... en attente."
-
-        "Offrir la miniature en avouant qu'elle porte trop de choses.":
-            $ arc4_cadeau_jessy = "miniature_aveu"
-            $ lien_jessy_ilona += 2
-            $ communication += 2
-            $ confiance += 1
-            $ jalousie += 1
-            $ pression_stream += 1
-            $ remember("maison_respectee")
-            j "Je vais lui donner. Mais je vais aussi lui dire que je sais que ça veut trop dire."
-            x "Tu vas offrir un cadeau avec un avertissement ?"
-            j "Oui. Parce que je refuse de faire comme si c'était juste un objet mignon."
-            x "C'est honnête. C'est aussi un peu flippant."
-            j "Tout est flippant ce soir."
-            systeme "Alexandre acquiesce. Il ne peut pas le contredire."
-
     hide alex
     hide jessy
     with dissolve
@@ -258,7 +252,7 @@ label arc_4_noel:
     systeme "Il le dit doucement, comme si c'était seulement une attention."
     systeme "Jessy remarque qu'Ilona sourit. Il remarque aussi qu'elle cherche immédiatement quelque chose à manger, comme si le sourire devait s'occuper la bouche."
     
-    if influence_theo >= 2:
+    if influence_theo >= 6:
         systeme "Théo sait toujours ce qu'Ilona regarde. Ce qu'elle veut. Jessy le sait aussi."
         systeme "La différence, c'est que Théo le transforme en geste avant que Jessy ait fini de réfléchir."
     elif lien_ilona_theo >= 2:
@@ -292,10 +286,10 @@ label arc_4_noel:
 
         "Reconnaître le cadeau mais nommer sa propre douleur.":
             $ arc4_reaction_cadeau_theo = "reconnaitre"
-            $ communication += 2
-            $ confiance += 1
-            $ jalousie += 2
-            $ autonomie_ilona += 1
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             j "C'est un beau cadeau."
             systeme "Théo tourne la tête vers lui, surpris."
             j "Et ça fait mal de voir quelqu'un d'autre se souvenir aussi bien."
@@ -307,13 +301,29 @@ label arc_4_noel:
             i "Merci d'être honnête."
             systeme "Elle ne dit pas 'ne sois pas triste'. Elle accepte juste que la douleur existe."
 
+        "Poser une question simple à Ilona.":
+            $ arc4_reaction_cadeau_theo = "demander_ressenti"
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ ilona_peut_finir_ses_phrases += 1
+            $ pression_stream = max(0, pression_stream - 2)
+            j "Ça te touche ?"
+            systeme "La question ne vise pas Théo. Elle ne vise qu'Ilona."
+            i "Oui."
+            $ renpy.pause(0.5)
+            i "Ça me touche."
+            j "D'accord."
+            systeme "Jessy ne demande pas 'plus que mes cadeaux'. Il ne demande pas 'tu vas sortir avec lui maintenant'. Il écoute juste."
+            systeme "Ilona garde le carnet contre elle. Moins comme une preuve que comme un objet qu'elle veut comprendre."
+            systeme "Théo regarde la scène sans intervenir. Pour une fois."
+
         "Rester silencieux et encaisser seul.":
             $ arc4_reaction_cadeau_theo = "laisser_repondre"
-            $ autonomie_ilona += 2
-            $ ilona_peut_finir_ses_phrases += 1
-            $ jalousie += 2
-            $ communication -= 1
-            $ pression_stream += 1
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             systeme "Jessy serre la sangle de son sac. Ses jointures blanchissent."
             systeme "Il voudrait dire quelque chose. N'importe quoi. Mais sa gorge refuse de lâcher un mot qui ne sera pas une accusation."
             systeme "Alors il se tait. Et le silence fait plus mal que prévu."
@@ -325,44 +335,11 @@ label arc_4_noel:
             systeme "Jessy détourne les yeux. Il a l'impression que tout le marché vient de voir qu'il ne sait plus comment être celui qui compte."
             systeme "Mais Ilona regarde Jessy. Elle a vu le silence. Elle ne sait pas encore quoi en faire."
 
-        "Faire une remarque acide qui déborde.":
-            $ arc4_reaction_cadeau_theo = "blague_acide"
-            $ jalousie += 3
-            $ communication -= 2
-            $ pression_stream += 2
-            $ influence_theo += 1
-            $ lien_jessy_ilona -= 1
-            j "Pratique. On pourra noter tous les détails qu'on rate pendant qu'on vit les moments."
-            show ilona frustrated at char_midleft
-            systeme "La phrase claque. Théo se fige."
-            t "C'est juste un carnet, Jessy."
-            j "Oui. Et moi je suis juste quelqu'un qui regarde quelqu'un d'autre gagner avec mes propres souvenirs."
-            i "Arrête."
-            systeme "Le mot d'Ilona sort tranchant. Jessy se tait, mais il vibre encore de tout ce qu'il n'a pas dit."
-            systeme "Théo ne sourit plus. Ilona ne regarde personne."
-
-        "Poser une question simple à Ilona.":
-            $ arc4_reaction_cadeau_theo = "demander_ressenti"
-            $ communication += 2
-            $ autonomie_ilona += 2
-            $ jalousie += 1
-            $ confiance += 1
-            j "Ça te touche ?"
-            systeme "La question ne vise pas Théo. Elle ne vise qu'Ilona."
-            i "Oui."
-            $ renpy.pause(0.5)
-            i "Ça me touche."
-            j "D'accord."
-            systeme "Jessy ne demande pas 'plus que mes cadeaux'. Il ne demande pas 'tu vas sortir avec lui maintenant'. Il écoute juste."
-            systeme "Ilona garde le carnet contre elle. Moins comme une preuve que comme un objet qu'elle veut comprendre."
-            systeme "Théo regarde la scène sans intervenir. Pour une fois."
-
         "Dire une vérité crue sans filtre.":
             $ arc4_reaction_cadeau_theo = "verite_crue"
-            $ jalousie += 2
-            $ communication += 1
-            $ pression_stream += 1
-            $ confiance += 1
+            $ communication += 4
+            $ confiance += 2
+            $ lien_jessy_ilona += 2
             j "Je viens de réaliser que je connais tes horaires mais pas tes besoins."
             systeme "La phrase tombe sans préparation. Ilona tourne la tête vers lui."
             j "Et lui vient de me le montrer en deux phrases."
@@ -372,6 +349,23 @@ label arc_4_noel:
             j "Non, c'est bon. Je ne t'en veux pas. Je m'en veux à moi."
             systeme "Ilona ne sait pas quoi répondre. Le carnet pèse différemment maintenant."
 
+
+        "Faire une remarque acide qui déborde.":
+            $ arc4_reaction_cadeau_theo = "blague_acide"
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            j "Pratique. On pourra noter tous les détails qu'on rate pendant qu'on vit les moments."
+            show ilona frustrated at char_midleft
+            systeme "La phrase claque. Théo se fige."
+            t "C'est juste un carnet, Jessy."
+            j "Oui. Et moi je suis juste quelqu'un qui regarde quelqu'un d'autre gagner avec mes propres souvenirs."
+            i "Arrête."
+            systeme "Le mot d'Ilona sort tranchant. Jessy se tait, mais il vibre encore de tout ce qu'il n'a pas dit."
+            systeme "Théo ne sourit plus. Ilona ne regarde personne."
     if arc4_reaction_cadeau_theo in ("blague_acide", "verite_crue"):
         show theo disappointed at char_midright
         t "Tu sais, Jessy, tu pourrais juste accepter qu'on puisse penser à elle autrement que toi."
@@ -451,8 +445,8 @@ label arc_4_noel:
     t "Je ne force personne à rester."
     laplage "Non. Mais tu gardes la clé."
     systeme "Le silence s'installe. Théo ne se défend pas. Laplage ne l'accuse pas non plus."
-    show laplage christmas thumb_horizontal at char_right
-    systeme "Laplage lève le pouce. Ni levé. Ni baissé. Juste... horizontal. Comme une question."
+    show laplage christmas neutral at char_right
+    systeme "Laplage ne lève pas le pouce. Ni approbation. Ni désapprobation. Juste... une question."
     systeme "Théo reste immobile. Puis il s'éloigne sans un mot."
     
     hide theo
@@ -507,7 +501,7 @@ label arc_4_noel:
     systeme "Il pose l'enveloppe sur le banc entre eux."
     s "Quelqu'un la lira au moment exact où il pensera qu'elle n'était pas pour lui."
     
-    if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
+    if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
         systeme "Sofiane regarde encore son téléphone. Puis le marché."
         s "Je dois partir. Le service m'appelle."
         a "Quel service ?"
@@ -518,17 +512,45 @@ label arc_4_noel:
     with dissolve
     $ arc4_carte_sofiane_lue = True
 
-    if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
-        x "Il a dit 'le service'."
-        a "Oui."
-        x "Sofiane a un job ?"
-        a "Apparemment. Et il refuse d'expliquer."
-        x "Évidemment."
-    else:
-        x "Je vote pour qu'il travaille officiellement dans la météo émotionnelle."
-        a "Je vais garder la carte."
-        x "Tu viens de tomber dans sa prophétie."
-        a "Je sais. C'est humiliant."
+    x "Il a dit 'le service'."
+    a "Oui."
+    x "Sofiane a un job ?"
+    a "Apparemment. Et il refuse d'expliquer."
+
+    show allan doubt at char_left
+    with dissolve
+
+    systeme "Allan regarde l'enveloppe sur le banc."
+    systeme "Personne ne l'a prise."
+
+    a "Tu crois qu'elle est pour qui ?"
+    x "Sofiane a dit : 'celui qui la lira en pensant qu'elle n'était pas pour lui'."
+    a "Donc personne, alors."
+    x "Ou quelqu'un qui ne sait jamais si les choses sont pour lui."
+
+    $ renpy.pause(1.0, hard=True)
+
+    a "La phrase qu'il a dite. Sur les lumières."
+    x "Ouais ?"
+    a "Je passe mon temps à éclairer les chemins des autres."
+    a "Mais je ne sais pas où va le mien."
+
+    systeme "Alexandre reste silencieux. Ce n'est pas souvent qu'Allan dit ce genre de chose."
+
+    x "Tu veux la prendre ?"
+    a "L'enveloppe ?"
+    x "Oui."
+
+    show allan silence at char_left
+    with dissolve
+
+    a "...Non. Pas maintenant."
+    a "Si elle est vraiment pour moi, elle attendra."
+
+    systeme "Il laisse l'enveloppe sur le banc."
+    systeme "Alexandre ne dit rien. Il sait que parfois, ne pas prendre quelque chose, c'est déjà une décision."
+    systeme "Plus tard, quand personne ne regarde, Sofiane récupère l'enveloppe."
+    systeme "Et la glisse dans la poche de la veste d'Allan accrochée au vestiaire."
 
     hide allan
     hide alex
@@ -599,11 +621,13 @@ label arc_4_noel:
     show laplage christmas thumb_up at char_right
     systeme "Il lève le pouce. Ilona prend le café. Il réchauffe ses doigts engourdis par le froid."
     i "Merci."
-    show laplage thumb_up at char_center
     systeme "Laplage acquiesce. Puis repart vers son stand."
     systeme "Ilona reste avec le carnet dans une main, le café dans l'autre."
     systeme "Le café ne résout rien. Mais il lui donne quelques secondes où elle peut juste respirer."
-    $ confidences_laplage += 1
+    # Deuxieme confidence : elle n'existe que si Jessy ne l'ecoute toujours pas assez.
+    # Une confidence a Laplage est une dette, pas un credit (porte de l'arc 6).
+    if ilona_peut_finir_ses_phrases < 4:
+        $ confidences_laplage += 1
     $ jugement_laplage += 1
 
     hide laplage
@@ -655,13 +679,59 @@ label arc_4_noel:
     menu:
         "Jessy vient d'avouer qu'il se sent en compétition. Ilona peut l'accueillir, le rejeter, ou montrer qu'elle aussi a peur."
 
+        "Demander ce que le cadeau de Théo signifie vraiment pour elle.":
+            $ arc4_limite_ilona = "demande_theo"
+            $ autonomie_ilona -= 6
+            $ confiance -= 6
+            $ influence_theo += 3
+            $ jalousie += 9
+            $ lien_jessy_ilona -= 3
+            $ controles += 1
+            j "Son cadeau... ça veut dire quelque chose pour toi ?"
+            show ilona frustrated at char_left
+            i "Jessy."
+            j "Je demande juste."
+            i "Non."
+            i "Tu demandes si je dois te rassurer avant même que j'aie le temps de comprendre ce que moi je ressens."
+            j "Ce n'est pas..."
+            i "Si."
+            systeme "Ilona serre le carnet."
+            i "Et tu sais ce qui est terrible ?"
+            i "C'est que je ne sais pas encore ce que ce cadeau signifie."
+            i "Mais maintenant, je ne peux plus le découvrir tranquillement parce que tu viens de transformer ça en épreuve de loyauté."
+            systeme "Jessy recule d'un pas."
+            j "Je voulais pas..."
+            i "Je sais ce que tu voulais."
+            i "Mais ce que tu fais, c'est différent."
+
+        "Offrir le cadeau neutre en essayant de sauver la face." if arc4_cadeau_jessy == "cadeau_couteux":
+            $ arc4_limite_ilona = "cadeau_preuve"
+            $ communication -= 6
+            $ confiance -= 3
+            $ pression_stream += 3
+            $ evitements += 1
+            systeme "Jessy sort l'écharpe avec une urgence mal cachée."
+            j "Tiens."
+            i "Qu'est-ce que c'est ?"
+            j "Un cadeau. Pour toi."
+            systeme "Ilona regarde l'écharpe. Elle est belle. Chère. Impersonnelle."
+            i "Elle est belle."
+            j "Mais ?"
+            i "Je n'ai pas dit mais."
+            j "Ton visage l'a dit."
+            systeme "Ilona prend l'écharpe. Le tissu glisse entre ses doigts."
+            i "Elle est belle, Jessy. Vraiment."
+            i "Mais j'ai l'impression que tu viens de paniquer dans une boutique en pensant à Théo."
+            systeme "Jessy ne répond pas. Ilona plie l'écharpe lentement."
+            i "Merci. Je vais la garder."
+            systeme "Le 'merci' sonne comme une politesse funéraire. Jessy l'entend. Il ne dit rien."
+
         "Offrir la miniature en avouant qu'elle porte trop de sens." if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
             $ arc4_limite_ilona = "cadeau_respirant"
-            $ lien_jessy_ilona += 2
-            $ confiance += 2
-            $ communication += 2
-            $ autonomie_ilona += 1
-            $ jalousie += 1
+            $ communication += 6
+            $ confiance += 3
+            $ jalousie = max(0, jalousie - 3)
+            $ lien_jessy_ilona += 3
             $ remember("maison_respectee")
             systeme "Jessy sort enfin la petite boîte. Sa main tremble légèrement."
             j "J'ai préparé ça."
@@ -710,35 +780,12 @@ label arc_4_noel:
             j "C'est honnête."
             i "Oui."
 
-        "Offrir le cadeau neutre en essayant de sauver la face." if arc4_cadeau_jessy == "cadeau_couteux":
-            $ arc4_limite_ilona = "cadeau_preuve"
-            $ lien_jessy_ilona -= 1
-            $ confiance -= 2
-            $ communication -= 1
-            $ influence_theo += 2
-            $ pression_stream += 2
-            systeme "Jessy sort l'écharpe avec une urgence mal cachée."
-            j "Tiens."
-            i "Qu'est-ce que c'est ?"
-            j "Un cadeau. Pour toi."
-            systeme "Ilona regarde l'écharpe. Elle est belle. Chère. Impersonnelle."
-            i "Elle est belle."
-            j "Mais ?"
-            i "Je n'ai pas dit mais."
-            j "Ton visage l'a dit."
-            systeme "Ilona prend l'écharpe. Le tissu glisse entre ses doigts."
-            i "Elle est belle, Jessy. Vraiment."
-            i "Mais j'ai l'impression que tu viens de paniquer dans une boutique en pensant à Théo."
-            systeme "Jessy ne répond pas. Ilona plie l'écharpe lentement."
-            i "Merci. Je vais la garder."
-            systeme "Le 'merci' sonne comme une politesse funéraire. Jessy l'entend. Il ne dit rien."
-
         "Ne rien offrir et avouer la peur sans filtre." if arc4_cadeau_jessy == "discussion_honnete":
             $ arc4_limite_ilona = "parole_sans_verdict"
+            $ autonomie_ilona += 6
             $ communication += 3
-            $ confiance += 2
-            $ autonomie_ilona += 2
-            $ jalousie += 1
+            $ confiance += 3
+            $ pression_stream = max(0, pression_stream - 3)
             $ remember("jessy_nomme_sa_peur")
             j "J'ai un cadeau dans mon sac."
             i "Ah."
@@ -761,37 +808,9 @@ label arc_4_noel:
             j "Ça aussi."
             systeme "Le rire arrive inattendu. Douloureux, mais réel."
 
-        "Demander ce que le cadeau de Théo signifie vraiment pour elle.":
-            $ arc4_limite_ilona = "demande_theo"
-            $ jalousie += 3
-            $ communication -= 2
-            $ autonomie_ilona -= 2
-            $ influence_theo += 2
-            $ pression_stream += 2
-            $ lien_jessy_ilona -= 2
-            j "Son cadeau... ça veut dire quelque chose pour toi ?"
-            show ilona frustrated at char_left
-            i "Jessy."
-            j "Je demande juste."
-            i "Non."
-            i "Tu demandes si je dois te rassurer avant même que j'aie le temps de comprendre ce que moi je ressens."
-            j "Ce n'est pas..."
-            i "Si."
-            systeme "Ilona serre le carnet."
-            i "Et tu sais ce qui est terrible ?"
-            i "C'est que je ne sais pas encore ce que ce cadeau signifie."
-            i "Mais maintenant, je ne peux plus le découvrir tranquillement parce que tu viens de transformer ça en épreuve de loyauté."
-            systeme "Jessy recule d'un pas."
-            j "Je voulais pas..."
-            i "Je sais ce que tu voulais."
-            i "Mais ce que tu fais, c'est différent."
-
         "Proposer de marcher ensemble sans parler de cadeaux.":
             $ arc4_limite_ilona = "marche_silencieuse"
-            $ communication += 1
-            $ lien_jessy_ilona += 1
-            $ autonomie_ilona += 1
-            $ pression_stream -= 1
+            $ lien_jessy_ilona += 6
             j "On pourrait marcher un peu ?"
             i "Pour aller où ?"
             j "Nulle part. Juste marcher."
@@ -825,15 +844,18 @@ label arc_4_noel:
         i "Et j'ai besoin que tu écoutes sans essayer de te défendre ou de réparer tout de suite."
         systeme "Jessy hoche la tête. Sa mâchoire se serre."
 
-    if arc4_reaction_cadeau_theo in ("laisser_repondre", "reconnaitre", "demander_ressenti"):
-        $ ilona_peut_finir_ses_phrases += 1
-    elif arc4_reaction_cadeau_theo in ("blague_acide", "verite_crue"):
+    # Seul un choix de tier D (couper Ilona) cree une dette d'interruption.
+    # Le bonus d'espace est deja porte par l'option de tier S du menu.
+    if arc4_reaction_cadeau_theo == "blague_acide":
         $ interruptions_ilona += 1
 
     i "Ce n'est pas parce que quelqu'un connaît mes goûts qu'il sait ce que je veux."
     systeme "Pause."
     i "Et ce n'est pas parce que je reçois un cadeau que je dois décider immédiatement ce qu'il signifie."
-    $ remember("ilona_pose_une_limite")
+    # Ilona pose sa limite dans tous les cas, mais elle ne "compte" comme souvenir
+    # que si on lui a laisse assez d'espace pour aller au bout sans etre coupee.
+    if ilona_peut_finir_ses_phrases >= 2 and interruptions_ilona <= interruptions_reparees:
+        $ remember("ilona_pose_une_limite")
     systeme "La phrase traverse la soirée entière. Elle touche Théo même absent. Elle touche Jessy même silencieux."
     i "J'ai le droit de garder des objets et de ne pas encore savoir si je les aime."
     systeme "Jessy regarde ses mains sur la rambarde."
@@ -845,11 +867,47 @@ label arc_4_noel:
     menu:
         "Ilona vient de poser sa limite. Jessy doit choisir comment l'accueillir."
 
-        "Accueillir la limite sans se défendre.":
-            $ communication += 3
+        "Demander ce qu'elle attend de lui, concrètement.":
+            $ autonomie_ilona += 4
+            $ communication += 2
             $ confiance += 2
-            $ autonomie_ilona += 2
+            $ pression_stream = max(0, pression_stream - 2)
+            j "Qu'est-ce que tu veux que je fasse ?"
+            i "Rien."
+            j "Rien ?"
+            i "Rien tout de suite. Juste... entendre ce que je viens de dire."
+            systeme "Jessy serre la rambarde."
+            j "J'ai peur que 'rien' veuille dire que c'est déjà fini."
+            i "Et j'ai peur que 'quelque chose' veuille dire que je dois décider maintenant."
+            systeme "Ils se regardent. Deux peurs face à face."
+            j "Ok. Je peux vivre avec rien pour ce soir."
+            i "Merci."
+
+        "Accepter la limite en silence, juste acquiescer.":
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            show jessy listening at char_right
+            systeme "Jessy hoche la tête. Il ne dit rien."
+            systeme "Pas parce qu'il n'a rien à dire. Parce qu'il sait que les mots maintenant transformeraient la limite en négociation."
+            systeme "Ilona regarde Jessy. Elle attend une défense. Un 'mais'. Une justification."
+            systeme "Rien ne vient."
+            i "C'est tout ?"
+            j "Oui."
+            i "Tu ne vas pas expliquer ?"
+            j "Non. Tu as posé une limite. Je l'entends."
+            systeme "Ilona reste immobile un instant. Puis elle expire lentement."
+            i "D'accord."
+            systeme "Le mot sonne différent. Presque soulagé."
+
+
+        "Accueillir la limite sans se défendre.":
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
+            $ pression_stream = max(0, pression_stream - 2)
             if interruptions_ilona > interruptions_reconnues:
                 $ interruptions_reconnues += 1
                 $ interruptions_reparees += 1
@@ -865,11 +923,28 @@ label arc_4_noel:
             systeme "Elle tend la main. Pas pour prendre celle de Jessy. Juste pour la poser à côté sur la rambarde."
             systeme "Leurs petits doigts se touchent. Pas s'enlacent. Se touchent."
 
+        "Dire qu'elle a raison mais que Théo joue quand même.":
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            j "Tu as raison."
+            systeme "Pause."
+            j "Mais Théo sait exactement ce qu'il fait."
+            show ilona frustrated at char_left
+            i "Jessy, je viens de..."
+            j "Non, écoute. Je t'écoute. Mais tu dois aussi voir qu'il joue un jeu."
+            i "Et toi, tu viens de décider que ma limite comptait moins que ton besoin de me prouver quelque chose."
+            systeme "La phrase claque. Jessy se tait."
+            i "C'est exactement ce dont je parlais."
+
         "Nommer sa peur sans s'effondrer.":
-            $ communication += 2
+            $ communication += 4
             $ confiance += 2
-            $ jalousie += 1
-            $ autonomie_ilona += 1
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             $ remember("jessy_nomme_sa_peur")
             j "J'entends."
             systeme "Jessy regarde la rivière."
@@ -884,58 +959,7 @@ label arc_4_noel:
             i "Garde ta peur de ton côté de la rambarde."
             j "D'accord."
             i "Et moi je garde la mienne du mien."
-
-        "Demander ce qu'elle attend de lui, concrètement.":
-            $ communication += 2
-            $ confiance += 1
-            $ autonomie_ilona += 1
-            $ jalousie += 1
-            j "Qu'est-ce que tu veux que je fasse ?"
-            i "Rien."
-            j "Rien ?"
-            i "Rien tout de suite. Juste... entendre ce que je viens de dire."
-            systeme "Jessy serre la rambarde."
-            j "J'ai peur que 'rien' veuille dire que c'est déjà fini."
-            i "Et j'ai peur que 'quelque chose' veuille dire que je dois décider maintenant."
-            systeme "Ils se regardent. Deux peurs face à face."
-            j "Ok. Je peux vivre avec rien pour ce soir."
-            i "Merci."
-
-        "Dire qu'elle a raison mais que Théo joue quand même.":
-            $ jalousie += 3
-            $ communication -= 1
-            $ influence_theo += 2
-            $ pression_stream += 2
-            $ confiance -= 1
-            j "Tu as raison."
-            systeme "Pause."
-            j "Mais Théo sait exactement ce qu'il fait."
-            show ilona frustrated at char_left
-            i "Jessy, je viens de..."
-            j "Non, écoute. Je t'écoute. Mais tu dois aussi voir qu'il joue un jeu."
-            i "Et toi, tu viens de décider que ma limite comptait moins que ton besoin de me prouver quelque chose."
-            systeme "La phrase claque. Jessy se tait."
-            i "C'est exactement ce dont je parlais."
-
-        "Accepter la limite en silence, juste acquiescer.":
-            $ communication += 1
-            $ confiance += 1
-            $ autonomie_ilona += 2
-            $ jalousie += 1
-            show jessy listening at char_right
-            systeme "Jessy hoche la tête. Il ne dit rien."
-            systeme "Pas parce qu'il n'a rien à dire. Parce qu'il sait que les mots maintenant transformeraient la limite en négociation."
-            systeme "Ilona regarde Jessy. Elle attend une défense. Un 'mais'. Une justification."
-            systeme "Rien ne vient."
-            i "C'est tout ?"
-            j "Oui."
-            i "Tu ne vas pas expliquer ?"
-            j "Non. Tu as posé une limite. Je l'entends."
-            systeme "Ilona reste immobile un instant. Puis elle expire lentement."
-            i "D'accord."
-            systeme "Le mot sonne différent. Presque soulagé."
-
-    if arc4_limite_ilona in ("cadeau_respirant", "parole_sans_verdict", "marche_silencieuse") and communication >= 5:
+    if arc4_limite_ilona in ("cadeau_respirant", "parole_sans_verdict", "marche_silencieuse") and communication >= 25:
         show ilona smile at char_left
         if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
             systeme "Ilona ramasse le carnet. Puis la miniature."
@@ -1052,7 +1076,7 @@ label arc_4_noel:
     with dissolve
 
     # Arc 4.5 alternatif - Ilona accepte de marcher avec Théo (route Théo)
-    if influence_theo >= 5 and confiance <= 2 and arc4_limite_ilona == "demande_theo":
+    if influence_theo >= 10 and confiance <= 8 and arc4_limite_ilona == "demande_theo":
         systeme "Mais quelque chose change."
 
         show ilona neutral at char_right
@@ -1110,7 +1134,7 @@ label arc_4_noel:
     with dissolve
     
     # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
-    if lien_jessy_ilona >= 6 and communication >= 5 and confiance >= 4:
+    if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
         call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
 
     # Arc 4.5 - Scène marche Théo/Ilona (si route Théo)
@@ -1218,6 +1242,13 @@ label arc_4_noel:
     else:
         systeme "La nuit avance. La neige carrée adoucit les angles."
         systeme "Demain, elle fondra peut-être. Ce soir, elle laisse assez de lumière pour voir où on marche."
+
+    $ renpy.pause(1.0, hard=True)
+
+    systeme "Plus tard, Jessy se déconnecte. Sur Discord, la pastille d'Ilona est toujours verte."
+    systeme "Sous son pseudo, le petit statut que personne ne lit jamais : {i}\"regarde : deuxième jour de setup\"{/i}."
+    systeme "Il est deux heures dix. Ce n'est pas la première fois qu'il le voit."
+    systeme "Il n'a jamais demandé ce qu'elle regarde à deux heures du matin."
 
     jump arc_5_examens
 

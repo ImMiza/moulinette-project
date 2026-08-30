@@ -143,36 +143,15 @@ label arc_5_examens:
 
     menu:
         systeme "Le gobelet de thé est là, entre les mains d'Ilona. Théo attend, détendu, comme quelqu'un qui sait qu'il a fait la bonne chose."
-        
-        "Ne rien dire. Avaler la pilule.":
-            $ confiance += 1
-            $ jalousie += 2
-            $ arc5_tension_accumulee += 1
-            systeme "Jessy prend son café. Le goût est amer. Pas seulement à cause du café."
-            systeme "Il pourrait dire quelque chose. Remercier Théo. Faire une blague. N'importe quoi."
-            systeme "Mais les mots restent coincés. Parce que dire quelque chose maintenant, ce serait admettre que le geste de Théo l'a touché."
-            systeme "Alors il se tait. Et le silence dit tout ce qu'il ne dit pas."
-            show ilona neutral at char_midleft
-            systeme "Ilona le regarde par-dessus son gobelet. Elle a vu. Elle voit toujours."
-
-        "Remercier Théo sincèrement.":
-            $ confiance += 2
-            $ jalousie -= 1
-            $ lien_jessy_ilona += 1
-            j "Merci pour le café, Théo."
-            systeme "Les mots sortent. Ils sont vrais. C'est peut-être pour ça qu'ils font un peu mal."
-            show theo neutral at char_right
-            t "De rien."
-            systeme "Théo hoche la tête. Pas de triomphe dans ses yeux. Juste de la normalité."
-            systeme "Et c'est presque pire. Parce que ça veut dire qu'il ne joue même pas. Il est juste... comme ça."
-            show ilona smile at char_midleft
-            systeme "Ilona sourit. Un vrai sourire. Le premier depuis des jours."
-            systeme "Il n'est pas pour Jessy. Mais il existe. C'est quelque chose."
 
         "Demander à Ilona si elle voulait vraiment ce thé-là.":
-            $ jalousie += 3
-            $ confiance -= 2
-            $ autonomie_ilona -= 1
+            # Tier D - controle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             $ arc5_tension_accumulee += 2
             j "C'était celui que tu voulais ?"
             systeme "La question sort avant qu'il puisse la retenir."
@@ -188,9 +167,13 @@ label arc_5_examens:
             $ interruptions_ilona += 1
 
         "Proposer d'aller chercher autre chose, quelque chose de personnel.":
-            $ jalousie += 2
-            $ pression_stream += 1
-            $ confiance -= 1
+            # Tier D - controle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             j "Tu veux autre chose ? Je peux aller chercher ce truc que tu aimes, là, avec la..."
             show ilona frustrated at char_midleft
             i "Jessy. J'ai déjà un thé."
@@ -203,6 +186,36 @@ label arc_5_examens:
             i "Si. C'est exactement ce que tu fais."
             systeme "Elle boit son thé. La conversation est terminée."
 
+
+        "Remercier Théo sincèrement.":
+            # Tier A - se nommer
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
+            j "Merci pour le café, Théo."
+            systeme "Les mots sortent. Ils sont vrais. C'est peut-être pour ça qu'ils font un peu mal."
+            show theo neutral at char_right
+            t "De rien."
+            systeme "Théo hoche la tête. Pas de triomphe dans ses yeux. Juste de la normalité."
+            systeme "Et c'est presque pire. Parce que ça veut dire qu'il ne joue même pas. Il est juste... comme ça."
+            show ilona smile at char_midleft
+            systeme "Ilona sourit. Un vrai sourire. Le premier depuis des jours."
+            systeme "Il n'est pas pour Jessy. Mais il existe. C'est quelque chose."
+        
+        "Ne rien dire. Avaler la pilule.":
+            # Tier C - evitement
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            $ arc5_tension_accumulee += 1
+            systeme "Jessy prend son café. Le goût est amer. Pas seulement à cause du café."
+            systeme "Il pourrait dire quelque chose. Remercier Théo. Faire une blague. N'importe quoi."
+            systeme "Mais les mots restent coincés. Parce que dire quelque chose maintenant, ce serait admettre que le geste de Théo l'a touché."
+            systeme "Alors il se tait. Et le silence dit tout ce qu'il ne dit pas."
+            show ilona neutral at char_midleft
+            systeme "Ilona le regarde par-dessus son gobelet. Elle a vu. Elle voit toujours."
     hide theo
     with dissolve
 
@@ -256,34 +269,13 @@ label arc_5_examens:
 
     menu:
         systeme "Allan attend. Alexandre aussi. Même Théo, de sa table, semble écouter."
-        
-        "Admettre qu'il ne lui a pas demandé parce qu'il avait peur de la réponse.":
-            $ communication += 2
-            $ confiance += 1
-            j "Non. Je n'ai pas demandé."
-            a "Pourquoi ?"
-            j "Parce que si elle me dit qu'elle va mal, je vais vouloir réparer."
-            j "Et elle m'a dit à Noël qu'elle ne voulait pas être réparée."
-            systeme "Le silence qui suit est lourd."
-            show allan support at char_center
-            a "Tu sais que 'demander comment ça va' et 'essayer de réparer' c'est pas la même chose ?"
-            j "En théorie, oui."
-            a "Et en pratique ?"
-            j "En pratique, je ne sais pas faire la différence."
-            systeme "C'est peut-être la chose la plus honnête qu'il ait dite depuis des semaines."
-
-        "Dire qu'il lui fait confiance pour gérer.":
-            $ confiance += 1
-            $ arc5_jessy_a_menti = True
-            j "Je lui fais confiance. Elle gère."
-            show allan doubt at char_center
-            a "Tu lui fais confiance ou tu évites le sujet ?"
-            j "C'est quoi la différence ?"
-            a "La première version, tu l'as décidée. La deuxième, c'est elle qui l'a subie."
-            systeme "Jessy ne répond pas. La réponse est trop claire pour être dite à voix haute."
 
         "Changer de sujet. Parler des examens.":
-            $ communication -= 1
+            # Tier C - evitement
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
             $ arc5_tension_accumulee += 1
             j "On devrait se remettre au travail. Les examens..."
             show allan silence at char_center
@@ -295,6 +287,38 @@ label arc_5_examens:
             systeme "Jessy ouvre la bouche pour répondre. Puis il la referme."
             systeme "Allan a raison. C'est pour ça que ça fait mal."
 
+
+        "Dire qu'il lui fait confiance pour gérer.":
+            # Tier C - evitement : c'est un mensonge, il ne doit pas rapporter de confiance
+            $ communication -= 2
+            $ confiance -= 1
+            $ pression_stream += 1
+            $ evitements += 1
+            $ arc5_jessy_a_menti = True
+            j "Je lui fais confiance. Elle gère."
+            show allan doubt at char_center
+            a "Tu lui fais confiance ou tu évites le sujet ?"
+            j "C'est quoi la différence ?"
+            a "La première version, tu l'as décidée. La deuxième, c'est elle qui l'a subie."
+            systeme "Jessy ne répond pas. La réponse est trop claire pour être dite à voix haute."
+        
+        "Admettre qu'il ne lui a pas demandé parce qu'il avait peur de la réponse.":
+            # Tier A - se nommer
+            $ communication += 2
+            $ confiance += 1
+            $ jalousie = max(0, jalousie - 1)
+            $ lien_jessy_ilona += 1
+            j "Non. Je n'ai pas demandé."
+            a "Pourquoi ?"
+            j "Parce que si elle me dit qu'elle va mal, je vais vouloir réparer."
+            j "Et elle m'a dit à Noël qu'elle ne voulait pas être réparée."
+            systeme "Le silence qui suit est lourd."
+            show allan support at char_center
+            a "Tu sais que 'demander comment ça va' et 'essayer de réparer' c'est pas la même chose ?"
+            j "En théorie, oui."
+            a "Et en pratique ?"
+            j "En pratique, je ne sais pas faire la différence."
+            systeme "C'est peut-être la chose la plus honnête qu'il ait dite depuis des semaines."
     hide allan
     hide alex
     hide jessy
@@ -320,7 +344,7 @@ label arc_5_examens:
     systeme "Jessy attend sous l'auvent du cinéma. Ils avaient prévu ça depuis dix jours. Un film, puis manger quelque chose. Simple. Normal."
     
     # Si bonnes conditions, Ilona vient quand même
-    if lien_jessy_ilona >= 8 and confiance >= 5 and communication >= 5:
+    if (lien_jessy_ilona >= 20 or autonomie_ilona >= 30) and confiance >= 15 and communication >= 20:
         show ilona fatigue at char_right
         with dissolve
         
@@ -413,52 +437,14 @@ label arc_5_examens:
 
     menu:
         systeme "Le curseur clignote. Le message attend une réponse."
-        
-        "\"D'accord. Repose-toi bien. Je suis là si tu as besoin.\"":
-            $ arc5_sortie_annulee = "accepte"
-            $ confiance += 2
-            $ autonomie_ilona += 2
-            $ remember("ilona_libre_sans_abandon")
-            systeme "Les mots sont simples. Pas de reproche caché. Pas de question déguisée."
-            systeme "Jessy appuie sur envoyer. L'écran redevient noir."
-            systeme "Trois minutes passent. Puis :"
-            systeme "{i}\"Merci. Vraiment.\"{/i}"
-            systeme "Le 'vraiment' dit tout ce que le reste du message ne dit pas."
-            systeme "Elle s'attendait à autre chose. Une question. Une insistance. Une déception mal cachée."
-            systeme "Elle n'a eu que de l'espace."
-
-        "\"Tu es sûre que ça va ? Tu annules beaucoup ces derniers temps.\"":
-            $ arc5_sortie_annulee = "inquiet"
-            $ jalousie += 1
-            $ communication += 1
-            $ arc5_tension_accumulee += 1
-            systeme "La question part avant qu'il puisse la retenir. Elle est vraie. C'est peut-être pour ça qu'elle est dangereuse."
-            systeme "La réponse met du temps à arriver."
-            systeme "{i}\"Je suis fatiguée, Jessy. C'est tout.\"{/i}"
-            systeme "Le point à la fin est une porte qui se ferme."
-            systeme "Il pourrait insister. Demander ce que 'fatiguée' veut vraiment dire. Creuser."
-            systeme "Mais creuser ressemble parfois à envahir."
-            j "D'accord. Repose-toi."
-            systeme "Il n'ajoute pas 'je suis là'. Ça sonnerait comme une demande maintenant."
-
-        "\"C'est la troisième fois ce mois-ci. Je commence à me demander si c'est vraiment la fatigue.\"":
-            $ arc5_sortie_annulee = "confronte"
-            $ jalousie += 3
-            $ confiance -= 2
-            $ communication -= 1
-            $ arc5_tension_accumulee += 3
-            $ pression_stream += 1
-            systeme "Les mots sortent. Ils sont vrais. Ils sont aussi injustes."
-            systeme "Parce que oui, c'est la troisième fois. Mais compter, c'est déjà accuser."
-            systeme "La réponse arrive vite. Trop vite."
-            systeme "{i}\"Tu tiens un tableau de mes annulations maintenant ?\"{/i}"
-            systeme "Puis, immédiatement après :"
-            systeme "{i}\"Je suis fatiguée. Vraiment. Et là, tu me fatigues encore plus.\"{/i}"
-            systeme "Jessy fixe l'écran. Il a voulu dire quelque chose d'honnête. Il a dit quelque chose de blessant."
-            systeme "La différence entre les deux n'est pas dans l'intention. Elle est dans l'impact."
 
         "Ne pas répondre tout de suite. Attendre. Réfléchir.":
             $ arc5_sortie_annulee = "silence"
+            # Tier C - evitement
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
             $ arc5_tension_accumulee += 2
             systeme "Jessy fixe l'écran. Les mots se forment dans sa tête, puis se défont."
             systeme "Répondre vite, c'est risquer de dire quelque chose de stupide."
@@ -474,13 +460,69 @@ label arc_5_examens:
             systeme "{i}\"Et tu veux dire quoi ?\"{/i}"
             systeme "La question est une porte ouverte. Jessy ne sait pas s'il doit y entrer."
 
+
+        "\"Tu es sûre que ça va ? Tu annules beaucoup ces derniers temps.\"":
+            $ arc5_sortie_annulee = "inquiet"
+            # Tier D - controle : verifier sa parole au lieu de la croire
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            $ arc5_tension_accumulee += 1
+            systeme "La question part avant qu'il puisse la retenir. Elle est vraie. C'est peut-être pour ça qu'elle est dangereuse."
+            systeme "La réponse met du temps à arriver."
+            systeme "{i}\"Je suis fatiguée, Jessy. C'est tout.\"{/i}"
+            systeme "Le point à la fin est une porte qui se ferme."
+            systeme "Il pourrait insister. Demander ce que 'fatiguée' veut vraiment dire. Creuser."
+            systeme "Mais creuser ressemble parfois à envahir."
+            j "D'accord. Repose-toi."
+            systeme "Il n'ajoute pas 'je suis là'. Ça sonnerait comme une demande maintenant."
+
+        "\"C'est la troisième fois ce mois-ci. Je commence à me demander si c'est vraiment la fatigue.\"":
+            $ arc5_sortie_annulee = "confronte"
+            # Tier D - controle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            $ arc5_tension_accumulee += 3
+            systeme "Les mots sortent. Ils sont vrais. Ils sont aussi injustes."
+            systeme "Parce que oui, c'est la troisième fois. Mais compter, c'est déjà accuser."
+            systeme "La réponse arrive vite. Trop vite."
+            systeme "{i}\"Tu tiens un tableau de mes annulations maintenant ?\"{/i}"
+            systeme "Puis, immédiatement après :"
+            systeme "{i}\"Je suis fatiguée. Vraiment. Et là, tu me fatigues encore plus.\"{/i}"
+            systeme "Jessy fixe l'écran. Il a voulu dire quelque chose d'honnête. Il a dit quelque chose de blessant."
+            systeme "La différence entre les deux n'est pas dans l'intention. Elle est dans l'impact."
+        
+        "\"D'accord. Repose-toi bien. Je suis là si tu as besoin.\"":
+            $ arc5_sortie_annulee = "accepte"
+            # Tier S - rendre l'espace
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ pression_stream = max(0, pression_stream - 2)
+            $ remember("ilona_libre_sans_abandon")
+            systeme "Les mots sont simples. Pas de reproche caché. Pas de question déguisée."
+            systeme "Jessy appuie sur envoyer. L'écran redevient noir."
+            systeme "Trois minutes passent. Puis :"
+            systeme "{i}\"Merci. Vraiment.\"{/i}"
+            systeme "Le 'vraiment' dit tout ce que le reste du message ne dit pas."
+            systeme "Elle s'attendait à autre chose. Une question. Une insistance. Une déception mal cachée."
+            systeme "Elle n'a eu que de l'espace."
     if arc5_sortie_annulee == "silence":
         menu:
             systeme "Elle attend. La pluie continue."
             
             "\"Que je comprends. Et que ça me fait chier quand même.\"":
+                # Tier A - se nommer
                 $ communication += 2
                 $ confiance += 1
+                $ jalousie = max(0, jalousie - 1)
                 $ lien_jessy_ilona += 1
                 systeme "Honnêteté. Pas polie. Pas agressive. Juste vraie."
                 systeme "{i}\"...\"{/i}"
@@ -495,8 +537,11 @@ label arc_5_examens:
                 $ arc5_sortie_annulee = "honnetete"
             
             "\"Rien de spécial. Repose-toi bien.\"":
-                $ communication -= 1
+                # Tier C - evitement
+                $ communication -= 2
                 $ confiance -= 1
+                $ pression_stream += 1
+                $ evitements += 1
                 systeme "Mensonge. Petit. Mais mensonge quand même."
                 systeme "{i}\"Ok.\"{/i}"
                 systeme "Un seul mot. Sec. Elle a compris qu'il n'a pas dit la vérité."
@@ -514,7 +559,7 @@ label arc_5_examens:
     systeme "En s'installant, il remarque quelque chose sous la chaise voisine. Un stylo. Violet. Avec des étoiles dessus."
     systeme "C'est celui d'Ilona. Elle le cherchait depuis deux semaines."
     
-    if arc2_photo_reaction == "reste_bord":
+    if arc2_photo_reaction == "silence_photo":
         systeme "Jessy repense à la plage. Au porte-clés qu'elle avait perdu. C'était Théo qui l'avait retrouvé."
         systeme "Cette fois, c'est lui. C'est stupide, mais ça compte."
     
@@ -623,7 +668,7 @@ label arc_5_examens:
         elif arc4_5_ilona_reaction == "directe":
             systeme "Théo dit ça calmement. Mais Jessy croit voir la même prudence que depuis Noël, comme si une question d'Ilona continuait de lui tenir la manche."
     
-    show theo reassuring at char_center
+    show theo neutral at char_center
     
     t "Je vais passer chez elle tout à l'heure."
     
@@ -633,7 +678,13 @@ label arc_5_examens:
         systeme "Théo attend. Allan observe. Le café est presque vide à cette heure."
         
         "\"Elle t'a demandé à toi ?\"":
-            $ jalousie += 2
+            # Tier D - controle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             $ arc5_tension_accumulee += 1
             j "Elle t'a demandé à toi ?"
             systeme "La question sort. Elle sonne plus accusatoire que prévu."
@@ -649,9 +700,28 @@ label arc_5_examens:
             a "Elle vient de t'envoyer un message pour dire qu'elle était fatiguée. Si tu débarques avec les notes, tu penses que ça dit quoi ?"
             systeme "Jessy ne répond pas. La réponse est trop claire."
 
+        "Rester silencieux. Observer Théo.":
+            # Tier C - evitement
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            systeme "Jessy ne dit rien. Il regarde Théo. Théo le regarde aussi."
+            systeme "Quelque chose passe entre eux. Pas de l'hostilité. Pas de la complicité non plus. Quelque chose de plus compliqué."
+            t "Tu veux que je lui dise quelque chose de ta part ?"
+            j "Non."
+            t "Tu es sûr ?"
+            j "Oui."
+            systeme "Le 'oui' est sec. Peut-être trop."
+            t "D'accord."
+            systeme "Théo n'insiste pas. C'est peut-être le pire."
+
         "\"Tant mieux qu'elle ait quelqu'un pour l'aider.\"":
+            # Tier A - se nommer
+            $ communication += 4
             $ confiance += 2
-            $ jalousie += 1
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             j "Tant mieux qu'elle ait quelqu'un pour l'aider."
             systeme "Les mots sortent. Ils sont vrais. Ils font quand même mal à dire."
             show theo neutral at char_center
@@ -663,21 +733,14 @@ label arc_5_examens:
             j "Ferme-la, Allan."
             a "Avec amour."
 
-        "Rester silencieux. Observer Théo.":
-            $ jalousie += 1
-            systeme "Jessy ne dit rien. Il regarde Théo. Théo le regarde aussi."
-            systeme "Quelque chose passe entre eux. Pas de l'hostilité. Pas de la complicité non plus. Quelque chose de plus compliqué."
-            t "Tu veux que je lui dise quelque chose de ta part ?"
-            j "Non."
-            t "Tu es sûr ?"
-            j "Oui."
-            systeme "Le 'oui' est sec. Peut-être trop."
-            t "D'accord."
-            systeme "Théo n'insiste pas. C'est peut-être le pire."
-
         "\"Tu passes beaucoup de temps avec elle ces derniers temps.\"":
-            $ jalousie += 3
-            $ influence_theo += 1
+            # Tier D - controle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
             $ arc5_tension_accumulee += 2
             $ arc5_allan_parti_cafe = True
             j "Tu passes beaucoup de temps avec elle ces derniers temps."
@@ -697,7 +760,7 @@ label arc_5_examens:
             t "Tu n'as pas besoin de le dire. Ça se voit."
             systeme "Le silence qui suit est lourd comme du plomb."
 
-    if arc5_sortie_annulee == "confronte" or jalousie >= 5:
+    if arc5_sortie_annulee == "confronte" or jalousie >= 12:
         show theo reassuring at char_center
         t "Je peux te poser une question ?"
         j "Vas-y."
@@ -725,7 +788,7 @@ label arc_5_examens:
     hide theo
     with dissolve
 
-    if (arc5_allan_voit_theo or influence_theo >= 4) and not arc5_allan_parti_cafe:
+    if (arc5_allan_voit_theo or influence_theo >= 10) and not arc5_allan_parti_cafe:
         show allan doubt at char_right
         a "Je peux te dire un truc ?"
         j "Depuis quand tu demandes la permission ?"
@@ -795,6 +858,35 @@ label arc_5_scene_3:
     if arc4_5_theo_proposition == "gestion_stream":
         t "Et son stream, si elle veut s'y mettre sérieusement. Les horaires, le chat, les messages qui fatiguent."
         systeme "Jessy sent la phrase arriver trop tard. Comme si une partie de la conversation avait commencé sans lui depuis Noël."
+    else:
+        t "Et son stream."
+
+        systeme "Jessy met une seconde de trop à comprendre la phrase."
+
+        j "Son quoi ?"
+        t "Son stream."
+        j "Elle stream pas."
+        t "Non. Pas encore."
+
+        systeme "Il a dit ça comme on annonce une date de livraison."
+
+        j "Elle t'en a parlé ?"
+        t "Jamais."
+        j "Alors pourquoi tu dis ça ?"
+
+        show theo neutral at char_right
+
+        t "Elle commente à voix haute quand elle croit que personne n'écoute. Cet été, à la plage, elle s'est arrêtée au milieu d'une phrase parce que tu l'as regardée."
+        t "En septembre, elle a tenu une file d'attente pendant deux heures sans se vider une seule fois."
+        t "Elle regarde des setups à deux heures du matin."
+        t "Et elle a un pseudo qui finit par \"Gaming\" depuis qu'elle a douze ans."
+
+        $ renpy.pause(1.0, hard=True)
+
+        t "Ce n'est pas un secret, Jessy. C'est juste que personne ne regarde."
+
+        systeme "Le pire, c'est que Jessy a vu chacune de ces choses. Toutes."
+        systeme "Il les a rangées comme des détails. Théo les a rangées comme un dossier."
     j "Et tu me dis ça à moi parce que... ?"
     
     systeme "Théo le regarde. Ses yeux sont calmes. Trop calmes."
@@ -815,15 +907,70 @@ label arc_5_scene_3:
     t "Je veux qu'elle accepte de l'aide. Le reste, c'est de la logistique."
     if arc4_5_theo_proposition == "gestion_stream":
         systeme "Le mot 'logistique' englobe soudain les cours, les messages, et peut-être même le rêve qu'Ilona n'a pas encore osé appeler un projet."
+    else:
+        systeme "Le mot 'logistique' vient d'avaler une chose dont Ilona n'a jamais parlé à personne."
 
     menu:
         systeme "Théo attend. Sa proposition est raisonnable. Peut-être trop."
+
+        "Accepter partiellement. Certaines choses peuvent être gérées.":
+            $ arc5_theo_proposition = "partiel"
+            # Tier D - controle : decider du cadre de vie d'Ilona sans elle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 2
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ controles += 1
+            j "Les notes, peut-être. Le reste, non."
+            show theo reassuring at char_right
+            t "Les notes, c'est déjà bien."
+            j "Mais on lui demande avant. Ensemble."
+            t "Bien sûr."
+            systeme "Le 'bien sûr' est trop rapide. Trop lisse."
+            systeme "Jessy se demande s'il vient de céder quelque chose d'important."
+            if arc4_5_theo_proposition == "gestion_stream":
+                $ pression_stream += 1
+                systeme "Et il se demande si 'les notes' ne sont pas seulement le premier étage d'une aide plus grande, plus douce, plus difficile à refuser."
+            j "Et Théo ?"
+            t "Oui ?"
+            j "Si elle dit non, c'est non. Pas 'non pour l'instant'. Non."
+            systeme "Théo hoche la tête. Mais quelque chose dans ses yeux dit qu'il entend autre chose."
+
+        "Accepter. Laisser Théo gérer.":
+            $ arc5_theo_proposition = "laisse"
+            # Tier D - controle : deleguer a Theo le droit de decider pour elle
+            $ autonomie_ilona -= 4
+            $ confiance -= 4
+            $ influence_theo += 4
+            $ jalousie += 6
+            $ lien_jessy_ilona -= 2
+            $ pression_stream += 2
+            $ controles += 1
+            $ arc5_theo_dans_maison = True
+            j "Fais ce que tu veux."
+            show theo neutral at char_right
+            t "Tu es sûr ?"
+            j "Si ça peut l'aider."
+            systeme "Jessy sait que ce n'est pas la bonne réponse. Mais il est fatigué aussi."
+            systeme "Fatigué de surveiller. De s'inquiéter. De mesurer chaque geste de Théo."
+            t "D'accord. Je gère."
+            if arc4_5_theo_proposition == "gestion_stream":
+                $ pression_stream += 1
+                t "Pour les cours. Pour le stream aussi, si elle veut continuer à en parler."
+                systeme "Jessy hoche la tête trop tard. Le projet d'Ilona vient de changer de mains sans qu'elle soit dans la pièce."
+            systeme "Le 'je gère' reste dans l'air comme une promesse ou une menace."
+            systeme "Jessy ne sait pas encore laquelle."
+
         
         "Refuser net. Ce n'est pas à eux de décider pour elle.":
             $ arc5_theo_proposition = "refuse"
-            $ autonomie_ilona += 3
-            $ influence_theo -= 2
-            $ confiance += 1
+            # Tier S - rendre l'espace
+            $ autonomie_ilona += 4
+            $ communication += 2
+            $ confiance += 2
+            $ influence_theo = max(0, influence_theo - 2)
+            $ pression_stream = max(0, pression_stream - 2)
             $ jugement_laplage += 1
             j "Non."
             show theo disappointed at char_right
@@ -844,30 +991,14 @@ label arc_5_scene_3:
             t "Tu te trompes sur moi, Jessy."
             j "Peut-être. Mais je préfère me tromper que décider à sa place."
 
-        "Accepter partiellement. Certaines choses peuvent être gérées.":
-            $ arc5_theo_proposition = "partiel"
-            $ autonomie_ilona -= 1
-            $ influence_theo += 2
-            $ confiance -= 1
-            j "Les notes, peut-être. Le reste, non."
-            show theo reassuring at char_right
-            t "Les notes, c'est déjà bien."
-            j "Mais on lui demande avant. Ensemble."
-            t "Bien sûr."
-            systeme "Le 'bien sûr' est trop rapide. Trop lisse."
-            systeme "Jessy se demande s'il vient de céder quelque chose d'important."
-            if arc4_5_theo_proposition == "gestion_stream":
-                $ pression_stream += 1
-                systeme "Et il se demande si 'les notes' ne sont pas seulement le premier étage d'une aide plus grande, plus douce, plus difficile à refuser."
-            j "Et Théo ?"
-            t "Oui ?"
-            j "Si elle dit non, c'est non. Pas 'non pour l'instant'. Non."
-            systeme "Théo hoche la tête. Mais quelque chose dans ses yeux dit qu'il entend autre chose."
-
         "Demander pourquoi il ne propose pas à Ilona directement.":
             $ arc5_theo_proposition = "questionne"
+            # Tier S - rendre l'espace : renvoyer la question a la personne concernee
+            $ autonomie_ilona += 4
             $ communication += 2
-            $ influence_theo -= 1
+            $ confiance += 2
+            $ influence_theo = max(0, influence_theo - 1)
+            $ pression_stream = max(0, pression_stream - 2)
             j "Pourquoi tu ne lui proposes pas directement ?"
             show theo innocent at char_right
             t "Je te l'ai dit. Venant de moi..."
@@ -889,28 +1020,6 @@ label arc_5_scene_3:
             j "C'est tout ?"
             t "C'est tout."
             systeme "Jessy ne le croit pas. Mais il ne peut pas prouver le contraire."
-
-        "Accepter. Laisser Théo gérer.":
-            $ arc5_theo_proposition = "laisse"
-            $ influence_theo += 3
-            $ autonomie_ilona -= 2
-            $ confiance -= 2
-            $ pression_stream += 1
-            $ arc5_theo_dans_maison = True
-            j "Fais ce que tu veux."
-            show theo neutral at char_right
-            t "Tu es sûr ?"
-            j "Si ça peut l'aider."
-            systeme "Jessy sait que ce n'est pas la bonne réponse. Mais il est fatigué aussi."
-            systeme "Fatigué de surveiller. De s'inquiéter. De mesurer chaque geste de Théo."
-            t "D'accord. Je gère."
-            if arc4_5_theo_proposition == "gestion_stream":
-                $ pression_stream += 1
-                t "Pour les cours. Pour le stream aussi, si elle veut continuer à en parler."
-                systeme "Jessy hoche la tête trop tard. Le projet d'Ilona vient de changer de mains sans qu'elle soit dans la pièce."
-            systeme "Le 'je gère' reste dans l'air comme une promesse ou une menace."
-            systeme "Jessy ne sait pas encore laquelle."
-
     hide theo
     hide jessy
     with dissolve
@@ -1060,31 +1169,31 @@ label arc_5_scene_3:
 
     menu:
         systeme "Le toit. Le vent. Elle. Lui. Le moment demande quelque chose."
-        
-        "Offrir quelque chose de simple. Sans attente. Sans message caché.":
-            $ arc5_valentin_choix = "simple"
-            $ lien_jessy_ilona += 1
-            $ confiance += 1
-            systeme "Jessy sort une petite boîte de sa poche."
-            j "Tiens."
-            show ilona embarrassed at char_right
-            i "Qu'est-ce que c'est ?"
-            j "Du chocolat. Pas de message secret. Pas de métaphore. Juste... du chocolat."
-            systeme "Elle ouvre la boîte. Regarde. Ferme."
-            i "Pourquoi j'ai l'impression que c'est rare ?"
-            j "Quoi ?"
-            i "Un cadeau qui ne demande rien."
-            systeme "La phrase fait mal. Parce qu'elle dit quelque chose sur tous les autres cadeaux."
-            j "Je ne veux rien en retour."
-            i "Je sais."
-            systeme "Elle mange un chocolat. Lentement. Comme si elle voulait que le moment dure."
-            i "Merci."
+
+        "Rien. Parce qu'il n'a pas su quoi préparer et qu'il a peur.":
+            $ arc5_valentin_choix = "rien_peur"
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            $ arc5_tension_accumulee += 1
+            systeme "Jessy reste là. Les mains dans les poches. Vides."
+            show ilona neutral at char_right
+            i "Tu n'as rien préparé ?"
+            j "Non."
+            i "Pourquoi ?"
+            systeme "La vraie réponse serait : parce que j'avais peur de me tromper encore."
+            systeme "Mais la vraie réponse est trop vraie."
+            j "Je ne savais pas quoi prendre."
+            i "Ah."
+            systeme "Le 'ah' est plat. Déçu peut-être. Ou juste fatigué."
+            i "C'est pas grave."
+            systeme "C'est grave. Mais elle ne le dira pas."
+
 
         "Offrir quelque chose lié à leur histoire. Prendre le risque du sens.":
             $ arc5_valentin_choix = "souvenir"
-            $ lien_jessy_ilona += 2
-            $ jalousie += 1
-            $ pression_stream += 1
+            $ lien_jessy_ilona += 4
             systeme "Jessy sort une boîte. Dedans, des chocolats en forme de cube."
             j "Ils ressemblent à des blocs Minecraft."
             show ilona embarrassed at char_right
@@ -1104,12 +1213,31 @@ label arc_5_scene_3:
             j "Je... oui ?"
             i "Ou tu espères que le souvenir va compenser... autre chose ?"
             systeme "La question est douce. Elle fait mal quand même."
+        
+        "Offrir quelque chose de simple. Sans attente. Sans message caché.":
+            $ arc5_valentin_choix = "simple"
+            $ lien_jessy_ilona += 4
+            systeme "Jessy sort une petite boîte de sa poche."
+            j "Tiens."
+            show ilona embarrassed at char_right
+            i "Qu'est-ce que c'est ?"
+            j "Du chocolat. Pas de message secret. Pas de métaphore. Juste... du chocolat."
+            systeme "Elle ouvre la boîte. Regarde. Ferme."
+            i "Pourquoi j'ai l'impression que c'est rare ?"
+            j "Quoi ?"
+            i "Un cadeau qui ne demande rien."
+            systeme "La phrase fait mal. Parce qu'elle dit quelque chose sur tous les autres cadeaux."
+            j "Je ne veux rien en retour."
+            i "Je sais."
+            systeme "Elle mange un chocolat. Lentement. Comme si elle voulait que le moment dure."
+            i "Merci."
 
         "Ne rien offrir. Lui demander ce qu'elle veut vraiment.":
             $ arc5_valentin_choix = "demande"
-            $ communication += 3
+            $ autonomie_ilona += 4
+            $ communication += 2
             $ confiance += 2
-            $ autonomie_ilona += 2
+            $ pression_stream = max(0, pression_stream - 2)
             $ jugement_laplage += 1
             j "Je peux te poser une question ?"
             show ilona neutral at char_right
@@ -1129,24 +1257,6 @@ label arc_5_scene_3:
             j "D'accord."
             systeme "Ils restent sur le toit. Le vent est froid. Mais l'espace entre eux est chaud."
             $ remember("ilona_libre_sans_abandon")
-
-        "Rien. Parce qu'il n'a pas su quoi préparer et qu'il a peur.":
-            $ arc5_valentin_choix = "rien_peur"
-            $ confiance -= 1
-            $ arc5_tension_accumulee += 1
-            systeme "Jessy reste là. Les mains dans les poches. Vides."
-            show ilona neutral at char_right
-            i "Tu n'as rien préparé ?"
-            j "Non."
-            i "Pourquoi ?"
-            systeme "La vraie réponse serait : parce que j'avais peur de me tromper encore."
-            systeme "Mais la vraie réponse est trop vraie."
-            j "Je ne savais pas quoi prendre."
-            i "Ah."
-            systeme "Le 'ah' est plat. Déçu peut-être. Ou juste fatigué."
-            i "C'est pas grave."
-            systeme "C'est grave. Mais elle ne le dira pas."
-
     if arc5_valentin_choix == "demande":
         show ilona smile at char_right
         i "Jessy ?"
@@ -1165,7 +1275,7 @@ label arc_5_scene_3:
         j "Non. Parce que je me suis demandé si je le faisais pour toi ou pour me rassurer."
         systeme "Le silence qui suit est différent. Plus doux."
         i "Continue à te poser cette question."
-        $ confiance += 1
+        $ confiance += 2
 
     if arc5_theo_proposition == "laisse":
         systeme "Le téléphone d'Ilona vibre. Elle regarde l'écran."
@@ -1227,7 +1337,11 @@ label arc_5_scene_3:
     
     i "Personne ne me demande si je suis fatiguée."
     
-    $ confidences_laplage += 1
+    $ arc5_ilona_a_pleure = True
+    # Troisieme confidence : elle ne compte que si personne d'autre ne la laisse finir.
+    # Chaque confidence est une dette, pas un credit : voir la porte de l'arc 6.
+    if ilona_peut_finir_ses_phrases < 6:
+        $ confidences_laplage += 1
     $ arc5_laplage_deuxieme_confidence = True
     
     laplage "Les gens confondent souvent être proche et être propriétaire."
@@ -1323,69 +1437,14 @@ label arc_5_scene_3:
 
     menu:
         systeme "Elle attend. Le train suivant passera dans huit minutes. Il a huit minutes pour trouver les mots."
-        
-        "\"J'ai peur. Et je ne sais pas si je te fais confiance. Les deux sont vrais.\"":
-            $ arc5_question_reponse = "honnete"
-            $ remember("jessy_nomme_sa_peur")
-            $ confiance += 3
-            $ communication += 3
-            $ jalousie -= 2
-            $ jugement_laplage += 2
-            $ lien_jessy_ilona += 2
-            show jessy listening at char_left
-            j "J'ai peur."
-            systeme "Les mots sortent. Ils font mal."
-            j "J'ai peur de te perdre. De ne pas être assez. De faire des conneries que je ne peux pas réparer."
-            show ilona neutral at char_right
-            systeme "Elle l'écoute. Elle ne l'interrompt pas."
-            j "Et je ne sais pas si je te fais confiance."
-            i "Qu'est-ce que tu veux dire ?"
-            j "Je veux dire que... quand tu parles avec Théo, une partie de moi se demande si tu préfères pas être avec lui."
-            j "Quand tu annules, une partie de moi se demande si c'est vraiment la fatigue ou si tu m'évites."
-            j "Et ces parties-là... elles ne te font pas confiance. Même si je voudrais."
-            systeme "Le silence dure longtemps."
-            show ilona smile at char_right
-            i "Merci."
-            j "Merci de quoi ?"
-            i "De ne pas avoir fait semblant."
-            systeme "Elle s'approche. Pas pour l'embrasser. Juste pour être plus près."
-            i "C'est la première fois que quelqu'un me répond vraiment à cette question."
-            j "Les autres mentent ?"
-            i "Les autres disent ce qu'ils pensent que je veux entendre."
-
-        "\"Bien sûr que je te fais confiance. C'est Théo le problème.\"":
-            $ arc5_question_reponse = "theo"
-            $ jalousie += 3
-            $ influence_theo += 2
-            $ communication -= 2
-            $ confiance -= 2
-            $ remember("theo_utilise_une_verite")
-            show jessy neutral at char_left
-            j "Je te fais confiance. Complètement."
-            show ilona frustrated at char_right
-            i "Alors c'est quoi le problème ?"
-            j "Théo."
-            systeme "Le nom tombe comme une pierre."
-            i "Je ne t'ai pas demandé ce que tu pensais de Théo."
-            j "Mais il est toujours là ! À t'apporter du thé, à gérer tes trucs, à..."
-            i "À quoi ? À m'aider ?"
-            j "À prendre ma place !"
-            systeme "Le cri sort avant qu'il puisse le retenir."
-            systeme "Ilona recule d'un pas."
-            i "Je ne t'ai pas posé une question sur Théo, Jessy."
-            i "Je t'ai posé une question sur toi."
-            j "C'est lié !"
-            i "Non. Ce n'est pas lié. Et le fait que tu penses que c'est lié, c'est exactement le problème."
-            systeme "Elle se détourne."
-            i "Tu viens de me prouver que tu ne me fais pas confiance. Pas en disant la vérité. En l'évitant."
 
         "\"J'ai peur. Mais ma peur ne devrait pas devenir ton problème.\"":
             $ arc5_question_reponse = "responsable"
             $ remember("jessy_nomme_sa_peur")
-            $ confiance += 2
-            $ communication += 2
-            $ autonomie_ilona += 2
-            $ lien_jessy_ilona += 1
+            $ autonomie_ilona += 6
+            $ communication += 3
+            $ confiance += 3
+            $ pression_stream = max(0, pression_stream - 3)
             show jessy listening at char_left
             j "J'ai peur."
             systeme "Pause."
@@ -1406,11 +1465,41 @@ label arc_5_scene_3:
             j "Oui."
             i "C'est suffisant pour aujourd'hui."
 
+        "\"Bien sûr que je te fais confiance. C'est Théo le problème.\"":
+            $ arc5_question_reponse = "theo"
+            $ autonomie_ilona -= 6
+            $ confiance -= 6
+            $ influence_theo += 3
+            $ jalousie += 9
+            $ lien_jessy_ilona -= 3
+            $ controles += 1
+            $ remember("theo_utilise_une_verite")
+            show jessy neutral at char_left
+            j "Je te fais confiance. Complètement."
+            show ilona frustrated at char_right
+            i "Alors c'est quoi le problème ?"
+            j "Théo."
+            systeme "Le nom tombe comme une pierre."
+            i "Je ne t'ai pas demandé ce que tu pensais de Théo."
+            j "Mais il est toujours là ! À t'apporter du thé, à gérer tes trucs, à..."
+            i "À quoi ? À m'aider ?"
+            j "À prendre ma place !"
+            systeme "Le cri sort avant qu'il puisse le retenir."
+            systeme "Ilona recule d'un pas."
+            i "Je ne t'ai pas posé une question sur Théo, Jessy."
+            i "Je t'ai posé une question sur toi."
+            j "C'est lié !"
+            i "Non. Ce n'est pas lié. Et le fait que tu penses que c'est lié, c'est exactement le problème."
+            systeme "Elle se détourne."
+            i "Tu viens de me prouver que tu ne me fais pas confiance. Pas en disant la vérité. En l'évitant."
+
         "\"Je ne sais pas. J'ai besoin de temps pour réfléchir.\"":
             $ arc5_question_reponse = "temps"
-            $ communication -= 1
-            if communication >= 5:
-                $ confiance += 1
+            $ communication -= 6
+            $ confiance -= 3
+            $ pression_stream += 3
+            $ evitements += 1
+            if communication >= 20:
                 show jessy listening at char_left
                 j "Je ne sais pas comment répondre."
                 j "Pas parce que je veux éviter. Parce que la vraie réponse... je ne la connais pas encore."
@@ -1424,8 +1513,6 @@ label arc_5_scene_3:
                 i "Parce qu'il me faut une deadline. Et parce que si tu n'as pas trouvé d'ici là..."
                 systeme "Elle ne finit pas sa phrase. Elle n'a pas besoin."
             else:
-                $ confiance -= 2
-                $ autonomie_ilona += 1
                 $ arc5_tension_accumulee += 2
                 show jessy neutral at char_left
                 j "J'ai besoin de temps."
@@ -1440,6 +1527,35 @@ label arc_5_scene_3:
                 systeme "Elle part. Le train suivant arrive. Elle monte."
                 systeme "Jessy reste sur le quai."
 
+        
+        "\"J'ai peur. Et je ne sais pas si je te fais confiance. Les deux sont vrais.\"":
+            $ arc5_question_reponse = "honnete"
+            $ remember("jessy_nomme_sa_peur")
+            $ communication += 6
+            $ confiance += 3
+            $ jalousie = max(0, jalousie - 3)
+            $ lien_jessy_ilona += 3
+            $ jugement_laplage += 2
+            show jessy listening at char_left
+            j "J'ai peur."
+            systeme "Les mots sortent. Ils font mal."
+            j "J'ai peur de te perdre. De ne pas être assez. De faire des conneries que je ne peux pas réparer."
+            show ilona neutral at char_right
+            systeme "Elle l'écoute. Elle ne l'interrompt pas."
+            j "Et je ne sais pas si je te fais confiance."
+            i "Qu'est-ce que tu veux dire ?"
+            j "Je veux dire que... quand tu parles avec Théo, une partie de moi se demande si tu préfères pas être avec lui."
+            j "Quand tu annules, une partie de moi se demande si c'est vraiment la fatigue ou si tu m'évites."
+            j "Et ces parties-là... elles ne te font pas confiance. Même si je voudrais."
+            systeme "Le silence dure longtemps."
+            show ilona smile at char_right
+            i "Merci."
+            j "Merci de quoi ?"
+            i "De ne pas avoir fait semblant."
+            systeme "Elle s'approche. Pas pour l'embrasser. Juste pour être plus près."
+            i "C'est la première fois que quelqu'un me répond vraiment à cette question."
+            j "Les autres mentent ?"
+            i "Les autres disent ce qu'ils pensent que je veux entendre."
     if arc5_question_reponse in ("honnete", "responsable"):
         show ilona determined at char_right
         i "Je peux te dire quelque chose aussi ?"
@@ -1596,11 +1712,39 @@ label arc_5_scene_3:
 
     menu:
         systeme "Le parc est presque vide. Les pétales tombent lentement. C'est maintenant."
+
+        "Tenter de réparer avec un grand geste. Parce qu'il ne sait pas faire autrement.":
+            $ arc5_white_day_reponse = "grand_geste"
+            $ communication -= 4
+            $ confiance -= 2
+            $ pression_stream += 2
+            $ evitements += 1
+            systeme "Jessy sort quelque chose de son sac. C'est emballé. C'est gros."
+            j "Je t'ai préparé quelque chose."
+            show ilona neutral at char_right
+            i "Jessy..."
+            j "Ouvre."
+            systeme "Elle ouvre. C'est un album photo. Avec tous leurs moments ensemble. Imprimés. Annotés."
+            show ilona frustrated at char_right
+            i "C'est..."
+            j "Je sais que c'est beaucoup. Mais je voulais te montrer que..."
+            i "Jessy."
+            j "Quoi ?"
+            i "On a parlé de ça. À la gare. Je t'ai dit que j'étais fatiguée qu'on m'apporte des choses."
+            if arc4_5_theo_proposition == "gestion_stream":
+                i "Théo propose de gérer. Toi tu proposes de compenser. Vous appelez ça différemment, mais moi je sens surtout le poids."
+            j "Ce n'est pas une chose. C'est un souvenir."
+            i "C'est un souvenir qui pèse trois kilos et qui me demande de réagir d'une certaine façon."
+            systeme "Elle ferme l'album."
+            i "Je ne dis pas que c'est pas touchant. Je dis que c'est... beaucoup."
+            i "Et que 'beaucoup', en ce moment, c'est exactement ce dont je n'ai pas besoin."
         
         "Lui offrir de l'espace. Vraiment. Sans condition.":
             $ arc5_white_day_reponse = "espace"
-            $ autonomie_ilona += 3
+            $ autonomie_ilona += 4
+            $ communication += 2
             $ confiance += 2
+            $ pression_stream = max(0, pression_stream - 2)
             $ remember("ilona_libre_sans_abandon")
             j "Je ne t'ai rien apporté."
             show ilona neutral at char_right
@@ -1625,11 +1769,48 @@ label arc_5_scene_3:
             show ilona smile at char_right
             i "C'est... pas mal comme réponse."
 
+        "Lui poser la question en retour. Parce qu'il a le droit de savoir aussi.":
+            $ arc5_white_day_reponse = "retour"
+            $ communication += 4
+            $ confiance += 2
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
+            if arc5_question_reponse == "honnete" or arc5_question_reponse == "responsable":
+                $ confiance += 2
+                j "Je peux te poser une question aussi ?"
+                show ilona neutral at char_right
+                i "Vas-y."
+                j "Est-ce que tu me fais confiance ?"
+                systeme "La question reste dans l'air."
+                i "C'est... une bonne question."
+                j "Tu ne sais pas ?"
+                i "Je sais que je veux te faire confiance. Je sais que des fois, c'est difficile."
+                j "Pourquoi ?"
+                i "Parce que des fois, j'ai l'impression que tu me vois comme quelque chose à protéger. Pas comme quelqu'un de capable."
+                systeme "La phrase fait mal. Parce qu'elle est vraie."
+                j "Je ne..."
+                i "Tu le fais sans le vouloir. Mais tu le fais."
+                systeme "Elle soupire."
+                i "On a du travail. Tous les deux."
+            else:
+                $ confiance -= 4
+                j "Et toi, tu me fais confiance ?"
+                show ilona frustrated at char_right
+                i "Tu me retournes la question maintenant ?"
+                j "Pourquoi pas ? Tu voulais de l'honnêteté. Alors sois honnête aussi."
+                i "Ce n'est pas pareil."
+                j "Pourquoi ?"
+                i "Parce que moi, j'ai posé ma question. Et toi, tu n'as toujours pas vraiment répondu."
+                systeme "Le silence est lourd."
+                i "On ne peut pas avancer si tu transformes chaque conversation en match de tennis."
+
+
         "Lui dire ce qu'il a compris. Sans cadeau. Avec des mots.":
             $ arc5_white_day_reponse = "mots"
-            $ communication += 3
+            $ communication += 4
             $ confiance += 2
-            $ lien_jessy_ilona += 1
+            $ jalousie = max(0, jalousie - 2)
+            $ lien_jessy_ilona += 2
             j "J'ai quelque chose à te dire. Pas un cadeau. Des mots."
             show ilona neutral at char_right
             i "Je t'écoute."
@@ -1649,65 +1830,6 @@ label arc_5_scene_3:
             i "Tu le penses vraiment ?"
             j "Je ne sais pas si je peux le vivre tout le temps. Mais je veux essayer."
             i "C'est déjà beaucoup."
-
-        "Tenter de réparer avec un grand geste. Parce qu'il ne sait pas faire autrement.":
-            $ arc5_white_day_reponse = "grand_geste"
-            $ pression_stream += 2
-            $ jalousie += 1
-            $ confiance -= 1
-            systeme "Jessy sort quelque chose de son sac. C'est emballé. C'est gros."
-            j "Je t'ai préparé quelque chose."
-            show ilona neutral at char_right
-            i "Jessy..."
-            j "Ouvre."
-            systeme "Elle ouvre. C'est un album photo. Avec tous leurs moments ensemble. Imprimés. Annotés."
-            show ilona frustrated at char_right
-            i "C'est..."
-            j "Je sais que c'est beaucoup. Mais je voulais te montrer que..."
-            i "Jessy."
-            j "Quoi ?"
-            i "On a parlé de ça. À la gare. Je t'ai dit que j'étais fatiguée qu'on m'apporte des choses."
-            if arc4_5_theo_proposition == "gestion_stream":
-                i "Théo propose de gérer. Toi tu proposes de compenser. Vous appelez ça différemment, mais moi je sens surtout le poids."
-            j "Ce n'est pas une chose. C'est un souvenir."
-            i "C'est un souvenir qui pèse trois kilos et qui me demande de réagir d'une certaine façon."
-            systeme "Elle ferme l'album."
-            i "Je ne dis pas que c'est pas touchant. Je dis que c'est... beaucoup."
-            i "Et que 'beaucoup', en ce moment, c'est exactement ce dont je n'ai pas besoin."
-
-        "Lui poser la question en retour. Parce qu'il a le droit de savoir aussi.":
-            $ arc5_white_day_reponse = "retour"
-            $ communication += 2
-            if arc5_question_reponse == "honnete" or arc5_question_reponse == "responsable":
-                $ confiance += 1
-                $ lien_jessy_ilona += 1
-                j "Je peux te poser une question aussi ?"
-                show ilona neutral at char_right
-                i "Vas-y."
-                j "Est-ce que tu me fais confiance ?"
-                systeme "La question reste dans l'air."
-                i "C'est... une bonne question."
-                j "Tu ne sais pas ?"
-                i "Je sais que je veux te faire confiance. Je sais que des fois, c'est difficile."
-                j "Pourquoi ?"
-                i "Parce que des fois, j'ai l'impression que tu me vois comme quelque chose à protéger. Pas comme quelqu'un de capable."
-                systeme "La phrase fait mal. Parce qu'elle est vraie."
-                j "Je ne..."
-                i "Tu le fais sans le vouloir. Mais tu le fais."
-                systeme "Elle soupire."
-                i "On a du travail. Tous les deux."
-            else:
-                $ confiance -= 1
-                j "Et toi, tu me fais confiance ?"
-                show ilona frustrated at char_right
-                i "Tu me retournes la question maintenant ?"
-                j "Pourquoi pas ? Tu voulais de l'honnêteté. Alors sois honnête aussi."
-                i "Ce n'est pas pareil."
-                j "Pourquoi ?"
-                i "Parce que moi, j'ai posé ma question. Et toi, tu n'as toujours pas vraiment répondu."
-                systeme "Le silence est lourd."
-                i "On ne peut pas avancer si tu transformes chaque conversation en match de tennis."
-
     if arc5_white_day_reponse in ("espace", "mots") and arc5_question_reponse in ("honnete", "responsable"):
         $ confiance += 1
         $ lien_jessy_ilona += 1
@@ -1773,6 +1895,36 @@ label arc_5_scene_3:
 
     hide allan
     hide alex
+    with dissolve
+
+    # Allan seul - l'accumulation
+    scene bg arc5 cafe
+    with fade
+
+    show allan silence at char_center
+    with dissolve
+
+    systeme "Allan reste seul au café quelques minutes."
+    systeme "Il regarde son téléphone. Un message de Jessy : 'Merci pour tantôt.'"
+    systeme "Un message d'Ilona : 'T'es pas obligé de toujours tout expliquer.'"
+    systeme "Allan a traduit Théo quatre fois ce mois-ci."
+    systeme "Deux fois pour Jessy. Une fois pour Ilona. Une fois pour un prof qui ne comprenait pas sa réponse."
+
+    $ renpy.pause(1.0, hard=True)
+
+    systeme "C'est devenu un réflexe. Théo parle, les gens froncent les sourcils, Allan explique."
+    systeme "Mais depuis le festival, quelque chose s'est coincé."
+    systeme "Chaque fois qu'il explique Théo, Allan a l'impression de voler une conversation."
+    systeme "De remplacer une question par une réponse toute prête."
+
+    a "..."
+
+    systeme "Alexandre lui a demandé une fois : 'Pourquoi tu le fais ?'"
+    systeme "Allan n'a pas su répondre."
+    systeme "Parce que Théo est son ami ? Parce que c'est plus simple comme ça ?"
+    systeme "Ou parce que tant qu'il éclaire les chemins des autres, il n'a pas à chercher le sien ?"
+
+    hide allan
     with dissolve
 
 # =============================================================================
@@ -1948,7 +2100,8 @@ label arc_5_scene_3:
         systeme "Elle sait qu'il est là. C'est suffisant pour l'instant."
         $ maison_minecraft_ajouts.append("coffre_libre_arc5")
 
-    # Easter egg Ilonanium
+    # Easter egg Ilonanium : manifestation, pas un objet.
+    # Elle ne donne aucun point : les points viennent uniquement des six objets cosmiques.
     if ilonanium_points >= 3 and arc5_valentin_choix == "demande":
         systeme "Dans un coin de l'écran, quelque chose scintille."
         i "Tu vois ça ?"
@@ -1958,7 +2111,6 @@ label arc_5_scene_3:
         i "Peut-être que ce n'est pas vraiment Minecraft."
         systeme "Elle ne développe pas. Jessy non plus."
         systeme "Mais pendant une seconde, ils regardent tous les deux la même chose."
-        $ ilonanium_points += 1
 
     systeme "La nuit avance dans le monde carré."
     
