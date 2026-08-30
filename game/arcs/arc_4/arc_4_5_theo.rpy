@@ -24,7 +24,8 @@ default arc4_5_theo_proposition = ""
 default arc4_5_ilona_reaction = ""
 
 label arc_4_5_theo:
-    
+    stop music fadeout 1.0
+    stop ambiant1 fadeout 1.0
     scene black
     with Dissolve(1.0)
     
@@ -37,7 +38,7 @@ label arc_4_5_theo:
     systeme "Jessy est rentré chez lui en métro. Il ne voit pas ce qui suit."
     
     $ renpy.pause(1.5, hard=True)
-    
+    play music audio.citynight volume 0.8 loop fadein 1.0
     scene bg arc4_5 street winter night
     with Dissolve(2.0)
     
@@ -346,7 +347,6 @@ label arc_4_5_theo:
     systeme "Ils quittent les allées résidentielles et marchent encore un moment. Le froid devient sérieux."
     
     $ renpy.pause(1.0, hard=True)
-    
     scene bg arc4_maid_cafe_exterior
     with Dissolve(1.5)
     
@@ -371,7 +371,7 @@ label arc_4_5_theo:
     t "C'est ouvert. C'est chaud. C'est suffisant."
     
     systeme "Ils entrent."
-    
+    play music audio.maidcafe volume 0.6 loop fadeout 1.0 fadein 1.0
     scene bg arc4_maid_cafe_interior
     with fade
     
@@ -379,6 +379,8 @@ label arc_4_5_theo:
     systeme "Et derrière le comptoir, presque invisible dans la pénombre..."
     
     # Apparition Laplage en maid
+    $ renpy.pause(0.5, hard=True)
+    play sound audio.wow volume 1.0
     show laplage maid neutral at laplage_maid_counter
     with dissolve
     
@@ -443,7 +445,7 @@ label arc_4_5_theo:
     systeme "Dehors, la neige s'est calmée."
     
     $ renpy.pause(1.0, hard=True)
-    
+    play music audio.citynight volume 0.6 loop fadeout 1.0 fadein 1.0
     scene bg arc4_maid_cafe_exterior
     with Dissolve(1.5)
     
@@ -483,7 +485,7 @@ label arc_4_5_theo:
     hide theo
     hide ilona
     with dissolve
-    
+    stop music fadeout 2.0
     scene black
     with Dissolve(1.5)
     
@@ -520,6 +522,8 @@ label arc_4_5_theo:
     systeme "Mais une cage quand même."
     
     $ renpy.pause(2.0, hard=True)
+    stop music fadeout 1.0 
+    stop ambiant1 fadeout 1.0
     
     # Retour vers la suite (le jeu continue normalement, mais avec arc4_ilona_avec_theo = True)
     return

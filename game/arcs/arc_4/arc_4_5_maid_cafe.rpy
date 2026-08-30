@@ -5,6 +5,8 @@ image bg arc4_city_night = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_ext
 image bg arc4_maid_cafe_exterior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
 image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_interior.jpg", 1920, 1080)
 
+define audio.wow = "audio/fx/WOW.mp3"
+
 # Variable locale pour tracker accès scène
 default arc4_5_maid_cafe_visite = False
 default arc4_5_sofiane_maid = False
@@ -35,6 +37,8 @@ label arc_4_5_maid_cafe:
     j "Oui."
     systeme "Jessy ne demande pas pourquoi. Il accepte."
     
+    stop ambiant1 fadeout 1.0
+    play music audio.citynight loop volume 0.8 fadeout 1.0 fadein 1.0
     scene bg arc4_city_night
     with fade
     show jessy neutral at char_left
@@ -110,12 +114,14 @@ label arc_4_5_maid_cafe:
             j "D'accord."
             systeme "Ils poussent la porte."
     
+    play music audio.maidcafe volume 0.6 loop fadeout 1.0 fadein 1.0
     scene bg arc4_maid_cafe_interior
     with fade
     
     systeme "L'intérieur est plus calme que prévu. Quelques tables occupées. Une décoration soignée sans être kitsch."
     systeme "Et derrière le comptoir..."
     
+    play sound audio.wow volume 1.0
     show sofiane maid at char_center
     with dissolve
     
@@ -169,6 +175,7 @@ label arc_4_5_maid_cafe:
     systeme "Le rire aide. Beaucoup."
     systeme "Pour la première fois de la soirée, quelque chose se détend vraiment entre eux."
     
+    play sound audio.wow volume 0.5
     show sofiane maid at char_center
     with dissolve
     
@@ -201,6 +208,7 @@ label arc_4_5_maid_cafe:
     systeme "Sofiane passe parfois avec une phrase dramatique. Parfois juste pour remplir leur eau avec un professionnalisme absurde."
     systeme "Quand ils partent, il fait un salut de maid impeccable."
     
+    play sound audio.wow volume 0.5
     show sofiane maid at char_center
     with dissolve
     
@@ -212,6 +220,7 @@ label arc_4_5_maid_cafe:
     hide sofiane
     with dissolve
     
+    play music audio.citynight volume 0.8 loop fadeout 1.0 fadein 1.0
     scene bg arc4_city_night
     with fade
     
@@ -229,7 +238,8 @@ label arc_4_5_maid_cafe:
     hide jessy
     hide ilona
     with dissolve
-    
+    stop music fadeout 1.0 
+    stop ambiant1 fadeout 1.0
     return
 
 # Note : Cette scène doit être appelée depuis arc_4_noel.rpy ligne 1022

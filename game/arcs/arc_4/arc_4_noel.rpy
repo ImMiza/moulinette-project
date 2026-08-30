@@ -12,6 +12,9 @@ image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
 image laplage christmas thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_horizontal.png", 843, 1264)
 
+define audio.xmasMall = "audio/music/xmas-mall.mp3"
+define audio.xmasMarket = "audio/music/xmas-market.mp3"
+
 # Variables locales d'arc : elles gardent la trace du sens donne aux cadeaux et aux limites posees.
 default arc4_cadeau_jessy = ""
 default arc4_reaction_cadeau_theo = ""
@@ -23,6 +26,8 @@ default arc4_ilona_avec_theo = False
 
 
 label arc_4_noel:
+    play music audio.mornPiano loop fadein 3.0 volume 0.6
+    play ambiant1 audio.trainInside fadein 2.5 volume 0.4
     scene bg arc4 train inside
     with fade
 
@@ -69,6 +74,7 @@ label arc_4_noel:
         j "Elle éclaire une porte qui ne sert à rien."
         i "Donc elle fait très bien son travail."
 
+    play sound audio.trainstop volume 0.6
     systeme "Le train ralentit près de la grande galerie commerciale. Des guirlandes clignotent déjà au-dessus des escalators."
     
     if jalousie >= 3:
@@ -100,7 +106,10 @@ label arc_4_noel:
     hide jessy
     hide ilona
     with dissolve
+    stop ambiant1 fadeout 1.0
 
+    play music audio.xmasMall volume 0.8 loop fadeout 1.0 fadein 1.0
+    play ambiant1 audio.foule loop volume 0.6 fadein 3.0
     scene bg arc4 shopping gallery
     with fade
 
@@ -230,6 +239,7 @@ label arc_4_noel:
             j "Tout est flippant ce soir."
             systeme "Alexandre acquiesce. Il ne peut pas le contredire."
 
+    stop ambiant1 fadeout 2.0
     hide alex
     hide jessy
     with dissolve
@@ -240,6 +250,7 @@ label arc_4_noel:
     systeme "En sortant de la galerie, Jessy traverse la rue illuminée vers le marché avec l'impression que chaque guirlande souligne ce qu'il n'a pas encore su dire."
     systeme "Les lumières rendent la ville plus douce. Elles ne rendent pas les choix plus simples."
 
+    play music audio.xmasMarket loop fadein 1.0 fadeout 1.0 loop volume 0.8
     scene bg arc4 christmas market
     with fade
 
@@ -287,6 +298,7 @@ label arc_4_noel:
     systeme "La phrase a déjà existé. Elle revient avec un papier plus joli."
     systeme "Jessy regarde les doigts d'Ilona sur le carnet. Ils ne bougent pas exactement comme quand elle tient quelque chose de neutre."
 
+    $ fade_channel("music",0.6,2.0)
     menu:
         "Théo vient d'offrir à Ilona un cadeau très précis. Jessy sent quelque chose se déchirer entre rester digne et hurler."
 
@@ -426,6 +438,8 @@ label arc_4_noel:
     with dissolve
 
     # Micro-scène Théo-Laplage
+
+    $ fade_channel("music",0.8,1.0)
     scene bg arc4 christmas market
     with fade
     show theo neutral at char_left
@@ -433,6 +447,8 @@ label arc_4_noel:
     systeme "Théo s'éloigne du stand, les mains dans les poches. Il ne sourit pas. Il ne sourit jamais vraiment après ces moments."
     systeme "Il pense déjà à ce qu'il dira la prochaine fois. Quel détail il sortira. Quel silence il remplira."
     
+    $ renpy.pause(0.5, hard=True)
+    play sound "fx/re-zero-return.mp3"
     show laplage christmas neutral at char_right
     with dissolve
     
@@ -534,6 +550,8 @@ label arc_4_noel:
     hide alex
     with dissolve
 
+    stop ambiant1 fadeout 2.0
+    play music audio.melanPiano volume 0.8 loop fadeout 1.0 fadein 1.0
     scene bg arc4 riverside winter
     with fade
     show ilona neutral at char_left
@@ -551,6 +569,7 @@ label arc_4_noel:
         "Le manger pour gagner du temps.":
             $ arc4_mochi_cosmique = True
             $ ilonanium_points += 1
+            play sound audio.eating volume 0.5
             i "Désolée, univers."
             systeme "Le mochi disparaît avec une dignité limitée."
 
@@ -558,6 +577,8 @@ label arc_4_noel:
             i "Tu attendras que je comprenne deux ou trois choses."
             systeme "Elle range le mochi dans son sac, entre le carnet et ses clés."
 
+    $ renpy.pause(0.5, hard=True)
+    play sound "fx/re-zero-return.mp3" volume 0.6
     show laplage christmas neutral at char_right
     with dissolve
 
@@ -992,6 +1013,8 @@ label arc_4_noel:
     hide ilona
     with dissolve
 
+    play music audio.xmasMarket volume 0.8 loop fadeout 1.0 fadein 1.0
+    play ambiant1 audio.foule volume 0.6 loop fadein 3.0
     scene bg arc4 christmas market
     with fade
     show allan support at char_left
@@ -1121,6 +1144,7 @@ label arc_4_noel:
     hide ilona
     with dissolve
 
+    play music audio.mcnight volume 0.8 loop fadeout 1.0 fadein 1.0
     scene bg arc4 minecraft winter night
     with Dissolve(2.0)
     show jessy minecraft at char_left
@@ -1219,6 +1243,8 @@ label arc_4_noel:
         systeme "La nuit avance. La neige carrée adoucit les angles."
         systeme "Demain, elle fondra peut-être. Ce soir, elle laisse assez de lumière pour voir où on marche."
 
+    stop music fadeout 1.0
+    stop ambiant1 fadeout 1.0
     jump arc_5_examens
 
 

@@ -118,6 +118,10 @@ image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/
 init python:
     renpy.music.register_channel("ambiant1", mixer="sfx", loop=True)
 
+init python:
+    def fade_channel(channel, volume, time=2.0):
+        renpy.music.set_volume(volume, delay=time, channel=channel)
+
 
 define audio.ecole = "audio/music/ecole-music.mp3"
 define audio.mcnight = "audio/music/Subwoofer-Lullaby.mp3"
@@ -131,6 +135,9 @@ define audio.melanPiano = "audio/music/melancolique-piano.mp3"
 define audio.tensePiano = "audio/music/tense-piano.mp3"
 define audio.mornPiano = "audio/music/morning-piano.mp3"
 define audio.foule = "audio/ambience/crowd-noise.mp3"
+define audio.trainstop = "audio/fx/train-stop.mp3"
+define audio.maidcafe = "audio/music/maidCafe.mp3"
+define audio.citynight = "audio/music/night-walk.mp3"
 
 transform char_left:
     xalign 0.18
