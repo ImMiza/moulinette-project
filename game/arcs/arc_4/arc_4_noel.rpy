@@ -8,8 +8,8 @@ image bg arc4 christmas market = im.Scale("images/scenes/arc_4/bg_arc4_christmas
 image bg arc4 riverside winter = im.Scale("images/scenes/arc_4/bg_arc4_riverside_winter.jpg", 1920, 1080)
 image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 
-image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 843, 1264)
-image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
+image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 842, 1264)
+image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 842, 1264)
 
 define audio.xmasMall = "audio/music/xmas-mall.mp3"
 define audio.xmasMarket = "audio/music/xmas-market.mp3"

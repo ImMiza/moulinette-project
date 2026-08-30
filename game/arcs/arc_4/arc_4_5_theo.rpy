@@ -11,8 +11,8 @@ image bg arc4_5 street winter night = im.Scale("images/scenes/arc_4/bg_arc4_park
 image bg arc4_5 park bench = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 
 # Sprites Laplage maid
-image laplage maid neutral = speaker_sprite("laplage", "images/personnages/laplage/maid/neutral.png", 843, 1264)
-image laplage maid thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/maid/thumb_horizontal.png", 843, 1264)
+image laplage maid neutral = speaker_sprite("laplage", "images/personnages/laplage/maid/neutral.png", 842, 1264)
+image laplage maid thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/maid/thumb_horizontal.png", 842, 1264)
 
 transform laplage_maid_counter:
     xalign 0.50
