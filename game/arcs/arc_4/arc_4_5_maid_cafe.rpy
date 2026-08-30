@@ -9,8 +9,8 @@ image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_
 default arc4_5_maid_cafe_visite = False
 default arc4_5_sofiane_maid = False
 
-# La condition d'acces est evaluee inline dans arc_4_noel.rpy avant le call.
-# L'ancien label arc_4_5_maid_cafe_check n'etait appele nulle part : supprime.
+# La condition d'accès est évaluée inline dans arc_4_noel.rpy avant le call.
+# L'ancien label arc_4_5_maid_cafe_check n'était appelé nulle part : supprimé.
 
 label arc_4_5_maid_cafe:
     $ arc4_5_maid_cafe_visite = True
@@ -22,7 +22,7 @@ label arc_4_5_maid_cafe:
     
     systeme "Après le marché de Noël, la soirée pourrait se terminer."
     systeme "Allan et Alexandre sont partis. Théo aussi. Le marché commence à ranger ses lumières."
-    systeme "Mais quelque chose dans l'air — la neige qui commence, les illuminations qui s'éteignent pas encore — donne envie de prolonger."
+    systeme "Mais quelque chose dans l'air — la neige qui commence, les illuminations qui ne s'éteignent pas encore — donne envie de prolonger."
     
     i "Tu fais quelque chose après ?"
     j "Non. Pourquoi ?"
@@ -60,7 +60,7 @@ label arc_4_5_maid_cafe:
     
     systeme "Au détour d'une rue, un café attire leur attention."
     systeme "Pas par sa taille. Pas par son enseigne lumineuse."
-    systeme "Mais parce qu'il est ouvert, chaleureux, et qu'une pancarte annonce : 'MAID CAFÉ - OUVERT JUSQU'À MINUIT'."
+    systeme "Mais parce qu'il est ouvert, chaleureux, et qu'une pancarte annonce : « MAID CAFÉ — OUVERT JUSQU'À MINUIT »."
     
     show ilona neutral at char_left
     show jessy embarrassed at char_right
@@ -154,7 +154,7 @@ label arc_4_5_maid_cafe:
     i "Je vais prendre ça."
     j "Pareil."
     s "Sagesse double."
-    systeme "Sofiane acquiesce avec le même sérieux que s'il dirigeait une opération chirurgicale. Puis repart vers la cuisine avec une grâce étonnamment fluide."
+    systeme "Sofiane acquiesce avec la gravité d'un chef d'orchestre. Puis repart vers la cuisine avec une grâce étonnamment fluide."
     
     hide sofiane
     with dissolve
@@ -172,7 +172,7 @@ label arc_4_5_maid_cafe:
     with dissolve
     
     systeme "Sofiane revient avec deux chocolats chauds fumants. Il les pose avec une précision millimétrique."
-    s "Vos boissons, Maîtres. Que la chaleur apaise les questions sans réponses."
+    s "Vos boissons, Maîtres. Que la chaleur apaise les questions sans réponse."
     i "Merci, Sofiane."
     s "Vous ne raconterez rien à Allan et Alexandre."
     j "Pourquoi ?"
@@ -191,15 +191,15 @@ label arc_4_5_maid_cafe:
     hide sofiane
     with dissolve
     
-    # Seule soupape de pression du jeu. Recompense de complicite (tier B) :
-    # pas de gain de communication, la scene ne resout rien.
+    # Seule soupape de pression du jeu. Récompense de complicité (tier B) :
+    # pas de gain de communication, la scène ne résout rien.
     $ lien_jessy_ilona += 2
     $ pression_stream = max(0, pression_stream - 1)
     $ arc4_5_sofiane_maid = True
     
     systeme "Ils restent une demi-heure. Boivent leur chocolat. Parlent de tout sauf de Théo, des cadeaux, des décisions."
     systeme "Sofiane passe parfois avec une phrase dramatique. Parfois juste pour remplir leur eau avec un professionnalisme absurde."
-    systeme "Quand ils partent, il fait un salut de maid impeccable."
+    systeme "Quand ils partent, il les raccompagne jusqu'à la porte."
     
     show sofiane maid at char_center
     with dissolve

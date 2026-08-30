@@ -1,5 +1,5 @@
-# Arc I - Printemps : la vie hors ecran.
-# Les variables importantes restent centralisees dans script.rpy.
+# Arc I - Printemps : la vie hors écran.
+# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc1 school corridor = im.Scale("images/scenes/shared/bg_shared_school_corridor.jpg", 1920, 1080)
 image bg arc1 rooftop = im.Scale("images/scenes/arc_1/bg_arc1_rooftop_lunch.jpg", 1920, 1080)
@@ -47,7 +47,7 @@ label arc_1_printemps:
     j "Oui. Bizarre bien."
 
     if maison_minecraft_transformation == "serre":
-        i "Au fait, j'ai montré la serre suspendue à personne."
+        i "Au fait, je n'ai montré la serre suspendue à personne."
         j "Merci."
         i "Je garde nos crimes d'architecture privés."
     elif maison_minecraft_transformation == "piscine":
@@ -93,7 +93,7 @@ label arc_1_printemps:
 
     systeme "À midi, Ilona l'attend près de l'escalier du toit avec deux boissons à la main."
     i "J'ai pris melon. Si tu n'aimes pas, tu peux souffrir en silence."
-    j "J'aime bien melon."
+    j "J'aime bien le melon."
     i "Bon. Ça commence trop facilement."
 
     systeme "Ils s'assoient près du grillage. Le vent bouge un peu les emballages. Personne ne parle pendant quelques secondes."
@@ -223,7 +223,7 @@ label arc_1_printemps:
         "Poser pour une deuxième photo.":
             $ lien_jessy_ilona += 2
             show jessy determined at char_left
-            j "Attends. Refais. Je peux faire pire."
+            j "Attends. Refais-en une. Je peux faire pire."
             i "C'est ambitieux."
             j "Je crois en moi."
             play sound "fx/photo-taken.mp3"
@@ -371,7 +371,7 @@ label arc_1_printemps:
     i "On a aussi recroisé le type bizarre du serveur."
     j "Au konbini."
     a "Pardon ?"
-    i "Le monsieur au pouce levé. Dans le rayon boissons."
+    i "Le monsieur au pouce levé. Dans le rayon des boissons."
     x "Cette école devient intéressante."
     stop music fadeout 2.0
     play sound "fx/snake-alert.mp3"
@@ -382,7 +382,7 @@ label arc_1_printemps:
     menu:
         "Allan vient de poser la question un peu trop fort."
 
-        "Répondre sincèrement : \"J'aimerais bien.\"":
+        "Répondre sincèrement : « J'aimerais bien. »":
             $ communication += 4
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
@@ -406,7 +406,7 @@ label arc_1_printemps:
             j "On partage une maison impossible. C'est déjà beaucoup."
             i "Il esquive."
             j "Un peu."
-            j "Mais je veux pas te mettre dans une réponse devant tout le monde."
+            j "Mais je veux pas t'enfermer dans une réponse devant tout le monde."
             i "Ça, je prends."
 
         "Laisser Ilona répondre.":
@@ -437,7 +437,7 @@ label arc_1_printemps:
 
     systeme "Le reste de la journée se déroule avec cette question au-dessus d'eux."
     systeme "Personne ne la repose. C'est presque pire."
-    systeme "Quand les cours se terminent, Ilona lui envoie seulement : \"toit ?\""
+    systeme "Quand les cours se terminent, Ilona lui envoie seulement : « toit ? »"
 
     hide allan
     hide alex
@@ -485,7 +485,7 @@ label arc_1_printemps:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
-            j "On peut mettre un panneau : silence en travaux."
+            j "On peut mettre un panneau : « silence, travaux en cours »."
             i "Comme dans ta maison."
             j "Exactement."
             systeme "Il sourit, puis reprend plus doucement."

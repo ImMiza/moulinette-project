@@ -1,5 +1,5 @@
-﻿# Arc III - Rentree : les regards.
-# Les variables importantes restent centralisees dans script.rpy.
+﻿# Arc III - Rentrée : les regards.
+# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc3 festival hallway = im.Scale("images/scenes/arc_3/bg_arc3_festival_hallway.jpg", 1920, 1080)
 image bg arc3 festival stand = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand.jpg", 1920, 1080)
@@ -81,7 +81,7 @@ label arc_3_rentree:
     i "Alors je propose Blocky House Café."
     j "Pardon ?"
     i "Un café tout carré, avec des monstres en papier, des portes qui ne mènent pas tout à fait où on pense, et des menus beaucoup trop sérieux."
-    a "Je note : café cubique juridiquement instable."
+    a "Je note : « café cubique juridiquement instable »."
     j "Notre maison Minecraft est devenue un concept scolaire."
     i "Elle avait besoin d'un diplôme."
 
@@ -143,7 +143,7 @@ label arc_3_rentree:
 
     systeme "Trois jours plus tard, après les cours, Ilona colle les menus sur le panneau du stand."
     systeme "Le Blocky House Café a survécu aux réunions, ce qui tient presque du miracle."
-    i "On devrait ajouter un menu : salle moyennement importante."
+    i "On devrait ajouter un menu : « salle moyennement importante »."
     j "C'est beaucoup trop intime comme référence."
     i "Justement. Personne ne comprendra, donc personne ne pourra contester."
     t "Je peux peindre le panneau si vous voulez."
@@ -151,9 +151,9 @@ label arc_3_rentree:
     play sound "fx/whispers.mp3" volume 1.0
     systeme "Dans le couloir, deux élèves ralentissent en passant."
     systeme "Leur voix est assez basse pour prétendre ne rien dire, assez haute pour être entendue."
-    systeme "\"C'est celle qui s'est fait ramener son porte-clés par l'autre, à la plage.\""
-    systeme "\"Ouais. Apparemment Jessy regardait ailleurs. Pathétique.\""
-    systeme "\"Elle va le larguer ou juste le faire attendre ?\""
+    systeme "« C'est celle qui s'est fait ramener son porte-clés par l'autre, à la plage. »"
+    systeme "« Ouais. Apparemment Jessy regardait ailleurs. Pathétique. »"
+    systeme "« Elle va le larguer ou juste le faire attendre ? »"
 
     show ilona fatigue at char_center
     $ renpy.pause(0.8, hard=True)
@@ -187,7 +187,7 @@ label arc_3_rentree:
             t "Bonne décision."
             systeme "Ilona tourne la tête vers Théo."
             i "Je n'ai pas demandé ton avis."
-            systeme "Théo cligne des yeux. Surpris. Puis il baisse les yeux vers son pinceau."
+            systeme "Théo cligne des yeux. Surpris. Puis il baisse le regard vers son pinceau."
             t "Pardon."
 
         "Se taire et laisser passer.":
@@ -299,7 +299,7 @@ label arc_3_rentree:
 
     x "Elle est bonne."
     a "Elle est très bonne."
-    x "Non mais elle est {i}bonne{/i}. Genre les gens font la queue en trop et ils restent quand même."
+    x "Non mais elle est {i}bonne{/i}. Genre la queue est beaucoup trop longue et les gens restent quand même."
     a "Ilona, t'as déjà pensé à faire ça ailleurs qu'à un stand de café ?"
 
     show ilona neutral at char_midleft
@@ -323,7 +323,7 @@ label arc_3_rentree:
     menu:
         "Ilona et Théo travaillent côte à côte au stand. Comment Jessy choisit-il d'être présent ?"
 
-        "Annoncer besoin d'air et revenir.":
+        "Annoncer qu'il a besoin d'air, et revenir.":
             $ arc3_aide_stand = "distance_honnete"
             $ communication += 4
             $ confiance += 2
@@ -373,7 +373,7 @@ label arc_3_rentree:
             systeme "La réponse n'est pas douce. Elle est vivante."
             systeme "Mais Jessy vient aussi de demander une réponse émotionnelle au milieu d'un stand bondé."
 
-        "Faire blague acide pour cacher blessure.":
+        "Faire une blague acide pour cacher sa blessure.":
             $ arc3_aide_stand = "blague_defense"
             $ autonomie_ilona -= 4
             $ confiance -= 4
@@ -381,7 +381,7 @@ label arc_3_rentree:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
-            j "Je peux mettre une pancarte : attention, rivalité servie avec supplément malaise ?"
+            j "Je peux mettre une pancarte : « attention, rivalité servie avec supplément malaise » ?"
             show ilona frustrated at char_midleft
             i "Tu crois vraiment que j'avais besoin de ça ?"
             systeme "Jessy ouvre la bouche. La referme."
@@ -455,7 +455,7 @@ label arc_3_rentree:
     systeme "Des élèves passent avec des brochettes, des sacs en papier, des bracelets fluorescents. Personne ne la regarde vraiment."
     systeme "Ce détail devrait être banal. Aujourd'hui, il lui fait presque du bien."
     systeme "Ilona s'arrête devant un petit étal de sucreries. Entre deux sachets de konpeitō, elle achète une étoile en sucre simplement parce qu'elle brille."
-    i "Toi, tu as l'air de savoir ne rien décider."
+    i "Toi, au moins, tu n'as rien à décider."
     systeme "Elle glisse l'étoile dans son sac, puis reprend sa marche jusqu'au stand de takoyaki."
 
     play ambiant1 audio.foule loop volume 0.4 fadeout 1.0 fadein 1.0
@@ -631,7 +631,7 @@ label arc_3_rentree:
             systeme "Cette fois, le ton monte. Deux élèves se retournent au bout du couloir."
     systeme "Pendant une seconde, le couloir paraît trop petit pour eux deux."
     systeme "Jessy déteste Théo à cet instant."
-    systeme "Il le déteste d'autant plus qu'une partie de ce qu'il a dit restera vraie même si Théo disparaissait."
+    systeme "Il le déteste d'autant plus qu'une partie de ce qu'il a dit resterait vraie même si Théo disparaissait."
 
     stop music fadeout 2.0
     hide theo
@@ -833,7 +833,7 @@ label arc_3_rentree:
         systeme "Le geste ressemble à une confiance. Il ressemble aussi à une distance : elle lui donne quelque chose à porter parce qu'elle ne peut plus porter sa question."
         $ pression_stream += 1
 
-    systeme "Derrière eux, Allan annonce qu'il manque deux cafés et qu'Alexandre a écrit \"porte en réflexion\" sur une vraie porte de secours."
+    systeme "Derrière eux, Allan annonce qu'il manque deux cafés et qu'Alexandre a écrit « porte en réflexion » sur une vraie porte de secours."
     i "Il faut y retourner."
     j "Oui."
     i "Pas pour faire comme si tout allait bien."
@@ -946,7 +946,7 @@ label arc_3_rentree:
     systeme "Allan reste seul dans la salle après le départ du groupe."
     systeme "Il regarde son téléphone. Trois messages non envoyés dans les brouillons."
     systeme "Un pour Jessy. Un pour Ilona. Un pour Théo."
-    systeme "Tous commencent par 'En vrai, moi je pense que—'"
+    systeme "Tous commencent par « En vrai, moi je pense que— »"
     systeme "Aucun n'a de fin."
 
     $ renpy.pause(1.0, hard=True)

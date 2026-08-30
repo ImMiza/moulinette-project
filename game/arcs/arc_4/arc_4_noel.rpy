@@ -1,5 +1,5 @@
-﻿# Arc IV - Noel : le cadeau qui dit trop de choses.
-# Les variables importantes restent centralisees dans script.rpy.
+﻿# Arc IV - Noël : le cadeau qui dit trop de choses.
+# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc4 train inside = im.Scale("images/scenes/arc_4/bg_arc4_train_inside.jpg", 1920, 1080)
 image bg arc4 illuminations = im.Scale("images/scenes/arc_4/bg_arc4_illuminations.jpg", 1920, 1080)
@@ -11,7 +11,7 @@ image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_min
 image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 843, 1264)
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
 
-# Variables locales d'arc : elles gardent la trace du sens donne aux cadeaux et aux limites posees.
+# Variables locales d'arc : elles gardent la trace du sens donné aux cadeaux et aux limites posées.
 default arc4_cadeau_jessy = ""
 default arc4_reaction_cadeau_theo = ""
 default arc4_limite_ilona = ""
@@ -79,7 +79,7 @@ label arc_4_noel:
     i "Allan a envoyé le planning ?"
     j "Oui. Marché de Noël après les cours. Alexandre a répondu avec un plan d'évacuation des stands de nourriture."
     i "Priorité raisonnable."
-    j "Il a aussi écrit : si Monsieur Laplage est Père Noël, je veux savoir qui valide les listes."
+    j "Il a aussi écrit : « si Monsieur Laplage est Père Noël, je veux savoir qui valide les listes »."
     i "Je ne veux pas savoir."
     systeme "Elle sourit, puis regarde les illuminations qui passent derrière la vitre."
     
@@ -200,7 +200,7 @@ label arc_4_noel:
         "Offrir la miniature mais en blague, pour désamorcer le poids.":
             $ arc4_cadeau_jessy = "blague_interne"
             $ lien_jessy_ilona += 4
-            j "Je vais ajouter un panneau ridicule. Pièce moyennement importante, édition neige."
+            j "Je vais ajouter un panneau ridicule. « Pièce moyennement importante, édition neige »."
             x "Tu transformes un souvenir lourd en connivence."
             j "Oui."
             x "C'est lâche ou malin ?"
@@ -299,7 +299,7 @@ label arc_4_noel:
             j "Ça reste douloureux."
             systeme "Théo ne sourit plus. Ilona regarde Jessy différemment. Pas avec pitié. Avec quelque chose de plus direct."
             i "Merci d'être honnête."
-            systeme "Elle ne dit pas 'ne sois pas triste'. Elle accepte juste que la douleur existe."
+            systeme "Elle ne dit pas « ne sois pas triste ». Elle accepte juste que la douleur existe."
 
         "Poser une question simple à Ilona.":
             $ arc4_reaction_cadeau_theo = "demander_ressenti"
@@ -314,7 +314,7 @@ label arc_4_noel:
             $ renpy.pause(0.5)
             i "Ça me touche."
             j "D'accord."
-            systeme "Jessy ne demande pas 'plus que mes cadeaux'. Il ne demande pas 'tu vas sortir avec lui maintenant'. Il écoute juste."
+            systeme "Jessy ne demande pas « plus que mes cadeaux ». Il ne demande pas « tu vas sortir avec lui maintenant ». Il écoute juste."
             systeme "Ilona garde le carnet contre elle. Moins comme une preuve que comme un objet qu'elle veut comprendre."
             systeme "Théo regarde la scène sans intervenir. Pour une fois."
 
@@ -383,7 +383,7 @@ label arc_4_noel:
         i "Stop."
         systeme "Le mot d'Ilona coupe net. Mais cette fois, elle regarde les deux."
         i "Vous allez arrêter de transformer chaque putain de cadeau en duel."
-        systeme "Le juron tombe rare. Il pèse."
+        systeme "Le juron est rare. Il pèse."
         i "Je ne suis pas un trophée qu'on gagne avec des souvenirs bien placés."
         systeme "Elle regarde Théo."
         i "Et je ne suis pas une victime qu'on sauve en posant des questions au bon moment."
@@ -460,11 +460,11 @@ label arc_4_noel:
 
     systeme "Un peu plus loin, Allan tient deux chocolats chauds et l'air de quelqu'un qui commence enfin à trouver sa neutralité fatigante."
     a "Théo vient de parler à Monsieur Laplage."
-    x "Il l'a appelé 'le Messi' ?"
+    x "Il l'a appelé « le Messi » ?"
     a "Probablement."
     systeme "Alexandre sourit à moitié. C'est toujours étrange quand Théo utilise ce surnom."
     x "Rappelle-moi pourquoi il dit ça."
-    a "Parce qu'une fois, Théo a dit que Laplage était 'le GOAT des conseils cryptiques'."
+    a "Parce qu'une fois, Théo a dit que Laplage était « le GOAT des conseils cryptiques »."
     a "Puis il a décidé que ça sonnait mieux si c'était Messi."
     x "Logique Théo : zéro sens, mais cohérent avec lui-même."
     a "Exactement."
@@ -512,7 +512,7 @@ label arc_4_noel:
     with dissolve
     $ arc4_carte_sofiane_lue = True
 
-    x "Il a dit 'le service'."
+    x "Il a dit « le service »."
     a "Oui."
     x "Sofiane a un job ?"
     a "Apparemment. Et il refuse d'expliquer."
@@ -524,7 +524,7 @@ label arc_4_noel:
     systeme "Personne ne l'a prise."
 
     a "Tu crois qu'elle est pour qui ?"
-    x "Sofiane a dit : 'celui qui la lira en pensant qu'elle n'était pas pour lui'."
+    x "Sofiane a dit : « celui qui la lira en pensant qu'elle n'était pas pour lui »."
     a "Donc personne, alors."
     x "Ou quelqu'un qui ne sait jamais si les choses sont pour lui."
 
@@ -561,7 +561,7 @@ label arc_4_noel:
     show ilona neutral at char_left
 
     systeme "La foule pousse Ilona vers la rambarde qui longe la rivière."
-    systeme "Elle n'a pas fui. Pas vraiment. Elle a juste suivi l'endroit où sa poitrine pourrait se desserrer."
+    systeme "Elle n'a pas fui. Pas vraiment. Elle a juste rejoint l'endroit où sa poitrine pourrait se desserrer."
     systeme "Dans une main, elle tient le carnet de Théo. Dans l'autre, un mochi brillant acheté par réflexe."
     systeme "Elle regarde les deux objets. Celui qu'on lui a donné. Celui qu'elle s'est donné."
     i "Tu as l'air trop cosmique pour un dessert."
@@ -587,7 +587,7 @@ label arc_4_noel:
     i "..."
     i "Monsieur Laplage ?"
     laplage "Père Noël intérimaire. Service des horizons froids."
-    i "Vous travaillez vraiment quelque part, un jour ?"
+    i "Vous travaillez vraiment quelque part, parfois ?"
     laplage "Je travaille surtout entre les endroits."
     i "C'est une réponse qui refuse son métier."
     laplage "Très professionnel."
@@ -624,8 +624,8 @@ label arc_4_noel:
     systeme "Laplage acquiesce. Puis repart vers son stand."
     systeme "Ilona reste avec le carnet dans une main, le café dans l'autre."
     systeme "Le café ne résout rien. Mais il lui donne quelques secondes où elle peut juste respirer."
-    # Deuxieme confidence : elle n'existe que si Jessy ne l'ecoute toujours pas assez.
-    # Une confidence a Laplage est une dette, pas un credit (porte de l'arc 6).
+    # Deuxième confidence : elle n'existe que si Jessy ne l'écoute toujours pas assez.
+    # Une confidence à Laplage est une dette, pas un crédit (porte de l'arc 6).
     if ilona_peut_finir_ses_phrases < 4:
         $ confidences_laplage += 1
     $ jugement_laplage += 1
@@ -664,13 +664,13 @@ label arc_4_noel:
     
     if arc2_choix_activite_theo == "suivre":
         systeme "Ilona se souvient. La plage. Les mares. Jessy qui la suit au lieu de lui faire confiance."
-        systeme "Elle avait dit 'test de fidélité'. Il ne l'a pas oublié non plus."
+        systeme "Elle avait dit « test de fidélité ». Il ne l'a pas oublié non plus."
         i "Tu as déjà perdu une fois en essayant de gagner."
         j "Je sais."
         i "Alors pourquoi tu recommences ?"
         systeme "Jessy n'a pas de réponse. Ou trop de réponses."
     elif arc2_choix_activite_theo == "dix_minutes":
-        systeme "Ilona se souvient. La plage. Jessy qui dit 'j'ai peur' au lieu de la retenir."
+        systeme "Ilona se souvient. La plage. Jessy qui dit « j'ai peur » au lieu de la retenir."
         systeme "Ça n'avait pas tout réglé. Mais ça avait compté."
         i "Tu sais nommer ta peur. Tu l'as déjà fait."
         j "Oui."
@@ -717,14 +717,14 @@ label arc_4_noel:
             systeme "Ilona regarde l'écharpe. Elle est belle. Chère. Impersonnelle."
             i "Elle est belle."
             j "Mais ?"
-            i "Je n'ai pas dit mais."
+            i "Je n'ai pas dit « mais »."
             j "Ton visage l'a dit."
             systeme "Ilona prend l'écharpe. Le tissu glisse entre ses doigts."
             i "Elle est belle, Jessy. Vraiment."
             i "Mais j'ai l'impression que tu viens de paniquer dans une boutique en pensant à Théo."
             systeme "Jessy ne répond pas. Ilona plie l'écharpe lentement."
             i "Merci. Je vais la garder."
-            systeme "Le 'merci' sonne comme une politesse funéraire. Jessy l'entend. Il ne dit rien."
+            systeme "Le « merci » sonne comme une politesse funéraire. Jessy l'entend. Il ne dit rien."
 
         "Offrir la miniature en avouant qu'elle porte trop de sens." if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
             $ arc4_limite_ilona = "cadeau_respirant"
@@ -839,13 +839,13 @@ label arc_4_noel:
     
     if arc4_limite_ilona == "demande_theo":
         i "Et tu vas écouter sans m'interrompre cette fois."
-        systeme "Le 'cette fois' fait mal. Jessy hoche la tête."
+        systeme "Le « cette fois » fait mal. Jessy hoche la tête."
     else:
         i "Et j'ai besoin que tu écoutes sans essayer de te défendre ou de réparer tout de suite."
         systeme "Jessy hoche la tête. Sa mâchoire se serre."
 
-    # Seul un choix de tier D (couper Ilona) cree une dette d'interruption.
-    # Le bonus d'espace est deja porte par l'option de tier S du menu.
+    # Seul un choix de tier D (couper Ilona) crée une dette d'interruption.
+    # Le bonus d'espace est déjà porté par l'option de tier S du menu.
     if arc4_reaction_cadeau_theo == "blague_acide":
         $ interruptions_ilona += 1
 
@@ -853,7 +853,7 @@ label arc_4_noel:
     systeme "Pause."
     i "Et ce n'est pas parce que je reçois un cadeau que je dois décider immédiatement ce qu'il signifie."
     # Ilona pose sa limite dans tous les cas, mais elle ne "compte" comme souvenir
-    # que si on lui a laisse assez d'espace pour aller au bout sans etre coupee.
+    # que si on lui a laissé assez d'espace pour aller au bout sans être coupée.
     if ilona_peut_finir_ses_phrases >= 2 and interruptions_ilona <= interruptions_reparees:
         $ remember("ilona_pose_une_limite")
     systeme "La phrase traverse la soirée entière. Elle touche Théo même absent. Elle touche Jessy même silencieux."
@@ -877,8 +877,8 @@ label arc_4_noel:
             j "Rien ?"
             i "Rien tout de suite. Juste... entendre ce que je viens de dire."
             systeme "Jessy serre la rambarde."
-            j "J'ai peur que 'rien' veuille dire que c'est déjà fini."
-            i "Et j'ai peur que 'quelque chose' veuille dire que je dois décider maintenant."
+            j "J'ai peur que « rien » veuille dire que c'est déjà fini."
+            i "Et j'ai peur que « quelque chose » veuille dire que je dois décider maintenant."
             systeme "Ils se regardent. Deux peurs face à face."
             j "Ok. Je peux vivre avec rien pour ce soir."
             i "Merci."
@@ -891,7 +891,7 @@ label arc_4_noel:
             show jessy listening at char_right
             systeme "Jessy hoche la tête. Il ne dit rien."
             systeme "Pas parce qu'il n'a rien à dire. Parce qu'il sait que les mots maintenant transformeraient la limite en négociation."
-            systeme "Ilona regarde Jessy. Elle attend une défense. Un 'mais'. Une justification."
+            systeme "Ilona regarde Jessy. Elle attend une défense. Un « mais ». Une justification."
             systeme "Rien ne vient."
             i "C'est tout ?"
             j "Oui."
@@ -991,12 +991,12 @@ label arc_4_noel:
         i "Je crois que je vais rentrer avec Allan."
         j "Tu veux que je vienne ?"
         i "Non."
-        systeme "Pas 'pas ce soir'. Juste 'non'."
+        systeme "Pas « pas ce soir ». Juste « non »."
         systeme "La phrase est une porte qu'Ilona ferme. Pas en claquant. En respirant enfin de l'autre côté."
         j "D'accord."
         if arc4_limite_ilona == "cadeau_preuve":
             i "Merci pour l'écharpe. Vraiment."
-            systeme "Mais le 'merci' ne répare rien."
+            systeme "Mais le « merci » ne répare rien."
         else:
             systeme "Ilona part sans ajouter de merci. Jessy reste planté là, le poids de ses questions dans les mains."
         $ pression_stream += 2
@@ -1044,7 +1044,7 @@ label arc_4_noel:
     if arc4_limite_ilona in ("cadeau_respirant", "parole_sans_verdict", "marche_silencieuse"):
         i "Oui."
         i "Avec le groupe."
-        systeme "Le mot 'groupe' remet une distance nette là où Théo aurait préféré un 'nous' plus flou."
+        systeme "Le mot « groupe » remet une distance nette là où Théo aurait préféré un « nous » plus flou."
         t "D'accord."
         systeme "Il ne sourit pas. Il acquiesce. Comme quelqu'un qui sait quand ne pas insister."
     elif arc4_limite_ilona in ("cadeau_preuve", "demande_theo"):
@@ -1070,7 +1070,7 @@ label arc_4_noel:
         i "Pas maintenant."
         systeme "Théo hoche la tête."
         t "D'accord."
-        systeme "Il ne force pas. Mais le 'pas maintenant' laisse une porte."
+        systeme "Il ne force pas. Mais le « pas maintenant » laisse une porte."
 
     hide theo
     with dissolve
@@ -1099,7 +1099,7 @@ label arc_4_noel:
         i "Jessy, je suis fatiguée. De tout ça."
         i "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
 
-        systeme "Le mot 'rassurer' claque."
+        systeme "Le mot « rassurer » claque."
 
         t "On ne va pas loin. Juste jusqu'à la station."
 
@@ -1173,7 +1173,7 @@ label arc_4_noel:
             j "Tu veux que j'aide ?"
             i "Oui."
             if arc4_cadeau_jessy == "blague_interne":
-                i "Mais si tu corriges une seule erreur, je détruis tout et je pose un panneau 'JESSY A RUINÉ NOËL'."
+                i "Mais si tu corriges une seule erreur, je détruis tout et je pose un panneau « JESSY A RUINÉ NOËL »."
             else:
                 i "Mais les erreurs restent. C'est non négociable."
             j "Message reçu."
@@ -1246,15 +1246,15 @@ label arc_4_noel:
     $ renpy.pause(1.0, hard=True)
 
     systeme "Plus tard, Jessy se déconnecte. Sur Discord, la pastille d'Ilona est toujours verte."
-    systeme "Sous son pseudo, le petit statut que personne ne lit jamais : {i}\"regarde : deuxième jour de setup\"{/i}."
+    systeme "Sous son pseudo, le petit statut que personne ne lit jamais : {i}« regarde : deuxième jour de setup »{/i}."
     systeme "Il est deux heures dix. Ce n'est pas la première fois qu'il le voit."
     systeme "Il n'a jamais demandé ce qu'elle regarde à deux heures du matin."
 
     jump arc_5_examens
 
 
-# --- Recapitulatif Arc IV ---
-# Variables modifiees :
+# --- Récapitulatif Arc IV ---
+# Variables modifiées :
 # - lien_jessy_ilona, confiance, communication, jalousie, autonomie_ilona
 # - influence_theo, pression_stream, jugement_laplage, confidences_laplage
 # - interruptions_ilona, interruptions_reconnues, interruptions_reparees, ilona_peut_finir_ses_phrases
@@ -1263,14 +1263,14 @@ label arc_4_noel:
 # - arc4_cadeau_jessy, arc4_reaction_cadeau_theo, arc4_limite_ilona, arc4_fin_minecraft
 # - arc4_carte_sofiane_lue, arc4_mochi_cosmique
 #
-# Choix ayant des consequences futures :
-# - Le sens donne au cadeau de Jessy determine s'il devient un souvenir partage, une preuve anxieuse ou une conversation plus honnete.
-# - La reaction au cadeau precis de Theo modifie la confiance, l'autonomie d'Ilona et l'influence de Theo.
-# - La facon d'accueillir la limite d'Ilona prepare directement l'Arc V, notamment la question peur/confiance.
-# - Le mochi cosmique peut ajouter un point a la route cachee de l'Ilonanium.
+# Choix ayant des conséquences futures :
+# - Le sens donné au cadeau de Jessy détermine s'il devient un souvenir partagé, une preuve anxieuse ou une conversation plus honnête.
+# - La réaction au cadeau précis de Théo modifie la confiance, l'autonomie d'Ilona et l'influence de Théo.
+# - La façon d'accueillir la limite d'Ilona prépare directement l'Arc V, notamment la question peur/confiance.
+# - Le mochi cosmique peut ajouter un point à la route cachée de l'Ilonanium.
 #
 # Fils ouverts pour l'Arc V :
-# - Ilona a formule que connaitre ses gouts ne suffit pas a savoir ce qu'elle veut.
-# - Théo reste utile et attentif, mais Allan commence a intervenir quand son aide cherche a prendre la place de la reponse d'Ilona.
-# - Jessy peut avoir appris a laisser un cadeau respirer, ou avoir renforce l'idee qu'il cherche une garantie.
-# - La maison Minecraft contient une trace de Noel : miniature, coffre d'attente, objet trop lourd, coin dehors ou neige fragile.
+# - Ilona a formulé que connaître ses goûts ne suffit pas à savoir ce qu'elle veut.
+# - Théo reste utile et attentif, mais Allan commence à intervenir quand son aide cherche à prendre la place de la réponse d'Ilona.
+# - Jessy peut avoir appris à laisser un cadeau respirer, ou avoir renforcé l'idée qu'il cherche une garantie.
+# - La maison Minecraft contient une trace de Noël : miniature, coffre d'attente, objet trop lourd, coin dehors ou neige fragile.

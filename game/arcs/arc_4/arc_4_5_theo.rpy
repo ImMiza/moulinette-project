@@ -6,7 +6,7 @@
 # Elle a dit à Jessy : "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
 
 # Images
-# Le parc residentiel sert aux plans de marche et de banc tant que la rue dediee n'existe pas.
+# Le parc résidentiel sert aux plans de marche et de banc tant que la rue dédiée n'existe pas.
 image bg arc4_5 street winter night = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 image bg arc4_5 park bench = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 
@@ -45,7 +45,7 @@ label arc_4_5_theo:
     show ilona fatigue at char_right
     with dissolve
     
-    systeme "Théo et Ilona suivent le chemin d'un petit parc résidentiel. Le froid mord, mais aucun des deux ne propose de rentrer."
+    systeme "Théo et Ilona suivent l'allée d'un petit parc résidentiel. Le froid mord, mais aucun des deux ne propose de rentrer."
     systeme "Dans son sac, Ilona sent le poids du carnet que Théo lui a offert. Et la question de Jessy, encore chaude."
     systeme "« Son cadeau... ça veut dire quelque chose pour toi ? »"
     systeme "Elle avait répondu : « Tu me demandes de te rassurer avant même que j'aie le temps de comprendre ce que moi je ressens. »"
@@ -70,7 +70,7 @@ label arc_4_5_theo:
     
     $ lien_ilona_theo += 1
     
-    # Pause au banc, dans le meme parc residentiel.
+    # Pause au banc, dans le même parc résidentiel.
     systeme "Ils ralentissent près du banc sous le lampadaire. Les illuminations de Noël clignotent au loin."
 
     show theo neutral at char_left
@@ -93,7 +93,7 @@ label arc_4_5_theo:
     
     show theo reassuring
     
-    t "Parce que essayer et réussir, c'est pas la même chose. Et tu as le droit d'attendre plus qu'un effort."
+    t "Parce qu'essayer et réussir, c'est pas la même chose. Et tu as le droit d'attendre plus qu'un effort."
     
     systeme "Ce n'est pas faux. C'est même vrai. C'est exactement ce qu'Ilona a ressenti au marché."
     systeme "Mais Théo sait que les vérités bien placées ouvrent des portes."
@@ -146,10 +146,10 @@ label arc_4_5_theo:
     
     systeme "La neige tombe plus fort. Ilona doit décider ce qu'elle fait de cette conversation."
     
-    # Determination de la reaction d'Ilona.
-    # L'ordre compte : une emprise deja forte de Theo court-circuite tout le reste,
-    # meme si Jessy a bien communique. Sinon, ce que Jessy a construit decide.
-    # Seuils cales sur le bareme de game/agents/recalibrage.md.
+    # Détermination de la réaction d'Ilona.
+    # L'ordre compte : une emprise déjà forte de Théo court-circuite tout le reste,
+    # même si Jessy a bien communiqué. Sinon, ce que Jessy a construit décide.
+    # Seuils calés sur le barème de game/agents/recalibrage.md.
     if influence_theo >= 14 and autonomie_ilona <= 0:
         $ arc4_5_ilona_reaction = "accepte"
     elif communication >= 15 or ilona_peut_finir_ses_phrases >= 3:
@@ -194,7 +194,7 @@ label arc_4_5_theo:
         t "Comme quoi ?"
         i "Je sais pas. Peut-être... streamer. Pour de vrai."
         
-        systeme "Elle dit ça presque timidement. Comme si c'était pas sérieux. Comme si c'était juste un rêve."
+        systeme "Elle dit ça presque timidement. Comme si ce n'était pas sérieux. Comme si c'était juste un rêve."
         
         i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
         
@@ -245,7 +245,7 @@ label arc_4_5_theo:
         show theo neutral
         
         t "Je... je veux t'aider. Vraiment."
-        i "Je sais. Mais 'vraiment', ça veut dire quoi, pour toi ?"
+        i "Je sais. Mais « vraiment », ça veut dire quoi, pour toi ?"
         
         systeme "Il n'a pas de réponse. Pas ce soir."
         
@@ -264,7 +264,7 @@ label arc_4_5_theo:
         
         t "Je comprends."
         
-        systeme "Il comprend. C'est vrai. Mais comprendre et accepter, c'est pas la même chose."
+        systeme "Il comprend. C'est vrai. Mais comprendre et accepter, ce n'est pas la même chose."
         
         i "Jessy fait des erreurs. Toi aussi, parfois."
         t "Moi ?"
@@ -298,7 +298,7 @@ label arc_4_5_theo:
     
     systeme "Ils arrivent dans une petite rue commerçante presque vide, encore mouillée par la neige."
     systeme "La plupart des boutiques ont déjà baissé leur rideau."
-    systeme "Mais une vitrine reste allumée, chaude au milieu du bleu de la nuit, avec une pancarte : 'MAID CAFÉ - OUVERT JUSQU'À MINUIT'."
+    systeme "Mais une vitrine reste allumée, chaude au milieu du bleu de la nuit, avec une pancarte : « MAID CAFÉ — OUVERT JUSQU'À MINUIT »."
     
     t "On devrait se réchauffer."
     
@@ -340,7 +340,7 @@ label arc_4_5_theo:
     
     laplage "Théo. Ilona."
     
-    systeme "Il pose le verre. Continue d'essuyer un autre. Aucune surprise dans son ton."
+    systeme "Il pose le verre. En prend un autre. Aucune surprise dans son ton."
     
     show ilona neutral
     
@@ -370,7 +370,7 @@ label arc_4_5_theo:
     laplage "Les chemins qui divergent font moins de bruit."
     laplage "Mais le silence n'est pas toujours une paix."
     
-    systeme "Il lève son pouce. Ni levé. Ni baissé. Juste horizontal."
+    systeme "Il tend son pouce. Ni levé. Ni baissé. Juste horizontal."
     systeme "Puis il retourne au comptoir et disparaît dans l'ombre."
     
     $ jugement_laplage += 1

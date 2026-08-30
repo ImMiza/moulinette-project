@@ -1,26 +1,26 @@
 # =============================================================================
-# ARC VI - REMISE DES DIPLOMES : "APRES AUJOURD'HUI"
+# ARC VI - REMISE DES DIPLÔMES : « APRÈS AUJOURD'HUI »
 # =============================================================================
 # Fin mars. Les cerisiers ne sont pas encore ouverts.
 #
 # Triple fonction de l'arc :
-#   1. Payer les fils ouverts des arcs I a V.
-#   2. Rendre l'annee lisible sans afficher une seule jauge
+#   1. Payer les fils ouverts des arcs I à V.
+#   2. Rendre l'année lisible sans afficher une seule jauge
 #      (c'est Ilona qui raconte, c'est le pouce de Laplage qui note).
 #   3. Basculer vers arc_7_jessy ou arc_7_theo.
 #
-# REGLE ABSOLUE : cet arc ne doit jamais se lire comme "Ilona choisit un garcon".
-#   arc_7_jessy = Ilona reste dans un endroit ou elle peut parler.
-#   arc_7_theo  = Ilona part vers un endroit ou on lui epargne de parler.
+# RÈGLE ABSOLUE : cet arc ne doit jamais se lire comme « Ilona choisit un garçon ».
+#   arc_7_jessy = Ilona reste dans un endroit où elle peut parler.
+#   arc_7_theo  = Ilona part vers un endroit où on lui épargne de parler.
 #
-# Les compteurs globaux restent centralises dans script.rpy.
-# Le bareme des choix est documente dans game/agents/recalibrage.md.
+# Les compteurs globaux restent centralisés dans script.rpy.
+# Le barème des choix est documenté dans game/agents/recalibrage.md.
 # =============================================================================
 
 # --- Variables locales Arc VI ---
 default arc6_stylo = ""                   # rendu / garde / rendu_explique / blague
 default arc6_enveloppe_lue = False
-default arc6_secret_sofiane = ""          # revele / tenu
+default arc6_secret_sofiane = ""          # révélé / tenu
 default arc6_allan_confronte_theo = False
 default arc6_offre_theo = ""              # laisse / question / accusation / aveu_vide
 default arc6_ilona_a_pleure = False
@@ -30,17 +30,17 @@ default arc6_conversation = ""            # continuer / que_veux_tu / eviter / p
 default arc6_derniere_construction = ""   # porte_ouverte / panneau_partir / silence / cadenas
 default arc6_vignettes_jouees = []
 default arc6_vignettes_count = 0
-default arc6_flashback = False            # au moins une vignette a jouer en flashback
+default arc6_flashback = False            # au moins une vignette à jouer en flashback
 
 default arc6_mod = 0
 default arc6_score = 0
 default arc6_route = ""
 
 # --- Images Arc VI ---
-# Assets propres a l'arc 6 : gymnase de ceremonie, classe du matin,
-# classe decoree de fin d'annee.
+# Assets propres à l'arc 6 : gymnase de cérémonie, classe du matin,
+# classe décorée de fin d'année.
 # arc6_bg() prend l'asset arc_6 s'il existe, sinon le secours indique.
-# fit="cover" recadre sans deformer, contrairement a im.Scale.
+# fit="cover" recadre sans déformer, contrairement à im.Scale.
 init -5 python:
     def arc6_bg(nom, secours):
         chemin = "images/scenes/arc_6/bg_arc6_{}.jpg".format(nom)
@@ -59,7 +59,7 @@ image bg arc6 courtyard march = arc6_bg("courtyard_march", "images/scenes/arc_5/
 image bg arc6 rooftop dusk = arc6_bg("rooftop_dusk", "images/scenes/arc_5/bg_arc5_rooftop.jpg")
 image bg arc6 minecraft last = arc6_bg("minecraft_last", "images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
 
-# Backgrounds de flashback reutilises tels quels par la scene 3.
+# Backgrounds de flashback réutilisés tels quels par la scène 3.
 image bg arc6 flash beach = arc6_flashbg("images/scenes/arc_2/bg_arc2_beach_sunset.jpg")
 image bg arc6 flash festival = arc6_flashbg("images/scenes/arc_3/bg_arc3_festival_hallway.jpg")
 image bg arc6 flash minecraft = arc6_flashbg("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
@@ -68,7 +68,7 @@ image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench
 image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
 
 # =============================================================================
-# SCENE 1 : LE STYLO VIOLET
+# SCÈNE 1 : LE STYLO VIOLET
 # =============================================================================
 
 label arc_6_diplomes:
@@ -205,7 +205,7 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# SCENE 2 : LA CEREMONIE
+# SCÈNE 2 : LA CÉRÉMONIE
 # =============================================================================
 
     scene bg arc6 gym ceremony
@@ -231,7 +231,7 @@ label arc_6_diplomes:
     x "Et la troisième ?"
     mi "Du proviseur adjoint. Mais c'est un malentendu."
     x "Je ne veux pas savoir."
-    mi "C'est écrit \"convocation\"."
+    mi "C'est écrit « convocation »."
     x "Je ne veux VRAIMENT pas savoir."
     a "Il l'a ouverte ?"
     mi "Trois fois."
@@ -246,12 +246,12 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    # --- 2.2 Le buffet et le gateau-planete ---
+    # --- 2.2 Le buffet et le gâteau-planète ---
     show jessy neutral at char_left
     show ilona neutral at char_midright
     with dissolve
 
-    systeme "Sur la table, un gâteau bleu nuit, couvert de sucre argenté. Quelqu'un a écrit \"BONNE ROUTE\" dessus, à côté d'une forme ronde qui devait être un ballon."
+    systeme "Sur la table, un gâteau bleu nuit, couvert de sucre argenté. Quelqu'un a écrit « BONNE ROUTE » dessus, à côté d'une forme ronde qui devait être un ballon."
 
     i "C'est une planète."
     j "C'est un ballon."
@@ -303,7 +303,7 @@ label arc_6_diplomes:
     systeme "Allan ouvre l'enveloppe. Ses mains tremblent légèrement."
     systeme "Deux lignes manuscrites. Décembre. Marché de Noël."
 
-    systeme "{i}\"Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit.\"{/i}"
+    systeme "{i}« Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit. »{/i}"
 
     $ renpy.pause(2.0, hard=True)
 
@@ -326,7 +326,7 @@ label arc_6_diplomes:
     systeme "Il plie l'enveloppe et la garde dans sa poche."
     systeme "Cette fois, il sait qu'elle était pour lui."
 
-    # --- 2.4 Le secret du maid cafe ---
+    # --- 2.4 Le secret du maid café ---
     show alex teasing at char_left
     with dissolve
 
@@ -369,7 +369,7 @@ label arc_6_diplomes:
     hide sofiane
     with dissolve
 
-    # --- 2.5 Allan confronte Theo ---
+    # --- 2.5 Allan confronte Théo ---
     systeme "Ils s'en vont. Le gymnase se vide par petits paquets, comme une salle de cinéma après le générique."
     systeme "Deux premières années démontent déjà la table du buffet. Quelqu'un enroule la banderole. Le bruit ne disparaît pas : il maigrit."
 
@@ -415,7 +415,7 @@ label arc_6_diplomes:
     $ arc6_allan_confronte_theo = True
     $ influence_theo = max(0, influence_theo - 2)
 
-    # --- 2.6 Amorce du depart de Theo (prepare la scene 4) ---
+    # --- 2.6 Amorce du départ de Théo (prépare la scène 4) ---
     $ renpy.pause(0.8, hard=True)
 
     t "Je pars."
@@ -450,19 +450,19 @@ label arc_6_diplomes:
     stop music fadeout 3.0
 
     systeme "Le gymnase finit de se vider. Les portes restent ouvertes, et l'air de mars entre par le fond."
-    systeme "Quelque part dans le bâtiment, le téléphone de Jessy vibre. Un message d'Ilona : {i}\"Salle 3-B. J'ai un feutre.\"{/i}"
+    systeme "Quelque part dans le bâtiment, le téléphone de Jessy vibre. Un message d'Ilona : {i}« Salle 3-B. J'ai un feutre. »{/i}"
 
     $ renpy.pause(1.5, hard=True)
 
 
 # =============================================================================
-# SCENE 3 : LE RECAPITULATIF - ILONA RACONTE L'ANNEE
+# SCÈNE 3 : LE RÉCAPITULATIF - ILONA RACONTE L'ANNÉE
 # =============================================================================
-# Coeur de l'arc. Ce n'est pas un flashback de Jessy : c'est Ilona qui relit
-# l'annee a voix haute. Le joueur voit sa partie racontee par la personne
-# qui l'a subie. Aucune jauge affichee, et l'etat est parfaitement lisible.
+# Cœur de l'arc. Ce n'est pas un flashback de Jessy : c'est Ilona qui relit
+# l'année à voix haute. Le joueur voit sa partie racontée par la personne
+# qui l'a subie. Aucune jauge affichée, et l'état est parfaitement lisible.
 #
-# Selection par variables, PAS par chronologie. Maximum 5 vignettes.
+# Sélection par variables, PAS par chronologie. Maximum 5 vignettes.
 # =============================================================================
 
     stop music fadeout 2.0
@@ -476,7 +476,7 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    systeme "Après la cérémonie. La salle de classe a été décorée par les premières années : des guirlandes en papier, un tableau couvert de \"FÉLICITATIONS\" écrits par quarante mains différentes, une banderole qui se décolle d'un côté."
+    systeme "Après la cérémonie. La salle de classe a été décorée par les premières années : des guirlandes en papier, un tableau où quarante mains différentes ont écrit « FÉLICITATIONS », une banderole qui se décolle d'un côté."
     systeme "Personne n'est resté. Les chaises sont encore en rangées. C'est ça qui est bizarre : tout est décoré, et tout est rangé comme un jour normal."
 
     systeme "Ilona a un feutre noir et l'uniforme de Jessy sur les genoux. Elle ne l'a pas encore ouvert."
@@ -527,9 +527,9 @@ label arc_6_diplomes:
     show ilona smile at char_midright
     with dissolve
 
-    i "Je déteste le mot \"souvenir\", au fait."
+    i "Je déteste le mot « souvenir », au fait."
     j "Pourquoi ?"
-    i "Parce qu'on l'utilise pour ranger. \"C'est un souvenir\", ça veut dire \"c'est fini, tu peux le poser\"."
+    i "Parce qu'on l'utilise pour ranger. « C'est un souvenir », ça veut dire « c'est fini, tu peux le poser »."
     i "Moi j'ai pas fini. J'ai juste plus l'école."
 
     show ilona neutral at char_midright
@@ -543,8 +543,8 @@ label arc_6_diplomes:
     $ arc6_flashback = (arc2_choix_activite_theo != "") or (arc3_reaction_rumeur != "") or (arc3_fin_minecraft != "") or (arc4_limite_ilona != "") or arc4_ilona_avec_theo or (arc5_question_reponse != "")
 
     # -------------------------------------------------------------------------
-    # ENTREE EN FLASHBACK : une seule fois. Les vignettes s'enchainent ensuite
-    # sans jamais revenir a la salle de classe. La musique ne s'arrete pas.
+    # ENTRÉE EN FLASHBACK : une seule fois. Les vignettes s'enchaînent ensuite
+    # sans jamais revenir à la salle de classe. La musique ne s'arrête pas.
     # -------------------------------------------------------------------------
     if arc6_flashback:
         hide jessy
@@ -650,7 +650,7 @@ label arc_6_diplomes:
             $ pression_stream += 2
         elif arc3_fin_minecraft == "panneau_finir_phrase":
             i "Le panneau."
-            i "\"ICI, LES PHRASES ONT LE DROIT DE TREMBLER\"."
+            i "« ICI, LES PHRASES ONT LE DROIT DE TREMBLER »."
             i "Je vais le garder. Même si le serveur ferme."
 
             $ renpy.pause(1.0, hard=True)
@@ -685,7 +685,7 @@ label arc_6_diplomes:
 
     i "Alors je le remets."
 
-    # --- V4 : NOEL ---
+    # --- V4 : NOËL ---
     if arc6_vignettes_count < 5 and arc4_limite_ilona != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("noel")
@@ -741,7 +741,7 @@ label arc_6_diplomes:
             i "On a fait deux kilomètres et j'ai pensé à rien. À rien du tout."
             i "C'est le plus beau cadeau qu'on m'ait fait et il coûtait zéro yen."
 
-    # --- V5 : LA NUIT AVEC THEO ---
+    # --- V5 : LA NUIT AVEC THÉO ---
     # La plus importante : le joueur a vu cette nuit, Jessy non. Ilona la lui donne.
     if arc6_vignettes_count < 5 and arc4_ilona_avec_theo:
         $ arc6_vignettes_count += 1
@@ -963,7 +963,7 @@ label arc_6_diplomes:
         show ilona neutral at char_midright
         with dissolve
 
-    # --- Cloture de la scene 3 ---
+    # --- Clôture de la scène 3 ---
     $ renpy.pause(1.0, hard=True)
 
     i "Voilà."
@@ -1018,7 +1018,7 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# SCENE 4 : THEO A DECOUVERT
+# SCÈNE 4 : THÉO A DÉCOUVERT
 # =============================================================================
 
     scene bg arc6 corridor empty
@@ -1103,14 +1103,14 @@ label arc_6_diplomes:
 
     t "Voilà. C'est dit. Tu fais ce que tu veux avec."
 
-    # --- 6.1 Ilona reprend son reve ---
+    # --- 6.1 Ilona reprend son rêve ---
     show ilona determined at char_center
     with dissolve
 
     $ renpy.pause(1.0, hard=True)
 
     i "Je veux streamer."
-    i "Pas \"peut-être\". Pas \"un jour\"."
+    i "Pas « peut-être ». Pas « un jour »."
     i "Je veux le faire."
 
     $ renpy.pause(1.0, hard=True)
@@ -1141,7 +1141,7 @@ label arc_6_diplomes:
 
     $ remember("ilona_veut_streamer_serieusement")
 
-    # --- 6.2 MENU 2 : la reponse de Jessy a l'offre ---
+    # --- 6.2 MENU 2 : la réponse de Jessy à l'offre ---
     menu:
         "Se taire. C'est sa décision.":
             $ arc6_offre_theo = "laisse"
@@ -1162,7 +1162,7 @@ label arc_6_diplomes:
 
             systeme "Elle a l'air d'avoir de la place, tout d'un coup. Beaucoup de place. Ça a l'air de faire un peu peur."
 
-        "Moi je n'ai rien à te proposer.":
+        "« Moi, je n'ai rien à te proposer. »":
             $ arc6_offre_theo = "aveu_vide"
             $ communication += 4
             $ confiance += 2
@@ -1185,7 +1185,7 @@ label arc_6_diplomes:
 
             systeme "Elle l'a dit très bas. Ce n'était pas une consolation."
 
-        "Pourquoi tu as attendu aujourd'hui pour le dire ?":
+        "« Pourquoi tu as attendu aujourd'hui pour le dire ? »":
             $ arc6_offre_theo = "question"
             $ communication += 4
             $ confiance += 2
@@ -1206,7 +1206,7 @@ label arc_6_diplomes:
 
             systeme "Un mot. C'est la première fois qu'il en dit un seul."
 
-        "Tu l'as toujours voulue pour toi.":
+        "« Tu l'as toujours voulue pour toi. »":
             $ arc6_offre_theo = "accusation"
             $ autonomie_ilona -= 4
             $ confiance -= 4
@@ -1233,9 +1233,9 @@ label arc_6_diplomes:
 
             i "Vous avez fini de parler de moi à la troisième personne ?"
 
-    # --- 6.3 "Qu'on me foute la paix" ---
-    # Fil ouvert d'arc V : Ilona ne l'avait dit qu'a Laplage, qui lui avait
-    # repondu de le dire "pas a moi, a eux". Elle le fait ici, devant les deux.
+    # --- 6.3 « Qu'on me foute la paix » ---
+    # Fil ouvert d'arc V : Ilona ne l'avait dit qu'à Laplage, qui lui avait
+    # répondu de le dire « pas à moi, à eux ». Elle le fait ici, devant les deux.
     $ renpy.pause(0.8, hard=True)
 
     show ilona determined at char_center
@@ -1276,10 +1276,10 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# SCENE 5 : MONSIEUR LAPLAGE, DERNIERE FOIS
+# SCÈNE 5 : MONSIEUR LAPLAGE, DERNIÈRE FOIS
 # =============================================================================
-# Troisieme et derniere scene symbolique. Apres ca, il ne reapparait
-# qu'au post-generique.
+# Troisième et dernière scène symbolique. Après ça, il ne réapparaît
+# qu'au post-générique.
 # =============================================================================
 
     scene bg arc6 courtyard march
@@ -1297,7 +1297,7 @@ label arc_6_diplomes:
     with Dissolve(1.5)
 
     systeme "L'homme derrière la table prend une feuille blanche, la tamponne, la range. Il en prend une autre."
-    systeme "Il porte un badge : {i}\"Régisseur de Fins d'Année - Service des Départs\"{/i}."
+    systeme "Il porte un badge : {i}« Régisseur de Fins d'Année - Service des Départs »{/i}."
 
     show ilona neutral at char_midleft
     with dissolve
@@ -1335,8 +1335,8 @@ label arc_6_diplomes:
     laplage "Ce n'était pas une question qui attendait une réponse."
     laplage "C'était une question qui attendait que vous ayez le droit de ne pas répondre."
 
-    # Meme regle que les deux confidences precedentes : Ilona ne se confie
-    # a Laplage que si personne d'autre ne la laisse finir. C'est une dette.
+    # Même règle que les deux confidences précédentes : Ilona ne se confie
+    # à Laplage que si personne d'autre ne la laisse finir. C'est une dette.
     if ilona_peut_finir_ses_phrases < 8:
         $ confidences_laplage += 1
     $ jugement_laplage += 1
@@ -1345,8 +1345,8 @@ label arc_6_diplomes:
     with dissolve
 
     # --- 7.1 Le pouce = la jauge ---
-    # Seul retour chiffre que le joueur recoit de tout le jeu.
-    # Remplace un ecran de stats, et reste diegetique.
+    # Seul retour chiffré que le joueur reçoit de tout le jeu.
+    # Remplace un écran de stats, et reste diégétique.
     show jessy neutral at char_left
     with dissolve
 
@@ -1403,7 +1403,7 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# SCENE 6 : LE TOIT, LE SOIR - LE MENU PIVOT
+# SCÈNE 6 : LE TOIT, LE SOIR - LE MENU PIVOT
 # =============================================================================
 
     scene bg arc6 rooftop dusk
@@ -1422,7 +1422,7 @@ label arc_6_diplomes:
     systeme "Elle est là. La part de gâteau bleu est sur ses genoux, dans sa serviette en papier. Elle l'a ouverte il y a une heure. Elle n'y a pas touché."
 
     j "En avril, dans le train, j'ai commencé une phrase."
-    i "\"Ilona, je voulais te dire que—\"."
+    i "« Ilona, je voulais te dire que— »."
     j "Tu t'en souviens ?"
     i "Je m'en souviens de toutes celles que tu finis pas."
 
@@ -1449,7 +1449,7 @@ label arc_6_diplomes:
             systeme "Jessy est déjà dans l'escalier."
             systeme "Elle avait commencé une phrase."
 
-        "Je t'ai coupée. Plusieurs fois. Je le sais maintenant." if souvenirs["jessy_repare"] and interruptions_reparees >= 1:
+        "« Je t'ai coupée. Plusieurs fois. Je le sais maintenant. »" if souvenirs["jessy_repare"] and interruptions_reparees >= 1:
             $ arc6_conversation = "aveu_interruptions"
             $ arc6_mod += 25
             $ communication += 6
@@ -1481,7 +1481,7 @@ label arc_6_diplomes:
 
             i "Voilà."
 
-        "Tu veux continuer avec moi, après l'école ?":
+        "« Tu veux continuer avec moi, après l'école ? »":
             $ arc6_conversation = "continuer"
             $ arc6_mod -= 5
             $ lien_jessy_ilona += 6
@@ -1519,7 +1519,7 @@ label arc_6_diplomes:
             $ renpy.pause(2.0, hard=True)
             systeme "Ils parlent encore du froid. Le soleil est descendu derrière le gymnase et personne n'a rien dit d'autre."
 
-        "Qu'est-ce que tu veux vraiment, pour la suite ?":
+        "« Qu'est-ce que tu veux vraiment, pour la suite ? »":
             $ arc6_conversation = "que_veux_tu"
             $ arc6_mod += 15
             $ autonomie_ilona += 6
@@ -1532,7 +1532,7 @@ label arc_6_diplomes:
 
             systeme "Elle ne répond pas tout de suite. Elle repose la serviette à côté d'elle. Elle prend le temps que personne ne lui a jamais donné."
 
-    # --- 8.2 La reponse d'Ilona : modulee par l'etat reel de la relation ---
+    # --- 8.2 La réponse d'Ilona : modulée par l'état réel de la relation ---
     # C'est ici que l'accumulation de tout le jeu devient audible.
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
     $ espace = (autonomie_ilona * 4) + (ilona_peut_finir_ses_phrases * 6) + (interruptions_reparees * 6) + communication + confiance
@@ -1579,7 +1579,7 @@ label arc_6_diplomes:
     stop music fadeout 4.0
 
     systeme "Ils descendent du toit sans se dire au revoir, parce que dire au revoir un jour comme celui-là, ça voudrait dire quelque chose."
-    systeme "Ils prennent le même train, descendent à deux arrêts différents, et s'écrivent \"bien rentré ?\" comme tous les soirs depuis un an."
+    systeme "Ils prennent le même train, descendent à deux arrêts différents, et s'écrivent « bien rentré ? » comme tous les soirs depuis un an."
 
     scene black
     with Dissolve(1.5)
@@ -1593,7 +1593,7 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# SCENE 7 : LA DERNIERE CONNEXION
+# SCÈNE 7 : LA DERNIÈRE CONNEXION
 # =============================================================================
 
     scene bg arc6 minecraft last
@@ -1607,7 +1607,7 @@ label arc_6_diplomes:
 
     systeme "Le soir. Le serveur tourne encore. Il tournera encore longtemps : personne ne coupe jamais ces serveurs-là, ils s'éteignent tout seuls quand plus personne ne se connecte."
 
-    # --- 9.1 Etat des lieux : la maison comme journal de l'annee ---
+    # --- 9.1 État des lieux : la maison comme journal de l'année ---
     systeme "Deux joueurs connectés. La maison n'a pas bougé. Elle a juste enregistré."
 
     if "panneau_phrases_tremblent_arc3" in maison_minecraft_ajouts:
@@ -1635,15 +1635,15 @@ label arc_6_diplomes:
     if "coffres_theo_arc5" in maison_minecraft_ajouts:
         systeme "Les coffres sont triés par ordre alphabétique. Ce n'est pas Ilona qui a fait ça."
     if "panneau_air_arc5" in maison_minecraft_ajouts:
-        systeme "Un panneau : \"JE REVIENS\". Pas de date."
+        systeme "Un panneau : « JE REVIENS ». Pas de date."
     if "coffre_libre_arc5" in maison_minecraft_ajouts:
         systeme "Un coffre vide, avec son nom dessus."
 
     if "cuisine_ete_arc3" in maison_minecraft_destructions:
         systeme "Là où était la cuisine d'été, il y a un trou carré. Personne ne l'a rebouché. Ça fait sept mois."
 
-    # --- 9.2 Le gateau-planete (Ilonanium) ---
-    # Choix binaire assume : soit elle la mange (point cosmique), soit non.
+    # --- 9.2 Le gâteau-planète (Ilonanium) ---
+    # Choix binaire assumé : soit elle la mange (point cosmique), soit non.
     systeme "Elle sort la serviette de son sac et la pose devant elle. La part de gâteau bleu nuit est intacte. Le sucre argenté a un peu fondu."
 
     i "Je l'ai gardée toute la journée."
@@ -1694,7 +1694,7 @@ label arc_6_diplomes:
         i "J'ai juste plus faim. Pour la première fois depuis longtemps."
         systeme "Quelque part, très loin, une constellation compte ses membres et en trouve un de moins."
 
-    # --- 9.3 MENU 5 : la derniere construction ---
+    # --- 9.3 MENU 5 : la dernière construction ---
     systeme "Il reste un peu de temps avant que quelqu'un se déconnecte le premier."
 
     menu:
@@ -1721,7 +1721,7 @@ label arc_6_diplomes:
             i "C'est pas pareil, Jessy."
             i "Avant j'avais pas besoin de clé."
 
-        "Poser un panneau : ICI, ON A LE DROIT DE PARTIR.":
+        "Poser un panneau : « ICI, ON A LE DROIT DE PARTIR ».":
             $ arc6_derniere_construction = "panneau_partir"
             $ autonomie_ilona += 4
             $ communication += 4
@@ -1730,8 +1730,8 @@ label arc_6_diplomes:
             $ maison_minecraft_ajouts.append("panneau_droit_de_partir_arc6")
 
             systeme "Le panneau se pose à côté de celui de septembre. Deux lignes maintenant."
-            systeme "\"ICI, LES PHRASES ONT LE DROIT DE TREMBLER.\""
-            systeme "\"ICI, ON A LE DROIT DE PARTIR.\""
+            systeme "« ICI, LES PHRASES ONT LE DROIT DE TREMBLER. »"
+            systeme "« ICI, ON A LE DROIT DE PARTIR. »"
 
             i "Le deuxième est plus dur que le premier."
             j "Je sais."
@@ -1792,26 +1792,26 @@ label arc_6_diplomes:
 
 
 # =============================================================================
-# ARC 6 - CALCUL DU TURNING POINT
+# ARC 6 - CALCUL DU POINT DE BASCULE
 # =============================================================================
-# Trois strates chiffrees, aucun verrou binaire pur (sauf le controle repete).
+# Trois strates chiffrées, aucun verrou binaire pur (sauf le contrôle répété).
 #
 #   ESPACE   : ce que Jessy a construit autour d'Ilona.
-#   DETTE    : ce qui s'est referme autour d'elle.
-#   POSTURE  : les souvenirs, ponderes fort.
-#   RECIDIVE : penalite d'accumulation d'evitements et de controles.
-#   ARC6_MOD : le menu pivot du toit, de -20 a +25.
+#   DETTE    : ce qui s'est refermé autour d'elle.
+#   POSTURE  : les souvenirs, pondérés fortement.
+#   RÉCIDIVE : pénalité d'accumulation d'évitements et de contrôles.
+#   ARC6_MOD : le menu pivot du toit, de -20 à +25.
 #
 # lien_jessy_ilona est VOLONTAIREMENT absent de la porte : on ne gagne pas
-# Ilona avec des points d'affection. Il ne sert qu'a l'interieur d'arc_7_jessy
-# pour departager "ami" et "romance".
+# Ilona avec des points d'affection. Il ne sert qu'à l'intérieur d'arc_7_jessy
+# pour départager « ami » et « romance ».
 #
-# Seuils calibres empiriquement, voir game/agents/recalibrage.md.
+# Seuils calibrés empiriquement, voir game/agents/recalibrage.md.
 # =============================================================================
 
 label arc_6_calcul:
 
-    # --- Derivees ---
+    # --- Dérivées ---
     $ ecoute_reelle = ilona_peut_finir_ses_phrases + interruptions_reparees
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
 
@@ -1822,14 +1822,14 @@ label arc_6_calcul:
              + communication \
              + confiance
 
-    # --- Axe B : dette accumulee autour d'Ilona ---
+    # --- Axe B : dette accumulée autour d'Ilona ---
     $ dette = (influence_theo * 3) \
             + (max(0, controle_repetitif) * 8) \
             + (pression_stream * 2) \
             + (jalousie * 2) \
             + (confidences_laplage * 4)
 
-    # --- Posture : les souvenirs, ponderes ---
+    # --- Posture : les souvenirs, pondérés ---
     $ posture = 0
     if souvenirs["jessy_nomme_sa_peur"]:
         $ posture += 6
@@ -1842,18 +1842,18 @@ label arc_6_calcul:
     if souvenirs["theo_utilise_une_verite"]:
         $ posture -= 6
 
-    # --- Recidive : la repetition coute plus cher que l'erreur ---
+    # --- Récidive : la répétition coûte plus cher que l'erreur ---
     $ recidive = (-6 * max(0, controles - 2)) + (-3 * max(0, evitements - 3))
 
     # --- Score final ---
     $ arc6_score = espace + posture + recidive + arc6_mod - dette
 
-    # --- Plancher de rachat : la reparation repetee remonte le sol ---
+    # --- Plancher de rachat : la réparation répétée remonte le sol ---
     if interruptions_reparees >= 2 and souvenirs["jessy_repare"]:
         $ arc6_score += 20
 
-    # --- Verrou dur : le controle repete non repare ---
-    # Couper Ilona trois fois sans jamais reparer ferme la route Jessy,
+    # --- Verrou dur : le contrôle répété non réparé ---
+    # Couper Ilona trois fois sans jamais réparer ferme la route Jessy,
     # quel que soit le score. C'est le seul comportement non rachetable.
     if controle_repetitif >= 3:
         $ arc6_route = "theo"
@@ -1868,7 +1868,7 @@ label arc_6_calcul:
 
 
 # =============================================================================
-# LABEL DE DEBUG - a appeler manuellement pendant le reglage
+# LABEL DE DEBUG - à appeler manuellement pendant le réglage
 # =============================================================================
 
 label arc_6_debug_score:
@@ -1876,18 +1876,18 @@ label arc_6_debug_score:
     $ ecoute_reelle = ilona_peut_finir_ses_phrases + interruptions_reparees
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
 
-    systeme "ESPACE [espace] | DETTE [dette] | POSTURE [posture] | RECIDIVE [recidive] | MOD [arc6_mod]"
+    systeme "ESPACE [espace] | DETTE [dette] | POSTURE [posture] | RÉCIDIVE [recidive] | MOD [arc6_mod]"
     systeme "SCORE [arc6_score] (seuil jessy [SEUIL_JESSY] / romance [SEUIL_ROMANCE])"
     systeme "autonomie [autonomie_ilona] comm [communication] confiance [confiance] lien [lien_jessy_ilona]"
-    systeme "theo [influence_theo] pression [pression_stream] jalousie [jalousie] controle [controle_repetitif]"
-    systeme "evitements [evitements] controles [controles] laplage [confidences_laplage] ilonanium [ilonanium_points]"
+    systeme "theo [influence_theo] pression [pression_stream] jalousie [jalousie] contrôle [controle_repetitif]"
+    systeme "évitements [evitements] contrôles [controles] laplage [confidences_laplage] ilonanium [ilonanium_points]"
     return
 
 
 # =============================================================================
-# ARC 6 - RECAPITULATIF
+# ARC 6 - RÉCAPITULATIF
 #
-# VARIABLES MODIFIEES
+# VARIABLES MODIFIÉES
 #   globales : lien_jessy_ilona, confiance, communication, jalousie,
 #              autonomie_ilona, influence_theo, pression_stream,
 #              ilona_peut_finir_ses_phrases, interruptions_ilona,
@@ -1899,19 +1899,19 @@ label arc_6_debug_score:
 #             arc6_derniere_construction, arc6_flashback,
 #             arc6_mod, arc6_score, arc6_route
 #
-# CHOIX A CONSEQUENCE
-#   MENU 3 (toit) -> arc6_mod, seul modificateur direct du turning point
-#                    (-20 a +25 ; la 5e option n'existe que si le joueur
-#                     a deja repare une interruption)
-#   MENU 2 (offre Theo) -> autonomie_ilona / influence_theo
-#   MENU 4 (gateau-planete) -> binaire : elle le mange (5e objet cosmique,
+# CHOIX À CONSÉQUENCE
+#   MENU 3 (toit) -> arc6_mod, seul modificateur direct du point de bascule
+#                    (-20 à +25 ; la 5e option n'existe que si le joueur
+#                     a déjà réparé une interruption)
+#   MENU 2 (offre Théo) -> autonomie_ilona / influence_theo
+#   MENU 4 (gâteau-planète) -> binaire : elle le mange (5e objet cosmique,
 #                    +1 ilonanium) ou elle le garde entier (aucun point).
 #                    Sans ce point, ending_ilonanium devient inatteignable.
-#   MENU 5 (derniere construction) -> dernier ajustement de l'espace
+#   MENU 5 (dernière construction) -> dernier ajustement de l'espace
 #
 # ASSETS
 #   arc6_bg(nom, secours) teste images/scenes/arc_6/bg_arc6_<nom>.jpg et
-#   retombe sur un decor d'un arc precedent s'il n'existe pas encore.
+#   retombe sur un décor d'un arc précédent s'il n'existe pas encore.
 #   Les backgrounds principaux de l'arc 6 sont fournis : gym_ceremony,
 #   classroom_morning, classroom_festive. Ancien nom "bg arc6 classroom empty"
 #   -> "classroom festive".
@@ -1919,21 +1919,21 @@ label arc_6_debug_score:
 # FILS FERMES
 #   stylo violet rendu (ou non)
 #   enveloppe de Sofiane lue par Allan
-#   secret du maid cafe
-#   Allan confronte Theo, puis apprend son depart (scene 2.6)
-#   Ilona dit "qu'on me foute la paix" a Jessy ET Theo
-#   Ilona reprend son projet de stream a son compte
-#   (conditionne : si elle ne l'avait jamais dit, l'arc 6 est la premiere fois)
-#   Ilona craque (arc5_ilona_a_pleure enfin paye)
-#   question de Laplage de fevrier
+#   secret du maid café
+#   Allan confronte Théo, puis apprend son départ (scène 2.6)
+#   Ilona dit « qu'on me foute la paix » à Jessy ET Théo
+#   Ilona reprend son projet de stream à son compte
+#   (conditionné : si elle ne l'avait jamais dit, l'arc 6 est la première fois)
+#   Ilona craque (arc5_ilona_a_pleure enfin payé)
+#   question de Laplage de février
 #   phrase jamais finie du train d'avril (arc 1)
-#   5e objet cosmique : le gateau-planete
+#   5e objet cosmique : le gâteau-planète
 #
-# FILS LAISSES OUVERTS POUR L'ARC 7
-#   l'AE86 de Sofiane / l'ete en montagne
+# FILS LAISSÉS OUVERTS POUR L'ARC 7
+#   l'AE86 de Sofiane / l'été en montagne
 #   Micka et les enveloppes
 #   la nature de Laplage
-#   ce qu'Ilona a ecrit sur l'uniforme de Jessy
-#   le depart de Theo le 6 avril
-#   le 6e objet cosmique (bloc-lune) : a collecter dans arc_7_jessy
+#   ce qu'Ilona a écrit sur l'uniforme de Jessy
+#   le départ de Théo le 6 avril
+#   le 6e objet cosmique (bloc-lune) : à collecter dans arc_7_jessy
 # =============================================================================

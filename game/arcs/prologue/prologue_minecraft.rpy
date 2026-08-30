@@ -1,5 +1,5 @@
 ﻿# Arc prologue - Minecraft : une maison beaucoup trop grande.
-# Les variables importantes restent centralisees dans script.rpy.
+# Les variables importantes restent centralisées dans script.rpy.
 # Ces alias de chat sont propres au prologue Minecraft.
 
 define pmj = Character("jessyCube", color="#8fb7ff", callback=speaker_callback("jessy"))
@@ -20,7 +20,7 @@ label prologue_minecraft:
     systeme "La maison s'étale sur la colline comme si plusieurs idées avaient signé le même bail sans se parler."
     $ maison_minecraft_detail = "couloir"
     systeme "Il y a trop de fenêtres, trop de toits, une passerelle qui semble avoir une opinion, et une tour construite pour justifier l'existence d'une autre tour."
-    systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot 'développement'."
+    systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot « développement »."
 
     systeme "Il descend finalement jusqu'à l'entrée, comme si le bâtiment pouvait encore recevoir des visiteurs sans les perdre."
     play sound "fx/minecraft-walking-on-grass.mp3"
@@ -260,7 +260,7 @@ label prologue_minecraft:
     pmj "il y a trois murs derrière le mur"
     pmi "exactement"
     pmi "on passe en vocal ?"
-    pmi "ça ira plus vite que d'écrire non pas ce mur quarante fois"
+    pmi "ça ira plus vite que d'écrire « non pas ce mur » quarante fois"
 
     menu:
         "Comment Jessy répond-il à la proposition d'appel vocal ?"
@@ -332,8 +332,8 @@ label prologue_minecraft:
         pmj "c'est temporaire"
         pmi "c'est une descente vers le mystère"
         pmx "le mystère est vide ?"
-    pmx "techniquement inhabitable."
-    pmx "donc parfaite."
+    pmx "Techniquement inhabitable."
+    pmx "Donc parfaite."
     play sound "fx/minecraft-wood-break-place.mp3"
     systeme "Alexandre pose une pancarte à l'entrée, comme s'il venait de rendre un verdict technique."
     systeme "NE SURTOUT PAS RENDRE ÇA NORMAL."
