@@ -13,7 +13,7 @@ image bg arc2 tide pools = im.Scale("images/scenes/arc_2/bg_arc2_tide_pools.jpg"
 define audio.footSand = "audio/fx/sand-walk.mp3"
 define audio.plage = "audio/music/plage-day.ogg"
 define audio.wave = "audio/ambience/ocean-waves.mp3"
-define audio.plagesunset = "audio/plage-sunset.ogg"
+define audio.plagesunset = "audio/music/plage-sunset.ogg"
 
 default arc2_reaction_invitation = ""
 default arc2_photo_reaction = ""

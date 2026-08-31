@@ -527,6 +527,7 @@ label arc_3_rentree:
 
     #music festival
     stop ambiant1 fadeout 1.0
+    stop music fadeout 3.0
     scene bg arc3 festival hallway
     with fade
     show jessy neutral at char_left
@@ -552,8 +553,8 @@ label arc_3_rentree:
     t "Non. Tu as vu qu'elle n'était plus là."
     t "Ce n'est pas pareil."
     j "Tu fais ça avec tout le monde ?"
+    play music audio.tensePiano fadein 2.0 loop volume 0.7
     t "Quoi ?"
-    play music audio.tensePiano fadein 1.0 loop volume 0.7
     j "Transformer une phrase simple en diagnostic."
     t "Seulement quand la phrase simple sert à éviter la vraie."
     $ renpy.pause(0.8, hard=True)
