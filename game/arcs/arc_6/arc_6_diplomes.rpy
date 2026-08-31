@@ -479,7 +479,8 @@ label arc_6_diplomes:
     systeme "Après la cérémonie. La salle de classe a été décorée par les premières années : des guirlandes en papier, un tableau où quarante mains différentes ont écrit « FÉLICITATIONS », une banderole qui se décolle d'un côté."
     systeme "Personne n'est resté. Les chaises sont encore en rangées. C'est ça qui est bizarre : tout est décoré, et tout est rangé comme un jour normal."
 
-    systeme "Ilona a un feutre noir et l'uniforme de Jessy sur les genoux. Elle ne l'a pas encore ouvert."
+    systeme "Jessy a retiré sa veste d'uniforme en entrant. Ilona la lui a demandée sans expliquer pourquoi."
+    systeme "Elle a maintenant un feutre noir et la veste sur les genoux. Elle ne l'a pas encore ouverte."
 
     i "Je vais faire un truc bizarre."
     j "Tu as déjà mangé une étoile en sucre devant moi."
@@ -991,7 +992,7 @@ label arc_6_diplomes:
     i "Non."
     i "Je veux juste que tu saches que j'ai remarqué."
 
-    systeme "Elle ouvre l'uniforme sur ses genoux. Elle écrit trois mots au feutre, sous le col."
+    systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
     systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
 
     i "Tu regarderas ce soir."
@@ -1586,7 +1587,7 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    systeme "Vingt-deux heures. Jessy pose l'uniforme plié sur son lit, sans l'ouvrir."
+    systeme "Vingt-deux heures. Jessy pose sa veste d'uniforme pliée sur son lit, sans l'ouvrir."
     systeme "Il regarde le col pendant un moment. Puis il allume son PC à la place. C'est plus facile."
 
     $ renpy.pause(1.5, hard=True)
@@ -1802,6 +1803,10 @@ label arc_6_diplomes:
 #   RÉCIDIVE : pénalité d'accumulation d'évitements et de contrôles.
 #   ARC6_MOD : le menu pivot du toit, de -20 à +25.
 #
+# Sorties :
+#   arc_7_jessy -> game/arcs/arc_7/arc_7_jessy.rpy
+#   arc_7_theo  -> game/arcs/arc_7/arc_7_theo.rpy
+#
 # lien_jessy_ilona est VOLONTAIREMENT absent de la porte : on ne gagne pas
 # Ilona avec des points d'affection. Il ne sert qu'à l'intérieur d'arc_7_jessy
 # pour départager « ami » et « romance ».
@@ -1857,13 +1862,16 @@ label arc_6_calcul:
     # quel que soit le score. C'est le seul comportement non rachetable.
     if controle_repetitif >= 3:
         $ arc6_route = "theo"
+        # Route Theo : Ilona part vers un endroit ou on lui epargne de parler.
         jump arc_7_theo
 
     if arc6_score >= SEUIL_JESSY:
         $ arc6_route = "jessy"
+        # Route Jessy : Ilona reste dans un endroit ou elle peut parler.
         jump arc_7_jessy
     else:
         $ arc6_route = "theo"
+        # Route Theo : dette trop lourde autour d'Ilona.
         jump arc_7_theo
 
 
@@ -1933,7 +1941,7 @@ label arc_6_debug_score:
 #   l'AE86 de Sofiane / l'été en montagne
 #   Micka et les enveloppes
 #   la nature de Laplage
-#   ce qu'Ilona a écrit sur l'uniforme de Jessy
+#   ce qu'Ilona a écrit sur la veste d'uniforme de Jessy
 #   le départ de Théo le 6 avril
 #   le 6e objet cosmique (bloc-lune) : à collecter dans arc_7_jessy
 # =============================================================================
