@@ -2156,6 +2156,9 @@ label arc_5_scene_3:
     systeme "L'Arc VI approche. Les diplômes. Les choix d'orientation."
     systeme "Le moment où « plus tard » devient « maintenant »."
 
+    stop music fadeout 1.0 
+    stop ambiant1 fadeout 1.0
+    
     jump arc_6_diplomes
 
 

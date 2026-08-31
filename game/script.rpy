@@ -123,21 +123,25 @@ init python:
         renpy.music.set_volume(volume, delay=time, channel=channel)
 
 
-define audio.ecole = "audio/music/ecole-music.mp3"
-define audio.mcnight = "audio/music/Subwoofer-Lullaby.mp3"
+define audio.ecole = "audio/music/ecole-music.ogg"
+define audio.mcnight = "audio/music/Subwoofer-Lullaby.ogg"
 define audio.ecoleroof = "audio/music/ecole-roof.ogg"
-define audio.ecolenight = "audio/music/ecole-nuit.mp3"
+define audio.ecolenight = "audio/music/ecole-nuit.ogg"
 define audio.windBirds = "audio/ambience/breeze-birds.mp3"
 define audio.trainInside = "audio/ambience/tram-inside.mp3"
 define audio.eating = "audio/fx/aaughmp3.mp3"
-define audio.sadPiano = "audio/music/sad-piano.mp3"
-define audio.melanPiano = "audio/music/melancolique-piano.mp3"
-define audio.tensePiano = "audio/music/tense-piano.mp3"
-define audio.mornPiano = "audio/music/morning-piano.mp3"
+define audio.sadPiano = "audio/music/sad-piano.ogg"
+define audio.melanPiano = "audio/music/melancolique-piano.ogg"
+define audio.tensePiano = "audio/music/tense-piano.ogg"
+define audio.mornPiano = "audio/music/morning-piano.ogg"
 define audio.foule = "audio/ambience/crowd-noise.mp3"
 define audio.trainstop = "audio/fx/train-stop.mp3"
-define audio.maidcafe = "audio/music/maidCafe.mp3"
-define audio.citynight = "audio/music/night-walk.mp3"
+define audio.maidcafe = "audio/music/maidCafe.ogg"
+define audio.citynight = "audio/music/night-walk.ogg"
+define audio.stonefall = "audio/fx/stones-falling.mp3"
+define audio.laplage = "audio/fx/re-zero-return.mp3"
+define audio.bell = "audio/fx/bell.mp3"
+define audio.photo = "audio/fx/photo-taken.mp3"
 
 transform char_left:
     xalign 0.18

@@ -11,8 +11,8 @@ image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_min
 image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 843, 1264)
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 843, 1264)
 
-define audio.xmasMall = "audio/music/xmas-mall.mp3"
-define audio.xmasMarket = "audio/music/xmas-market.mp3"
+define audio.xmasMall = "audio/music/xmas-mall.ogg"
+define audio.xmasMarket = "audio/music/xmas-market.ogg"
 
 # Variables locales d'arc : elles gardent la trace du sens donné aux cadeaux et aux limites posées.
 default arc4_cadeau_jessy = ""
@@ -25,7 +25,7 @@ default arc4_ilona_avec_theo = False
 
 
 label arc_4_noel:
-    play music audio.mornPiano loop fadein 3.0 volume 0.6
+    play music audio.mornPiano loop fadein 3.0 volume 0.7
     play ambiant1 audio.trainInside fadein 2.5 volume 0.4
     scene bg arc4 train inside
     with fade
@@ -107,7 +107,7 @@ label arc_4_noel:
     with dissolve
     stop ambiant1 fadeout 1.0
 
-    play music audio.xmasMall volume 0.8 loop fadeout 1.0 fadein 1.0
+    play music audio.xmasMall volume 0.7 loop fadeout 1.0 fadein 1.0
     play ambiant1 audio.foule loop volume 0.6 fadein 3.0
     scene bg arc4 shopping gallery
     with fade
@@ -252,14 +252,16 @@ label arc_4_noel:
     hide alex
     hide jessy
     with dissolve
-
+    stop ambiant1 fadeout 1.0 
+    stop music fadeout 1.0
     scene bg arc4 illuminations
     with fade
 
     systeme "En sortant de la galerie, Jessy traverse la rue illuminée vers le marché avec l'impression que chaque guirlande souligne ce qu'il n'a pas encore su dire."
     systeme "Les lumières rendent la ville plus douce. Elles ne rendent pas les choix plus simples."
 
-    play music audio.xmasMarket loop fadein 1.0 fadeout 1.0 loop volume 0.8
+    play music audio.xmasMarket loop fadein 1.0 fadeout 1.0 loop volume 0.7
+    play ambiant1 audio.foule volume 0.4
     scene bg arc4 christmas market
     with fade
 
@@ -457,7 +459,7 @@ label arc_4_noel:
     systeme "Il pense déjà à ce qu'il dira la prochaine fois. Quel détail il sortira. Quel silence il remplira."
     
     $ renpy.pause(0.5, hard=True)
-    play sound "fx/re-zero-return.mp3"
+    play sound audio.laplage volume 0.6
     show laplage christmas neutral at char_right
     with dissolve
     
@@ -588,7 +590,7 @@ label arc_4_noel:
     with dissolve
 
     stop ambiant1 fadeout 2.0
-    play music audio.melanPiano volume 0.8 loop fadeout 1.0 fadein 1.0
+    play music audio.melanPiano volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc4 riverside winter
     with fade
     show ilona neutral at char_left
@@ -606,7 +608,7 @@ label arc_4_noel:
         "Le manger pour gagner du temps.":
             $ arc4_mochi_cosmique = True
             $ ilonanium_points += 1
-            play sound audio.eating volume 0.5
+            play sound audio.eating volume 0.6
             i "Désolée, univers."
             systeme "Le mochi disparaît avec une dignité limitée."
 
@@ -615,7 +617,7 @@ label arc_4_noel:
             systeme "Elle range le mochi dans son sac, entre le carnet et ses clés."
 
     $ renpy.pause(0.5, hard=True)
-    play sound "fx/re-zero-return.mp3" volume 0.6
+    play sound audio.laplage volume 0.6
     show laplage christmas neutral at char_right
     with dissolve
 
@@ -1052,7 +1054,7 @@ label arc_4_noel:
     hide ilona
     with dissolve
 
-    play music audio.xmasMarket volume 0.8 loop fadeout 1.0 fadein 1.0
+    play music audio.xmasMarket volume 0.7 loop fadeout 1.0 fadein 1.0
     play ambiant1 audio.foule volume 0.6 loop fadein 3.0
     scene bg arc4 christmas market
     with fade
@@ -1183,7 +1185,7 @@ label arc_4_noel:
     hide ilona
     with dissolve
 
-    play music audio.mcnight volume 0.8 loop fadeout 1.0 fadein 1.0
+    play music audio.mcnight volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc4 minecraft winter night
     with Dissolve(2.0)
     show jessy minecraft at char_left
@@ -1282,6 +1284,8 @@ label arc_4_noel:
         systeme "La nuit avance. La neige carrée adoucit les angles."
         systeme "Demain, elle fondra peut-être. Ce soir, elle laisse assez de lumière pour voir où on marche."
 
+    stop music fadeout 1.0 
+    stop ambiant1 fadeout 1.0
     jump arc_5_examens
 
 

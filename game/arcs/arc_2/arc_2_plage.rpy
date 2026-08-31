@@ -11,6 +11,9 @@ image bg arc2 minecraft house summer night = im.Scale("images/scenes/arc_2/bg_ar
 image bg arc2 tide pools = im.Scale("images/scenes/arc_2/bg_arc2_tide_pools.jpg", 1920, 1080)
 
 define audio.footSand = "audio/fx/sand-walk.mp3"
+define audio.plage = "audio/music/plage-day.ogg"
+define audio.wave = "audio/ambience/ocean-waves.mp3"
+define audio.plagesunset = "audio/plage-sunset.ogg"
 
 default arc2_reaction_invitation = ""
 default arc2_photo_reaction = ""
@@ -20,7 +23,7 @@ default arc2_scene_laplage = False
 
 
 label arc_2_plage:
-    play music audio.ecole loop volume 0.8
+    play music audio.ecole loop volume 0.7 fadein 1.0
     scene bg shared school corridor
     with fade
 
@@ -95,8 +98,8 @@ label arc_2_plage:
     hide jessy
     hide ilona
     with dissolve
-    play music audio.mornPiano volume 0.9 fadeout 1.0 fadein 1.0 loop
-    play ambiant1 audio.trainInside volume 0.8 fadein 1.5 loop
+    play music audio.mornPiano volume 0.7 fadeout 1.0 fadein 1.0 loop
+    play ambiant1 audio.trainInside volume 0.4 fadein 1.5 loop
     scene bg shared train inside
     with fade
     show jessy neutral at char_left
@@ -129,8 +132,8 @@ label arc_2_plage:
     with dissolve
     stop ambiant1 fadeout 1.0
 
-    play music "music/plage-day.mp3" fadeout 1.0 fadein 2.0 loop volume 0.8
-    play ambiant1 "ambience/ocean-waves.mp3" volume 0.3 loop fadein 2.0
+    play music audio.plage fadeout 1.0 fadein 2.0 loop volume 0.7
+    play ambiant1 audio.wave volume 0.4 loop fadein 2.0
     scene bg arc2 group parasol
     with fade
     show allan smirk at char_left
@@ -209,8 +212,8 @@ label arc_2_plage:
     with dissolve
 
     #ambiance foule
-    play sound audio.footSand 
-    play ambiant1 "ambience/crowd-noise.mp3" volume 0.4
+    play sound audio.footSand volume 0.6
+    play ambiant1 audio.foule volume 0.4
     scene bg arc2 kakigori counter
     with fade
     show ilona neutral at char_left
@@ -315,7 +318,7 @@ label arc_2_plage:
     hide ilona
     hide theo
     with dissolve
-    play sound audio.footSand 
+    play sound audio.footSand volume 0.6
 
     scene bg arc2 beach main
     with fade
@@ -325,7 +328,7 @@ label arc_2_plage:
     show ilona smile at char_midright
     show theo neutral at char_right
 
-    play sound "fx/photo-taken.mp3" volume 1.0
+    play sound audio.photo volume 0.6
     systeme "Quand le groupe prend une photo, Allan recule trop vite pour cadrer. Tout le monde se décale."
     systeme "Sur l'écran, Jessy est à une extrémité. Ilona sourit près de Théo."
     a "Désolé. J'ai bougé."
@@ -357,7 +360,7 @@ label arc_2_plage:
             j "On en refait une où je suis moins exilé ?"
             i "Oui."
             t "Bonne idée."
-            play sound "fx/photo-taken.mp3"
+            play sound audio.photo volume 0.6
             systeme "La première photo reste. La deuxième existe aussi."
             systeme "Jessy a exprimé son besoin. Mais il sait aussi qu'il vient de montrer son insécurité."
 
@@ -399,7 +402,7 @@ label arc_2_plage:
     hide theo
     with dissolve
 
-    play sound audio.footSand 
+    play sound audio.footSand volume 0.6
     scene bg arc2 group parasol
     with fade
     show jessy embarrassed at char_left
@@ -427,8 +430,8 @@ label arc_2_plage:
 
     play sound audio.footSand 
     # music plage soir
-    play music "music/plage-sunset.mp3" fadeout 1.0 fadein 0.5 loop
-    play ambiant1 "ambience/ocean-waves.mp3" volume 0.8 loop fadein 3.0
+    play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
+    play ambiant1 audio.wave volume 0.4 loop fadein 3.0
     scene bg arc2 tide pools
     with fade
     show jessy embarrassed at char_left
@@ -512,11 +515,11 @@ label arc_2_plage:
             systeme "Théo se lève sans attendre."
             t "On y va ?"
             i "Oui."
-            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
+            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop volume 0.7
             systeme "Elle ne regarde même pas Jessy en partant."
 
         "Dire qu'il a besoin de dix minutes pour respirer.":
-            play music audio.sadPiano fadeout 0.5 fadein 2.0 loop
+            play music audio.sadPiano fadeout 0.5 fadein 2.0 loop volume 0.7
             $ arc2_choix_activite_theo = "dix_minutes"
             $ communication += 6
             $ confiance += 3
@@ -542,7 +545,7 @@ label arc_2_plage:
             $ pression_stream += 3
             $ evitements += 1
             j "Faites ce que vous voulez."
-            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop
+            play music audio.sadPiano fadeout 1.0 fadein 2.0 loop volume 0.7
             i "Jessy—"
             systeme "Il est déjà parti. Il entend son prénom, mais il continue de marcher."
             systeme "Derrière lui, il entend Théo murmurer quelque chose à Ilona. Puis leurs pas s'éloignent dans l'autre direction."
@@ -550,7 +553,7 @@ label arc_2_plage:
         hide ilona
         hide theo
         with dissolve
-        play music audio.sadPiano fadeout 1.0 fadein 1.0 loop volume 1.0
+        play music audio.sadPiano fadeout 1.0 fadein 1.0 loop volume 0.7
         show alex concerned at char_midright
         x "Tu respires comme quelqu'un qui vient de poser un bloc au-dessus du vide."
         j "C'est à peu près ça."
@@ -585,7 +588,7 @@ label arc_2_plage:
 
     if arc2_choix_activite_theo in ("confiance", "dix_minutes", "blague_jalouse"):
         #ambiance vague
-        play sound audio.footSand 
+        play sound audio.footSand volume 0.6
         scene bg arc2 jetty
         with fade
         show ilona neutral at char_left
@@ -658,7 +661,7 @@ label arc_2_plage:
         show theo neutral at char_right
 
         stop ambiant1 fadeout 0.3
-        play music audio.tensePiano loop fadeout 0.3 fadein 3.0 volume 0.6
+        play music audio.tensePiano loop fadeout 0.3 fadein 3.0 volume 0.7
         systeme "Après avoir remarqué Jessy derrière eux, plus personne ne parle."
         i "Pourquoi tu m'as suivie ?"
         j "Je... je voulais juste—"
@@ -666,8 +669,7 @@ label arc_2_plage:
         j "Non ! Je—"
         t "Tu voulais vérifier qu'il se passait rien."
         systeme "Théo dit ça calmement. Trop calmement."
-        j "Ferme-la."
-        with hpunch
+        j "Ferme-la." with hpunch
         t "Je dis juste ce que tu penses."
         j "T'en sais rien de ce que je pense."
         t "Alors pourquoi t'es là ?"
@@ -712,14 +714,14 @@ label arc_2_plage:
         with dissolve
         systeme "Ils marchent vers les rochers. Derrière eux, le soleil descend sur une journée qui ne finira pas comme elle a commencé."
 
-    play sound audio.footSand 
-    play music "music/plage-sunset.mp3" fadeout 1.0 fadein 0.5 loop
+    play sound audio.footSand volume 0.6
+    play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
     scene bg arc2 lost items table
     with fade
     show ilona neutral at char_left
 
     $ renpy.pause(0.5, hard=True)
-    play sound "fx/re-zero-return.mp3" volume 0.6
+    play sound audio.laplage volume 0.6
     show laplage neutral at char_center
     with dissolve
     $ arc2_scene_laplage = True
@@ -813,7 +815,7 @@ label arc_2_plage:
 
     hide ilona
     with dissolve
-    play sound audio.footSand 
+    play sound audio.footSand volume 0.6
 
     scene bg arc2 beach sunset
     with fade
@@ -822,7 +824,7 @@ label arc_2_plage:
     show alex concerned at char_midleft
 
     if arc2_choix_activite_theo == "disparaitre":
-        play music audio.sadPiano loop fadeout 1.0 fadein 1.0
+        play music audio.sadPiano loop fadeout 1.0 fadein 1.0 volume 0.7
         x "Tu es parti sans rien dire."
         j "Je pouvais pas rester."
         x "Alors tu l'as laissée partir avec lui."
@@ -1010,7 +1012,7 @@ label arc_2_plage:
     with dissolve
 
     stop ambiant1 fadeout 1.0
-    play music audio.mcnight volume 0.8 fadeout 1.0
+    play music audio.mcnight volume 0.7 fadeout 1.0 fadein 1.0
     scene bg arc2 minecraft house summer night
     with Dissolve(2.0)
     show jessy minecraft at char_left
