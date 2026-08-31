@@ -154,7 +154,7 @@ label arc_3_rentree:
     systeme "Dans le couloir, deux élèves ralentissent en passant."
     systeme "Leur voix est assez basse pour prétendre ne rien dire, assez haute pour être entendue."
     systeme "« C'est celle qui s'est fait ramener son porte-clés par l'autre, à la plage. »"
-    play audio.sadPiano loop volume 0.7 fadein 1.0
+    play music audio.sadPiano loop volume 0.7 fadein 1.0
     systeme "« Ouais. Apparemment Jessy regardait ailleurs. Pathétique. »"
     systeme "« Elle va le larguer ou juste le faire attendre ? »"
 
