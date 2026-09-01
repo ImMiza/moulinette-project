@@ -315,6 +315,8 @@ label arc_3_rentree:
 
     systeme "Elle a répondu à côté. Ce n'est pas de la modestie : c'est quelqu'un qui refuse de nommer une chose devant témoins."
 
+    a "Reçu chef."
+
     show ilona smile at char_midleft
     with dissolve
 

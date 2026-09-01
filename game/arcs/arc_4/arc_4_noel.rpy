@@ -234,21 +234,6 @@ label arc_4_noel:
             x "Donc probablement le plus juste."
             systeme "Jessy range la boîte. Elle reste dans le sac. Pas jetée. Juste... en attente."
 
-        "Offrir la miniature en avouant qu'elle porte trop de choses.":
-            $ arc4_cadeau_jessy = "miniature_aveu"
-            $ lien_jessy_ilona += 2
-            $ communication += 2
-            $ confiance += 1
-            $ jalousie += 1
-            $ pression_stream += 1
-            $ remember("maison_respectee")
-            j "Je vais lui donner. Mais je vais aussi lui dire que je sais que ça veut trop dire."
-            x "Tu vas offrir un cadeau avec un avertissement ?"
-            j "Oui. Parce que je refuse de faire comme si c'était juste un objet mignon."
-            x "C'est honnête. C'est aussi un peu flippant."
-            j "Tout est flippant ce soir."
-            systeme "Alexandre acquiesce. Il ne peut pas le contredire."
-
     hide alex
     hide jessy
     with dissolve
