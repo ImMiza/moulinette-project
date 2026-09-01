@@ -39,12 +39,17 @@ define mi = Character("Micka", color="#e91e63", callback=speaker_callback("micka
 image micka happy = speaker_sprite("micka", "images/personnages/micka/happy.png", 842, 1264)
 image micka gifts = speaker_sprite("micka", "images/personnages/micka/happy_with_gifts.png", 842, 1264)
 
+define audio.saintV = "audio/music/love-piano.ogg"
+define audio.rainInside = "audio/ambience/rain-inside.mp3"
+define audio.winterWind = "audio/ambience/winter-wind.mp3"
+
 # =============================================================================
 # SCENE 1 : RÉVISIONS EN BIBLIOTHÈQUE - LA FATIGUE QUI S'ACCUMULE
 # =============================================================================
 
 label arc_5_examens:
 
+    play music audio.lib volume 0.7 loop fadein 2.0
     scene bg arc5 library
     with fade
 
@@ -222,6 +227,8 @@ label arc_5_examens:
     systeme "Théo s'installe à une table voisine. Ni trop près ni trop loin. La distance parfaite pour être disponible sans envahir."
     systeme "Jessy se demande si c'est calculé ou naturel. Les deux réponses lui font peur."
 
+    $ renpy.pause(0.5, hard=True)
+    play sound audio.laplage volume 0.6
     show laplage neutral at char_right
     with dissolve
 
@@ -328,11 +335,14 @@ label arc_5_examens:
 # SCENE 2 : SORTIE ANNULÉE - CE QU'ON ENTEND DANS LE SILENCE
 # =============================================================================
 
+    stop music fadeout 2.0
     scene black
     with fade
     
     systeme "Une semaine passe. Les révisions continuent. La fatigue s'accumule."
     
+    play music audio.cityrain volume 0.7 fadein 1.0 loop
+    play ambiant1 audio.rain volume 0.4 loop fadein 2.0
     scene bg arc5 rain street
     with fade
 
@@ -370,7 +380,8 @@ label arc_5_examens:
         systeme "Ils entrent dans le cinéma."
         
         $ renpy.pause(0.5, hard=True)
-        
+        stop music fadeout 1.0
+        stop ambiant1 fadeout 1.0
         scene bg arc5 cinema
         with Dissolve(1.5)
         
@@ -402,7 +413,7 @@ label arc_5_examens:
         i "Non. Je veux voir à quel point c'est nul."
         
         systeme "Le générique démarre. Les lumières s'éteignent complètement."
-        
+        #play music audio.cinema volume 0.7 fadein 4.0 loop
         scene black
         with Dissolve(2.0)
         
@@ -428,6 +439,7 @@ label arc_5_examens:
     systeme "Son téléphone vibre."
 
     systeme "{i}Message d'Ilona :{/i}"
+    stop music fadeout 1.0
     systeme "{i}« Je suis désolée. Je peux pas ce soir. Je suis crevée. »{/i}"
 
     systeme "Trois phrases. Cinquante-trois caractères si on compte les espaces."
@@ -550,7 +562,8 @@ label arc_5_examens:
 
     hide jessy
     with dissolve
-
+    play music audio.cafe volume 0.7 loop fadein 1.0
+    play ambiant1 audio.rainInside loop volume 0.4 fadein 3.0
     scene bg arc5 cafe
     with fade
 
@@ -673,7 +686,7 @@ label arc_5_examens:
     t "Je vais passer chez elle tout à l'heure."
     
     systeme "La phrase est neutre. Informationnelle. Mais quelque chose dedans griffe."
-
+    #sad piano ?
     menu:
         systeme "Théo attend. Allan observe. Le café est presque vide à cette heure."
         
@@ -812,6 +825,8 @@ label arc_5_examens:
     hide allan
     hide jessy
     with dissolve
+    stop ambiant1 fadeout 1.0
+    stop music fadeout 1.0
 
 # =============================================================================
 # SCENE 3 : THÉO PROPOSE DE « GÉRER » - LE PIÈGE DOUX
@@ -823,7 +838,7 @@ label arc_5_scene_3:
     with fade
     
     systeme "Les semaines passent. Janvier devient février. Les examens s'achèvent enfin."
-    
+    play music audio.library volume 0.7 loop fadein 2.0
     scene bg arc5 library night
     with fade
 
@@ -1027,10 +1042,10 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 4 : SAINT-VALENTIN - L'AMOUR ET SES PIÈGES
 # =============================================================================
-
+    play music audio.saintV volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 classroom
     with fade
-
+    
     systeme "14 février. La classe empeste le chocolat, le parfum bon marché et les rêves adolescents."
 
     show jessy neutral at char_left
@@ -1126,6 +1141,8 @@ label arc_5_scene_3:
     hide alex
     with dissolve
 
+    play music audio.ecoleroof volume 0.7 loop fadeout 1.0 fadein 1.0
+    play ambiant1 audio.winterWind volume 0.4 loop fadein 3.0
     scene bg arc5 rooftop
     with fade
 
@@ -1297,7 +1314,8 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 5 : CONFIDENCE À LAPLAGE - CE QUE PERSONNE NE DEMANDE
 # =============================================================================
-
+    stop ambiant1 fadeout 1.0
+    play music audio.library volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 library night
     with fade
 
@@ -1990,7 +2008,7 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 10 : MINECRAFT - L'ÉTAT DES LIEUX
 # =============================================================================
-
+    play music audio.mcnight volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 minecraft night
     with Dissolve(2.0)
 

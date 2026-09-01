@@ -122,6 +122,8 @@ init python:
     def fade_channel(channel, volume, time=2.0):
         renpy.music.set_volume(volume, delay=time, channel=channel)
 
+#$ renpy.pause(0.5, hard=True)
+#    play sound audio.laplage volume 0.6
 
 define audio.ecole = "audio/music/ecole-music.ogg"
 define audio.mcnight = "audio/music/Subwoofer-Lullaby.ogg"
@@ -142,6 +144,10 @@ define audio.stonefall = "audio/fx/stones-falling.mp3"
 define audio.laplage = "audio/fx/re-zero-return.mp3"
 define audio.bell = "audio/fx/bell.mp3"
 define audio.photo = "audio/fx/photo-taken.mp3"
+define audio.lib = "audio/music/library.ogg"
+define audio.rain = "audio/ambience/rain.mp3"
+define audio.cityrain = "audio/music/city-rain.ogg"
+define audio.cafe = "audio/music/cafe.ogg"
 
 transform char_left:
     xalign 0.18
