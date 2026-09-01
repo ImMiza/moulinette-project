@@ -33,7 +33,14 @@ label arc_3_rentree:
     show jessy neutral at char_left
     show ilona neutral at char_right
 
-    if arc2_choix_activite_theo == "confiance":
+    if arc2_reaction_coucher in ("silence", "interrogatoire") or arc2_choix_activite_theo in ("suivre", "disparaitre"):
+        systeme "Depuis la plage, leurs messages ont continué."
+        systeme "Pas froids. Pas vraiment proches non plus."
+        i "Tu as fini par retrouver ta serviette ?"
+        j "Oui."
+        i "C'est bien."
+        systeme "Le silence qui suit n'est pas méchant. Il sait seulement trop bien où s'installer."
+    elif arc2_choix_activite_theo == "confiance":
         i "J'ai encore du sable dans mes chaussures."
         j "Depuis juillet ?"
         i "C'est un sable engagé."
@@ -45,13 +52,6 @@ label arc_3_rentree:
         i "Je crois que j'y ai repensé plus que je voulais."
         j "Moi aussi."
         systeme "La phrase reste entre eux, pas lourde, pas légère. Présente."
-    elif arc2_choix_activite_theo in ("suivre", "disparaitre"):
-        systeme "Depuis la plage, leurs messages ont continué."
-        systeme "Pas froids. Pas vraiment proches non plus."
-        i "Tu as fini par retrouver ta serviette ?"
-        j "Oui."
-        i "C'est bien."
-        systeme "Le silence qui suit n'est pas méchant. Il sait seulement trop bien où s'installer."
     else:
         i "La rentrée devrait être interdite avant midi."
         j "L'école entière ?"

@@ -19,17 +19,39 @@ label arc_4_5_maid_cafe:
     
     scene bg arc4 christmas market
     with fade
-    show jessy neutral at char_left
+    show allan support at char_left
+    show alex neutral at char_midleft
+    show jessy neutral at char_midright
     show ilona neutral at char_right
-    
-    systeme "Après le marché de Noël, la soirée pourrait se terminer."
-    systeme "Allan et Alexandre sont partis. Théo aussi. Le marché commence à ranger ses lumières."
-    systeme "Mais quelque chose dans l'air — la neige qui commence, les illuminations qui ne s'éteignent pas encore — donne envie de prolonger."
-    
-    i "Tu fais quelque chose après ?"
-    j "Non. Pourquoi ?"
+
+    systeme "Théo est parti de son côté. Les quatre autres quittent le marché ensemble."
+    systeme "Pendant quelques rues, Ilona rentre bien avec le groupe."
+    systeme "Au premier carrefour, leurs trajets se séparent."
+    a "Alexandre et moi, c'est à gauche."
+    show alex teasing at char_midleft
+    x "Et vous deux, tout droit. Seuls. En amoureux."
+    show jessy embarrassed at char_midright
+    j "On n'est pas..."
+    i "Alexandre."
+    x "Oui ?"
+    i "Finis cette phrase et ton chocolat termine dans ta capuche."
+    x "C'était une bénédiction. Mais message reçu."
+    a "Bonne nuit, vous deux."
+    x "Bonne nuit, les pas-amoureux."
+    systeme "Allan entraîne Alexandre vers la rue de gauche avant que le chocolat change vraiment de destination."
+
+    hide allan
+    hide alex
+    show jessy neutral at char_left
+    with dissolve
+
+    systeme "Jessy et Ilona continuent tout droit. Le marché commence à ranger ses lumières derrière eux."
+    systeme "Mais quelque chose dans l'air, la neige qui commence, les illuminations qui ne s'éteignent pas encore donne envie de prolonger."
+
+    i "Tu rentres directement ?"
+    j "C'était le plan. Pourquoi ?"
     i "Je veux pas rentrer tout de suite."
-    i "On pourrait marcher ?"
+    i "On pourrait marcher encore un peu ?"
     j "Oui."
     systeme "Jessy ne demande pas pourquoi. Il accepte."
     
@@ -64,7 +86,7 @@ label arc_4_5_maid_cafe:
     
     systeme "Au détour d'une rue, un café attire leur attention."
     systeme "Pas par sa taille. Pas par son enseigne lumineuse."
-    systeme "Mais parce qu'il est ouvert, chaleureux, et qu'une pancarte annonce : « MAID CAFÉ — OUVERT JUSQU'À MINUIT »."
+    systeme "Mais parce qu'il est ouvert, chaleureux, et qu'une pancarte annonce : « MAID CAFÉ - OUVERT JUSQU'À MINUIT »."
     
     show ilona neutral at char_left
     show jessy embarrassed at char_right
@@ -232,7 +254,7 @@ label arc_4_5_maid_cafe:
     
     i "Merci d'être venu."
     j "Merci d'avoir proposé."
-    systeme "Ils rentrent chacun chez eux. Mais le souvenir du maid café — et de Sofiane faisant des cœurs avec ses mains — reste."
+    systeme "Ils rentrent chacun chez eux. Mais le souvenir du maid café et de Sofiane faisant des cœurs avec ses mains reste."
     systeme "Certaines soirées ne résolvent rien. Mais elles donnent assez de légèreté pour continuer."
     
     hide jessy
