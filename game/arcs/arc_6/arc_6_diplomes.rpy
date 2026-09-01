@@ -806,7 +806,7 @@ label arc_6_diplomes:
         i "Là où je t'ai posé la seule vraie question que j'ai posée de toute l'année."
 
         if arc5_question_reponse == "honnete":
-            i "Tu m'as dit que tu ne me faisais pas confiance."
+            i "Tu m'as dit que ta confiance tremblait encore."
             i "C'est la phrase la plus honnête que quelqu'un m'ait dite cette année."
 
             $ renpy.pause(1.0, hard=True)
@@ -817,8 +817,8 @@ label arc_6_diplomes:
             $ confiance += 2
             $ communication += 2
         elif arc5_question_reponse == "responsable":
-            i "Tu m'as dit que ta peur n'était pas mon problème."
-            i "Elle l'était un peu quand même. Mais merci d'avoir essayé de la porter tout seul."
+            i "Tu m'as dit que ta peur t'appartenait."
+            i "Elle débordait un peu quand même. Mais merci d'avoir essayé de ne pas me demander de la porter."
 
             $ renpy.pause(1.0, hard=True)
 

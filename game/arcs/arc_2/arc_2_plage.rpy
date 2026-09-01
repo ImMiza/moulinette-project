@@ -46,6 +46,7 @@ define audio.plagesunset = "audio/music/plage-sunset.ogg"
 default arc2_reaction_invitation = ""
 default arc2_photo_reaction = ""
 default arc2_choix_activite_theo = ""
+default arc2_reaction_coucher = ""
 default arc2_retour_minecraft = ""
 default arc2_scene_laplage = False
 
@@ -182,7 +183,7 @@ label arc_2_plage:
     t "Je lis les panneaux."
     x "Méthode honteusement fiable."
 
-    play sound "fx/sand-noise.mp3"
+    play sound "audio/fx/sand-noise.mp3"
     systeme "Théo ne demande pas. Il plante le parasol, ajuste l'angle, puis pose le sac d'Ilona dans l'ombre avant qu'elle ait le temps de répondre."
     t "Tu préfères l'ombre, non ?"
     systeme "Il le dit comme une question, mais le sac est déjà posé."
@@ -443,7 +444,7 @@ label arc_2_plage:
     a "Tu l'as vraiment prise, la gelée radioactive ?"
     i "Oui. Et je voulais aller voir les petites mares vers—"
     t "Les rochers, oui. C'est plus simple par la jetée."
-    systeme "Théo coupe Ilona pour la deuxième fois aujourd'hui. Mais cette fois, Allan le voit."
+    systeme "Théo coupe Ilona avant qu'elle finisse. Allan le voit."
     show allan beach doubt at char_midleft
     a "Attends. Elle parlait encore."
     t "Je sais. Désolé. Je voulais juste—"
@@ -522,7 +523,7 @@ label arc_2_plage:
             systeme "Ilona tourne la tête. Elle le voit."
             show ilona beach frustrated at char_center
             stop music
-            play sound "fx/piano-slam.mp3"
+            play sound "audio/fx/piano-slam.mp3"
             i "Sérieusement ?"
             systeme "Théo s'arrête. Il regarde Jessy avec quelque chose entre la pitié et le mépris."
             t "Tu voulais venir ou tu voulais surveiller ?"
@@ -563,8 +564,9 @@ label arc_2_plage:
             t "Je ramène pas les gens dans une autre dimension."
             j "Je sais. Mais j'ai quand même peur."
             systeme "Théo hausse un sourcil. Ilona soupire."
-            i "D'accord. Je reviens dans dix minutes. Chronomètre-moi si tu veux."
-            j "Non. Prends ton temps. J'avais juste besoin de le dire."
+            j "J'ai besoin de dix minutes pour respirer. Après, je reviens."
+            i "D'accord. Je vais voir les mares."
+            j "Prends ton temps. J'avais juste besoin de le dire."
 
         "Partir sans répondre.":
             $ arc2_choix_activite_theo = "disparaitre"
@@ -720,8 +722,6 @@ label arc_2_plage:
         systeme "Jessy reste seul face aux rochers."
 
     else:
-        scene bg arc2 beach sunset
-        with fade
         show ilona beach sad at char_left
         show theo beach neutral at char_right
 
@@ -735,14 +735,28 @@ label arc_2_plage:
         i "C'est con."
         t "Oui."
         systeme "Théo s'assoit sur un rocher. Il regarde l'horizon comme s'il avait tout le temps du monde."
-        t "Tu veux toujours aller voir les mares ?"
+        t "Tu veux toujours voir les mares de plus près ?"
         systeme "Ilona hésite. Elle pense à Jessy. Puis elle pense à elle."
         i "Oui."
         t "Alors allons-y."
+        systeme "Ils contournent les premiers rochers sans parler."
+        systeme "Devant les mares, Ilona garde les yeux sur l'eau. La gelée fond lentement entre ses doigts."
+        i "Tu crois vraiment qu'il a peur de me laisser exister sans lui ?"
+        t "Je crois qu'il confond parfois être proche de toi et être sûr que tu restes."
+        i "Tu parles comme si tu le connaissais."
+        t "Je connais ce genre de peur."
+        $ renpy.pause(0.8)
+        i "Et toi, tu veux quoi ?"
+        systeme "Théo prend le temps de regarder les reflets avant de répondre."
+        t "Que tu n'aies pas à rassurer quelqu'un chaque fois que tu bouges."
+        i "C'est pas une réponse."
+        t "Non."
+        systeme "Ilona le regarde enfin. Théo sait écouter, mais il sait aussi choisir ce qu'il ne dit pas."
+        $ lien_ilona_theo += 2
         hide ilona
         hide theo
         with dissolve
-        systeme "Ils marchent vers les rochers. Derrière eux, le soleil descend sur une journée qui ne finira pas comme elle a commencé."
+        systeme "Ils quittent les rochers côte à côte. Derrière eux, le soleil descend sur une journée qui ne finira pas comme elle a commencé."
 
     play sound audio.footSand volume 0.6
     play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
@@ -850,7 +864,6 @@ label arc_2_plage:
     scene bg arc2 beach sunset
     with fade
     show jessy beach embarrassed at char_left
-    show ilona beach neutral at char_center
     show alex beach concerned at char_midleft
 
     if arc2_choix_activite_theo == "disparaitre":
@@ -933,6 +946,7 @@ label arc_2_plage:
         "Le coucher de soleil commence. Que fait Jessy ?"
 
         "Se taire trop longtemps.":
+            $ arc2_reaction_coucher = "silence"
             $ communication -= 4
             $ confiance -= 2
             $ pression_stream += 2
@@ -947,6 +961,7 @@ label arc_2_plage:
             systeme "Le silence n'est pas violent. Mais il tue quand même quelque chose."
 
         "Reconnaître précisément son erreur.":
+            $ arc2_reaction_coucher = "reparation"
             $ communication += 4
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
@@ -991,6 +1006,7 @@ label arc_2_plage:
                 i "T'as de la chance que je sois fatiguée."
 
         "Demander ce qui s'est passé avec Théo.":
+            $ arc2_reaction_coucher = "interrogatoire"
             $ autonomie_ilona -= 4
             $ confiance -= 4
             $ influence_theo += 2
@@ -1012,6 +1028,7 @@ label arc_2_plage:
             with hpunch
 
         "Nommer sa peur sans accuser.":
+            $ arc2_reaction_coucher = "peur_nommee"
             $ communication += 4
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
@@ -1052,10 +1069,22 @@ label arc_2_plage:
 
     systeme "Le soir, la maison Minecraft les attend."
     systeme "Ilona ouvre l'inventaire. Elle cherche des blocs qui brillent."
-    systeme "Le gobelet de gelée marine est toujours là, sur le bureau d'Ilona, à moitié vide."
+    systeme "Le gobelet de gelée marine est toujours là, sur le bureau d'Ilona. Elle n'y a pas touché."
     $ renpy.pause(1.0)
 
-    if arc2_choix_activite_theo in ("confiance", "dix_minutes"):
+    if arc2_reaction_coucher in ("silence", "interrogatoire") or arc2_choix_activite_theo in ("suivre", "disparaitre"):
+        $ arc2_retour_minecraft = "porte_fermee"
+        systeme "Ilona se connecte. Elle regarde la maison."
+        systeme "Puis elle construit un mur devant la porte d'entrée."
+        j "Qu'est-ce que tu fais ?"
+        i "Je ferme."
+        j "Pourquoi ?"
+        i "Parce que j'en ai besoin."
+        systeme "Jessy essaie d'ouvrir. La porte est bloquée."
+        systeme "Il reste dehors. Elle reste dedans."
+        $ pression_stream += 2
+        $ lien_jessy_ilona -= 1
+    elif arc2_choix_activite_theo in ("confiance", "dix_minutes"):
         if communication >= 12:
             $ arc2_retour_minecraft = "sortie_couloir"
             i "Je vais ajouter une sortie au couloir sans issue."
@@ -1072,18 +1101,6 @@ label arc_2_plage:
             j "Pourquoi bleue ?"
             i "Parce que j'en ai envie."
             systeme "Le ton est sec. Jessy ne pose pas d'autre question."
-    elif arc2_choix_activite_theo in ("suivre", "disparaitre"):
-        $ arc2_retour_minecraft = "porte_fermee"
-        systeme "Ilona se connecte. Elle regarde la maison."
-        systeme "Puis elle construit un mur devant la porte d'entrée."
-        j "Qu'est-ce que tu fais ?"
-        i "Je ferme."
-        j "Pourquoi ?"
-        i "Parce que j'en ai besoin."
-        systeme "Jessy essaie d'ouvrir. La porte est bloquée."
-        systeme "Il reste dehors. Elle reste dedans."
-        $ pression_stream += 2
-        $ lien_jessy_ilona -= 1
     else:
         $ arc2_retour_minecraft = "silence"
         systeme "Ilona se connecte, mais elle ne construit rien."
@@ -1095,31 +1112,30 @@ label arc_2_plage:
     menu:
         "Dans le jeu, Ilona place un bloc lumineux bleu dans l'inventaire."
 
-        "Construire une version Minecraft de la gelée lumineuse dans la salle secrète.":
-            if arc2_choix_activite_theo not in ("suivre", "disparaitre"):
-                $ remember("maison_respectee")
-                $ ilonanium_points += 1
-                $ lien_jessy_ilona += 2
-                j "On en fait une version Minecraft dans la salle moyennement importante ?"
-                i "Très bon niveau d'importance."
-                systeme "Ils construisent ensemble. Pas parfaitement. Mais ensemble quand même."
-            else:
-                j "On pourrait—"
-                i "Non."
-                systeme "Jessy referme la bouche. Il a compris."
+        "La laisser manger la gelée lumineuse avant d'en construire une version Minecraft." if arc2_retour_minecraft != "porte_fermee":
+            $ remember("maison_respectee")
+            $ ilonanium_points += 1
+            $ lien_jessy_ilona += 2
+            play sound audio.eating volume 0.6
+            i "Je la mange avant qu'elle commence à juger mon bureau."
+            j "Elle faisait déjà ça depuis une heure."
+            systeme "Ilona finit la gelée lumineuse avec le sérieux de quelqu'un qui vient d'absorber un minuscule astre marin."
+            j "On en fait une version Minecraft dans la salle moyennement importante ?"
+            i "Très bon niveau d'importance."
+            systeme "Ils construisent ensemble. Pas parfaitement. Mais ensemble quand même."
 
 
         "Poser un bloc lumineux dehors sans rien dire.":
             $ renpy.pause(1.0)
             systeme "Ilona place un seul bloc lumineux devant l'entrée."
-            if arc2_choix_activite_theo in ("confiance", "dix_minutes"):
+            if arc2_retour_minecraft in ("sortie_couloir", "lanterne_bleue"):
                 j "C'est joli."
                 i "Merci."
                 systeme "Jessy ne demande pas pourquoi. Il comprend que ce n'est pas une décoration."
             else:
                 systeme "Jessy regarde le bloc. Il ne dit rien."
                 systeme "Ilona non plus."
-    if arc2_choix_activite_theo in ("suivre", "disparaitre"):
+    if arc2_retour_minecraft == "porte_fermee":
         systeme "L'été ne répare rien."
         systeme "Il laisse une photo, quelques mots de Théo qui résonnent encore, et une fissure dans la maison Minecraft."
         systeme "Le sable dans les chaussures ne partira pas facilement non plus."

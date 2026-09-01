@@ -492,6 +492,7 @@ label arc_4_noel:
     show alex concerned at char_right
 
     systeme "Un peu plus loin, Allan tient deux chocolats chauds et l'air de quelqu'un qui commence enfin à trouver sa neutralité fatigante."
+    systeme "Près du brasero, il a posé son manteau sur le dossier du banc."
     a "Théo vient de parler à Monsieur Laplage."
     x "Il l'a appelé « le Messi » ?"
     a "Probablement."
@@ -536,19 +537,20 @@ label arc_4_noel:
     
     if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
         systeme "Sofiane regarde encore son téléphone. Puis le marché."
-        s "Je dois partir. Le service m'appelle."
+        s "Je dois bientôt partir. Le service m'appelle."
         a "Quel service ?"
         s "Celui qui nourrit la route."
-        systeme "Il repart avant qu'Alexandre puisse demander plus de détails."
+    systeme "Il retourne vers le stand de cartes avant qu'Alexandre puisse lui poser une autre question."
     
     hide sofiane
     with dissolve
     $ arc4_carte_sofiane_lue = True
 
-    x "Il a dit « le service »."
-    a "Oui."
-    x "Sofiane a un job ?"
-    a "Apparemment. Et il refuse d'expliquer."
+    if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
+        x "Il a dit « le service »."
+        a "Oui."
+        x "Sofiane a un job ?"
+        a "Apparemment. Et il refuse d'expliquer."
 
     show allan doubt at char_left
     with dissolve
@@ -582,8 +584,9 @@ label arc_4_noel:
 
     systeme "Il laisse l'enveloppe sur le banc."
     systeme "Alexandre ne dit rien. Il sait que parfois, ne pas prendre quelque chose, c'est déjà une décision."
-    systeme "Plus tard, quand personne ne regarde, Sofiane récupère l'enveloppe."
-    systeme "Et la glisse dans la poche de la veste d'Allan accrochée au vestiaire."
+    systeme "Quand Allan se détourne pour tendre un chocolat à Alexandre, Sofiane repasse derrière le banc."
+    systeme "Il récupère l'enveloppe et la glisse dans la poche intérieure du manteau, sans un bruit."
+    systeme "Puis il disparaît dans la foule, son téléphone à la main."
 
     hide allan
     hide alex
@@ -660,6 +663,9 @@ label arc_4_noel:
     systeme "Il lève le pouce. Ilona prend le café. Il réchauffe ses doigts engourdis par le froid."
     i "Merci."
     systeme "Laplage acquiesce. Puis repart vers son stand."
+    hide laplage
+    with dissolve
+
     systeme "Ilona reste avec le carnet dans une main, le café dans l'autre."
     systeme "Le café ne résout rien. Mais il lui donne quelques secondes où elle peut juste respirer."
     # Deuxième confidence : elle n'existe que si Jessy ne l'écoute toujours pas assez.
@@ -667,9 +673,6 @@ label arc_4_noel:
     if ilona_peut_finir_ses_phrases < 4:
         $ confidences_laplage += 1
     $ jugement_laplage += 1
-
-    hide laplage
-    with dissolve
 
     systeme "Quand Ilona se retourne, Jessy est à quelques mètres. Il n'a pas entendu toute la conversation. Assez pour savoir qu'il doit demander avant d'approcher."
 
@@ -1066,16 +1069,6 @@ label arc_4_noel:
     systeme "Le groupe se retrouve près de la sortie du marché. Les sacs sont plus petits que les silences."
     a "J'ai acheté quatre chocolats chauds. Un exploit logistique, pas une invitation à parler de sentiments devant la caisse."
     x "Je confirme. La caisse n'a pas signé pour ça."
-    if arc4_carte_sofiane_lue:
-        systeme "Allan sort l'enveloppe trouvée par Sofiane."
-        a "Au fait, on a une carte non identifiée."
-        i "De Sofiane ?"
-        x "De Sofiane par l'intermédiaire du destin, probablement."
-        systeme "Ilona lit la phrase écrite d'une main étonnamment nette."
-        i "Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit."
-        j "C'est... très lui."
-        a "Et un peu utile, malheureusement."
-
     show theo neutral at char_center
     with dissolve
 
@@ -1167,7 +1160,8 @@ label arc_4_noel:
         hide theo
         with dissolve
 
-    systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
+    if not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
+        systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
 
     hide allan
     hide alex
