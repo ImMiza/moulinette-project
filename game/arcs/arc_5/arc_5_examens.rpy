@@ -73,11 +73,16 @@ label arc_5_examens:
     x "C'était techniquement correct et émotionnellement insupportable."
     
     systeme "Alexandre sort un schéma de son sac. On dirait un plan d'architecte pour une structure impossible."
+
+    show alex teasing at char_midright
+    show allan smirk at char_center
     
     x "C'est quoi ça ?"
     a "Mon planning de révisions. J'ai organisé ça comme un bâtiment."
     x "Un bâtiment qui tient pas debout."
     a "Techniquement inhabitable. Donc parfait."
+    show alex serious at char_midright
+    show allan neutral at char_center
     
     systeme "Jessy reconnaît la logique. C'est la même qu'Alexandre applique à tout : si ça ne fait pas sens, c'est que ça a un sens supérieur."
 
@@ -140,13 +145,15 @@ label arc_5_examens:
         elif arc4_5_ilona_reaction == "directe":
             systeme "Théo hésite une demi-seconde avant de poser le gobelet. Depuis Noël, il fait attention à ne pas avoir l'air d'avoir déjà décidé pour elle."
     
-    show ilona neutral at char_midleft
+    show ilona fatigue at char_midleft
     
     i "Merci."
     
     systeme "Elle boit une gorgée. Ferme les yeux une seconde. Quand elle les rouvre, quelque chose s'est détendu dans ses épaules."
     systeme "Théo a fait ça. En trente secondes. Avec un thé."
     systeme "Jessy sent quelque chose de froid dans sa poitrine. Pas de la jalousie. Quelque chose de pire : l'impression d'être inutile."
+
+    show jessy listening at char_left
 
     menu:
         systeme "Le gobelet de thé est là, entre les mains d'Ilona. Théo attend, détendu, comme quelqu'un qui sait qu'il a fait la bonne chose."
@@ -160,6 +167,7 @@ label arc_5_examens:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             $ arc5_tension_accumulee += 2
+            show jessy embarrassed at char_left
             j "C'était celui que tu voulais ?"
             systeme "La question sort avant qu'il puisse la retenir."
             show ilona frustrated at char_midleft
@@ -181,6 +189,7 @@ label arc_5_examens:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
+            show jessy embarrassed at char_left
             j "Tu veux autre chose ? Je peux aller chercher ce truc que tu aimes, là, avec la..."
             show ilona frustrated at char_midleft
             i "Jessy. J'ai déjà un thé."
@@ -200,6 +209,7 @@ label arc_5_examens:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
+            show jessy listening at char_left
             j "Merci pour le café, Théo."
             systeme "Les mots sortent. Ils sont vrais. C'est peut-être pour ça qu'ils font un peu mal."
             show theo neutral at char_right
@@ -223,6 +233,8 @@ label arc_5_examens:
             systeme "Alors il se tait. Et le silence dit tout ce qu'il ne dit pas."
             show ilona neutral at char_midleft
             systeme "Ilona le regarde par-dessus son gobelet. Elle a vu. Elle voit toujours."
+    show jessy neutral at char_left
+    show ilona fatigue at char_midleft
     hide theo
     with dissolve
 
@@ -242,7 +254,7 @@ label arc_5_examens:
     
     laplage "Les étoiles qui ne se reposent jamais finissent par s'effondrer sur elles-mêmes."
     
-    show ilona embarrassed at char_midleft
+    show ilona frustrated at char_midleft
     
     i "C'est censé me motiver ?"
     laplage "Non. C'est censé te faire peur."
@@ -257,6 +269,8 @@ label arc_5_examens:
     a "J'ai arrêté de chercher. La réponse me ferait probablement remettre en question ma conception de la réalité."
     
     systeme "Ilona range ses affaires. Ses gestes sont lents. Mécaniques."
+
+    show ilona fatigue at char_midleft
     
     i "Je rentre."
     j "Tu veux qu'on..."
@@ -292,6 +306,7 @@ label arc_5_examens:
             j "C'est-à-dire ?"
             a "Éviter en faisant semblant que tout va bien."
             systeme "Jessy ouvre la bouche pour répondre. Puis il la referme."
+            show jessy listening at char_left
             systeme "Allan a raison. C'est pour ça que ça fait mal."
 
 
@@ -307,6 +322,7 @@ label arc_5_examens:
             a "Tu lui fais confiance ou tu évites le sujet ?"
             j "C'est quoi la différence ?"
             a "La première version, tu l'as décidée. La deuxième, c'est elle qui l'a subie."
+            show jessy embarrassed at char_left
             systeme "Jessy ne répond pas. La réponse est trop claire pour être dite à voix haute."
         
         "Admettre qu'il ne lui a pas demandé parce qu'il avait peur de la réponse.":
@@ -315,6 +331,7 @@ label arc_5_examens:
             $ confiance += 1
             $ jalousie = max(0, jalousie - 1)
             $ lien_jessy_ilona += 1
+            show jessy listening at char_left
             j "Non. Je n'ai pas demandé."
             a "Pourquoi ?"
             j "Parce que si elle me dit qu'elle va mal, je vais vouloir réparer."
@@ -377,6 +394,10 @@ label arc_5_examens:
         scene bg arc5 cinema box office
         with Dissolve(1.0)
 
+        show jessy smile at char_left
+        show ilona smile at char_right
+        with dissolve
+
         systeme "À l'intérieur, le hall sent le pop-corn chaud et les manteaux mouillés. La lumière est trop vive après le gris de la rue."
         systeme "Devant la caisse, Ilona lève les yeux vers les affiches. Elle désigne celle qu'ils avaient choisie presque au hasard."
 
@@ -408,6 +429,10 @@ label arc_5_examens:
         scene bg arc5 cinema seated
         with Dissolve(1.5)
 
+        show jessy listening at char_left
+        show ilona fatigue at char_right
+        with dissolve
+
         systeme "Ilona pose son sac, s'enfonce dans son siège et ferme les yeux une seconde."
 
         i "Merci."
@@ -415,6 +440,7 @@ label arc_5_examens:
         i "D'avoir pas insisté. Pour savoir pourquoi je suis fatiguée."
         j "Tu me diras quand tu voudras. Ou pas."
 
+        show ilona smile at char_right
         systeme "Elle tourne la tête vers lui. Un demi-sourire, petit mais sincère."
 
         i "Le film commence."
@@ -427,6 +453,8 @@ label arc_5_examens:
         systeme "Jessy oublie de vérifier si elle va bien. Il oublie même qu'il était censé détester le film."
 
         systeme "À un moment, Ilona cherche l'accoudoir sans quitter l'écran des yeux. Elle trouve la main de Jessy à la place."
+        show jessy embarrassed at char_left
+        show ilona embarrassed at char_right
         systeme "Leurs doigts se touchent. Aucun ne retire sa main. Aucun ne cherche à attraper celle de l'autre."
         systeme "Ils restent comme ça, paumes à peine frôlées, pendant que le reste du monde attend dehors."
 
@@ -445,7 +473,7 @@ label arc_5_examens:
         scene bg arc5 rain street
         with Dissolve(1.5)
 
-        show jessy neutral at char_center
+        show jessy smile at char_center
         show ilona smile at char_right
         with dissolve
 
@@ -503,6 +531,7 @@ label arc_5_examens:
             $ pression_stream += 2
             $ evitements += 1
             $ arc5_tension_accumulee += 2
+            show jessy listening at char_center
             systeme "Jessy fixe l'écran. Les mots se forment dans sa tête, puis se défont."
             systeme "Répondre vite, c'est risquer de dire quelque chose de stupide."
             systeme "Répondre tard, c'est la laisser avec son message sans retour."
@@ -528,6 +557,7 @@ label arc_5_examens:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             $ arc5_tension_accumulee += 1
+            show jessy listening at char_center
             systeme "La question part avant qu'il puisse la retenir. Elle est vraie. C'est peut-être pour ça qu'elle est dangereuse."
             systeme "La réponse met du temps à arriver."
             systeme "{i}« Je suis fatiguée, Jessy. C'est tout. »{/i}"
@@ -547,12 +577,14 @@ label arc_5_examens:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             $ arc5_tension_accumulee += 3
+            show jessy determined at char_center
             systeme "Les mots sortent. Ils sont vrais. Ils sont aussi injustes."
             systeme "Parce que oui, c'est la troisième fois. Mais compter, c'est déjà accuser."
             systeme "La réponse arrive vite. Trop vite."
             systeme "{i}« Tu tiens un tableau de mes annulations maintenant ? »{/i}"
             systeme "Puis, immédiatement après :"
             systeme "{i}« Je suis fatiguée. Vraiment. Et là, tu me fatigues encore plus. »{/i}"
+            show jessy embarrassed at char_center
             systeme "Jessy fixe l'écran. Il a voulu dire quelque chose d'honnête. Il a dit quelque chose de blessant."
             systeme "La différence entre les deux n'est pas dans l'intention. Elle est dans l'impact."
         
@@ -674,6 +706,7 @@ label arc_5_examens:
         j "Je n'ai pas compté, j'ai juste..."
         a "Tu as juste remarqué. C'est pareil."
         systeme "Jessy se tait."
+        show jessy listening at char_left
         a "Écoute. Peut-être qu'elle annule parce qu'elle va mal. Ou peut-être qu'elle annule parce qu'elle a besoin d'espace. Les deux existent."
         j "Et la différence ?"
         a "La différence, c'est que dans un cas tu dois t'inquiéter, et dans l'autre tu dois la laisser tranquille."
@@ -681,6 +714,7 @@ label arc_5_examens:
         a "Tu lui demandes. Mais pas comme tu viens de le faire."
     else:
         j "Rien de spécial."
+        show jessy embarrassed at char_left
         show allan doubt at char_right
         a "Tu mens."
         j "Non, je..."
@@ -745,7 +779,7 @@ label arc_5_examens:
             $ arc5_tension_accumulee += 1
             j "Elle t'a demandé à toi ?"
             systeme "La question sort. Elle sonne plus accusatoire que prévu."
-            show theo innocent at char_center
+            show theo neutral at char_center
             t "Oui. J'ai les notes les plus complètes du groupe."
             systeme "C'est vrai. Et c'est peut-être pour ça que ça fait mal."
             j "Je pourrais lui apporter."
@@ -982,6 +1016,7 @@ label arc_5_scene_3:
             j "Les notes, peut-être. Le reste, non."
             show theo reassuring at char_right
             t "Les notes, c'est déjà bien."
+            show jessy determined at char_left
             j "Mais on lui demande avant. Ensemble."
             t "Bien sûr."
             systeme "Le « bien sûr » est trop rapide. Trop lisse."
@@ -1005,6 +1040,7 @@ label arc_5_scene_3:
             $ pression_stream += 2
             $ controles += 1
             $ arc5_theo_dans_maison = True
+            show jessy listening at char_left
             j "Fais ce que tu veux."
             show theo neutral at char_right
             t "Tu es sûr ?"
@@ -1029,10 +1065,12 @@ label arc_5_scene_3:
             $ influence_theo = max(0, influence_theo - 2)
             $ pression_stream = max(0, pression_stream - 2)
             $ jugement_laplage += 1
+            show jessy determined at char_left
             j "Non."
             show theo disappointed at char_right
             t "Non ?"
             j "Ce n'est pas à moi de décider ce qu'elle peut porter. Et ce n'est pas à toi non plus."
+            show theo defensive at char_right
             t "Je n'essaie pas de décider. J'essaie d'aider."
             j "Alors propose-lui directement. Sans passer par moi. Sans stratégie."
             systeme "Le mot « stratégie » fait mouche. Théo cille."
@@ -1056,6 +1094,7 @@ label arc_5_scene_3:
             $ confiance += 2
             $ influence_theo = max(0, influence_theo - 1)
             $ pression_stream = max(0, pression_stream - 2)
+            show jessy determined at char_left
             j "Pourquoi tu ne lui proposes pas directement ?"
             show theo innocent at char_right
             t "Je te l'ai dit. Venant de moi..."
@@ -1065,6 +1104,7 @@ label arc_5_scene_3:
                 j "Est-ce que tu veux l'aider, ou est-ce que tu veux être celui qui l'aide ?"
                 systeme "La phrase ne vient pas de Jessy. Pas vraiment. Elle vient d'Ilona, et Théo le reconnaît."
             j "Si tu voulais juste l'aider, tu aurais proposé. Tu n'aurais pas fait un détour par moi."
+            show theo defensive at char_right
             t "Tu crois que j'ai une arrière-pensée ?"
             j "Je crois que tu calcules tout. Même l'aide."
             systeme "Le silence entre eux devient électrique."
@@ -1117,10 +1157,12 @@ label arc_5_scene_3:
         j "Elle t'en a parlé ?"
         x "Non. Allan."
         systeme "Jessy serre les dents."
+        show jessy determined at char_left
         x "Je ne te juge pas. Mais évite de transformer un chocolat, ou l'absence de chocolat, en verdict sur votre relation."
 
     # --- INTERLUDE COMIQUE : MICKA ---
-    
+
+    show jessy neutral at char_left
     systeme "La porte de la classe s'ouvre. Micka entre."
     systeme "Ou plutôt, Micka essaie d'entrer. Difficile quand on croule sous une montagne de chocolats."
     
@@ -1174,6 +1216,7 @@ label arc_5_scene_3:
     hide micka
     with dissolve
     
+    show alex awkward at char_right
     x "Je... je comprends plus rien à ce lycée."
     j "Tu veux un chocolat de Madame Tanaka ?"
     x "NON."
@@ -1195,14 +1238,13 @@ label arc_5_scene_3:
     i "Tu me cherchais ?"
     j "Non. Mais je suis content de te trouver."
     
+    show ilona smile at char_right
     systeme "Un demi-sourire traverse son visage. Comme un soleil derrière les nuages."
     
     i "Tu as reçu des chocolats ?"
     j "Trois. Tous d'Alexandre sous des pseudonymes différents."
     i "Comment tu sais que c'est lui ?"
     j "Le troisième était signé « Ta fan mystérieuse, bisous, Alexandre, PS : c'est moi »."
-    
-    show ilona smile at char_right
     
     i "Il n'a pas le sens du mystère."
     j "Il a le sens de l'absurde. C'est pas pareil."
@@ -1250,6 +1292,7 @@ label arc_5_scene_3:
 
     elif lien_jessy_ilona >= 10 and confiance >= 8:
         $ arc5_valentin_offre = "amitie"
+        show ilona determined at char_right
         systeme "Ilona sort une petite boîte de chocolats de son sac et la tend à Jessy."
         i "Tiens. C'est pour toi."
         j "Pour moi ?"
@@ -1344,16 +1387,19 @@ label arc_5_scene_3:
             j "Merci. Ils sont parfaits."
             i "Tu ne vas pas demander ce que ça veut dire ?"
             j "Pas si tu ne le sais pas encore."
+            show ilona smile at char_right
             systeme "Il mange un bloc de chocolat. Pour une fois, il laisse un geste être seulement un geste."
         elif arc5_valentin_offre == "amitie":
             j "Merci. Vraiment."
             i "Même si c'est de l'amitié ?"
             j "C'est pas un petit mot, tu sais."
+            show ilona smile at char_right
             systeme "Elle le regarde, puis sourit."
         else:
             j "Je suis quand même content de te voir."
             i "Même sans chocolat ?"
             j "Même sans chocolat."
+            show ilona smile at char_right
             systeme "La réponse est simple. Elle n'essaie pas de gagner autre chose."
 
     elif arc5_valentin_choix == "demande":
@@ -1458,7 +1504,7 @@ label arc_5_scene_3:
     # propre test et le ton pouvait basculer d'une replique a l'autre.
     $ arc5_etat_relation = etat_relation()
 
-    show ilona frustrated at char_left
+    show ilona fatigue at char_left
 
     if arc5_etat_relation == "proche":
         i "Tout le monde me demande ce que je vais choisir."
@@ -1545,6 +1591,7 @@ label arc_5_scene_3:
 
         systeme "Elle rit. Un rire sec. Sans joie."
 
+        show ilona frustrated at char_left
         i "Jessy veut me protéger. Théo veut m'aider. Tout le monde veut quelque chose pour moi."
         laplage "Et toi, tu veux quoi ?"
         i "Qu'on me foute la paix."
@@ -1578,6 +1625,7 @@ label arc_5_scene_3:
     systeme "Il disparaît entre les rayons."
 
     systeme "Ilona reste seule. Le livre est toujours fermé. Mais quelque chose dans sa posture a changé."
+    show ilona determined at char_left
     systeme "Elle sort son téléphone. Tape un message. Efface. Tape. Efface."
     systeme "Finalement, elle envoie :"
     systeme "{i}« On peut se voir ? J'ai quelque chose à te demander. »{/i}"
@@ -1636,8 +1684,8 @@ label arc_5_scene_3:
         i "C'était censé avoir l'air simple."
         j "Raté."
 
+        show ilona smile at char_right
         systeme "Elle sourit. Une seconde. Puis elle range le sourire, comme on range un outil dont on n'a pas besoin maintenant."
-
         show ilona neutral at char_right
 
         i "Je voulais te parler ici parce qu'ici, on ne peut pas faire autre chose."
@@ -1775,9 +1823,11 @@ label arc_5_scene_3:
             i "Je ne t'ai pas demandé ce que tu pensais de Théo."
             j "Mais il est toujours là ! À t'apporter du thé, à gérer tes trucs, à..."
             i "À quoi ? À m'aider ?"
+            show jessy determined at char_left
             j "À prendre ma place !"
             systeme "Le cri sort avant qu'il puisse le retenir."
             systeme "Ilona recule d'un pas."
+            show jessy embarrassed at char_left
             i "Je ne t'ai pas posé une question sur Théo, Jessy."
             i "Je t'ai posé une question sur toi."
             j "C'est lié !"
@@ -1800,6 +1850,7 @@ label arc_5_scene_3:
                 j "Mais insuffisant."
                 i "Oui. Insuffisant."
                 systeme "Elle hoche la tête."
+                show ilona determined at char_right
                 i "Tu as jusqu'à White Day."
                 j "Pourquoi White Day ?"
                 i "Parce qu'il me faut une deadline. Et parce que si tu n'as pas trouvé d'ici là..."
@@ -1966,13 +2017,13 @@ label arc_5_scene_3:
     mi "Elle a dit « surprends-moi »."
     
     systeme "Silence."
+
+    show alex awkward at char_right
     
     x "T'as fait quoi ?"
     mi "Un opéra au chocolat avec son prénom en ganache."
     j "Tu connais son prénom ?"
     mi "Elle me l'a donné. À la Saint-Valentin. Avec son numéro."
-    
-    show alex serious at char_right
     
     x "SON NUMÉRO ?"
     mi "Pour les « questions sur les cours », elle a dit."
@@ -2055,6 +2106,9 @@ label arc_5_scene_3:
     else:
         systeme "Ilona ne lui a rien offert à la Saint-Valentin. La tradition ne lui impose aucun retour. La question de la gare, elle, attend toujours une réponse."
 
+    if arc5_question_reponse == "temps":
+        show ilona determined at char_right
+
     i "Alors ?"
     j "Alors quoi ?"
     i "Tu sais quoi."
@@ -2070,6 +2124,7 @@ label arc_5_scene_3:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
+            show jessy determined at char_left
             systeme "Jessy sort quelque chose de son sac. C'est emballé. C'est gros."
             if arc5_valentin_offre in ("ambigu", "amitie"):
                 j "Je voulais te rendre quelque chose."
@@ -2090,6 +2145,7 @@ label arc_5_scene_3:
             j "Ce n'est pas une chose. C'est un souvenir."
             i "C'est un souvenir qui pèse trois kilos et qui me demande de réagir d'une certaine façon."
             systeme "Elle ferme l'album."
+            show jessy embarrassed at char_left
             i "Je ne dis pas que c'est pas touchant. Je dis que c'est... beaucoup."
             i "Et que « beaucoup », en ce moment, c'est exactement ce dont je n'ai pas besoin."
         
@@ -2100,6 +2156,7 @@ label arc_5_scene_3:
             $ confiance += 2
             $ pression_stream = max(0, pression_stream - 2)
             $ remember("ilona_libre_sans_abandon")
+            show jessy determined at char_left
             j "Je ne t'ai rien apporté."
             show ilona neutral at char_right
             i "Rien ?"
@@ -2155,6 +2212,7 @@ label arc_5_scene_3:
                 i "On a du travail. Tous les deux."
             else:
                 $ confiance -= 4
+                show jessy determined at char_left
                 j "Et toi, tu me fais confiance ?"
                 show ilona frustrated at char_right
                 i "Tu me retournes la question maintenant ?"
@@ -2172,6 +2230,7 @@ label arc_5_scene_3:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
+            show jessy determined at char_left
             j "J'ai quelque chose à te dire. Pas un cadeau. Des mots."
             show ilona neutral at char_right
             i "Je t'écoute."
@@ -2309,8 +2368,8 @@ label arc_5_scene_3:
 
     systeme "Dehors, la nuit commence à tomber. L'air sent la pluie passée. Alexandre attend sous l'auvent."
 
-    show allan neutral at char_left
-    show alex neutral at char_center
+    show allan silence at char_left
+    show alex concerned at char_center
     with dissolve
 
     a "Tu m'attendais ?"
@@ -2350,6 +2409,8 @@ label arc_5_scene_3:
     s "Certains plus que d'autres."
     
     systeme "Il regarde vers le ciel. Comme s'il voyait quelque chose que les autres ne voient pas."
+
+    show sofiane observation at char_right
     
     s "Les étoiles parlent à ceux qui savent se taire."
     
@@ -2409,7 +2470,7 @@ label arc_5_scene_3:
         i "Pour quand j'ai besoin d'être seule. Mais pas loin."
         j "Je peux t'aider ?"
         i "Non."
-        systeme "Pause."
+        $ renpy.pause(1.0, hard=True)
         i "Mais tu peux rester. Dans la maison. Pendant que je construis."
         systeme "C'est une permission. Une façon de dire : je veux mon espace, mais je veux aussi que tu sois là."
         j "D'accord."

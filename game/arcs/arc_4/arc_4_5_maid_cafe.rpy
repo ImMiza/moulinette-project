@@ -1,7 +1,7 @@
 # Arc IV.5 - Maid Café Secret : Sofiane a trouvé un job.
 # Scène bonus accessible seulement si synergie Jessy-Ilona bonne.
 
-image bg arc4_city_night = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
+image bg arc4_city_night = im.Scale("images/scenes/arc_4/bg_arc4_illuminations.jpg", 1920, 1080)
 image bg arc4_maid_cafe_exterior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
 image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_interior.jpg", 1920, 1080)
 
@@ -25,6 +25,7 @@ label arc_4_5_maid_cafe:
     x "Et vous deux, tout droit. Seuls. En amoureux."
     show jessy embarrassed at char_midright
     j "On n'est pas..."
+    show ilona frustrated at char_right
     i "Alexandre."
     x "Oui ?"
     i "Finis cette phrase et ton chocolat termine dans ta capuche."
@@ -36,6 +37,7 @@ label arc_4_5_maid_cafe:
     hide allan
     hide alex
     show jessy neutral at char_left
+    show ilona neutral at char_right
     with dissolve
 
     systeme "Jessy et Ilona continuent tout droit. Le marché commence à ranger ses lumières derrière eux."
@@ -61,10 +63,6 @@ label arc_4_5_maid_cafe:
     
     systeme "Ils passent devant une boulangerie fermée. Un marchand de journaux qui baisse son rideau."
     systeme "La neige tombe légèrement. Pas assez pour couvrir le sol. Juste assez pour ralentir le temps."
-    
-    show ilona neutral at char_left
-    show jessy neutral at char_right
-    with dissolve
     
     i "On va où ?"
     j "Je sais pas."
@@ -96,7 +94,9 @@ label arc_4_5_maid_cafe:
         
         "Accepter avec curiosité honnête.":
             $ lien_jessy_ilona += 2
+            show jessy neutral at char_right
             j "Pourquoi pas. J'ai jamais vraiment vu ça en vrai."
+            show ilona smile at char_left
             i "Moi non plus."
             i "Donc on va découvrir ensemble si c'est adorable ou terrifiant."
             j "Pari équitable."
@@ -104,6 +104,7 @@ label arc_4_5_maid_cafe:
         
         "Faire une blague pour désamorcer la gêne.":
             $ lien_jessy_ilona += 2
+            show jessy smile at char_right
             j "Si Alexandre apprend qu'on est allés dans un maid café sans lui, il va théoriser notre disparition."
             show ilona smile at char_left
             i "Il va dessiner un schéma avec des flèches rouges."
@@ -117,11 +118,13 @@ label arc_4_5_maid_cafe:
             $ confiance += 1
             $ pression_stream = max(0, pression_stream - 1)
             j "Tu es sûre ?"
+            show ilona determined at char_left
             i "Pourquoi je serais pas sûre ?"
             j "Je sais pas. C'est... particulier ?"
             i "Jessy."
             j "Oui ?"
             i "J'ai proposé. Donc oui, je suis sûre."
+            show jessy neutral at char_right
             j "D'accord."
             systeme "Ils poussent la porte."
     
@@ -139,7 +142,7 @@ label arc_4_5_maid_cafe:
     systeme "Sofiane."
     systeme "En tenue de maid."
     systeme "Tablier blanc impeccable. Bandeau à froufrous. Lunettes toujours en place."
-    systeme "Il fait un cœur avec ses mains. Expression parfaitement sérieuse."
+    systeme "Il fait un cœur avec ses mains. Sourire parfaitement professionnel."
     
     s "Bienvenue, Maîtres. Votre table vous attend dans l'ombre de vos destins entrelacés."
     
@@ -238,6 +241,7 @@ label arc_4_5_maid_cafe:
     
     show jessy smile at char_left
     show ilona smile at char_right
+    with dissolve
     
     systeme "Dehors, la neige tombe légèrement. Jessy et Ilona marchent côte à côte."
     systeme "Rien n'est réglé. Mais quelque chose s'est allégé."
@@ -254,4 +258,4 @@ label arc_4_5_maid_cafe:
     stop ambiant1 fadeout 1.0
     return
 
-# Note : Cette scène doit être appelée depuis arc_4_noel.rpy ligne 1022
+# Cette scène prolonge directement le regroupement final de arc_4_noel.rpy.

@@ -74,6 +74,7 @@ label arc_4_5_theo:
     # Pause au banc, dans le même parc résidentiel.
     systeme "Ils ralentissent près du banc sous le lampadaire. Les illuminations de Noël clignotent au loin."
 
+    scene bg arc4_5 park bench
     show theo neutral at char_left
     show ilona fatigue at char_right
     with dissolve
@@ -82,7 +83,7 @@ label arc_4_5_theo:
     
     systeme "C'est exactement ce qu'il fallait dire. C'est pour ça que c'est dangereux."
     
-    show ilona neutral
+    show ilona fatigue
     
     i "Jessy a essayé. Vraiment. Je le vois."
     t "Je sais."
@@ -189,8 +190,6 @@ label arc_4_5_theo:
         
         systeme "Ilona réfléchit. Personne ne lui demande ça. On lui demande ce qu'elle ressent. Ce qu'elle veut dire. Mais jamais ce qu'elle veut faire."
         
-        show ilona neutral
-        
         i "J'aimerais... avoir un truc à moi. Un espace où je décide."
         t "Comme quoi ?"
         i "Je sais pas. Peut-être... streamer. Pour de vrai."
@@ -243,8 +242,6 @@ label arc_4_5_theo:
         systeme "Théo ouvre la bouche. Rien ne sort."
         systeme "Ilona vient de mettre des mots sur quelque chose qu'il n'avait jamais regardé en face."
         
-        show theo neutral
-        
         t "Je... je veux t'aider. Vraiment."
         i "Je sais. Mais « vraiment », ça veut dire quoi, pour toi ?"
         
@@ -270,11 +267,11 @@ label arc_4_5_theo:
         i "Jessy fait des erreurs. Toi aussi, parfois."
         t "Moi ?"
         i "Tu parles comme si tu avais toutes les réponses. Et moi je ne veux pas de réponses. Je veux juste... du temps."
-        
-        systeme "Le sourire de Théo reste, mais quelque chose se fige derrière ses yeux."
-        
-        show theo neutral at char_left
-        
+
+        show theo disappointed at char_left
+
+        systeme "Le sourire de Théo disparaît. Quelque chose se fige derrière ses yeux."
+
         t "D'accord. Prends le temps que tu veux."
         
         systeme "Il ne supporte pas bien qu'on refuse son aide. Mais il est patient."
@@ -332,7 +329,7 @@ label arc_4_5_theo:
     
     laplage "Bonsoir."
     
-    show theo annoyed at char_left
+    show theo defensive at char_left
     show ilona embarrassed at char_right
     with dissolve
     
@@ -343,8 +340,6 @@ label arc_4_5_theo:
     laplage "Théo. Ilona."
     
     systeme "Il pose le verre. En prend un autre. Aucune surprise dans son ton."
-    
-    show ilona neutral
     
     i "Vous... vous travaillez ici ?"
     laplage "Temporairement."
@@ -404,20 +399,21 @@ label arc_4_5_theo:
     i "Théo..."
     t "Oui ?"
     
-    show ilona fatigue
-    
     if arc4_5_ilona_reaction == "accepte":
+        show ilona fatigue
         i "Merci. Pour l'écharpe. Et pour... tout ça."
         t "C'est normal."
         systeme "Normal. Comme si c'était une évidence. Comme si refuser n'avait jamais été une option."
         $ lien_ilona_theo += 1
         
     elif arc4_5_ilona_reaction == "prudente":
+        show ilona determined
         i "On verra. Pour tout ça. Je te dis demain."
         t "Pas de pression."
         systeme "Pas de pression. Mais la proposition reste en suspens. Les propositions de Théo restent toujours en suspens."
         
     else:  # directe
+        show ilona determined
         i "Réponds à ma question. Un jour."
         show theo defensive
         t "...Je vais y réfléchir."

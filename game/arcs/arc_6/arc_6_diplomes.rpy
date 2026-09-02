@@ -139,6 +139,9 @@ label arc_6_diplomes:
             $ arc6_mod += 5
             $ remember("jessy_nomme_sa_peur")
 
+            show jessy determined at char_left
+            with dissolve
+
             j "Je l'ai depuis janvier."
             j "Je l'ai pas rendu parce que tant que je l'avais, il fallait bien que je te reparle un jour."
             j "C'est débile."
@@ -190,6 +193,10 @@ label arc_6_diplomes:
         "En faire une blague.":
             $ arc6_stylo = "blague"
             $ lien_jessy_ilona += 2
+
+            show jessy smile at char_left
+            show ilona smile at char_midright
+            with dissolve
 
             j "Ceci est un objet de quête. Je le rends contre trois émeraudes."
             i "J'ai un pain au lait."
@@ -341,7 +348,7 @@ label arc_6_diplomes:
     if arc4_5_sofiane_maid:
         x "J'ai une photo."
 
-        show sofiane observation at char_midright
+        show sofiane awkward at char_midright
         with dissolve
 
         s "Non."
@@ -409,7 +416,7 @@ label arc_6_diplomes:
 
     a "C'est ça le problème."
 
-    show theo neutral at char_midright
+    show theo defensive at char_midright
     with dissolve
 
     $ renpy.pause(1.2, hard=True)
@@ -425,6 +432,9 @@ label arc_6_diplomes:
 
     # --- 2.6 Amorce du départ de Théo (prépare la scène 4) ---
     $ renpy.pause(0.8, hard=True)
+
+    show theo neutral at char_midright
+    with dissolve
 
     t "Je pars."
     a "Tu pars où ?"
@@ -533,9 +543,6 @@ label arc_6_diplomes:
     j "Ils vont ouvrir la semaine prochaine."
     i "Ouais. Quand il n'y aura plus personne pour les regarder."
     i "Ils font toujours ça. Ils attendent que le bâtiment soit vide."
-
-    show ilona smile at char_midright
-    with dissolve
 
     i "Je déteste le mot « souvenir », au fait."
     j "Pourquoi ?"
@@ -890,7 +897,7 @@ label arc_6_diplomes:
         scene bg arc6 classroom festive
         with Dissolve(1.5)
 
-        show jessy neutral at char_left
+        show jessy listening at char_left
         show ilona neutral at char_midright
         with dissolve
 
@@ -933,7 +940,7 @@ label arc_6_diplomes:
         i "Parce qu'au bout d'un moment j'ai commencé à préparer mes phrases plus courtes."
         i "Pour qu'elles rentrent avant."
 
-        show ilona neutral at char_midright
+        show ilona determined at char_midright
         with dissolve
 
         i "Je vais la finir maintenant. Tu n'as rien à faire. Juste attendre la fin."
@@ -980,6 +987,9 @@ label arc_6_diplomes:
 
         $ renpy.pause(1.2, hard=True)
 
+        show jessy listening at char_left
+        with dissolve
+
         i "C'est bête. C'est le jour du diplôme."
         j "Ouais."
         i "Tu dis rien ?"
@@ -999,8 +1009,6 @@ label arc_6_diplomes:
             systeme "Il ne dit rien. Il ne sait pas si c'est de la délicatesse ou de la lâcheté. Elle non plus."
 
         play music audio.melanPiano fadein 2.0
-        show ilona neutral at char_midright
-        with dissolve
 
     # --- Clôture de la scène 3 ---
     $ renpy.pause(1.0, hard=True)
@@ -1016,7 +1024,7 @@ label arc_6_diplomes:
 
     i "Ah."
 
-    show ilona neutral at char_midright
+    show ilona embarrassed at char_midright
     with dissolve
 
     i "Non."
@@ -1210,6 +1218,9 @@ label arc_6_diplomes:
             $ arc6_mod += 5
             $ remember("jessy_nomme_sa_peur")
 
+            show jessy determined at char_left
+            with dissolve
+
             j "J'ai pas de studio."
             j "J'ai pas de planning, pas de régie, pas de date."
             j "J'ai un serveur Minecraft avec une maison mal foutue dessus."
@@ -1323,12 +1334,12 @@ label arc_6_diplomes:
 
         systeme "Théo baisse les yeux le premier. Ça ne lui arrive jamais."
 
-        show jessy neutral at char_left
+        show jessy listening at char_left
         with dissolve
 
         systeme "Jessy ne bouge pas non plus. Mais cette fois, c'est parce qu'il a compris qu'il ne fallait pas, pas parce qu'il ne sait pas quoi faire."
     else:
-        show theo neutral at char_right
+        show theo smirk at char_right
         with dissolve
 
         systeme "Théo hoche la tête, presque satisfait. Comme si la scène confirmait quelque chose qu'il pensait déjà."
@@ -1562,6 +1573,9 @@ label arc_6_diplomes:
             $ lien_jessy_ilona += 3
             $ interruptions_reparees += 1
 
+            show jessy determined at char_left
+            with dissolve
+
             j "Je t'ai coupée."
             j "Plusieurs fois. Je croyais que j'aidais."
             j "J'ai mis un an à comprendre que finir la phrase de quelqu'un, c'est lui prendre la fin."
@@ -1612,6 +1626,9 @@ label arc_6_diplomes:
             $ pression_stream += 3
             $ evitements += 1
 
+            show jessy embarrassed at char_left
+            with dissolve
+
             j "Il fait froid, non ?"
             i "Ouais."
 
@@ -1633,6 +1650,9 @@ label arc_6_diplomes:
             $ ilona_peut_finir_ses_phrases += 1
 
             j "Qu'est-ce que tu veux, toi ? Vraiment. Pour la suite."
+
+            show jessy listening at char_left
+            with dissolve
 
             systeme "Elle ne répond pas tout de suite. Elle repose la serviette à côté d'elle. Elle prend le temps que personne ne lui a jamais donné."
 
@@ -1823,9 +1843,6 @@ label arc_6_diplomes:
 
             i "Tu fais quoi ?"
             j "Comme ça personne d'autre peut entrer."
-
-            show ilona frustrated at char_midright
-            with dissolve
 
             i "...Moi non plus, alors."
             j "Toi si, t'as la clé."
