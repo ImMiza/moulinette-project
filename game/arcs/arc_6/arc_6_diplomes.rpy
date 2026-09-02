@@ -1261,6 +1261,45 @@ label arc_6_diplomes:
     i "...Pas pour toujours."
     i "Juste assez pour que j'arrive à entendre ce que je veux, moi."
 
+    # --- Réaction calibrée : ce moment ne peut plus rester neutre.
+    # On penche déjà vers la route Jessy ou la route Théo, avant même
+    # le calcul final. Aperçu grossier, sans jauge affichée.
+    $ controle_repetitif = interruptions_ilona - interruptions_reparees
+    $ espace_p4 = (autonomie_ilona * 4) + (ilona_peut_finir_ses_phrases * 6) + (interruptions_reparees * 6) + communication + confiance
+    $ dette_p4 = (influence_theo * 3) + (max(0, controle_repetitif) * 8) + (pression_stream * 2) + (jalousie * 2) + (confidences_laplage * 4)
+    $ score_p4 = espace_p4 + arc6_mod - dette_p4
+
+    if controle_repetitif >= 3:
+        show theo neutral at char_right
+        with dissolve
+
+        systeme "Théo ne dit rien. Il n'a pas besoin de dire quoi que ce soit : il sait déjà qu'elle reviendra vers ce qui décide à sa place."
+
+        show jessy listening at char_left
+        with dissolve
+
+        systeme "Jessy ne bouge pas. Il a coupé trop de ses phrases pour avoir le droit de retenir celle-ci."
+    elif score_p4 >= SEUIL_JESSY:
+        show theo defensive at char_right
+        with dissolve
+
+        systeme "Théo baisse les yeux le premier. Ça ne lui arrive jamais."
+
+        show jessy neutral at char_left
+        with dissolve
+
+        systeme "Jessy ne bouge pas non plus. Mais cette fois, c'est parce qu'il a compris qu'il ne fallait pas, pas parce qu'il ne sait pas quoi faire."
+    else:
+        show theo neutral at char_right
+        with dissolve
+
+        systeme "Théo hoche la tête, presque satisfait. Comme si la scène confirmait quelque chose qu'il pensait déjà."
+
+        show jessy listening at char_left
+        with dissolve
+
+        systeme "Jessy voudrait la retenir. Il ne sait plus si c'est pour elle, ou pour ne pas rester seul avec Théo dans ce couloir."
+
     $ arc6_ilona_dit_la_paix = True
     $ autonomie_ilona += 6
     $ ilona_peut_finir_ses_phrases += 1
@@ -1365,22 +1404,32 @@ label arc_6_diplomes:
         $ posture += 3
     if souvenirs["theo_utilise_une_verite"]:
         $ posture -= 6
-    $ arc6_score_partiel = espace + posture - dette
+    $ recidive = (-6 * max(0, controles - 2)) + (-3 * max(0, evitements - 3))
+    $ arc6_score_partiel = espace + posture + recidive - dette
 
-    systeme "Laplage se tourne vers Jessy. Il ne dit rien de plus."
+    systeme "Laplage se tourne vers Jessy. C'est la dernière fois qu'il donne un avis sur cette année. Après ça, il ne reste que le résultat."
 
-    if arc6_score_partiel >= SEUIL_ROMANCE:
+    if controle_repetitif >= 3:
+        show laplage thumb_down at char_midright
+        with dissolve
+        laplage "Ça, ce n'est pas une question de score."
+        systeme "Il ne regarde même pas la feuille avant de tamponner. Couper quelqu'un trois fois sans jamais réparer, ça ne se moyenne pas avec le reste. Ça s'additionne tout seul."
+        laplage "Tu as appris à construire des maisons qui tiennent debout. Ça ne sert à rien si tu n'apprends jamais à laisser quelqu'un ouvrir la porte lui-même."
+    elif arc6_score_partiel >= SEUIL_ROMANCE:
         show laplage thumb_up at char_midright
         with dissolve
         laplage "Continuez."
+        laplage "Tu as mis longtemps à comprendre qu'écouter, ça ne se prouve pas. Ça se pratique, en silence, jusqu'à ce que ça devienne un réflexe."
     elif arc6_score_partiel >= SEUIL_JESSY:
         show laplage thumb_horizontal at char_midright
         with dissolve
         laplage "Ce n'est pas fini."
+        laplage "Toi non plus, tu n'es pas fini. C'est un compliment, venant de quelqu'un qui a fini d'apprendre depuis longtemps."
     else:
-        show laplage thumb_horizontal at char_midright
+        show laplage thumb_down at char_midright
         with dissolve
         laplage "Faites attention à ce que vous appelez aimer."
+        laplage "On confond souvent protéger et retenir. Les deux se ressemblent, vus de dedans."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -1549,12 +1598,19 @@ label arc_6_diplomes:
         $ posture += 3
     if souvenirs["theo_utilise_une_verite"]:
         $ posture -= 6
-    $ arc6_score_preview = espace + posture + arc6_mod - dette
+    $ recidive = (-6 * max(0, controles - 2)) + (-3 * max(0, evitements - 3))
+    $ arc6_score_preview = espace + posture + recidive + arc6_mod - dette
 
-    if arc6_score_preview >= SEUIL_ROMANCE:
+    if controle_repetitif >= 3:
+        show ilona neutral at char_midright
+        with dissolve
+        i "Je crois que c'est là que je devrais dire un truc important."
+        i "Mais je sais déjà comment ça se passe si je le dis lentement."
+        systeme "Elle ne finit pas la phrase. Elle a arrêté d'essayer de savoir si, cette fois, tu la laisserais aller jusqu'au bout."
+    elif arc6_score_preview >= SEUIL_ROMANCE:
         show ilona determined at char_midright
         with dissolve
-        i "Je veux streamer. Je veux le faire mal au début. Je veux que ce soit à moi."
+        i "Je veux streamer. Je vais peut être le faire mal au début. Mais je veux que ce soit à moi."
         i "Et je veux quelqu'un qui me regarde le faire sans essayer de le faire à ma place."
         systeme "Elle ne le regarde pas."
         i "C'est pas une question."

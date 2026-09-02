@@ -20,6 +20,13 @@ init -10 python:
             "True", Transform(base, alpha=0.45)
         )
 
+# Taille fixe centralisée pour Ilona : ses cheveux longs comblent le cou/épaules
+# (pas de creux visible comme chez les autres persos), ce qui la fait paraître
+# plus "zoomée" à taille égale. On fige un canvas légèrement réduit (au lieu
+# d'empiler un zoom par-dessus, ce qui provoquait un flash de taille native
+# avant correction) pour un rendu identique et stable sur tous les arcs.
+define ILONA_SIZE = (758, 1138)
+
 
 define j = Character("Jessy", color="#8fb7ff", callback=speaker_callback("jessy"))
 define i = Character("Ilona", color="#ffb0d0", callback=speaker_callback("ilona"))
@@ -65,13 +72,13 @@ image jessy listening = speaker_sprite("jessy", "images/personnages/Jessy/regret
 image jessy smile = speaker_sprite("jessy", "images/personnages/Jessy/shy_warm_smile.png")
 image jessy determined = speaker_sprite("jessy", "images/personnages/Jessy/vulnerable_determination.png")
 
-image ilona minecraft = speaker_sprite("ilona", "images/personnages/Ilona/minecraft.png")
-image ilona embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/awkward_embarrassment.png")
-image ilona determined = speaker_sprite("ilona", "images/personnages/Ilona/clear_determination.png")
-image ilona frustrated = speaker_sprite("ilona", "images/personnages/Ilona/frustrated_restraint.png")
-image ilona neutral = speaker_sprite("ilona", "images/personnages/Ilona/neutral.png")
-image ilona smile = speaker_sprite("ilona", "images/personnages/Ilona/playful_warm_smile.png")
-image ilona fatigue = speaker_sprite("ilona", "images/personnages/Ilona/quiet_fatigue.png")
+image ilona minecraft = speaker_sprite("ilona", "images/personnages/Ilona/minecraft.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona determined = speaker_sprite("ilona", "images/personnages/Ilona/clear_determination.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona frustrated = speaker_sprite("ilona", "images/personnages/Ilona/frustrated_restraint.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona neutral = speaker_sprite("ilona", "images/personnages/Ilona/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona smile = speaker_sprite("ilona", "images/personnages/Ilona/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona fatigue = speaker_sprite("ilona", "images/personnages/Ilona/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
 image theo disappointed = speaker_sprite("theo", "images/personnages/Théo/cold_disappointment.png", 842, 1264)
 image theo annoyed = speaker_sprite("theo", "images/personnages/Théo/controlled_annoyance.png", 842, 1264)
@@ -113,6 +120,7 @@ image sofiane shy = speaker_sprite("sofiane", "images/personnages/Sofiane/shy_em
 image laplage neutral = speaker_sprite("laplage", "images/personnages/laplage/neutral.png")
 image laplage thumb_up = speaker_sprite("laplage", "images/personnages/laplage/thumb_up.png")
 image laplage thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/thumb_horizontal.png")
+image laplage thumb_down = speaker_sprite("laplage", "images/personnages/laplage/thumb_down.png")
 image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/minecraft.png")
 
 init python:

@@ -55,7 +55,7 @@ label arc_5_examens:
     with fade
 
     systeme "Arc V : Janvier mange les gens de l'intérieur."
-    systeme "La bibliothèque empeste le café froid et la sueur d'angoisse. Dehors, la neige garde une lumière pâle. Dedans, les néons transforment tout le monde en brouillon de lui-même."
+    systeme "Le 12 janvier. La bibliothèque empeste le café froid et la sueur d'angoisse. Dehors, la neige garde une lumière pâle. Dedans, les néons transforment tout le monde en brouillon de lui-même."
 
     show jessy neutral at char_left
     show ilona fatigue at char_midleft
@@ -332,6 +332,9 @@ label arc_5_examens:
     hide jessy
     with dissolve
 
+    systeme "En rangeant ses affaires, Jessy trouve un stylo violet avec des étoiles sous la chaise où Ilona était assise."
+    systeme "Il le glisse dans sa poche. Il le lui rendra demain."
+
 # =============================================================================
 # SCENE 2 : SORTIE ANNULÉE - CE QU'ON ENTEND DANS LE SILENCE
 # =============================================================================
@@ -570,14 +573,14 @@ label arc_5_examens:
 
     systeme "Jessy entre dans le premier café qu'il trouve. Il a besoin de s'asseoir quelque part où il ne pleut pas sur ses pensées."
     
-    systeme "En s'installant, il remarque quelque chose sous la chaise voisine. Un stylo. Violet. Avec des étoiles dessus."
-    systeme "C'est celui d'Ilona. Elle le cherchait depuis deux semaines."
+    systeme "En s'installant, Jessy sent quelque chose contre sa jambe. Le stylo violet d'Ilona est toujours dans sa poche."
+    systeme "Elle le cherche depuis plusieurs jours."
     
     if arc2_photo_reaction == "silence_photo":
         systeme "Jessy repense à la plage. Au porte-clés qu'elle avait perdu. C'était Théo qui l'avait retrouvé."
         systeme "Cette fois, c'est lui. C'est stupide, mais ça compte."
     
-    systeme "Il range le stylo dans sa poche. Il le lui rendra. Sans en faire un événement."
+    systeme "Il le lui rendra. Sans en faire un événement."
 
     show jessy neutral at char_left
     show allan neutral at char_right
