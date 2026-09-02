@@ -24,8 +24,8 @@ image ilona beach neutral = speaker_sprite("ilona", "images/personnages/Ilona/be
 image ilona beach sad = speaker_sprite("ilona", "images/personnages/Ilona/beach/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona beach smile = speaker_sprite("ilona", "images/personnages/Ilona/beach/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
-image theo beach neutral = speaker_sprite("theo", "images/personnages/Théo/beach/neutral.png")
-image theo beach reassuring = speaker_sprite("theo", "images/personnages/Théo/beach/reassuring_smile.png")
+image theo beach neutral = speaker_sprite("theo", "images/personnages/Théo/beach/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo beach reassuring = speaker_sprite("theo", "images/personnages/Théo/beach/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
 
 image allan beach doubt = speaker_sprite("allan", "images/personnages/Allan/beach/throughtful_doubt.png")
 image allan beach neutral = speaker_sprite("allan", "images/personnages/Allan/beach/neutral.png")

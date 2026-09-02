@@ -9,11 +9,21 @@ init -10 python:
                 store.current_speaker = tag or ""
         return callback
 
-    def speaker_sprite(tag, path, width=None, height=None):
+    def speaker_sprite(tag, path, width=None, height=None, crop_bottom=0):
         if width is not None and height is not None:
             base = im.Scale(path, width, height)
         else:
             base = path
+
+        if crop_bottom:
+            cropped_height = height - crop_bottom
+            base = im.Crop(base, (0, 0, width, cropped_height))
+            # On rescale ensuite pour retrouver la même hauteur (donc la même
+            # taille apparente à l'écran que les autres persos, zoom 0.50
+            # inclus) : le crop seul rendrait le perso plus petit puisque son
+            # canvas serait réduit avant même d'appliquer char_*.
+            scale = height / float(cropped_height)
+            base = im.Scale(base, int(round(width * scale)), height)
 
         return ConditionSwitch(
             "current_speaker == '' or current_speaker == '{}'".format(tag), base,
@@ -26,6 +36,14 @@ init -10 python:
 # d'empiler un zoom par-dessus, ce qui provoquait un flash de taille native
 # avant correction) pour un rendu identique et stable sur tous les arcs.
 define ILONA_SIZE = (758, 1138)
+
+# Rognage bas centralisé pour Théo : ses jambes occupent proportionnellement
+# plus de hauteur que les autres persos (ligne d'entrejambe ~50% de la
+# silhouette contre ~55-59% chez Jessy/Allan/Sofiane), ce qui le fait paraître
+# "plus de jambes visibles" à taille égale. On rogne le bas du canvas (sans
+# redimensionner, donc sans déformer la largeur) pour rapprocher la proportion
+# buste/jambes de la moyenne des autres persos.
+define THEO_CROP_BOTTOM = 110
 
 
 define j = Character("Jessy", color="#8fb7ff", callback=speaker_callback("jessy"))
@@ -80,14 +98,14 @@ image ilona neutral = speaker_sprite("ilona", "images/personnages/Ilona/neutral.
 image ilona smile = speaker_sprite("ilona", "images/personnages/Ilona/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona fatigue = speaker_sprite("ilona", "images/personnages/Ilona/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
-image theo disappointed = speaker_sprite("theo", "images/personnages/Théo/cold_disappointment.png", 842, 1264)
-image theo annoyed = speaker_sprite("theo", "images/personnages/Théo/controlled_annoyance.png", 842, 1264)
-image theo defensive = speaker_sprite("theo", "images/personnages/Théo/defense_frustration.png", 842, 1264)
-image theo innocent = speaker_sprite("theo", "images/personnages/Théo/feigned_innocence.png", 842, 1264)
-image theo smirk = speaker_sprite("theo", "images/personnages/Théo/knowing_smirk.png", 842, 1264)
-image theo neutral = speaker_sprite("theo", "images/personnages/Théo/neutral.png", 842, 1264)
-image theo jealousy = speaker_sprite("theo", "images/personnages/Théo/quiet_jalousy.png", 842, 1264)
-image theo reassuring = speaker_sprite("theo", "images/personnages/Théo/reassuring_smile.png", 842, 1264)
+image theo disappointed = speaker_sprite("theo", "images/personnages/Théo/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo annoyed = speaker_sprite("theo", "images/personnages/Théo/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo defensive = speaker_sprite("theo", "images/personnages/Théo/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo innocent = speaker_sprite("theo", "images/personnages/Théo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo smirk = speaker_sprite("theo", "images/personnages/Théo/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo neutral = speaker_sprite("theo", "images/personnages/Théo/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo jealousy = speaker_sprite("theo", "images/personnages/Théo/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo reassuring = speaker_sprite("theo", "images/personnages/Théo/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
 
 image allan embarrassed = speaker_sprite("allan", "images/personnages/Allan/awkward_embarrassment.png")
 image allan excited = speaker_sprite("allan", "images/personnages/Allan/cheerful_excitement.png")
@@ -232,6 +250,48 @@ init python:
         if key not in store.endings_seen:
             store.endings_seen.append(key)
 
+    def etat_relation():
+        """Etat narratif de la relation : "proche", "fragile" ou "distant".
+
+        Lecture unique partagee par toutes les scenes conditionnelles des
+        arcs 5 et 6. Avant, chaque scene avait son propre test (tantot
+        ilona_peut_finir_ses_phrases >= 6, tantot lien + confiance), ce qui
+        laissait deux scenes voisines se contredire : chocolats ambigus a la
+        Saint-Valentin, puis « qu'on me foute la paix » trois jours plus tard.
+
+        Formule d'espace / dette identique a la porte de l'arc 6
+        (label arc_6_calcul), sans posture ni recidive : on veut une lecture
+        stable en cours de partie, pas le score final.
+
+        proche  : Ilona a de la place ET quelqu'un qui l'ecoute vraiment
+        fragile : il y a du lien, mais l'espace n'est pas encore fiable
+        distant : la dette a pris le dessus
+        """
+        s = store
+        ecoute = s.ilona_peut_finir_ses_phrases + s.interruptions_reparees
+        controle = max(0, s.interruptions_ilona - s.interruptions_reparees)
+        espace = (s.autonomie_ilona * 4
+                  + s.ilona_peut_finir_ses_phrases * 6
+                  + s.interruptions_reparees * 6
+                  + s.communication
+                  + s.confiance)
+        dette = (s.influence_theo * 3
+                 + controle * 8
+                 + s.pression_stream * 2
+                 + s.jalousie * 2
+                 + s.confidences_laplage * 4)
+        indice = espace - dette
+        # Meme verrou dur que la porte de l'arc 6 : couper trois fois sans
+        # jamais reparer disqualifie, quel que soit le reste.
+        if controle >= 3:
+            return "distant"
+        # La complicite seule ne suffit pas : il faut de l'ecoute reelle.
+        if indice >= SEUIL_ETAT_PROCHE and ecoute >= SEUIL_ETAT_ECOUTE:
+            return "proche"
+        if indice >= SEUIL_ETAT_FRAGILE:
+            return "fragile"
+        return "distant"
+
 
 label start:
     scene bg minecraft
@@ -264,6 +324,21 @@ label start:
 define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
 define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
 define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
+
+# Seuils de etat_relation() : conditionnent le TON des scenes des arcs 5 et 6,
+# pas la route finale. Cales sur les parcours de reference, mesures deux fois
+# (arc 5 scene 5 « confidence a Laplage », puis arc 6 scene « Laplage cerisier ») :
+#   que du tier S       432 / 514   -> proche
+#   complicite seule    121 / 148   -> fragile
+#   parcours tiede       80 / 107   -> fragile
+#   premiere option     -56 /  -4   -> distant
+#   derniere option    -125 / -156  -> distant
+#   pire choix partout -688 / -806  -> distant
+# L'indice bouge peu entre les deux points de mesure : un meme jeu de seuils
+# tient pour les deux arcs, donc aucune scene ne change de ton sans raison.
+define SEUIL_ETAT_PROCHE = 200
+define SEUIL_ETAT_FRAGILE = 40
+define SEUIL_ETAT_ECOUTE = 4   # ilona_peut_finir_ses_phrases + interruptions_reparees
 
 
 # =============================================================================

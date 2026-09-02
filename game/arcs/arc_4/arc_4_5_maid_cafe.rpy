@@ -16,13 +16,6 @@ default arc4_5_sofiane_maid = False
 
 label arc_4_5_maid_cafe:
     $ arc4_5_maid_cafe_visite = True
-    
-    scene bg arc4 christmas market
-    with fade
-    show allan support at char_left
-    show alex neutral at char_midleft
-    show jessy neutral at char_midright
-    show ilona neutral at char_right
 
     systeme "Théo est parti de son côté. Les quatre autres quittent le marché ensemble."
     systeme "Pendant quelques rues, Ilona rentre bien avec le groupe."
@@ -66,15 +59,12 @@ label arc_4_5_maid_cafe:
     systeme "Parfois, Ilona regarde les vitrines. Parfois, Jessy regarde Ilona."
     systeme "Le silence entre eux n'est pas parfait. Mais il n'est pas dangereux non plus."
     
-    hide jessy
-    hide ilona
-    with dissolve
-    
     systeme "Ils passent devant une boulangerie fermée. Un marchand de journaux qui baisse son rideau."
     systeme "La neige tombe légèrement. Pas assez pour couvrir le sol. Juste assez pour ralentir le temps."
     
     show ilona neutral at char_left
     show jessy neutral at char_right
+    with dissolve
     
     i "On va où ?"
     j "Je sais pas."

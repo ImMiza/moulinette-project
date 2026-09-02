@@ -36,6 +36,10 @@ default arc6_mod = 0
 default arc6_score = 0
 default arc6_route = ""
 
+# Etat de la relation lu une seule fois par scene, via etat_relation()
+# (script.rpy). Evite qu'une scene bascule de ton entre deux repliques.
+default arc6_etat_relation = ""
+
 # --- Images Arc VI ---
 # Assets propres à l'arc 6 : gymnase de cérémonie, classe du matin,
 # classe décorée de fin d'année.
@@ -65,6 +69,7 @@ image bg arc6 flash festival = arc6_flashbg("images/scenes/arc_3/bg_arc3_festiva
 image bg arc6 flash minecraft = arc6_flashbg("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
 image bg arc6 flash market = arc6_flashbg("images/scenes/arc_4/bg_arc4_christmas_market.jpg")
 image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench.jpg")
+image bg arc6 flash cinema = arc6_flashbg("images/scenes/arc_5/bg_arc5_cinema_seated.jpg")
 image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
 
 # =============================================================================
@@ -274,12 +279,13 @@ label arc_6_diplomes:
     show sofiane observation at char_midright
     with dissolve
 
-    systeme "À l'autre bout de la table, Allan cherche un mouchoir dans la poche intérieure de sa veste. Il en sort une enveloppe."
-    systeme "Cette veste, il ne la met que pour les grandes occasions. C'est-à-dire deux fois par an."
+    systeme "À l'autre bout de la table, Allan pose son diplôme près des serviettes pendant qu'il cherche un mouchoir."
+    systeme "Sofiane passe derrière lui avec deux verres de jus. Sa main frôle à peine la feuille."
+    systeme "Quand Allan reprend son diplôme, une petite enveloppe sans nom reste sur la table."
 
-    a "C'est quoi ?"
-    s "Une enveloppe."
-    a "Merci. Et c'est pour qui ?"
+    a "Micka en a oublié une."
+    s "Non. Il en a trois."
+    a "Alors celle-là est à qui ?"
     s "Pour celui qui la lit en pensant qu'elle n'était pas pour lui."
 
     show allan surprise at char_midleft
@@ -288,13 +294,15 @@ label arc_6_diplomes:
     $ renpy.pause(0.8, hard=True)
 
     systeme "Allan reste immobile."
-    systeme "Depuis septembre, cette phrase le suit."
+    systeme "Depuis décembre, cette phrase le suit."
     systeme "Celui qui ne sait jamais si les choses sont pour lui."
 
-    a "Décembre."
-    s "Le marché de Noël. Tu portais déjà cette veste."
-    a "Je l'ai pas remise depuis."
-    s "Je sais. C'est pour ça que je l'ai mise là et pas ailleurs."
+    a "Le marché de Noël."
+    s "Décembre."
+    a "Tu l'avais reprise."
+    s "Tu ne l'avais pas prise."
+    a "Et tu viens de la glisser sous mon diplôme."
+    s "Elle avait besoin d'une grande occasion."
     a "Tu as attendu quatre mois."
     s "J'ai attendu que ça te serve."
     a "Tu écoutais."
@@ -462,7 +470,8 @@ label arc_6_diplomes:
 # l'année à voix haute. Le joueur voit sa partie racontée par la personne
 # qui l'a subie. Aucune jauge affichée, et l'état est parfaitement lisible.
 #
-# Sélection par variables, PAS par chronologie. Maximum 8 vignettes.
+# Sélection par variables, PAS par chronologie. Maximum 8 vignettes
+# conditionnelles ; le craquage de clôture reste hors décompte.
 # =============================================================================
 
     stop music fadeout 2.0
@@ -541,7 +550,7 @@ label arc_6_diplomes:
     i "Bon."
 
     $ arc6_vignettes_count = 0
-    $ arc6_flashback = (arc2_choix_activite_theo != "") or (arc3_reaction_rumeur != "") or (arc3_fin_minecraft != "") or (arc4_limite_ilona != "") or arc4_ilona_avec_theo or (arc5_question_reponse != "")
+    $ arc6_flashback = (arc2_choix_activite_theo != "") or (arc3_reaction_rumeur != "") or (arc3_fin_minecraft != "") or (arc4_limite_ilona != "") or arc4_ilona_avec_theo or arc5_cinema_ensemble or (arc5_question_reponse != "")
 
     # -------------------------------------------------------------------------
     # ENTRÉE EN FLASHBACK : une seule fois. Les vignettes s'enchaînent ensuite
@@ -794,7 +803,36 @@ label arc_6_diplomes:
 
         systeme "Il y a eu une nuit entière dont Jessy ne saura jamais rien. Il vient d'en recevoir quelques phrases. C'est tout ce qu'il aura."
 
-    # --- V6 : LA GARE ---
+    # --- V6 : LE CINÉMA ---
+    if arc6_vignettes_count < 8 and arc5_cinema_ensemble:
+        $ arc6_vignettes_count += 1
+        $ arc6_vignettes_jouees.append("cinema")
+
+        scene bg arc6 flash cinema
+        with Dissolve(1.5)
+
+        i "Et puis janvier. Le cinéma."
+        i "J'ai failli annuler. J'avais des fiches jusque derrière les yeux et aucune place pour une phrase de plus."
+        i "Je suis venue parce que j'avais besoin de deux heures où le reste n'existait pas."
+
+        $ renpy.pause(1.0, hard=True)
+
+        i "Avant d'entrer, tu m'as demandé si je voulais rentrer. Une fois."
+        i "J'ai dit non, et tu ne l'as pas transformé en « t'es sûre ? ». Tu m'as crue."
+
+        $ renpy.pause(1.0, hard=True)
+
+        i "Et dans la salle, j'ai cherché l'accoudoir sans regarder. J'ai trouvé ta main."
+        i "La première seconde, c'était un accident. Les vingt minutes suivantes, non."
+        j "Je savais pas si je devais bouger."
+        i "Moi non plus. C'est pour ça qu'on n'a pas bougé."
+
+        $ renpy.pause(0.8, hard=True)
+
+        j "Et le film était un chef-d'œuvre."
+        i "Le film était un chef-d'œuvre. Ça aussi, c'était pas prévu."
+
+    # --- V7 : LA GARE ---
     if arc6_vignettes_count < 8 and arc5_question_reponse != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("gare")
@@ -879,7 +917,7 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    # --- V7 : LA PHRASE JAMAIS FINIE ---
+    # --- V8 : LA PHRASE JAMAIS FINIE ---
     # Pas de flashback. Salle de classe, plein jour.
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
     if arc6_vignettes_count < 8 and controle_repetitif > 0:
@@ -918,7 +956,7 @@ label arc_6_diplomes:
             i "Ça, ça compte."
             $ confiance += 2
 
-    # --- V8 : LE CRAQUAGE ---
+    # --- CLÔTURE : LE CRAQUAGE ---
     # Paie la dette technique de arc5_ilona_a_pleure.
     if pression_stream >= 12 or arc5_tension_accumulee >= 8:
         $ arc6_vignettes_jouees.append("craquage")
@@ -1375,9 +1413,25 @@ label arc_6_diplomes:
     laplage "Ce n'était pas une question qui attendait une réponse."
     laplage "C'était une question qui attendait que vous ayez le droit de ne pas répondre."
 
-    # Même règle que les deux confidences précédentes : Ilona ne se confie
-    # à Laplage que si personne d'autre ne la laisse finir. C'est une dette.
-    if ilona_peut_finir_ses_phrases < 8:
+    # Meme regle que les deux confidences precedentes : Ilona ne se confie
+    # a Laplage que si personne d'autre ne la laisse finir. C'est une dette.
+    # L'etat est fige ici pour que le ton de la scene reste coherent.
+    $ arc6_etat_relation = etat_relation()
+
+    if arc6_etat_relation == "proche":
+        i "Aujourd'hui, j'ai le droit."
+        laplage "Je sais. C'est pour ça que je ne repose pas la question."
+        systeme "Il tamponne une feuille vierge et la lui tend."
+    elif arc6_etat_relation == "fragile":
+        i "J'apprends. Doucement."
+        laplage "Doucement, c'est encore une vitesse."
+        systeme "Il tamponne une feuille vierge et la pose sur le bord de la table."
+    else:
+        i "Je ne sais pas si je l'aurai un jour, ce droit."
+        laplage "Alors gardez la question. Elle tient dans une poche."
+        systeme "Il tamponne une feuille vierge et la range avec les autres."
+
+    if arc6_etat_relation != "proche":
         $ confidences_laplage += 1
     $ jugement_laplage += 1
 

@@ -513,10 +513,11 @@ label arc_4_noel:
     s "Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit."
     a "Sofiane."
     x "Tu distribues des phrases maintenant ?"
-    systeme "Sofiane tient une petite enveloppe sans nom. Il regarde l'heure sur son téléphone."
-    s "J'ai trouvé ça près du stand de cartes."
+    systeme "Sofiane tient une petite enveloppe sans nom. Il y glisse une carte dont l'encre est encore fraîche, puis ferme le rabat."
     a "Elle est à qui ?"
-    s "Question trop petite."
+    s "À personne. Pas encore."
+    x "Tu écris des lettres sans destinataire ?"
+    s "Le destinataire arrive après."
     systeme "Il pose l'enveloppe sur le banc entre eux."
     s "Quelqu'un la lira au moment exact où il pensera qu'elle n'était pas pour lui."
     
@@ -570,7 +571,7 @@ label arc_4_noel:
     systeme "Il laisse l'enveloppe sur le banc."
     systeme "Alexandre ne dit rien. Il sait que parfois, ne pas prendre quelque chose, c'est déjà une décision."
     systeme "Quand Allan se détourne pour tendre un chocolat à Alexandre, Sofiane repasse derrière le banc."
-    systeme "Il récupère l'enveloppe et la glisse dans la poche intérieure du manteau, sans un bruit."
+    systeme "Il récupère l'enveloppe, vérifie qu'elle est toujours fermée et la range dans son sac."
     systeme "Puis il disparaît dans la foule, son téléphone à la main."
 
     hide allan
@@ -1148,21 +1149,21 @@ label arc_4_noel:
     if not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
         systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
 
-    hide allan
-    hide alex
-    with dissolve
-    
     # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
     if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
         call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
+    else:
+        hide allan
+        hide alex
+        with dissolve
 
     # Arc 4.5 - Scène marche Théo/Ilona (si route Théo)
     if arc4_ilona_avec_theo:
         call arc_4_5_theo from _call_arc_4_5_theo
-    
-    hide jessy
-    hide ilona
-    with dissolve
+    elif not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
+        hide jessy
+        hide ilona
+        with dissolve
 
     play music audio.mcnight volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc4 minecraft winter night
