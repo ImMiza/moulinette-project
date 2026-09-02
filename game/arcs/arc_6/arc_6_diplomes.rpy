@@ -36,6 +36,59 @@ default arc6_mod = 0
 default arc6_score = 0
 default arc6_route = ""
 
+# Etat de la relation lu une seule fois par scene, via etat_relation()
+# (script.rpy). Evite qu'une scene bascule de ton entre deux repliques.
+default arc6_etat_relation = ""
+
+# --- Le penchant d'Ilona, lu en TROIS PALIERS ---
+#
+# ATTENTION : "penchant" ne veut pas dire "quel garcon elle prefere". L'arc ne
+# doit jamais se lire comme un triangle amoureux (voir REGLE ABSOLUE en tete de
+# fichier). Ce que la lecture mesure, c'est :
+#
+#   "jessy"   -> l'endroit ou elle est peut encore accueillir sa parole,
+#                donc rester coute moins cher que partir.
+#   "indecis" -> elle ne sait pas encore lequel des deux lui coute le moins.
+#   "theo"    -> se taire ailleurs coute moins cher que parler ici,
+#                et Tokyo est un endroit ou personne ne lui demandera rien.
+#
+# La source est TOUJOURS etat_relation() (script.rpy) : on ne cree pas de
+# seconde metrique concurrente. On la lit simplement a trois moments, pour que
+# le joueur sente une trajectoire et pas un verdict :
+#
+#   palier 1 - entree de l'arc, avant le premier choix    -> nuances discretes
+#   palier 2 - apres le couloir (MENU 2 + limite d'Ilona) -> perceptible
+#   palier 3 - apres le toit (MENU 3)                     -> net
+#
+# arc6_derive compare le palier courant au palier 1 : c'est ce qui permet aux
+# autres personnages de remarquer un changement ("depuis quand tu le defends ?")
+# sans jamais afficher un score.
+default arc6_penchant_debut = ""
+default arc6_penchant = ""            # palier courant, relu a chaque palier
+default arc6_derive = 0               # -1 elle s'eloigne, 0 stable, +1 elle revient
+
+init -5 python:
+    ORDRE_PENCHANT = {"theo": 0, "indecis": 1, "jessy": 2}
+
+    def arc6_penche():
+        """Traduit etat_relation() en penchant narratif. Aucune metrique nouvelle."""
+        etat = etat_relation()
+        if etat == "proche":
+            return "jessy"
+        if etat == "fragile":
+            return "indecis"
+        return "theo"
+
+    def arc6_palier():
+        """Relit le penchant et met a jour la derive. A appeler aux 3 paliers."""
+        p = arc6_penche()
+        if not store.arc6_penchant_debut:
+            store.arc6_penchant_debut = p
+        store.arc6_penchant = p
+        d = ORDRE_PENCHANT[p] - ORDRE_PENCHANT[store.arc6_penchant_debut]
+        store.arc6_derive = (d > 0) - (d < 0)
+        return p
+
 # --- Images Arc VI ---
 # Assets propres à l'arc 6 : gymnase de cérémonie, classe du matin,
 # classe décorée de fin d'année.
@@ -65,6 +118,7 @@ image bg arc6 flash festival = arc6_flashbg("images/scenes/arc_3/bg_arc3_festiva
 image bg arc6 flash minecraft = arc6_flashbg("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
 image bg arc6 flash market = arc6_flashbg("images/scenes/arc_4/bg_arc4_christmas_market.jpg")
 image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench.jpg")
+image bg arc6 flash cinema = arc6_flashbg("images/scenes/arc_5/bg_arc5_cinema_seated.jpg")
 image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
 
 # =============================================================================
@@ -72,6 +126,11 @@ image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_st
 # =============================================================================
 
 label arc_6_diplomes:
+
+    # PALIER 1 : ce que l'annee a laisse, avant que l'arc 6 y touche.
+    # A ce stade les differences doivent rester DISCRETES : une phrase de plus,
+    # un regard, une hesitation. Jamais un verdict.
+    $ arc6_palier()
 
     scene bg arc6 classroom morning
     with fade
@@ -107,9 +166,23 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    i "D'accord."
+    # Palier 1, variante discrete : ou est-ce qu'elle pose son sac.
+    # C'est tout. Le joueur n'a pas a comprendre pourquoi maintenant.
+    if arc6_penchant == "jessy":
+        i "D'accord."
 
-    systeme "Elle ne demande pas pourquoi. C'est peut-être la chose la plus gentille qu'elle ait faite cette année."
+        systeme "Elle pose son sac sur la table d'à côté et s'assoit dedans, dans la même rangée que lui."
+        systeme "Elle ne demande pas pourquoi. C'est peut-être la chose la plus gentille qu'elle ait faite cette année."
+    elif arc6_penchant == "indecis":
+        i "D'accord."
+
+        systeme "Elle regarde la rangée de Jessy, puis celle d'à côté. Elle prend celle d'à côté, sans que ça ait l'air d'une décision."
+        systeme "Elle ne demande pas pourquoi. Ça pourrait être de la délicatesse. Ça pourrait être autre chose."
+    else:
+        i "Ok."
+
+        systeme "Elle s'assoit deux rangées plus loin, face à la fenêtre, et finit son pain au lait en regardant la cour."
+        systeme "Elle ne demande pas pourquoi. Elle a arrêté de demander à peu près en même temps qu'elle a arrêté d'être écoutée."
 
     # --- Rappels conditionnels : ce que chacun transporte ce matin ---
     if arc4_ilona_avec_theo:
@@ -125,7 +198,7 @@ label arc_6_diplomes:
 
     menu:
 
-        "Le rendre en disant pourquoi il ne l'a pas rendu.":
+        "Le rendre, et dire pourquoi tu l'as gardé.":
             $ arc6_stylo = "rendu_explique"
             $ communication += 4
             $ confiance += 2
@@ -133,6 +206,9 @@ label arc_6_diplomes:
             $ lien_jessy_ilona += 2
             $ arc6_mod += 5
             $ remember("jessy_nomme_sa_peur")
+
+            show jessy determined at char_left
+            with dissolve
 
             j "Je l'ai depuis janvier."
             j "Je l'ai pas rendu parce que tant que je l'avais, il fallait bien que je te reparle un jour."
@@ -143,13 +219,43 @@ label arc_6_diplomes:
 
             $ renpy.pause(0.8, hard=True)
 
-            i "Tu aurais pu me le dire en janvier."
-            j "Oui."
+            # Meme aveu, trois accueils. Ce n'est pas Jessy qui change :
+            # c'est ce qu'Ilona a encore la place d'en faire.
+            if arc6_penchant == "jessy":
+                i "Tu aurais pu me le dire en janvier."
+                j "Oui."
 
-            show ilona smile at char_midright
-            with dissolve
+                show ilona smile at char_midright
+                with dissolve
 
-            i "Merci de le dire en mars."
+                i "Merci de le dire en mars."
+            elif arc6_penchant == "indecis":
+                i "Tu aurais pu me le dire en janvier."
+                j "Oui."
+
+                $ renpy.pause(1.0, hard=True)
+
+                i "...Je sais pas quoi répondre à ça."
+
+                show ilona embarrassed at char_midright
+                with dissolve
+
+                i "C'est pas un reproche. Je sais vraiment pas."
+            else:
+                i "Deux mois."
+
+                $ renpy.pause(1.0, hard=True)
+
+                i "T'as gardé un truc à moi deux mois pour être sûr d'avoir une raison de revenir."
+
+                show ilona neutral at char_midright
+                with dissolve
+
+                j "...Ouais."
+                i "Ok."
+
+                systeme "Elle prend le stylo. Elle ne dit pas merci, et elle ne dit pas que c'est grave."
+                systeme "Elle le fait tourner une fois entre ses doigts, comme si elle vérifiait que c'était bien le sien."
 
         "Le garder encore un peu.":
             $ arc6_stylo = "garde"
@@ -160,11 +266,24 @@ label arc_6_diplomes:
 
             systeme "Jessy referme la main dessus, au fond de la poche."
 
-            j "Rien."
+            show ilona neutral at char_midright
+            with dissolve
+
+            i "Tu voulais dire un truc ?"
+            j "Non."
             i "D'accord."
 
-            systeme "Elle n'insiste pas. Elle n'insiste jamais. C'est exactement le problème."
-        "Le lui rendre.":
+            # L'evitement ne coute pas la meme chose selon ce qui reste.
+            if arc6_penchant == "jessy":
+                systeme "Elle n'insiste pas. Elle attend trois secondes de plus que d'habitude, au cas où."
+                systeme "Puis elle laisse tomber. C'est exactement le problème."
+            elif arc6_penchant == "indecis":
+                systeme "Elle n'insiste pas. Elle n'insiste jamais. C'est exactement le problème."
+            else:
+                systeme "Elle n'insiste pas. Elle avait déjà tourné la tête avant la fin de la réponse."
+                systeme "Elle a arrêté de poser des deuxièmes questions quelque part vers janvier. Personne n'a remarqué la date."
+
+        "Le rendre, sans rien ajouter.":
             $ arc6_stylo = "rendu"
             $ autonomie_ilona += 2
             $ communication += 1
@@ -185,6 +304,10 @@ label arc_6_diplomes:
         "En faire une blague.":
             $ arc6_stylo = "blague"
             $ lien_jessy_ilona += 2
+
+            show jessy smile at char_left
+            show ilona smile at char_midright
+            with dissolve
 
             j "Ceci est un objet de quête. Je le rends contre trois émeraudes."
             i "J'ai un pain au lait."
@@ -218,7 +341,7 @@ label arc_6_diplomes:
     systeme "On appelle les noms par ordre alphabétique. Chacun monte, prend un papier, redescend. En quatre secondes, une année entière est classée."
 
     # --- 2.1 Micka : contrepoint obligatoire ---
-    play sound "fx/japanese-school-bell-sound-488954.mp3"
+    play sound audio.bell
 
     show alex neutral at char_left
     show allan neutral at char_midleft
@@ -258,10 +381,27 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    i "C'est une planète."
+    # Le gag tient sur la reprise. Ce qui change, c'est si elle a encore envie
+    # de la faire. Le geste (emporter une part) reste, lui, inconditionnel :
+    # c'est l'objet cosmique de l'arc.
+    if arc6_penchant == "jessy":
+        i "C'est une planète."
 
-    systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
-    systeme "C'est nouveau."
+        systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
+        systeme "C'est nouveau."
+    elif arc6_penchant == "indecis":
+        i "...C'est une planète."
+
+        systeme "Elle le dit une demi-seconde trop tard, comme si elle avait vérifié avant que ça vaille encore le coup."
+        systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
+        systeme "C'est nouveau."
+    else:
+        systeme "Elle ne le redit pas."
+        systeme "Elle prend une part, la plie dans une serviette, la met dans son sac, et regarde la banderole qu'on décroche au fond."
+
+        i "Ouais. Bonne route."
+
+        systeme "Elle ne mange pas tout de suite. C'est nouveau, et Jessy n'a aucune idée de ce que ça veut dire."
 
     # --- 2.3 L'enveloppe de Sofiane ---
     hide jessy
@@ -274,12 +414,13 @@ label arc_6_diplomes:
     show sofiane observation at char_midright
     with dissolve
 
-    systeme "À l'autre bout de la table, Allan cherche un mouchoir dans la poche intérieure de sa veste. Il en sort une enveloppe."
-    systeme "Cette veste, il ne la met que pour les grandes occasions. C'est-à-dire deux fois par an."
+    systeme "À l'autre bout de la table, Allan pose son diplôme près des serviettes pendant qu'il cherche un mouchoir."
+    systeme "Sofiane passe derrière lui avec deux verres de jus. Sa main frôle à peine la feuille."
+    systeme "Quand Allan reprend son diplôme, une petite enveloppe sans nom reste sur la table."
 
-    a "C'est quoi ?"
-    s "Une enveloppe."
-    a "Merci. Et c'est pour qui ?"
+    a "Micka en a oublié une."
+    s "Non. Il en a trois."
+    a "Alors celle-là est à qui ?"
     s "Pour celui qui la lit en pensant qu'elle n'était pas pour lui."
 
     show allan surprise at char_midleft
@@ -287,14 +428,15 @@ label arc_6_diplomes:
 
     $ renpy.pause(0.8, hard=True)
 
-    systeme "Allan reste immobile."
-    systeme "Depuis septembre, cette phrase le suit."
-    systeme "Celui qui ne sait jamais si les choses sont pour lui."
+    systeme "Allan ne bouge plus."
+    systeme "Il a déjà entendu cette phrase. En décembre. Sur un banc."
 
-    a "Décembre."
-    s "Le marché de Noël. Tu portais déjà cette veste."
-    a "Je l'ai pas remise depuis."
-    s "Je sais. C'est pour ça que je l'ai mise là et pas ailleurs."
+    a "Le marché de Noël."
+    s "Décembre."
+    a "Tu l'avais reprise."
+    s "Tu ne l'avais pas prise."
+    a "Et tu viens de la glisser sous mon diplôme."
+    s "Elle avait besoin d'une grande occasion."
     a "Tu as attendu quatre mois."
     s "J'ai attendu que ça te serve."
     a "Tu écoutais."
@@ -307,24 +449,19 @@ label arc_6_diplomes:
 
     $ renpy.pause(2.0, hard=True)
 
-    systeme "Allan relit la phrase trois fois."
-    systeme "Toute l'année, il a éclairé les autres."
-    systeme "Il a expliqué Théo. Rassuré Jessy. Traduit les silences."
-    systeme "Il a tenu les lumières pour que les autres voient leur chemin."
+    systeme "Allan la relit trois fois."
+    systeme "Toute l'année, il a tenu la lumière pour les autres. Il a expliqué Théo. Rassuré Jessy. Traduit les silences."
 
     show allan doubt at char_midleft
     with dissolve
 
-    systeme "Mais lui, il n'a jamais su où aller."
-    systeme "Les lumières ne montrent pas la direction."
-    systeme "Elles révèlent juste qu'on est dans le noir."
+    systeme "Personne ne lui a jamais demandé s'il savait où il allait, lui."
 
     a "Merde."
 
     $ arc6_enveloppe_lue = True
 
-    systeme "Il plie l'enveloppe et la garde dans sa poche."
-    systeme "Cette fois, il sait qu'elle était pour lui."
+    systeme "Il replie l'enveloppe et la met dans sa poche. Celle de décembre, il l'avait laissée sur le banc."
 
     # --- 2.4 Le secret du maid café ---
     show alex teasing at char_left
@@ -333,7 +470,7 @@ label arc_6_diplomes:
     if arc4_5_sofiane_maid:
         x "J'ai une photo."
 
-        show sofiane observation at char_midright
+        show sofiane awkward at char_midright
         with dissolve
 
         s "Non."
@@ -392,8 +529,8 @@ label arc_6_diplomes:
 
     a "Théo."
     t "Allan."
-    a "Depuis dix ans, quand tu dis un truc et que les gens le prennent mal, c'est moi qui explique ce que tu voulais dire."
-    t "Je ne t'ai jamais demandé de faire ça."
+    a "Dix ans que t'ouvres la bouche, que les gens le prennent mal, et que c'est moi qui traduis derrière."
+    t "Je t'ai jamais demandé de le faire."
     a "Je sais."
 
     show allan doubt at char_midleft
@@ -401,7 +538,7 @@ label arc_6_diplomes:
 
     a "C'est ça le problème."
 
-    show theo neutral at char_midright
+    show theo defensive at char_midright
     with dissolve
 
     $ renpy.pause(1.2, hard=True)
@@ -409,14 +546,17 @@ label arc_6_diplomes:
     systeme "Théo ne répond pas tout de suite. C'est la première fois de l'année qu'il ne répond pas tout de suite."
 
     t "Tu penses que je lui fais du mal."
-    a "Je pense que tu ne t'es jamais demandé si tu lui faisais du bien, ou si tu faisais du bien à toi."
-    a "Et je pense que tu es assez intelligent pour avoir évité de te poser la question."
+    a "Je pense que tu t'es jamais demandé si c'était bon pour elle, ou juste bon pour toi."
+    a "Et que t'es assez malin pour avoir évité de te poser la question."
 
     $ arc6_allan_confronte_theo = True
     $ influence_theo = max(0, influence_theo - 2)
 
     # --- 2.6 Amorce du départ de Théo (prépare la scène 4) ---
     $ renpy.pause(0.8, hard=True)
+
+    show theo neutral at char_midright
+    with dissolve
 
     t "Je pars."
     a "Tu pars où ?"
@@ -441,6 +581,57 @@ label arc_6_diplomes:
     t "C'en est une."
     a "Justement."
 
+    $ renpy.pause(1.0, hard=True)
+
+    # Ce que Theo offre reellement, dit par lui, sans mauvaise foi. Le joueur
+    # doit pouvoir comprendre pourquoi ca marche - c'est la condition pour que
+    # la route Theo soit une tentation et pas un piege signale.
+    t "Tu l'as regardée, cette année ?"
+    a "Tous les jours."
+    t "Alors t'as vu la même chose que moi."
+
+    show theo neutral at char_midright
+    with dissolve
+
+    t "Elle passe ses journées à expliquer pourquoi elle a besoin de dix minutes. Aux profs. À vous. À moi."
+    t "Là-bas, personne connaît son nom. Personne va lui demander de se justifier."
+
+    show allan doubt at char_midleft
+    with dissolve
+
+    a "Tu appelles ça lui laisser de la place."
+    t "J'appelle ça lui foutre la paix. C'est le seul truc qu'elle réclame depuis septembre."
+    a "Elle le réclame quand elle est fatiguée."
+    t "Elle est fatiguée depuis septembre."
+
+    $ renpy.pause(1.2, hard=True)
+
+    systeme "Allan n'a rien à répondre à ça. Pas parce qu'il est d'accord."
+    systeme "Parce que Théo n'a pas tort, et que c'est exactement ce qui le rend dangereux."
+
+    # Ce que Theo pense de ses chances. C'est la seule chose qui trahisse l'etat
+    # reel de la relation dans cette scene, et il ne donne aucun chiffre.
+    if arc6_penchant == "jessy":
+        a "Elle viendra pas."
+
+        $ renpy.pause(1.0, hard=True)
+
+        t "Probablement pas."
+        t "Mais je serai le seul à lui avoir proposé. Ça compte, à la fin d'une année comme ça."
+    elif arc6_penchant == "indecis":
+        a "Elle viendra pas."
+        t "Tu es sûr de ça ?"
+        a "...Non."
+        t "Voilà."
+    else:
+        a "Elle viendra pas."
+
+        systeme "Théo ne répond pas. Il regarde la porte du fond, celle par où elle est sortie tout à l'heure."
+
+        t "Tu veux parier ?"
+        a "Non."
+        t "C'est bien ce que je dis."
+
     systeme "Il n'y a pas de réponse. Il n'y a pas de dispute non plus. Allan s'en va, et pour la première fois il ne traduit rien."
 
     hide allan
@@ -462,7 +653,8 @@ label arc_6_diplomes:
 # l'année à voix haute. Le joueur voit sa partie racontée par la personne
 # qui l'a subie. Aucune jauge affichée, et l'état est parfaitement lisible.
 #
-# Sélection par variables, PAS par chronologie. Maximum 8 vignettes.
+# Sélection par variables, PAS par chronologie. Maximum 8 vignettes
+# conditionnelles ; le craquage de clôture reste hors décompte.
 # =============================================================================
 
     stop music fadeout 2.0
@@ -508,8 +700,23 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    i "Là, je vais tout dire dans l'ordre. Pour voir à quoi ça ressemble."
-    i "Peut-être que ça ne ressemble à rien."
+    # Memes faits, meme recit. Ce qui change, c'est A QUOI elle croit que ca
+    # sert de le raconter devant lui. C'est le premier endroit ou le joueur
+    # peut sentir la difference sans qu'on la lui nomme.
+    if arc6_penchant == "jessy":
+        i "Là, je vais tout dire dans l'ordre. Devant quelqu'un."
+        i "C'est ça, la partie difficile. Le reste c'est juste des dates."
+    elif arc6_penchant == "indecis":
+        i "Là, je vais tout dire dans l'ordre. Pour voir à quoi ça ressemble."
+        i "Peut-être que ça ne ressemble à rien."
+    else:
+        i "Là, je vais tout dire dans l'ordre. Une fois."
+
+        $ renpy.pause(0.8, hard=True)
+
+        i "Après je le range et j'y reviens plus."
+        j "Pourquoi maintenant, alors ?"
+        i "Parce qu'après aujourd'hui j'aurai plus de raison de le faire."
 
     # --- Digression 1 : de tout et de rien ---
     systeme "Elle décapuchonne le feutre. Elle le recapuchonne. Elle le décapuchonne."
@@ -525,9 +732,6 @@ label arc_6_diplomes:
     i "Ouais. Quand il n'y aura plus personne pour les regarder."
     i "Ils font toujours ça. Ils attendent que le bâtiment soit vide."
 
-    show ilona smile at char_midright
-    with dissolve
-
     i "Je déteste le mot « souvenir », au fait."
     j "Pourquoi ?"
     i "Parce qu'on l'utilise pour ranger. « C'est un souvenir », ça veut dire « c'est fini, tu peux le poser »."
@@ -541,7 +745,7 @@ label arc_6_diplomes:
     i "Bon."
 
     $ arc6_vignettes_count = 0
-    $ arc6_flashback = (arc2_choix_activite_theo != "") or (arc3_reaction_rumeur != "") or (arc3_fin_minecraft != "") or (arc4_limite_ilona != "") or arc4_ilona_avec_theo or (arc5_question_reponse != "")
+    $ arc6_flashback = (arc2_choix_activite_theo != "") or (arc3_reaction_rumeur != "") or (arc3_fin_minecraft != "") or (arc4_limite_ilona != "") or arc4_ilona_avec_theo or arc5_cinema_ensemble or (arc5_question_reponse != "")
 
     # -------------------------------------------------------------------------
     # ENTRÉE EN FLASHBACK : une seule fois. Les vignettes s'enchaînent ensuite
@@ -551,6 +755,9 @@ label arc_6_diplomes:
         hide jessy
         hide ilona
         with Dissolve(1.5)
+    else:
+        i "Je croyais avoir préparé des morceaux. Là, il n'y en a aucun qui vient dans le bon ordre."
+        i "Alors je vais garder les petites choses. C'est peut-être ça aussi, l'année."
 
     # --- V1 : LA PLAGE ---
     if arc6_vignettes_count < 8 and arc2_choix_activite_theo != "":
@@ -638,16 +845,21 @@ label arc_6_diplomes:
         i "Et la maison, la même semaine."
 
         if arc3_fin_minecraft == "destruction":
-            i "Tu as cassé la cuisine d'été."
-            i "Je ne l'ai pas reconstruite. Pas par colère."
-            i "Parce que je ne savais plus si j'avais le droit."
+            i "J'ai cassé la cuisine d'été."
+            i "Toute seule. Devant toi."
 
             $ renpy.pause(1.0, hard=True)
 
-            i "C'est des blocs, Jessy. Je le sais que c'est des blocs."
+            i "Tu as dit « Ilona— » et je t'ai dit de te taire."
+            i "Tu t'es tu."
+            i "J'ai passé la nuit à me demander si c'était bien ou si c'était grave."
+
+            $ renpy.pause(1.0, hard=True)
+
+            i "C'est des blocs. Je le sais que c'est des blocs."
             i "Mais c'était le seul endroit où j'avais construit un truc sans demander avant."
-            i "Et un soir il était plus là. Sans que personne me prévienne."
-            i "Alors j'ai arrêté de construire. Pendant trois mois. Personne ne l'a remarqué."
+            i "Et je l'ai enlevé moi-même, parce que je supportais plus de le regarder."
+            i "J'ai plus rien posé pendant trois mois. Personne l'a remarqué."
             $ pression_stream += 2
         elif arc3_fin_minecraft == "panneau_finir_phrase":
             i "Le panneau."
@@ -656,35 +868,61 @@ label arc_6_diplomes:
 
             $ renpy.pause(1.0, hard=True)
 
-            i "Tu sais ce que j'ai fait le soir où tu l'as posé ?"
-            i "Je me suis déconnectée, je suis restée assise, et j'ai pleuré à peu près quatre minutes."
-            i "Pas de tristesse. Juste parce que quelqu'un avait écrit la chose exacte, sans que j'aie eu à la demander."
+            i "Tu m'as demandé si c'était une règle. J'ai dit un avertissement."
+            i "Et t'as répondu que t'allais essayer de pas faire semblant de savoir lire trop vite."
+
+            $ renpy.pause(0.8, hard=True)
+
+            i "Je me suis déconnectée après. Je suis restée assise. J'ai pleuré à peu près quatre minutes."
+            i "Pas de tristesse. Juste parce que quelqu'un avait compris l'avertissement du premier coup."
             $ communication += 2
             $ remember("maison_respectee")
         elif arc3_fin_minecraft == "porte_fermee":
-            i "Tu as condamné la porte inutile."
-            i "C'était la seule pièce de la maison qui ne servait à rien. C'est pour ça que je l'aimais."
-            i "Tout le reste a une fonction. Les coffres rangent, les fours cuisent, les lits sauvegardent."
-            i "Elle, elle existait. C'est tout. Comme moi le dimanche."
+            i "J'ai fermé la porte inutile. Un bouton, un bloc, et voilà."
+            i "Tu as dit qu'elle menait nulle part. J'ai dit justement."
+
+            $ renpy.pause(1.0, hard=True)
+
+            i "Tu as compris que je parlais pas de la porte. Tu l'as pas dit, mais t'as compris."
+            i "C'était la seule pièce qui servait à rien. C'est pour ça que je l'aimais."
+            i "Les coffres rangent, les fours cuisent, les lits sauvegardent. Elle, elle existait."
+            i "Et ce soir-là j'ai eu besoin de fermer même ça."
+        elif arc3_fin_minecraft == "lanterne_cour":
+            i "J'ai mis une lanterne devant la porte inutile."
+            i "Tu m'as demandé si c'était pour qu'on la voie mieux."
+            i "J'ai dit : pour qu'on arrête de faire semblant qu'elle existe pas."
+
+            $ renpy.pause(1.0, hard=True)
+
+            i "T'as juste dit « d'accord »."
+            i "Deux syllabes. J'y ai repensé plus souvent que j'oserais l'avouer."
+            $ lien_jessy_ilona += 1
         else:
-            i "Tu as rangé sans rien dire."
-            i "J'ai compris. C'est déjà beaucoup."
-            i "Enfin, j'ai compris un truc. J'ai jamais vérifié si c'était le bon."
+            i "J'ai rangé la cuisine d'été. Pas cassé, pas réparé. Rangé."
+            i "Trois coffres, une table en trop, une lanterne remise droite."
+
+            $ renpy.pause(1.0, hard=True)
+
+            i "Et toi t'as demandé si tu pouvais aider."
+            i "Personne demande. Les gens aident, ou ils regardent."
+            i "J'ai dit oui. Mais doucement. Et t'as fait doucement."
+            $ confiance += 1
 
     # --- Digression 2 : elle saute, puis se reprend ---
-    $ renpy.pause(1.0, hard=True)
+    if arc6_vignettes_count > 0 and arc4_limite_ilona != "":
+        $ renpy.pause(1.0, hard=True)
 
-    i "Attends."
-    i "Je saute un truc."
-    j "C'est pas grave."
+        i "Attends."
+        i "Je saute un truc."
+        j "C'est pas grave."
 
-    $ renpy.pause(1.2, hard=True)
+        $ renpy.pause(1.2, hard=True)
 
-    i "Si."
-    i "C'est exactement ça, le truc que je fais depuis un an."
-    i "Je saute, et quelqu'un me dit que c'est pas grave, et on passe à la suite."
+        i "Si."
+        i "C'est exactement ça, le truc que je fais depuis un an."
+        i "Je saute, et quelqu'un me dit que c'est pas grave, et on passe à la suite."
 
-    i "Alors je le remets."
+        i "Alors je le remets."
 
     # --- V4 : NOËL ---
     if arc6_vignettes_count < 8 and arc4_limite_ilona != "":
@@ -794,7 +1032,36 @@ label arc_6_diplomes:
 
         systeme "Il y a eu une nuit entière dont Jessy ne saura jamais rien. Il vient d'en recevoir quelques phrases. C'est tout ce qu'il aura."
 
-    # --- V6 : LA GARE ---
+    # --- V6 : LE CINÉMA ---
+    if arc6_vignettes_count < 8 and arc5_cinema_ensemble:
+        $ arc6_vignettes_count += 1
+        $ arc6_vignettes_jouees.append("cinema")
+
+        scene bg arc6 flash cinema
+        with Dissolve(1.5)
+
+        i "Et puis janvier. Le cinéma."
+        i "J'ai failli annuler. J'avais des fiches jusque derrière les yeux et aucune place pour une phrase de plus."
+        i "Je suis venue parce que j'avais besoin de deux heures où le reste n'existait pas."
+
+        $ renpy.pause(1.0, hard=True)
+
+        i "Avant d'entrer, tu m'as demandé si je voulais rentrer. Une fois."
+        i "J'ai dit non, et tu ne l'as pas transformé en « t'es sûre ? ». Tu m'as crue."
+
+        $ renpy.pause(1.0, hard=True)
+
+        i "Et dans la salle, j'ai cherché l'accoudoir sans regarder. J'ai trouvé ta main."
+        i "La première seconde, c'était un accident. Les vingt minutes suivantes, non."
+        j "Je savais pas si je devais bouger."
+        i "Moi non plus. C'est pour ça qu'on n'a pas bougé."
+
+        $ renpy.pause(0.8, hard=True)
+
+        j "Et le film était un chef-d'œuvre."
+        i "Le film était un chef-d'œuvre. Ça aussi, c'était pas prévu."
+
+    # --- V7 : LA GARE ---
     if arc6_vignettes_count < 8 and arc5_question_reponse != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("gare")
@@ -852,7 +1119,7 @@ label arc_6_diplomes:
         scene bg arc6 classroom festive
         with Dissolve(1.5)
 
-        show jessy neutral at char_left
+        show jessy listening at char_left
         show ilona neutral at char_midright
         with dissolve
 
@@ -879,7 +1146,7 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    # --- V7 : LA PHRASE JAMAIS FINIE ---
+    # --- V8 : LA PHRASE JAMAIS FINIE ---
     # Pas de flashback. Salle de classe, plein jour.
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
     if arc6_vignettes_count < 8 and controle_repetitif > 0:
@@ -895,7 +1162,7 @@ label arc_6_diplomes:
         i "Parce qu'au bout d'un moment j'ai commencé à préparer mes phrases plus courtes."
         i "Pour qu'elles rentrent avant."
 
-        show ilona neutral at char_midright
+        show ilona determined at char_midright
         with dissolve
 
         i "Je vais la finir maintenant. Tu n'as rien à faire. Juste attendre la fin."
@@ -918,7 +1185,7 @@ label arc_6_diplomes:
             i "Ça, ça compte."
             $ confiance += 2
 
-    # --- V8 : LE CRAQUAGE ---
+    # --- CLÔTURE : LE CRAQUAGE ---
     # Paie la dette technique de arc5_ilona_a_pleure.
     if pression_stream >= 12 or arc5_tension_accumulee >= 8:
         $ arc6_vignettes_jouees.append("craquage")
@@ -942,6 +1209,9 @@ label arc_6_diplomes:
 
         $ renpy.pause(1.2, hard=True)
 
+        show jessy listening at char_left
+        with dissolve
+
         i "C'est bête. C'est le jour du diplôme."
         j "Ouais."
         i "Tu dis rien ?"
@@ -961,8 +1231,6 @@ label arc_6_diplomes:
             systeme "Il ne dit rien. Il ne sait pas si c'est de la délicatesse ou de la lâcheté. Elle non plus."
 
         play music audio.melanPiano fadein 2.0
-        show ilona neutral at char_midright
-        with dissolve
 
     # --- Clôture de la scène 3 ---
     $ renpy.pause(1.0, hard=True)
@@ -978,7 +1246,7 @@ label arc_6_diplomes:
 
     i "Ah."
 
-    show ilona neutral at char_midright
+    show ilona embarrassed at char_midright
     with dissolve
 
     i "Non."
@@ -992,12 +1260,36 @@ label arc_6_diplomes:
     i "Non."
     i "Je veux juste que tu saches que j'ai remarqué."
 
-    systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
-    systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
+    # Les trois mots ne sont JAMAIS reveles ici : ils se lisent dans l'arc 7.
+    # Ce qui varie, c'est la maniere dont elle rend la veste - et donc ce que
+    # le joueur croit qu'il y a dessous.
+    if arc6_penchant == "jessy":
+        systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
+        systeme "Elle prend son temps. Elle raye un mot, le réécrit, souffle dessus pour que ça sèche."
+        systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
 
-    i "Tu regarderas ce soir."
-    j "Pourquoi ce soir ?"
-    i "Parce que ce soir je serai pas là quand tu feras ta tête."
+        i "Tu regarderas ce soir."
+        j "Pourquoi ce soir ?"
+        i "Parce que ce soir je serai pas là quand tu feras ta tête."
+    elif arc6_penchant == "indecis":
+        systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
+        systeme "Elle s'arrête au deuxième. Reste comme ça, le feutre en l'air, assez longtemps pour que ça devienne bizarre. Puis elle finit."
+        systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
+
+        i "Tu regarderas ce soir."
+        j "Pourquoi ce soir ?"
+        i "Parce que si tu regardes maintenant, je vais vouloir expliquer, et j'ai pas d'explication."
+    else:
+        systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col. Ça prend quatre secondes."
+        systeme "Elle n'hésite sur aucun. C'est peut-être ça, le plus inquiétant."
+        systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
+
+        i "Tu regarderas ce soir."
+        j "Pourquoi ce soir ?"
+
+        $ renpy.pause(1.0, hard=True)
+
+        i "Parce que ce soir, ce sera déjà plus la même journée."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -1075,7 +1367,7 @@ label arc_6_diplomes:
     t "Je ne dis pas qu'elle est pour toi. Je ne sais pas si tu es faite pour ça."
     t "Je dis qu'elle existe, et qu'elle sera prise en mai."
 
-    if souvenirs["ilona_veut_streamer_serieusement"]:
+    if souvenirs.get("ilona_veut_streamer_serieusement", False):
         t "Et tu m'as dit en décembre que tu voulais le faire pour de vrai."
         t "Pas essayer. Le faire."
 
@@ -1116,7 +1408,8 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    if souvenirs["ilona_veut_streamer_serieusement"]:
+    if souvenirs.get("ilona_veut_streamer_serieusement", False):
+        systeme "Elle regarde Jessy."
         i "Et je viens de réaliser que je ne l'ai dit qu'à une personne cette année."
 
         show ilona determined at char_center
@@ -1172,6 +1465,9 @@ label arc_6_diplomes:
             $ arc6_mod += 5
             $ remember("jessy_nomme_sa_peur")
 
+            show jessy determined at char_left
+            with dissolve
+
             j "J'ai pas de studio."
             j "J'ai pas de planning, pas de régie, pas de date."
             j "J'ai un serveur Minecraft avec une maison mal foutue dessus."
@@ -1212,9 +1508,8 @@ label arc_6_diplomes:
             $ autonomie_ilona -= 4
             $ confiance -= 4
             $ influence_theo += 2
-            $ jalousie += 6
+            $ jalousie += 4
             $ lien_jessy_ilona -= 2
-            $ interruptions_ilona += 1
             $ controles += 1
             $ remember("theo_utilise_une_verite")
 
@@ -1225,90 +1520,192 @@ label arc_6_diplomes:
 
             t "Non."
             t "J'ai voulu être celui qui savait quoi faire pour elle."
-            t "Toi aussi. La différence, c'est que moi j'ai fait quelque chose."
+            t "Toi aussi. Sauf que moi j'ai fait un truc."
 
-            systeme "Et Jessy n'a rien à répondre à ça, parce que c'est en partie vrai, et parce que les vérités partielles sont exactement l'arme de Théo."
+            systeme "Jessy n'a rien à répondre. C'est à moitié vrai, et les vérités à moitié sont exactement là où Théo est le meilleur."
 
             show ilona frustrated at char_center
             with dissolve
 
             i "Vous avez fini de parler de moi à la troisième personne ?"
 
-    # --- 6.3 « Qu'on me foute la paix » ---
-    # Fil ouvert d'arc V : Ilona ne l'avait dit qu'à Laplage, qui lui avait
-    # répondu de le dire « pas à moi, à eux ». Elle le fait ici, devant les deux.
+    # --- 6.3 Ilona pose sa limite ---
+    # Le ton de la scene suit etat_relation(), la MEME lecture que la scene 5
+    # (cour, Laplage) et que l'arc V. On la fige ici, une seule fois : les deux
+    # scenes se suivent a quelques minutes d'intervalle et ne doivent pas se
+    # contredire.
+    $ arc6_ilona_dit_la_paix = True
+    $ autonomie_ilona += 6
+    $ ilona_peut_finir_ses_phrases += 1
+
+    $ controle_repetitif = interruptions_ilona - interruptions_reparees
+    $ arc6_etat_relation = etat_relation()
+
+    # PALIER 2 : le couloir est le premier endroit ou le joueur doit POUVOIR
+    # sentir la direction. Le menu qu'il vient de jouer est deja compte dedans.
+    $ arc6_palier()
+
     $ renpy.pause(0.8, hard=True)
+
+    # Ce que le choix precedent laisse dans la piece. Court, mais jamais nul :
+    # une limite posee juste apres un silence respectueux ne s'ouvre pas comme
+    # une limite posee juste apres une accusation.
+    if arc6_offre_theo == "laisse":
+        systeme "Elle regarde Jessy une seconde de trop. Il n'a rien dit, et pour une fois ce n'est pas un vide : c'est de la place."
+    elif arc6_offre_theo == "aveu_vide":
+        i "Une maison mal foutue."
+        j "Ouais."
+
+        systeme "Elle ne dit pas que ça suffit. Elle ne dit pas que ça ne suffit pas."
+    elif arc6_offre_theo == "question":
+        systeme "Théo est à découvert et tout le monde dans le couloir le sait, y compris lui."
+        systeme "Ilona n'a pas quitté Jessy des yeux depuis qu'il a posé la question."
+    elif arc6_offre_theo == "accusation":
+        systeme "Le mot « à toi » est encore dans le couloir. Personne n'arrive à faire comme s'il n'avait pas été dit."
 
     show ilona determined at char_center
     with dissolve
 
-    i "Je peux dire un truc ?"
-    i "Vous êtes deux à vouloir m'aider."
-    i "Et depuis six mois, aucun des deux ne m'a demandé si je voulais qu'on m'aide."
+    if arc6_offre_theo == "accusation":
+        i "Non. Là, vous m'écoutez tous les deux."
+
+        systeme "Elle n'a pas crié. Elle a juste parlé pendant que quelqu'un d'autre parlait. Elle ne fait jamais ça."
+    elif arc6_offre_theo == "question":
+        i "Stop."
+
+        systeme "Elle coupe Jessy en plein milieu. C'est la première fois de l'année que c'est dans ce sens-là."
+    else:
+        i "Bon."
+
+        systeme "Personne ne parlait. Elle a quand même eu besoin de prendre son élan."
+
+    i "Vous êtes en train de décider de mon mois d'avril dans un couloir."
+    i "Devant moi."
+
+    $ renpy.pause(1.0, hard=True)
+
+    show theo defensive at char_right
+    with dissolve
+
+    i "Théo. T'as un studio, une date et un billet."
+    i "Tu me le dis le jour de la remise des diplômes."
+
+    if arc6_offre_theo == "question":
+        i "Et il a fallu que ce soit Jessy qui te fasse dire que tu l'avais déjà en janvier."
+    else:
+        t "Je pouvais pas t'en parler avant."
+        i "Depuis quand tu l'as, le studio ?"
+        t "..."
+        i "Voilà."
 
     $ renpy.pause(1.2, hard=True)
 
-    i "Alors je vais le dire une fois, et après on n'en parle plus."
+    show ilona determined at char_center
+    with dissolve
+
+    # Le reproche fait a Theo est le meme pour tout le monde : les faits sont
+    # les memes. Ce qu'elle dit a Jessy est la SEULE partie qui varie, parce
+    # que c'est la seule chose que le joueur a reellement construite.
+    if controle_repetitif >= 3:
+        i "Et toi, Jessy."
+        i "Depuis septembre, quand on me pose une question, c'est toi qui réponds."
+        i "Lui, au moins, il attend que je dise oui."
+
+        systeme "Ce n'est pas juste. Ce n'est pas faux non plus. C'est exactement là que Théo gagne du terrain."
+    elif arc6_etat_relation == "proche":
+        i "Et toi, Jessy, tu m'as rien proposé de l'année."
+        i "Tu m'as posé des questions. Lui il m'a donné des réponses."
+        i "J'ai mis un an à comprendre lequel des deux me laissait finir mes phrases."
+    elif arc6_etat_relation == "fragile":
+        i "Et toi, Jessy, t'essaies."
+        i "Des fois tu y arrives. Des fois tu parles avant moi et tu le vois même pas."
+        i "Et là, tout de suite, je sais pas dans lequel des deux tu es."
+    else:
+        i "Et toi, Jessy, tu m'as pas proposé Tokyo."
+        i "Mais tu m'as rien proposé du tout non plus. T'as juste regardé si je partais."
+
+    $ renpy.pause(1.5, hard=True)
 
     stop music fadeout 1.0
 
-    i "Qu'on me foute la paix."
+    i "Onze jours pour décider du reste de ma vie."
+    i "Et vous voulez ma réponse cet après-midi. Tous les deux. Parce que c'est cet après-midi que ça vous arrange."
+
+    $ renpy.pause(1.0, hard=True)
+
+    if controle_repetitif >= 3 or arc6_etat_relation == "distant":
+        i "Alors non. Foutez-moi la paix jusqu'à demain."
+    else:
+        i "Alors non. Pas aujourd'hui."
 
     $ renpy.pause(2.0, hard=True)
 
     systeme "Personne ne bouge. Le couloir est très long et très vide."
 
-    i "...Pas pour toujours."
-    i "Juste assez pour que j'arrive à entendre ce que je veux, moi."
+    if arc6_etat_relation == "proche" and controle_repetitif < 3:
+        i "Je vais y réfléchir. Pas longtemps."
+        i "Mais toute seule."
+    elif arc6_etat_relation == "fragile" and controle_repetitif < 3:
+        i "Deux heures. Peut-être trois."
+        i "Je reviens. Je préviens pas, mais je reviens."
+    else:
+        i "...Je sais pas quand je réponds."
+        i "Et pour une fois, j'ai pas envie de m'excuser de pas savoir."
 
     # --- Réaction calibrée : ce moment ne peut plus rester neutre.
-    # On penche déjà vers la route Jessy ou la route Théo, avant même
-    # le calcul final. Aperçu grossier, sans jauge affichée.
-    $ controle_repetitif = interruptions_ilona - interruptions_reparees
-    $ espace_p4 = (autonomie_ilona * 4) + (ilona_peut_finir_ses_phrases * 6) + (interruptions_reparees * 6) + communication + confiance
-    $ dette_p4 = (influence_theo * 3) + (max(0, controle_repetitif) * 8) + (pression_stream * 2) + (jalousie * 2) + (confidences_laplage * 4)
-    $ score_p4 = espace_p4 + arc6_mod - dette_p4
-
+    # Meme lecture etat_relation() que la replique precedente : les deux
+    # narrations ne peuvent pas se contredire. On decrit ce que les deux
+    # garcons FONT, pas ce qu'ils calculent : Theo doit rester comprehensible.
     if controle_repetitif >= 3:
         show theo neutral at char_right
         with dissolve
 
-        systeme "Théo ne dit rien. Il n'a pas besoin de dire quoi que ce soit : il sait déjà qu'elle reviendra vers ce qui décide à sa place."
+        systeme "Théo ne dit rien. Il n'en a pas besoin."
+        systeme "Elle vient de demander qu'on lui foute la paix. C'est exactement ce qu'il lui propose depuis le début, sauf que lui, il l'a mis sur un billet de train."
 
         show jessy listening at char_left
         with dissolve
 
-        systeme "Jessy ne bouge pas. Il a coupé trop de ses phrases pour avoir le droit de retenir celle-ci."
-    elif score_p4 >= SEUIL_JESSY:
+        systeme "Jessy voudrait dire quelque chose. Il a parlé à sa place tellement de fois cette année qu'il n'arrive plus à savoir si ce serait pour elle."
+    elif arc6_etat_relation == "proche":
         show theo defensive at char_right
         with dissolve
 
         systeme "Théo baisse les yeux le premier. Ça ne lui arrive jamais."
+        systeme "Elle n'a pas dit non à Tokyo. Elle n'a pas dit oui non plus. Ça, ce n'était pas prévu."
 
-        show jessy neutral at char_left
+        show jessy listening at char_left
         with dissolve
 
-        systeme "Jessy ne bouge pas non plus. Mais cette fois, c'est parce qu'il a compris qu'il ne fallait pas, pas parce qu'il ne sait pas quoi faire."
-    else:
+        systeme "Jessy ne bouge pas non plus. Pas parce qu'il ne sait pas quoi faire : parce qu'il a compris qu'il ne fallait pas."
+    elif arc6_etat_relation == "fragile":
         show theo neutral at char_right
         with dissolve
 
-        systeme "Théo hoche la tête, presque satisfait. Comme si la scène confirmait quelque chose qu'il pensait déjà."
+        systeme "Théo ne dit rien. Il attend. C'est ce qu'il fait de mieux, et il a onze jours devant lui."
+
+        show jessy listening at char_left
+        with dissolve
+
+        systeme "Jessy ouvre la bouche. Il la referme. En septembre, il ne l'aurait pas refermée."
+    else:
+        show theo smirk at char_right
+        with dissolve
+
+        systeme "Théo hoche la tête. Il n'a pas l'air déçu."
+        systeme "Elle vient de dire non aux deux. Sur les deux, il n'y en a qu'un qui part dans onze jours."
 
         show jessy listening at char_left
         with dissolve
 
         systeme "Jessy voudrait la retenir. Il ne sait plus si c'est pour elle, ou pour ne pas rester seul avec Théo dans ce couloir."
 
-    $ arc6_ilona_dit_la_paix = True
-    $ autonomie_ilona += 6
-    $ ilona_peut_finir_ses_phrases += 1
 
     hide ilona
     with dissolve
 
-    systeme "Elle part. Personne ne la suit."
-    systeme "C'est le premier moment de toute l'année où personne ne la suit."
+    systeme "Elle part. Personne ne la rejoint."
+    systeme "C'est le premier moment de toute l'année où personne ne lui demande où elle va."
 
     hide theo
     hide jessy
@@ -1331,7 +1728,7 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    play sound "fx/re-zero-return.mp3"
+    play sound audio.laplage
 
     show laplage neutral at char_midright
     with Dissolve(1.5)
@@ -1355,7 +1752,7 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    laplage "Vous avez fini l'école."
+    laplage "T'as fini l'école."
     i "Oui."
     laplage "Ce n'est pas la même chose que finir quelque chose."
     i "Non."
@@ -1368,16 +1765,90 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.2, hard=True)
 
-    laplage "Je vous ai posé une question, en février."
-    i "Je m'en souviens."
-    laplage "Vous n'avez pas répondu."
-    i "Non."
-    laplage "Ce n'était pas une question qui attendait une réponse."
-    laplage "C'était une question qui attendait que vous ayez le droit de ne pas répondre."
+    # Rappel de la confidence de fevrier (arc V). Le contenu exact depend de
+    # la branche qui a ete jouee la-bas : dans deux cas sur trois, Ilona A
+    # repondu. On ne peut donc pas affirmer le contraire.
+    if arc5_etat_relation == "distant":
+        laplage "En février, je t'ai demandé si les gens qui t'aiment te laissent ne pas choisir."
+        i "J'ai dit que je savais pas."
+        laplage "C'était exact. C'est rare, exact."
+    else:
+        laplage "En février, je t'ai dit d'aller poser la question à lui. Pas à moi."
+        i "Je sais."
+        laplage "Et ?"
 
-    # Même règle que les deux confidences précédentes : Ilona ne se confie
-    # à Laplage que si personne d'autre ne la laisse finir. C'est une dette.
-    if ilona_peut_finir_ses_phrases < 8:
+        $ renpy.pause(0.8, hard=True)
+
+        i "Aujourd'hui. Dans un couloir. Devant deux personnes."
+        laplage "C'est un endroit épouvantable."
+        i "Oui."
+        laplage "Ce sont les seuls qui marchent."
+
+    $ renpy.pause(1.0, hard=True)
+
+    # Le lien avec fevrier doit etre explicite : elle vient litteralement de
+    # faire l'experience de la question posee a la bibliotheque.
+    i "Je leur ai dit non. Aux deux."
+    laplage "Résultat ?"
+    i "Et personne m'a suivie."
+
+    $ renpy.pause(1.0, hard=True)
+
+    i "C'est ce que je voulais. Je crois."
+
+    laplage "Cette question n'attendait pas de réponse."
+    laplage "Elle attendait que tu aies le droit de ne pas répondre."
+
+    # Derive : Laplage est le seul personnage legitime pour remarquer un
+    # changement de trajectoire, son metier fictif etant de dater des departs.
+    # Aucun chiffre n'est donne, et il ne nomme ni Jessy ni Theo.
+    if arc6_derive > 0:
+        $ renpy.pause(1.0, hard=True)
+
+        laplage "Tu es arrivée ici en t'éloignant."
+        i "Oui."
+        laplage "Et tu t'es arrêtée pour parler à un type derrière une table pliante."
+
+        $ renpy.pause(0.8, hard=True)
+
+        laplage "Ce n'est pas rien. En septembre tu ne te serais pas arrêtée."
+        i "En septembre vous étiez déguisé en autre chose."
+        laplage "Oui. Tu ne te serais pas arrêtée quand même."
+    elif arc6_derive < 0:
+        $ renpy.pause(1.0, hard=True)
+
+        laplage "Tu marches plus vite que ce matin."
+        i "J'avais rien à faire."
+        laplage "Non. Tu avais quelque chose à ne pas faire."
+
+        $ renpy.pause(0.8, hard=True)
+
+        systeme "Elle ne répond pas. Elle regarde la pile de formulaires vierges un peu trop longtemps."
+
+        laplage "Ils sont vides. Ça ne t'engage à rien de les regarder."
+        i "C'est exactement ce qui est pratique."
+
+    # Meme regle que les deux confidences precedentes : Ilona ne se confie
+    # a Laplage que si personne d'autre ne la laisse finir. C'est une dette.
+    # L'etat a ete fige en scene 4 (couloir) : les deux scenes se suivent a
+    # quelques minutes et ne doivent pas se contredire. On ne recalcule pas.
+    if arc6_etat_relation == "":
+        $ arc6_etat_relation = etat_relation()
+
+    if arc6_etat_relation == "proche":
+        i "Aujourd'hui, j'ai eu le droit."
+        laplage "Je sais. C'est pour ça que je ne repose pas la question."
+        systeme "Il tamponne une feuille vierge et la lui tend."
+    elif arc6_etat_relation == "fragile":
+        i "J'apprends à pas répondre tout de suite."
+        laplage "Doucement, c'est encore une vitesse."
+        systeme "Il tamponne une feuille vierge et la pose sur le bord de la table."
+    else:
+        i "Je sais pas si je l'aurai un jour, ce droit."
+        laplage "Alors garde la question. Ça tient dans une poche."
+        systeme "Il tamponne une feuille vierge et la range avec les autres."
+
+    if arc6_etat_relation != "proche":
         $ confidences_laplage += 1
     $ jugement_laplage += 1
 
@@ -1405,7 +1876,13 @@ label arc_6_diplomes:
     if souvenirs["theo_utilise_une_verite"]:
         $ posture -= 6
     $ recidive = (-6 * max(0, controles - 2)) + (-3 * max(0, evitements - 3))
-    $ arc6_score_partiel = espace + posture + recidive - dette
+    $ arc6_score_partiel = espace + posture + recidive + arc6_mod - dette
+
+    # Le pouce est un avis a mi-parcours : il reste le toit (-20 a +25 de mod)
+    # et la derniere construction. On decale les seuils d'autant, sinon
+    # l'avis annonce presque toujours une route plus sombre que la vraie.
+    $ seuil_pouce_haut = SEUIL_ROMANCE - 45
+    $ seuil_pouce_moyen = SEUIL_JESSY - 30
 
     systeme "Laplage se tourne vers Jessy. C'est la dernière fois qu'il donne un avis sur cette année. Après ça, il ne reste que le résultat."
 
@@ -1413,23 +1890,26 @@ label arc_6_diplomes:
         show laplage thumb_down at char_midright
         with dissolve
         laplage "Ça, ce n'est pas une question de score."
-        systeme "Il ne regarde même pas la feuille avant de tamponner. Couper quelqu'un trois fois sans jamais réparer, ça ne se moyenne pas avec le reste. Ça s'additionne tout seul."
-        laplage "Tu as appris à construire des maisons qui tiennent debout. Ça ne sert à rien si tu n'apprends jamais à laisser quelqu'un ouvrir la porte lui-même."
-    elif arc6_score_partiel >= SEUIL_ROMANCE:
+
+        systeme "Il ne regarde même pas la feuille avant de tamponner."
+
+        laplage "T'as appris à construire des maisons qui tiennent debout."
+        laplage "Ça sert à rien si t'apprends jamais à laisser quelqu'un ouvrir la porte lui-même."
+    elif arc6_score_partiel >= seuil_pouce_haut:
         show laplage thumb_up at char_midright
         with dissolve
-        laplage "Continuez."
-        laplage "Tu as mis longtemps à comprendre qu'écouter, ça ne se prouve pas. Ça se pratique, en silence, jusqu'à ce que ça devienne un réflexe."
-    elif arc6_score_partiel >= SEUIL_JESSY:
+        laplage "Continue."
+        laplage "T'as mis longtemps à comprendre qu'écouter, ça se prouve pas. Ça se pratique. En silence. Jusqu'à ce que ça devienne un réflexe."
+    elif arc6_score_partiel >= seuil_pouce_moyen:
         show laplage thumb_horizontal at char_midright
         with dissolve
         laplage "Ce n'est pas fini."
-        laplage "Toi non plus, tu n'es pas fini. C'est un compliment, venant de quelqu'un qui a fini d'apprendre depuis longtemps."
+        laplage "Toi non plus, t'es pas fini. C'est un compliment, venant de quelqu'un qui a fini d'apprendre depuis longtemps."
     else:
         show laplage thumb_down at char_midright
         with dissolve
-        laplage "Faites attention à ce que vous appelez aimer."
-        laplage "On confond souvent protéger et retenir. Les deux se ressemblent, vus de dedans."
+        laplage "Fais attention à ce que tu appelles aimer."
+        laplage "On confond souvent protéger et retenir. Vus de dedans, les deux se ressemblent."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -1461,9 +1941,21 @@ label arc_6_diplomes:
 
     play music audio.sadPiano fadein 2.0
 
-    systeme "Ilona a demandé de l'air à quatorze heures. Il est dix-neuf heures."
-    systeme "Jessy a attendu cinq heures avant de monter."
-    systeme "Cinq heures. Ce n'est pas un exploit. C'est juste la première fois."
+    # Ce qu'elle a demande a quatorze heures depend de la scene 4 (couloir).
+    # On ne peut pas ecrire "elle a demande de l'espace" si elle a dit
+    # "qu'on me foute la paix", ni l'inverse.
+    if controle_repetitif >= 3 or arc6_etat_relation == "distant":
+        systeme "À quatorze heures, elle a dit qu'on lui foute la paix jusqu'à demain. Il est dix-neuf heures."
+        systeme "Jessy a attendu cinq heures avant de monter. Pas jusqu'à demain."
+        systeme "Cinq heures. Ce n'est pas un exploit. C'est juste la première fois."
+    elif arc6_etat_relation == "fragile":
+        systeme "À quatorze heures, elle a dit deux heures. Peut-être trois. Il est dix-neuf heures."
+        systeme "Jessy en a laissé cinq. Deux de plus que nécessaire, au cas où."
+        systeme "Ce n'est pas de la patience. C'est de la trouille. Ça fait le même effet vu de l'extérieur."
+    else:
+        systeme "À quatorze heures, elle a dit qu'elle allait y réfléchir seule, et pas longtemps. Il est dix-neuf heures."
+        systeme "Jessy a attendu qu'elle monte la première."
+        systeme "Ce n'est pas un exploit. C'est juste la première fois."
 
     show jessy neutral at char_left
     show ilona neutral at char_midright
@@ -1471,16 +1963,25 @@ label arc_6_diplomes:
 
     systeme "Elle est là. La part de gâteau bleu est sur ses genoux, dans sa serviette en papier. Elle l'a ouverte il y a une heure. Elle n'y a pas touché."
 
-    j "En avril, dans le train, j'ai commencé une phrase."
+    j "L'année dernière. En avril, dans le train. J'avais commencé une phrase."
     i "« Ilona, je voulais te dire que— »."
     j "Tu t'en souviens ?"
     i "Je m'en souviens de toutes celles que tu finis pas."
 
     $ renpy.pause(1.0, hard=True)
 
+    # Cadrage du menu : sans ca, le joueur croit qu'on lui demande de finir
+    # LA phrase du train, alors qu'aucune option ne le propose.
+    i "Tu vas me la finir ?"
+    j "..."
+    i "Réponds pas tout de suite."
+    i "T'as la soirée. Demain on est plus dans le même bâtiment."
+
+    $ renpy.pause(1.0, hard=True)
+
     menu:
 
-        "Partir avant sa réponse.":
+        "Ne pas la finir. Descendre du toit.":
             $ arc6_conversation = "partir"
             $ arc6_mod -= 20
             $ autonomie_ilona -= 6
@@ -1499,7 +2000,7 @@ label arc_6_diplomes:
             systeme "Jessy est déjà dans l'escalier."
             systeme "Elle avait commencé une phrase."
 
-        "« Je t'ai coupée. Plusieurs fois. Je le sais maintenant. »" if souvenirs["jessy_repare"] and interruptions_reparees >= 1:
+        "« Je t'ai coupée. Je le sais maintenant. »" if interruptions_ilona >= 1 and interruptions_reparees >= 1:
             $ arc6_conversation = "aveu_interruptions"
             $ arc6_mod += 25
             $ communication += 6
@@ -1508,8 +2009,16 @@ label arc_6_diplomes:
             $ lien_jessy_ilona += 3
             $ interruptions_reparees += 1
 
+            show jessy determined at char_left
+            with dissolve
+
             j "Je t'ai coupée."
-            j "Plusieurs fois. Je croyais que j'aidais."
+
+            if interruptions_ilona >= 2:
+                j "Plusieurs fois. Je croyais que j'aidais."
+            else:
+                j "Une fois. Je m'en souviens encore, donc c'est pas une fois."
+
             j "J'ai mis un an à comprendre que finir la phrase de quelqu'un, c'est lui prendre la fin."
 
             $ renpy.pause(1.5, hard=True)
@@ -1529,8 +2038,6 @@ label arc_6_diplomes:
 
             systeme "Elle a l'air de respirer."
 
-            i "Voilà."
-
         "« Tu veux continuer avec moi, après l'école ? »":
             $ arc6_conversation = "continuer"
             $ arc6_mod -= 5
@@ -1539,7 +2046,7 @@ label arc_6_diplomes:
 
             j "Tu veux continuer avec moi, après l'école ?"
 
-            systeme "C'est une belle phrase. Elle sonne bien. Elle est entièrement construite autour de ce que Jessy a peur de perdre."
+            systeme "La phrase sonne bien. Elle est entièrement tournée vers ce que Jessy a peur de perdre."
 
             show ilona neutral at char_midright
             with dissolve
@@ -1557,6 +2064,9 @@ label arc_6_diplomes:
             $ confiance -= 3
             $ pression_stream += 3
             $ evitements += 1
+
+            show jessy embarrassed at char_left
+            with dissolve
 
             j "Il fait froid, non ?"
             i "Ouais."
@@ -1580,52 +2090,98 @@ label arc_6_diplomes:
 
             j "Qu'est-ce que tu veux, toi ? Vraiment. Pour la suite."
 
+            show jessy listening at char_left
+            with dissolve
+
             systeme "Elle ne répond pas tout de suite. Elle repose la serviette à côté d'elle. Elle prend le temps que personne ne lui a jamais donné."
 
     # --- 8.2 La réponse d'Ilona : modulée par l'état réel de la relation ---
-    # C'est ici que l'accumulation de tout le jeu devient audible.
+    # PALIER 3. Le menu du toit vient d'etre joue et ses effets sont deja dans
+    # les variables : c'est la derniere relecture avant la porte, et la plus
+    # nette. On ne recalcule plus de score previsionnel ici - une metrique
+    # concurrente finissait par contredire etat_relation() a dix lignes d'ecart.
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
-    $ espace = (autonomie_ilona * 4) + (ilona_peut_finir_ses_phrases * 6) + (interruptions_reparees * 6) + communication + confiance
-    $ dette = (influence_theo * 3) + (max(0, controle_repetitif) * 8) + (pression_stream * 2) + (jalousie * 2) + (confidences_laplage * 4)
-    $ posture = 0
-    if souvenirs["jessy_nomme_sa_peur"]:
-        $ posture += 6
-    if souvenirs["jessy_repare"]:
-        $ posture += 8
-    if souvenirs["ilona_libre_sans_abandon"]:
-        $ posture += 5
-    if souvenirs["maison_respectee"]:
-        $ posture += 3
-    if souvenirs["theo_utilise_une_verite"]:
-        $ posture -= 6
-    $ recidive = (-6 * max(0, controles - 2)) + (-3 * max(0, evitements - 3))
-    $ arc6_score_preview = espace + posture + recidive + arc6_mod - dette
+    $ arc6_palier()
 
-    if controle_repetitif >= 3:
-        show ilona neutral at char_midright
-        with dissolve
-        i "Je crois que c'est là que je devrais dire un truc important."
-        i "Mais je sais déjà comment ça se passe si je le dis lentement."
-        systeme "Elle ne finit pas la phrase. Elle a arrêté d'essayer de savoir si, cette fois, tu la laisserais aller jusqu'au bout."
-    elif arc6_score_preview >= SEUIL_ROMANCE:
-        show ilona determined at char_midright
-        with dissolve
-        i "Je veux streamer. Je vais peut être le faire mal au début. Mais je veux que ce soit à moi."
-        i "Et je veux quelqu'un qui me regarde le faire sans essayer de le faire à ma place."
-        systeme "Elle ne le regarde pas."
-        i "C'est pas une question."
-    elif arc6_score_preview >= SEUIL_JESSY:
-        show ilona neutral at char_midright
-        with dissolve
-        i "Je sais pas encore."
-        i "Mais c'est la première fois que quelqu'un me demande sans avoir déjà la réponse dans la poche."
-        i "Laisse-moi juste... ne pas savoir, quelques semaines."
-    else:
+    if arc6_conversation == "partir":
         show ilona fatigue at char_midright
         with dissolve
-        i "Je sais pas."
-        i "Et j'ai plus la force de chercher devant quelqu'un."
-        systeme "Elle referme la serviette sur le gâteau et la remet dans son sac. Elle ne l'a pas entamé. Elle finit toujours ce qu'elle mange."
+        systeme "Ilona reste seule sur le toit avec une phrase coupée dans la bouche et une part de gâteau intacte sur les genoux."
+    elif arc6_conversation == "eviter":
+        show ilona fatigue at char_midright
+        with dissolve
+        i "Je crois que j'aurais eu besoin que tu ne changes pas de sujet."
+        i "Là, je sais plus quoi faire de ma réponse."
+        systeme "Elle replie la serviette sans manger. La conversation a continué assez longtemps pour ne plus pouvoir commencer."
+    else:
+        # Pont : les trois options restantes doivent aboutir à une vraie question posée,
+        # sinon Ilona répondrait à quelque chose que Jessy n'a pas demandé.
+        if arc6_conversation == "continuer":
+            i "Redemande."
+            j "Quoi ?"
+            i "Autrement."
+
+            $ renpy.pause(1.0, hard=True)
+
+            j "...Qu'est-ce que tu veux, toi ?"
+        elif arc6_conversation == "aveu_interruptions":
+            i "Alors pose-moi une question."
+            i "Maintenant que tu sais attendre la fin."
+
+            $ renpy.pause(1.0, hard=True)
+
+            j "Qu'est-ce que tu veux, toi ?"
+
+        if controle_repetitif >= 3:
+            show ilona neutral at char_midright
+            with dissolve
+            i "Je devrais dire un truc important, là."
+            i "Mais je sais déjà comment ça finit quand je le dis lentement."
+            systeme "Elle ne finit pas la phrase. Elle a arrêté d'essayer de savoir si, cette fois, tu la laisserais aller jusqu'au bout."
+        elif arc6_penchant == "jessy":
+            show ilona determined at char_midright
+            with dissolve
+            i "Streamer."
+            i "Je vais le faire mal au début. Mais je veux que ce soit à moi."
+            i "Et je veux quelqu'un qui regarde sans essayer de le faire à ma place."
+            systeme "Elle ne le regarde pas."
+            i "C'est pas une question, ça."
+
+            if arc6_derive > 0:
+                $ renpy.pause(1.0, hard=True)
+
+                i "Ce matin j'aurais pas dit ça."
+                j "Ce matin ?"
+                i "Ce matin j'aurais dit « je sais pas »."
+                i "C'est pas toi qui as changé aujourd'hui. C'est le nombre de fois où j'ai pu finir."
+        elif arc6_penchant == "indecis":
+            show ilona neutral at char_midright
+            with dissolve
+            i "Je sais pas encore."
+            i "Mais c'est la première fois que quelqu'un demande sans avoir déjà la réponse dans la poche."
+            i "Laisse-moi juste pas savoir. Quelques semaines."
+
+            if arc6_derive < 0:
+                $ renpy.pause(1.0, hard=True)
+
+                systeme "Elle regarde le gymnase, en bas, et pas lui."
+                i "Et demande-le encore. Pas ce soir."
+                i "Mais demande-le encore, sinon je vais prendre l'habitude qu'on me demande rien."
+        elif arc6_conversation == "aveu_interruptions":
+            # Elle vient de sourire : la chute doit être douce, pas un mur.
+            show ilona neutral at char_midright
+            with dissolve
+            i "Je sais pas."
+            i "Un an, Jessy."
+            i "Tu le dis le dernier jour."
+            systeme "Elle regarde le gâteau. Elle ne le mange pas non plus."
+            i "Je sais pas quoi en faire ce soir. Demain, peut-être."
+        else:
+            show ilona fatigue at char_midright
+            with dissolve
+            i "Je sais pas."
+            i "Et j'ai plus la force de chercher devant quelqu'un."
+            systeme "Elle referme la serviette sur le gâteau et la remet dans son sac. Elle ne l'a pas entamé. Elle finit toujours ce qu'elle mange."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -1635,8 +2191,12 @@ label arc_6_diplomes:
 
     stop music fadeout 4.0
 
-    systeme "Ils descendent du toit sans se dire au revoir, parce que dire au revoir un jour comme celui-là, ça voudrait dire quelque chose."
-    systeme "Ils prennent le même train, descendent à deux arrêts différents, et s'écrivent « bien rentré ? » comme tous les soirs depuis un an."
+    if arc6_conversation == "partir":
+        systeme "Ilona descend du toit plus tard. Jessy est déjà loin, assez loin pour ne pas avoir à entendre la fin de sa phrase."
+        systeme "Ils prennent le même train à des heures différentes. Personne n'écrit « bien rentré ? » tout de suite."
+    else:
+        systeme "Ils descendent du toit sans se dire au revoir, parce que dire au revoir un jour comme celui-là, ça voudrait dire quelque chose."
+        systeme "Ils prennent le même train, descendent à deux arrêts différents, et s'écrivent « bien rentré ? » comme tous les soirs depuis un an."
 
     scene black
     with Dissolve(1.5)
@@ -1665,6 +2225,15 @@ label arc_6_diplomes:
     systeme "Le soir. Le serveur tourne encore. Il tournera encore longtemps : personne ne coupe jamais ces serveurs-là, ils s'éteignent tout seuls quand plus personne ne se connecte."
 
     # --- 9.1 État des lieux : la maison comme journal de l'année ---
+    # Dernier texte avant la porte : l'ecart entre les trois etats doit etre net.
+    # Ici il passe par une seule information, l'heure de connexion.
+    if arc6_penchant == "jessy":
+        systeme "Elle était déjà là. Le compteur dit une heure et demie. Elle n'a rien construit pendant ce temps : elle a attendu sur le toit."
+    elif arc6_penchant == "indecis":
+        systeme "Elle se connecte quatre minutes après lui. Ni avant, ni vraiment après."
+    else:
+        systeme "Il se connecte à vingt-deux heures. Elle arrive à vingt-trois heures dix. Elle n'explique pas, et il a arrêté de demander."
+
     systeme "Deux joueurs connectés. La maison n'a pas bougé. Elle a juste enregistré."
 
     if "panneau_phrases_tremblent_arc3" in maison_minecraft_ajouts:
@@ -1705,7 +2274,14 @@ label arc_6_diplomes:
 
     i "Je l'ai gardée toute la journée."
     j "C'est un ballon."
-    i "C'est une planète, Jessy."
+
+    if arc6_penchant == "theo":
+        i "..."
+        i "Ouais. Un ballon."
+
+        systeme "Elle ne corrige pas. C'est la première fois de l'année qu'elle ne corrige pas."
+    else:
+        i "C'est une planète, Jessy."
 
     $ renpy.pause(0.8, hard=True)
 
@@ -1743,7 +2319,9 @@ label arc_6_diplomes:
             i "Voilà."
             i "Une de moins."
 
-    if ilonanium_points >= 6:
+    # 4 points d'ilonanium sont atteignables avant l'arc 6 (arcs 1 a 4), le 5e est
+    # la part de gateau mangee juste au-dessus. Le seuil doit donc etre 5, pas 6.
+    if ilonanium_points >= 5:
         systeme "L'écran vacille très légèrement. Pas un glitch. Une respiration."
         i "..."
         j "Quoi ?"
@@ -1761,7 +2339,7 @@ label arc_6_diplomes:
             $ autonomie_ilona -= 4
             $ confiance -= 4
             $ influence_theo += 2
-            $ jalousie += 6
+            $ jalousie += 4
             $ lien_jessy_ilona -= 2
             $ pression_stream += 2
             $ controles += 1
@@ -1770,12 +2348,10 @@ label arc_6_diplomes:
             i "Tu fais quoi ?"
             j "Comme ça personne d'autre peut entrer."
 
-            show ilona frustrated at char_midright
-            with dissolve
+            $ renpy.pause(1.0, hard=True)
 
             i "...Moi non plus, alors."
-            j "Toi si, t'as la clé."
-            i "C'est pas pareil, Jessy."
+            j "Toi si. T'as la clé."
             i "Avant j'avais pas besoin de clé."
 
         "Poser un panneau : « ICI, ON A LE DROIT DE PARTIR ».":
@@ -1810,7 +2386,7 @@ label arc_6_diplomes:
             $ remember("maison_respectee")
             $ maison_minecraft_ajouts.append("sortie_porte_inutile_arc6")
 
-            play sound "fx/minecraft-wood-break-place.mp3"
+            play sound "audio/fx/minecraft-wood-break-place.mp3"
 
             systeme "Jessy casse deux blocs. Il y a maintenant une sortie au bout du couloir qui ne menait nulle part."
 
@@ -1831,6 +2407,29 @@ label arc_6_diplomes:
     systeme "23h41. Deux joueurs connectés."
     systeme "Demain, il n'y a pas de cours."
     systeme "Demain, il n'y a plus jamais de cours."
+
+    $ renpy.pause(1.0, hard=True)
+
+    # La derniere phrase d'Ilona de l'arc. Elle ne dit pas ou elle va :
+    # elle dit seulement si l'endroit reste ouvert derriere elle.
+    if arc6_penchant == "jessy":
+        i "Je me déconnecte. Je laisse le serveur allumé."
+        j "Il s'éteint tout seul quand personne se connecte."
+        i "Alors connecte-toi."
+    elif arc6_penchant == "indecis":
+        i "Bon."
+
+        $ renpy.pause(1.2, hard=True)
+
+        i "...Bonne nuit, Jessy."
+
+        systeme "Elle a mis trois secondes de trop à taper les deux mots. Assez longtemps pour qu'on les voie s'écrire."
+    else:
+        systeme "Elle ne dit pas bonne nuit. Son personnage reste immobile deux secondes de plus que d'habitude, comme s'il attendait quelque chose de précis."
+
+        $ renpy.pause(1.5, hard=True)
+
+        systeme "Puis il disparaît."
 
     hide ilona
     with dissolve
@@ -1857,7 +2456,7 @@ label arc_6_diplomes:
 #   DETTE    : ce qui s'est refermé autour d'elle.
 #   POSTURE  : les souvenirs, pondérés fortement.
 #   RÉCIDIVE : pénalité d'accumulation d'évitements et de contrôles.
-#   ARC6_MOD : le menu pivot du toit, de -20 à +25.
+#   ARC6_MOD : aveux de l'arc et menu pivot du toit, de -20 a +35.
 #
 # Sorties :
 #   arc_7_jessy -> game/arcs/arc_7/arc_7_jessy.rpy
@@ -1919,7 +2518,7 @@ label arc_6_calcul:
     if controle_repetitif >= 3:
         $ arc6_route = "theo"
         # Route Theo : Ilona part vers un endroit ou on lui epargne de parler.
-        jump arc_7_theo
+        jump arc_6_bascule_theo
 
     if arc6_score >= SEUIL_JESSY:
         $ arc6_route = "jessy"
@@ -1928,7 +2527,206 @@ label arc_6_calcul:
     else:
         $ arc6_route = "theo"
         # Route Theo : dette trop lourde autour d'Ilona.
-        jump arc_7_theo
+        jump arc_6_bascule_theo
+
+
+# =============================================================================
+# PONT : LES ONZE JOURS (26 mars -> 6 avril)
+# =============================================================================
+# Probleme resolu ici : le 26 mars, Ilona engueule Theo dans le couloir
+# ("t'as un studio depuis janvier et tu me le dis le dernier jour"). Onze
+# jours plus tard elle monte dans son train. Sans cette scene, la bascule
+# n'est pas jouee, seulement affirmee au debut de arc_7_theo.
+#
+# REGLE : on n'ecrit jamais "du coup je te suis". La bascule tient a une
+# asymetrie de reparation :
+#   - le grief contre Theo est reparable en onze jours (il cachait, il
+#     pressait -> il envoie le loyer, la date, et il arrete de demander) ;
+#   - le grief contre Jessy ne l'est pas a distance (il parle avant elle),
+#     et un Jessy blesse fait exactement la mauvaise chose.
+# Elle ne part pas VERS Theo. Personne d'autre ne redemande.
+#
+# Aucune variable n'est modifiee ici, aucun choix n'est propose : la porte
+# est deja fermee par arc_6_calcul. Ce label ne fait que rendre lisible un
+# resultat deja acquis.
+# =============================================================================
+
+label arc_6_bascule_theo:
+
+    stop music fadeout 3.0
+
+    scene black
+    with Dissolve(1.5)
+
+    $ renpy.pause(1.5, hard=True)
+
+    systeme "Il reste onze jours avant le 6 avril."
+    systeme "Le premier, personne n'écrit à personne."
+
+    $ renpy.pause(1.0, hard=True)
+
+    # --- 28 mars : le silence est partage, et c'est ca le piege ---
+    systeme "{i}28 mars.{/i} Ilona ouvre deux conversations et n'écrit dans aucune des deux."
+    systeme "Celle de Théo s'arrête au 26 mars, quatorze heures. Celle de Jessy aussi, à la minute près."
+    systeme "Elle avait demandé qu'on lui foute la paix. Les deux ont obéi."
+    systeme "Ce n'est pas la même obéissance. Mais vu de l'intérieur, à trois jours de distance, ça se ressemble beaucoup."
+
+    # Variante selon ce que Jessy a fait dans le couloir (scene 4).
+    if arc6_offre_theo == "accusation":
+        systeme "Théo n'a plus reparlé de Jessy une seule fois. Pas une pique, pas une allusion. Il a laissé l'accusation vieillir toute seule."
+    elif arc6_offre_theo == "question":
+        systeme "La question de Jessy — pourquoi aujourd'hui — est restée dans le couloir avec le reste. Théo n'y a jamais répondu, et plus personne ne la lui a posée."
+    elif arc6_offre_theo == "laisse":
+        systeme "Jessy s'était tu pour lui laisser la place. Il n'avait pas prévu que se taire, ça continue aussi les jours d'après."
+    elif arc6_offre_theo == "aveu_vide":
+        systeme "Jessy avait dit qu'il n'avait rien à proposer. C'est la seule phrase de l'année qu'il n'a pas eu besoin de répéter : elle a tenu toute seule pendant onze jours."
+
+    $ renpy.pause(1.5, hard=True)
+
+    # --- 31 mars : Theo repare exactement le reproche qu'on lui a fait ---
+    systeme "{i}31 mars.{/i} Théo envoie trois photos."
+    systeme "Dix-huit mètres carrés à Nakano. Une fenêtre. Un radiateur d'appoint posé devant."
+
+    t "74 000 le mois, charges comprises. J'ai signé pour un an, c'était ça ou rien."
+    t "Le proprio veut savoir avant le 5 si c'est une personne ou deux."
+
+    $ renpy.pause(1.2, hard=True)
+
+    systeme "Pas de « alors ? ». Pas de « t'as réfléchi ? ». Un prix, une date, et il arrête d'écrire."
+    systeme "Dans le couloir, elle lui avait reproché deux choses : lui cacher, et la presser."
+    systeme "En cinq jours, il a corrigé les deux."
+    systeme "Ce n'est même pas un calcul. C'est quelqu'un qui a écouté ce qu'on lui reprochait et qui en a tenu compte. C'est exactement pour ça que ça marche."
+
+    $ renpy.pause(1.5, hard=True)
+
+    # --- 3 avril : elle repond, il ne triomphe pas ---
+    systeme "{i}3 avril.{/i} Elle rouvre les photos pour la douzième fois."
+
+    i "Elle donne sur quoi, la fenêtre ?"
+
+    systeme "Il répond en quarante secondes."
+
+    t "Un parking. Désolé."
+    i "Non, c'est bien. Un parking c'est calme."
+
+    $ renpy.pause(1.0, hard=True)
+
+    systeme "Il ne répond pas « donc tu viens ». Il n'écrit plus rien du tout ce soir-là."
+    systeme "Huit jours qu'il ne demande rien. C'est la plus longue période de toute l'année où personne n'attend de réponse d'elle."
+
+    $ renpy.pause(1.2, hard=True)
+
+    systeme "Le même soir, le serveur s'éteint. Pas coupé : éteint. Ils s'éteignent tout seuls quand plus personne ne se connecte."
+
+    if arc6_penchant == "jessy":
+        systeme "Elle lui avait dit « alors connecte-toi ». Il ne s'est pas connecté."
+
+    $ renpy.pause(1.5, hard=True)
+
+    # --- 5 avril : la derniere nuit, cote Jessy. Depend du toit. ---
+    systeme "{i}5 avril, vingt-trois heures.{/i} Il reste une nuit."
+
+    if arc6_conversation == "partir":
+        systeme "La dernière chose que Jessy lui a dite sur ce toit, c'est le bruit d'une porte d'escalier."
+        systeme "Ils se sont reconnectés le soir même sans en reparler. Depuis, il n'a rien écrit du tout."
+        systeme "Elle a arrêté de vérifier vers le 2."
+    elif arc6_conversation == "eviter":
+        systeme "Ils se sont écrits tous les jours. Le temps qu'il fait. Une vidéo drôle. Un truc à rendre au lycée."
+        systeme "Onze jours de conversation dans lesquels on peut chercher longtemps sans trouver une seule question."
+        systeme "Elle a arrêté de répondre le 4. Il ne s'en est pas aperçu tout de suite."
+    elif arc6_conversation == "continuer":
+        show jessy neutral at char_left
+        with dissolve
+
+        j "Tu restes, hein ?"
+
+        systeme "Il l'a demandé le 29. Puis le 2. Puis ce soir."
+
+        i "..."
+
+        systeme "Trois fois la même question. Zéro fois l'autre."
+        systeme "Elle a fini par comprendre que ce n'en était pas une : c'est une phrase à laquelle on répond oui."
+
+        hide jessy
+        with dissolve
+    else:
+        # que_veux_tu / aveu_interruptions : il a fait ce qu'il fallait,
+        # une fois, trop tard. La route ne se rachete pas le dernier soir.
+        show jessy neutral at char_left
+        with dissolve
+
+        j "Je vais pas te demander de rester."
+        j "Je voulais juste que tu saches que j'ai compris. Pour les phrases."
+
+        $ renpy.pause(1.2, hard=True)
+
+        systeme "C'est vrai. C'est même la chose la plus juste qu'il ait écrite de toute l'année."
+
+        i "Je sais."
+        i "T'as mis un an, Jessy."
+
+        $ renpy.pause(1.0, hard=True)
+
+        systeme "Ce n'est pas un reproche. C'est une durée."
+        systeme "Les durées, ça ne se rattrape pas en une nuit."
+
+        hide jessy
+        with dissolve
+
+    $ renpy.pause(1.5, hard=True)
+
+    # --- 6 avril : le quai ---
+    scene bg arc6 flash station
+    with fade
+
+    systeme "{i}6 avril.{/i} Quai 3. Elle a un sac. Un seul."
+
+    show theo neutral at char_right
+    show ilona neutral at char_midleft
+    with dissolve
+
+    t "Tu peux encore descendre. Le train part dans quatre minutes."
+    i "Tu me l'as déjà dit trois fois."
+    t "Je le redirai à Tokyo."
+
+    $ renpy.pause(1.2, hard=True)
+
+    i "..."
+    i "C'est reposant."
+
+    systeme "Reposant."
+    systeme "Ce n'est pas le mot qu'on emploie pour quelqu'un. C'est le mot qu'on emploie pour un endroit."
+
+    $ renpy.pause(1.5, hard=True)
+
+    if arc6_gateau_planete == False:
+        systeme "Dans la poche extérieure du sac, il y a une serviette en papier pliée autour d'une part de gâteau bleu nuit. Onze jours. Elle ne l'a toujours pas mangée."
+
+    hide theo
+    with dissolve
+
+    systeme "Sur le quai, personne ne court. Il n'y a personne à qui courir."
+    systeme "Elle sort son téléphone une fois, avant que les portes se ferment. Elle ne compose rien."
+    systeme "Elle vérifie juste s'il s'est passé quelque chose pendant les onze jours."
+
+    $ renpy.pause(1.5, hard=True)
+
+    if controle_repetitif >= 3:
+        systeme "Il s'est passé quelque chose, oui. Mais ça a duré un an, et à chaque fois quelqu'un a fini ses phrases avant elle."
+        systeme "À Nakano, personne ne connaît assez ses phrases pour les finir."
+    else:
+        systeme "Il ne s'est rien passé."
+        systeme "C'est ça qui a décidé."
+
+    hide ilona
+    with dissolve
+
+    scene black
+    with Dissolve(2.0)
+
+    $ renpy.pause(2.0, hard=True)
+
+    jump arc_7_theo
 
 
 # =============================================================================
@@ -1961,17 +2759,44 @@ label arc_6_debug_score:
 #               theo_utilise_une_verite, ilona_veut_streamer_serieusement
 #   locales : arc6_stylo, arc6_offre_theo, arc6_conversation,
 #             arc6_derniere_construction, arc6_flashback,
+#             arc6_penchant_debut, arc6_penchant, arc6_derive,
 #             arc6_mod, arc6_score, arc6_route
 #
 # CHOIX À CONSÉQUENCE
-#   MENU 3 (toit) -> arc6_mod, seul modificateur direct du point de bascule
-#                    (-20 à +25 ; la 5e option n'existe que si le joueur
-#                     a déjà réparé une interruption)
+#   MENUS 1-3 -> arc6_mod (-20 a +35 au total ; la 5e option du toit
+#                  n'existe que si le joueur a deja coupe Ilona ET repare)
 #   MENU 2 (offre Théo) -> autonomie_ilona / influence_theo
 #   MENU 4 (gâteau-planète) -> binaire : elle le mange (5e objet cosmique,
 #                    +1 ilonanium) ou elle le garde entier (aucun point).
 #                    Sans ce point, ending_ilonanium devient inatteignable.
 #   MENU 5 (dernière construction) -> dernier ajustement de l'espace
+#
+# LECTURE DE LA RELATION (une seule mesure pour tout l'arc)
+#   arc6_etat_relation = etat_relation() est FIGÉ une fois, en scène 4,
+#   juste apres qu'Ilona ait pose sa limite. Les scenes 5 (Laplage) et 6
+#   (ouverture du toit) le relisent sans le recalculer : elles se suivent a
+#   quelques heures et ne doivent jamais se contredire.
+#   L'avis chiffre intermediaire (le pouce de Laplage, scene 5) utilise des
+#   seuils DECALES vers le bas, parce qu'il est mesure avant les points encore
+#   gagnables ensuite. Ne pas les remonter a SEUIL_JESSY / SEUIL_ROMANCE :
+#   il annoncerait presque toujours une route plus sombre que la vraie.
+#
+# TRAJECTOIRE (les trois paliers)
+#   arc6_penchant traduit etat_relation() en trois etats narratifs :
+#   proche -> "jessy", fragile -> "indecis", distant -> "theo".
+#   Ce n'est PAS une preference amoureuse : c'est le cout que representent,
+#   pour Ilona, parler ici plutot que se taire ailleurs.
+#   arc6_palier() est appele exactement trois fois :
+#     palier 1 - premiere instruction de l'arc      -> nuances discretes
+#     palier 2 - scene 4, apres la limite d'Ilona   -> perceptible
+#     palier 3 - scene 6, apres le menu du toit     -> net
+#   arc6_derive vaut -1 / 0 / +1 selon que le palier courant est en dessous,
+#   egal ou au-dessus du palier 1. Il sert uniquement a laisser un personnage
+#   remarquer un CHANGEMENT (Laplage en scene 5, Ilona elle-meme au toit)
+#   sans qu'aucun chiffre soit affiche au joueur.
+#   Ne pas ajouter de quatrieme palier ni de metrique parallele : une lecture
+#   concurrente finit toujours par contredire etat_relation() a dix lignes
+#   d'ecart, ce qui donne au joueur l'impression d'un faux embranchement.
 #
 # ASSETS
 #   arc6_bg(nom, secours) teste images/scenes/arc_6/bg_arc6_<nom>.jpg et
@@ -1985,7 +2810,7 @@ label arc_6_debug_score:
 #   enveloppe de Sofiane lue par Allan
 #   secret du maid café
 #   Allan confronte Théo, puis apprend son départ (scène 2.6)
-#   Ilona dit « qu'on me foute la paix » à Jessy ET Théo
+#   Ilona pose sa limite a Jessy ET Theo, avec un ton adapte a la relation
 #   Ilona reprend son projet de stream à son compte
 #   (conditionné : si elle ne l'avait jamais dit, l'arc 6 est la première fois)
 #   Ilona craque (arc5_ilona_a_pleure enfin payé)
@@ -2000,4 +2825,20 @@ label arc_6_debug_score:
 #   ce qu'Ilona a écrit sur la veste d'uniforme de Jessy
 #   le départ de Théo le 6 avril
 #   le 6e objet cosmique (bloc-lune) : à collecter dans arc_7_jessy
+#
+# PONT VERS LA ROUTE THEO (label arc_6_bascule_theo)
+#   arc_6_calcul ne saute plus directement a arc_7_theo : il passe par
+#   arc_6_bascule_theo, qui joue les onze jours du 26 mars au 6 avril.
+#   Raison : le 26 mars Ilona engueule Theo dans le couloir. Sans ce pont,
+#   la bascule est affirmee au debut de arc_7_theo mais jamais jouee.
+#   Principe : asymetrie de reparation. Le grief contre Theo (il cachait,
+#   il pressait) se repare en onze jours par des actes concrets ; le grief
+#   contre Jessy (il parle avant elle) ne se repare pas a distance.
+#   Elle ne part pas VERS Theo : personne d'autre ne redemande.
+#   Le pont NE MODIFIE AUCUNE VARIABLE et ne propose aucun choix. La porte
+#   est deja fermee par arc_6_calcul. Variantes lues : arc6_offre_theo
+#   (28 mars), arc6_conversation (5 avril), arc6_penchant et
+#   controle_repetitif (6 avril), arc6_gateau_planete (le sac).
+#   Pas d'equivalent cote Jessy : arc_7_jessy ouvre plusieurs mois plus tard,
+#   sans echeance en attente, donc l'ellipse y est admise.
 # =============================================================================

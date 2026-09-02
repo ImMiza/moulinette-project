@@ -24,8 +24,8 @@ image ilona beach neutral = speaker_sprite("ilona", "images/personnages/Ilona/be
 image ilona beach sad = speaker_sprite("ilona", "images/personnages/Ilona/beach/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona beach smile = speaker_sprite("ilona", "images/personnages/Ilona/beach/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
-image theo beach neutral = speaker_sprite("theo", "images/personnages/Théo/beach/neutral.png")
-image theo beach reassuring = speaker_sprite("theo", "images/personnages/Théo/beach/reassuring_smile.png")
+image theo beach neutral = speaker_sprite("theo", "images/personnages/Théo/beach/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo beach reassuring = speaker_sprite("theo", "images/personnages/Théo/beach/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
 
 image allan beach doubt = speaker_sprite("allan", "images/personnages/Allan/beach/throughtful_doubt.png")
 image allan beach neutral = speaker_sprite("allan", "images/personnages/Allan/beach/neutral.png")
@@ -50,7 +50,6 @@ default arc2_photo_reaction = ""
 default arc2_choix_activite_theo = ""
 default arc2_reaction_coucher = ""
 default arc2_retour_minecraft = ""
-default arc2_scene_laplage = False
 
 
 label arc_2_plage:
@@ -244,7 +243,7 @@ label arc_2_plage:
 
     #ambiance foule
     play sound audio.footSand volume 0.6
-    play ambiant1 audio.foule volume 0.4
+    play ambiant1 audio.foule volume 0.4 loop
     scene bg arc2 kakigori counter
     with fade
     show ilona beach neutral at char_left
@@ -304,6 +303,7 @@ label arc_2_plage:
             $ lien_jessy_ilona += 2
             j "Merci. Vraiment."
             t "De rien."
+            show jessy beach happy at char_midleft
             systeme "Théo sourit. Jessy aussi."
             systeme "Mais le sourire de Jessy travaille déjà. Il vient d'accepter de ne pas être celui qui répare."
             systeme "C'est mature. Mais ça lui coûte plus qu'il ne le montre."
@@ -326,6 +326,8 @@ label arc_2_plage:
             $ pression_stream += 2
             $ evitements += 1
             j "Bon. Le sable est officiellement innocent."
+            show ilona beach neutral at char_left
+            show theo beach neutral at char_midright
             systeme "La blague tombe plate. Personne ne rit."
             i "Jessy..."
             systeme "Elle le regarde comme si elle venait de voir quelque chose se fissurer."
@@ -336,10 +338,13 @@ label arc_2_plage:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
+            show ilona beach neutral at char_left
+            show theo beach neutral at char_midright
             systeme "Jessy ne dit rien. La phrase reste coincée dans sa gorge."
             systeme "Ilona attend une réponse qui ne vient pas. Puis elle range le porte-clés."
             systeme "Théo observe le silence. Il le note."
 
+    show jessy beach embarrassed at char_midleft
     systeme "Ils retournent vers les autres avec le porte-clés retrouvé."
     systeme "Allan parle d'une boisson renversée, Alexandre accuse le vent, mais Jessy voit bien qu'Ilona tient encore le porte-clés comme si c'était Théo qui le lui avait offert."
     if jalousie >= 6:
@@ -352,12 +357,13 @@ label arc_2_plage:
     play sound audio.footSand volume 0.6
 
     scene bg arc2 beach main
-    with fade
     show allan beach neutral at char_left
     show alex beach grin at char_midleft
     show jessy beach neutral at char_center
     show ilona beach smile at char_midright
     show theo beach neutral at char_right
+    with fade
+    play ambiant1 audio.wave volume 0.4 loop fadein 2.0
 
     play sound audio.photo volume 0.6
     systeme "Quand le groupe prend une photo, Allan recule trop vite pour cadrer. Tout le monde se décale."
@@ -376,18 +382,17 @@ label arc_2_plage:
             $ confiance -= 1
             $ pression_stream += 1
             $ evitements += 1
+            show jessy beach embarrassed at char_center
+            show ilona beach neutral at char_midright
             systeme "Jessy regarde la photo. Ne dit rien."
             systeme "La phrase reste dans sa gorge. Elle n'y gagne pas en légèreté."
             systeme "Ilona range le téléphone. Elle a senti le silence."
 
         "Proposer de refaire la photo, avec légèreté.":
             $ arc2_photo_reaction = "refaire_doux"
-            $ autonomie_ilona -= 2
-            $ confiance -= 2
-            $ influence_theo += 1
-            $ jalousie += 3
-            $ lien_jessy_ilona -= 1
-            $ controles += 1
+            $ communication += 1
+            $ jalousie += 1
+            show jessy beach embarrassed at char_center
             j "On en refait une où je suis moins exilé ?"
             i "Oui."
             t "Bonne idée."
@@ -412,8 +417,10 @@ label arc_2_plage:
             $ lien_jessy_ilona += 2
             j "Elle est bien. Tu souris vraiment, sur celle-là."
             i "Oui."
+            show ilona beach embarrassed at char_midright
             systeme "Ilona le regarde, surprise par la simplicité de la réponse."
             i "Merci."
+            show ilona beach smile at char_midright
             systeme "Jessy a choisi la confiance. Mais il voit bien qu'Ilona sourit près de Théo."
             systeme "Le compliment était sincère. La blessure aussi."
 
@@ -452,6 +459,7 @@ label arc_2_plage:
     t "Je sais. Désolé. Je voulais juste—"
     a "Oui. Je sais ce que tu voulais. Ralentis."
     systeme "Allan dit ça sans agressivité, mais le message est clair."
+    show theo beach reassuring at char_right
     systeme "Théo hoche la tête. Il sourit même. Mais son sourire ne monte pas jusqu'aux yeux."
     t "T'as raison. Pardon, Ilona."
     i "C'est bon."
@@ -459,7 +467,7 @@ label arc_2_plage:
     hide allan
     with dissolve
 
-    play sound audio.footSand 
+    play sound audio.footSand
     # music plage soir
     play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
     play ambiant1 audio.wave volume 0.4 loop fadein 3.0
@@ -479,7 +487,7 @@ label arc_2_plage:
     systeme "Elle le regarde. Pas pour demander la permission. Pour vérifier s'il va exploser ou se taire."
     if jalousie >= 6:
         systeme "Depuis le porte-clés, la photo, les regards, Jessy sent que quelque chose est en train de lui échapper."
-    elif jalousie == 1:
+    elif jalousie > 0:
         systeme "Jessy a déjà ressenti cette pointe aujourd'hui. Elle revient, plus aiguë."
     else:
         systeme "Jessy ne pensait pas que ça ferait aussi mal."
@@ -542,6 +550,7 @@ label arc_2_plage:
             j "Ouais, vas-y. Je vais surveiller le sable."
             i "Jessy."
             j "Quoi ? C'était une blague."
+            show ilona beach frustrated at char_center
             i "Non. C'était une pique."
             systeme "Théo se lève sans attendre."
             t "On y va ?"
@@ -577,6 +586,8 @@ label arc_2_plage:
             $ pression_stream += 3
             $ evitements += 1
             j "Faites ce que vous voulez."
+            hide jessy
+            with dissolve
             play music audio.sadPiano fadeout 1.0 fadein 2.0 loop volume 0.7
             i "Jessy—"
             systeme "Il est déjà parti. Il entend son prénom, mais il continue de marcher."
@@ -640,6 +651,7 @@ label arc_2_plage:
         t "Si. Je fais ça trop souvent. Je crois savoir ce que les gens veulent avant qu'ils finissent."
         systeme "Il marque une pause. Puis il sourit, comme s'il venait de se dévoiler."
         t "Avec toi, j'aimerais juste... écouter."
+        show ilona beach embarrassed at char_left
         systeme "Ilona rougit. Elle détourne les yeux vers l'eau."
 
         if arc2_choix_activite_theo == "blague_jalouse":
@@ -648,6 +660,7 @@ label arc_2_plage:
             t "Il a peur."
             i "De quoi ?"
             t "De moi, probablement."
+            show theo beach neutral at char_right
             systeme "Théo dit ça sans sourire. Juste comme un fait."
             i "Pourquoi il aurait peur de toi ?"
             t "Parce qu'il sait que je te comprends."
@@ -726,6 +739,7 @@ label arc_2_plage:
     else:
         show ilona beach sad at char_left
         show theo beach neutral at char_right
+        with dissolve
 
         systeme "Jessy est parti sans répondre. Ilona reste là, son gobelet à la main."
         t "Il a juste peur."
@@ -762,15 +776,21 @@ label arc_2_plage:
 
     play sound audio.footSand volume 0.6
     play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
+    if arc2_choix_activite_theo == "suivre":
+        play ambiant1 audio.wave volume 0.4 loop fadein 2.0
     scene bg arc2 lost items table
+    if arc2_choix_activite_theo == "suivre":
+        show ilona beach frustrated at char_left
+    elif arc2_choix_activite_theo == "disparaitre":
+        show ilona beach sad at char_left
+    else:
+        show ilona beach neutral at char_left
     with fade
-    show ilona beach neutral at char_left
 
     $ renpy.pause(0.5, hard=True)
     play sound audio.laplage volume 0.6
     show laplage neutral at char_center
     with dissolve
-    $ arc2_scene_laplage = True
     $ jugement_laplage += 1
 
     systeme "Sur le chemin du retour, une petite table est installée près de la jetée. Un panneau penché indique : OBJETS TROUVÉS."
@@ -808,6 +828,9 @@ label arc_2_plage:
     with dissolve
 
     systeme "Ilona reste encore quelques secondes devant la table. Rien n'a été résolu, mais la question a cessé de courir."
+
+    if arc2_choix_activite_theo in ("suivre", "disparaitre"):
+        show ilona beach neutral at char_left
 
     show allan beach neutral at char_midright
     with dissolve
@@ -883,9 +906,11 @@ label arc_2_plage:
         x "Elle va pas te pardonner ça facilement."
         j "Je sais."
         x "Alors pourquoi t'as fait ça ?"
+        show jessy beach angry at char_left
         j "Parce que j'ai paniqué, bordel !"
         with hpunch
         systeme "Alexandre recule d'un pas. Jessy vient de crier."
+        show jessy beach embarrassed at char_left
     else:
         x "Allan est convaincu que Monsieur Laplage possède légalement le sable."
         j "Quoi ?"
@@ -953,8 +978,10 @@ label arc_2_plage:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
+            show jessy beach listening at char_left
             show ilona beach sad at char_right
             systeme "Jessy ouvre la bouche. Aucun mot ne vient."
+            $ renpy.pause(2.0)
             systeme "Ilona attend. Cinq secondes. Dix. Vingt."
             i "T'as rien à dire ?"
             systeme "Jessy secoue la tête."
@@ -1054,9 +1081,8 @@ label arc_2_plage:
             i "Si je voulais être avec Théo, je serais avec Théo."
             systeme "Le silence qui suit est lourd. Parce qu'elle vient de dire qu'elle pourrait."
 
-    if arc2_scene_laplage:
-        systeme "Au loin, la table des objets trouvés ferme à la tombée du jour."
-        systeme "Certaines choses se retrouvent. D'autres restent perdues un peu plus longtemps."
+    systeme "Au loin, la table des objets trouvés ferme à la tombée du jour."
+    systeme "Certaines choses se retrouvent. D'autres restent perdues un peu plus longtemps."
 
     hide jessy
     hide ilona

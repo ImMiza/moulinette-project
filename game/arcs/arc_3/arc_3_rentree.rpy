@@ -3,9 +3,45 @@
 
 image bg arc3 festival hallway = im.Scale("images/scenes/arc_3/bg_arc3_festival_hallway.jpg", 1920, 1080)
 image bg arc3 festival stand = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand.jpg", 1920, 1080)
+image bg arc3 festival stand students = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand_with_students.jpg", 1920, 1080)
 image bg arc3 festival courtyard = im.Scale("images/scenes/arc_3/bg_arc3_festival_courtyard.jpg", 1920, 1080)
 image bg arc3 classroom evening = im.Scale("images/scenes/arc_3/bg_arc3_classroom_evening.jpg", 1920, 1080)
 image bg arc3 minecraft night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+
+image jessy festival neutral = speaker_sprite("jessy", "images/personnages/Jessy/festival/neutral_attentiveness.png")
+image jessy festival listening = speaker_sprite("jessy", "images/personnages/Jessy/festival/regretful_listening.png")
+image jessy festival embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/festival/nervous_embarrassment.png")
+image jessy festival smile = speaker_sprite("jessy", "images/personnages/Jessy/festival/shy_warm_smile.png")
+image jessy festival determined = speaker_sprite("jessy", "images/personnages/Jessy/festival/vulnerable_determination.png")
+image jessy festival angry = speaker_sprite("jessy", "images/personnages/Jessy/festival/angry.png")
+
+image ilona festival fatigue = speaker_sprite("ilona", "images/personnages/Ilona/festival/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona festival frustrated = speaker_sprite("ilona", "images/personnages/Ilona/festival/frustrated_restraint.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona festival neutral = speaker_sprite("ilona", "images/personnages/Ilona/festival/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona festival smile = speaker_sprite("ilona", "images/personnages/Ilona/festival/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona festival determined = speaker_sprite("ilona", "images/personnages/Ilona/festival/clear_determination.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona festival sad = speaker_sprite("ilona", "images/personnages/Ilona/festival/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+
+image theo festival annoyed = speaker_sprite("theo", "images/personnages/Théo/festival/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo festival neutral = speaker_sprite("theo", "images/personnages/Théo/festival/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo festival reassuring = speaker_sprite("theo", "images/personnages/Théo/festival/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo festival disappointed = speaker_sprite("theo", "images/personnages/Théo/festival/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo festival defensive = speaker_sprite("theo", "images/personnages/Théo/festival/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo festival smirk = speaker_sprite("theo", "images/personnages/Théo/festival/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+
+image allan festival doubt = speaker_sprite("allan", "images/personnages/Allan/festival/throughtful_doubt.png")
+image allan festival neutral = speaker_sprite("allan", "images/personnages/Allan/festival/neutral.png")
+image allan festival smirk = speaker_sprite("allan", "images/personnages/Allan/festival/playful_smirk.png")
+image allan festival support = speaker_sprite("allan", "images/personnages/Allan/festival/quiet_support.png")
+image allan festival silence = speaker_sprite("allan", "images/personnages/Allan/festival/uncomfortable_silence.png")
+
+image alex festival grin = speaker_sprite("alex", "images/personnages/Alexandre/festival/playful_grin.png")
+image alex festival teasing = speaker_sprite("alex", "images/personnages/Alexandre/festival/teasing_skepticism.png")
+image alex festival awkward = speaker_sprite("alex", "images/personnages/Alexandre/festival/akward_realization.png")
+image alex festival concerned = speaker_sprite("alex", "images/personnages/Alexandre/festival/concerned_look.png")
+
+image laplage festival neutral = speaker_sprite("laplage", "images/personnages/laplage/festival/neutral.png")
+image laplage festival thumb_up = speaker_sprite("laplage", "images/personnages/laplage/festival/thumb_up.png")
 
 default arc3_reaction_rumeur = ""
 default arc3_aide_stand = ""
@@ -34,6 +70,8 @@ label arc_3_rentree:
     show ilona neutral at char_right
 
     if arc2_reaction_coucher in ("silence", "interrogatoire") or arc2_choix_activite_theo in ("suivre", "disparaitre"):
+        show jessy listening at char_left
+        show ilona fatigue at char_right
         systeme "Depuis la plage, leurs messages ont continué."
         systeme "Pas froids. Pas vraiment proches non plus."
         i "Tu as fini par retrouver ta serviette ?"
@@ -41,18 +79,24 @@ label arc_3_rentree:
         i "C'est bien."
         systeme "Le silence qui suit n'est pas méchant. Il sait seulement trop bien où s'installer."
     elif arc2_choix_activite_theo == "confiance":
+        show jessy smile at char_left
+        show ilona smile at char_right
         i "J'ai encore du sable dans mes chaussures."
         j "Depuis juillet ?"
         i "C'est un sable engagé."
         j "Je respecte son implication."
         systeme "Ils rient doucement. La plage n'a pas disparu, mais elle ne prend pas toute la place."
     elif arc2_choix_activite_theo == "dix_minutes":
+        show jessy embarrassed at char_left
+        show ilona embarrassed at char_right
         i "Tu es revenu, ce jour-là."
         j "Oui."
         i "Je crois que j'y ai repensé plus que je voulais."
         j "Moi aussi."
         systeme "La phrase reste entre eux, pas lourde, pas légère. Présente."
     else:
+        show jessy smile at char_left
+        show ilona smile at char_right
         i "La rentrée devrait être interdite avant midi."
         j "L'école entière ?"
         i "Surtout l'école entière."
@@ -70,6 +114,7 @@ label arc_3_rentree:
     a "Il y aura des horaires, des listes et Alexandre avec des idées de portes inutiles."
     j "On est condamnés."
 
+    show jessy embarrassed at char_left
     if jalousie >= 6:
         systeme "Le prénom de Théo accroche Jessy un peu plus fort qu'il ne voudrait."
     elif souvenirs["jessy_nomme_sa_peur"]:
@@ -77,6 +122,8 @@ label arc_3_rentree:
     else:
         systeme "Le prénom de Théo passe dans la conversation. Il ne devrait pas changer l'air du wagon. Il le change quand même."
 
+    show jessy neutral at char_left
+    show ilona smile at char_right
     i "On aide quel jour ?"
     a "Toute la semaine après les cours. Le thème n'est pas encore fixé."
     i "Alors je propose Blocky House Café."
@@ -90,6 +137,7 @@ label arc_3_rentree:
     $ lien_jessy_ilona += 1
 
     systeme "Ilona dit ça simplement, sans demander la permission à personne."
+    show jessy embarrassed at char_left
     systeme "Jessy devrait seulement être heureux de reconnaître leur souvenir dans sa voix."
     systeme "Il l'est."
     systeme "Et il remarque quand même que Théo va aider à construire ce souvenir avec eux."
@@ -99,14 +147,13 @@ label arc_3_rentree:
     hide jessy
     hide ilona
     with dissolve
-    stop ambiant1 fadeout 1.0
     play music audio.festi volume 0.7 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 festival hallway
     with fade
-    show jessy neutral at char_left
-    show alex grin at char_midleft
-    show allan smirk at char_midright
-    show ilona smile at char_right
+    show jessy festival neutral at char_left
+    show alex festival grin at char_midleft
+    show allan festival smirk at char_midright
+    show ilona festival smile at char_right
 
     systeme "Le lendemain, le couloir du deuxième étage ressemble déjà à un chantier qui a perdu son responsable légal."
     x "J'ai dessiné un plan."
@@ -116,7 +163,7 @@ label arc_3_rentree:
     a "Je rappelle que les visiteurs doivent pouvoir acheter du café sans résoudre une énigme immobilière."
     x "Tu manques de foi dans le public."
 
-    show theo reassuring at char_center
+    show theo festival reassuring at char_center
     with dissolve
 
     t "Si vous mettez la caisse ici, les gens bloqueront la porte."
@@ -135,12 +182,12 @@ label arc_3_rentree:
     with dissolve
     #music ecole + ambience foule
     play music audio.festiMC loop volume 0.7 fadeout 1.0 fadein 1.0
-    play sound audio.foule loop volume 0.4 fadein 1.5
+    play ambiant1 audio.foule loop volume 0.4 fadein 1.5
     scene bg arc3 festival stand
     with fade
-    show jessy neutral at char_left
-    show ilona smile at char_center
-    show theo neutral at char_right
+    show jessy festival neutral at char_left
+    show ilona festival smile at char_center
+    show theo festival neutral at char_right
 
     systeme "Trois jours plus tard, après les cours, Ilona colle les menus sur le panneau du stand."
     systeme "Le Blocky House Café a survécu aux réunions, ce qui tient presque du miracle."
@@ -158,7 +205,8 @@ label arc_3_rentree:
     systeme "« Ouais. Apparemment Jessy regardait ailleurs. Pathétique. »"
     systeme "« Elle va le larguer ou juste le faire attendre ? »"
 
-    show ilona fatigue at char_center
+    show ilona festival fatigue at char_center
+    show jessy festival embarrassed at char_left
     $ renpy.pause(0.8, hard=True)
 
     systeme "La colle continue de sécher. Le pinceau de Théo s'immobilise au-dessus du panneau."
@@ -180,8 +228,9 @@ label arc_3_rentree:
             $ ilona_peut_finir_ses_phrases += 1
             $ pression_stream = max(0, pression_stream - 2)
             systeme "Jessy se tourne vers Ilona. Pas vers les élèves."
+            show jessy festival listening at char_left
             j "Tu veux que je dise quelque chose ?"
-            show ilona neutral at char_center
+            show ilona festival determined at char_center
             systeme "Ilona serre le panneau dans ses mains."
             i "Non."
             i "Ils veulent une réaction. Je refuse de leur donner."
@@ -189,6 +238,7 @@ label arc_3_rentree:
             systeme "Théo observe la scène. Il note que Jessy a écouté."
             t "Bonne décision."
             systeme "Ilona tourne la tête vers Théo."
+            show ilona festival frustrated at char_center
             i "Je n'ai pas demandé ton avis."
             systeme "Théo cligne des yeux. Surpris. Puis il baisse le regard vers son pinceau."
             t "Pardon."
@@ -200,6 +250,7 @@ label arc_3_rentree:
             $ pression_stream += 2
             $ evitements += 1
             $ arc3_rumeur_aggravee = True
+            show jessy festival embarrassed at char_left
             systeme "Jessy baisse les yeux sur les menus."
             systeme "Il pourrait parler. Il devrait peut-être."
             systeme "Mais la honte lui coupe les jambes."
@@ -215,10 +266,11 @@ label arc_3_rentree:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
+            show jessy festival angry at char_left
             j "Hé."
             systeme "Les deux élèves se retournent."
             j "Si vous voulez inventer une histoire, au moins ayez le courage de la dire en face."
-            show ilona neutral at char_center
+            show ilona festival frustrated at char_center
             systeme "Ilona pose la main sur son bras."
             i "Jessy..."
             j "Quoi ? Ils parlent de toi comme si t'étais un trophée."
@@ -232,19 +284,22 @@ label arc_3_rentree:
         "Faire une blague pour désamorcer.":
             $ arc3_reaction_rumeur = "blague_desarm"
             $ lien_jessy_ilona += 4
+            show jessy festival embarrassed at char_left
             j "Techniquement, je suis surtout en train d'hésiter entre fuir et m'enterrer sous les menus."
             systeme "Ilona le regarde. Puis elle souffle un petit rire."
-            show ilona smile at char_center
+            show ilona festival smile at char_center
             i "Option trois : finir les panneaux et ignorer les cons."
             j "Validé."
             systeme "La blague a marché. Mais Jessy voit bien qu'Ilona sourit un peu trop fort."
             systeme "Ils viennent d'éviter la confrontation. Pas la blessure."
+    show ilona festival fatigue at char_center
     systeme "Théo reprend le pinceau. Son regard reste sur Ilona."
     t "Ils sont bêtes."
     i "..."
     systeme "Ilona ne répond pas tout de suite. Elle colle le panneau. Théo attend."
     t "Mais ils voient quand même qu'on te met une pression que tu n'as pas demandée."
     systeme "Ilona s'arrête. Elle le regarde."
+    show ilona festival frustrated at char_center
     i "..."
     systeme "Elle devrait le remettre à sa place. Elle le sait."
     systeme "Mais une partie d'elle entend ce qu'il dit. Et cette partie-là est fatiguée de devoir tout gérer seule."
@@ -270,13 +325,13 @@ label arc_3_rentree:
     with dissolve
     #music festival + ambience foule volume high
     play music audio.festiMC loop volume 0.7 fadeout 1.0 fadein 1.0
-    play sound audio.foule loop volume 0.4 fadein 1.5
-    scene bg arc3 festival stand
+    play ambiant1 audio.foule loop volume 0.4 fadein 1.5
+    scene bg arc3 festival stand students
     with fade
-    show jessy neutral at char_left
-    show ilona smile at char_midleft
-    show theo neutral at char_midright
-    show allan neutral at char_right
+    show jessy festival neutral at char_left
+    show ilona festival smile at char_midleft
+    show theo festival neutral at char_midright
+    show allan festival neutral at char_right
 
     systeme "Le jour du festival arrive avec une file beaucoup trop longue pour un café monté par des lycéens fatigués."
     systeme "Allan prend les commandes. Théo gère la circulation. Ilona ajuste les panneaux du thème qu'elle a choisi."
@@ -285,11 +340,12 @@ label arc_3_rentree:
     t "La porte inutile est en pause."
     systeme "Allan s'arrête. Il regarde Théo."
     systeme "Théo vient de répondre à la place d'Ilona. Encore."
+    show allan festival silence at char_right
     a "... Oui. Ça."
     systeme "Allan ne dit rien de plus. Mais quelque chose vient de se fissurer dans sa neutralité."
     systeme "Le client accepte cette réponse avec une inquiétante facilité."
 
-    show alex teasing at char_center
+    show alex festival teasing at char_center
     with dissolve
 
     x "Je confirme : le public respecte l'architecture narrative."
@@ -306,7 +362,7 @@ label arc_3_rentree:
     x "Non mais elle est {i}bonne{/i}. Genre la queue est beaucoup trop longue et les gens restent quand même."
     a "Ilona, t'as déjà pensé à faire ça ailleurs qu'à un stand de café ?"
 
-    show ilona neutral at char_midleft
+    show ilona festival neutral at char_midleft
     with dissolve
 
     i "Faire quoi ?"
@@ -317,7 +373,7 @@ label arc_3_rentree:
 
     a "Reçu chef."
 
-    show ilona smile at char_midleft
+    show ilona festival smile at char_midleft
     with dissolve
 
     systeme "Puis la file s'allonge, les rumeurs reviennent par fragments, et chaque déplacement met quelqu'un trop près ou trop loin de quelqu'un d'autre."
@@ -336,11 +392,12 @@ label arc_3_rentree:
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
             $ remember("jessy_nomme_sa_peur")
+            show jessy festival determined at char_left
             j "Je suis jaloux."
             systeme "Ilona lève les yeux. Théo arrête de bouger."
             j "Voilà. C'est dit, c'est moche, et je ne veux pas te le jeter dessus."
             j "Je vais aider au couloir dix minutes. Je reviens."
-            show ilona neutral at char_midleft
+            show ilona festival neutral at char_midleft
             i "D'accord."
             systeme "Elle ne sourit pas. Mais elle le regarde comme si elle venait de voir quelque chose de vrai."
             i "Reviens vraiment."
@@ -354,7 +411,7 @@ label arc_3_rentree:
             $ confiance += 2
             $ pression_stream = max(0, pression_stream - 2)
             j "Dis-moi où tu as besoin de moi."
-            show ilona smile at char_midleft
+            show ilona festival smile at char_midleft
             i "La caisse déborde. Prends les commandes avec Allan."
             j "Reçu."
             systeme "Jessy s'éloigne de deux mètres. Chaque mètre pique. Il le fait quand même."
@@ -367,9 +424,10 @@ label arc_3_rentree:
             $ communication += 2
             $ confiance += 2
             $ pression_stream = max(0, pression_stream - 2)
+            show jessy festival determined at char_left
             j "J'ai l'impression de te perdre dans une pièce où je suis juste à côté de toi."
             systeme "Théo s'écarte légèrement. Ilona pose son panneau."
-            show ilona neutral at char_midleft
+            show ilona festival neutral at char_midleft
             j "Dis-moi si je deviens fou."
             i "Tu ne deviens pas fou."
             $ renpy.pause(0.8, hard=True)
@@ -387,10 +445,12 @@ label arc_3_rentree:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
+            show jessy festival angry at char_left
             j "Je peux mettre une pancarte : « attention, rivalité servie avec supplément malaise » ?"
-            show ilona frustrated at char_midleft
+            show ilona festival frustrated at char_midleft
             i "Tu crois vraiment que j'avais besoin de ça ?"
             systeme "Jessy ouvre la bouche. La referme."
+            show theo festival defensive at char_midright
             t "Si tu veux faire rire, choisis une cible qui peut répondre."
             j "Merci, professeur."
             systeme "La phrase de Jessy part sèchement. Elle ne fait pas rire."
@@ -404,8 +464,8 @@ label arc_3_rentree:
     play music audio.festi volume 0.7 fadeout 1.0 fadein 1.0 loop
     scene bg arc3 festival hallway
     with fade
-    show allan doubt at char_left
-    show alex grin at char_midleft
+    show allan festival doubt at char_left
+    show alex festival grin at char_midleft
 
     systeme "En milieu d'après-midi, Allan et Alexandre se retrouvent au bout du couloir avec une caisse de gobelets et une enquête qui n'a demandé l'autorisation de personne."
 
@@ -452,7 +512,7 @@ label arc_3_rentree:
     play ambiant1 audio.foule loop volume 0.6 fadein 1.5
     scene bg arc3 festival courtyard
     with fade
-    show ilona fatigue at char_left
+    show ilona festival fatigue at char_left
 
     systeme "Un peu plus tard, Ilona quitte le stand avec un plateau vide."
     systeme "Elle a dit qu'elle allait rapporter des serviettes."
@@ -469,7 +529,7 @@ label arc_3_rentree:
     #laplage 
     $ renpy.pause(0.5, hard=True)
     play sound audio.laplage volume 0.6
-    show laplage neutral at char_center
+    show laplage festival neutral at char_center
     with dissolve
 
     # Ilona ne se confie a Laplage que si personne d'autre ne la laisse finir.
@@ -490,10 +550,12 @@ label arc_3_rentree:
     systeme "Elle s'arrête. Cherche le mot."
     play music audio.sadPiano fadeout 1.0 fadein 0.5 loop volume 0.7
     stop ambiant1 fadeout 1.5
+    show ilona festival frustrated at char_left
     i "Je suis en colère."
     laplage "Contre qui ?"
     i "Jessy. Les gens. Moi."
     systeme "Elle serre son plateau."
+    show ilona festival sad at char_left
     i "Et Théo... quand Théo est gentil, ça..."
     systeme "Elle ne finit pas. Elle ne sait pas comment finir."
     i "Ça me repose. Et après je m'en veux."
@@ -511,20 +573,20 @@ label arc_3_rentree:
     laplage "Elles font surtout du bruit."
     i "Et si celle dans ma tête crie aussi ?"
     laplage "Alors mange un takoyaki avant de lui répondre."
-    show laplage thumb_up at char_center
+    show ilona festival fatigue at char_left
+    show laplage festival thumb_up at char_center
     laplage "Un cœur vide prend de mauvaises décisions."
-    show laplage neutral at char_center
+    show laplage festival neutral at char_center
 
     i "C'est frustrant, vos phrases."
     laplage "C'est offert avec la sauce."
     i "Je ne voulais pas une réponse toute faite."
     laplage "Alors excellent service."
 
-    hide laplage
-    with dissolve
-
     systeme "Quand Ilona se retourne, le stand de takoyaki est toujours là."
     systeme "Monsieur Laplage, lui, discute maintenant avec une cliente qui jure qu'il était au stand de tir il y a trente secondes."
+    hide laplage
+    with dissolve
     systeme "Ilona respire une fois, puis reprend le chemin du café."
 
     #music festival
@@ -532,7 +594,7 @@ label arc_3_rentree:
     stop music fadeout 3.0
     scene bg arc3 festival hallway
     with fade
-    show jessy neutral at char_left
+    show jessy festival neutral at char_left
 
     if arc3_aide_stand == "distance_honnete":
         systeme "Jessy revient du couloir avec une pile de serviettes et dix minutes vraiment tenues."
@@ -547,7 +609,7 @@ label arc_3_rentree:
         systeme "Jessy a essayé de redevenir utile après sa blague."
         systeme "Le problème, c'est qu'une phrase maladroite continue souvent à travailler même quand les mains font autre chose."
 
-    show theo neutral at char_right
+    show theo festival neutral at char_right
     with dissolve
 
     t "Elle est sortie prendre l'air."
@@ -576,9 +638,11 @@ label arc_3_rentree:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
+            show jessy festival embarrassed at char_left
             systeme "Jessy serre la mâchoire."
             systeme "Il pourrait répondre. Il a même trois phrases prêtes, toutes trop violentes, toutes un peu vraies."
             systeme "Théo le regarde se retenir. Puis il sourit. Pas beaucoup. Juste assez."
+            show theo festival smirk at char_right
             t "Tu vois ? Même là, tu préfères qu'elle devine."
             systeme "Jessy ne bouge pas."
             t "Et tu sais ce qui est drôle ?"
@@ -597,10 +661,11 @@ label arc_3_rentree:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
+            show jessy festival determined at char_left
             j "Oui."
             j "Parfois je l'écoute mal parce que j'ai peur."
             j "Mais toi, tu l'écoutes comme si chaque silence était une place à prendre."
-            show theo neutral at char_right
+            show theo festival annoyed at char_right
             t "Tu dis ça parce que ça t'arrange de me voir comme le problème."
             j "Non."
             j "Je dis ça parce que tu attends toujours le moment où j'ai honte pour devenir indispensable."
@@ -612,10 +677,11 @@ label arc_3_rentree:
             $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
             $ pression_stream = max(0, pression_stream - 2)
+            show jessy festival determined at char_left
             j "J'ai envie de te répondre."
             j "J'ai très envie."
             j "Mais ce serait encore deux gars qui règlent leur fierté sur son dos."
-            show theo neutral at char_right
+            show theo festival disappointed at char_right
             t "C'est pratique, la morale, quand on perd l'avantage."
             j "Ce n'est pas de la morale."
             j "C'est moi qui essaie de ne pas devenir exactement ce que tu attends."
@@ -628,8 +694,9 @@ label arc_3_rentree:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
+            show jessy festival angry at char_left
             j "Tu préparais cette phrase depuis combien de temps ?"
-            show theo annoyed at char_right
+            show theo festival annoyed at char_right
             t "Depuis que je t'ai vu la regarder comme si elle te devait une preuve."
             j "Et toi, depuis quand tu fais semblant de l'aider alors que tu veux juste être celui qu'elle choisit quand elle est fatiguée ?"
             t "Attention, Jessy."
@@ -644,6 +711,7 @@ label arc_3_rentree:
     hide theo
     with dissolve
 
+    show jessy festival listening at char_left
     systeme "Théo s'éloigne. Jessy reste seul dans le couloir."
     systeme "Ses mains tremblent. Pas de colère. D'épuisement."
     play music audio.sadPiano fadein 1.0 loop volume 0.7
@@ -679,7 +747,7 @@ label arc_3_rentree:
     systeme "Sofiane repart sans attendre de réponse."
     systeme "Jessy reste seul avec sa cannette et une phrase qui pèse moins lourd que la colère."
 
-    show ilona neutral at char_right
+    show ilona festival neutral at char_right
     with dissolve
 
     systeme "Ilona revient avec les serviettes, même si personne ne sait très bien quand elle les a récupérées."
@@ -696,6 +764,7 @@ label arc_3_rentree:
     i "Très."
 
     systeme "Elle serre les serviettes contre elle, puis regarde Jessy, puis l'endroit où Théo était encore une seconde plus tôt."
+    show ilona festival fatigue at char_right
     i "Vous vous êtes disputés ?"
     j "Pas vraiment."
     i "Jessy."
@@ -712,16 +781,20 @@ label arc_3_rentree:
     i "Je l'ai proposée parce que je pensais à nous."
     i "Et maintenant, quand je regarde les panneaux, j'ai l'impression que tout le monde a mis ses doigts dans un souvenir qui n'était pas à eux."
     if jalousie >= 9 or arc3_reaction_rumeur == "silence_paralysie" or arc3_aide_stand == "blague_defense":
+        show ilona festival frustrated at char_right
         i "Je suis en colère contre toi."
         i "Je suis aussi contente quand tu me cherches dans une foule."
     elif jalousie >= 3 or arc3_reaction_rumeur == "defendre_immediat":
+        show ilona festival frustrated at char_right
         i "Je suis frustrée."
         i "Parce que tu fais des efforts, mais parfois tes efforts ressemblent à de la surveillance."
         i "Et je suis aussi contente quand tu me cherches dans une foule."
     else:
+        show ilona festival sad at char_right
         i "Je suis perdue."
         i "Tu essaies de me laisser respirer, et ça me rassure."
         i "Mais en même temps, ça me fait peur que tu recules trop loin."
+    show ilona festival sad at char_right
     i "Et je déteste que Théo remarque quand je fatigue, parce qu'une partie de moi trouve ça agréable."
     i "Voilà. Ce n'est pas propre. Ce n'est pas une belle réponse."
     i "Mais c'est ce que j'ai."
@@ -736,11 +809,12 @@ label arc_3_rentree:
             $ ilona_peut_finir_ses_phrases += 1
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
+            show jessy festival determined at char_left
             j "Je ne peux pas faire semblant que ça ne me tue pas un peu."
             j "Quand tu ris avec lui, quand il voit ce que je rate, quand tu reviens avec cet air que je ne sais plus lire..."
             j "Je déteste ça."
             j "Mais je t'aime assez pour ne pas transformer cette haine en laisse."
-            show ilona smile at char_right
+            show ilona festival smile at char_right
             i "C'est la première phrase honnête qui ne me demande pas de te sauver."
             j "Je ne sais pas si je vais réussir tout le temps."
             i "Je ne te demande pas d'être parfait."
@@ -757,7 +831,7 @@ label arc_3_rentree:
             if interruptions_ilona > interruptions_reconnues:
                 $ interruptions_reconnues += 1
                 $ interruptions_reparees += 1
-            show jessy listening at char_left
+            show jessy festival listening at char_left
             if arc3_aide_stand == "blague_defense" or arc3_reaction_rumeur == "blague_desarm":
                 j "Désolé pour la blague. Et pour les silences."
             else:
@@ -777,14 +851,16 @@ label arc_3_rentree:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
+            show jessy festival embarrassed at char_left
             j "Et moi ?"
             j "Je suis où, là-dedans ?"
-            show ilona fatigue at char_right
+            show ilona festival fatigue at char_right
             i "Je ne sais pas."
             j "Tu ne sais pas ?"
             i "Non."
             i "Et si je mens pour te rassurer maintenant, tu vas le sentir. Puis tu vas me le reprocher. Puis je vais t'en vouloir de m'avoir forcée à choisir une phrase fausse."
             j "Je te force ?"
+            show ilona festival frustrated at char_right
             i "Là ? Oui."
 
 
@@ -794,20 +870,23 @@ label arc_3_rentree:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
+            show jessy festival embarrassed at char_left
             j "Théo ne compte pas. Je te le promets."
-            show ilona frustrated at char_right
+            show ilona festival frustrated at char_right
             i "Tu ne peux pas promettre ça à ma place."
             j "Je voulais dire que je te fais confiance."
             i "Non."
             i "Tu voulais que je dise que rien ne tremble."
             i "Et je ne peux pas te donner ça juste pour que tu respires."
     if arc3_reaction_laplage == "demander_besoin":
+        show ilona festival neutral at char_right
         systeme "Ilona baisse les yeux sur les serviettes qu'elle serre encore contre elle."
         i "Reste à côté de moi pour les dernières commandes."
         j "Tu es sûre ?"
         i "Non."
         i "Mais j'en ai envie maintenant. C'est déjà assez compliqué comme ça."
         systeme "Jessy prend une partie de la pile. Leurs doigts se touchent à peine."
+        show ilona festival smile at char_right
         systeme "Ce n'est pas une réconciliation. C'est plus fragile, plus dangereux peut-être : une envie maintenue malgré la peur."
         $ lien_jessy_ilona += 1
     elif arc3_reaction_laplage == "excuse_precise":
@@ -817,6 +896,8 @@ label arc_3_rentree:
         i "Ranger les tasses."
         j "C'est une punition ?"
         i "C'est une activité où tu peux être utile sans faire de discours."
+        show jessy festival smile at char_left
+        show ilona festival smile at char_right
         systeme "Il sourit malgré lui. Elle aussi, une seconde trop courte pour appeler ça du pardon."
         systeme "Mais quand elle lui tend une pile de tasses, elle ne retire pas sa main tout de suite."
         $ confiance += 1
@@ -855,10 +936,10 @@ label arc_3_rentree:
     play music audio.ecolenight loop volume 0.7 fadeout 1.0 fadein 1.0
     scene bg arc3 classroom evening
     with fade
-    show allan neutral at char_left
-    show alex grin at char_midleft
-    show jessy neutral at char_midright
-    show ilona neutral at char_right
+    show allan festival neutral at char_left
+    show alex festival grin at char_midleft
+    show jessy festival neutral at char_midright
+    show ilona festival neutral at char_right
 
     systeme "Le soir tombe sur la salle de classe vidée de ses visiteurs."
     systeme "Les nappes sont tachées, les panneaux se décollent aux coins, et la porte inutile tient encore debout par pure conviction."
@@ -903,7 +984,7 @@ label arc_3_rentree:
     systeme "Le groupe rit. La fatigue rend le rire un peu fragile, mais il existe."
 
     if arc3_reaction_laplage == "demander_besoin":
-        show ilona smile at char_right
+        show ilona festival smile at char_right
         systeme "Ilona décroche le panneau principal avec soin."
         i "On garde celui-là ?"
         j "Oui."
@@ -912,7 +993,7 @@ label arc_3_rentree:
         $ lien_jessy_ilona += 1
         $ confiance += 1
     elif arc3_reaction_laplage == "excuse_precise":
-        show ilona neutral at char_right
+        show ilona festival neutral at char_right
         systeme "Ilona décroche le panneau principal avec soin."
         i "On le garde."
         j "D'accord."
@@ -923,17 +1004,20 @@ label arc_3_rentree:
         $ lien_jessy_ilona += 1
         $ confiance += 1
     elif arc3_reaction_laplage == "promesse_theo":
-        show ilona fatigue at char_right
+        show ilona festival fatigue at char_right
+        show alex festival concerned at char_midleft
         systeme "Ilona décroche le panneau principal, hésite, puis le tend à Allan."
         i "Tu peux le garder avec le matériel de classe ?"
+        show allan festival support at char_left
         a "Oui. Bien sûr."
         systeme "Jessy comprend qu'elle ne veut pas le ramener avec eux ce soir."
         systeme "Pas le jeter. Pas le sauver non plus."
         $ pression_stream += 1
     else:
-        show ilona fatigue at char_right
+        show ilona festival fatigue at char_right
         systeme "Ilona décroche le panneau principal sans demander si quelqu'un veut le garder."
         systeme "Elle le pose contre le mur, face cachée."
+        show alex festival awkward at char_midleft
         systeme "Alexandre ouvre la bouche, puis la referme. Même lui comprend que ce panneau-là n'appelle pas une blague."
         $ pression_stream += 1
 
@@ -947,7 +1031,7 @@ label arc_3_rentree:
     scene bg arc3 classroom evening
     with fade
 
-    show allan doubt at char_center
+    show allan festival doubt at char_center
     with dissolve
 
     systeme "Allan reste seul dans la salle après le départ du groupe."
@@ -1035,6 +1119,8 @@ label arc_3_rentree:
         i "Voilà."
         play music audio.mcnight volume 0.7 fadeout 1.0 fadein 1.0 loop
         systeme "Elle se déconnecte."
+        hide ilona
+        with dissolve
         $ pression_stream += 2
         $ lien_jessy_ilona -= 1
         $ maison_minecraft_destructions.append("cuisine_ete_arc3")
