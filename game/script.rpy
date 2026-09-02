@@ -243,6 +243,20 @@ default prologue_appel_discord = ""
 
 
 init python:
+    def migrate_souvenirs():
+        """Complete les anciennes sauvegardes sans ecraser leurs souvenirs."""
+        keys = (
+            "ilona_libre_sans_abandon",
+            "jessy_nomme_sa_peur",
+            "jessy_repare",
+            "theo_utilise_une_verite",
+            "ilona_pose_une_limite",
+            "maison_respectee",
+            "ilona_veut_streamer_serieusement",
+        )
+        for key in keys:
+            store.souvenirs.setdefault(key, False)
+
     def remember(key):
         store.souvenirs[key] = True
 
@@ -291,6 +305,11 @@ init python:
         if indice >= SEUIL_ETAT_FRAGILE:
             return "fragile"
         return "distant"
+
+
+label after_load:
+    $ migrate_souvenirs()
+    return
 
 
 label start:

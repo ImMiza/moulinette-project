@@ -6,6 +6,11 @@
 #   arc6_score < SEUIL_JESSY        -> entree ici
 #   confidences_laplage >= 3        -> sortie Laplage possible si influence basse
 #   influence_theo                  -> poids de la route Theo
+#
+# L'entree se fait TOUJOURS via arc_6_bascule_theo (fin de arc_6_diplomes.rpy),
+# qui joue les onze jours du 26 mars au 6 avril et le depart en gare.
+# Ne pas sauter ici directement depuis arc_6_calcul : la bascule ne serait
+# plus jouee, seulement affirmee par la narration ci-dessous.
 # =============================================================================
 
 label arc_7_theo:
