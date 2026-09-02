@@ -42,6 +42,8 @@ define audio.footSand = "audio/fx/sand-walk.mp3"
 define audio.plage = "audio/music/plage-day.ogg"
 define audio.wave = "audio/ambience/ocean-waves.mp3"
 define audio.plagesunset = "audio/music/plage-sunset.ogg"
+define audio.sandnoise = "audio/fx/sand-noise.mp3"
+define audio.pianoslam = "audio/fx/piano-slam.mp3"
 
 default arc2_reaction_invitation = ""
 default arc2_photo_reaction = ""
@@ -183,7 +185,7 @@ label arc_2_plage:
     t "Je lis les panneaux."
     x "Méthode honteusement fiable."
 
-    play sound "audio/fx/sand-noise.mp3"
+    play sound audio.sandnoise volume 0.6
     systeme "Théo ne demande pas. Il plante le parasol, ajuste l'angle, puis pose le sac d'Ilona dans l'ombre avant qu'elle ait le temps de répondre."
     t "Tu préfères l'ombre, non ?"
     systeme "Il le dit comme une question, mais le sac est déjà posé."
@@ -523,7 +525,7 @@ label arc_2_plage:
             systeme "Ilona tourne la tête. Elle le voit."
             show ilona beach frustrated at char_center
             stop music
-            play sound "audio/fx/piano-slam.mp3"
+            play sound audio.pianoslam volume 0.6
             i "Sérieusement ?"
             systeme "Théo s'arrête. Il regarde Jessy avec quelque chose entre la pitié et le mépris."
             t "Tu voulais venir ou tu voulais surveiller ?"
