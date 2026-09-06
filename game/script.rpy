@@ -174,6 +174,12 @@ define audio.lib = "audio/music/library.ogg"
 define audio.rain = "audio/ambience/rain.mp3"
 define audio.cityrain = "audio/music/city-rain.ogg"
 define audio.cafe = "audio/music/cafe.ogg"
+define audio.realLove = "audio/music/real-love.ogg"
+define audio.trainPassing = "audio/fx/train-passing.mp3"
+define audio.love = "audio/music/love-piano.ogg"
+define audio.springHope = "audio/music/srping-hope.ogg"
+define audio.micka = "audio/fx/ApplauseClapping.mp3"
+define audio.truth = "audio/music/truth-piano.ogg"
 
 transform char_left:
     xalign 0.18

@@ -46,9 +46,10 @@ image micka happy = speaker_sprite("micka", "images/personnages/micka/happy.png"
 image micka exhausted = speaker_sprite("micka", "images/personnages/micka/exhausted.png", 842, 1264)
 image micka gifts = speaker_sprite("micka", "images/personnages/micka/happy_with_gifts.png", 842, 1264)
 
-define audio.saintV = "audio/music/love-piano.ogg"
+define audio.saintV = "audio/music/saintv.ogg"
 define audio.rainInside = "audio/ambience/rain-inside.mp3"
 define audio.winterWind = "audio/ambience/winter-wind.mp3"
+define audio.MgsRingtone = "audio/fx/MGS-Ringtone.mp3"
 
 # =============================================================================
 # SCENE 1 : RÉVISIONS EN BIBLIOTHÈQUE - LA FATIGUE QUI S'ACCUMULE
@@ -362,7 +363,7 @@ label arc_5_examens:
 # SCENE 2 : SORTIE ANNULÉE - CE QU'ON ENTEND DANS LE SILENCE
 # =============================================================================
 
-    stop music fadeout 2.0
+    stop music fadeout 3.0
     scene black
     with fade
     
@@ -400,7 +401,7 @@ label arc_5_examens:
         i "Non. J'ai besoin de penser à autre chose pendant deux heures."
         j "Le film est censé être nul."
         i "Parfait. Je veux du nul. Du prévisible. Du reposant."
-        
+        stop ambiant1 fadeout 1.0
         scene bg arc5 cinema box office
         with Dissolve(1.0)
 
@@ -427,11 +428,9 @@ label arc_5_examens:
         i "Dernière chance pour fuir."
         j "Jamais. Je veux pouvoir dire que j'avais raison."
         i "Moi aussi."
-
+        play music audio.arc5Cinema volume 0.7 fadeout 1.0 fadein 2.0 loop
         scene bg arc5 cinema auditorium
         with Dissolve(1.5)
-
-        play music audio.arc5Cinema volume 0.7 fadeout 1.0 fadein 2.0 loop
 
         systeme "La salle est presque vide. Quelques silhouettes éparpillées, le velours rouge des sièges et l'écran immense qui attend dans la pénombre."
         systeme "Pendant un instant, il n'y a plus d'examens, plus de messages en retard, plus rien à résoudre. Seulement deux places au milieu d'une rangée."
@@ -467,7 +466,7 @@ label arc_5_examens:
         show ilona embarrassed at char_right
         systeme "Leurs doigts se touchent. Aucun ne retire sa main. Aucun ne cherche à attraper celle de l'autre."
         systeme "Ils restent comme ça, paumes à peine frôlées, pendant que le reste du monde attend dehors."
-
+        stop music fadeout 2.0
         scene black
         with Dissolve(2.0)
 
@@ -478,7 +477,8 @@ label arc_5_examens:
         i "On devait voir un film nul."
         j "Je sais."
 
-        stop music fadeout 2.0
+        play music audio.cityrain volume 0.7 loop fadeout 1.0 fadein 1.0
+        play ambiant1 audio.rain volume 0.4 fadein 2.0 loop
 
         scene bg arc5 rain street
         with Dissolve(1.5)
@@ -517,9 +517,11 @@ label arc_5_examens:
         $ lien_jessy_ilona += 1
         $ confiance += 1
         $ arc5_cinema_ensemble = True
-        
+        stop ambiant1 fadeout 1.0
+        stop music fadeout 1.0
         jump arc_5_scene_3
-    
+
+    play sound audio.MgsRingtone volume 0.6
     systeme "Son téléphone vibre."
 
     systeme "{i}Message d'Ilona :{/i}"
@@ -651,7 +653,7 @@ label arc_5_examens:
     hide jessy
     with dissolve
     play music audio.cafe volume 0.7 loop fadein 1.0
-    play ambiant1 audio.rainInside loop volume 0.4 fadein 3.0
+    play ambiant1 audio.rainInside loop volume 0.4 fadeout 1.0 fadein 3.0
     scene bg arc5 cafe
     with fade
 
@@ -772,7 +774,7 @@ label arc_5_examens:
             systeme "Théo dit ça calmement. Mais Jessy croit voir la même prudence que depuis Noël, comme si une question d'Ilona continuait de lui tenir la manche."
     
     show theo neutral at char_center
-    
+    play music audio.sadPiano volume 0.7 loop fadeout 1.0 fadein 2.0
     t "Je vais passer chez elle tout à l'heure."
     
     systeme "La phrase est neutre. Informationnelle. Mais quelque chose dedans griffe."
@@ -928,6 +930,7 @@ label arc_5_scene_3:
     with fade
     
     systeme "Les semaines passent. Janvier devient février. Les examens s'achèvent enfin."
+    #changer music
     play music audio.library volume 0.7 loop fadein 2.0
     scene bg arc5 library night
     with fade
@@ -1180,6 +1183,7 @@ label arc_5_scene_3:
     systeme "La porte de la classe s'ouvre. Micka entre."
     systeme "Ou plutôt, Micka essaie d'entrer. Difficile quand on croule sous une montagne de chocolats."
     
+    play sound audio.micka volume 0.8
     show micka gifts at char_center
     with dissolve
     
@@ -1497,6 +1501,8 @@ label arc_5_scene_3:
 
     systeme "Ilona est assise au fond. Seule. Son livre est fermé. Ses yeux sont ouverts mais ne regardent rien."
 
+    $ renpy.pause(0.5, hard=True)
+    play sound audio.laplage volume 0.6
     show laplage neutral at char_right
     with dissolve
 
@@ -1653,12 +1659,12 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 6 : LA QUESTION - PEUR OU CONFIANCE
 # =============================================================================
-
+    stop music fadeout 2.0
     scene black
     with fade
     
     systeme "Le lendemain. Ilona a donné rendez-vous à Jessy. Un endroit neutre, a-t-elle dit."
-    
+    play music audio.ecolenight volume 0.7 loop fadein 2.0
     scene bg arc5 train station
     with fade
 
@@ -1679,6 +1685,7 @@ label arc_5_scene_3:
         i "Je voulais te parler ici parce que la dernière fois, le train a fini notre phrase à notre place."
         j "Je m'en souviens."
 
+        play sound audio.trainPassing volume 0.6
         systeme "Un train passe. Le bruit couvre tout pendant quelques secondes. Cette fois, ils attendent qu'il s'éloigne."
 
         i "Ces derniers temps, tu me demandes ce que je veux. Et tu me laisses répondre."
@@ -1686,7 +1693,7 @@ label arc_5_scene_3:
         i "Je sais. Mais j'ai besoin de savoir si ça tiendra quand ma réponse te fera peur."
 
         show ilona determined at char_right
-
+        play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu me feras confiance..."
 
         systeme "Elle le regarde droit dans les yeux."
@@ -1709,6 +1716,7 @@ label arc_5_scene_3:
         j "C'est-à-dire ?"
         i "Pas de manette. Pas d'écran. Pas de quoi regarder ailleurs."
 
+        play sound audio.trainPassing volume 0.6
         systeme "Un train passe. Le bruit couvre tout pendant quelques secondes."
         systeme "Jessy se souvient. Un autre train. Une autre gare. Une phrase qu'il n'avait jamais finie."
         systeme "« Ilona, je voulais te dire que— » Et puis le train. Et puis le silence."
@@ -1722,6 +1730,7 @@ label arc_5_scene_3:
         systeme "Ce n'est pas dit méchamment. C'est dit comme un constat qu'on a vérifié plusieurs fois."
 
         i "Alors je te pose la question en entier, une seule fois."
+        play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu as peur de me perdre..."
 
         systeme "Elle le regarde droit dans les yeux."
@@ -1742,12 +1751,14 @@ label arc_5_scene_3:
         i "Pas une réponse polie. Pas une réponse qui me fait plaisir. La vraie."
         j "D'accord."
 
+        play sound audio.trainPassing volume 0.6
         systeme "Un train passe. Le bruit couvre tout pendant quelques secondes. Puis le silence revient, plus lourd."
 
         systeme "Jessy se souvient. Un autre train. Une autre gare. Une phrase qu'il n'avait jamais finie."
         systeme "« Ilona, je voulais te dire que— » Et puis le train. Et puis le silence."
         systeme "Des mois ont passé depuis. La phrase est toujours là, quelque part, coincée entre eux."
 
+        play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu as peur de me perdre..."
 
         systeme "Elle le regarde droit dans les yeux."
@@ -1770,6 +1781,7 @@ label arc_5_scene_3:
             $ pression_stream = max(0, pression_stream - 3)
             show jessy listening at char_left
             if arc5_etat_relation == "proche":
+                play music audio.truth volume 0.7 loop fadeout 1.5 fadein 3.0
                 j "J'ai peur. De te perdre. De mal faire. D'entendre une réponse que je n'espérais pas."
                 show ilona neutral at char_right
                 i "Et ?"
@@ -1778,6 +1790,7 @@ label arc_5_scene_3:
                 systeme "Elle le regarde. Quelque chose change dans ses yeux."
                 i "Tu peux me promettre ça ?"
                 j "Non. Mais je peux te promettre de revenir réparer si je l'oublie."
+                play sound audio.trainPassing volume 0.6
                 systeme "Le train passe. Le bruit couvre tout."
                 systeme "Quand le silence revient, elle est plus proche."
                 i "C'est pas parfait comme réponse."
@@ -1796,6 +1809,7 @@ label arc_5_scene_3:
                 systeme "Elle le regarde. Quelque chose change dans ses yeux."
                 i "Et ?"
                 j "Et c'est ma peur, pas ton problème. Tu n'as pas à parler plus vite pour me rassurer."
+                play sound audio.trainPassing volume 0.6
                 systeme "Le train passe. Le bruit couvre tout."
                 systeme "Quand le silence revient, elle n'a pas bougé. Mais elle n'est pas partie non plus."
                 i "C'est pas parfait comme réponse."
@@ -1814,6 +1828,7 @@ label arc_5_scene_3:
                 systeme "Elle le regarde. Quelque chose change dans ses yeux."
                 i "Continue."
                 j "Je ne sais pas encore comment arrêter d'avoir peur. Mais je sais que ça ne devrait pas être toi qui portes ça."
+                play sound audio.trainPassing volume 0.6
                 systeme "Le train passe. Le bruit couvre tout."
                 systeme "Quand le silence revient, elle est plus proche."
                 i "C'est pas parfait comme réponse."
@@ -1835,6 +1850,7 @@ label arc_5_scene_3:
             j "Je te fais confiance. Complètement."
             show ilona frustrated at char_right
             i "Alors c'est quoi le problème ?"
+            play music audio.tensePiano volume 0.7 fadeout 1.5 fadein 3.0
             j "Théo."
             systeme "Le nom tombe comme une pierre."
             i "Je ne t'ai pas demandé ce que tu pensais de Théo."
@@ -1884,6 +1900,7 @@ label arc_5_scene_3:
                 systeme "Elle recule."
                 i "Le temps que tu me demandes, c'est du temps que je passe à attendre."
                 i "Et je suis fatiguée d'attendre."
+                play sound audio.trainstop volume 0.6
                 systeme "Elle part. Le train suivant arrive. Elle monte."
                 systeme "Jessy reste sur le quai."
 
@@ -1897,6 +1914,7 @@ label arc_5_scene_3:
             $ lien_jessy_ilona += 3
             $ jugement_laplage += 2
             show jessy listening at char_left
+            play music audio.truth volume 0.7 loop fadeout 1.5 fadein 3.0
             j "J'ai peur."
             systeme "Les mots sortent lentement."
             j "Et ma confiance tremble parfois. Quand tu parles avec Théo. Quand tu annules. Quand je ne comprends pas ce que tu veux."
@@ -1947,6 +1965,7 @@ label arc_5_scene_3:
             i "Je ne cherchais pas la bonne réponse."
             j "Qu'est-ce que tu cherchais ?"
             i "Une réponse qui me laisse encore choisir après l'avoir entendue."
+            play sound audio.trainPassing volume 0.6
             systeme "Un autre train passe."
             i "Tu peux continuer à me donner ça ?"
             j "Je peux essayer."
@@ -1959,6 +1978,8 @@ label arc_5_scene_3:
             i "Tu es la personne avec qui je ris le plus. C'est pas rien."
             j "Mais ?"
             i "Mais rire, c'est pas la même chose qu'être écoutée. J'aimerais les deux."
+            
+            play sound audio.trainPassing volume 0.6
             systeme "Un autre train passe."
             i "Tu peux essayer de me laisser aller au bout, la prochaine fois ?"
             j "Je peux essayer."
@@ -1971,6 +1992,7 @@ label arc_5_scene_3:
             systeme "La phrase est dure. Mais pas injuste."
             j "Je..."
             i "Je ne te demande pas d'être comme lui. Je te demande d'arrêter de le voir comme un ennemi."
+            play sound audio.trainPassing volume 0.6
             systeme "Un autre train passe."
             i "Tu peux faire ça ?"
             j "Je peux essayer."
@@ -1983,12 +2005,13 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 7 : WHITE DAY - LA RÉPONSE
 # =============================================================================
-
+    stop music fadeout 1.0
     scene black
     with fade
     
     systeme "Un mois passe. Février cède la place à mars. Le froid recule lentement."
     
+    play music audio.saintV volume 0.7 loop fadein 1.5
     scene bg arc5 classroom
     with fade
     
@@ -2008,6 +2031,7 @@ label arc_5_scene_3:
     
     systeme "La porte s'ouvre. Micka entre. Des cernes jusqu'au menton, de la farine dans les cheveux, et l'air d'un homme qui a vu l'intérieur d'un four trop longtemps."
     
+    play sound audio.micka volume 0.8
     show micka exhausted at char_center
     with dissolve
     
@@ -2070,8 +2094,9 @@ label arc_5_scene_3:
     hide alex
     with dissolve
     
-    # --- FIN INTERLUDE ---
-    
+    # --- FIN INTERLUDE --- 
+    play music audio.springHope volume 0.7 loop fadeout 1.0 fadein 1.0
+    play ambiant1 audio.windBirds volume 0.4 fadein 1.5
     scene bg arc5 park spring
     with fade
 
@@ -2142,6 +2167,7 @@ label arc_5_scene_3:
             $ pression_stream += 2
             $ evitements += 1
             show jessy determined at char_left
+            play music audio.sadPiano volume 0.7 loop fadeout 1.0 fadein 5.0
             systeme "Jessy sort quelque chose de son sac. C'est emballé. C'est gros."
             if arc5_valentin_offre in ("ambigu", "amitie"):
                 j "Je voulais te rendre quelque chose."
@@ -2174,6 +2200,7 @@ label arc_5_scene_3:
             $ pression_stream = max(0, pression_stream - 2)
             $ remember("ilona_libre_sans_abandon")
             show jessy determined at char_left
+            play music audio.melanPiano volume 0.7 loop fadeout 1.0 fadein 5.0
             j "Je ne t'ai rien apporté."
             show ilona neutral at char_right
             i "Rien ?"
@@ -2247,6 +2274,7 @@ label arc_5_scene_3:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
+            play music audio.love volume 0.7 fadeout 1.0 fadein 5.0
             show jessy determined at char_left
             j "J'ai quelque chose à te dire. Pas un cadeau. Des mots."
             show ilona neutral at char_right
@@ -2289,6 +2317,8 @@ label arc_5_scene_3:
 # SCENE 8 : ALLAN ET ALEXANDRE - CE QU'ILS VOIENT
 # =============================================================================
 
+    play music audio.cafe volume 0.7 fadeout 1.0 fadein 1.0
+    play ambiant1 audio.rainInside volume 0.4 fadeout 1.0 fadein 1.5
     scene bg arc5 cafe
     with fade
 
@@ -2379,7 +2409,8 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 9 : SOFIANE - LA ROUTE
 # =============================================================================
-
+    play music audio.cityrain volume 0.7 loop fadeout 1.0 fadein 1.0
+    play ambiant1 audio.rain volume 0.4 loop fadeout 1.0 fadein 1.5
     scene bg arc5 rain street
     with fade
 
@@ -2446,6 +2477,7 @@ label arc_5_scene_3:
 # =============================================================================
 # SCENE 10 : MINECRAFT - L'ÉTAT DES LIEUX
 # =============================================================================
+    stop ambiant1 fadeout 1.0
     play music audio.mcnight volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 minecraft night
     with Dissolve(2.0)

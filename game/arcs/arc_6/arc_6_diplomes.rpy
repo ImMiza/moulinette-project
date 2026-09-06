@@ -132,10 +132,11 @@ label arc_6_diplomes:
     # un regard, une hesitation. Jamais un verdict.
     $ arc6_palier()
 
+    play music audio.mornPiano fadein 2.0 loop volume 0.7
     scene bg arc6 classroom morning
     with fade
 
-    play music audio.mornPiano fadein 2.0
+    
 
     systeme "Arc VI : le jour où l'école s'arrête."
     systeme "Fin mars. Les cerisiers de la cour ne sont pas encore ouverts. Ils ont l'air de retenir quelque chose."
@@ -324,17 +325,17 @@ label arc_6_diplomes:
     hide ilona
     with dissolve
 
-    stop music fadeout 3.0
+    
 
 
 # =============================================================================
 # SCÈNE 2 : LA CÉRÉMONIE
 # =============================================================================
-
+    stop music fadeout 1.0
     scene bg arc6 gym ceremony
     with fade
 
-    play ambiant1 audio.foule fadein 2.0
+    play ambiant1 audio.foule fadein 2.0 loop volume 0.6
 
     systeme "Le gymnase a été vidé de tout ce qui sert à faire du sport. Il reste des chaises, une estrade, et un micro qui siffle."
     systeme "Discours du proviseur. Personne n'écoute. Trois cent quarante noms."
@@ -345,6 +346,8 @@ label arc_6_diplomes:
 
     show alex neutral at char_left
     show allan neutral at char_midleft
+
+    play sound audio.micka volume 0.8
     show micka happy at char_right
     with dissolve
 
@@ -519,7 +522,7 @@ label arc_6_diplomes:
     systeme "Théo, près de la sortie, debout, à ne rien faire."
     systeme "Théo ne fait jamais rien. Théo attend quelqu'un, ou Théo va quelque part. Là, il regarde le gymnase se vider comme s'il essayait de le retenir."
 
-    play music audio.tensePiano fadein 3.0
+    play music audio.tensePiano fadein 3.0 loop volume 0.7
 
     show allan neutral at char_midleft
     show theo neutral at char_midright
@@ -657,12 +660,12 @@ label arc_6_diplomes:
 # conditionnelles ; le craquage de clôture reste hors décompte.
 # =============================================================================
 
-    stop music fadeout 2.0
 
+    play music audio.melanPiano volume 0.7 loop fadeout 1.0 fadein 2.0
     scene bg arc6 classroom festive
     with fade
 
-    play music audio.melanPiano fadein 2.0
+    
 
     show jessy neutral at char_left
     show ilona neutral at char_midright
@@ -1317,7 +1320,7 @@ label arc_6_diplomes:
     scene bg arc6 corridor empty
     with fade
 
-    play music audio.tensePiano fadein 2.0
+    play music audio.tensePiano volume 0.7 loop fadein 2.0
 
     show jessy neutral at char_left
     show ilona neutral at char_center
@@ -1626,8 +1629,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    stop music fadeout 1.0
-
     i "Onze jours pour décider du reste de ma vie."
     i "Et vous voulez ma réponse cet après-midi. Tous les deux. Parce que c'est cet après-midi que ça vous arrange."
 
@@ -1703,7 +1704,7 @@ label arc_6_diplomes:
 
     hide ilona
     with dissolve
-
+    stop music fadeout 3.0
     systeme "Elle part. Personne ne la rejoint."
     systeme "C'est le premier moment de toute l'année où personne ne lui demande où elle va."
 
@@ -1718,7 +1719,7 @@ label arc_6_diplomes:
 # Troisième et dernière scène symbolique. Après ça, il ne réapparaît
 # qu'au post-générique.
 # =============================================================================
-
+    play music audio.springHope volume 0.7 loop fadein 2.0
     scene bg arc6 courtyard march
     with fade
 
@@ -1726,8 +1727,7 @@ label arc_6_diplomes:
     systeme "Les cerisiers ne sont pas encore ouverts. Sous le plus grand, il y a une table pliante qui n'était pas là ce matin."
     systeme "Une table, une chaise, un tampon, et une pile de formulaires parfaitement vierges."
 
-    $ renpy.pause(1.5, hard=True)
-
+    $ renpy.pause(0.5, hard=True)
     play sound audio.laplage
 
     show laplage neutral at char_midright
@@ -1935,11 +1935,11 @@ label arc_6_diplomes:
 # =============================================================================
 # SCÈNE 6 : LE TOIT, LE SOIR - LE MENU PIVOT
 # =============================================================================
-
+    play music audio.sadPiano fadein 2.0
     scene bg arc6 rooftop dusk
     with fade
 
-    play music audio.sadPiano fadein 2.0
+    
 
     # Ce qu'elle a demande a quatorze heures depend de la scene 4 (couloir).
     # On ne peut pas ecrire "elle a demande de l'espace" si elle a dit
