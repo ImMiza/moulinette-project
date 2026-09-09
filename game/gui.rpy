@@ -75,7 +75,7 @@ define gui.interface_text_font = "DejaVuSans.ttf"
 define gui.text_size = 33
 
 ## La taille pour le nom des personnages.
-define gui.name_text_size = 45
+define gui.name_text_size = 42
 
 ## La taille du texte dans l’interface de jeu.
 define gui.interface_text_size = 33
@@ -127,7 +127,7 @@ define gui.namebox_height = None
 
 ## Les bordures de la zone contenant le nom du personnage dans l’ordre suivant
 ## gauche, haut, droite, bas.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = None
 
 ## Si « True » (vrai), l’arrière plan de zone du nom sera en mosaïque, si
 ## « False »(faux), l’arrière plan de la zone du nom sera mis à l’échelle.
@@ -221,7 +221,7 @@ define gui.choice_button_borders = Borders(150, 8, 150, 8)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#888888'
+define gui.choice_button_text_idle_color = '#000000'
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = '#8888887f'
 
@@ -452,14 +452,14 @@ init python:
 
         ## Tailles des polices.
         gui.text_size = 45
-        gui.name_text_size = 54
+        gui.name_text_size = 42
         gui.notify_text_size = 38
         gui.interface_text_size = 45
         gui.button_text_size = 45
         gui.label_text_size = 51
 
         ## Ajuste la position de la zone de texte.
-        gui.textbox_height = 360
+        gui.textbox_height = 320
         gui.name_xpos = 120
         gui.dialogue_xpos = 135
         gui.dialogue_width = 1650
@@ -497,3 +497,7 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
+define gui.main_menu_text_color = "#FFFFFF"
+define gui.main_menu_text_hover_color = "#F472B6"
+define gui.main_menu_text_selected_color = "#FFD4EA"

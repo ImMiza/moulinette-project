@@ -134,7 +134,6 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
@@ -144,8 +143,13 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    background Frame("gui/namebox.png", tile=gui.namebox_tile, xalign=gui.name_xalign)
+    left_padding 20
+    right_padding 20
+    bottom_padding 5
+    xmaximum 1120
+    xoffset 50
+    yoffset -5
 
 style say_label:
     properties gui.text_properties("name", accent=True)
@@ -158,6 +162,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
+    outlines [(2, "#4a2a31", 0, 0)]
 
     adjust_spacing False
 
@@ -270,6 +275,7 @@ style quick_button_text is button_text
 style quick_menu:
     xalign 0.5
     yalign 1.0
+    yoffset -8
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -374,8 +380,6 @@ screen main_menu():
             text "[config.name!t]":
                 style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -392,7 +396,7 @@ style main_menu_frame:
 
 style main_menu_vbox:
     xalign 1.0
-    xoffset -30
+    xoffset -20
     xmaximum 1200
     yalign 1.0
     yoffset -30
@@ -1634,3 +1638,29 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+style navigation_button is button:
+    background Frame("gui/button/main_idle.png")
+    hover_background Frame("gui/button/main_hover.png")
+    selected_idle_background Frame("gui/button/main_hover.png")
+    left_padding 10
+    right_padding 0
+    top_padding 10
+    bottom_padding 10
+    xminimum 300
+
+style navigation_button_text is button_text:
+    font gui.interface_text_font
+
+    idle_color gui.main_menu_text_color
+    hover_color gui.main_menu_text_hover_color
+    selected_idle_color gui.main_menu_text_selected_color
+    insensitive_color "#A0AEC0"
+
+    outlines [(2, "#22324A", 0, 0)]
+
+style quick_button_text:
+    color "#ffffff"          # Couleur normale
+    hover_color "#F472B6"    # Au survol
+    selected_color "#60A5FA"
+    insensitive_color "#808080"

@@ -46,14 +46,14 @@ define ILONA_SIZE = (758, 1138)
 define THEO_CROP_BOTTOM = 110
 
 
-define j = Character("Jessy", color="#8fb7ff", callback=speaker_callback("jessy"))
-define i = Character("Ilona", color="#ffb0d0", callback=speaker_callback("ilona"))
-define t = Character("Théo", color="#c8b6ff", callback=speaker_callback("theo"))
-define a = Character("Allan", color="#ffd08a", callback=speaker_callback("allan"))
-define x = Character("Alexandre", color="#b9f2c8", callback=speaker_callback("alex"))
-define s = Character("Sofiane", color="#d6d6d6", callback=speaker_callback("sofiane"))
-define laplage = Character("Monsieur Laplage", color="#f6e38d", callback=speaker_callback("laplage"))
-define systeme = Character(None, what_italic=True, callback=speaker_callback(""))
+define j = Character("Jessy",who_outlines=[(2, "#8fb7ff", 1, 1)], color="#ffffff", callback=speaker_callback("jessy"))
+define i = Character("Ilona",who_outlines=[(2, "#ffb0d0", 1, 1)], color="#ffffff", callback=speaker_callback("ilona"))
+define t = Character("Théo",who_outlines=[(2, "#c8b6ff", 1, 1)], color="#ffffff", callback=speaker_callback("theo"))
+define a = Character("Allan",who_outlines=[(2, "#ffd08a", 1, 1)], color="#ffffff", callback=speaker_callback("allan"))
+define x = Character("Alexandre",who_outlines=[(2, "#b9f2c8", 1, 1)], color="#ffffff", callback=speaker_callback("alex"))
+define s = Character("Sofiane",who_outlines=[(2, "#d6d6d6", 1, 1)], color="#ffffff", callback=speaker_callback("sofiane"))
+define laplage = Character("Monsieur Laplage",who_outlines=[(2, "##f6e38d", 1, 1)], color="#ffffff", callback=speaker_callback("laplage"))
+define systeme = Character(None,who_outlines=[(2, "#000000", 1, 1)], color="#ffffff", what_italic=True, callback=speaker_callback(""))
 
 define m_inconnu = Character("???", color="#f6e38d", callback=speaker_callback("laplage"))
 
