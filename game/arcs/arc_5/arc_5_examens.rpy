@@ -1,11 +1,7 @@
-# =============================================================================
 # ARC V - EXAMENS, SAINT-VALENTIN ET WHITE DAY : CE QU'ON NE DIT PAS
-# =============================================================================
 # Thème central : Connaître les goûts de quelqu'un ne veut pas dire savoir ce qu'il veut.
 # Question centrale : peur ou confiance ; sur parcours sain, confiance face à un choix inattendu.
-# =============================================================================
 
-# --- Variables locales Arc V ---
 default arc5_sortie_annulee = ""          # Réaction à l'annulation
 default arc5_theo_proposition = ""         # Comment Jessy gère Théo
 default arc5_valentin_choix = ""          # Réaction de Jessy à la Saint-Valentin
@@ -23,7 +19,6 @@ default arc5_theo_dans_maison = False     # Théo a accès à la maison Minecraf
 default arc5_cinema_ensemble = False      # Ils sont allés au cinéma
 default arc5_etat_relation = ""           # "proche" / "fragile" / "distant", fige avant la scene 5
 
-# --- Images Arc V ---
 image bg arc5 library = im.Scale("images/scenes/arc_5/bg_arc5_library.jpg", 1920, 1080)
 image bg arc5 library night = im.Scale("images/scenes/arc_5/bg_arc5_library_night.jpg", 1920, 1080)
 image bg arc5 cafe = im.Scale("images/scenes/arc_5/bg_arc5_cafe.jpg", 1920, 1080)
@@ -39,7 +34,6 @@ image bg arc5 train station = im.Scale("images/scenes/arc_5/bg_arc5_train_statio
 
 define audio.arc5Cinema = "audio/ambience/the_city_mouse_and_the_country_mouse.mp3"
 
-# --- Personnage temporaire Arc V : Micka ---
 define mi = Character("Micka", color="#e91e63", callback=speaker_callback("micka"))
 
 image micka happy = speaker_sprite("micka", "images/personnages/micka/happy.png", 842, 1264)
@@ -51,9 +45,7 @@ define audio.rainInside = "audio/ambience/rain-inside.mp3"
 define audio.winterWind = "audio/ambience/winter-wind.mp3"
 define audio.MgsRingtone = "audio/fx/MGS-Ringtone.mp3"
 
-# =============================================================================
 # SCENE 1 : RÉVISIONS EN BIBLIOTHÈQUE - LA FATIGUE QUI S'ACCUMULE
-# =============================================================================
 
 label arc_5_examens:
 
@@ -359,9 +351,7 @@ label arc_5_examens:
     systeme "En rangeant ses affaires, Jessy trouve un stylo violet avec des étoiles sous la chaise où Ilona était assise."
     systeme "Il le glisse dans sa poche. Il le lui rendra demain."
 
-# =============================================================================
 # SCENE 2 : SORTIE ANNULÉE - CE QU'ON ENTEND DANS LE SILENCE
-# =============================================================================
 
     stop music fadeout 3.0
     scene black
@@ -773,7 +763,6 @@ label arc_5_examens:
     t "Je vais passer chez elle tout à l'heure."
     
     systeme "La phrase est neutre. Informationnelle. Mais quelque chose dedans griffe."
-    #sad piano ?
     menu:
         systeme "Théo attend. Allan observe. Le café est presque vide à cette heure."
         
@@ -915,9 +904,7 @@ label arc_5_examens:
     stop ambiant1 fadeout 1.0
     stop music fadeout 1.0
 
-# =============================================================================
 # SCENE 3 : THÉO PROPOSE DE « GÉRER » - LE PIÈGE DOUX
-# =============================================================================
 
 label arc_5_scene_3:
 
@@ -925,7 +912,6 @@ label arc_5_scene_3:
     with fade
     
     systeme "Les semaines passent. Janvier devient février. Les examens s'achèvent enfin."
-    #changer music
     play music audio.library volume 0.7 loop fadein 2.0
     scene bg arc5 library night
     with fade
@@ -1133,9 +1119,7 @@ label arc_5_scene_3:
     hide jessy
     with dissolve
 
-# =============================================================================
 # SCENE 4 : SAINT-VALENTIN - L'AMOUR ET SES PIÈGES
-# =============================================================================
     play music audio.saintV volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 classroom
     with fade
@@ -1172,7 +1156,6 @@ label arc_5_scene_3:
         show jessy determined at char_left
         x "Je ne te juge pas. Mais évite de transformer un chocolat, ou l'absence de chocolat, en verdict sur votre relation."
 
-    # --- INTERLUDE COMIQUE : MICKA ---
 
     show jessy neutral at char_left
     systeme "La porte de la classe s'ouvre. Micka entre."
@@ -1481,9 +1464,7 @@ label arc_5_scene_3:
     hide jessy
     with dissolve
 
-# =============================================================================
 # SCENE 5 : CONFIDENCE À LAPLAGE - CE QUE PERSONNE NE DEMANDE
-# =============================================================================
     stop ambiant1 fadeout 1.0
     play music audio.library volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 library night
@@ -1651,9 +1632,7 @@ label arc_5_scene_3:
     hide ilona
     with dissolve
 
-# =============================================================================
 # SCENE 6 : LA QUESTION - PEUR OU CONFIANCE
-# =============================================================================
     stop music fadeout 2.0
     scene black
     with fade
@@ -1997,9 +1976,7 @@ label arc_5_scene_3:
     hide jessy
     with dissolve
 
-# =============================================================================
 # SCENE 7 : WHITE DAY - LA RÉPONSE
-# =============================================================================
     stop music fadeout 1.0
     scene black
     with fade
@@ -2012,7 +1989,6 @@ label arc_5_scene_3:
     
     systeme "14 mars. White Day. Le jour où les garçons doivent « rendre » les chocolats de la Saint-Valentin."
 
-    # --- INTERLUDE COMIQUE : MICKA WHITE DAY ---
     
     show jessy neutral at char_left
     show alex teasing at char_right
@@ -2089,7 +2065,6 @@ label arc_5_scene_3:
     hide alex
     with dissolve
     
-    # --- FIN INTERLUDE --- 
     play music audio.springHope volume 0.7 loop fadeout 1.0 fadein 1.0
     play ambiant1 audio.windBirds volume 0.4 fadein 1.5
     scene bg arc5 park spring
@@ -2308,9 +2283,7 @@ label arc_5_scene_3:
     hide jessy
     with dissolve
 
-# =============================================================================
 # SCENE 8 : ALLAN ET ALEXANDRE - CE QU'ILS VOIENT
-# =============================================================================
 
     play music audio.cafe volume 0.7 fadeout 1.0 fadein 1.0
     play ambiant1 audio.rainInside volume 0.4 fadeout 1.0 fadein 1.5
@@ -2369,7 +2342,6 @@ label arc_5_scene_3:
     hide alex
     with dissolve
 
-    # Allan seul - l'accumulation
     scene bg arc5 cafe
     with fade
 
@@ -2401,9 +2373,7 @@ label arc_5_scene_3:
     hide allan
     with dissolve
 
-# =============================================================================
 # SCENE 9 : SOFIANE - LA ROUTE
-# =============================================================================
     play music audio.cityrain volume 0.7 loop fadeout 1.0 fadein 1.0
     play ambiant1 audio.rain volume 0.4 loop fadeout 1.0 fadein 1.5
     scene bg arc5 rain street
@@ -2469,9 +2439,7 @@ label arc_5_scene_3:
     hide alex
     with dissolve
 
-# =============================================================================
 # SCENE 10 : MINECRAFT - L'ÉTAT DES LIEUX
-# =============================================================================
     stop ambiant1 fadeout 1.0
     play music audio.mcnight volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc5 minecraft night
@@ -2650,55 +2618,3 @@ label arc_5_scene_3:
     stop ambiant1 fadeout 1.0
     
     jump arc_6_diplomes
-
-
-# =============================================================================
-# RÉCAPITULATIF ARC V
-# =============================================================================
-# 
-# Variables modifiées :
-# - lien_jessy_ilona : +1 à +4 selon parcours
-# - confiance : -3 à +6 selon honnêteté des réponses
-# - communication : -2 à +6 selon qualité des échanges
-# - jalousie : +2 à +8 selon réactions à Théo
-# - autonomie_ilona : -2 à +8 selon respect de ses choix
-# - influence_theo : -2 à +6 selon acceptation de son aide
-# - pression_stream : +0 à +4 selon accumulation de tension
-# - confidences_laplage : +0 ou +1 selon espace laissé à Ilona
-# - jugement_laplage : +0 à +4 selon qualité des choix
-# - ilonanium_points : +1 possible si route active
-#
-# Souvenirs modifiés :
-# - jessy_nomme_sa_peur : True si réponse honnête à la question centrale
-# - ilona_libre_sans_abandon : True si espace respecté
-# - theo_utilise_une_verite : True si Jessy accuse Théo au lieu de répondre
-# - maison_respectee : True si construction collaborative
-#
-# Variables locales Arc V :
-# - arc5_sortie_annulee : réaction à l'annulation (impact sur tension)
-# - arc5_theo_proposition : réponse à la proposition de Théo (impact sur influence)
-# - arc5_valentin_choix : réaction de Jessy à la Saint-Valentin (impact sur relation)
-# - arc5_valentin_offre : chocolat ambigu, chocolat d'amitié ou aucune offre
-# - arc5_question_reponse : réponse à LA question (définit le ton de l'arc)
-# - arc5_white_day_reponse : comportement White Day (test si apprentissage)
-# - arc5_fin_minecraft : état de la maison (reflet de la relation)
-# - arc5_tension_accumulee : indicateur de fragilité
-# - arc5_theo_dans_maison : Théo a accès au serveur Minecraft
-# - arc5_allan_voit_theo : Allan exprime ses doutes
-# - arc5_ilona_a_pleure : si elle craque
-# - arc5_jessy_a_menti : si mensonge sur sa peur
-#
-# Choix cornéliens et conséquences :
-# - "J'ai peur mais je ne te fais pas confiance" = honnêteté totale, risque d'effrayer
-# - Laisser Théo gérer = facilité immédiate, perte de contrôle future
-# - Demander ce qu'elle veut = respect mais abandon du rôle protecteur
-# - Confronter sur les annulations = vérité blessante
-# - Offrir de l'espace = perdre du terrain vs respecter l'autonomie
-#
-# Fils narratifs ouverts pour Arc VI :
-# - Allan identifie un malaise chez Théo (préparation confrontation)
-# - Sofiane a les clés de voiture (Arc VII - road trip)
-# - Ilona construit son espace personnel (besoin d'autonomie)
-# - Question de l'avenir devient concrète (orientation)
-# - Théo peut avoir gagné l'accès à la maison Minecraft (invasion symbolique)
-# - La scène Laplage interroge l'écoute ou la solidité de la confiance selon le parcours

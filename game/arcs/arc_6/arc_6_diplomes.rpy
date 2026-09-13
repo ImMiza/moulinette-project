@@ -1,7 +1,4 @@
-# =============================================================================
 # ARC VI - REMISE DES DIPLÔMES : « APRÈS AUJOURD'HUI »
-# =============================================================================
-# --- Variables locales Arc VI ---
 default arc6_stylo = ""                   # rendu / garde / rendu_explique / blague
 default arc6_enveloppe_lue = False
 default arc6_secret_sofiane = ""          # révélé / tenu
@@ -130,7 +127,6 @@ init -5 python:
 
         return attaques
 
-# --- Images Arc VI ---
 # Assets propres à l'arc 6 : gymnase de cérémonie, classe du matin,
 # classe décorée de fin d'année.
 # arc6_bg() prend l'asset arc_6 s'il existe, sinon le secours indique.
@@ -162,9 +158,7 @@ image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench
 image bg arc6 flash cinema = arc6_flashbg("images/scenes/arc_5/bg_arc5_cinema_seated.jpg")
 image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
 
-# =============================================================================
 # SCÈNE 1 : LE STYLO VIOLET
-# =============================================================================
 
 label arc_6_diplomes:
 
@@ -369,9 +363,7 @@ label arc_6_diplomes:
     
 
 
-# =============================================================================
 # SCÈNE 2 : LA CÉRÉMONIE
-# =============================================================================
     stop music fadeout 1.0
     scene bg arc6 gym ceremony
     with fade
@@ -382,7 +374,6 @@ label arc_6_diplomes:
     systeme "Discours du proviseur. Personne n'écoute. Trois cent quarante noms."
     systeme "On appelle les noms par ordre alphabétique. Chacun monte, prend un papier, redescend. En quatre secondes, une année entière est classée."
 
-    # --- 2.1 Micka : contrepoint obligatoire ---
     play sound audio.bell
 
     show alex neutral at char_left
@@ -411,7 +402,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    # --- 2.2 Le buffet et le gâteau-planète ---
     show jessy neutral at char_left
     show ilona neutral at char_midright
     with dissolve
@@ -442,7 +432,6 @@ label arc_6_diplomes:
 
         systeme "Elle ne mange pas tout de suite. C'est nouveau, et Jessy n'a aucune idée de ce que ça veut dire."
 
-    # --- 2.3 L'enveloppe de Sofiane ---
     hide jessy
     hide ilona
     with dissolve
@@ -502,7 +491,6 @@ label arc_6_diplomes:
 
     systeme "Il replie l'enveloppe et la met dans sa poche. Celle de décembre, il l'avait laissée sur le banc."
 
-    # --- 2.4 Le secret du maid café ---
     show alex teasing at char_left
     with dissolve
 
@@ -545,7 +533,6 @@ label arc_6_diplomes:
     hide sofiane
     with dissolve
 
-    # --- 2.5 Allan confronte Théo ---
     systeme "Ils s'en vont. Le gymnase se vide par petits paquets, comme une salle de cinéma après le générique."
     systeme "Deux premières années démontent déjà la table du buffet. Quelqu'un enroule la banderole. Le bruit ne disparaît pas : il maigrit."
 
@@ -590,7 +577,6 @@ label arc_6_diplomes:
 
     $ arc6_allan_confronte_theo = True
 
-    # --- 2.6 Amorce du départ de Théo (prépare la scène 4) ---
     $ renpy.pause(0.8, hard=True)
 
     show theo neutral at char_midright
@@ -682,13 +668,10 @@ label arc_6_diplomes:
     $ renpy.pause(1.5, hard=True)
 
 
-# =============================================================================
 # SCÈNE 3 : LE RÉCAPITULATIF - ILONA RACONTE L'ANNÉE
-# =============================================================================
 # Cœur de l'arc. Ce n'est pas un flashback de Jessy : c'est Ilona qui relit
 # l'année à voix haute. Le joueur voit sa partie racontée par la personne
 # qui l'a subie. Aucune jauge affichée, et l'état est parfaitement lisible.
-# =============================================================================
 
 
     play music audio.melanPiano volume 0.7 loop fadeout 1.0 fadein 2.0
@@ -748,7 +731,6 @@ label arc_6_diplomes:
         j "Pourquoi maintenant, alors ?"
         i "Parce qu'après aujourd'hui j'aurai plus de raison de le faire."
 
-    # --- Digression 1 : de tout et de rien ---
     systeme "Elle décapuchonne le feutre. Elle le recapuchonne. Elle le décapuchonne."
 
     i "Ça sent fort, ces trucs."
@@ -785,7 +767,6 @@ label arc_6_diplomes:
         i "Je croyais avoir préparé des morceaux. Là, il n'y en a aucun qui vient dans le bon ordre."
         i "Alors je vais garder les petites choses. C'est peut-être ça aussi, l'année."
 
-    # --- V1 : LA PLAGE ---
     if arc6_vignettes_count < 8 and arc2_choix_activite_theo != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("plage")
@@ -823,7 +804,6 @@ label arc_6_diplomes:
             i "Tu fais toujours une blague. Je ne sais jamais si c'est parce que ça va, ou parce que ça ne va pas du tout."
             i "J'ai ri. Je ris toujours. C'est plus simple que de demander laquelle des deux c'était."
 
-    # --- V2 : LA RUMEUR ---
     if arc6_vignettes_count < 8 and arc3_reaction_rumeur != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("rumeur")
@@ -855,7 +835,6 @@ label arc_6_diplomes:
             i "Et moi j'ai eu l'air de quelqu'un qui trouve ça drôle aussi."
             i "Je suis très bonne à ce jeu-là. C'est pas une qualité."
 
-    # --- V3 : LA MAISON ---
     if arc6_vignettes_count < 8 and arc3_fin_minecraft != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("maison")
@@ -924,7 +903,6 @@ label arc_6_diplomes:
             i "Personne demande. Les gens aident, ou ils regardent."
             i "J'ai dit oui. Mais doucement. Et t'as fait doucement."
 
-    # --- Digression 2 : elle saute, puis se reprend ---
     if arc6_vignettes_count > 0 and arc4_limite_ilona != "":
         $ renpy.pause(1.0, hard=True)
 
@@ -940,7 +918,6 @@ label arc_6_diplomes:
 
         i "Alors je le remets."
 
-    # --- V4 : NOËL ---
     if arc6_vignettes_count < 8 and arc4_limite_ilona != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("noel")
@@ -993,7 +970,6 @@ label arc_6_diplomes:
             i "On a fait deux kilomètres et j'ai pensé à rien. À rien du tout."
             i "C'est le plus beau cadeau qu'on m'ait fait et il coûtait zéro yen."
 
-    # --- V5 : LA NUIT AVEC THÉO ---
     if arc6_vignettes_count < 8 and arc4_ilona_avec_theo:
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("nuit_theo")
@@ -1040,7 +1016,6 @@ label arc_6_diplomes:
 
         systeme "Il y a eu une nuit entière dont Jessy ne saura jamais rien. Il vient d'en recevoir quelques phrases. C'est tout ce qu'il aura."
 
-    # --- V6 : LE CINÉMA ---
     if arc6_vignettes_count < 8 and arc5_cinema_ensemble:
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("cinema")
@@ -1069,7 +1044,6 @@ label arc_6_diplomes:
         j "Et le film était un chef-d'œuvre."
         i "Le film était un chef-d'œuvre. Ça aussi, c'était pas prévu."
 
-    # --- V7 : LA GARE ---
     if arc6_vignettes_count < 8 and arc5_question_reponse != "":
         $ arc6_vignettes_count += 1
         $ arc6_vignettes_jouees.append("gare")
@@ -1116,9 +1090,7 @@ label arc_6_diplomes:
             i "J'attendais juste que tu reviennes me dire où tu en étais. N'importe quand."
             i "Il est fin mars."
 
-    # -------------------------------------------------------------------------
     # SORTIE DE FLASHBACK : une seule fois.
-    # -------------------------------------------------------------------------
     if arc6_flashback:
         scene bg arc6 classroom festive
         with Dissolve(1.5)
@@ -1129,7 +1101,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.0, hard=True)
 
-    # --- Bascule : le bilan devient une recherche. Micro-épreuve de Jessy. ---
     # Ce menu ne décide pas la route ; il colore seulement la posture de Jessy.
     show jessy listening at char_left
     show ilona neutral at char_midright
@@ -1200,7 +1171,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- Digression 3 : respiration, petits riens ---
     i "Le distributeur du deuxième étage rendait la monnaie en pièces de dix."
     j "Il fait ça depuis trois ans."
     i "Je sais. J'ai un bocal."
@@ -1221,7 +1191,6 @@ label arc_6_diplomes:
     show ilona neutral at char_midright
     with dissolve
 
-    # --- V8 : LA PHRASE JAMAIS FINIE ---
     $ controle_repetitif = interruptions_ilona - interruptions_reparees
     if arc6_vignettes_count < 8 and controle_repetitif > 0:
         $ arc6_vignettes_count += 1
@@ -1256,7 +1225,6 @@ label arc_6_diplomes:
             i "Les gens s'excusent sur le moment, parce que c'est gênant. Toi tu es revenu après, quand c'était plus gênant du tout."
             i "Ça, ça compte."
 
-    # --- CLÔTURE : LE CRAQUAGE ---
     # Rend visible la dette de fatigue sans modifier le verdict deja calcule.
     if pression_stream >= 12 or arc5_tension_accumulee >= 8:
         $ arc6_vignettes_jouees.append("craquage")
@@ -1301,7 +1269,6 @@ label arc_6_diplomes:
 
         play music audio.melanPiano fadein 2.0
 
-    # --- Clôture de la scène 3 ---
     $ renpy.pause(1.0, hard=True)
 
     i "Voilà."
@@ -1387,15 +1354,12 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.2, hard=True)
 
-    # =============================================================================
     # SCÈNE 4 : L'OFFRE DE THÉO
-    # =============================================================================
     # Climax. Théo attend seul dans le couloir vide. Il pose une offre concrète,
     # tangible, dangereuse parce que vraie. Jessy se tient à distance et la laisse
     # être formulée en entier avant d'intervenir.
     # Le ton est piloté par arc6_penchant ; la route réelle a déjà été tranchée
     # au début de l'arc. Ce que le joueur fait ici ne fait que colorer les arcs VII.
-    # =============================================================================
 
     scene bg arc6 corridor empty
     with fade
@@ -1446,7 +1410,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.2, hard=True)
 
-    # --- 4.1 L'offre : concrète, tangible, vraie ---
     show theo reassuring at char_center
     with dissolve
 
@@ -1473,7 +1436,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- 4.2 La phrase pivot : Théo perd le contrôle ---
     show ilona determined at char_midright
     with dissolve
 
@@ -1499,7 +1461,6 @@ label arc_6_diplomes:
 
     i "Voilà. C'était aussi ça."
 
-    # --- 4.3 Jessy intervient : l'offre existe déjà ---
     play sound audio.bell
 
     j "J'ai tout entendu."
@@ -1525,7 +1486,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.2, hard=True)
 
-    # --- 4.4 La dernière attaque de Théo : calme, factuelle, vraie ---
     $ arc6_theo_attaques = arc6_construit_attaques_theo()
     $ arc6_attaque_1 = arc6_theo_attaques[0] if len(arc6_theo_attaques) > 0 else ""
     $ arc6_attaque_2 = arc6_theo_attaques[1] if len(arc6_theo_attaques) > 1 else ""
@@ -1584,7 +1544,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- 4.5 Ilona pose les règles avant que Jessy parle ---
     if arc6_penchant == "jessy":
         show ilona determined at char_center
     else:
@@ -1608,7 +1567,6 @@ label arc_6_diplomes:
         show jessy determined at char_left
     with dissolve
 
-    # --- 4.6 La réponse de Jessy : détermine arc6_offre_theo et arc6_conversation ---
     $ souvenir_flag_bonne = False
     menu:
         "Que répond Jessy ?"
@@ -1675,7 +1633,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- 4.7 Réaction de Théo selon la qualité de la réponse ---
     if souvenir_flag_bonne:
         if arc6_penchant == "theo":
             show theo neutral at char_center
@@ -1706,7 +1663,6 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- 4.8 L'offre reste suspendue ---
     if arc6_penchant == "jessy":
         show ilona fatigue at char_center
         show theo neutral at char_right
@@ -1740,24 +1696,18 @@ label arc_6_diplomes:
     jump arc_6_calcul
 
 
-# =============================================================================
 # CALCUL DU VERDICT
-# =============================================================================
 # Le verdict est calcule a l'entree de l'arc VI, avant les choix du jour.
 # Ce label ne recalcule rien : il envoie seulement vers la scene qui dit la route.
-# =============================================================================
 
 label arc_6_calcul:
 
     jump arc_6_decision
 
 
-# =============================================================================
 # SCÈNE 5 : LA DÉCISION
-# =============================================================================
 # Plus calme que la scène 4, plus lourde. La cour, en mars, avant la floraison.
 # Pas de neutralité : Ilona tranche. Les objets parlent avant les phrases.
-# =============================================================================
 
 label arc_6_decision:
 
@@ -1794,7 +1744,6 @@ label arc_6_decision:
 
 label arc_6_decision_jessy:
 
-    # --- Les objets parlent avant la phrase ---
     show theo neutral at char_right
     show jessy neutral at char_left
     with dissolve
@@ -1832,7 +1781,6 @@ label arc_6_decision_jessy:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- Réaction courte de Théo ---
     show theo disappointed at char_right
     with dissolve
 
@@ -1926,7 +1874,6 @@ label arc_6_decision_jessy:
 
 label arc_6_decision_theo:
 
-    # --- Les objets parlent avant la phrase ---
     show jessy neutral at char_left
     show theo neutral at char_right
     with dissolve
@@ -1964,7 +1911,6 @@ label arc_6_decision_theo:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- Réaction courte de Jessy : brisé, mais il ne la reprend pas par la douleur ---
     show jessy determined at char_left
     with dissolve
 
@@ -1979,7 +1925,6 @@ label arc_6_decision_theo:
 
     $ renpy.pause(1.5, hard=True)
 
-    # --- Clôture : séparation physique nette ---
     show ilona neutral at char_center
     show theo reassuring at char_right
     with dissolve
@@ -2011,13 +1956,10 @@ label arc_6_decision_theo:
     jump arc_6_bascule_theo
 
 
-# =============================================================================
 # BASCULE : LES ONZE JOURS
-# =============================================================================
 # Passage obligé vers arc_7_theo. On JOUE les onze jours (26 mars -> 6 avril)
 # et le départ en gare, au lieu de les affirmer. Ne jamais jump arc_7_theo
 # ailleurs qu'ici.
-# =============================================================================
 
 label arc_6_bascule_theo:
 

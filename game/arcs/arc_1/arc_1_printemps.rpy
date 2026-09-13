@@ -1,5 +1,4 @@
 # Arc I - Printemps : la vie hors écran.
-# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc1 school corridor = im.Scale("images/scenes/shared/bg_shared_school_corridor.jpg", 1920, 1080)
 image bg arc1 rooftop = im.Scale("images/scenes/arc_1/bg_arc1_rooftop_lunch.jpg", 1920, 1080)
@@ -579,7 +578,6 @@ label arc_1_printemps:
     with dissolve
     play music audio.ecole fadeout 1.0 fadein 1.0 loop volume 0.7
     play ambiant1 audio.foule volume 0.4
-    #music ecole + ambiance foule
     scene bg arc1 cafeteria
     show jessy neutral at char_left
     show ilona smile at char_right
@@ -627,7 +625,6 @@ label arc_1_printemps:
         i "On a ajouté un toboggan aquatique."
         show allan doubt at char_midleft
         a "Vous réparez rien, en fait."
-    #music soso ?
     show sofiane observation at char_center
     with dissolve
     s "Les premiers liens font beaucoup de bruit quand personne ne sait encore quoi dire."

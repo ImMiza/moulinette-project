@@ -7,12 +7,9 @@ image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_
 
 define audio.wow = "audio/fx/WOW.mp3"
 
-# Variable locale pour tracker accès scène
 default arc4_5_maid_cafe_visite = False
 default arc4_5_sofiane_maid = False
 
-# La condition d'accès est évaluée inline dans arc_4_noel.rpy avant le call.
-# L'ancien label arc_4_5_maid_cafe_check n'était appelé nulle part : supprimé.
 
 label arc_4_5_maid_cafe:
     $ arc4_5_maid_cafe_visite = True

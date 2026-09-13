@@ -1,5 +1,4 @@
 ﻿# Arc prologue - Minecraft : une maison beaucoup trop grande.
-# Les variables importantes restent centralisées dans script.rpy.
 # Ces alias de chat sont propres au prologue Minecraft.
 
 define pmj = Character("jessyCube",who_outlines=[(2, "#0069CA", 0, 0)], color="#ffffff", callback=speaker_callback("jessy"))

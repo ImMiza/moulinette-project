@@ -1,5 +1,4 @@
 # Arc IV - Noël : le cadeau qui dit trop de choses.
-# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc4 train inside = im.Scale("images/scenes/arc_4/bg_arc4_train_inside.jpg", 1920, 1080)
 image bg arc4 illuminations = im.Scale("images/scenes/arc_4/bg_arc4_illuminations.jpg", 1920, 1080)
@@ -524,7 +523,6 @@ label arc_4_noel:
     hide ilona
     with dissolve
 
-    # Micro-scène Théo-Laplage
 
     $ fade_channel("music",0.8,1.0)
     scene bg arc4 christmas market
@@ -1200,7 +1198,6 @@ label arc_4_noel:
     hide theo
     with dissolve
 
-    # Arc 4.5 alternatif - Ilona accepte de marcher avec Théo (route Théo)
     if influence_theo >= 10 and confiance <= 8 and arc4_limite_ilona == "demande_theo":
         systeme "Mais quelque chose change."
 
@@ -1255,7 +1252,6 @@ label arc_4_noel:
     if not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
         systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
 
-    # Arc 4.5 - Scène secrète Maid Café (si synergie bonne)
     if lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15:
         call arc_4_5_maid_cafe from _call_arc_4_5_maid_cafe
     else:
@@ -1263,7 +1259,6 @@ label arc_4_noel:
         hide alex
         with dissolve
 
-    # Arc 4.5 - Scène marche Théo/Ilona (si route Théo)
     if arc4_ilona_avec_theo:
         call arc_4_5_theo from _call_arc_4_5_theo
     elif not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
@@ -1373,26 +1368,3 @@ label arc_4_noel:
     stop music fadeout 1.0 
     stop ambiant1 fadeout 1.0
     jump arc_5_examens
-
-
-# --- Récapitulatif Arc IV ---
-# Variables modifiées :
-# - lien_jessy_ilona, confiance, communication, jalousie, autonomie_ilona
-# - influence_theo, pression_stream, jugement_laplage, confidences_laplage
-# - interruptions_ilona, interruptions_reconnues, interruptions_reparees, ilona_peut_finir_ses_phrases
-# - ilonanium_points
-# - souvenirs["jessy_nomme_sa_peur"], souvenirs["jessy_repare"], souvenirs["ilona_pose_une_limite"], souvenirs["maison_respectee"]
-# - arc4_cadeau_jessy, arc4_reaction_cadeau_theo, arc4_limite_ilona, arc4_fin_minecraft
-# - arc4_carte_sofiane_lue, arc4_mochi_cosmique
-#
-# Choix ayant des conséquences futures :
-# - Le sens donné au cadeau de Jessy détermine s'il devient un souvenir partagé, une preuve anxieuse ou une conversation plus honnête.
-# - La réaction au cadeau précis de Théo modifie la confiance, l'autonomie d'Ilona et l'influence de Théo.
-# - La façon d'accueillir la limite d'Ilona prépare directement l'Arc V, notamment la question peur/confiance.
-# - Le mochi cosmique peut ajouter un point à la route cachée de l'Ilonanium.
-#
-# Fils ouverts pour l'Arc V :
-# - Ilona a formulé que connaître ses goûts ne suffit pas à savoir ce qu'elle veut.
-# - Théo reste utile et attentif, mais Allan commence à intervenir quand son aide cherche à prendre la place de la réponse d'Ilona.
-# - Jessy peut avoir appris à laisser un cadeau respirer, ou avoir renforcé l'idée qu'il cherche une garantie.
-# - La maison Minecraft contient une trace de Noël : miniature, coffre d'attente, objet trop lourd, coin dehors ou neige fragile.

@@ -1,13 +1,10 @@
-# =============================================================================
 # ARC VII - ROUTE JESSY : FESTIVAL D'ETE
-# =============================================================================
 # Mapping depuis arc 6 :
 #   arc6_score >= SEUIL_JESSY       -> entree ici
 #   arc6_score >= SEUIL_ROMANCE     -> option romance possible si lien suffisant
 #   arc6_conversation               -> posture du toit
 #   arc6_derniere_construction      -> dernier geste Minecraft
 #   arc6_gateau_planete             -> 5e objet cosmique valide
-# =============================================================================
 
 label arc_7_jessy:
     $ derniere_route = "Route Jessy"

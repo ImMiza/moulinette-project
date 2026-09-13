@@ -1,5 +1,4 @@
 ﻿# Arc II - Vacances d'été : la plage.
-# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc2 beach main = im.Scale("images/scenes/arc_2/bg_arc2_beach_main.jpg", 1920, 1080)
 image bg arc2 beach sunset = im.Scale("images/scenes/arc_2/bg_arc2_beach_sunset.jpg", 1920, 1080)
@@ -241,7 +240,6 @@ label arc_2_plage:
     hide theo
     with dissolve
 
-    #ambiance foule
     play sound audio.footSand volume 0.6
     play ambiant1 audio.foule volume 0.4 loop
     scene bg arc2 kakigori counter
@@ -468,7 +466,6 @@ label arc_2_plage:
     with dissolve
 
     play sound audio.footSand
-    # music plage soir
     play music audio.plagesunset fadeout 1.0 fadein 0.5 loop volume 0.7
     play ambiant1 audio.wave volume 0.4 loop fadein 3.0
     scene bg arc2 tide pools
@@ -630,7 +627,6 @@ label arc_2_plage:
     with dissolve
 
     if arc2_choix_activite_theo in ("confiance", "dix_minutes", "blague_jalouse"):
-        #ambiance vague
         play sound audio.footSand volume 0.6
         scene bg arc2 jetty
         with fade

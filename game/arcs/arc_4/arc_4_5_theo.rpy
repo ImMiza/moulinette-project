@@ -5,12 +5,10 @@
 # Elle a d'abord refusé de marcher avec Théo ("J'ai dit avec Allan"), puis l'a rappelé.
 # Elle a dit à Jessy : "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."
 
-# Images
 # Le parc résidentiel sert aux plans de marche et de banc tant que la rue dédiée n'existe pas.
 image bg arc4_5 street winter night = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 image bg arc4_5 park bench = im.Scale("images/scenes/arc_4/bg_arc4_park_bench.jpg", 1920, 1080)
 
-# Sprites Laplage maid
 image laplage maid neutral = speaker_sprite("laplage", "images/personnages/laplage/maid/neutral.png", 842, 1264)
 image laplage maid thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/maid/thumb_horizontal.png", 842, 1264)
 
@@ -19,7 +17,6 @@ transform laplage_maid_counter:
     yalign 1.0
     zoom 0.50
 
-# Variables locales
 default arc4_5_theo_proposition = ""
 default arc4_5_ilona_reaction = ""
 
@@ -76,7 +73,6 @@ label arc_4_5_theo:
     
     $ lien_ilona_theo += 1
     
-    # Pause au banc, dans le même parc résidentiel.
     systeme "Ils ralentissent près du banc sous le lampadaire. Les illuminations de Noël clignotent au loin."
 
     scene bg arc4_5 park bench
@@ -284,7 +280,6 @@ label arc_4_5_theo:
         $ arc4_5_theo_proposition = "temps"
     
     
-    # Transition maid café
     scene black
     with Dissolve(0.5)
     
@@ -322,7 +317,6 @@ label arc_4_5_theo:
     systeme "L'intérieur est plus calme que prévu. Quelques tables occupées. Une décoration soignée sans être kitsch."
     systeme "Et derrière le comptoir, presque invisible dans la pénombre..."
     
-    # Apparition Laplage en maid
     $ renpy.pause(0.5, hard=True)
     play sound audio.wow volume 0.6
     show laplage maid neutral at laplage_maid_counter
@@ -380,7 +374,6 @@ label arc_4_5_theo:
     hide laplage
     with dissolve
     
-    # Séparation
     scene black
     with Dissolve(0.5)
     
@@ -424,7 +417,6 @@ label arc_4_5_theo:
         t "...Je vais y réfléchir."
         systeme "C'est peut-être la première fois que quelqu'un lui demande de réfléchir à ce qu'il veut vraiment."
     
-    # Fin de la scène
     hide theo
     hide ilona
     with dissolve
@@ -468,5 +460,4 @@ label arc_4_5_theo:
     stop music fadeout 1.0 
     stop ambiant1 fadeout 1.0
     
-    # Retour vers la suite (le jeu continue normalement, mais avec arc4_ilona_avec_theo = True)
     return

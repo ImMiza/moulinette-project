@@ -1,14 +1,10 @@
-# =============================================================================
 # ARC VII - ROUTE THEO
-# =============================================================================
 # Mapping depuis arc 6 :
 #   controle_repetitif >= 3         -> entree forcee ici
 #   arc6_score < SEUIL_JESSY        -> entree ici
 #   confidences_laplage >= 3        -> sortie Laplage possible si influence basse
 #   influence_theo                  -> poids de la route Theo
-#
 # L'entree se fait TOUJOURS via arc_6_bascule_theo (fin de arc_6_diplomes.rpy),
-# =============================================================================
 
 label arc_7_theo:
     $ derniere_route = "Route Theo"

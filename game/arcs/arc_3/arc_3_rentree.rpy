@@ -1,5 +1,4 @@
 ﻿# Arc III - Rentrée : les regards.
-# Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc3 festival hallway = im.Scale("images/scenes/arc_3/bg_arc3_festival_hallway.jpg", 1920, 1080)
 image bg arc3 festival stand = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand.jpg", 1920, 1080)
@@ -180,7 +179,6 @@ label arc_3_rentree:
     hide alex
     hide allan
     with dissolve
-    #music ecole + ambience foule
     play music audio.festiMC loop volume 0.7 fadeout 1.0 fadein 1.0
     play ambiant1 audio.foule loop volume 0.4 fadein 1.5
     scene bg arc3 festival stand
@@ -323,7 +321,6 @@ label arc_3_rentree:
     hide jessy
     hide ilona
     with dissolve
-    #music festival + ambience foule volume high
     play music audio.festiMC loop volume 0.7 fadeout 1.0 fadein 1.0
     play ambiant1 audio.foule loop volume 0.4 fadein 1.5
     scene bg arc3 festival stand students
@@ -526,7 +523,6 @@ label arc_3_rentree:
     systeme "Elle glisse l'étoile dans son sac, puis reprend sa marche jusqu'au stand de takoyaki."
 
     $ fade_channel("ambiant1",0.4,2.0)
-    #laplage 
     $ renpy.pause(0.5, hard=True)
     play sound audio.laplage volume 0.6
     show laplage festival neutral at char_center
@@ -589,7 +585,6 @@ label arc_3_rentree:
     with dissolve
     systeme "Ilona respire une fois, puis reprend le chemin du café."
 
-    #music festival
     stop ambiant1 fadeout 1.0
     stop music fadeout 3.0
     scene bg arc3 festival hallway
@@ -1027,7 +1022,6 @@ label arc_3_rentree:
     hide ilona
     with dissolve
 
-    # Allan seul - première fissure
     scene bg arc3 classroom evening
     with fade
 
@@ -1101,7 +1095,6 @@ label arc_3_rentree:
         systeme "Puis elle entre dans la cuisine d'été. Celle qu'elle avait construite après la plage."
         systeme "Elle regarde les blocs. Les murs. Le toit."
         $ renpy.pause(1.0, hard=True)
-        #fx casser + tremblement + music tense
         play music audio.tensePiano fadeout 0.5 fadein 0.5 loop volume 0.7
         play sound audio.stonefall volume 0.6
         systeme "Elle détruit le premier bloc." with hpunch
@@ -1171,27 +1164,3 @@ label arc_3_rentree:
     stop ambiant1 fadeout 1.0
     stop music fadeout 1.0
     jump arc_4_noel
-
-
-# --- Recapitulatif Arc III ---
-# Variables modifiees :
-# - lien_jessy_ilona, confiance, communication, jalousie, autonomie_ilona
-# - influence_theo, pression_stream, jugement_laplage, confidences_laplage
-# - ilona_peut_finir_ses_phrases, interruptions_reconnues, interruptions_reparees
-# - ilonanium_points
-# - souvenirs["jessy_nomme_sa_peur"], souvenirs["jessy_repare"], souvenirs["theo_utilise_une_verite"], souvenirs["maison_respectee"]
-# - arc3_reaction_rumeur, arc3_aide_stand, arc3_reaction_laplage, arc3_fin_minecraft
-# - arc3_ilona_a_choisi_theme, arc3_rumeur_aggravee, arc3_theo_message_festival
-#
-# Choix ayant des consequences futures :
-# - La reaction de Jessy a la rumeur colore la suite : dignite, blague nerveuse, silence ou attention reelle.
-# - La maniere d'aider au stand fait monter ou retomber la jalousie avant le clash avec Theo.
-# - La reponse a Theo determine si sa lucidite devient une emprise ou une blessure que Jessy regarde en face.
-# - La scene avec Ilona prepare Noel : passion assumee, excuse adulte, effacement maladroit de Theo ou demande de garantie.
-# - L'etoile en sucre reste un objet reel ; seule sa trace peut etre reconstruite dans Minecraft.
-#
-# Fils ouverts pour l'Arc IV :
-# - Ilona sait qu'elle est troublee par l'attention de Theo, sans que cela efface ce qu'elle ressent pour Jessy.
-# - Jessy et Theo se sont affrontes ; chacun a dit une part vraie et une part violente.
-# - La maison Minecraft reflete l'etat du lien : panneau fragile, rangement prudent, porte fermee, destruction, sortie ou lanterne.
-# - Noel devra tester si les personnages savent offrir quelque chose sans s'en servir comme preuve d'amour.
