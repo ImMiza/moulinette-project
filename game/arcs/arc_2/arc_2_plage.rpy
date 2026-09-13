@@ -42,7 +42,6 @@ define audio.plage = "audio/music/plage-day.ogg"
 define audio.wave = "audio/ambience/ocean-waves.mp3"
 define audio.plagesunset = "audio/music/plage-sunset.ogg"
 define audio.sandnoise = "audio/fx/sand-noise.mp3"
-define audio.pianoslam = "audio/fx/piano-slam.mp3"
 
 default arc2_photo_reaction = ""
 default arc2_choix_activite_theo = ""

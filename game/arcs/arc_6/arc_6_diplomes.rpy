@@ -366,12 +366,12 @@ label arc_6_diplomes:
     systeme "Discours du proviseur. Personne n'écoute. Trois cent quarante noms."
     systeme "On appelle les noms par ordre alphabétique. Chacun monte, prend un papier, redescend. En quatre secondes, une année entière est classée."
 
-    play sound audio.bell
+    play sound audio.bell volume 0.6
 
     show alex neutral at char_left
     show allan neutral at char_midleft
 
-    play sound audio.micka volume 0.8
+    play sound audio.micka volume 0.6
     show micka happy at char_right
     with dissolve
 
@@ -531,14 +531,12 @@ label arc_6_diplomes:
     systeme "Théo, près de la sortie, debout, à ne rien faire."
     systeme "Théo ne fait jamais rien. Théo attend quelqu'un, ou Théo va quelque part. Là, il regarde le gymnase se vider comme s'il essayait de le retenir."
 
-    play music audio.tensePiano fadein 3.0 loop volume 0.7
-
     show allan neutral at char_midleft
     show theo neutral at char_midright
     with dissolve
 
     systeme "Allan connaît Théo depuis dix ans. C'est la première fois de l'année qu'il l'aborde sans avoir préparé une excuse pour lui."
-
+    play music audio.tensePiano fadein 3.0 loop volume 0.7
     a "Théo."
     t "Allan."
     a "Dix ans que t'ouvres la bouche, que les gens le prennent mal, et que c'est moi qui traduis derrière."
@@ -1264,7 +1262,7 @@ label arc_6_diplomes:
         else:
             systeme "Il ne dit rien. Il ne sait pas si c'est de la délicatesse ou de la lâcheté. Elle non plus."
 
-        play music audio.melanPiano fadein 2.0
+        play music audio.melanPiano fadein 2.0 volume 0.7 loop
 
     $ renpy.pause(1.0, hard=True)
 
@@ -1372,7 +1370,7 @@ label arc_6_diplomes:
     scene bg arc6 corridor empty
     with fade
 
-    play music audio.tensePiano fadein 2.0 loop volume 0.6
+    play music audio.tensePiano fadein 2.0 loop volume 0.7
 
     show theo neutral at char_center
     with dissolve
@@ -1469,7 +1467,7 @@ label arc_6_diplomes:
 
     i "Voilà. C'était aussi ça."
 
-    play sound audio.bell
+    play sound audio.bell volume 0.6
 
     j "J'ai tout entendu."
 
@@ -1722,7 +1720,7 @@ label arc_6_decision:
     scene bg arc6 courtyard march
     with fade
 
-    play music audio.melanPiano fadein 3.0 loop volume 0.6
+    play music audio.melanPiano fadein 3.0 loop volume 0.7
 
     systeme "La cour. Vingt-six mars. Les cerisiers sont alignés le long de la grille, encore fermés. Les branches font des traits noirs devant le ciel gris."
     systeme "Les bancs sont vides, les affiches de la cérémonie claquent doucement contre les vitres. La journée continue autour d'eux, mais plus personne ne parle assez fort pour la remplir."
@@ -1813,6 +1811,7 @@ label arc_6_decision_jessy:
 
     $ renpy.pause(1.5, hard=True)
 
+    stop music fadeout 3.0
     scene black
     with fade
 
@@ -1822,6 +1821,7 @@ label arc_6_decision_jessy:
     $ renpy.pause(1.2, hard=True)
 
     # --- Le dernier geste Minecraft : détermine arc6_derniere_construction ---
+    play music audio.mcnight volume 0.7 fadein 1.0
     scene bg arc6 minecraft last
     with dissolve
 
@@ -1895,6 +1895,7 @@ label arc_6_decision_theo:
     $ renpy.pause(1.5, hard=True)
 
     show ilona fatigue at char_center
+    play sound audio.pianoslam volume 0.6
     i "Je vais partir avec Théo."
 
     $ renpy.pause(1.5, hard=True)
@@ -1974,7 +1975,7 @@ label arc_6_bascule_theo:
     scene black
     with fade
 
-    play music audio.melanPiano fadein 3.0 loop volume 0.5
+    play music audio.sadPiano fadein 3.0 loop volume 0.7
 
     systeme "Onze jours, ça passe vite quand on a arrêté d'attendre quelque chose."
 
