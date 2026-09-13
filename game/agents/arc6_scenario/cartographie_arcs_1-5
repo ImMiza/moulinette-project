@@ -1,0 +1,422 @@
+op# Cartographie Arcs I à V (pour generation Arc VI)
+
+Ce document sert de reference rapide pour ecrire ou regenerer les scenes de
+`game/agents/arc6_scenario/` (scene1, scene3, scene4, scene5, et futures
+scene2/scene6). Il liste, arc par arc, les choix pivots, leurs deltas exacts,
+les souvenirs, les variables relues plus tard, et des citations reutilisables
+pour les flashbacks (scene3 = "proces intime").
+
+Source de verite : code `.rpy` actif (`game/arcs/arc_1` a `arc_5`), verifie a
+la date de redaction. En cas de doute, se referer aussi a
+`game/agents/CONTEXTE_IA_ARCS.md` (reference mecanique globale) plutot qu'aux
+anciens flowcharts (`flowchart.md`, `arcs_1-5_flowchart.md`), reconnus
+imprecis par CONTEXTE_IA_ARCS.md section 1.
+
+Theo est absent en Arc I (seulement mentionne), entre physiquement en Arc II.
+
+---
+
+## 0. Boussole : trois trajectoires
+
+Comme le formulent scene1/scene3/scene4/scene5 : le joueur ne doit jamais
+sentir une neutralite totale. Trois trajectoires organisent la lecture des
+arcs I-V :
+
+- **Route Jessy** (proche) : `confiance`, `communication`, `autonomie_ilona`
+  hauts ; `jalousie`/`influence_theo` bas ou reparees.
+- **Route indecise / fragile** : signaux mixtes, reparations partielles,
+  `evitements`/`controles` presents mais pas dominants.
+- **Route Theo** (distante) : `influence_theo` haut, `autonomie_ilona` basse,
+  `confidences_laplage` elevees, souvenir `theo_utilise_une_verite` present.
+
+Formule reelle utilisee en Arc VI (`arc_6_diplomes.rpy`, cf.
+CONTEXTE_IA_ARCS.md section 5) :
+
+```
+controle_repetitif = interruptions_ilona - interruptions_reparees
+espace = autonomie_ilona*4 + ilona_peut_finir_ses_phrases*6 + interruptions_reparees*6 + communication + confiance
+dette  = influence_theo*3 + max(0,controle_repetitif)*8 + pression_stream*2 + jalousie*2 + confidences_laplage*4
+posture = +6*jessy_nomme_sa_peur +8*jessy_repare +5*ilona_libre_sans_abandon +3*maison_respectee -6*theo_utilise_une_verite
+arc6_score = espace + posture + recidive + arc6_mod - dette
+```
+
+Donc les leviers les plus lourds pour ecrire l'arc 6 sont : `influence_theo`
+(x3, dette), `confidences_laplage` (x4, dette), `controle_repetitif` (x8 si
+positif), les souvenirs `jessy_repare` (+8) et `theo_utilise_une_verite` (-6),
+et `ilona_peut_finir_ses_phrases`/`interruptions_reparees` (x6, espace).
+Une scene qui veut "faire pencher" clairement la route doit toucher ces
+variables-la, pas seulement `lien_jessy_ilona` (qui est hors calcul de route,
+utilise seulement pour la romance/complicite).
+
+---
+
+## 1. Arc I - Printemps (`arc_1_printemps.rpy`, label unique)
+
+Theo absent (seulement mentionne par Allan : "Je demanderai a Theo. Il a
+toujours une reponse."). Aucun `remember()` dans cet arc : uniquement des
+trackers numeriques.
+
+### Scenes et pivots
+
+| Scene | Choix | Options -> deltas principaux |
+|---|---|---|
+| Toit, partage bento | 4 options | accepter/blague -> `lien_jessy_ilona+2` ; demander si elle a envie -> `autonomie_ilona+2, communication+1, confiance+1, pression_stream-1` ; refuser trop vite -> `communication-2, confiance-1, pression_stream+1, evitements+1` |
+| Train, photo volee | 3 options | supprimer -> deltas negatifs (evitement) ; garder si elle aime -> deltas positifs (espace) ; reposer -> `lien_jessy_ilona+2` |
+| Konbini, bonbon etoile | 3 options | garder pour Minecraft -> `lien+2` ; la laisser manger (`ilonanium_points+1`) -> positif ; mentionner Laplage -> `ilonanium_points+1, lien+2` |
+| Couloir, question d'Allan "vous sortez ensemble ?" (**pivot le plus lourd de l'arc**, deltas x2) | 4 options | sincere "J'aimerais bien" -> `communication+4, confiance+2, jalousie-2, lien+2` (bonus dialogue si `lien_jessy_ilona>=6`) ; blague -> `lien+4` ; laisser Ilona repondre -> `autonomie+4, communication+2, confiance+2, ilona_peut_finir_ses_phrases+1, pression_stream-2` ; nier trop vite -> `communication-4, confiance-2, pression_stream+2, evitements+1` |
+| Toit, debrief | 4 options (memes deltas x2 que le menu precedent, mapping equivalent) | "demander ce qui l'aiderait" / "elle peut prendre son temps" -> espace fort ; petite blague puis vraie reponse -> `communication+4, confiance+2, jalousie-2, lien+2` ; se defendre -> negatif |
+
+### Sorties relues
+Aucune variable `arc1_*` nommee : tout passe par les globales
+(`lien_jessy_ilona`, `communication`, `confiance`, `autonomie_ilona`,
+`pression_stream`, `evitements`, `jalousie`, `ilonanium_points`,
+`ilona_peut_finir_ses_phrases`).
+
+### Citations flashback reutilisables
+- Retrouvailles couloir : bascule "voix -> visage" apres le prologue Minecraft.
+- Phrase de Jessy coupee dans le train : *"Ilona, je voulais te dire que—"*
+  (coupee par la fermeture des portes) — callback naturel : Jessy "finit enfin
+  sa phrase" en Arc VI.
+- Ilona sur le toit : *"En ligne, c'est plus facile."* — theme de la
+  communication IRL vs ecran, reutilisable en miroir Arc VI.
+- Sofiane (meta) : *"Les premiers liens font beaucoup de bruit quand personne
+  ne sait encore quoi dire."*
+
+---
+
+## 2. Arc II - Plage (`arc_2_plage.rpy`, label unique) — PIVOT MAJEUR
+
+Entree physique de Theo. Trackers locaux : `arc2_reaction_invitation`,
+`arc2_photo_reaction`, `arc2_choix_activite_theo` (LE pivot central, relu par
+III/IV/V/VI), `arc2_reaction_coucher`, `arc2_retour_minecraft`.
+
+### Le choix pivot `arc2_choix_activite_theo` (menu le plus lourd du jeu, deltas x3)
+
+Question : Ilona veut aller aux mares avec Theo, que fait Jessy ?
+
+| Valeur | Deltas | Souvenir |
+|---|---|---|
+| `confiance` | `autonomie+6, communication+3, confiance+3, pression_stream-3` | `remember("ilona_libre_sans_abandon")` |
+| `dix_minutes` | `communication+6, confiance+3, jalousie-3, lien+3` | `remember("jessy_nomme_sa_peur")` |
+| `blague_jalouse` | `communication-6, confiance-3, jalousie+2, pression_stream+3, evitements+1` | — |
+| `suivre` | `autonomie-6, confiance-6, influence_theo+3, interruptions_ilona+1, jalousie+9 (max du jeu), lien-3, controles+1` | — |
+| `disparaitre` | `communication-6, confiance-3, pression_stream+3, evitements+1` | — |
+
+**Point d'attention pour l'ecriture Arc VI** : dans 4 branches sur 5 (toutes
+sauf `suivre`), Ilona part quand meme seule avec Theo a la jetee/aux mares et
+vit un moment de complicite avec lui (`lien_ilona_theo+2`) — meme si Jessy a
+"bien" gere via `blague_jalouse`. Seul `suivre` remplace ce moment par une
+confrontation a trois ; `disparaitre` le rend au contraire plus long et
+intime. Donc le flashback "scene des mares" (scene3) doit rester valable
+quasi quel que soit le choix, seule la tonalite du souvenir de Jessy change.
+
+### Autres choix de l'arc
+- Reaction a l'annonce que Theo vient (`arc2_reaction_invitation`) : blague /
+  simple / "theo_trop_vite" (deltas negatifs, controle) / silence.
+- Serviette d'Ilona : aider sans commenter (positif) / blague / regarder ce
+  que fait Theo (`controle`, deltas negatifs).
+- Porte-cles retrouve par Theo (Jessy rate, Theo reussit) : remercier
+  sincerement (positif) / chercher aussi (`lien+4`) / blague pour masquer
+  (negatif) / se taire (negatif).
+- Reaction a la photo de groupe (`arc2_photo_reaction`) : silence (negatif) /
+  refaire doux / remarque neutre (positif) / accepter+complimenter (`lien+2`).
+- Coucher de soleil, reaction de Jessy (`arc2_reaction_coucher`) : silence
+  (negatif) / **reparation** (positif ; si `arc2_choix_activite_theo` etait
+  mauvais -> `remember("jessy_repare")`) / interrogatoire (tres negatif,
+  Ilona explose : *"Va te faire foutre, Jessy."*) / nommer sa peur sans
+  accuser (positif, `remember("jessy_nomme_sa_peur")` — meme cle que le menu
+  pivot, peut donc se declencher deux fois independamment).
+- Minecraft, gelee lumineuse : `remember("maison_respectee")` si la porte
+  n'est pas fermee.
+
+### Sorties relues ailleurs
+`arc2_choix_activite_theo` est LE tracker le plus couple du jeu (relu arcs
+III, IV, IV.5-Theo, V, VI). Ne jamais introduire une 6e valeur sans mettre a
+jour tous les consommateurs.
+
+### Citations flashback reutilisables
+- Kakigori/porte-cles : "Theo brille en 30s, Jessy rate en 2 min" — premiere
+  image de comparaison directe.
+- Jetee, Theo a Ilona : *"Je pense que Jessy a de la chance... une fois qu'on
+  te voit vraiment."* — quasi-declaration, silence lourd d'Ilona. Scene
+  explicitement designee comme materiau de flashback pour Arc VI.
+- Confrontation aux mares (branche `suivre`) : *"T'as tout gache, mec."*
+- Theo seul avec Ilona (branche `disparaitre`) : *"Je crois qu'il confond
+  etre proche de toi et etre sur que tu restes."* — prefigure exactement le
+  theme de la scene 4 (l'offre de Theo).
+- Laplage, table des objets trouves : metaphore "rendre un objet trop tot,
+  avant que la personne sache si elle en a encore besoin" — echo thematique
+  direct avec le stylo violet de la scene 1.
+
+---
+
+## 3. Arc III - Rentree / Festival (`arc_3_rentree.rpy`, label unique)
+
+Trackers : `arc3_reaction_rumeur`, `arc3_aide_stand`, `arc3_reaction_laplage`
+(couvre la reponse a la confession d'Ilona, pas seulement Laplage),
+`arc3_fin_minecraft` (relu IV, IV.5-Theo, V, VI), `arc3_ilona_a_choisi_theme`,
+`arc3_rumeur_aggravee`, `arc3_theo_message_festival` (sans lecteur direct
+mais sert de setup).
+
+### Choix pivots
+
+- **Reaction a la rumeur** (`arc3_reaction_rumeur`) : "regarder Ilona d'abord"
+  (positif, espace) / "silence" (negatif, `arc3_rumeur_aggravee=True`) /
+  "defendre immediatement" (controle, negatif) / "blague pour desamorcer"
+  (`lien+4`). Si blague ou silence -> `influence_theo+1`,
+  `remember("theo_utilise_une_verite")`.
+- **Comportement au stand** (`arc3_aide_stand`) : "annoncer qu'il a besoin
+  d'air, revenir" (positif, `remember("jessy_nomme_sa_peur")`) / "aider en
+  retrait" (positif) / "demander franchement" (positif) / "blague acide"
+  (tres negatif, controle).
+- **Duel verbal Jessy/Theo** (pas de tracker nomme) : se taire (negatif,
+  callback special si `arc2_choix_activite_theo` etait `suivre`/`disparaitre`
+  — Theo dit *"Comme a la plage."*) / admettre la blessure (positif) /
+  refuser le duel sans refuser la colere (positif, espace) / "lui rentrer
+  dedans" (tres negatif). Avant ce menu, `remember("theo_utilise_une_verite")`
+  est pose de facon inconditionnelle.
+- **Reponse a la confession d'Ilona** (`arc3_reaction_laplage`, determine
+  aussi `arc3_fin_minecraft`) :
+  - `demander_besoin` -> positif fort, `arc3_fin_minecraft="panneau_finir_phrase"`
+  - `excuse_precise` -> positif (peut donner `remember("jessy_repare")` si
+    l'arc avait ete mauvais avant), `arc3_fin_minecraft="rangement_silencieux"`
+  - `demande_reponse` -> tres negatif (controle), `arc3_fin_minecraft="destruction"`
+    (**seule branche qui detruit un souvenir** : `souvenirs["maison_respectee"]=False`,
+    ajout a `maison_minecraft_destructions`)
+  - `promesse_theo` -> negatif (deni), `arc3_fin_minecraft="porte_fermee"`
+  - defaut -> `"lanterne_cour"`
+
+### Confidence Laplage (important pour comprendre `confidences_laplage`)
+La scene de confidence est **toujours jouee**, inconditionnelle. Seul le
+compteur `confidences_laplage` est conditionnel : il n'augmente que si
+`ilona_peut_finir_ses_phrases < 2` (commentaire code explicite : "Ilona ne se
+confie a Laplage que si personne d'autre ne la laisse finir. Chaque confidence
+est une dette, pas un credit : voir la porte de l'arc 6."). `jugement_laplage`
+lui est toujours incremente.
+
+### Citations flashback reutilisables
+- Rumeur du porte-cles devant le stand : humiliation publique, Theo observe
+  silencieusement, "il le range dans sa memoire".
+- Confidence Laplage / takoyaki : *"Quand Theo est gentil, ca... me repose. Et
+  apres je m'en veux."* — aveu le plus nu du triangle, candidat numero un pour
+  flashback scene 3.
+- Duel Jessy/Theo : reference explicite a la plage, escalade jusqu'a
+  *"Attention, Jessy."*
+- Confession d'Ilona post-duel : *"Je suis en colere contre toi... contente
+  quand tu me cherches... deteste que Theo remarque quand je fatigue."*
+- Destruction de la cuisine d'ete (branche `demande_reponse`) : seule scene du
+  jeu ou un souvenir positif est explicitement casse — image forte de
+  rupture/regret a rappeler en Arc VI si cette branche a eu lieu.
+
+---
+
+## 4. Arc IV - Noel + interludes 4.5 (`arc_4_noel.rpy`, `arc_4_5_maid_cafe.rpy`, `arc_4_5_theo.rpy`)
+
+Trackers : `arc4_cadeau_jessy`, `arc4_reaction_cadeau_theo`, `arc4_limite_ilona`
+(**pivot central**, deltas x3), `arc4_accueil_limite`, `arc4_fin_minecraft`,
+`arc4_ilona_avec_theo` (bool).
+
+### Cadeau de Jessy (`arc4_cadeau_jessy`)
+`miniature_aveu` / `miniature_souvenir` -> positif +
+`remember("maison_respectee")` ; `cadeau_couteux` -> negatif ; `blague_interne`
+-> `lien+4` ; `discussion_honnete` -> positif + `remember("jessy_nomme_sa_peur")`.
+
+### Cadeau de Theo (carnet de croquis, souvenir intime de la plage transforme
+en objet) -> `arc4_reaction_cadeau_theo`. Si `blague_acide` ou `verite_crue` ->
+clash public, Ilona coupe net : *"Vous allez arreter de transformer chaque
+putain de cadeau en duel."* / *"Je ne suis pas un trophee qu'on gagne avec des
+souvenirs bien places."*
+
+### Laplage a Theo (setup thematique, aucune variable) :
+*"Un souvenir bien place, c'est comme une cle. Elle peut ouvrir une porte. Ou
+verrouiller quelqu'un dedans."* — miroir direct de la limite d'Ilona qui suit.
+
+### LA LIMITE D'ILONA (`arc4_limite_ilona`) — moment cle absolu de l'arc
+
+Options (deltas x3, conditionnees par le cadeau choisi plus tot) :
+- `demande_theo` (toujours dispo) -> tres negatif : `autonomie-6, confiance-6,
+  influence_theo+3, jalousie+9, lien-3, controles+1`
+- `cadeau_preuve` (si cadeau couteux) -> negatif
+- `cadeau_respirant` (si miniature) -> positif, `remember("maison_respectee")`
+- `parole_sans_verdict` (si discussion honnete) -> positif,
+  `remember("jessy_nomme_sa_peur")`
+- `marche_silencieuse` (toujours dispo) -> `lien+6`
+
+**Citation exacte a reutiliser telle quelle (coeur thematique du jeu)** :
+> i "Ce n'est pas parce que quelqu'un connait mes gouts qu'il sait ce que je veux."
+> i "Et ce n'est pas parce que je recois un cadeau que je dois decider immediatement ce qu'il signifie."
+> i "J'ai le droit de garder des objets et de ne pas encore savoir si je les aime."
+> i "Et j'ai le droit de vous aimer tous les deux differemment sans que ce soit un classement."
+
+`remember("ilona_pose_une_limite")` seulement si `ilona_peut_finir_ses_phrases
+>= 2 and interruptions_ilona <= interruptions_reparees` — la limite ne
+"compte" comme souvenir que si Jessy a laisse assez d'espace tout l'arc.
+
+### Accueil de la limite (`arc4_accueil_limite`) : demander ce qu'elle attend
+(positif) / silence (negatif) / accueillir sans se defendre (positif,
+`remember("jessy_repare")` si interruption anterieure) / accuser Theo (tres
+negatif) / nommer sa peur (positif, `remember("jessy_nomme_sa_peur")`).
+
+### Declencheur route Theo (interlude 4.5-Theo)
+```
+if influence_theo >= 10 and confiance <= 8 and arc4_limite_ilona == "demande_theo":
+```
+(Le commentaire en tete de `arc_4_5_theo.rpy` annonce des seuils differents
+`>=5/<=2` — **code fait foi**, ne pas reprendre le commentaire.)
+-> `arc4_ilona_avec_theo=True`, `influence_theo+2, pression_stream+2, confiance-1`.
+
+### Interlude 4.5-Theo : reaction d'Ilona calculee (pas de menu joueur)
+```
+if influence_theo >= 14 and autonomie_ilona <= 0: "accepte"
+elif communication >= 15 or ilona_peut_finir_ses_phrases >= 3: "directe"
+elif autonomie_ilona >= 15: "prudente"
+else: "accepte"  # defaut
+```
+- **`accepte`** : Ilona revele son reve de streamer serieusement. Theo propose
+  de "gerer le chat/planning" -> `arc4_5_theo_proposition="gestion_stream"`,
+  `influence_theo+3, autonomie-3, pression_stream+4`,
+  `remember("theo_utilise_une_verite")` + `remember("ilona_veut_streamer_serieusement")`.
+  Ligne cle : *"« Bien sur. » Deux mots. Une dette qui commence."*
+- **`directe`** : Ilona confronte Theo -> *"Est-ce que tu m'aides parce que tu
+  veux m'aider... ou parce que tu veux etre celui qui m'aide ?"* Seule branche
+  ou Theo recule : `influence_theo=max(0,-3)`. Ouvre une piste de remise en
+  question de Theo pour Arc VI.
+- **`prudente`** : Ilona garde ses distances, Theo reste patient mais deçu
+  (`show theo winter disappointed`).
+
+### Interlude 4.5-Maid Cafe (condition d'appel : `lien_jessy_ilona>=10 and
+communication>=25 and confiance>=15`) : pure recompense de complicite (tier B),
+3 options menent toutes a entrer, `lien+2, pression_stream-1`. Ne resout rien
+(commentaire code explicite).
+
+### Citations flashback supplementaires
+- *"elle se demande si elle n'est pas en train de remplacer une cage par une
+  autre... Mais une cage quand meme."* (reflexion finale d'Ilona, interlude
+  Theo) — motif de la "cage confortable", tres exploitable en Arc VI.
+
+---
+
+## 5. Arc V - Examens / Saint-Valentin / White Day (`arc_5_examens.rpy`)
+
+Trackers : `arc5_theo_proposition`, `arc5_valentin_choix`,
+`arc5_question_reponse` (**LE pivot**, relu Arc VI), `arc5_white_day_reponse`,
+`arc5_fin_minecraft`, `arc5_etat_relation` (fige une fois via `etat_relation()`
+— proche/fragile/distant), `arc5_ilona_a_pleure` (quasi toujours True),
+`arc5_cinema_ensemble`, `arc5_allan_voit_theo`, `arc5_jessy_a_menti`.
+
+### Porte cinema (scene 2)
+```
+(lien_jessy_ilona >= 20 or autonomie_ilona >= 30) and confiance >= 15 and communication >= 20
+```
+Succes -> scene cinema tendre, `arc5_cinema_ensemble=True`, saute toute la
+branche annulation. Echec -> Ilona annule par SMS, menus de gestion de crise
+(silence/inquiet/confronte/accepte — le dernier donnant
+`remember("ilona_libre_sans_abandon")`).
+
+### Scene 3 : Theo propose de "gerer" la vie d'Ilona via Jessy
+`arc5_theo_proposition` : `partiel`/`laisse` (controle, negatif, `laisse` pose
+`arc5_theo_dans_maison=True`) / `refuse` (positif) / `questionne` (positif).
+
+### QUESTION DE LA GARE (scene 6) — PIVOT CENTRAL DE L'ARC, pose une seule
+fois mais phrasee selon `arc5_etat_relation` :
+- Si proche : *"Est-ce que tu me feras confiance... meme si je choisis quelque
+  chose que tu n'esperais pas ?"*
+- Si fragile/distant (texte identique) : *"Est-ce que tu as peur de me perdre...
+  ou est-ce que tu ne me fais pas confiance ?"*
+
+Reference a un train qui avait deja "fini leur phrase a leur place" par le
+passe — souvenir non resolu, bon fil a reprendre en Arc VI.
+
+4 reponses (`arc5_question_reponse`) :
+- `responsable` : *"J'ai peur. Mais ma peur ne devrait pas devenir ton
+  probleme."* -> positif fort, `remember("jessy_nomme_sa_peur")`.
+- `theo` : *"C'est Theo le probleme."* -> tres negatif,
+  `remember("theo_utilise_une_verite")`.
+- `temps` : *"J'ai besoin de temps."* -> negatif ; si `etat_relation=="distant"`
+  Ilona part et **monte dans le train** (rupture visuelle forte).
+- `honnete` : peur ET confiance fragile assumees ensemble -> positif fort,
+  `remember("jessy_nomme_sa_peur")`, `jugement_laplage+2`.
+
+### White Day (scene 7) — Jessy doit repondre par ses actes un mois plus tard
+`arc5_white_day_reponse` : `grand_geste` (album photo, echoue explicitement,
+*"c'est un souvenir qui pese trois kilos"*) / `espace` (positif,
+`remember("ilona_libre_sans_abandon")`) / `retour` (repose la question, bonus
+si reponse gare etait honnete/responsable, sinon penalite) / `mots` (positif).
+
+**Porte de reconciliation** :
+```
+arc5_white_day_reponse in ("espace","mots") and arc5_question_reponse in ("honnete","responsable")
+```
+Succes -> *"Je crois qu'on peut y arriver"* — explicitement nommee
+"declaration d'intention" dans le texte. **Meilleur point d'ancrage romance
+avant l'Arc VI.**
+
+### Minecraft, bilan (scene 10) -> `arc5_fin_minecraft` par priorite :
+`salle_repos` (si honnete + espace/mots, positif, `remember("maison_respectee")`)
+> `distance` (si reponse=theo) > `theo_presence` (si Theo dans la maison) >
+`panneau` (si grand_geste) > `neutre` (defaut).
+
+### Citations flashback supplementaires
+- Ouverture d'arc : *"Elle n'a pas dormi... elle n'a plus l'energie de
+  mentir."* — fatigue d'Ilona, theme filé jusqu'à Arc VI.
+- Confidence Laplage (scene 5) : `arc5_ilona_a_pleure` devient **toujours
+  True** — seule scene ou Ilona parle sans un homme present pour
+  interpreter/controler. Variante "distant" : *"Personne ne me demande si je
+  suis fatiguee"* / *"Qu'on me foute la paix."*
+- Allan (scene 8, diagnostic sur Theo) : *"il n'est jamais le probleme... mais
+  il n'accepte jamais qu'on lui dise non, il optimise."* — a reprendre
+  possiblement dans la bouche d'Allan en Arc VI (il "confronte Theo" en VI
+  selon CONTEXTE_IA_ARCS.md section 4).
+
+---
+
+## 6. Fils de continuite transversaux (a ne pas casser en Arc VI)
+
+- `arc2_choix_activite_theo` -> conditionne des repliques/ambiances en III,
+  IV, V (deja fait), et doit rester coherent en VI (flashback plage de la
+  scene 3 existante utilise deja `bg arc6 flash beach`).
+- `arc3_fin_minecraft`, `arc4_fin_minecraft`, `arc5_fin_minecraft` racontent
+  chacun un etat de la maison Minecraft ; l'Arc VI a deja un
+  `bg arc6 minecraft last` (derniere construction) — la scene finale
+  Minecraft de l'Arc VI doit tenir compte de l'etat cumule (respectee /
+  abimee / delaissee) plutot que de repartir de zero.
+- Souvenirs `jessy_nomme_sa_peur` et `theo_utilise_une_verite` peuvent
+  chacun se declencher a PLUSIEURS reprises (Arc II menu pivot ET coucher de
+  soleil ; Arc III rumeur ET duel ; Arc IV cadeau ET limite ; Arc V question
+  gare). Le dict `souvenirs` etant probablement un simple bool, seule la
+  premiere occurrence "compte" pour le score (voir formule section 0) — mais
+  cote ecriture, plus le joueur a re-confirme ce comportement, plus la
+  route doit sembler ancree (pas juste un coup de chance isole).
+- `confidences_laplage` s'accumule uniquement quand Jessy ne laisse pas
+  Ilona finir ses phrases (Arc III) ou quand `arc5_etat_relation` n'est pas
+  "proche" (Arc V, +1 systematique si fragile/distant). C'est un compteur de
+  dette de parole, pas un simple flag de scene jouee (les scenes de
+  confidence sont, elles, toujours jouees).
+- `lien_jessy_ilona` reste hors calcul de route (voir CONTEXTE_IA_ARCS.md
+  section 5) : utile pour doser la romance/complicite dans les scenes Arc VI,
+  mais ne doit jamais servir a justifier a lui seul un basculement de route.
+
+---
+
+## 7. Ecarts connus a ne pas reproduire dans l'ecriture Arc VI
+
+(Detail complet dans `CONTEXTE_IA_ARCS.md` section 9 ; rappel des points les
+plus pertinents pour des flashbacks fideles) :
+
+- Arc II : le commentaire du code annonce une "deuxieme interruption" de
+  Theo sans premiere interruption clairement posee ; et incremente
+  `interruptions_ilona` pour de la surveillance plutot que pour une parole
+  reellement coupee. Un flashback qui reprend "Theo l'a interrompue" doit
+  rester prudent sur ce point.
+- Arc IV : deux options visuellement identiques `miniature_aveu` existent
+  avec des deltas differents ; la branche finale Minecraft "else" est du
+  code probablement mort (les 5 valeurs de `arc4_limite_ilona` sont deja
+  toutes couvertes avant).
+- Arc III/IV : les scenes de confidence Laplage sont toujours jouees, meme
+  si un commentaire pouvait laisser croire le contraire — ne pas ecrire un
+  flashback Arc VI qui suppose l'absence de cette scene.
+- Ne jamais inventer un nouveau souvenir ou une nouvelle valeur de tracker
+  arcs I-V sans verifier tous les lecteurs (`rg -n "nom_variable" game -g
+  "*.rpy"`), notamment pour `arc2_choix_activite_theo`, `arc3_fin_minecraft`,
+  `arc4_limite_ilona`, `arc4_ilona_avec_theo`, `arc5_question_reponse`,
+  `arc5_fin_minecraft`.

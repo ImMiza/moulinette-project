@@ -1,4 +1,4 @@
-﻿# Arc IV - Noël : le cadeau qui dit trop de choses.
+# Arc IV - Noël : le cadeau qui dit trop de choses.
 # Les variables importantes restent centralisées dans script.rpy.
 
 image bg arc4 train inside = im.Scale("images/scenes/arc_4/bg_arc4_train_inside.jpg", 1920, 1080)
@@ -7,6 +7,71 @@ image bg arc4 shopping gallery = im.Scale("images/scenes/arc_4/bg_arc4_shopping_
 image bg arc4 christmas market = im.Scale("images/scenes/arc_4/bg_arc4_christmas_market.jpg", 1920, 1080)
 image bg arc4 riverside winter = im.Scale("images/scenes/arc_4/bg_arc4_riverside_winter.jpg", 1920, 1080)
 image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+
+image jessy winter angry = speaker_sprite("jessy", "images/personnages/Jessy/winter/angry.png", 842, 1264)
+image jessy winter embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/winter/nervous_embarrassment.png", 842, 1264)
+image jessy winter happy = speaker_sprite("jessy", "images/personnages/Jessy/winter/happy.png", 842, 1264)
+image jessy winter listening = speaker_sprite("jessy", "images/personnages/Jessy/winter/regretful_listening.png", 842, 1264)
+image jessy winter neutral = speaker_sprite("jessy", "images/personnages/Jessy/winter/neutral_attentiveness.png", 842, 1264)
+image jessy winter smile = speaker_sprite("jessy", "images/personnages/Jessy/winter/shy_warm_smile.png", 842, 1264)
+image jessy winter determined = speaker_sprite("jessy", "images/personnages/Jessy/winter/vulnerable_determination.png", 842, 1264)
+
+image ilona winter embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/winter/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter determined = speaker_sprite("ilona", "images/personnages/Ilona/winter/clear_determination.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter frustrated = speaker_sprite("ilona", "images/personnages/Ilona/winter/frustrated_restraint.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter neutral = speaker_sprite("ilona", "images/personnages/Ilona/winter/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter sad = speaker_sprite("ilona", "images/personnages/Ilona/winter/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter smile = speaker_sprite("ilona", "images/personnages/Ilona/winter/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter fatigue = speaker_sprite("ilona", "images/personnages/Ilona/winter/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
+
+image ilona winter scarf embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf determined = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/clear_determination.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf frustrated = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/frustrated_restraint.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf neutral = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/neutral_hiver.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf sad = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf smile = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona winter scarf fatigue = speaker_sprite("ilona", "images/personnages/Ilona/winter/winter_with_scarf/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
+
+image theo winter disappointed = speaker_sprite("theo", "images/personnages/Théo/winter/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter annoyed = speaker_sprite("theo", "images/personnages/Théo/winter/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter defensive = speaker_sprite("theo", "images/personnages/Théo/winter/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter innocent = speaker_sprite("theo", "images/personnages/Théo/winter/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter smirk = speaker_sprite("theo", "images/personnages/Théo/winter/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter neutral = speaker_sprite("theo", "images/personnages/Théo/winter/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter jealousy = speaker_sprite("theo", "images/personnages/Théo/winter/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter reassuring = speaker_sprite("theo", "images/personnages/Théo/winter/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
+
+image theo winter scarf disappointed = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf annoyed = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf defensive = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf innocent = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf smirk = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf neutral = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf jealousy = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo winter scarf reassuring = speaker_sprite("theo", "images/personnages/Théo/winter/winter_with_scarf/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
+
+image allan winter embarrassed = speaker_sprite("allan", "images/personnages/Allan/winter/awkward_embarrassment.png", 842, 1264)
+image allan winter excited = speaker_sprite("allan", "images/personnages/Allan/winter/cheerful_excitement.png", 842, 1264)
+image allan winter neutral = speaker_sprite("allan", "images/personnages/Allan/winter/neutral.png", 842, 1264)
+image allan winter smirk = speaker_sprite("allan", "images/personnages/Allan/winter/playful_smirk.png", 842, 1264)
+image allan winter support = speaker_sprite("allan", "images/personnages/Allan/winter/quiet_support.png", 842, 1264)
+image allan winter doubt = speaker_sprite("allan", "images/personnages/Allan/winter/throughtful_doubt.png", 842, 1264)
+image allan winter silence = speaker_sprite("allan", "images/personnages/Allan/winter/uncomfortable_silence.png", 842, 1264)
+image allan winter surprise = speaker_sprite("allan", "images/personnages/Allan/winter/wide_eye_surprise.png", 842, 1264)
+
+image alex winter awkward = speaker_sprite("alex", "images/personnages/Alexandre/winter/akward_realization.png", 842, 1264)
+image alex winter serious = speaker_sprite("alex", "images/personnages/Alexandre/winter/blunt_seriousness.png", 842, 1264)
+image alex winter concerned = speaker_sprite("alex", "images/personnages/Alexandre/winter/concerned_look.png", 842, 1264)
+image alex winter laugh = speaker_sprite("alex", "images/personnages/Alexandre/winter/genuine_laughter.png", 842, 1264)
+image alex winter neutral = speaker_sprite("alex", "images/personnages/Alexandre/winter/neutral.png", 842, 1264)
+image alex winter peace = speaker_sprite("alex", "images/personnages/Alexandre/winter/peace.png", 842, 1264)
+image alex winter grin = speaker_sprite("alex", "images/personnages/Alexandre/winter/playful_grin.png", 842, 1264)
+image alex winter support = speaker_sprite("alex", "images/personnages/Alexandre/winter/supportive_encouragement.png", 842, 1264)
+image alex winter teasing = speaker_sprite("alex", "images/personnages/Alexandre/winter/teasing_skepticism.png", 842, 1264)
+
+image sofiane winter smirk = speaker_sprite("sofiane", "images/personnages/Sofiane/winter/cryptic_smirk.png", 842, 1264)
+image sofiane winter observation = speaker_sprite("sofiane", "images/personnages/Sofiane/winter/quiet_observation.png", 842, 1264)
+image sofiane winter neutral = speaker_sprite("sofiane", "images/personnages/Sofiane/winter/reserved_neutral.png", 842, 1264)
 
 image laplage christmas neutral = speaker_sprite("laplage", "images/personnages/laplage/christmas/neutral.png", 842, 1264)
 image laplage christmas thumb_up = speaker_sprite("laplage", "images/personnages/laplage/christmas/thumb_up.png", 842, 1264)
@@ -23,9 +88,14 @@ default arc4_fin_minecraft = ""
 default arc4_carte_sofiane_lue = False
 default arc4_mochi_cosmique = False
 default arc4_ilona_avec_theo = False
+default arc4_ilona_winter_sprite = "ilona winter"
+default arc4_theo_winter_sprite = "theo winter scarf"
 
 
 label arc_4_noel:
+    $ arc4_ilona_winter_sprite = "ilona winter"
+    $ arc4_theo_winter_sprite = "theo winter scarf"
+
     play music audio.mornPiano loop fadein 3.0 volume 0.7
     play ambiant1 audio.trainInside fadein 2.5 volume 0.4
     scene bg arc4 train inside
@@ -35,8 +105,8 @@ label arc_4_noel:
     systeme "Décembre arrive sans demander si quelqu'un a fini de comprendre septembre."
     systeme "Dans le train du matin, les vitres gardent la buée des souffles, et les annonces de soldes de Noël collent aux fenêtres comme des promesses mal placées."
 
-    show jessy neutral at char_left
-    show ilona neutral at char_right
+    show jessy winter neutral at char_left
+    show ilona winter neutral at char_right
 
     if arc3_fin_minecraft == "destruction":
         systeme "Depuis le festival, la maison Minecraft a un trou que personne n'a réparé."
@@ -78,7 +148,7 @@ label arc_4_noel:
     systeme "Le train ralentit près de la grande galerie commerciale. Des guirlandes clignotent déjà au-dessus des escalators."
     
     if jalousie >= 9:
-        show jessy embarrassed at char_left
+        show jessy winter embarrassed at char_left
         systeme "Jessy regarde Ilona. Elle regarde la vitre. Il y a trois mois, il aurait demandé à quoi elle pense."
         systeme "Maintenant, il a peur de la réponse."
     elif confiance >= 15 and communication >= 15:
@@ -89,11 +159,11 @@ label arc_4_noel:
     i "Priorité raisonnable."
     j "Il a aussi écrit : « si Monsieur Laplage est Père Noël, je veux savoir qui valide les listes »."
     i "Je ne veux pas savoir."
-    show ilona smile at char_right
+    show ilona winter smile at char_right
     systeme "Elle sourit, puis regarde les illuminations qui passent derrière la vitre."
     
     if pression_stream >= 6:
-        show ilona fatigue at char_right
+        show ilona winter fatigue at char_right
         systeme "Le sourire ne monte pas jusqu'aux yeux. Ilona est fatiguée. Jessy le voit. Il ne sait pas encore quoi en faire."
     
     i "Tu viens ce soir ?"
@@ -103,7 +173,7 @@ label arc_4_noel:
         systeme "Jessy pense à la plage. Au moment où il a suivi au lieu de faire confiance."
         systeme "Il n'a pas refait cette erreur depuis. Mais le souvenir pèse encore."
     
-    show jessy embarrassed at char_left
+    show jessy winter embarrassed at char_left
     systeme "Jessy a presque ajouté : j'ai quelque chose pour toi."
     systeme "Il garde la phrase. Elle devient plus lourde dans sa poche que le petit paquet qu'il transporte depuis le matin."
 
@@ -117,8 +187,8 @@ label arc_4_noel:
     scene bg arc4 shopping gallery
     with fade
 
-    show alex teasing at char_left
-    show jessy embarrassed at char_right
+    show alex winter teasing at char_left
+    show jessy winter embarrassed at char_right
 
     systeme "Après les cours, Jessy retrouve Alexandre devant une boutique de papeterie. Dans le sac de Jessy, le paquet menace de ressembler à une décision."
     x "Montre."
@@ -150,7 +220,7 @@ label arc_4_noel:
     else:
         x "Tu lui offres un souvenir ou une réponse ?"
 
-    show alex serious at char_left
+    show alex winter serious at char_left
     systeme "La question d'Alexandre tombe sans sourire. Il ne cherche pas à être profond. C'est parfois comme ça qu'il y arrive."
     j "Je ne sais pas."
     x "Alors décide avant ce soir."
@@ -173,13 +243,13 @@ label arc_4_noel:
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
             $ remember("maison_respectee")
-            show jessy determined at char_right
+            show jessy winter determined at char_right
             j "Je vais lui donner. Mais je vais aussi lui dire que je sais que ça veut trop dire."
             x "Tu vas offrir un cadeau avec un avertissement ?"
             j "Oui. Parce que je refuse de faire comme si c'était juste un objet mignon."
             x "C'est honnête. C'est aussi un peu flippant."
             j "Tout est flippant ce soir."
-            show alex support at char_left
+            show alex winter support at char_left
             systeme "Alexandre acquiesce. Il ne peut pas le contredire."
 
 
@@ -190,13 +260,13 @@ label arc_4_noel:
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
             $ remember("maison_respectee")
-            show jessy determined at char_right
+            show jessy winter determined at char_right
             j "Je vais lui offrir ce qu'on a construit. Avec le couloir inutile. Avec la pièce cassée."
             x "Donc un souvenir, pas une promesse."
             j "Oui. Mais j'ai quand même peur qu'elle voie une promesse."
             x "Elle verra ce qu'elle verra. Tu ne peux pas contrôler ça."
             j "C'est ça qui me terrifie."
-            show alex support at char_left
+            show alex winter support at char_left
             systeme "Alexandre regarde la boîte. Il ne dit pas que c'est une bonne idée. Il ne dit pas que c'est une mauvaise."
             x "Au moins, c'est honnête."
 
@@ -206,7 +276,7 @@ label arc_4_noel:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
-            show alex concerned at char_left
+            show alex winter concerned at char_left
             systeme "Jessy range la miniature au fond de son sac. Trop fort. Comme pour l'étouffer."
             j "Je vais prendre autre chose."
             x "Comme quoi ?"
@@ -220,7 +290,7 @@ label arc_4_noel:
         "Offrir la miniature mais en blague, pour désamorcer le poids.":
             $ arc4_cadeau_jessy = "blague_interne"
             $ lien_jessy_ilona += 4
-            show alex grin at char_left
+            show alex winter grin at char_left
             j "Je vais ajouter un panneau ridicule. « Pièce moyennement importante, édition neige »."
             x "Tu transformes un souvenir lourd en connivence."
             j "Oui."
@@ -238,8 +308,8 @@ label arc_4_noel:
             $ confiance += 2
             $ pression_stream = max(0, pression_stream - 2)
             $ remember("jessy_nomme_sa_peur")
-            show jessy determined at char_right
-            show alex support at char_left
+            show jessy winter determined at char_right
+            show alex winter support at char_left
             j "Je crois que j'ai fait cette miniature pour éviter de parler."
             x "Et ?"
             j "Je vais parler. Sans objet entre nous."
@@ -264,10 +334,10 @@ label arc_4_noel:
     scene bg arc4 christmas market
     with fade
 
-    show allan smirk at char_left
-    show ilona smile at char_midleft
-    show theo neutral at char_midright
-    show jessy neutral at char_right
+    show allan winter smirk at char_left
+    show ilona winter smile at char_midleft
+    show theo winter scarf neutral at char_midright
+    show jessy winter neutral at char_right
 
     systeme "Une heure plus tard, le marché de Noël du quartier ouvre sous des guirlandes blanches."
     systeme "Les stands vendent du chocolat chaud, des porte-clés, des gâteaux trop décorés, et des souvenirs dont personne n'a besoin avant de les voir."
@@ -291,19 +361,19 @@ label arc_4_noel:
     hide allan
     with dissolve
 
-    show theo reassuring at char_midright
+    show theo winter scarf reassuring at char_midright
     systeme "Théo sort un petit paquet plat de la poche de son manteau."
     t "Avant que la foule devienne impossible."
     i "Qu'est-ce que c'est ?"
     t "Un rien."
     systeme "Ilona défait le papier avec prudence."
-    show ilona embarrassed at char_midleft
+    show ilona winter embarrassed at char_midleft
     systeme "À l'intérieur, un carnet de croquis minuscule, couverture noire, coins renforcés, avec une petite étiquette collée à l'intérieur."
     t "Tu avais dit à la plage que tu oubliais toujours les idées qui venaient quand tu étais dehors."
     t "Il est assez petit pour tenir dans ta poche."
     systeme "Ilona ne répond pas tout de suite."
     systeme "Elle avait effectivement dit ça. Une seule fois. En juillet, entre deux phrases, juste avant de regarder les mares."
-    show jessy embarrassed at char_right
+    show jessy winter embarrassed at char_right
     systeme "Jessy sent quelque chose se tordre dans son ventre. Un souvenir qu'il avait aussi. Théo l'a transformé en objet."
     i "Je ne pensais pas que tu t'en souviendrais."
     t "Je fais attention."
@@ -320,7 +390,7 @@ label arc_4_noel:
             $ confiance += 2
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
-            show theo neutral at char_midright
+            show theo winter scarf neutral at char_midright
             j "C'est un beau cadeau."
             systeme "Théo tourne la tête vers lui, surpris."
             j "Et ça fait mal de voir quelqu'un d'autre se souvenir aussi bien."
@@ -339,7 +409,7 @@ label arc_4_noel:
             $ confiance += 2
             $ ilona_peut_finir_ses_phrases += 1
             $ pression_stream = max(0, pression_stream - 2)
-            show theo neutral at char_midright
+            show theo winter scarf neutral at char_midright
             j "Ça te touche ?"
             systeme "La question ne vise pas Théo. Elle ne vise qu'Ilona."
             i "Oui."
@@ -361,7 +431,7 @@ label arc_4_noel:
             systeme "Alors il se tait. Et le silence fait plus mal que prévu."
             i "Merci, Théo."
             i "C'est... vraiment attentif."
-            show theo smirk at char_midright
+            show theo winter scarf smirk at char_midright
             t "Je suis content que ça te plaise."
             systeme "Le sourire de Théo dure un peu plus longtemps que nécessaire."
             systeme "Jessy détourne les yeux. Il a l'impression que tout le marché vient de voir qu'il ne sait plus comment être celui qui compte."
@@ -372,7 +442,7 @@ label arc_4_noel:
             $ communication += 4
             $ confiance += 2
             $ lien_jessy_ilona += 2
-            show theo neutral at char_midright
+            show theo winter scarf neutral at char_midright
             j "Je viens de réaliser que je connais tes horaires mais pas tes besoins."
             systeme "La phrase tombe sans préparation. Ilona tourne la tête vers lui."
             j "Et lui vient de me le montrer en deux phrases."
@@ -391,7 +461,7 @@ label arc_4_noel:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             j "Pratique. On pourra noter tous les détails qu'on rate pendant qu'on vit les moments."
-            show ilona frustrated at char_midleft
+            show ilona winter frustrated at char_midleft
             systeme "La phrase claque. Théo se fige."
             t "C'est juste un carnet, Jessy."
             j "Oui. Et moi je suis juste quelqu'un qui regarde quelqu'un d'autre gagner avec mes propres souvenirs."
@@ -400,9 +470,9 @@ label arc_4_noel:
             systeme "Théo ne sourit plus. Ilona ne regarde personne."
     if arc4_reaction_cadeau_theo in ("blague_acide", "verite_crue"):
         if arc4_reaction_cadeau_theo == "blague_acide":
-            show theo defensive at char_midright
+            show theo winter scarf defensive at char_midright
         else:
-            show theo disappointed at char_midright
+            show theo winter scarf disappointed at char_midright
         t "Tu sais, Jessy, tu pourrais juste accepter qu'on puisse penser à elle autrement que toi."
         if arc4_reaction_cadeau_theo == "blague_acide":
             j "Et toi, tu pourrais arrêter de jouer au mec parfait qui se souvient de tout."
@@ -414,7 +484,7 @@ label arc_4_noel:
             t "C'est ce que j'ai entendu."
             j "Alors t'as mal entendu. Je disais juste que tu as vu quelque chose que j'ai raté."
             systeme "Théo reste silencieux un instant."
-        show ilona frustrated at char_midleft
+        show ilona winter frustrated at char_midleft
         i "Stop."
         systeme "Le mot d'Ilona coupe net. Mais cette fois, elle regarde les deux."
         i "Vous allez arrêter de transformer chaque putain de cadeau en duel."
@@ -425,7 +495,7 @@ label arc_4_noel:
         systeme "Elle regarde Jessy."
         systeme "Puis elle s'éloigne vers le stand voisin, le carnet encore dans sa main."
     elif arc4_reaction_cadeau_theo == "laisser_repondre":
-        show theo neutral at char_midright
+        show theo winter scarf neutral at char_midright
         t "Je vais aider Allan à chercher les boissons."
         t "Il a l'air de négocier avec un distributeur."
         i "Ça lui ressemble."
@@ -436,14 +506,14 @@ label arc_4_noel:
         systeme "Le carnet reste dans les mains d'Ilona. Jessy regarde ses propres mains. Vides."
         systeme "Ilona sent le poids du silence de Jessy. Elle ne sait pas encore si c'est du respect ou de la peur."
     elif arc4_reaction_cadeau_theo == "demander_ressenti":
-        show theo neutral at char_midright
+        show theo winter scarf neutral at char_midright
         t "Je vais vous laisser."
         systeme "Théo recule d'un pas. Pas vexé. Pas triomphant. Juste conscient que la scène n'est plus à lui."
         hide theo
         with dissolve
         systeme "Ilona regarde Jessy. Le carnet entre eux. Pas comme un mur. Comme un objet qui existe et qu'on peut nommer."
     else:
-        show theo neutral at char_midright
+        show theo winter scarf neutral at char_midright
         t "Je vais aider Allan à chercher les boissons."
         i "D'accord."
         systeme "Théo part sans ajouter de phrase. La scène ne lui appartient pas entièrement, mais il a laissé quelque chose dedans."
@@ -459,7 +529,7 @@ label arc_4_noel:
     $ fade_channel("music",0.8,1.0)
     scene bg arc4 christmas market
     with fade
-    show theo neutral at char_left
+    show theo winter scarf neutral at char_left
     
     systeme "Théo s'éloigne du stand, les mains dans les poches. Il ne sourit pas. Il ne sourit jamais vraiment après ces moments."
     systeme "Il pense déjà à ce qu'il dira la prochaine fois. Quel détail il sortira. Quel silence il remplira."
@@ -493,8 +563,8 @@ label arc_4_noel:
 
     scene bg arc4 christmas market
     with fade
-    show allan doubt at char_left
-    show alex teasing at char_right
+    show allan winter doubt at char_left
+    show alex winter teasing at char_right
 
     systeme "Un peu plus loin, Allan tient deux chocolats chauds et l'air de quelqu'un qui commence enfin à trouver sa neutralité fatigante."
     systeme "Près du brasero, il a posé son manteau sur le dossier du banc."
@@ -507,7 +577,7 @@ label arc_4_noel:
     a "Puis il a décidé que ça sonnait mieux si c'était Messi."
     x "Logique Théo : zéro sens, mais cohérent avec lui-même."
     a "Exactement."
-    show alex concerned at char_right
+    show alex winter concerned at char_right
     systeme "Ils restent silencieux quelques secondes."
     a "Mais ouais. Il se souvient de tout."
     x "Théo ?"
@@ -529,7 +599,7 @@ label arc_4_noel:
     a "Voilà."
     systeme "Ils restent silencieux quelques secondes. C'est rare, donc presque solennel."
 
-    show sofiane observation at char_center
+    show sofiane winter observation at char_center
     with dissolve
     s "Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit."
     a "Sofiane."
@@ -580,7 +650,7 @@ label arc_4_noel:
     a "L'enveloppe ?"
     x "Oui."
 
-    show allan silence at char_left
+    show allan winter silence at char_left
     with dissolve
 
     a "...Non. Pas maintenant."
@@ -600,7 +670,7 @@ label arc_4_noel:
     play music audio.melanPiano volume 0.7 loop fadeout 1.0 fadein 1.0
     scene bg arc4 riverside winter
     with fade
-    show ilona fatigue at char_left
+    show ilona winter fatigue at char_left
 
     systeme "La foule pousse Ilona vers la rambarde qui longe la rivière."
     systeme "Elle n'a pas fui. Pas vraiment. Elle a juste rejoint l'endroit où sa poitrine pourrait se desserrer."
@@ -639,12 +709,12 @@ label arc_4_noel:
     systeme "Ilona regarde le carnet, puis la rivière."
     i "Si quelqu'un se souvient de ce que j'ai dit, je devrais être contente."
     laplage "Souvent, oui."
-    show ilona frustrated at char_left
+    show ilona winter frustrated at char_left
     i "Mais j'ai aussi envie de jeter ce carnet dans la rivière pour voir s'il se souvient comment nager."
     systeme "Laplage ne sourit pas. Il acquiesce."
     laplage "Parce que tu n'as pas encore décidé si le souvenir est un cadeau ou une preuve que quelqu'un collectionne tes morceaux."
     i "Voilà."
-    show ilona fatigue at char_left
+    show ilona winter fatigue at char_left
     i "Et en plus, je me sens conne de ne pas juste dire merci et être heureuse."
     
     if confidences_laplage >= 1:
@@ -682,7 +752,7 @@ label arc_4_noel:
 
     systeme "Quand Ilona se retourne, Jessy est à quelques mètres. Il n'a pas entendu toute la conversation. Assez pour savoir qu'il doit demander avant d'approcher."
 
-    show jessy embarrassed at char_right
+    show jessy winter embarrassed at char_right
     with dissolve
 
     j "Je peux venir ?"
@@ -695,7 +765,7 @@ label arc_4_noel:
     systeme "Le silence s'installe. Jessy voudrait qu'il soit confortable. Il est juste lourd."
     systeme "Ilona regarde toujours la rivière. Jessy regarde Ilona."
     j "Il t'a offert quelque chose que j'aurais dû voir."
-    show jessy determined at char_right
+    show jessy winter determined at char_right
     i "Jessy..."
     j "Laisse-moi finir."
     systeme "La phrase sort plus dure qu'il ne voulait. Ilona se tourne vers lui."
@@ -736,7 +806,7 @@ label arc_4_noel:
             $ lien_jessy_ilona -= 3
             $ controles += 1
             j "Son cadeau... ça veut dire quelque chose pour toi ?"
-            show ilona frustrated at char_left
+            show ilona winter frustrated at char_left
             i "Jessy."
             j "Je demande juste."
             i "Non."
@@ -797,11 +867,11 @@ label arc_4_noel:
             systeme "Elle tire le ruban. À l'intérieur, la maison garde ses erreurs : couloir inutile, cuisine trop grande, pièce cachée."
             if arc4_cadeau_jessy == "blague_interne":
                 systeme "Un minuscule panneau indique : PIÈCE MOYENNEMENT IMPORTANTE, ÉDITION NEIGE."
-                show ilona smile at char_left
+                show ilona winter smile at char_left
                 i "C'est complètement idiot."
                 j "Oui."
                 i "J'aime ça."
-                show ilona fatigue at char_left
+                show ilona winter fatigue at char_left
                 systeme "Mais le sourire s'estompe vite."
                 i "Et j'ai aussi peur de ce que ça signifie vraiment."
             elif arc4_cadeau_jessy == "miniature_aveu":
@@ -882,8 +952,8 @@ label arc_4_noel:
     elif arc4_limite_ilona == "marche_silencieuse":
         systeme "La marche les a ramenés ici. Face à la conversation qu'ils ont évitée."
     
-    show ilona determined at char_left
-    show jessy listening at char_right
+    show ilona winter determined at char_left
+    show jessy winter listening at char_right
     i "J'ai besoin de dire une chose."
     j "D'accord."
     
@@ -940,7 +1010,7 @@ label arc_4_noel:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
-            show jessy listening at char_right
+            show jessy winter listening at char_right
             systeme "Jessy hoche la tête. Il ne dit rien."
             systeme "Pas parce qu'il n'a rien à dire. Parce qu'il sait que les mots maintenant transformeraient la limite en négociation."
             systeme "Ilona regarde Jessy. Elle attend une défense. Un « mais ». Une justification."
@@ -965,7 +1035,7 @@ label arc_4_noel:
                 $ interruptions_reconnues += 1
                 $ interruptions_reparees += 1
                 $ remember("jessy_repare")
-            show jessy listening at char_right
+            show jessy winter listening at char_right
             j "Tu as raison."
             $ renpy.pause(1.0, hard=True)
             j "Je peux retenir tous les détails du monde et quand même me tromper sur ce dont tu as besoin."
@@ -984,11 +1054,11 @@ label arc_4_noel:
             $ jalousie += 6
             $ lien_jessy_ilona -= 2
             $ controles += 1
-            show jessy embarrassed at char_right
+            show jessy winter embarrassed at char_right
             j "Tu as raison."
             $ renpy.pause(1.0, hard=True)
             j "Mais Théo sait exactement ce qu'il fait."
-            show ilona frustrated at char_left
+            show ilona winter frustrated at char_left
             i "Jessy, je viens de..."
             j "Non, écoute. Je t'écoute. Mais tu dois aussi voir qu'il joue un jeu."
             i "Et toi, tu viens de décider que ma limite comptait moins que ton besoin de me prouver quelque chose."
@@ -1002,7 +1072,7 @@ label arc_4_noel:
             $ jalousie = max(0, jalousie - 2)
             $ lien_jessy_ilona += 2
             $ remember("jessy_nomme_sa_peur")
-            show jessy determined at char_right
+            show jessy winter determined at char_right
             j "J'entends."
             systeme "Jessy regarde la rivière."
             j "Et j'ai peur quand je vois quelqu'un d'autre se souvenir aussi bien de toi."
@@ -1017,7 +1087,7 @@ label arc_4_noel:
             j "D'accord."
             i "Et moi je garde la mienne du mien."
     if arc4_limite_ilona in ("cadeau_respirant", "parole_sans_verdict", "marche_silencieuse") and arc4_accueil_limite != "accuser_theo" and communication >= 25:
-        show ilona smile at char_left
+        show ilona winter smile at char_left
         if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
             systeme "Ilona ramasse le carnet. Puis la miniature."
         else:
@@ -1044,7 +1114,7 @@ label arc_4_noel:
         $ lien_jessy_ilona += 1
         $ confiance += 1
     elif arc4_limite_ilona == "cadeau_preuve" or arc4_limite_ilona == "demande_theo":
-        show ilona fatigue at char_left
+        show ilona winter fatigue at char_left
         i "Je crois que je vais rentrer avec Allan."
         j "Tu veux que je vienne ?"
         i "Non."
@@ -1059,7 +1129,7 @@ label arc_4_noel:
         $ pression_stream += 2
         $ lien_jessy_ilona -= 1
     else:
-        show ilona fatigue at char_left
+        show ilona winter fatigue at char_left
         i "Je ne sais pas encore quoi faire de tout ça."
         j "Du carnet ?"
         i "Du carnet. De ta miniature si tu me la donnes un jour. De toi. De Théo. De moi."
@@ -1077,20 +1147,20 @@ label arc_4_noel:
     play ambiant1 audio.foule volume 0.6 loop fadein 3.0
     scene bg arc4 christmas market
     with fade
-    show allan support at char_left
-    show alex teasing at char_midleft
+    show allan winter support at char_left
+    show alex winter teasing at char_midleft
     if arc4_limite_ilona in ("cadeau_preuve", "demande_theo"):
-        show jessy embarrassed at char_midright
-        show ilona fatigue at char_right
+        show jessy winter embarrassed at char_midright
+        show ilona winter fatigue at char_right
     else:
-        show jessy neutral at char_midright
-        show ilona neutral at char_right
+        show jessy winter neutral at char_midright
+        show ilona winter neutral at char_right
 
     systeme "Le groupe se retrouve près de la sortie du marché. Les sacs sont plus petits que les silences."
     a "J'ai acheté quatre chocolats chauds. Un exploit logistique, pas une invitation à parler de sentiments devant la caisse."
     x "Je confirme. La caisse n'a pas signé pour ça."
-    show alex neutral at char_midleft
-    show theo neutral at char_center
+    show alex winter neutral at char_midleft
+    show theo winter scarf neutral at char_center
     with dissolve
 
     t "Tu rentres ?"
@@ -1105,17 +1175,17 @@ label arc_4_noel:
         i "Oui. Avec Allan."
         a "Je marche lentement, mais avec fiabilité émotionnelle."
         t "Je peux t'accompagner aussi, si tu veux."
-        show ilona frustrated at char_right
+        show ilona winter frustrated at char_right
         systeme "Ilona regarde Théo. Pas méchamment. Mais fermement."
         i "Théo."
         t "Oui ?"
         i "J'ai dit avec Allan."
-        show theo innocent at char_center
+        show theo winter scarf innocent at char_center
         t "Je proposais juste."
         i "Je sais ce que tu proposais."
         systeme "Allan pose une main sur l'épaule d'Ilona. Pas pour la défendre. Pour signaler qu'il a entendu."
         a "Elle a répondu, Théo."
-        show theo defensive at char_center
+        show theo winter scarf defensive at char_center
         systeme "Théo regarde Allan. Puis Ilona. Puis il recule d'un pas."
         t "D'accord. Bonne soirée."
         systeme "Il part sans insister plus. Mais Jessy voit la tension dans ses épaules."
@@ -1134,13 +1204,13 @@ label arc_4_noel:
     if influence_theo >= 10 and confiance <= 8 and arc4_limite_ilona == "demande_theo":
         systeme "Mais quelque chose change."
 
-        show ilona neutral at char_right
+        show ilona winter neutral at char_right
 
         i "Attends."
 
         systeme "Théo s'arrête. Il ne se retourne pas tout de suite. Comme s'il savait déjà."
 
-        show theo neutral at char_center
+        show theo winter scarf neutral at char_center
         with dissolve
 
         i "Finalement... je veux bien marcher un peu. Avant de rentrer."
@@ -1149,7 +1219,7 @@ label arc_4_noel:
 
         j "Ilona..."
 
-        show ilona frustrated at char_right
+        show ilona winter frustrated at char_right
 
         i "Jessy, je suis fatiguée. De tout ça."
         i "J'ai besoin de parler à quelqu'un qui ne me demande pas de le rassurer."

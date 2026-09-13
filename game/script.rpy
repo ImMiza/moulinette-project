@@ -52,7 +52,7 @@ define t = Character("Théo",who_outlines=[(2, "#c8b6ff", 1, 1)], color="#ffffff
 define a = Character("Allan",who_outlines=[(2, "#ffd08a", 1, 1)], color="#ffffff", callback=speaker_callback("allan"))
 define x = Character("Alexandre",who_outlines=[(2, "#b9f2c8", 1, 1)], color="#ffffff", callback=speaker_callback("alex"))
 define s = Character("Sofiane",who_outlines=[(2, "#d6d6d6", 1, 1)], color="#ffffff", callback=speaker_callback("sofiane"))
-define laplage = Character("Monsieur Laplage",who_outlines=[(2, "##f6e38d", 1, 1)], color="#ffffff", callback=speaker_callback("laplage"))
+define laplage = Character("Monsieur Laplage",who_outlines=[(2, "#f6e38d", 1, 1)], color="#ffffff", callback=speaker_callback("laplage"))
 define systeme = Character(None,who_outlines=[(2, "#000000", 1, 1)], color="#ffffff", what_italic=True, callback=speaker_callback(""))
 
 define m_inconnu = Character("???", color="#f6e38d", callback=speaker_callback("laplage"))

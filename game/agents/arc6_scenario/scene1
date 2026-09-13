@@ -1,0 +1,196 @@
+# Arc 6 - Scene 1 : Le stylo violet
+
+## Fonction de la scene
+
+La scene 1 doit ouvrir l'arc 6 comme un turning point, pas comme une scene neutre.
+
+Elle doit montrer que l'arc 6 est le resultat des choix des arcs 1 a 5. Ilona ne doit plus etre parfaitement ambigue : des les premieres minutes, sa maniere d'entrer, de s'asseoir, de regarder Jessy ou de ne pas le regarder doit montrer vers qui elle penche.
+
+La scene ne revele pas encore le choix final, mais elle doit faire sentir une preference :
+
+- route Jessy forte : Ilona vient naturellement vers Jessy.
+- route indecise : Ilona hesite encore, mais une porte reste ouverte.
+- route Theo forte : Ilona est polie, mais emotionnellement deja ailleurs.
+
+Le stylo violet devient donc un objet-test :
+
+> Est-ce que ce stylo est encore un pretexte pour rester lies, ou juste un objet a rendre avant de partir ?
+
+## Elements a garder
+
+- Jessy arrive trop tot dans la salle vide.
+- Il garde le stylo violet depuis janvier.
+- Ilona entre en mangeant, comme avant les moments importants.
+- La salle vide avant la ceremonie installe la fin d'epoque.
+- Les trois etats narratifs restent utiles : proche / indecis / distant.
+
+## Ce que la scene doit changer
+
+La scene 1 ne doit pas permettre de reparer toute l'annee avec un bon choix. L'arc 6 est le verdict des arcs 1 a 5, donc les choix de cette scene peuvent colorer legerement la trajectoire, mais ils doivent surtout reveler l'etat reel du lien.
+
+Il faut donc reduire les gros gains de stats dans cette scene. Le joueur peut montrer qu'il a compris, mais il ne peut pas effacer cinq arcs de dettes ou de confiance.
+
+## Structure proposee
+
+1. Jessy seul dans la salle avec le stylo.
+2. Ilona entre.
+3. Sa facon de s'asseoir revele son penchant.
+4. Le stylo cree un moment de verite.
+5. Le choix du joueur colore la suite sans tout renverser.
+6. La scene se termine sur un signe de bifurcation : trousse ouverte, trousse refermee, stylo range ailleurs.
+
+## Arrivee d'Ilona selon la route
+
+### Route Jessy forte
+
+Ilona voit Jessy et vient naturellement pres de lui. Elle ne force pas l'intimite, mais elle ne l'evite pas non plus.
+
+Exemple de ton :
+
+> i "Tu l'as garde tout ce temps ?"
+>
+> j "Oui."
+>
+> i "Je sais pas si c'est mignon ou inquietant."
+>
+> j "Moi non plus."
+>
+> i "Bon. Ca ressemble a nous."
+
+Ici, Ilona accepte encore que "eux" existe.
+
+### Route indecise
+
+Ilona s'assoit proche, mais pas trop. Elle remarque le stylo, comprend ce qu'il porte, puis se protege.
+
+Exemple de ton :
+
+> i "Ah."
+>
+> j "Ton stylo."
+>
+> i "Je l'avais oublie."
+>
+> systeme "Elle ment mal. Pas pour le blesser. Pour se proteger du fait qu'elle s'en souvient."
+
+Ici, le lien existe encore, mais Ilona n'ose plus l'habiter completement.
+
+### Route Theo forte
+
+Ilona recupere l'objet comme on ferme un tiroir. Elle n'est pas cruelle. Elle est claire.
+
+Exemple de ton :
+
+> i "Merci."
+>
+> j "Je voulais te le rendre avant."
+>
+> i "C'est fait maintenant."
+
+Ici, le stylo n'est plus un pretexte. C'est une cloture.
+
+## Menu recommande
+
+### 1. "Je l'ai garde parce que je voulais te reparler."
+
+Choix honnete et vulnerable. Bon choix pour la route Jessy.
+
+Effet narratif :
+
+- Jessy dit la verite sans demander a Ilona de le rassurer.
+- Ilona peut etre touchee si le lien est deja fort.
+- En route distante, elle peut entendre la verite sans revenir vers lui.
+
+Effets possibles :
+
+- petit bonus communication
+- petit bonus confiance
+- eventuellement leger bonus lien_jessy_ilona
+
+### 2. "Je crois que j'avais peur de te le rendre."
+
+Tres bon choix si la relation est fragile.
+
+Effet narratif :
+
+- Jessy nomme sa peur.
+- Il ne transforme pas sa peur en accusation.
+- Il montre qu'il a appris quelque chose des arcs precedents.
+
+Effets possibles :
+
+- communication +
+- confiance +
+- jalousie diminue legerement
+- peut activer ou confirmer souvenirs["jessy_nomme_sa_peur"]
+
+### 3. "Tiens. Je voulais pas le garder plus longtemps."
+
+Choix sobre, respectueux, plus distant.
+
+Effet narratif :
+
+- Jessy rend l'objet sans le charger.
+- Cela peut etre sain si Ilona est deja fatiguee.
+- Mais ce n'est pas un geste romantique fort.
+
+Effets possibles :
+
+- autonomie_ilona +
+- pression_stream baisse legerement
+- peu ou pas de lien romantique
+
+### 4. Faire une blague / garder encore le stylo
+
+Ce choix ne doit plus etre automatiquement positif.
+
+Dans les arcs 1 a 3, la blague etait parfois leur langage commun. En arc 6, au moment du verdict, elle peut devenir une fuite.
+
+Effet selon route :
+
+- proche : Ilona sourit, mais attend peut-etre une vraie phrase ensuite.
+- indecis : Ilona sourit par reflexe, puis se referme.
+- distant : Ilona ne rentre plus dans le jeu.
+
+Effets possibles :
+
+- lien_jessy_ilona + seulement si route Jessy forte
+- sinon evitements + ou communication -
+
+## Fin de scene selon la route
+
+### Route Jessy forte
+
+> systeme "Ilona range le stylo dans sa trousse, puis la laisse ouverte."
+>
+> systeme "Comme si quelque chose pouvait encore y revenir."
+
+### Route indecise
+
+> systeme "Elle range le stylo, ferme la trousse, puis la rouvre pour verifier quelque chose."
+>
+> systeme "Elle ne sort rien."
+
+### Route Theo forte
+
+> systeme "Elle range le stylo dans la poche exterieure de son sac. Pas dans sa trousse."
+>
+> systeme "Les objets qu'on met la sont ceux qu'on ne veut plus chercher."
+
+## Intention finale
+
+La scene 1 doit etre une preference en silence.
+
+Pas encore :
+
+> "Je choisis Jessy."
+
+Mais deja :
+
+> "Je me tourne vers lui."
+
+Ou :
+
+> "Je ne me tourne plus vers lui."
+
+Le joueur doit sentir la direction avant que le jeu la dise explicitement.

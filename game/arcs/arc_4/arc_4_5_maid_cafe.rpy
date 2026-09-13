@@ -21,11 +21,11 @@ label arc_4_5_maid_cafe:
     systeme "Pendant quelques rues, Ilona rentre bien avec le groupe."
     systeme "Au premier carrefour, leurs trajets se séparent."
     a "Alexandre et moi, c'est à gauche."
-    show alex teasing at char_midleft
+    show alex winter teasing at char_midleft
     x "Et vous deux, tout droit. Seuls. En amoureux."
-    show jessy embarrassed at char_midright
+    show jessy winter embarrassed at char_midright
     j "On n'est pas..."
-    show ilona frustrated at char_right
+    show ilona winter frustrated at char_right
     i "Alexandre."
     x "Oui ?"
     i "Finis cette phrase et ton chocolat termine dans ta capuche."
@@ -36,8 +36,8 @@ label arc_4_5_maid_cafe:
 
     hide allan
     hide alex
-    show jessy neutral at char_left
-    show ilona neutral at char_right
+    show jessy winter neutral at char_left
+    show ilona winter neutral at char_right
     with dissolve
 
     systeme "Jessy et Ilona continuent tout droit. Le marché commence à ranger ses lumières derrière eux."
@@ -54,8 +54,8 @@ label arc_4_5_maid_cafe:
     play music audio.citynight loop volume 0.7 fadeout 1.0 fadein 1.0
     scene bg arc4_city_night
     with fade
-    show jessy neutral at char_left
-    show ilona neutral at char_right
+    show jessy winter neutral at char_left
+    show ilona winter neutral at char_right
     
     systeme "Ils marchent sans destination. Les rues sont plus calmes maintenant que le marché se vide."
     systeme "Parfois, Ilona regarde les vitrines. Parfois, Jessy regarde Ilona."
@@ -76,8 +76,8 @@ label arc_4_5_maid_cafe:
     systeme "Pas par sa taille. Pas par son enseigne lumineuse."
     systeme "Mais parce qu'il est ouvert, chaleureux, et qu'une pancarte annonce : « MAID CAFÉ - OUVERT JUSQU'À MINUIT »."
     
-    show ilona neutral at char_left
-    show jessy embarrassed at char_right
+    show ilona winter neutral at char_left
+    show jessy winter embarrassed at char_right
     
     i "Un maid café."
     j "Oui."
@@ -94,9 +94,9 @@ label arc_4_5_maid_cafe:
         
         "Accepter avec curiosité honnête.":
             $ lien_jessy_ilona += 2
-            show jessy neutral at char_right
+            show jessy winter neutral at char_right
             j "Pourquoi pas. J'ai jamais vraiment vu ça en vrai."
-            show ilona smile at char_left
+            show ilona winter smile at char_left
             i "Moi non plus."
             i "Donc on va découvrir ensemble si c'est adorable ou terrifiant."
             j "Pari équitable."
@@ -104,9 +104,9 @@ label arc_4_5_maid_cafe:
         
         "Faire une blague pour désamorcer la gêne.":
             $ lien_jessy_ilona += 2
-            show jessy smile at char_right
+            show jessy winter smile at char_right
             j "Si Alexandre apprend qu'on est allés dans un maid café sans lui, il va théoriser notre disparition."
-            show ilona smile at char_left
+            show ilona winter smile at char_left
             i "Il va dessiner un schéma avec des flèches rouges."
             j "Et accuser Monsieur Laplage d'être le propriétaire secret."
             i "Bon. On rentre pour vérifier."
@@ -118,13 +118,13 @@ label arc_4_5_maid_cafe:
             $ confiance += 1
             $ pression_stream = max(0, pression_stream - 1)
             j "Tu es sûre ?"
-            show ilona determined at char_left
+            show ilona winter determined at char_left
             i "Pourquoi je serais pas sûre ?"
             j "Je sais pas. C'est... particulier ?"
             i "Jessy."
             j "Oui ?"
             i "J'ai proposé. Donc oui, je suis sûre."
-            show jessy neutral at char_right
+            show jessy winter neutral at char_right
             j "D'accord."
             systeme "Ils poussent la porte."
     
@@ -146,8 +146,8 @@ label arc_4_5_maid_cafe:
     
     s "Bienvenue, Maîtres. Votre table vous attend dans l'ombre de vos destins entrelacés."
     
-    show jessy embarrassed at char_left
-    show ilona embarrassed at char_right
+    show jessy winter embarrassed at char_left
+    show ilona winter embarrassed at char_right
     with dissolve
     
     systeme "Silence absolu."
@@ -163,7 +163,7 @@ label arc_4_5_maid_cafe:
     systeme "Il dit ça en refaisant un cœur avec ses mains."
     systeme "Jessy essaie de ne pas rire. Il échoue."
     
-    show jessy smile at char_left
+    show jessy winter smile at char_left
     j "Sofiane. Tu es en train de nous servir en tenue de maid."
     s "Oui."
     j "Et tu le fais avec le même sérieux que quand tu conduis."
@@ -171,7 +171,7 @@ label arc_4_5_maid_cafe:
     systeme "Il pose deux menus sur la table avec une précision chirurgicale."
     s "Je recommande le chocolat chaud aux épices. Il réchauffe les cœurs gelés par l'incertitude."
     
-    show ilona smile at char_right
+    show ilona winter smile at char_right
     i "Je vais prendre ça."
     j "Pareil."
     s "Sagesse double."
@@ -239,8 +239,8 @@ label arc_4_5_maid_cafe:
     scene bg arc4_city_night
     with fade
     
-    show jessy smile at char_left
-    show ilona smile at char_right
+    show jessy winter smile at char_left
+    show ilona winter smile at char_right
     with dissolve
     
     systeme "Dehors, la neige tombe légèrement. Jessy et Ilona marchent côte à côte."

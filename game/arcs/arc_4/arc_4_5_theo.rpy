@@ -42,8 +42,8 @@ label arc_4_5_theo:
     scene bg arc4_5 street winter night
     with Dissolve(2.0)
     
-    show theo neutral at char_left
-    show ilona fatigue at char_right
+    show theo winter scarf neutral at char_left
+    show ilona winter fatigue at char_right
     with dissolve
     
     systeme "Théo et Ilona suivent l'allée d'un petit parc résidentiel. Le froid mord, mais aucun des deux ne propose de rentrer."
@@ -60,7 +60,8 @@ label arc_4_5_theo:
     
     systeme "Il enlève son écharpe. Pas théâtralement. Juste le geste de quelqu'un qui a remarqué."
     
-    show theo reassuring
+    show theo winter reassuring
+    with dissolve
     
     t "Tiens."
     i "Et toi ?"
@@ -68,6 +69,10 @@ label arc_4_5_theo:
     
     systeme "Elle hésite. Puis elle prend l'écharpe."
     systeme "C'est un geste simple. Trop simple pour être analysé. Mais Théo analyse quand même."
+    $ arc4_ilona_winter_sprite = "ilona winter scarf"
+    $ arc4_theo_winter_sprite = "theo winter"
+    show ilona winter scarf fatigue at char_right
+    with dissolve
     
     $ lien_ilona_theo += 1
     
@@ -75,15 +80,15 @@ label arc_4_5_theo:
     systeme "Ils ralentissent près du banc sous le lampadaire. Les illuminations de Noël clignotent au loin."
 
     scene bg arc4_5 park bench
-    show theo neutral at char_left
-    show ilona fatigue at char_right
+    show theo winter neutral at char_left
+    show ilona winter scarf fatigue at char_right
     with dissolve
     
     t "Tu peux parler, tu sais. Ou pas. Je ne vais pas te demander de choisir quoi que ce soit."
     
     systeme "C'est exactement ce qu'il fallait dire. C'est pour ça que c'est dangereux."
     
-    show ilona fatigue
+    show ilona winter scarf fatigue
     
     i "Jessy a essayé. Vraiment. Je le vois."
     t "Je sais."
@@ -93,7 +98,7 @@ label arc_4_5_theo:
     systeme "Et maintenant, elle marche avec Théo parce qu'elle a dit qu'elle avait besoin de ne pas rassurer quelqu'un."
     systeme "Mais elle se demande si c'est un besoin légitime ou une fuite."
     
-    show theo reassuring
+    show theo winter reassuring
     
     t "Parce qu'essayer et réussir, c'est pas la même chose. Et tu as le droit d'attendre plus qu'un effort."
     
@@ -107,7 +112,7 @@ label arc_4_5_theo:
     t "Oui."
     i "Mais sa peur, c'est... c'est lourd à porter."
     
-    show theo neutral
+    show theo winter neutral
     
     t "C'est lourd parce qu'il te demande de le rassurer alors que toi, tu as juste besoin de respirer."
     
@@ -119,7 +124,7 @@ label arc_4_5_theo:
     else:
         systeme "Elle pense à la maison Minecraft. Aux détails qu'ils ont construits ensemble. Aux phrases qu'elle n'a jamais pu finir."
     
-    show ilona fatigue
+    show ilona winter scarf fatigue
     
     i "Parfois je me demande si je suis obligée de choisir."
     t "Obligée par qui ?"
@@ -132,13 +137,13 @@ label arc_4_5_theo:
     else:
         systeme "Elle pense à l'absence de cadeau. Jessy avait quelque chose, mais n'a pas osé le donner. Ou a choisi de parler à la place."
     
-    show theo defensive at char_left
+    show theo winter defensive at char_left
     
     t "Moi ?"
     
     systeme "Premier craquement dans le masque. Juste une seconde."
     
-    show theo reassuring
+    show theo winter reassuring
     
     t "Je ne te demande rien, Ilona. Je te propose juste... un espace."
     
@@ -166,23 +171,23 @@ label arc_4_5_theo:
         $ influence_theo += 3
         $ autonomie_ilona -= 3
         
-        show ilona neutral
+        show ilona winter scarf neutral
         
         i "Un espace... c'est peut-être ce dont j'ai besoin."
         
         systeme "Elle soupire. La fatigue transparaît."
         
-        show ilona fatigue
+        show ilona winter scarf fatigue
         
         i "J'ai l'impression que tout le monde... attend quelque chose de moi."
         
-        show theo neutral at char_left
+        show theo winter neutral at char_left
         
         t "Qu'est-ce que toi, tu veux ?"
         
         systeme "La question est simple. Directe. Ilona ne s'y attendait pas."
         
-        show ilona embarrassed
+        show ilona winter scarf embarrassed
         
         i "Je... je sais pas."
         t "Pas maintenant. Plus tard. Dans six mois. Dans un an."
@@ -198,7 +203,7 @@ label arc_4_5_theo:
         
         i "Pas juste essayer de temps en temps. Mais vraiment. Avec un planning. Une communauté. Quelque chose que je construis."
         
-        show theo reassuring at char_left
+        show theo winter reassuring at char_left
         
         t "Tu sais, je pourrais t'aider avec ça."
         
@@ -210,7 +215,7 @@ label arc_4_5_theo:
         systeme "Il dit ça avec une douceur naturelle. Comme si c'était évident."
         systeme "Comme si aider, c'était juste ça. Simple. Généreux. Sans contrepartie."
         
-        show ilona neutral
+        show ilona winter scarf neutral
         
         i "Tu ferais ça ?"
         t "Bien sûr."
@@ -227,14 +232,14 @@ label arc_4_5_theo:
         # Ilona a appris à poser des questions directes
         $ communication += 3
         
-        show ilona determined
+        show ilona winter scarf determined
         
         i "Théo, est-ce que tu m'aides parce que tu veux m'aider... ou parce que tu veux être celui qui m'aide ?"
         
         systeme "Silence."
         systeme "La neige tombe. Théo ne s'attendait pas à ça."
         
-        show theo defensive
+        show theo winter defensive
         
         t "C'est quoi la différence ?"
         i "La différence, c'est que dans un cas, tu t'en vas quand je vais mieux. Dans l'autre, tu restes pour que j'aie besoin de toi."
@@ -254,11 +259,11 @@ label arc_4_5_theo:
         # Ilona garde une distance prudente
         $ autonomie_ilona += 3
         
-        show ilona determined
+        show ilona winter scarf determined
         
         i "Théo... je ne sais pas ce que je veux. Et je n'ai pas envie qu'on me dise ce que je devrais vouloir."
         
-        show theo neutral
+        show theo winter neutral
         
         t "Je comprends."
         
@@ -268,7 +273,7 @@ label arc_4_5_theo:
         t "Moi ?"
         i "Tu parles comme si tu avais toutes les réponses. Et moi je ne veux pas de réponses. Je veux juste... du temps."
 
-        show theo disappointed at char_left
+        show theo winter disappointed at char_left
 
         systeme "Le sourire de Théo disparaît. Quelque chose se fige derrière ses yeux."
 
@@ -289,8 +294,8 @@ label arc_4_5_theo:
     scene bg arc4_maid_cafe_exterior
     with Dissolve(1.5)
     
-    show theo neutral at char_left
-    show ilona fatigue at char_right
+    show theo winter neutral at char_left
+    show ilona winter scarf fatigue at char_right
     with dissolve
     
     systeme "Ils arrivent dans une petite rue commerçante presque vide, encore mouillée par la neige."
@@ -299,11 +304,11 @@ label arc_4_5_theo:
     
     t "On devrait se réchauffer."
     
-    show ilona embarrassed
+    show ilona winter scarf embarrassed
     
     i "Un maid café ?"
     
-    show theo smirk at char_left
+    show theo winter smirk at char_left
     
     t "Pourquoi pas. T'as peur ?"
     i "Non. C'est juste... inattendu."
@@ -329,8 +334,8 @@ label arc_4_5_theo:
     
     laplage "Bonsoir."
     
-    show theo defensive at char_left
-    show ilona embarrassed at char_right
+    show theo winter defensive at char_left
+    show ilona winter scarf embarrassed at char_right
     with dissolve
     
     systeme "Silence absolu."
@@ -348,7 +353,7 @@ label arc_4_5_theo:
     
     systeme "Théo ne sait pas quoi faire de cette phrase. Ilona non plus."
     
-    show theo neutral
+    show theo winter neutral
     
     t "On va prendre deux boissons."
     
@@ -386,36 +391,36 @@ label arc_4_5_theo:
     scene bg arc4_maid_cafe_exterior
     with Dissolve(1.5)
     
-    show theo neutral at char_left
-    show ilona neutral at char_right
+    show theo winter neutral at char_left
+    show ilona winter scarf neutral at char_right
     with dissolve
     
     t "Je te raccompagne ?"
     i "Non. Je connais le chemin."
     
-    show theo reassuring
+    show theo winter reassuring
     
     t "D'accord. Message-moi quand t'es arrivée."
     i "Théo..."
     t "Oui ?"
     
     if arc4_5_ilona_reaction == "accepte":
-        show ilona fatigue
+        show ilona winter scarf fatigue
         i "Merci. Pour l'écharpe. Et pour... tout ça."
         t "C'est normal."
         systeme "Normal. Comme si c'était une évidence. Comme si refuser n'avait jamais été une option."
         $ lien_ilona_theo += 1
         
     elif arc4_5_ilona_reaction == "prudente":
-        show ilona determined
+        show ilona winter scarf determined
         i "On verra. Pour tout ça. Je te dis demain."
         t "Pas de pression."
         systeme "Pas de pression. Mais la proposition reste en suspens. Les propositions de Théo restent toujours en suspens."
         
     else:  # directe
-        show ilona determined
+        show ilona winter scarf determined
         i "Réponds à ma question. Un jour."
-        show theo defensive
+        show theo winter defensive
         t "...Je vais y réfléchir."
         systeme "C'est peut-être la première fois que quelqu'un lui demande de réfléchir à ce qu'il veut vraiment."
     

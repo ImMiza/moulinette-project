@@ -376,14 +376,14 @@ label arc_5_examens:
 
     systeme "La pluie transforme la ville en aquarium gris."
 
-    show jessy neutral at char_center
+    show jessy winter neutral at char_center
     with dissolve
 
     systeme "Jessy attend sous l'auvent du cinéma. Ils avaient prévu ça depuis dix jours. Un film, puis manger quelque chose. Simple. Normal."
     
     # Si bonnes conditions, Ilona vient quand même
     if (lien_jessy_ilona >= 20 or autonomie_ilona >= 30) and confiance >= 15 and communication >= 20:
-        show ilona fatigue at char_right
+        show expression arc4_ilona_winter_sprite + " fatigue" as ilona at char_right
         with dissolve
         
         systeme "Ilona arrive. Elle a des cernes. Son pas est lourd. Mais elle est là."
@@ -396,7 +396,7 @@ label arc_5_examens:
         
         j "Tu veux vraiment qu'on reste ? On peut rentrer si tu préfères."
         
-        show ilona smile at char_right
+        show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
         
         i "Non. J'ai besoin de penser à autre chose pendant deux heures."
         j "Le film est censé être nul."
@@ -405,8 +405,8 @@ label arc_5_examens:
         scene bg arc5 cinema box office
         with Dissolve(1.0)
 
-        show jessy smile at char_left
-        show ilona smile at char_right
+        show jessy winter smile at char_left
+        show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
         with dissolve
 
         systeme "À l'intérieur, le hall sent le pop-corn chaud et les manteaux mouillés. La lumière est trop vive après le gris de la rue."
@@ -438,9 +438,7 @@ label arc_5_examens:
         scene bg arc5 cinema seated
         with Dissolve(1.5)
 
-        show jessy listening at char_left
-        show ilona fatigue at char_right
-        with dissolve
+        # Le background montre déjà Jessy et Ilona assis ; ne pas afficher de sprites personnage ici.
 
         systeme "Ilona pose son sac, s'enfonce dans son siège et ferme les yeux une seconde."
 
@@ -449,7 +447,6 @@ label arc_5_examens:
         i "D'avoir pas insisté. Pour savoir pourquoi je suis fatiguée."
         j "Tu me diras quand tu voudras. Ou pas."
 
-        show ilona smile at char_right
         systeme "Elle tourne la tête vers lui. Un demi-sourire, petit mais sincère."
 
         i "Le film commence."
@@ -462,8 +459,6 @@ label arc_5_examens:
         systeme "Jessy oublie de vérifier si elle va bien. Il oublie même qu'il était censé détester le film."
 
         systeme "À un moment, Ilona cherche l'accoudoir sans quitter l'écran des yeux. Elle trouve la main de Jessy à la place."
-        show jessy embarrassed at char_left
-        show ilona embarrassed at char_right
         systeme "Leurs doigts se touchent. Aucun ne retire sa main. Aucun ne cherche à attraper celle de l'autre."
         systeme "Ils restent comme ça, paumes à peine frôlées, pendant que le reste du monde attend dehors."
         stop music fadeout 2.0
@@ -483,8 +478,8 @@ label arc_5_examens:
         scene bg arc5 rain street
         with Dissolve(1.5)
 
-        show jessy smile at char_center
-        show ilona smile at char_right
+        show jessy winter smile at char_center
+        show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
         with dissolve
 
         systeme "Dehors, la pluie continue de rayer la rue. Le trottoir reflète les enseignes, et l'air froid leur tombe dessus sans réussir à les ramener complètement à la réalité."
@@ -544,7 +539,7 @@ label arc_5_examens:
             $ pression_stream += 2
             $ evitements += 1
             $ arc5_tension_accumulee += 2
-            show jessy listening at char_center
+            show jessy winter listening at char_center
             systeme "Jessy fixe l'écran. Les mots se forment dans sa tête, puis se défont."
             systeme "Répondre vite, c'est risquer de dire quelque chose de stupide."
             systeme "Répondre tard, c'est la laisser avec son message sans retour."
@@ -570,7 +565,7 @@ label arc_5_examens:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             $ arc5_tension_accumulee += 1
-            show jessy listening at char_center
+            show jessy winter listening at char_center
             systeme "La question part avant qu'il puisse la retenir. Elle est vraie. C'est peut-être pour ça qu'elle est dangereuse."
             systeme "La réponse met du temps à arriver."
             systeme "{i}« Je suis fatiguée, Jessy. C'est tout. »{/i}"
@@ -590,14 +585,14 @@ label arc_5_examens:
             $ lien_jessy_ilona -= 2
             $ controles += 1
             $ arc5_tension_accumulee += 3
-            show jessy determined at char_center
+            show jessy winter determined at char_center
             systeme "Les mots sortent. Ils sont vrais. Ils sont aussi injustes."
             systeme "Parce que oui, c'est la troisième fois. Mais compter, c'est déjà accuser."
             systeme "La réponse arrive vite. Trop vite."
             systeme "{i}« Tu tiens un tableau de mes annulations maintenant ? »{/i}"
             systeme "Puis, immédiatement après :"
             systeme "{i}« Je suis fatiguée. Vraiment. Et là, tu me fatigues encore plus. »{/i}"
-            show jessy embarrassed at char_center
+            show jessy winter embarrassed at char_center
             systeme "Jessy fixe l'écran. Il a voulu dire quelque chose d'honnête. Il a dit quelque chose de blessant."
             systeme "La différence entre les deux n'est pas dans l'intention. Elle est dans l'impact."
         
@@ -668,8 +663,8 @@ label arc_5_examens:
     
     systeme "Il le lui rendra. Sans en faire un événement."
 
-    show jessy neutral at char_left
-    show allan neutral at char_right
+    show jessy winter neutral at char_left
+    show allan winter neutral at char_right
     with dissolve
 
     systeme "Allan est là. Parce qu'Allan est toujours quelque part quand les choses vont mal. C'est un talent ou une malédiction, selon les jours."
@@ -687,7 +682,7 @@ label arc_5_examens:
 
     if arc5_sortie_annulee == "accepte":
         j "Que c'était d'accord. Qu'elle pouvait se reposer."
-        show allan support at char_right
+        show allan winter support at char_right
         a "C'est tout ?"
         j "C'est tout."
         a "Pas de « mais tu vas bien ? » Pas de « on peut se voir demain quand même ? » Pas de « je passe déposer un truc » ?"
@@ -700,7 +695,7 @@ label arc_5_examens:
         a "C'est censé être une observation. Fais-en ce que tu veux."
     elif arc5_sortie_annulee == "honnetete":
         j "Que je comprenais. Et que ça me faisait chier quand même."
-        show allan surprise at char_right
+        show allan winter surprise at char_right
         a "Tu as dit ça ?"
         j "Oui."
         a "Et elle ?"
@@ -711,7 +706,7 @@ label arc_5_examens:
         a "Des deux."
     elif arc5_sortie_annulee == "confronte":
         j "Que c'était la troisième fois ce mois-ci."
-        show allan silence at char_right
+        show allan winter silence at char_right
         a "..."
         j "Quoi ?"
         a "Rien."
@@ -720,7 +715,7 @@ label arc_5_examens:
         j "Je n'ai pas compté, j'ai juste..."
         a "Tu as juste remarqué. C'est pareil."
         systeme "Jessy se tait."
-        show jessy listening at char_left
+        show jessy winter listening at char_left
         a "Écoute. Peut-être qu'elle annule parce qu'elle va mal. Ou peut-être qu'elle annule parce qu'elle a besoin d'espace. Les deux existent."
         j "Et la différence ?"
         a "La différence, c'est que dans un cas tu dois t'inquiéter, et dans l'autre tu dois la laisser tranquille."
@@ -728,8 +723,8 @@ label arc_5_examens:
         a "Tu lui demandes. Mais pas comme tu viens de le faire."
     else:
         j "Rien de spécial."
-        show jessy embarrassed at char_left
-        show allan doubt at char_right
+        show jessy winter embarrassed at char_left
+        show allan winter doubt at char_right
         a "Tu mens."
         j "Non, je..."
         a "Jessy. Je te connais depuis suffisamment longtemps pour savoir quand tu dis « rien de spécial » alors que tout est très spécial."
@@ -739,7 +734,7 @@ label arc_5_examens:
         j "C'est mal ?"
         a "C'est pas bien ou mal. C'est juste... pas une réponse."
 
-    show theo neutral at char_center
+    show expression arc4_theo_winter_sprite + " neutral" as theo at char_center
     with dissolve
 
     systeme "Théo entre. Parce que l'univers a un sens de l'humour cruel."
@@ -773,7 +768,7 @@ label arc_5_examens:
         elif arc4_5_ilona_reaction == "directe":
             systeme "Théo dit ça calmement. Mais Jessy croit voir la même prudence que depuis Noël, comme si une question d'Ilona continuait de lui tenir la manche."
     
-    show theo neutral at char_center
+    show expression arc4_theo_winter_sprite + " neutral" as theo at char_center
     play music audio.sadPiano volume 0.7 loop fadeout 1.0 fadein 2.0
     t "Je vais passer chez elle tout à l'heure."
     
@@ -793,13 +788,13 @@ label arc_5_examens:
             $ arc5_tension_accumulee += 1
             j "Elle t'a demandé à toi ?"
             systeme "La question sort. Elle sonne plus accusatoire que prévu."
-            show theo neutral at char_center
+            show expression arc4_theo_winter_sprite + " neutral" as theo at char_center
             t "Oui. J'ai les notes les plus complètes du groupe."
             systeme "C'est vrai. Et c'est peut-être pour ça que ça fait mal."
             j "Je pourrais lui apporter."
             t "Elle m'a demandé à moi."
             systeme "Pas de triomphe dans sa voix. Juste un fait."
-            show allan silence at char_right
+            show allan winter silence at char_right
             a "Jessy."
             j "Quoi ?"
             a "Elle vient de t'envoyer un message pour dire qu'elle était fatiguée. Si tu débarques avec les notes, tu penses que ça dit quoi ?"
@@ -829,11 +824,11 @@ label arc_5_examens:
             $ lien_jessy_ilona += 2
             j "Tant mieux qu'elle ait quelqu'un pour l'aider."
             systeme "Les mots sortent. Ils sont vrais. Ils font quand même mal à dire."
-            show theo neutral at char_center
+            show expression arc4_theo_winter_sprite + " neutral" as theo at char_center
             t "Je lui dépose les notes. Je ne reste pas."
             j "Je sais."
             systeme "Il ne sait pas. Mais il fait confiance. Ou il essaie."
-            show allan support at char_right
+            show allan winter support at char_right
             a "On devrait faire des t-shirts « Progrès émotionnel en cours »."
             j "Ferme-la, Allan."
             a "Avec amour."
@@ -850,11 +845,11 @@ label arc_5_examens:
             $ arc5_allan_parti_cafe = True
             j "Tu passes beaucoup de temps avec elle ces derniers temps."
             systeme "Ce n'est pas une question. C'est une accusation déguisée."
-            show theo defensive at char_center
+            show expression arc4_theo_winter_sprite + " defensive" as theo at char_center
             t "Elle a besoin d'aide. Je l'aide."
             j "Et c'est tout ?"
             t "Qu'est-ce que tu veux que ça soit d'autre ?"
-            show allan silence at char_right
+            show allan winter silence at char_right
             systeme "Allan se lève."
             a "Je vais chercher un autre café. Prenez votre temps pour... ça."
             hide allan
@@ -866,7 +861,7 @@ label arc_5_examens:
             systeme "Le silence qui suit est lourd comme du plomb."
 
     if arc5_sortie_annulee == "confronte" or jalousie >= 12:
-        show theo reassuring at char_center
+        show expression arc4_theo_winter_sprite + " reassuring" as theo at char_center
         t "Je peux te poser une question ?"
         j "Vas-y."
         t "Est-ce que tu lui fais confiance ?"
@@ -894,7 +889,7 @@ label arc_5_examens:
     with dissolve
 
     if (arc5_allan_voit_theo or influence_theo >= 10) and not arc5_allan_parti_cafe:
-        show allan doubt at char_right
+        show allan winter doubt at char_right
         a "Je peux te dire un truc ?"
         j "Depuis quand tu demandes la permission ?"
         a "Depuis que c'est sur Théo."
@@ -903,7 +898,7 @@ label arc_5_examens:
         j "Je sais."
         a "Il est vraiment utile. Vraiment attentif. Il voit des trucs que les autres ne voient pas."
         j "Mais ?"
-        show allan doubt at char_right
+        show allan winter doubt at char_right
         a "Mais parfois, je me demande s'il supporte que les gens fassent autrement que ce qu'il avait prévu."
         j "C'est-à-dire ?"
         a "C'est-à-dire que quand quelqu'un refuse son aide, il ne s'énerve pas. Il ne part pas. Il trouve un autre angle."
@@ -1670,8 +1665,8 @@ label arc_5_scene_3:
 
     systeme "La gare. Un quai désert. Le bruit des trains au loin."
 
-    show jessy neutral at char_left
-    show ilona determined at char_right
+    show jessy winter neutral at char_left
+    show expression arc4_ilona_winter_sprite + " determined" as ilona at char_right
     with dissolve
 
     if arc5_etat_relation == "proche":
@@ -1680,7 +1675,7 @@ label arc_5_scene_3:
         i "Je ne voulais pas t'inquiéter."
         j "Raté."
 
-        show ilona neutral at char_right
+        show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
 
         i "Je voulais te parler ici parce que la dernière fois, le train a fini notre phrase à notre place."
         j "Je m'en souviens."
@@ -1692,7 +1687,7 @@ label arc_5_scene_3:
         j "J'essaie."
         i "Je sais. Mais j'ai besoin de savoir si ça tiendra quand ma réponse te fera peur."
 
-        show ilona determined at char_right
+        show expression arc4_ilona_winter_sprite + " determined" as ilona at char_right
         play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu me feras confiance..."
 
@@ -1708,9 +1703,9 @@ label arc_5_scene_3:
         i "C'était censé avoir l'air simple."
         j "Raté."
 
-        show ilona smile at char_right
+        show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
         systeme "Elle sourit. Une seconde. Puis elle range le sourire, comme on range un outil dont on n'a pas besoin maintenant."
-        show ilona neutral at char_right
+        show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
 
         i "Je voulais te parler ici parce qu'ici, on ne peut pas faire autre chose."
         j "C'est-à-dire ?"
@@ -1725,7 +1720,7 @@ label arc_5_scene_3:
         j "Mais ?"
         i "Mais dès que ça devient sérieux, l'un de nous deux fait une blague. Et c'est jamais moi."
 
-        show ilona determined at char_right
+        show expression arc4_ilona_winter_sprite + " determined" as ilona at char_right
 
         systeme "Ce n'est pas dit méchamment. C'est dit comme un constat qu'on a vérifié plusieurs fois."
 
@@ -1779,11 +1774,11 @@ label arc_5_scene_3:
             $ communication += 3
             $ confiance += 3
             $ pression_stream = max(0, pression_stream - 3)
-            show jessy listening at char_left
+            show jessy winter listening at char_left
             if arc5_etat_relation == "proche":
                 play music audio.truth volume 0.7 loop fadeout 1.5 fadein 3.0
                 j "J'ai peur. De te perdre. De mal faire. D'entendre une réponse que je n'espérais pas."
-                show ilona neutral at char_right
+                show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
                 i "Et ?"
                 j "Et ma peur ne me donne pas le droit de te pousser vers une réponse plus facile pour moi."
                 j "Si ton choix me fait mal, cette douleur m'appartient. Ce n'est pas à toi de changer de choix pour l'éviter."
@@ -1802,7 +1797,7 @@ label arc_5_scene_3:
                 j "J'ai peur."
                 systeme "Il ouvre la bouche pour ajouter quelque chose de drôle. Il la referme."
                 j "Voilà. C'était le moment où je fais une blague. Je viens de le sentir passer."
-                show ilona neutral at char_right
+                show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
                 i "Continue."
                 j "J'ai peur de te perdre. Et quand j'ai peur, je te coupe. Je remplis le silence avant que tu le remplisses."
                 j "Ça donne l'impression que je gère. En vrai, je t'empêche de finir."
@@ -1820,7 +1815,7 @@ label arc_5_scene_3:
             else:
                 j "J'ai peur."
                 j "J'ai peur tout le temps. De te perdre. De mal faire. De ne pas être ce que tu mérites."
-                show ilona neutral at char_right
+                show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
                 i "Et ?"
                 j "Et je me rends compte que ma peur... ça devient ton fardeau."
                 j "À chaque fois que tu annules, tu dois gérer ma déception. À chaque fois que Théo t'aide, tu dois me rassurer."
@@ -1846,9 +1841,9 @@ label arc_5_scene_3:
             $ lien_jessy_ilona -= 3
             $ controles += 1
             $ remember("theo_utilise_une_verite")
-            show jessy neutral at char_left
+            show jessy winter neutral at char_left
             j "Je te fais confiance. Complètement."
-            show ilona frustrated at char_right
+            show expression arc4_ilona_winter_sprite + " frustrated" as ilona at char_right
             i "Alors c'est quoi le problème ?"
             play music audio.tensePiano volume 0.7 fadeout 1.5 fadein 3.0
             j "Théo."
@@ -1856,11 +1851,11 @@ label arc_5_scene_3:
             i "Je ne t'ai pas demandé ce que tu pensais de Théo."
             j "Mais il est toujours là ! À t'apporter du thé, à gérer tes trucs, à..."
             i "À quoi ? À m'aider ?"
-            show jessy determined at char_left
+            show jessy winter determined at char_left
             j "À prendre ma place !"
             systeme "Le cri sort avant qu'il puisse le retenir."
             systeme "Ilona recule d'un pas."
-            show jessy embarrassed at char_left
+            show jessy winter embarrassed at char_left
             i "Je ne t'ai pas posé une question sur Théo, Jessy."
             i "Je t'ai posé une question sur toi."
             j "C'est lié !"
@@ -1875,24 +1870,24 @@ label arc_5_scene_3:
             $ pression_stream += 3
             $ evitements += 1
             if arc5_etat_relation != "distant":
-                show jessy listening at char_left
+                show jessy winter listening at char_left
                 j "Je ne sais pas comment répondre."
                 j "Pas parce que je veux éviter. Parce que la vraie réponse... je ne la connais pas encore."
-                show ilona neutral at char_right
+                show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
                 i "C'est honnête au moins."
                 j "Mais insuffisant."
                 i "Oui. Insuffisant."
                 systeme "Elle hoche la tête."
-                show ilona determined at char_right
+                show expression arc4_ilona_winter_sprite + " determined" as ilona at char_right
                 i "Tu as jusqu'à White Day."
                 j "Pourquoi White Day ?"
                 i "Parce qu'il me faut une deadline. Et parce que si tu n'as pas trouvé d'ici là..."
                 systeme "Elle ne finit pas sa phrase. Elle n'a pas besoin."
             else:
                 $ arc5_tension_accumulee += 2
-                show jessy neutral at char_left
+                show jessy winter neutral at char_left
                 j "J'ai besoin de temps."
-                show ilona frustrated at char_right
+                show expression arc4_ilona_winter_sprite + " frustrated" as ilona at char_right
                 i "Tu as eu du temps. Depuis Noël. Depuis avant."
                 j "Ilona..."
                 i "Non. Je t'ai posé une question simple. Et tu me demandes du temps."
@@ -1913,18 +1908,18 @@ label arc_5_scene_3:
             $ jalousie = max(0, jalousie - 3)
             $ lien_jessy_ilona += 3
             $ jugement_laplage += 2
-            show jessy listening at char_left
+            show jessy winter listening at char_left
             play music audio.truth volume 0.7 loop fadeout 1.5 fadein 3.0
             j "J'ai peur."
             systeme "Les mots sortent lentement."
             j "Et ma confiance tremble parfois. Quand tu parles avec Théo. Quand tu annules. Quand je ne comprends pas ce que tu veux."
-            show ilona neutral at char_right
+            show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
             systeme "Elle l'écoute. Elle ne l'interrompt pas."
             j "Ces doutes existent encore. Mais je ne veux plus que ce soit à toi de les faire taire."
             i "Donc tu ne me fais pas toujours confiance ?"
             j "Pas toujours. Pas parfaitement. Mais je veux apprendre à demander au lieu de décider à ta place."
             systeme "Le silence dure longtemps."
-            show ilona smile at char_right
+            show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
             i "Merci."
             j "Merci de quoi ?"
             i "De ne pas avoir transformé tes efforts en promesse. Maintenant, je sais où ça tremble encore."
@@ -1937,11 +1932,11 @@ label arc_5_scene_3:
             $ jalousie = max(0, jalousie - 3)
             $ lien_jessy_ilona += 3
             $ jugement_laplage += 2
-            show jessy listening at char_left
+            show jessy winter listening at char_left
             j "J'ai peur."
             systeme "Les mots sortent. Ils font mal."
             j "J'ai peur de te perdre. De ne pas être assez. De faire des conneries que je ne peux pas réparer."
-            show ilona neutral at char_right
+            show expression arc4_ilona_winter_sprite + " neutral" as ilona at char_right
             systeme "Elle l'écoute. Elle ne l'interrompt pas."
             j "Et je ne sais pas si je te fais confiance."
             i "Qu'est-ce que tu veux dire ?"
@@ -1949,7 +1944,7 @@ label arc_5_scene_3:
             j "Quand tu annules, une partie de moi se demande si c'est vraiment la fatigue ou si tu m'évites."
             j "Et ces parties-là... elles ne te font pas confiance. Même si je voudrais."
             systeme "Le silence dure longtemps."
-            show ilona smile at char_right
+            show expression arc4_ilona_winter_sprite + " smile" as ilona at char_right
             i "Merci."
             j "Merci de quoi ?"
             i "De ne pas avoir fait semblant."
@@ -1958,7 +1953,7 @@ label arc_5_scene_3:
             j "Les autres mentent ?"
             i "Les autres disent ce qu'ils pensent que je veux entendre."
     if arc5_question_reponse in ("honnete", "responsable"):
-        show ilona determined at char_right
+        show expression arc4_ilona_winter_sprite + " determined" as ilona at char_right
         i "Je peux te dire quelque chose aussi ?"
         j "Oui."
         if arc5_etat_relation == "proche":

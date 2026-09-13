@@ -1,5 +1,5 @@
 # =============================================================================
-# ARC VII - ROUTE THEO : LE MONDE APRES LA MAISON
+# ARC VII - ROUTE THEO
 # =============================================================================
 # Mapping depuis arc 6 :
 #   controle_repetitif >= 3         -> entree forcee ici
@@ -8,9 +8,6 @@
 #   influence_theo                  -> poids de la route Theo
 #
 # L'entree se fait TOUJOURS via arc_6_bascule_theo (fin de arc_6_diplomes.rpy),
-# qui joue les onze jours du 26 mars au 6 avril et le depart en gare.
-# Ne pas sauter ici directement depuis arc_6_calcul : la bascule ne serait
-# plus jouee, seulement affirmee par la narration ci-dessous.
 # =============================================================================
 
 label arc_7_theo:
