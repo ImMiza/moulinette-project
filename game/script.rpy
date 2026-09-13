@@ -245,13 +245,8 @@ default souvenirs = {
 }
 
 default endings_seen = []
-default derniere_route = ""
 
-# Etat central du prologue, utilise ensuite comme memoire relationnelle.
-default prologue_reaction = ""
-default maison_minecraft_detail = ""
 default maison_minecraft_transformation = ""
-default prologue_appel_discord = ""
 
 
 init python:
@@ -388,7 +383,6 @@ label ending_family:
     scene bg ending
     with fade
     $ record_ending("family")
-    $ derniere_route = "Ils ont bien grandi, les petits"
 
     systeme "Fin 1 - Ils ont bien grandi, les petits."
     show laplage neutral at char_center
@@ -402,7 +396,6 @@ label ending_jessy_ilona:
     scene bg ending
     with fade
     $ record_ending("jessy_ilona")
-    $ derniere_route = "Juste Jessy et Ilona"
 
     systeme "Fin 2 - Juste Jessy et Ilona."
     i "On pourrait réparer cette pièce maintenant."
@@ -414,7 +407,6 @@ label ending_no_contact:
     scene bg stream
     with fade
     $ record_ending("no_contact")
-    $ derniere_route = "La maison silencieuse"
 
     systeme "Fin 3 - La maison silencieuse."
     systeme "Jessy se connecte à leur ancien monde. La maison est vide, mais elle n'a jamais été fausse."
@@ -426,7 +418,6 @@ label ending_monsieur_laplage:
     scene bg beach
     with fade
     $ record_ending("laplage")
-    $ derniere_route = "La plage ne répond plus"
 
     show laplage neutral at char_left
     systeme "Fin 4 - La plage ne répond plus."
@@ -440,7 +431,6 @@ label ending_theo_vtuber:
     scene bg stream
     with fade
     $ record_ending("theo_vtuber")
-    $ derniere_route = "La route de Théo"
 
     systeme "Fin 5 - La route de Théo."
     t "Je ne t'empêche pas de choisir. Je t'aide à ne pas gâcher ce que tu as construit."
@@ -454,7 +444,6 @@ label ending_ilonanium:
     scene bg ending
     with fade
     $ record_ending("ilonanium")
-    $ derniere_route = "L'Ilonanium"
 
     systeme "Fin 6 - Easter egg : L'Ilonanium."
     i "Non. J'ai juste fini ce qu'il restait."

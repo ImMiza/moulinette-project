@@ -12,8 +12,6 @@ default arc5_fin_minecraft = ""           # État final
 default arc5_laplage_deuxieme_confidence = False
 default arc5_allan_voit_theo = False
 default arc5_allan_parti_cafe = False
-default arc5_ilona_a_pleure = False       # Si Ilona craque
-default arc5_jessy_a_menti = False        # Si Jessy ment sur sa peur
 default arc5_tension_accumulee = 0        # Tension narrative
 default arc5_theo_dans_maison = False     # Théo a accès à la maison Minecraft
 default arc5_cinema_ensemble = False      # Ils sont allés au cinéma
@@ -316,7 +314,6 @@ label arc_5_examens:
             $ confiance -= 1
             $ pression_stream += 1
             $ evitements += 1
-            $ arc5_jessy_a_menti = True
             j "Je lui fais confiance. Elle gère."
             show allan doubt at char_center
             a "Tu lui fais confiance ou tu évites le sujet ?"
@@ -1515,8 +1512,6 @@ label arc_5_scene_3:
         systeme "Elle lève les yeux. Il y a quelque chose de mouillé dedans."
 
         i "Et j'ai peur que ça ne dure que tant que mes réponses lui conviennent."
-        $ arc5_ilona_a_pleure = True
-
         laplage "Qu'est-ce que tu voudrais savoir ?"
         i "S'il me fait confiance. Même quand je ne choisis pas ce qu'il espère."
         laplage "Tu lui as demandé ?"
@@ -1545,8 +1540,6 @@ label arc_5_scene_3:
         systeme "Elle lève les yeux. Il y a quelque chose de mouillé dedans."
 
         i "Mais quand je commence à dire un truc sérieux, il trouve toujours une blague avant la fin."
-        $ arc5_ilona_a_pleure = True
-
         # Elle se confie ici parce que la place n'existe pas encore ailleurs.
         # C'est une dette, exactement comme dans la version distante.
         $ confidences_laplage += 1
@@ -1579,8 +1572,6 @@ label arc_5_scene_3:
         systeme "Elle lève les yeux. Il y a quelque chose de mouillé dedans."
 
         i "Personne ne me demande si je suis fatiguée."
-        $ arc5_ilona_a_pleure = True
-
         # Cette confidence est une dette : personne d'autre ne la laisse assez parler.
         $ confidences_laplage += 1
 

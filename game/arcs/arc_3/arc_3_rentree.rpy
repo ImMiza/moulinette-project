@@ -46,9 +46,6 @@ default arc3_reaction_rumeur = ""
 default arc3_aide_stand = ""
 default arc3_reaction_laplage = ""
 default arc3_fin_minecraft = ""
-default arc3_ilona_a_choisi_theme = False
-default arc3_rumeur_aggravee = False
-default arc3_theo_message_festival = False
 
 define audio.festi = "audio/music/festival.ogg"
 define audio.festiMC = "audio/music/cafeMC.ogg"
@@ -132,7 +129,6 @@ label arc_3_rentree:
     j "Notre maison Minecraft est devenue un concept scolaire."
     i "Elle avait besoin d'un diplôme."
 
-    $ arc3_ilona_a_choisi_theme = True
     $ lien_jessy_ilona += 1
 
     systeme "Ilona dit ça simplement, sans demander la permission à personne."
@@ -247,7 +243,6 @@ label arc_3_rentree:
             $ confiance -= 2
             $ pression_stream += 2
             $ evitements += 1
-            $ arc3_rumeur_aggravee = True
             show jessy festival embarrassed at char_left
             systeme "Jessy baisse les yeux sur les menus."
             systeme "Il pourrait parler. Il devrait peut-être."
@@ -619,7 +614,6 @@ label arc_3_rentree:
     $ renpy.pause(0.8, hard=True)
     t "Et parce que je crois que certaines personnes écoutent Ilona seulement quand elles ont peur de la perdre."
 
-    $ arc3_theo_message_festival = True
     $ remember("theo_utilise_une_verite")
 
     systeme "Jessy sent la phrase entrer exactement là où elle voulait entrer."

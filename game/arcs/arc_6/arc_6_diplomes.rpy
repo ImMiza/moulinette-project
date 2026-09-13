@@ -1,11 +1,7 @@
 # ARC VI - REMISE DES DIPLÔMES : « APRÈS AUJOURD'HUI »
 default arc6_stylo = ""                   # rendu / garde / rendu_explique / blague
-default arc6_enveloppe_lue = False
-default arc6_secret_sofiane = ""          # révélé / tenu
-default arc6_allan_confronte_theo = False
 default arc6_offre_theo = ""              # laisse / question / accusation / aveu_vide
 default arc6_ilona_a_pleure = False
-default arc6_ilona_dit_la_paix = False
 default arc6_gateau_planete = False
 default arc6_conversation = ""            # continuer / que_veux_tu / eviter / partir / aveu_interruptions
 default arc6_derniere_construction = ""   # porte_ouverte / panneau_partir / silence / cadenas
@@ -19,10 +15,6 @@ default arc6_attaque_3 = ""
 
 default arc6_score = 0
 default arc6_route = ""
-
-# Etat de la relation lu une seule fois par scene, via etat_relation()
-# (script.rpy). Evite qu'une scene bascule de ton entre deux repliques.
-default arc6_etat_relation = ""
 
 default arc6_penchant_debut = ""
 default arc6_penchant = ""            # ton initial herite des arcs I-V
@@ -307,7 +299,7 @@ label arc_6_diplomes:
 
             j "Tiens."
 
-            show ilona embarrassed at char_midright
+            show ilona neutral at char_midright
             with dissolve
 
             i "...Mon stylo."
@@ -487,8 +479,6 @@ label arc_6_diplomes:
 
     a "Merde."
 
-    $ arc6_enveloppe_lue = True
-
     systeme "Il replie l'enveloppe et la met dans sa poche. Celle de décembre, il l'avait laissée sur le banc."
 
     show alex teasing at char_left
@@ -507,16 +497,12 @@ label arc_6_diplomes:
         a "Ça ne répond pas à la question."
         s "Si."
 
-        $ arc6_secret_sofiane = "revele"
-
         systeme "Alexandre montre l'écran. Allan met exactement trois secondes à comprendre ce qu'il regarde, et le reste de sa vie à l'oublier."
     else:
         x "Sofiane, t'as fait quoi cet hiver ?"
         s "J'ai financé de l'essence."
         x "C'est pas une réponse."
         s "C'est la seule qui reste vraie dans dix ans."
-
-        $ arc6_secret_sofiane = "tenu"
 
         systeme "Sofiane regarde ailleurs. Personne ne saura jamais."
 
@@ -574,8 +560,6 @@ label arc_6_diplomes:
     t "Tu penses que je lui fais du mal."
     a "Je pense que tu t'es jamais demandé si c'était bon pour elle, ou juste bon pour toi."
     a "Et que t'es assez malin pour avoir évité de te poser la question."
-
-    $ arc6_allan_confronte_theo = True
 
     $ renpy.pause(0.8, hard=True)
 
@@ -1130,6 +1114,9 @@ label arc_6_diplomes:
             i "Tu vois, ça. Me laisser aller au bout. Personne fait ça non plus."
 
         "Lui demander si elle parle de Théo.":
+            show jessy neutral at char_left
+            with dissolve
+
             j "Tu parles de Théo, là ?"
 
             show ilona frustrated at char_midright
@@ -1139,6 +1126,9 @@ label arc_6_diplomes:
             i "Même maintenant, tu cherches le nom de quelqu'un d'autre dans une phrase sur moi."
 
         "S'excuser, précisément.":
+            show jessy determined at char_left
+            with dissolve
+
             j "Je m'excuse pour un truc précis."
             j "Pour toutes les fois où j'ai décidé de la fin de tes phrases à ta place."
 
@@ -1151,6 +1141,9 @@ label arc_6_diplomes:
                 i "C'est la première fois que tu nommes lequel."
 
         "Dire qu'il a peur de la perdre, sans le poser sur elle.":
+            show jessy determined at char_left
+            with dissolve
+
             j "J'ai peur de ce que tu es en train de comprendre."
             j "Mais je veux que tu ailles au bout. Même si le bout, c'est pas moi."
 
@@ -1160,6 +1153,9 @@ label arc_6_diplomes:
             i "Merci de pas me demander de te rassurer avant d'avoir fini."
 
     $ renpy.pause(1.0, hard=True)
+
+    show ilona neutral at char_midright
+    with dissolve
 
     # Là où le triangle cesse d'être abstrait : elle s'entend pencher.
     if arc6_penchant == "jessy":
@@ -1175,9 +1171,6 @@ label arc_6_diplomes:
     j "Il fait ça depuis trois ans."
     i "Je sais. J'ai un bocal."
 
-    show ilona smile at char_midright
-    with dissolve
-
     i "Ils vont le vider cet été. Le bâtiment est en travaux."
     i "Il y a un truc dans le monde qui va disparaître et je suis la seule personne au courant."
 
@@ -1186,6 +1179,10 @@ label arc_6_diplomes:
     j "Micka a eu trois enveloppes."
     i "J'ai vu."
     j "Il en a relu une trois fois."
+
+    show ilona smile at char_midright
+    with dissolve
+
     i "C'est le seul d'entre nous qui a compris comment vivre."
 
     show ilona neutral at char_midright
@@ -1282,7 +1279,10 @@ label arc_6_diplomes:
 
     i "Ah."
 
-    show ilona embarrassed at char_midright
+    if arc6_ilona_a_pleure:
+        show ilona fatigue at char_midright
+    else:
+        show ilona embarrassed at char_midright
     with dissolve
 
     i "Non."
@@ -1297,6 +1297,14 @@ label arc_6_diplomes:
     i "Je veux juste que tu saches que j'ai remarqué."
 
     $ renpy.pause(1.2, hard=True)
+
+    if arc6_penchant == "jessy":
+        show ilona embarrassed at char_midright
+    elif arc6_penchant == "indecis":
+        show ilona fatigue at char_midright
+    else:
+        show ilona neutral at char_midright
+    with dissolve
 
     # Sortie de scène : elle ne peut plus prétendre que les deux futurs se valent.
     if arc6_penchant == "jessy":
@@ -1402,7 +1410,7 @@ label arc_6_diplomes:
     t "Je pars à Tokyo."
     t "Le six avril. Dans onze jours."
 
-    show ilona embarrassed at char_midright
+    show ilona neutral at char_midright
     with dissolve
 
     i "Onze jours."
@@ -1524,7 +1532,7 @@ label arc_6_diplomes:
             t "T'arrives maintenant. C'est pas un reproche. C'est juste l'heure qu'il est."
 
     else:
-        show theo smirk at char_center
+        show theo neutral at char_center
         with dissolve
 
         if len(arc6_theo_attaques) > 0:

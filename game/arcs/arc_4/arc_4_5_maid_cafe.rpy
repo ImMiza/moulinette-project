@@ -7,13 +7,10 @@ image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_
 
 define audio.wow = "audio/fx/WOW.mp3"
 
-default arc4_5_maid_cafe_visite = False
 default arc4_5_sofiane_maid = False
 
 
 label arc_4_5_maid_cafe:
-    $ arc4_5_maid_cafe_visite = True
-
     systeme "Théo est parti de son côté. Les quatre autres quittent le marché ensemble."
     systeme "Pendant quelques rues, Ilona rentre bien avec le groupe."
     systeme "Au premier carrefour, leurs trajets se séparent."

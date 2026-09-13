@@ -44,7 +44,6 @@ define audio.plagesunset = "audio/music/plage-sunset.ogg"
 define audio.sandnoise = "audio/fx/sand-noise.mp3"
 define audio.pianoslam = "audio/fx/piano-slam.mp3"
 
-default arc2_reaction_invitation = ""
 default arc2_photo_reaction = ""
 default arc2_choix_activite_theo = ""
 default arc2_reaction_coucher = ""
@@ -79,14 +78,12 @@ label arc_2_plage:
         "Allan vient d'annoncer que Théo sera là."
 
         "Faire une blague sur le château de sable impossible.":
-            $ arc2_reaction_invitation = "blague"
             $ lien_jessy_ilona += 2
             j "Alexandre va construire un château techniquement inhabitable."
             x "Je vise l'illégalité architecturale."
             i "Notre maison Minecraft a formé toute une génération."
 
         "Demander simplement qui vient.":
-            $ arc2_reaction_invitation = "simple"
             $ communication += 2
             $ confiance += 1
             $ jalousie = max(0, jalousie - 1)
@@ -97,7 +94,6 @@ label arc_2_plage:
             x "Il respire en cliffhanger."
 
         "Répondre trop vite à propos de Théo.":
-            $ arc2_reaction_invitation = "theo_trop_vite"
             $ autonomie_ilona -= 2
             $ confiance -= 2
             $ influence_theo += 1
@@ -114,7 +110,6 @@ label arc_2_plage:
             i "D'accord."
 
         "Se taire.":
-            $ arc2_reaction_invitation = "silence"
             $ communication -= 2
             $ confiance -= 1
             $ pression_stream += 1

@@ -27,7 +27,6 @@ label prologue_minecraft:
     pmj "C'est encore un chantier."
     pmj "Mais un chantier avec du potentiel."
     systeme "La maison s'étale sur la colline comme si plusieurs idées avaient signé le même bail sans se parler."
-    $ maison_minecraft_detail = "couloir"
     systeme "Il y a trop de fenêtres, trop de toits, une passerelle qui semble avoir une opinion, et une tour construite pour justifier l'existence d'une autre tour."
     systeme "Jessy refuse d'appeler cela une erreur. Il préfère le mot « développement »."
 
@@ -99,7 +98,6 @@ label prologue_minecraft:
         "La maison vient de perdre un mur, un bout de plafond et une certaine dignité. Comment Jessy réagit-il ?"
 
         "Déclarer une guerre de poulets.":
-            $ prologue_reaction = "poulets"
             $ lien_jessy_ilona += 2
             pmj "très bien. Guerre de poulets."
             pmi "c'est une sanction ?"
@@ -110,7 +108,6 @@ label prologue_minecraft:
 
 
         "Réagir trop vite.":
-            $ prologue_reaction = "trop_vite"
             $ communication -= 2
             $ confiance -= 1
             $ pression_stream += 1
@@ -127,7 +124,6 @@ label prologue_minecraft:
             pmi "je ne promets rien"
 
         "Faire une blague avant de regarder les dégâts.":
-            $ prologue_reaction = "blague"
             $ lien_jessy_ilona += 2
             pmj "je crois que la maison vient de choisir une nouvelle personnalité"
             pmi "elle avait déjà une personnalité ?"
@@ -135,7 +131,6 @@ label prologue_minecraft:
             pmi "comme tous les bâtiments qui ont trois cuisines"
 
         "Réparer ensemble.":
-            $ prologue_reaction = "reparer"
             $ communication += 2
             $ confiance += 1
             $ jalousie = max(0, jalousie - 1)
@@ -275,7 +270,6 @@ label prologue_minecraft:
         "Comment Jessy répond-il à la proposition d'appel vocal ?"
 
         "Accepter tout de suite.":
-            $ prologue_appel_discord = "direct"
             $ communication += 2
             $ confiance += 1
             $ jalousie = max(0, jalousie - 1)
@@ -284,14 +278,12 @@ label prologue_minecraft:
             pmj "enfin oui, bonne idée"
 
         "Faire une blague avant d'accepter.":
-            $ prologue_appel_discord = "blague"
             $ lien_jessy_ilona += 2
             pmj "seulement si tu promets de ne pas casser ma voix aussi"
             pmi "je ne promets rien"
             pmj "alors oui"
 
         "Demander une minute pour se préparer.":
-            $ prologue_appel_discord = "minute"
             $ communication += 2
             $ confiance += 1
             $ jalousie = max(0, jalousie - 1)
