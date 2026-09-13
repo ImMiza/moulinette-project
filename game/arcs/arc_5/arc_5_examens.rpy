@@ -1117,7 +1117,7 @@ label arc_5_scene_3:
     with dissolve
 
 # SCENE 4 : SAINT-VALENTIN - L'AMOUR ET SES PIÈGES
-    play music audio.saintV volume 0.7 loop fadeout 1.0 fadein 1.0
+    play music audio.saintV volume 0.5 loop fadeout 1.0 fadein 1.0
     scene bg arc5 classroom
     with fade
     
