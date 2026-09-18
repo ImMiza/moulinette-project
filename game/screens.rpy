@@ -250,6 +250,7 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
             style "quick_menu"
+            
 
             textbutton _("Retour") action Rollback()
             textbutton _("Historique") action ShowMenu('history')
@@ -275,7 +276,7 @@ style quick_button_text is button_text
 style quick_menu:
     xalign 0.5
     yalign 1.0
-    yoffset -8
+    yoffset -10
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -427,8 +428,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     if main_menu:
         add gui.main_menu_background
-    else:
-        add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
