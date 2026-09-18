@@ -180,6 +180,7 @@ define audio.love = "audio/music/love-piano.ogg"
 define audio.springHope = "audio/music/srping-hope.ogg"
 define audio.micka = "audio/fx/ApplauseClapping.mp3"
 define audio.truth = "audio/music/truth-piano.ogg"
+define audio.pianoslam = "audio/fx/piano-slam.mp3"
 
 transform char_left:
     xalign 0.18
