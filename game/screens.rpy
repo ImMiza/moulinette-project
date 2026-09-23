@@ -305,7 +305,10 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Nouvelle partie") action Start()
+            textbutton _("Nouvelle partie") action [
+                Play("sound", "audio/fx/jessy_laugh.ogg"),
+                Start()
+            ]
 
         else:
 
@@ -1648,6 +1651,7 @@ style navigation_button is button:
     top_padding 10
     bottom_padding 10
     xminimum 300
+    hover_sound "audio/fx/bubble.ogg"
 
 style navigation_button_text is button_text:
     font gui.interface_text_font
