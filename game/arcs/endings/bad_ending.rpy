@@ -16,10 +16,11 @@
 # coherent avec le ton du jeu et plus sobre qu'un rendu graphique).
 
 # --- Audio : pistes temporaires reutilisees depuis les assets existants ---
-define audio.bakamitai = "audio/music/melancolique-piano.ogg"
-define audio.hangShock = "audio/fx/piano-slam.mp3"
-define audio.uneasy = "audio/music/tense-piano.ogg"
-define audio.majulaLike = "audio/music/plage-sunset.ogg"
+define audio.bakamitai = "audio/music/"
+define audio.hangShock = "audio/fx/"
+define audio.uneasy = "audio/music/"
+define audio.majulaLike = "audio/music/"
+define audio.bar = "audio/music/bar_jazz.ogg"
 
 # --- Decors de la bad ending ---
 image bg apartment night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
@@ -39,10 +40,9 @@ label bad_ending:
     systeme "Le lendemain."
     systeme "La regie est partie avant l'aube pour le tournage exterieur prepare au studio. Elle ne sera presque pas joignable avant le jour suivant."
     systeme "A l'appartement, Ilona et Theo vivent seuls. Ce soir-la, Ilona est censee lancer sans la regie le live court que Theo a maintenu."
-
+    play music audio.bar loop volume 0.7 fadein 2.0
     scene bg tokyo bar
     with fade
-    play music audio.citynight loop volume 0.5
 
     systeme "Theo vient de decrocher la campagne de six mois evoquee la veille, pour plusieurs millions de yens. En fin de journee, il retrouve Allan, son ami d'enfance, de passage a Tokyo, pour feter ca autour d'un verre."
 
@@ -194,7 +194,6 @@ label bad_ending:
     # ------------------------------------------------------------------
     scene bg tokyo street night
     with fade
-    play music audio.citynight loop volume 0.4
 
     systeme "Theo remonte la rue vers l'appartement. Par reflexe, il recommence a planifier : le restaurant calme, la table loin des enceintes, le trajet le plus court, l'heure a laquelle Ilona fatigue moins."
     systeme "Au troisieme carrefour, il s'arrete. Tout est attentionne. Tout est deja decide."
@@ -235,10 +234,10 @@ label bad_ending:
 
     t "... J'entre."
 
-
     # ------------------------------------------------------------------
     # 6. Decouverte - traitee hors-champ, jamais montree a l'image
     # ------------------------------------------------------------------
+
     scene bg apartment ilona bedroom
     with dissolve
 
@@ -249,10 +248,7 @@ label bad_ending:
     scene black
     with fade
 
-    play sound audio.hangShock volume 0.8
     with vpunch
-    stop music fadeout 0.2
-    play music audio.uneasy loop volume 0.5
 
     $ renpy.pause(1.5, hard=True)
 
@@ -286,7 +282,7 @@ label bad_ending:
     # ------------------------------------------------------------------
     scene bg arc2 beach sunset
     with fade
-    play music audio.majulaLike loop volume 0.5 fadein 3.0
+    #play music audio.majulaLike loop volume 0.5 fadein 3.0
 
     systeme "Quarante ans plus tard."
 
