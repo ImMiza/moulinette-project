@@ -320,7 +320,8 @@ label arc_7_theo:
     tchat "kiwi_no_kimi : nous sommes tous douze ce soir"
     i "Parfait. Bonjour aux douze personnes réparties sur huit cents comptes."
 
-    systeme "Les premières minutes tremblent. Puis Ilona rate le tutoriel d'un jeu qu'elle avait affirmé connaître, accuse la manette et oublie d'avoir laissé le micro ouvert pendant qu'elle cherche son chargeur. Le tchat transforme chaque erreur en blague."
+    systeme "Les premières minutes tremblent. Puis Ilona rate le tutoriel d'un jeu qu'elle avait affirmé connaître, accuse la manette et oublie d'avoir laissé le micro ouvert pendant qu'elle cherche son chargeur."
+    systeme "Le tchat transforme chaque erreur en blague."
 
     show ilona streaming joy at char_center
     with dissolve
@@ -415,7 +416,8 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1E. Dix jours plus tard : l'invitation
     # ------------------------------------------------------------------
-    systeme "Pendant dix jours, ils apprennent le quartier et leur rythme. Théo frappe avant d'entrer. Ilona laisse parfois une tasse devant sa porte quand il travaille trop tard. Les streams rassemblent désormais entre mille cinq cents et trois mille spectateurs ; l'extrait de la manette, lui, circule bien au-delà des directs. Le salon gagne un tapis et plusieurs cartons restent fermés."
+    systeme "Pendant dix jours, ils apprennent le quartier et leur rythme. Théo frappe avant d'entrer. Ilona laisse parfois une tasse devant sa porte quand il travaille trop tard."
+    systeme "Les streams rassemblent désormais entre mille cinq cents et trois mille spectateurs ; l'extrait de la manette, lui, circule bien au-delà des directs. Le salon gagne un tapis et plusieurs cartons restent fermés."
 
     show theo tokyo neutral at char_right
     show ilona tokyo neutral at char_left
@@ -765,7 +767,8 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1K. Juin : cent mille abonnés
     # ------------------------------------------------------------------
-    systeme "En juin, les extraits courts et les apparitions sur les chaînes partenaires touchent bien plus de monde que les directs. Ceux-ci réunissent maintenant six à huit mille spectateurs réguliers. Deux mois après le lancement, le compteur atteint cent mille abonnés en direct."
+    systeme "En juin, les extraits courts et les apparitions sur les chaînes partenaires touchent bien plus de monde que les directs. Ceux-ci réunissent maintenant six à huit mille spectateurs réguliers."
+    systeme "Deux mois après le lancement, le compteur atteint cent mille abonnés en direct."
 
     play music audio.stream loop volume 0.7 fadeout 2.0
     show ilona streaming victory at char_center
@@ -936,7 +939,7 @@ label arc_7_theo:
     hide ilona
     with dissolve
 
-    scene bg arc7 tokyo house night
+    scene bg arc7 tokyo house night nolight
     with fade
 
     systeme "Huit mois après le départ, ils vivent toujours dans la même maison et sortent toujours ensemble. Mais la chaîne est devenue leur travail, leur sujet de conversation et, trop souvent, leur seule activité à deux."
@@ -974,7 +977,7 @@ label arc_7_theo:
 
     systeme "Le petit carnet de croquis offert à Noël avait lui aussi fait le voyage. Il était resté un carnet de croquis, avec des pages encore vides."
     if arc4_5_theo_proposition == "gestion_stream":
-        systeme "À côté, un second carnet servait au planning du stream. La dette commencée par deux mots — « Bien sûr » — avait maintenant des horaires, des couleurs et des rappels."
+        systeme "À côté, un second carnet servait au planning du stream. La dette commencée par les mots « Bien sûr » avait maintenant des horaires, des couleurs et des rappels."
     elif arc4_5_theo_proposition == "question":
         systeme "À Noël, Ilona avait demandé à Théo s'il voulait aider ou devenir celui qui aide. À Tokyo, il avait acheté un second carnet pour le planning, comme si mieux séparer les objets pouvait séparer les deux intentions."
     elif arc4_5_theo_proposition == "temps":
@@ -1017,11 +1020,14 @@ label arc_7_theo:
     t "On arrive à un moment clé. Si on tient le rythme maintenant, après on pourra respirer."
 
     if arc2_choix_activite_theo == "suivre":
-        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona et indiqué le chemin le plus sûr vers les mares. La promenade avait tourné court avant qu'ils les regardent vraiment. Il avait surtout retenu la facilité avec laquelle son attention lui donnait le rôle de celui qui protège."
+        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona et indiqué le chemin le plus sûr vers les mares."
+        systeme "La promenade avait tourné court avant qu'ils les regardent vraiment. Il avait surtout retenu la facilité avec laquelle son attention lui donnait le rôle de celui qui protège."
     elif arc2_choix_activite_theo == "disparaitre":
-        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona, puis l'avait accompagnée jusqu'aux mares. Quand elle lui avait demandé ce qu'il voulait, il avait choisi de ne pas répondre. Tokyo est devenu la réponse qu'il n'avait pas donnée ce jour-là."
+        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona, puis l'avait accompagnée jusqu'aux mares."
+        systeme "Quand elle lui avait demandé ce qu'il voulait, il avait choisi de ne pas répondre. Tokyo est devenu la réponse qu'il n'avait pas donnée ce jour-là."
     else:
-        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona, puis l'avait accompagnée jusqu'aux mares. Il s'était excusé de croire savoir ce que les gens voulaient avant qu'ils finissent. Il avait appris la bonne phrase avant d'apprendre le bon geste."
+        systeme "À la plage, Théo avait retrouvé le porte-clés d'Ilona, puis l'avait accompagnée jusqu'aux mares."
+        systeme "Il s'était excusé de croire savoir ce que les gens voulaient avant qu'ils finissent. Il avait appris la bonne phrase avant d'apprendre le bon geste."
 
     systeme "Dans le parc, Monsieur Laplage leur avait conseillé de garder une place au rien. Le carnet de planning n'en contient plus."
     systeme "Après. Le mot est doux. C'est pour ça qu'il passe si bien."
@@ -1048,7 +1054,8 @@ label arc_7_theo:
 
     systeme "Le soir, les locaux du studio prennent le relais. En huit mois, la chance fragile est devenue une machine solide. Les miniatures changent. Les titres changent. La lumière du studio ne change jamais."
     systeme "Ilona apprend à dire « coucou tout le monde » même les soirs où sa voix voudrait commencer par autre chose."
-    systeme "Théo avait compris depuis longtemps qu'Ilona trouvait les choses plus faciles en ligne, quand personne ne voyait ses blancs. À Tokyo, presque toute sa vie se passe en ligne. Lui voit chacun de ses blancs et les remplit quand même."
+    systeme "Théo avait compris depuis longtemps qu'Ilona trouvait les choses plus faciles en ligne, quand personne ne voyait ses blancs."
+    systeme "À Tokyo, presque toute sa vie se passe en ligne. Lui voit chacun de ses blancs et les remplit quand même."
 
     if arc5_fin_minecraft == "theo_presence":
         systeme "Quelque part, sur un serveur qu'elle n'ouvre presque plus, la maison Minecraft garde un mot de passe qui n'a pas été choisi par elle."
@@ -1072,7 +1079,8 @@ label arc_7_theo:
     t "La marque préfère un truc spontané."
     i "Rien ne dit « spontané » comme toi qui comptes jusqu'à trois."
 
-    systeme "À la fin octobre, la chaîne atteint six cent mille abonnés et certains directs dépassent trente mille spectateurs. Ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona remplace son pull par sa veste de stream. Dès que la caméra s'allume, elle sourit."
+    systeme "À la fin octobre, la chaîne atteint six cent mille abonnés et certains directs dépassent trente mille spectateurs."
+    systeme "Ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona remplace son pull par sa veste de stream. Dès que la caméra s'allume, elle sourit."
 
     show ilona streaming smile at char_left
     with dissolve
@@ -1099,7 +1107,8 @@ label arc_7_theo:
     elif arc5_theo_proposition == "questionne":
         systeme "La première fois que Théo avait proposé de gérer son quotidien, on lui avait demandé pourquoi il ne parlait pas directement à Ilona. Pour Tokyo, il l'avait fait. Une offre directe n'était pas forcément une offre neutre."
 
-    systeme "Cette semaine-là, la régie prépare un tournage extérieur depuis les locaux. Leurs caisses de matériel encombrent le studio ; ils partiront avant l'aube le lendemain du million et ne seront presque pas joignables avant le jour suivant."
+    systeme "Cette semaine-là, la régie prépare un tournage extérieur depuis les locaux."
+    systeme "Leurs caisses de matériel encombrent le studio ; ils partiront avant l'aube le lendemain du million et ne seront presque pas joignables avant le jour suivant."
 
     $ renpy.pause(1.0, hard=True)
 
@@ -1216,7 +1225,8 @@ label arc_7_theo:
     t "Ilona..."
     t "La chaîne, c'est pas un truc à côté de nous. C'est ce qu'on construit ensemble."
 
-    systeme "Il appuie à peine sur « ensemble ». Juste assez pour rappeler les nuits, les billets, les mails et tout ce qu'il a porté sans qu'elle ait à le demander. Ilona voudrait que le mot lui fasse du bien. Une partie d'elle y arrive encore."
+    systeme "Il appuie à peine sur « ensemble ». Juste assez pour rappeler les nuits, les billets, les mails et tout ce qu'il a porté sans qu'elle ait à le demander."
+    systeme "Ilona voudrait que le mot lui fasse du bien. Une partie d'elle y arrive encore."
 
     i "Ton carnet de Noël, tu te souviens ? T'avais pris une phrase que j'avais dite à la plage et t'en avais fait un cadeau."
     t "Je voulais te montrer que je faisais attention."
@@ -1419,7 +1429,8 @@ label arc_7_theo:
 
             systeme "Théo a encore mémorisé chacune de ses hésitations. Il a encore envie d'en faire un plan."
             systeme "Mais pour la première fois, Ilona peut laisser un blanc sans qu'il le remplisse à sa place."
-            systeme "Sur le quai, Ilona avait dit qu'elle emportait ce qu'elle avait décidé de prendre. Cette fois, Théo comprend enfin que la décision comptait plus que la destination. Le silence reste ouvert jusqu'à ce qu'elle choisisse quoi en faire."
+            systeme "Sur le quai, Ilona avait dit qu'elle emportait ce qu'elle avait décidé de prendre. Cette fois, Théo comprend enfin que la décision comptait plus que la destination."
+            systeme "Le silence reste ouvert jusqu'à ce qu'elle choisisse quoi en faire."
 
             hide ilona
             hide theo
@@ -1475,6 +1486,7 @@ label arc_7_theo:
             t "Vas-y, je te rejoins. Faut que je prépare la journée de demain avec les sponsors."
             t "On a fait tout ça ensemble, Ilona. Laisse pas une mauvaise soirée te faire croire le contraire. Bonne nuit."
 
+            show ilona short crying at char_left
             hide theo
             with dissolve
 
