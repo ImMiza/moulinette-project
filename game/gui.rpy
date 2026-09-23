@@ -94,7 +94,6 @@ define gui.title_text_size = 75
 
 ## Les images utilisées pour le menu principal et le menu du jeu.
 define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
 
 
 ## Dialogue ####################################################################
@@ -118,7 +117,7 @@ define gui.name_ypos = 0
 
 ## L’alignement horizontal du nom du personnage. La valeur peut être 0.0 pour un
 ## alignement à gauche, 0.5 pour le centrer et 1.0 pour un alignement à droite.
-define gui.name_xalign = 0.0
+define gui.name_xalign = 0
 
 ## La largeur, profondeur et les bords de la zone contenant le nom du personnage
 ## ou « None » pour le dimensionner automatiquement.

@@ -1975,15 +1975,15 @@ label arc_6_bascule_theo:
     scene black
     with fade
 
-    play music audio.sadPiano fadein 3.0 loop volume 0.7
+    play music audio.springHope fadein 3.0 loop volume 0.7
 
-    systeme "Onze jours, ça passe vite quand on a arrêté d'attendre quelque chose."
+    systeme "Onze jours, ça passe vite quand chaque matin rapproche d'un départ qu'on a choisi."
 
     $ renpy.pause(1.5, hard=True)
 
-    systeme "Vingt-huit mars. Ilona répond à Théo par un seul mot. Le studio réserve deux places au lieu d'une."
-    systeme "Trente-et-un mars. Elle range sa chambre d'une manière qui ressemble à un départ avant même d'être un départ. Elle garde peu de choses. Le stylo violet n'en fait pas partie ; il n'en fait pas non plus vraiment le contraire."
-    systeme "Trois avril. La date de Théo. Elle n'a pas eu besoin d'attendre jusque-là. Elle avait répondu depuis la cour."
+    systeme "Vingt-huit mars. Ilona confirme son choix à Théo. Le studio réserve deux places au lieu d'une."
+    systeme "Trente-et-un mars. Elle range sa chambre, trie ce qu'elle emporte et remplit une page de son carnet avec des idées de streams. Le stylo violet n'en fait pas partie ; il n'en fait pas non plus vraiment le contraire."
+    systeme "Trois avril. La date limite que Théo lui avait donnée passe sans rien changer. Ilona avait déjà répondu depuis la cour et, depuis, elle compte les jours dans l'autre sens."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -1992,24 +1992,43 @@ label arc_6_bascule_theo:
 
     systeme "Six avril. La gare. Le vrai départ, celui avec des billets et des annonces au micro et un quai qui sent le café tiède."
 
-    show theo reassuring at char_center
-    show ilona neutral at char_left
+    show theo tokyo reassuring at char_center
+    show ilona tokyo neutral at char_left
     with dissolve
 
     t "T'as tout ?"
     i "J'ai ce que j'ai décidé de prendre. C'est pas pareil que tout."
 
+    t "Et tu ne regrettes rien ?"
+    i "Non."
+    t "Même pas un peu ?"
+    i "Je suis terrifiée, si c'est ce que tu demandes. Mais je regrette pas."
+    t "Terrifiée par Tokyo ?"
+    i "Par Tokyo. Le studio. Le premier stream. Le moment où je vais dire bonjour et oublier tous les mots suivants."
+    t "Tu les retrouveras."
+    i "J'ai hâte d'essayer."
+
     $ renpy.pause(1.2, hard=True)
 
-    systeme "Jessy n'est pas venu. Personne ne le lui avait demandé, et il avait enfin appris à ne pas s'imposer là où on ne l'attendait pas. C'était peut-être sa seule vraie victoire de l'année, et elle arrivait le jour où il avait tout perdu."
+    systeme "Jessy n'est pas venu. Personne ne le lui avait demandé. Ilona remarque son absence sans y chercher une dernière question : sa réponse est déjà dans les billets qu'elle tient."
 
     $ renpy.pause(1.5, hard=True)
 
-    show ilona fatigue at char_left
+    show ilona tokyo neutral at char_left
     with dissolve
 
-    systeme "Sur le quai, une seconde, Ilona regarde son téléphone. Un message pas écrit. Une veste pliée qui reste, quelque part, dans une autre ville, avec trois mots dessous qu'elle est la seule à connaître."
-    systeme "Puis le train arrive. Et on ne fait pas attendre un train."
+    systeme "Une annonce résonne au-dessus du quai. Ilona range son téléphone sans l'avoir consulté et resserre sa main sur la poignée de sa valise."
+
+    i "C'est le nôtre."
+    t "On a encore quelques minutes."
+    i "Je sais."
+
+    show ilona tokyo smile at char_left
+    with dissolve
+
+    i "Mais j'ai attendu assez longtemps."
+
+    systeme "Le train entre en gare. Cette fois, Ilona ne regarde pas derrière elle. Elle regarde les portes s'ouvrir."
 
     $ renpy.pause(1.5, hard=True)
 
@@ -2019,8 +2038,8 @@ label arc_6_bascule_theo:
 
     stop music fadeout 4.0
 
-    systeme "Elle monte. La porte se ferme. Ce n'est pas Théo qu'elle a choisi. C'est l'endroit où on lui épargnerait de parler. Ce n'est pas la même chose."
-    systeme "Et c'est pire."
+    systeme "Elle monte. La porte se ferme. Ilona ne fuit ni une conversation ni une ville : elle va vers Tokyo, le studio et la chaîne qu'elle a décidé de construire."
+    systeme "Bientôt, elle parlera pendant des heures devant des centaines d'inconnus. Cette idée lui donne le vertige. Elle a surtout hâte de commencer."
 
     $ renpy.pause(2.0, hard=True)
 
