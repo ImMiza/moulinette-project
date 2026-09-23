@@ -1248,7 +1248,8 @@ label arc_4_noel:
         hide ilona
         hide theo
         with dissolve
-
+        stop ambiant1
+        
     if not (lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15):
         systeme "La soirée se termine sans grande scène. C'est presque pire, parce que les vraies conséquences aiment parfois partir en marchant normalement."
 

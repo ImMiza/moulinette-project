@@ -12,11 +12,12 @@
 # salon nocturne réutilisent ceux de l'arc 7. La découverte est montrée très
 # brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
-# --- Audio : pistes temporaires réutilisées depuis les assets existants ---
-define audio.bakamitai = "audio/music/melancolique-piano.ogg"
-define audio.hangShock = "audio/fx/piano-slam.mp3"
-define audio.uneasy = "audio/music/tense-piano.ogg"
-define audio.majulaLike = "audio/music/plage-sunset.ogg"
+# --- Audio : pistes temporaires reutilisees depuis les assets existants ---
+define audio.bakamitai = "audio/music/"
+define audio.hangShock = "audio/fx/"
+define audio.uneasy = "audio/music/"
+define audio.majulaLike = "audio/music/"
+define audio.bar = "audio/music/bar_jazz.ogg"
 
 # --- Décors de la bad ending ---
 image bg apartment night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
@@ -37,10 +38,9 @@ label bad_ending:
     systeme "Le 7 décembre, au lendemain du million."
     systeme "La régie est partie avant l'aube pour le tournage extérieur préparé au studio. Elle ne sera presque pas joignable avant le jour suivant."
     systeme "Dans leur appartement, Ilona et Théo vivent seuls. Ce soir-là, Ilona est censée lancer sans la régie le live court que Théo a maintenu."
-
+    play music audio.bar loop volume 0.7 fadein 2.0
     scene bg tokyo bar
     with fade
-    play music audio.citynight loop volume 0.5
 
     systeme "Théo vient de décrocher la campagne de six mois évoquée la veille, pour plusieurs millions de yens. En fin de journée, il retrouve Allan, son ami d'enfance, de passage à Tokyo, pour fêter ça autour d'un verre."
 
@@ -61,13 +61,13 @@ label bad_ending:
     t "Sinon quoi ?"
     a "Toi. Pas la chaîne, pas les contrats, pas le nombre d'abonnés. Comment tu vas ?"
     t "Je viens de te dire qu'on allait vite."
-    a "Ça, c'est un rapport d'activité."
-    t "J'habite dans un appartement correct. Le travail me plaît. Tokyo est plus simple que je le pensais."
-    a "Immobilier, travail, urbanisme. Tu évites la question dans trois catégories différentes."
-    t "Tu t'es entraîné pendant huit mois ?"
-    a "J'avais du temps. Tes messages faisaient quatre lignes, captures d'écran comprises."
-    t "C'étaient des informations utiles."
-    a "C'étaient des courbes."
+    a "Ca, c'est un rapport d'activite."
+    t "J'habite dans un appartement correct. Le travail me plait. Tokyo est plus simple que je pensais."
+    a "Immobilier, travail, urbanisme. Tu evites la question dans trois categories differentes."
+    t "Tu t'es entraine pendant huit mois ?"
+    a "J'avais du temps. Tes messages faisaient quatre lignes, captures d'ecran comprises."
+    t "C'etaient des informations utiles."
+    a "C'etaient des courbes."
 
     show theo tokyo hesitant at char_right
     with dissolve
@@ -211,7 +211,6 @@ label bad_ending:
     # ------------------------------------------------------------------
     scene bg tokyo street night
     with fade
-    play music audio.citynight loop volume 0.4
 
     systeme "Théo remonte la rue vers l'appartement. Par réflexe, il recommence à planifier : le restaurant calme, la table loin des enceintes, le trajet le plus court, l'heure à laquelle Ilona fatigue le moins."
     systeme "Au troisième carrefour, il s'arrête. Chaque détail est attentionné. Tout est déjà décidé."
@@ -277,18 +276,18 @@ label bad_ending:
 
     $ renpy.pause(1.0, hard=True)
 
-
     # ------------------------------------------------------------------
     # 6. Découverte
     # ------------------------------------------------------------------
-    play sound audio.hangShock volume 0.8
+
     scene bg apartment ilona bedroom
+    with dissolve
+
+    systeme "La porte s'ouvre sur la chambre silencieuse. L'ordinateur est eteint. Le lit est defait."
+
+    $ renpy.pause(1.0, hard=True)
+
     with vpunch
-    stop music fadeout 0.2
-
-    $ renpy.pause(0.35, hard=True)
-
-    play music audio.uneasy loop volume 0.5
 
     systeme "La porte vient à peine de s'ouvrir. Théo ne voit ni l'ordinateur éteint ni le lit défait. Il ne voit qu'Ilona."
 
@@ -324,7 +323,7 @@ label bad_ending:
     # ------------------------------------------------------------------
     scene bg arc2 beach sunset
     with fade
-    play music audio.majulaLike loop volume 0.5 fadein 3.0
+    #play music audio.majulaLike loop volume 0.5 fadein 3.0
 
     systeme "Quarante ans plus tard."
     systeme "Théo est assis au bord de la plage, dans un crépuscule qui ne change jamais vraiment. Ses cheveux ont grisonné ; la photo entre ses doigts a vieilli plus vite que son souvenir."

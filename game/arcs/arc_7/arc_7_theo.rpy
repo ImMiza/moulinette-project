@@ -21,7 +21,13 @@
 define tchat = Character("Tchat", color="#7fd6ff", callback=speaker_callback(""))
 
 # --- Audio local ---
-define audio.stream = "audio/music/ecole-nuit.ogg"
+define audio.stream = "audio/music/ilona_stream.ogg"
+define audio.tokyo = "audio/music/tokyo.ogg"
+define audio.restojazz = "audio/music/resto_jazz.ogg"
+define audio.sadness = "audio/music/sadness.ogg"
+define audio.apart = "audio/music/apart_tokyo.ogg"
+define audio.apartsad = "audio/music/apart_tokyo_sad.ogg"
+define auddio.depressed = "audio/music/depressed.ogg"
 
 # --- Décors propres à la route Théo ---
 image bg arc7 intro stream = im.Scale("images/scenes/arc_7/bg_arc7_intro_stream.jpg", 1920, 1080)
@@ -95,11 +101,13 @@ label arc_7_theo:
     # 1. Arrivée à Tokyo, colocation et premiers streams
     # ------------------------------------------------------------------
 
+    play music audio.tokyo volume 0.7 loop fadein 3.0
     scene bg arc7 tokyo arrival
     with fade
 
     systeme "Le 6 avril, les portes de la gare s'ouvrent sur Tokyo. Ilona s'arrête si brusquement que sa valise cogne l'arrière de ses jambes."
 
+    play ambiant1 audio.foule volume 0.5 loop fadein 2.0
     show theo tokyo neutral at char_right
     show ilona tokyo embarrassed at char_left
     with dissolve
@@ -134,18 +142,19 @@ label arc_7_theo:
     t "On vit vraiment ici, maintenant."
     i "C'était terrible. Mais merci."
 
+    stop ambiant1 fadeout 2.0
     hide theo
     hide ilona
     with dissolve
 
     systeme "Le trajet jusqu'à l'appartement prend vingt minutes et trois nouveaux arrêts photo. Pour Ilona, même se tromper de sortie ressemble encore au début d'une aventure."
-
+    $fade_channel("music",0,1.0)
     # ------------------------------------------------------------------
     # 1A. Leur appartement : le rêve commence
     # ------------------------------------------------------------------
     scene bg arc7 tokyo morning
     with fade
-
+    $fade_channel("music",0.7,1.0)
     systeme "Le studio a loué pour eux un appartement clair, avec deux chambres, une cuisine ouverte et un salon encore presque vide."
 
     show theo tokyo neutral at char_right
@@ -208,13 +217,14 @@ label arc_7_theo:
     hide theo
     hide ilona
     with dissolve
+    $fade_channel("music",0.0,1.0)
 
     # ------------------------------------------------------------------
     # 1B. La visite du studio
     # ------------------------------------------------------------------
     scene bg arc7 tokyo studio
     with fade
-
+    $fade_channel("music",0.7,1.0)
     systeme "Deux rues plus loin, Théo ouvre une porte insonorisée. Derrière, deux écrans, un micro suspendu et des panneaux de lumière attendent déjà Ilona."
 
     show theo tokyo reassuring at char_right
@@ -268,6 +278,8 @@ label arc_7_theo:
     i "Quatre mots nuls."
     t "Demain, tu en auras de meilleurs."
 
+    stop music fadeout 2.0
+
     hide theo
     hide ilona
     with dissolve
@@ -298,7 +310,7 @@ label arc_7_theo:
     hide theo
     show ilona streaming smile at char_center
     with dissolve
-    play music audio.stream loop volume 0.45
+    play music audio.stream loop volume 0.7 fadein 1.0
 
     i "Coucou tout le monde... Bienvenue sur la première vraie soirée d'IlonaGaming."
     tchat "sakura_mod : BIENVENUE ILONA !!!"
@@ -323,7 +335,7 @@ label arc_7_theo:
 
     i "Merci d'être restés pour ce premier stream. Je reviens très vite, avec une manette qui fonctionne. Ou du talent. Selon ce qu'on trouve en premier."
 
-    stop music fadeout 1.0
+    stop music fadeout 2.0
     show ilona streaming smile at char_center
     with dissolve
 
@@ -359,6 +371,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1D. Leur premier soir après le stream
     # ------------------------------------------------------------------
+    play music audio.apart volume 0.7 loop fadein 1.0 fadeout 1.0
     scene bg arc7 tokyo house night
     with fade
 
@@ -437,6 +450,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1F. Le trajet et le restaurant
     # ------------------------------------------------------------------
+    play music audio.citynight loop volume 0.7 fadeout 1.0 fadein 1.0
     scene bg arc7 tokyo konbini night
     with fade
 
@@ -455,11 +469,11 @@ label arc_7_theo:
     i "Tu parles aussi beaucoup plus que d'habitude."
     t "Tu veux que je me taise ?"
     i "Non. Je veux profiter du phénomène."
-
     hide theo
     hide ilona
     with dissolve
 
+    play music audio.restojazz loop volume 0.7 fadein 3.0 fadeout 1.0
     scene bg arc7 tokyo restaurant
     with fade
 
@@ -556,10 +570,9 @@ label arc_7_theo:
     i "Il survivra."
 
     systeme "Leur premier baiser a le goût d'un dessert qu'aucun des deux ne parvient ensuite à finir. Ils quittent le restaurant après la fermeture, officiellement ensemble et incapables de parler d'autre chose."
-
+    play music audio.apart volume 0.7 loop fadein 1.0 fadeout 1.0
     scene bg arc7 tokyo house night
     with fade
-
     show theo tokyo reassuring at char_right
     show ilona tokyo smile at char_left
     with dissolve
@@ -592,7 +605,7 @@ label arc_7_theo:
     t "Risque accepté."
 
     systeme "Ils lancent le film avec le volume trop bas pour les voisins. Ilona rit d'abord de Théo qui connaît certaines répliques, puis du film lui-même. Aucun des deux ne regarde l'heure."
-
+    stop music fadeout 2.0
     hide theo
     hide ilona
     with dissolve
@@ -602,7 +615,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     scene bg arc7 tokyo studio
     with fade
-    play music audio.stream loop volume 0.5
+    play music audio.stream loop volume 0.7 fadein 2.0
 
     systeme "Le lendemain soir, Ilona arrive en direct avec une énergie que ni le manque de sommeil ni le café ne suffisent à expliquer. Pendant le stream, le compteur franchit les dix mille abonnés."
 
@@ -629,6 +642,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1I. Se retrouver après leurs journées
     # ------------------------------------------------------------------
+    play music audio.apart volume 0.7 loop fadein 1.0 fadeout 1.0
     scene bg arc7 tokyo house night
     with fade
 
@@ -664,6 +678,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1J. La promenade et l'avertissement de Laplage
     # ------------------------------------------------------------------
+    play music audio.citynight loop volume 0.7 fadeout 1.0 fadein 2.0
     scene bg arc7 tokyo park
     with fade
 
@@ -685,6 +700,8 @@ label arc_7_theo:
 
     systeme "Une silhouette assise sur un banc lève vers eux un gobelet de café. Ilona ralentit la première."
 
+    $ renpy.pause(0.5, hard=True)
+    play sound audio.laplage volume 0.6
     show laplage neutral at char_center
     with dissolve
 
@@ -735,7 +752,7 @@ label arc_7_theo:
     hide theo
     hide ilona
     with dissolve
-
+    stop music fadeout 1.0
     scene bg arc7 tokyo house night nolight
     with fade
 
@@ -750,7 +767,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     systeme "En juin, les extraits courts et les apparitions sur les chaînes partenaires touchent bien plus de monde que les directs. Ceux-ci réunissent maintenant six à huit mille spectateurs réguliers. Deux mois après le lancement, le compteur atteint cent mille abonnés en direct."
 
-    play music audio.stream loop volume 0.5
+    play music audio.stream loop volume 0.7 fadeout 2.0
     show ilona streaming victory at char_center
     with dissolve
 
@@ -821,6 +838,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1L. Le repas qui attend
     # ------------------------------------------------------------------
+    play music audio.sadPiano volume 0.7 loop fadein 2.0
     scene bg arc7 tokyo house night
     with fade
 
@@ -850,7 +868,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     scene bg arc7 tokyo studio
     with fade
-    play music audio.stream loop volume 0.55
+    play music audio.stream loop volume 0.7 fadein 2.0 fadeout 1.0
 
     systeme "La semaine suivante, l'opération spéciale dépasse les deux heures prévues. Ilona recommence une partie pour tenir une promesse faite au tchat, puis accepte un dernier défi alors que sa voix fatigue."
 
@@ -876,6 +894,7 @@ label arc_7_theo:
     hide ilona
     with dissolve
 
+    play music audio.apartsad volume 0.7 loop fadein 1.0 fadeout 1.0
     scene bg arc7 tokyo house night
     with fade
 
@@ -1023,6 +1042,7 @@ label arc_7_theo:
 
     $ renpy.pause(0.4, hard=True)
 
+    #music
     scene bg arc7 tokyo studio
     with fade
 
@@ -1089,7 +1109,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 2. Le stream, vu de l'extérieur puis vu d'elle
     # ------------------------------------------------------------------
-    play music audio.stream loop volume 0.6
+    play music audio.stream loop volume 0.6 fadeout 1.0 fadein 2.0
 
     systeme "Devant la caméra, Ilona a troqué le col roulé gris du matin pour la veste bleue et les longs cheveux blancs que le public associe à IlonaGaming."
 
@@ -1115,7 +1135,7 @@ label arc_7_theo:
 
     i "Bon... sur ce, gros bisous à tous, à demain pour un nouveau stream !"
 
-    stop music fadeout 1.0
+    play music audio.sadness volume 0.7 loop fadeout 1.0 fadein 2.0
     show ilona streaming fatigue at char_center
     with dissolve
     systeme "Dès que le stream coupe, son visage se décompose. Fatigue physique. Fatigue de l'autre genre, aussi."
@@ -1257,7 +1277,6 @@ label arc_7_theo:
     hide ilona
     hide theo
     with dissolve
-
     scene bg arc7 tokyo house night
     with fade
 
@@ -1335,11 +1354,12 @@ label arc_7_theo:
     # Choix final : la réponse de Théo décide de la route
     # ------------------------------------------------------------------
     show theo tokyo defensive at char_right
-
+    $fade_channel("music",0,1.0)
     menu:
         "La réponse de Théo."
 
         "Annuler les sponsors, écouter Ilona.":
+            $fade_channel("music",0.7,1.0)
             t "T'as raison. Les sponsors, ça peut attendre. Toi, c'est maintenant que ça compte."
 
             show ilona short neutral at char_left
@@ -1408,6 +1428,8 @@ label arc_7_theo:
             jump ending_neutre
 
         "Prioriser les sponsors, la chaîne avant tout.":
+            play music audio.depressed volume 0.7 loop
+            $fade_channel("music",0.7,1.0)
             t "Demain après-midi, tu ne vas pas traverser Tokyo épuisée pour faire semblant de profiter d'un parc. Tu vas dormir. Moi, je vois les sponsors."
             t "À vingt heures, tu fais un stream court. Une heure, pas plus. Je te libère tout le reste."
 
@@ -1457,7 +1479,6 @@ label arc_7_theo:
             with dissolve
 
             systeme "Théo sort de la pièce."
-            play music audio.sadPiano loop volume 0.5 fadein 2.0
             i "..."
             systeme "Dans l'écran noir de son téléphone, son reflet reste pris entre le carnet de planning et les feuilles de production."
             systeme "Pendant quelques secondes, elle attend que quelqu'un dise son prénom sans le transformer en marque."

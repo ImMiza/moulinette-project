@@ -314,6 +314,53 @@ init python:
             return "fragile"
         return "distant"
 
+screen studio_intro():
+
+    # La vidéo prend tout l'écran
+    add Movie(
+        play="videos/muchacho_studio_internation_studio.webm",
+        loop=False
+    )
+
+    # Empêche toute interaction avec le screen
+    key "dismiss" action NullAction()
+    key "game_menu" action NullAction()
+    key "rollback" action NullAction()
+    key "rollforward" action NullAction()
+    key "skip" action NullAction()
+    key "hide_windows" action NullAction()
+
+
+label splashscreen:
+
+    scene black
+
+    # Affichage de la vidéo
+    show screen studio_intro
+
+    # Attendre la durée de la vidéo.
+    # REMPLACE 8.0 par la durée exacte de ta vidéo.
+    $ renpy.pause(6.0, hard=True)
+
+    # Retirer la vidéo
+    hide screen studio_intro
+
+    # ========================================================
+    # AVERTISSEMENT
+    # ========================================================
+
+    scene black
+
+    show text "<< Toute ressemblance avec des faits\n\net des personnages existants ou\n\nayant existé serait purement fortuite\n\net ne pourrait être que le fruit d'une\n\npure coïncidence >>":
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause(5.0, hard=True)
+
+    # Le joueur doit appuyer pour continuer
+    pause
+
+    return
+
 
 label after_load:
     $ migrate_souvenirs()
@@ -321,6 +368,7 @@ label after_load:
 
 
 label start:
+    stop music
     scene bg minecraft
     with fade
 
