@@ -28,6 +28,7 @@ image bg arc7 intro stream = im.Scale("images/scenes/arc_7/bg_arc7_intro_stream.
 image bg arc7 tokyo studio = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_streaming_studio_night.jpg", 1920, 1080)
 image bg arc7 tokyo morning = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_morning.jpg", 1920, 1080)
 image bg arc7 tokyo house night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
+image bg arc7 tokyo house night nolight = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
 image bg arc7 tokyo konbini night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_konbini_night.png", 1920, 1080)
 image bg arc7 tokyo arrival = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_arrival_station.jpg", 1920, 1080)
 image bg arc7 tokyo restaurant = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_restaurant_night.jpg", 1920, 1080)
@@ -39,6 +40,12 @@ image ilona tokyo neutral = speaker_sprite("ilona", "images/personnages/Ilona/to
 image ilona tokyo smile = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona tokyo fatigue = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona tokyo sad = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+
+# À partir du 6 décembre, Ilona porte les cheveux courts hors stream.
+image ilona short neutral = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short sad = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short sad_alt = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/sad_alt.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short crying = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/Crying.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
 # La tenue de stream constitue la persona publique d'IlonaGaming.
 image ilona streaming victory = speaker_sprite("ilona", "images/personnages/Ilona/streaming/playful_excitement.png", ILONA_SIZE[0], ILONA_SIZE[1])
@@ -106,12 +113,12 @@ label arc_7_theo:
     systeme "Un flot de voyageurs les contourne. Ilona lève la tête vers un écran géant, puis vers un autre, et perd Théo de vue pendant une seconde. Sa main attrape aussitôt sa manche."
 
     t "Je suis là."
-    i "Je savais. Je vérifiais la solidité de ton manteau."
+    i "Je savais. Je vérifiais la solidité de ton pull."
     t "Diagnostic ?"
     i "Acceptable. Ne marche pas aussi vite."
     t "Donne-moi ta valise."
     i "Elle pèse vingt-trois kilos."
-    t "Vingt-deux virgule huit. J'ai vérifié à l'aéroport."
+    t "Vingt-deux virgule huit. Je l'ai pesée avant de partir."
     i "Bien sûr que tu as vérifié."
 
     show ilona tokyo smile at char_left
@@ -395,7 +402,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1E. Dix jours plus tard : l'invitation
     # ------------------------------------------------------------------
-    systeme "Pendant dix jours, ils apprennent le quartier et leur rythme. Théo frappe avant d'entrer. Ilona laisse parfois une tasse devant sa porte quand il travaille trop tard. Les streams deviennent plus fluides ; le salon gagne un tapis et plusieurs cartons restent fermés."
+    systeme "Pendant dix jours, ils apprennent le quartier et leur rythme. Théo frappe avant d'entrer. Ilona laisse parfois une tasse devant sa porte quand il travaille trop tard. Les streams rassemblent désormais entre mille cinq cents et trois mille spectateurs ; l'extrait de la manette, lui, circule bien au-delà des directs. Le salon gagne un tapis et plusieurs cartons restent fermés."
 
     show theo tokyo neutral at char_right
     show ilona tokyo neutral at char_left
@@ -704,6 +711,10 @@ label arc_7_theo:
 
     laplage "Le bonheur peut parler très fort. Vérifiez seulement qu'il ne répond pas à votre place."
     i "Vous faites toujours ça ? Apparaître, dire quelque chose d'inquiétant et repartir ?"
+
+    show laplage thumb_up at char_center
+    with dissolve
+
     laplage "Pas toujours. Parfois, je vends des boissons."
 
     hide laplage
@@ -725,7 +736,7 @@ label arc_7_theo:
     hide ilona
     with dissolve
 
-    scene bg arc7 tokyo house night
+    scene bg arc7 tokyo house night nolight
     with fade
 
     systeme "Pendant le premier mois, ils arrivent encore à séparer le stream et leur vie de couple : ramen après les directs, promenades au parc et séries regardées trop tard dans le salon."
@@ -737,7 +748,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1K. Juin : cent mille abonnés
     # ------------------------------------------------------------------
-    systeme "En juin, la chaîne dépasse les premiers paliers qu'Ilona imaginait encore depuis son ancienne chambre. Ce soir-là, le compteur atteint cent mille abonnés en direct."
+    systeme "En juin, les extraits courts et les apparitions sur les chaînes partenaires touchent bien plus de monde que les directs. Ceux-ci réunissent maintenant six à huit mille spectateurs réguliers. Deux mois après le lancement, le compteur atteint cent mille abonnés en direct."
 
     play music audio.stream loop volume 0.5
     show ilona streaming victory at char_center
@@ -953,7 +964,7 @@ label arc_7_theo:
         systeme "Le carnet de planning était venu plus tard, après le départ. Théo appelait ce deuxième carnet la partie concrète du rêve."
 
     show theo tokyo neutral at char_right
-    show ilona tokyo fatigue at char_left
+    show ilona short sad at char_left
     with dissolve
 
     i "Tu as commandé le petit déjeuner ?"
@@ -971,7 +982,7 @@ label arc_7_theo:
     t "Parce que j'ai déjà enlevé ce qui pouvait l'être. Regarde."
 
     show theo tokyo reassuring at char_right
-    show ilona tokyo fatigue at char_left
+    show ilona short sad_alt at char_left
     with dissolve
 
     t "Demain, on a le brief avec l'agence à dix heures, le tournage sponsor à quatorze, et ton stream le soir."
@@ -996,7 +1007,7 @@ label arc_7_theo:
     systeme "Dans le parc, Monsieur Laplage leur avait conseillé de garder une place au rien. Le carnet de planning n'en contient plus."
     systeme "Après. Le mot est doux. C'est pour ça qu'il passe si bien."
 
-    show ilona tokyo fatigue at char_left
+    show ilona short sad at char_left
     with dissolve
 
     i "Et si j'ai besoin de respirer avant après ?"
@@ -1026,22 +1037,22 @@ label arc_7_theo:
     elif arc6_offre_theo == "aveu_vide":
         systeme "Le studio avait d'abord ressemblé à une réponse concrète. Il est maintenant la première question qui l'attend chaque matin."
 
-    show ilona tokyo smile at char_left
+    show ilona short sad_alt at char_left
     show theo tokyo neutral at char_right
     with dissolve
 
-    systeme "À deux cent cinquante mille, Théo cadre une photo dans le studio avant leur départ pour un restaurant calme."
+    systeme "À la fin août, la chaîne atteint deux cent cinquante mille abonnés et les directs rassemblent autour de douze mille spectateurs. Théo cadre une photo dans le studio avant leur départ pour un restaurant calme."
 
     t "Un peu plus à gauche."
     i "Mon gauche ou ton gauche ?"
     t "Le tien."
     i "Tu aurais dû dire ça avant que je sorte du cadre."
     t "Reviens d'un pas. Voilà. Souris."
-    i "Attends, j'ai encore mon manteau."
+    i "Attends, j'ai encore mon pull."
     t "La marque préfère un truc spontané."
     i "Rien ne dit « spontané » comme toi qui comptes jusqu'à trois."
 
-    systeme "À six cent mille, ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona change de veste."
+    systeme "À la fin octobre, la chaîne atteint six cent mille abonnés et certains directs dépassent trente mille spectateurs. Ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona remplace son pull par sa veste de stream. Dès que la caméra s'allume, elle sourit."
 
     show ilona streaming smile at char_left
     with dissolve
@@ -1085,7 +1096,7 @@ label arc_7_theo:
     show ilona streaming celebration at char_center
     with dissolve
 
-    systeme "Un million d'abonnés atteint en huit mois. Les subs Twitch ne s'arrêtent plus."
+    systeme "Le compteur atteint un million d'abonnés après huit mois. Plus de quarante-six mille spectateurs suivent encore le direct, et les subs Twitch offerts ne s'arrêtent plus."
 
     tchat "xXShadow_JPxX : ENFIN LE MILLION ILONA ON T'AIME"
     tchat "kiwi_no_kimi : gg gg gg gg"
@@ -1147,7 +1158,7 @@ label arc_7_theo:
     show ilona streaming smile at char_center
     with dissolve
 
-    i "Il y a un million de personnes devant."
+    i "Il y avait quarante-six mille personnes devant il y a dix secondes."
     t "Le stream est coupé."
     i "Alors vite. Avant que l'algorithme nous voie."
 
@@ -1211,6 +1222,7 @@ label arc_7_theo:
     systeme "Sur le quai du 6 avril, Théo lui avait demandé si elle avait tout. Ilona avait répondu : « J'ai ce que j'ai décidé de prendre. » Il se souvenait de chaque mot. Il n'avait pas compris qu'elle parlait déjà du droit de choisir."
 
     systeme "Pendant deux minutes, aucun d'eux ne parle. Peu après minuit, ils éteignent les écrans, ferment les locaux et sortent."
+    systeme "Avant de partir, Ilona retire sa perruque blanche et remet son pull gris. Son sourire de stream reste au studio."
 
     hide ilona
     hide theo
@@ -1221,7 +1233,7 @@ label arc_7_theo:
 
     systeme "Deux rues séparent le studio de leur maison. La lumière du konbini découpe le trottoir. Depuis huit mois, ils y sont passés assez souvent pour que Théo classe les onigiris par parfum."
 
-    show ilona tokyo fatigue at char_left
+    show ilona short sad at char_left
     show theo tokyo neutral at char_right
     with dissolve
 
@@ -1251,7 +1263,7 @@ label arc_7_theo:
 
     systeme "Quand ils entrent dans la pièce commune, la maison est éteinte et trop calme. Ilona pose son téléphone près du carnet de planning. Théo rallume la cuisine."
 
-    show ilona tokyo fatigue at char_left
+    show ilona short sad_alt at char_left
     show theo tokyo neutral at char_right
     with dissolve
 
@@ -1273,7 +1285,7 @@ label arc_7_theo:
     t "C'est quoi, le sujet ?"
     i "Nous. Enfin... le fait qu'il n'y ait presque plus de nous sans la chaîne au milieu."
 
-    show ilona tokyo sad at char_left
+    show ilona short sad at char_left
     with dissolve
 
     i "Ça fait un moment que j'y pense. J'aimerais qu'on passe du temps tous les deux. Une promenade dans un parc, un resto, un film, n'importe quoi."
@@ -1330,7 +1342,7 @@ label arc_7_theo:
         "Annuler les sponsors, écouter Ilona.":
             t "T'as raison. Les sponsors, ça peut attendre. Toi, c'est maintenant que ça compte."
 
-            show ilona tokyo neutral at char_left
+            show ilona short neutral at char_left
             i "Tu es sérieux ?"
             t "Sérieux."
             t "Demain après-midi, je décale les sponsors. Le soir, on peut annuler le stream si tu veux."
@@ -1358,7 +1370,7 @@ label arc_7_theo:
 
             systeme "Le mot lui coûte. Pas à cause des sponsors. Parce qu'il ne contient aucune direction."
 
-            show ilona tokyo fatigue at char_left
+            show ilona short sad at char_left
             i "Théo... je crois que j'ai besoin de plus qu'une après-midi."
             i "J'ai besoin de faire une vraie pause sur le stream. Revenir à un jeu plus casual. Ou faire autre chose, je sais pas encore. Mais arrêter de me vider pour un million d'inconnus."
 
@@ -1408,7 +1420,7 @@ label arc_7_theo:
             t "Laisse-moi porter la partie lourde encore un peu. Les mails, les rendez-vous, les contrats. Toi, tu fais ce que tu fais mieux que tout le monde."
             t "Après cette vague, je te promets qu'on ralentit. J'ai toujours tenu mes promesses quand il fallait te protéger."
 
-            show ilona tokyo fatigue at char_left
+            show ilona short sad at char_left
             with dissolve
 
             i "Après."

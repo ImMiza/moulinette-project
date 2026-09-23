@@ -1,31 +1,29 @@
-# BAD ENDING - LA CAGE DOREE
-# Route Theo, fin catastrophe.
-# Attendu : la chaine "IlonaGaming" explose, Theo gere le succes, Ilona s'effondre
-# en silence. Personne ne l'a vue parce que personne ne l'ecoutait plus.
+# BAD ENDING - LA CAGE DORÉE
+# Route Théo, fin catastrophe.
+# Attendu : la chaîne « IlonaGaming » explose, Théo gère le succès, Ilona
+# s'effondre en silence. Personne ne l'a vue parce que personne ne l'écoutait plus.
 #
-# STATUT : brouillon complet. Point d'entree : arc_7_theo.rpy, menu final,
-# option "Prioriser les sponsors, la chaine avant tout." -> jump bad_ending.
-# Les scenes de contexte (stream, dialogue Ilona/Theo, choix) ont ete deplacees
-# dans arc_7_theo.rpy. Ce fichier reprend le lendemain, en fin de journee.
+# Point d'entrée : arc_7_theo.rpy, menu final, option
+# « Prioriser les sponsors, la chaîne avant tout. » -> jump bad_ending.
+# Les scènes de contexte (stream, dialogue Ilona/Théo, choix) se trouvent dans
+# arc_7_theo.rpy. Ce fichier reprend le 7 décembre, au lendemain du million.
 #
-# ASSETS : les decors propres a cette fin sont dans images/scenes/ending ; le
-# salon nocturne reutilise celui de l'arc 7. Les sprites perso
-# (ilona/theo/allan/laplage) reutilisent les poses deja existantes du jeu.
-# Aucune image explicite de la scene de pendaison n'est utilisee : le moment est
-# traite en ecran noir + son + texte, jamais montre a l'image (choix deliberer,
-# coherent avec le ton du jeu et plus sobre qu'un rendu graphique).
+# Les décors propres à cette fin sont dans images/scenes/ending. Le studio et le
+# salon nocturne réutilisent ceux de l'arc 7. La découverte est montrée très
+# brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
-# --- Audio : pistes temporaires reutilisees depuis les assets existants ---
+# --- Audio : pistes temporaires réutilisées depuis les assets existants ---
 define audio.bakamitai = "audio/music/melancolique-piano.ogg"
 define audio.hangShock = "audio/fx/piano-slam.mp3"
 define audio.uneasy = "audio/music/tense-piano.ogg"
 define audio.majulaLike = "audio/music/plage-sunset.ogg"
 
-# --- Decors de la bad ending ---
+# --- Décors de la bad ending ---
 image bg apartment night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
+image bg apartment night nolight = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
 image bg apartment corridor = im.Scale("images/scenes/ending/bg_bad_ending_apartment_corridor_night.jpg", 1920, 1080)
 image bg apartment ilona door = im.Scale("images/scenes/ending/bg_bad_ending_ilona_door_bedroom.jpg", 1920, 1080)
-image bg apartment ilona bedroom = im.Scale("images/scenes/ending/bg_bad_ending_ilona_bedroom.jpg", 1920, 1080)
+image bg apartment ilona bedroom = im.Scale("images/scenes/ending/bg_bad_ending_ilona_bedroom.png", 1920, 1080)
 image bg tokyo bar = im.Scale("images/scenes/ending/bg_bad_ending_tokyo_bar_night.jpg", 1920, 1080)
 image bg tokyo street night = im.Scale("images/scenes/ending/bg_bad_ending_tokyo_street_night.jpg", 1920, 1080)
 
@@ -34,17 +32,17 @@ label bad_ending:
     $ record_ending("bad_ending")
 
     # ------------------------------------------------------------------
-    # 4. Le lendemain : Theo et Allan au bar
+    # 4. Le 7 décembre : Théo et Allan au bar
     # ------------------------------------------------------------------
-    systeme "Le lendemain."
-    systeme "La regie est partie avant l'aube pour le tournage exterieur prepare au studio. Elle ne sera presque pas joignable avant le jour suivant."
-    systeme "A l'appartement, Ilona et Theo vivent seuls. Ce soir-la, Ilona est censee lancer sans la regie le live court que Theo a maintenu."
+    systeme "Le 7 décembre, au lendemain du million."
+    systeme "La régie est partie avant l'aube pour le tournage extérieur préparé au studio. Elle ne sera presque pas joignable avant le jour suivant."
+    systeme "Dans leur appartement, Ilona et Théo vivent seuls. Ce soir-là, Ilona est censée lancer sans la régie le live court que Théo a maintenu."
 
     scene bg tokyo bar
     with fade
     play music audio.citynight loop volume 0.5
 
-    systeme "Theo vient de decrocher la campagne de six mois evoquee la veille, pour plusieurs millions de yens. En fin de journee, il retrouve Allan, son ami d'enfance, de passage a Tokyo, pour feter ca autour d'un verre."
+    systeme "Théo vient de décrocher la campagne de six mois évoquée la veille, pour plusieurs millions de yens. En fin de journée, il retrouve Allan, son ami d'enfance, de passage à Tokyo, pour fêter ça autour d'un verre."
 
     show allan winter excited at char_left
     show theo tokyo smirk at char_right
@@ -52,8 +50,8 @@ label bad_ending:
 
     a "Millionnaire, toi. Sérieux."
     t "Presque. Encore un peu de patience."
-    a "Meme pas neuf mois apres la remise des diplomes. C'est completement dingue."
-    t "Huit mois a Tokyo. On a fait vite. Peut-etre trop vite."
+    a "Même pas neuf mois après la remise des diplômes. C'est complètement dingue."
+    t "Huit mois à Tokyo. On a fait vite. Peut-être trop vite."
 
     show allan winter neutral at char_left
     show theo tokyo neutral at char_right
@@ -61,126 +59,145 @@ label bad_ending:
 
     a "Et toi, sinon ?"
     t "Sinon quoi ?"
-    a "Toi. Pas la chaine, pas les contrats, pas le nombre d'abonnes. Comment tu vas ?"
+    a "Toi. Pas la chaîne, pas les contrats, pas le nombre d'abonnés. Comment tu vas ?"
     t "Je viens de te dire qu'on allait vite."
-    a "Ca, c'est un rapport d'activite."
-    t "J'habite dans un appartement correct. Le travail me plait. Tokyo est plus simple que je pensais."
-    a "Immobilier, travail, urbanisme. Tu evites la question dans trois categories differentes."
-    t "Tu t'es entraine pendant huit mois ?"
-    a "J'avais du temps. Tes messages faisaient quatre lignes, captures d'ecran comprises."
-    t "C'etaient des informations utiles."
-    a "C'etaient des courbes."
+    a "Ça, c'est un rapport d'activité."
+    t "J'habite dans un appartement correct. Le travail me plaît. Tokyo est plus simple que je le pensais."
+    a "Immobilier, travail, urbanisme. Tu évites la question dans trois catégories différentes."
+    t "Tu t'es entraîné pendant huit mois ?"
+    a "J'avais du temps. Tes messages faisaient quatre lignes, captures d'écran comprises."
+    t "C'étaient des informations utiles."
+    a "C'étaient des courbes."
 
     show theo tokyo hesitant at char_right
     with dissolve
 
     t "Je vais bien."
     a "D'accord."
-    t "Et tu m'as manque."
+    t "Et tu m'as manqué."
 
     show allan winter support at char_left
     with dissolve
 
     a "Toi aussi."
 
-    systeme "Leurs verres restent un instant poses entre eux. Leur derniere vraie conversation remontait au gymnase, le jour du diplome."
+    systeme "Leurs verres restent un instant posés entre eux. Leur dernière vraie conversation remontait au gymnase, le jour du diplôme."
 
-    a "On s'etait mal quittes."
-    t "Tu m'as dit que j'etais assez malin pour eviter les questions qui me derangeaient. Ensuite, je t'ai annonce que je partais dans onze jours."
-    a "Resume fidele."
-    t "J'y ai repense."
+    a "On s'était mal quittés."
+    t "Tu m'as dit que j'étais assez malin pour éviter les questions qui me dérangeaient. Ensuite, je t'ai annoncé que je partais dans onze jours."
+    a "Résumé fidèle."
+    t "J'y ai repensé."
     a "Et ?"
-    t "Je n'ai toujours pas toutes les reponses. Mais je ne t'en veux pas d'avoir pose les questions."
-    a "Je vais prendre ca pour des excuses."
+    t "Je n'ai toujours pas toutes les réponses. Mais je ne t'en veux pas d'avoir posé les questions."
+    a "Je vais prendre ça pour des excuses."
     t "Ce serait une mauvaise traduction."
-    a "Alors ca aussi, ca m'avait manque."
+    a "Alors ça aussi, ça m'avait manqué."
 
     show theo tokyo neutral at char_right
     with dissolve
 
-    t "Et toi ? T'as fini par trouver ou tu allais ?"
-    a "Non. J'ai juste arrete de prendre le fait de pas savoir pour une urgence."
-    t "Et ca t'a mene au Japon."
-    a "Ca m'a mene a prendre un billet. Le Japon etait ecrit dessus."
+    t "Et toi ? T'as fini par trouver où tu allais ?"
+    a "Non. J'ai juste arrêté de traiter le fait de ne pas savoir comme une urgence."
+    t "Et ça t'a mené jusqu'ici."
+    a "Ça m'a mené à prendre un billet de train. Tokyo était écrit dessus."
     t "Tu es devenu insupportable."
-    a "Dix ans a te frequenter. Les sequelles finissent par se voir."
+    a "Dix ans à te fréquenter. Les séquelles finissent par se voir."
     t "Pourquoi Tokyo ?"
     a "Je voulais voir la ville. Et je voulais te voir, toi."
-    t "Tu pouvais commencer par ca."
+    t "Tu pouvais commencer par ça."
     a "Toi aussi."
 
     show allan winter excited at char_left
     show theo tokyo smirk at char_right
     with dissolve
 
-    systeme "Allan leve son verre."
-    a "A nous. Dix ans d'amitie, huit mois de messages nuls, et notre premier verre a Tokyo."
-    t "Tes messages etaient vagues."
-    a "Tes reponses etaient des tableurs."
+    systeme "Allan lève son verre."
+    a "À nous. Dix ans d'amitié, huit mois de messages nuls et notre premier verre à Tokyo."
+    t "Tes messages étaient vagues."
+    a "Tes réponses étaient des tableurs."
     t "Des captures de tableurs."
     a "Je sais ce que j'ai dit."
 
-    systeme "Ils trinquent. Pendant quelques secondes, le silence entre eux n'a besoin d'etre ni rempli ni traduit. Theo tient dix secondes."
+    systeme "Ils trinquent. Pendant quelques secondes, le silence entre eux n'a besoin d'être ni rempli ni traduit. Théo tient dix secondes."
 
-    t "Ilona est en plein stream la, tiens, regarde, on va la mater deux minutes en buvant nos verres."
+    t "Ilona est en plein stream, là. Regarde, on va la mater deux minutes en buvant nos verres."
 
     show theo tokyo neutral at char_right
-    $ renpy.pause(0.5, hard=True)
-    systeme "Theo sort son telephone. La chaine « IlonaGaming » est hors ligne."
+    with dissolve
 
-    t "Bizarre... elle stream, normalement, a cette heure-ci."
+    systeme "Peu après 20 h, Théo sort son téléphone. La chaîne « IlonaGaming » est hors ligne."
 
-    show theo tokyo defensive at char_right
-    systeme "Il l'appelle. Ca sonne dans le vide. Personne ne decroche."
-    systeme "Il envoie un message : « tout va bien ? je te vois pas en stream et tu reponds pas. »"
+    show theo tokyo hesitant at char_right
+    with dissolve
+
+    t "Bizarre... Elle devrait streamer à cette heure-ci."
+
+    systeme "Il l'appelle. Ça sonne dans le vide. Personne ne décroche."
+    systeme "Il envoie un message : « Tout va bien ? Je ne te vois pas en stream et tu ne réponds pas. »"
+
+    show theo tokyo disappointed at char_right
+    with dissolve
 
     $ renpy.pause(1.0, hard=True)
-    t "C'est la premiere fois que ca arrive, ca."
+    t "C'est la première fois que ça arrive."
 
     a "Elle va comment, Ilona, ces derniers temps ?"
 
-    show theo tokyo disappointed at char_right
-    t "Elle est epuisee. Elle tire sur sa manche avant de demander quelque chose, elle laisse son verre intact, elle retourne le planning pour ne plus voir le lendemain."
-    t "Hier, elle m'a dit qu'elle se sentait seule. Elle m'a demande de passer l'apres-midi avec elle, puis d'annuler le stream du soir."
-    t "Alors j'ai reduit sa journee, garde le rendez-vous sponsors et programme une heure de live. Elle n'avait plus a choisir elle-meme quoi enlever."
+    t "Elle est épuisée. Elle tire sur sa manche avant de demander quelque chose, elle laisse son verre intact, elle retourne le planning pour ne plus voir le lendemain."
+    t "Hier, elle m'a dit qu'elle se sentait seule. Elle m'a demandé de passer l'après-midi avec elle, puis d'annuler le stream du soir."
+    t "Alors j'ai réduit sa journée, gardé le rendez-vous sponsors et programmé une heure de live. Elle n'avait plus à choisir elle-même quoi enlever."
 
     show allan winter doubt at char_left
+    with dissolve
+
     a "Encore un bilan. Je te demande comment elle va."
-    t "Je viens de te repondre."
-    a "Non. Tu m'as donne les signes, ce qu'elle a dit, puis la solution que t'as appliquee. T'entends pas le trou entre les deux ?"
+    t "Je viens de te répondre."
+    a "Non. Tu m'as donné les signes, ce qu'elle a dit, puis la solution que t'as appliquée. T'entends pas le trou entre les deux ?"
 
     show theo tokyo defensive at char_right
-    t "J'ai enleve le plus lourd. Quelqu'un devait proteger ce qu'elle a construit pendant qu'elle etait trop fatiguee pour decider."
-    a "Elle te demandait de la proteger de ce qu'elle avait construit."
-    t "Elle m'a dit que c'etait toujours apres. Je l'ai entendue."
-    a "Tu l'as entendue, puis t'as conclu a sa place."
+    with dissolve
+
+    t "J'ai enlevé le plus lourd. Quelqu'un devait protéger ce qu'elle a construit pendant qu'elle était trop fatiguée pour décider."
+    a "Elle te demandait de la protéger de ce qu'elle avait construit."
+    t "Elle m'a dit que c'était toujours après. Je l'ai entendue."
+    a "Tu l'as entendue, puis t'as conclu à sa place."
 
     $ renpy.pause(1.0, hard=True)
 
-    show theo tokyo disappointed at char_right
-    t "... Elle a du s'endormir a l'appartement. Je lui avais libere l'apres-midi pour ca."
+    show theo tokyo hesitant at char_right
+    with dissolve
+
+    t "... Elle a dû s'endormir à l'appartement. Je lui avais libéré l'après-midi pour ça."
 
     show allan winter support at char_left
-    a "Theo. Faut que tu sois plus present pour elle. Vraiment present, pas juste un manager qui dit bravo."
-    a "Elle t'a parle. Toi, t'as transforme sa phrase en planning. C'est pas la meme chose qu'ecouter."
-    a "Et rentre pas avec un restaurant deja choisi, une heure de depart et trois raisons pour lesquelles ca va lui faire du bien."
-    a "Demande-lui ce qu'elle veut. Puis accepte que la reponse puisse etre non, rien, ou pas avec toi."
+    with dissolve
+
+    a "Théo. Faut que tu sois plus présent pour elle. Vraiment présent, pas juste un manager qui dit bravo."
+    a "Elle t'a parlé. Toi, t'as transformé sa phrase en planning. C'est pas la même chose qu'écouter."
+    a "Et rentre pas avec un restaurant déjà choisi, une heure de départ et trois raisons pour lesquelles ça va lui faire du bien."
+    a "Demande-lui ce qu'elle veut. Puis accepte que la réponse puisse être non, rien, ou pas avec toi."
 
     show theo tokyo defensive at char_right
-    t "Pas avec moi, c'est pas ce qu'elle a demande."
+    with dissolve
+
+    t "Pas avec moi, c'est pas ce qu'elle a demandé."
     a "T'en sais rien. Tu laisses jamais cette question exister assez longtemps."
     t "..."
-    t "J'avais deja choisi le restaurant pendant que tu parlais. Calme, pas loin de la maison, table au fond."
-    a "Voila."
+    t "J'avais déjà choisi le restaurant pendant que tu parlais. Calme, pas loin de la maison, table au fond."
+    a "Voilà."
 
     show theo tokyo disappointed at char_right
-    t "Je vais rentrer et lui demander ce qu'elle veut. Sans options deja classees. Cette fois, je vais la laisser choisir."
+    with dissolve
+
+    t "Je vais rentrer et lui demander ce qu'elle veut. Sans options déjà classées. Cette fois, je vais la laisser choisir."
 
     a "Passe-lui le bonsoir de ma part."
 
     show allan winter support at char_left
-    show theo tokyo neutral at char_right
-    systeme "Theo laisse son verre a moitie plein. Allan pose une main breve sur son epaule."
+    show theo tokyo hesitant at char_right
+    with dissolve
+
+    systeme "Théo laisse son verre à moitié plein. Allan pose une main brève sur son épaule."
     a "Allez. Rentre."
 
     hide allan
@@ -196,86 +213,107 @@ label bad_ending:
     with fade
     play music audio.citynight loop volume 0.4
 
-    systeme "Theo remonte la rue vers l'appartement. Par reflexe, il recommence a planifier : le restaurant calme, la table loin des enceintes, le trajet le plus court, l'heure a laquelle Ilona fatigue moins."
-    systeme "Au troisieme carrefour, il s'arrete. Tout est attentionne. Tout est deja decide."
+    systeme "Théo remonte la rue vers l'appartement. Par réflexe, il recommence à planifier : le restaurant calme, la table loin des enceintes, le trajet le plus court, l'heure à laquelle Ilona fatigue le moins."
+    systeme "Au troisième carrefour, il s'arrête. Chaque détail est attentionné. Tout est déjà décidé."
     t "Non."
-    systeme "Il efface la reservation qu'il avait ouverte sans meme s'en rendre compte. Cette fois, il se le repete, il va la laisser choisir."
-    systeme "Il fait le detour par le studio, a deux rues de l'appartement. Les locaux sont noirs. Ilona n'est jamais venue lancer le live. Elle doit deja etre rentree, se dit-il. Elle doit se reposer."
+    systeme "Il efface la réservation qu'il avait ouverte sans même s'en rendre compte. Cette fois, il se le répète : il va la laisser choisir."
+
+    scene bg arc7 intro stream
+    with fade
+
+    systeme "Il fait le détour par le studio, à deux rues de l'appartement. Les écrans sont noirs, les lumières éteintes. Ilona n'est jamais venue lancer le live. Elle doit déjà être rentrée, se dit-il. Elle doit se reposer."
 
     stop music fadeout 3.0
 
-    scene bg apartment night
+    scene bg apartment night nolight
     with fade
 
-    systeme "Theo ouvre la porte de l'appartement avec ses cles. Dans l'entree, il reconnait les chaussures d'Ilona."
-    systeme "Aucune lumiere n'est allumee."
+    systeme "Théo ouvre la porte de l'appartement avec ses clés. Dans l'entrée obscure, il reconnaît les chaussures d'Ilona."
+    systeme "Aucune lumière n'est allumée."
 
-    t "Je suis rentre !"
+    t "Je suis rentré !"
 
-    systeme "Il allume la lumiere du salon. Pas un bruit."
+    systeme "Il actionne l'interrupteur près de la porte. Le salon s'éclaire. Pas un bruit."
 
-    t "Elle doit deja dormir."
+    scene bg apartment night
+    with dissolve
+
+    t "Elle doit déjà dormir."
 
     scene bg apartment corridor
     with dissolve
 
-    systeme "Theo s'engage dans le couloir. La lumiere du salon s'etire jusqu'a la porte d'Ilona, mais aucune lumiere ne passe dessous."
+    systeme "Avant de monter, Théo allume le couloir. Une lumière chaude s'étire jusqu'à la porte d'Ilona, mais aucune lueur ne passe dessous."
+    systeme "Théo s'engage dans le couloir."
 
     scene bg apartment ilona door
     with dissolve
 
-    systeme "Devant la porte de la chambre d'Ilona, Theo toque. Rien."
+    systeme "Devant la porte de la chambre d'Ilona, Théo toque. Rien."
 
-    t "Ilona ? T'es reveillee ?"
-    t "Tu m'as parle hier. C'est moi qui ai transforme ta reponse en planning."
-    t "Je vais pas te dire ce qui te ferait du bien. On peut sortir, rester ici, parler, ne rien faire... ou tu peux vouloir que je te laisse seule."
-    t "C'est toi qui choisis. Et si la reponse, c'est pas avec moi, je l'entendrai."
+    t "Ilona ? T'es réveillée ?"
+    t "Je suis désolé pour hier. Tu m'as parlé, et j'ai transformé ta réponse en planning."
+    t "Je voulais te demander ce que tu veux et écouter la réponse, cette fois."
 
     systeme "Toujours rien."
 
+    t "Si tu veux que je te laisse seule, je partirai. Si tu ne veux plus de moi, je l'entendrai."
+
+    $ renpy.pause(0.8, hard=True)
+
     t "... J'entre."
+    systeme "Il abaisse la poignée."
 
-
-    # ------------------------------------------------------------------
-    # 6. Decouverte - traitee hors-champ, jamais montree a l'image
-    # ------------------------------------------------------------------
-    scene bg apartment ilona bedroom
-    with dissolve
-
-    systeme "La porte s'ouvre sur la chambre silencieuse. L'ordinateur est eteint. Le lit est defait."
+    scene black
+    with Dissolve(0.3)
 
     $ renpy.pause(1.0, hard=True)
 
-    scene black
-    with fade
-
-    play sound audio.hangShock volume 0.8
-    with vpunch
-    stop music fadeout 0.2
-    play music audio.uneasy loop volume 0.5
+    systeme "Un déclic. Puis le frottement lent de la porte sur le sol."
 
     $ renpy.pause(1.5, hard=True)
 
-    systeme "..."
-    systeme "Theo reste immobile dans l'encadrement de la porte."
+    systeme "Théo retient son souffle."
+
+    $ renpy.pause(1.0, hard=True)
+
+
+    # ------------------------------------------------------------------
+    # 6. Découverte
+    # ------------------------------------------------------------------
+    play sound audio.hangShock volume 0.8
+    scene bg apartment ilona bedroom
+    with vpunch
+    stop music fadeout 0.2
+
+    $ renpy.pause(0.35, hard=True)
+
+    play music audio.uneasy loop volume 0.5
+
+    systeme "La porte vient à peine de s'ouvrir. Théo ne voit ni l'ordinateur éteint ni le lit défait. Il ne voit qu'Ilona."
+
+    $ renpy.pause(1.0, hard=True)
 
     t "Non."
     t "Non, non, non..."
 
-    systeme "Le deni, d'abord. C'est inconcevable. Ilona ne ferait jamais ca."
-    systeme "Puis la tristesse arrive, et elle ne laisse plus de place pour le deni."
+    systeme "Le déni, d'abord. C'est inconcevable. Ilona ne ferait jamais ça."
+    systeme "Puis la peur balaie tout le reste. Théo se précipite vers elle en appelant son nom."
 
-    t "Ilona ! Ilona, reponds-moi, s'il te plait..."
-    t "Reveille-toi. Reveille-toi !"
+    t "Ilona ! Ilona, réponds-moi, s'il te plaît..."
+    t "Réveille-toi. Réveille-toi !"
 
     $ renpy.pause(1.5, hard=True)
-    systeme "Il n'y a plus rien a repondre."
+    systeme "Il n'y a plus rien à répondre."
+
+    t "Tu m'as dit que tu étais seule. J'ai répondu « après »."
+    systeme "Le mot ne lui avait jamais semblé aussi court. Il contient désormais tout ce qu'il n'a pas fait."
+
+    systeme "Il a perdu Ilona. La chaîne et les contrats lui reviennent ensuite, et avec eux l'horreur d'avoir fini par confondre ce qu'ils construisaient avec celle qui le portait."
+    systeme "Tout ce qu'il croyait protéger s'effondre comme un château de cartes."
 
     scene black
-    with fade
-
-    systeme "Il a perdu Ilona. La chaine et les contrats lui reviennent ensuite, et avec eux l'horreur d'avoir fini par confondre ce qu'ils construisaient avec celle qui le portait."
-    systeme "Tout ce qu'il croyait proteger s'effondre comme un chateau de cartes."
+    with Dissolve(0.15)
 
     stop music fadeout 4.0
     $ renpy.pause(2.0, hard=True)
@@ -289,47 +327,46 @@ label bad_ending:
     play music audio.majulaLike loop volume 0.5 fadein 3.0
 
     systeme "Quarante ans plus tard."
-
-    show theo tokyo disappointed at char_center  # Remplace provisoirement le sprite dedie "Theo age".
-    systeme "Un vieil homme est assis au bord de la plage, dans un crepuscule qui ne change jamais vraiment. Meme tenue que Monsieur Laplage, sans le porte-cles creeper."
-
-    systeme "Il sort une vieille photo froissee de sa poche : lui et Ilona devant leur appartement, le jour de leur installation a Tokyo."
+    systeme "Théo est assis au bord de la plage, dans un crépuscule qui ne change jamais vraiment. Ses cheveux ont grisonné ; la photo entre ses doigts a vieilli plus vite que son souvenir."
+    systeme "Sur l'image froissée, Ilona et lui posent devant leur appartement, le jour de leur installation à Tokyo."
     t "..."
-    systeme "Il se demande a quoi elle ressemblerait aujourd'hui, si elle etait encore la. Il regrette les mauvais choix. Surtout celui d'avoir ignore ses appels a l'aide, tant qu'il etait encore temps de les entendre."
+    systeme "Il se demande à quoi elle ressemblerait aujourd'hui, si elle était encore là. Pendant quarante ans, il a refait cette dernière journée en déplaçant chaque parole, chaque silence et chaque minute où il aurait pu rentrer plus tôt."
 
     play sound audio.laplage volume 0.6
     show laplage neutral at char_left
     with dissolve
 
-    laplage "Je remplace quelqu'un qui n'etait pas prevu."
-    t "Vous dites toujours ca."
+    laplage "Je remplace quelqu'un qui n'était pas prévu."
+    t "Vous dites toujours ça."
     laplage "C'est toujours vrai."
 
     t "Est-ce que j'aurais pu faire autrement ?"
-    laplage "Tu pouvais ouvrir la porte plus tot. Tu l'as ouverte quand meme."
+    laplage "Tu pouvais ouvrir la porte plus tôt. Tu l'as ouverte quand même."
     t "Trop tard."
-    laplage "Trop tard, c'est encore une heure. Jamais, ca n'en est pas une."
+    laplage "Trop tard, c'est encore une heure. Jamais, ça n'en est pas une."
 
-    t "Ca fait quarante ans que je m'assois ici. Ca soulage rien."
-    laplage "Ca n'a jamais ete fait pour soulager. Juste pour que quelqu'un reste assis face a la mer, au lieu de dos a elle."
+    t "Ça fait quarante ans que je reviens m'asseoir ici. Ça ne soulage rien."
+    laplage "Ça n'a jamais été fait pour soulager. Juste pour que quelqu'un reste assis face à la mer, plutôt que de lui tourner le dos."
 
     show laplage thumb_up at char_left
+    with dissolve
+
     laplage "Le prochain, c'est toi."
 
-    systeme "Il tend un porte-cles en forme de bloc. Theo le prend, sans trop savoir pourquoi ca lui semble juste."
+    systeme "Il tend un porte-clés en forme de bloc. Théo le prend. Il reconnaît l'objet qu'Ilona avait emporté à Tokyo et gardé jusqu'à sa dernière nuit."
 
     hide laplage
     with dissolve
 
-    systeme "Monsieur Laplage s'en va comme d'habitude, sans se retourner."
+    systeme "Monsieur Laplage s'en va comme d'habitude, sans se retourner. Théo reste face à la mer, le porte-clés au creux de la paume."
+    systeme "Il avait appelé son épuisement un risque à gérer, pris son silence pour du repos et transformé sa demande d'aide en décision qu'il pouvait prendre à sa place. Ses regrets ne changent pas ce qu'il a fait. Ils ne se sont pourtant jamais tus."
 
-    show theo tokyo reassuring at char_center  # Equivalent disponible de la pose "pouce leve".
-    systeme "Theo leve le pouce vers l'horizon, exactement comme lui."
+    t "J'aurais dû t'écouter quand tu étais encore là."
 
     scene black
     with fade
 
-    systeme "Générique."
-    # TODO: play music audio.bakamitai loop volume 0.6 - asset a fournir.
+    t "Je suis désolé, Ilona."
 
+    stop music fadeout 4.0
     return
