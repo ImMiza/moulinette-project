@@ -143,7 +143,7 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", tile=gui.namebox_tile, xalign=gui.name_xalign)
+    background Frame("gui/namebox.png", 25, 25)
     left_padding 20
     right_padding 20
     bottom_padding 5
@@ -276,7 +276,7 @@ style quick_button_text is button_text
 style quick_menu:
     xalign 0.5
     yalign 1.0
-    yoffset -10
+    yoffset -15
 
 style quick_button:
     properties gui.button_properties("quick_button")

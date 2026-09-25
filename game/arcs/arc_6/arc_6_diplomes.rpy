@@ -1873,7 +1873,7 @@ label arc_6_decision_jessy:
     hide ilona
     with dissolve
 
-    stop music fadeout 4.0
+    stop music fadeout 2.0
 
     $ renpy.pause(2.0, hard=True)
 
@@ -1958,7 +1958,7 @@ label arc_6_decision_theo:
     hide jessy
     with dissolve
 
-    stop music fadeout 4.0
+    stop music fadeout 2.0
 
     $ renpy.pause(2.0, hard=True)
 
@@ -1975,7 +1975,7 @@ label arc_6_bascule_theo:
     scene black
     with fade
 
-    play music audio.springHope fadein 3.0 loop volume 0.7
+    play music audio.springHope loop volume 0.7 fadein 2.0
 
     systeme "Onze jours, ça passe vite quand chaque matin rapproche d'un départ qu'on a choisi."
 
@@ -2028,6 +2028,7 @@ label arc_6_bascule_theo:
 
     i "Mais j'ai attendu assez longtemps."
 
+    play sound audio.trainstop volume 0.6
     systeme "Le train entre en gare. Cette fois, Ilona ne regarde pas derrière elle. Elle regarde les portes s'ouvrir."
 
     $ renpy.pause(1.5, hard=True)
@@ -2036,7 +2037,7 @@ label arc_6_bascule_theo:
     hide theo
     with dissolve
 
-    stop music fadeout 4.0
+    stop music fadeout 2.0
 
     systeme "Elle monte. La porte se ferme. Ilona ne fuit ni une conversation ni une ville : elle va vers Tokyo, le studio et la chaîne qu'elle a décidé de construire."
     systeme "Bientôt, elle parlera pendant des heures devant des centaines d'inconnus. Cette idée lui donne le vertige. Elle a surtout hâte de commencer."
