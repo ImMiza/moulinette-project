@@ -13,10 +13,9 @@
 # brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
 # --- Audio : pistes temporaires reutilisees depuis les assets existants ---
-define audio.bakamitai = "audio/music/"
-define audio.hangShock = "audio/fx/"
-define audio.uneasy = "audio/music/"
-define audio.majulaLike = "audio/music/"
+define audio.bakamitai = "audio/music/Baka_Mitai.ogg"
+define audio.sayonara = "audio/music/Sayo-nara.ogg"
+define audio.majulaLike = "audio/music/Majula.ogg"
 define audio.bar = "audio/music/bar_jazz.ogg"
 
 # --- Décors de la bad ending ---
@@ -222,8 +221,6 @@ label bad_ending:
 
     systeme "Il fait le détour par le studio, à deux rues de l'appartement. Les écrans sont noirs, les lumières éteintes. Ilona n'est jamais venue lancer le live. Elle doit déjà être rentrée, se dit-il. Elle doit se reposer."
 
-    stop music fadeout 3.0
-
     scene bg apartment night nolight
     with fade
 
@@ -314,7 +311,6 @@ label bad_ending:
     scene black
     with Dissolve(0.15)
 
-    stop music fadeout 4.0
     $ renpy.pause(2.0, hard=True)
 
 

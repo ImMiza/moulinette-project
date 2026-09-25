@@ -146,10 +146,11 @@ style namebox:
     background Frame("gui/namebox.png", 25, 25)
     left_padding 20
     right_padding 20
-    bottom_padding 5
+    bottom_padding 6
+    top_padding 3
     xmaximum 1120
     xoffset 50
-    yoffset -5
+    yoffset 5
 
 style say_label:
     properties gui.text_properties("name", accent=True)
@@ -162,7 +163,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
-    outlines [(2, "#4a2a31", 0, 0)]
+    #outlines [(2, "#4a2a31", 0, 0)]
 
     adjust_spacing False
 
@@ -789,6 +790,11 @@ screen preferences():
 
                 vbox:
 
+                    label _("Volume générale")
+
+                    hbox:
+                        bar value MixerValue("main")
+
                     if config.has_music:
                         label _("Volume de la musique")
 
@@ -805,15 +811,6 @@ screen preferences():
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
 
-
-                    if config.has_voice:
-                        label _("Volume des voix")
-
-                        hbox:
-                            bar value Preference("voice volume")
-
-                            if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing

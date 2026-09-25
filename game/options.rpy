@@ -51,7 +51,7 @@ define build.name = "moulinette"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = True
+
 
 
 ## Pour autoriser le joueur à réaliser un test de volume, décommenter la ligne

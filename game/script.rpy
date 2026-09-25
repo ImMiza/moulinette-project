@@ -46,14 +46,23 @@ define ILONA_SIZE = (758, 1138)
 define THEO_CROP_BOTTOM = 110
 
 
-define j = Character("Jessy",who_outlines=[(2, "#8fb7ff", 1, 1)], color="#ffffff", callback=speaker_callback("jessy"))
-define i = Character("Ilona",who_outlines=[(2, "#ffb0d0", 1, 1)], color="#ffffff", callback=speaker_callback("ilona"))
-define t = Character("Théo",who_outlines=[(2, "#c8b6ff", 1, 1)], color="#ffffff", callback=speaker_callback("theo"))
-define a = Character("Allan",who_outlines=[(2, "#ffd08a", 1, 1)], color="#ffffff", callback=speaker_callback("allan"))
-define x = Character("Alexandre",who_outlines=[(2, "#b9f2c8", 1, 1)], color="#ffffff", callback=speaker_callback("alex"))
-define s = Character("Sofiane",who_outlines=[(2, "#d6d6d6", 1, 1)], color="#ffffff", callback=speaker_callback("sofiane"))
-define laplage = Character("Monsieur Laplage",who_outlines=[(2, "#f6e38d", 1, 1)], color="#ffffff", callback=speaker_callback("laplage"))
-define systeme = Character(None,who_outlines=[(2, "#000000", 1, 1)], color="#ffffff", what_italic=True, callback=speaker_callback(""))
+# define j = Character("Jessy",who_outlines=[(2, "#8fb7ff", 1, 1)], color="#ffffff", callback=speaker_callback("jessy"))
+# define i = Character("Ilona",who_outlines=[(2, "#ffb0d0", 1, 1)], color="#ffffff", callback=speaker_callback("ilona"))
+# define t = Character("Théo",who_outlines=[(2, "#c8b6ff", 1, 1)], color="#ffffff", callback=speaker_callback("theo"))
+# define a = Character("Allan",who_outlines=[(2, "#ffd08a", 1, 1)], color="#ffffff", callback=speaker_callback("allan"))
+# define x = Character("Alexandre",who_outlines=[(2, "#b9f2c8", 1, 1)], color="#ffffff", callback=speaker_callback("alex"))
+# define s = Character("Sofiane",who_outlines=[(2, "#d6d6d6", 1, 1)], color="#ffffff", callback=speaker_callback("sofiane"))
+# define laplage = Character("Monsieur Laplage",who_outlines=[(2, "#f6e38d", 1, 1)], color="#ffffff", callback=speaker_callback("laplage"))
+# define systeme = Character(None,who_outlines=[(2, "#000000", 1, 1)], color="#ffffff", what_italic=True, callback=speaker_callback(""))
+
+define j = Character("Jessy", color="#8fb7ff", callback=speaker_callback("jessy"))
+define i = Character("Ilona", color="#ffb0d0", callback=speaker_callback("ilona"))
+define t = Character("Théo", color="#c8b6ff", callback=speaker_callback("theo"))
+define a = Character("Allan", color="#ffd08a", callback=speaker_callback("allan"))
+define x = Character("Alexandre", color="#b9f2c8", callback=speaker_callback("alex"))
+define s = Character("Sofiane", color="#d6d6d6", callback=speaker_callback("sofiane"))
+define laplage = Character("Monsieur Laplage", color="#f6e38d", callback=speaker_callback("laplage"))
+define systeme = Character(None, color="#000000", what_italic=True, callback=speaker_callback(""))
 
 define m_inconnu = Character("???", color="#f6e38d", callback=speaker_callback("laplage"))
 
@@ -148,39 +157,38 @@ init python:
     def fade_channel(channel, volume, time=2.0):
         renpy.music.set_volume(volume, delay=time, channel=channel)
 
-#$ renpy.pause(0.5, hard=True)
-#    play sound audio.laplage volume 0.6
-
 define audio.ecole = "audio/music/ecole-music.ogg"
 define audio.mcnight = "audio/music/Subwoofer-Lullaby.ogg"
 define audio.ecoleroof = "audio/music/ecole-roof.ogg"
 define audio.ecolenight = "audio/music/ecole-nuit.ogg"
-define audio.windBirds = "audio/ambience/breeze-birds.mp3"
-define audio.trainInside = "audio/ambience/tram-inside.mp3"
-define audio.eating = "audio/fx/aaughmp3.mp3"
 define audio.sadPiano = "audio/music/sad-piano.ogg"
 define audio.melanPiano = "audio/music/melancolique-piano.ogg"
 define audio.tensePiano = "audio/music/tense-piano.ogg"
 define audio.mornPiano = "audio/music/morning-piano.ogg"
-define audio.foule = "audio/ambience/crowd-noise.mp3"
-define audio.trainstop = "audio/fx/train-stop.mp3"
 define audio.maidcafe = "audio/music/maidCafe.ogg"
 define audio.citynight = "audio/music/night-walk.ogg"
+define audio.lib = "audio/music/library.ogg"
+define audio.cityrain = "audio/music/city-rain.ogg"
+define audio.cafe = "audio/music/cafe.ogg"
+define audio.realLove = "audio/music/real-love.ogg"
+define audio.love = "audio/music/love-piano.ogg"
+define audio.springHope = "audio/music/spring-hope.ogg"
+define audio.truth = "audio/music/truth-piano.ogg"
+
+define audio.eating = "audio/fx/aaughmp3.mp3"
+define audio.trainstop = "audio/fx/train-stop.mp3"
 define audio.stonefall = "audio/fx/stones-falling.mp3"
 define audio.laplage = "audio/fx/re-zero-return.mp3"
 define audio.bell = "audio/fx/bell.mp3"
 define audio.photo = "audio/fx/photo-taken.mp3"
-define audio.lib = "audio/music/library.ogg"
-define audio.rain = "audio/ambience/rain.mp3"
-define audio.cityrain = "audio/music/city-rain.ogg"
-define audio.cafe = "audio/music/cafe.ogg"
-define audio.realLove = "audio/music/real-love.ogg"
 define audio.trainPassing = "audio/fx/train-passing.mp3"
-define audio.love = "audio/music/love-piano.ogg"
-define audio.springHope = "audio/music/spring-hope.ogg"
 define audio.micka = "audio/fx/ApplauseClapping.mp3"
-define audio.truth = "audio/music/truth-piano.ogg"
 define audio.pianoslam = "audio/fx/piano-slam.mp3"
+
+define audio.foule = "audio/ambience/crowd-noise.mp3"
+define audio.rain = "audio/ambience/rain.mp3"
+define audio.windBirds = "audio/ambience/breeze-birds.mp3"
+define audio.trainInside = "audio/ambience/tram-inside.mp3"
 
 transform char_left:
     xalign 0.18
