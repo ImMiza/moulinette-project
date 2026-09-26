@@ -5,7 +5,7 @@
 # define pmi = Character("IlonaGaming",who_outlines=[(2, "#ffb0d0", 1, 1)], color="#ffffff", callback=speaker_callback("ilona"))
 # define pmx = Character("lorddarktime",who_outlines=[(2, "#b9f2c8", 1, 1)], color="#ffffff", callback=speaker_callback("alex"))
 
-define pmj = Character("jessyCube", color="#0069CA", callback=speaker_callback("jessy"))
+define pmj = Character("jessyCube", color="#8fb7ff", callback=speaker_callback("jessy"))
 define pmi = Character("IlonaGaming", color="#ffb0d0", callback=speaker_callback("ilona"))
 define pmx = Character("lorddarktime", color="#b9f2c8", callback=speaker_callback("alex"))
 

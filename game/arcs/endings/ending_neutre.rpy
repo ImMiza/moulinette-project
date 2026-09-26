@@ -5,9 +5,6 @@
 
 label ending_neutre:
     $ record_ending("neutre")
-    stop music fadeout 1.5
-
-    systeme "Fin neutre — Une porte ouverte dans le planning."
 
     # ------------------------------------------------------------------
     # 1. La première soirée sans solution
@@ -89,6 +86,7 @@ label ending_neutre:
     # ------------------------------------------------------------------
     # 2. Le prix du silence
     # ------------------------------------------------------------------
+    #changement music 
     scene bg arc7 tokyo morning
     with fade
 
@@ -291,6 +289,7 @@ label ending_neutre:
     show theo tokyo disappointed at char_right
     with dissolve
 
+    play music audio.sadness volume 0.7 loop fadeout 1.0 fadein 3.0
     i "Je vais partir."
 
     $ renpy.pause(1.2, hard=True)
@@ -537,6 +536,7 @@ label ending_neutre:
     t "D'accord."
 
     systeme "Théo s'approche. Ilona passe les bras autour de lui et, pendant quelques secondes, la gare disparaît derrière le bruit des manteaux froissés et de leurs respirations mal tenues."
+    play sound audio.trainstop volume 0.6
     systeme "Une annonce retentit. Le train entre en gare. Les portes s'ouvrent devant eux."
 
     $ renpy.pause(0.6, hard=True)
@@ -565,6 +565,7 @@ label ending_neutre:
     with dissolve
 
     systeme "Les portes se referment. À travers la vitre, Ilona lève une main. Théo fait le même geste. Aucun des deux ne transforme cet adieu en promesse."
+    play sound audio.trainPassing volume 0.6
     systeme "Le train démarre. Théo reste sur le quai jusqu'à ce que la dernière voiture disparaisse."
     systeme "L'écran des départs affiche déjà le prochain horaire. Il ne le regarde pas."
 

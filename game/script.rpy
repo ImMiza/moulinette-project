@@ -326,7 +326,7 @@ screen studio_intro():
 
     # La vidéo prend tout l'écran
     add Movie(
-        play="videos/muchacho_studio_internation_studio.webm",
+        play="videos/intro.webm",
         loop=False
     )
 
@@ -339,35 +339,35 @@ screen studio_intro():
     key "hide_windows" action NullAction()
 
 
-# label splashscreen:
+label splashscreen:
 
-#     scene black
+    scene black
 
-#     # Affichage de la vidéo
-#     show screen studio_intro
+    # Affichage de la vidéo
+    show screen studio_intro
 
-#     # Attendre la durée de la vidéo.
-#     # REMPLACE 8.0 par la durée exacte de ta vidéo.
-#     $ renpy.pause(6.0, hard=True)
+    # Attendre la durée de la vidéo.
+    # REMPLACE 8.0 par la durée exacte de ta vidéo.
+    $ renpy.pause(6.0, hard=True)
 
-#     # Retirer la vidéo
-#     hide screen studio_intro
+    # Retirer la vidéo
+    hide screen studio_intro
 
-#     # ========================================================
-#     # AVERTISSEMENT
-#     # ========================================================
+    # ========================================================
+    # AVERTISSEMENT
+    # ========================================================
 
-#     scene black
+    scene black
 
-#     show text "<< Toute ressemblance avec des faits\n\net des personnages existants ou\n\nayant existé serait purement fortuite\n\net ne pourrait être que le fruit d'une\n\npure coïncidence >>":
-#         xalign 0.5
-#         yalign 0.5
-#     $ renpy.pause(5.0, hard=True)
+    show text "<< Toute ressemblance avec des faits\n\net des personnages existants ou\n\nayant existé serait purement fortuite\n\net ne pourrait être que le fruit d'une\n\npure coïncidence >>":
+        xalign 0.5
+        yalign 0.5
+    $ renpy.pause(5.0, hard=True)
 
-#     # Le joueur doit appuyer pour continuer
-#     pause
+    # Le joueur doit appuyer pour continuer
+    pause
 
-#     return
+    return
 
 
 label after_load:

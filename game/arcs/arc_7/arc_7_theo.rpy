@@ -1364,12 +1364,12 @@ label arc_7_theo:
     # Choix final : la réponse de Théo décide de la route
     # ------------------------------------------------------------------
     show theo tokyo defensive at char_right
-    $fade_channel("music",0,1.0)
+    $fade_channel("music",0.3,2.0)
     menu:
         "La réponse de Théo."
 
         "Annuler les sponsors, écouter Ilona.":
-            $fade_channel("music",0.7,1.0)
+            $fade_channel("music",0.7,2.0)
             t "T'as raison. Les sponsors, ça peut attendre. Toi, c'est maintenant que ça compte."
 
             show ilona short neutral at char_left
@@ -1440,7 +1440,7 @@ label arc_7_theo:
 
         "Prioriser les sponsors, la chaîne avant tout.":
             play music audio.depressed volume 0.7 loop
-            $fade_channel("music",0.7,1.0)
+            $fade_channel("music",0.7,2.0)
             t "Demain après-midi, tu ne vas pas traverser Tokyo épuisée pour faire semblant de profiter d'un parc. Tu vas dormir. Moi, je vois les sponsors."
             t "À vingt heures, tu fais un stream court. Une heure, pas plus. Je te libère tout le reste."
 
