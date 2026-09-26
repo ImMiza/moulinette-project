@@ -1364,7 +1364,7 @@ label arc_7_theo:
     # Choix final : la réponse de Théo décide de la route
     # ------------------------------------------------------------------
     show theo tokyo defensive at char_right
-    $fade_channel("music",0.3,2.0)
+    $fade_channel("music",0.2,1.0)
     menu:
         "La réponse de Théo."
 

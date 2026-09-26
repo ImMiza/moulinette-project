@@ -86,7 +86,6 @@ label ending_neutre:
     # ------------------------------------------------------------------
     # 2. Le prix du silence
     # ------------------------------------------------------------------
-    #changement music 
     scene bg arc7 tokyo morning
     with fade
 
@@ -289,7 +288,7 @@ label ending_neutre:
     show theo tokyo disappointed at char_right
     with dissolve
 
-    play music audio.sadness volume 0.7 loop fadeout 1.0 fadein 3.0
+    play music audio.apartsad volume 0.7 loop fadeout 1.0 fadein 3.0
     i "Je vais partir."
 
     $ renpy.pause(1.2, hard=True)
@@ -299,7 +298,6 @@ label ending_neutre:
     # ------------------------------------------------------------------
     # 4. Ce que l'écoute ne répare pas
     # ------------------------------------------------------------------
-    play music audio.apartsad volume 0.45 loop fadein 3.0
 
     t "Partir où ?"
     i "Je ne sais pas encore. Mais je vais quitter Tokyo."

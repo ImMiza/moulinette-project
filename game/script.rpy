@@ -348,7 +348,7 @@ label splashscreen:
 
     # Attendre la durée de la vidéo.
     # REMPLACE 8.0 par la durée exacte de ta vidéo.
-    $ renpy.pause(6.0, hard=True)
+    $ renpy.pause(19.0, hard=True)
 
     # Retirer la vidéo
     hide screen studio_intro
