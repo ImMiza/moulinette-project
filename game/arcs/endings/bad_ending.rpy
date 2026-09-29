@@ -13,7 +13,6 @@
 # brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
 # --- Audio : pistes temporaires reutilisees depuis les assets existants ---
-define audio.bakamitai = "audio/music/Baka_Mitai.ogg"
 define audio.sayonara = "audio/music/Sayo-nara.ogg"
 define audio.majulaLike = "audio/music/Majula.ogg"
 define audio.bar = "audio/music/bar_jazz.ogg"
