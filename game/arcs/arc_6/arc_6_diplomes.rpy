@@ -150,6 +150,9 @@ image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench
 image bg arc6 flash cinema = arc6_flashbg("images/scenes/arc_5/bg_arc5_cinema_seated.jpg")
 image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
 
+image bg arc6 evil theo = arc6_bg("evil_theo", "images/scenes/bg_arc6_evil_theo.jpg")
+define audio.sirene = "audio/fx/prowler_sound.mp3"
+
 # SCÈNE 1 : LE STYLO VIOLET
 
 label arc_6_diplomes:
@@ -2043,5 +2046,10 @@ label arc_6_bascule_theo:
     systeme "Bientôt, elle parlera pendant des heures devant des centaines d'inconnus. Cette idée lui donne le vertige. Elle a surtout hâte de commencer."
 
     $ renpy.pause(2.0, hard=True)
+
+    scene bg arc6 evil theo with dissolve
+    play sound audio.sirene volume 0.6 loop
+    $ renpy.pause(5.0, hard=True)
+    stop sound fadeout 0.5
 
     jump arc_7_theo
