@@ -51,10 +51,12 @@ default arc2_retour_minecraft = ""
 
 label arc_2_plage:
     play music audio.ecole loop volume 0.8
+    scene black
+    with fade
+    centered "ARC 2 : VACANCES D'ÉTÉ — LA PLAGE"
     scene bg shared school corridor
     with fade
 
-    systeme "Arc II - Vacances d'été : la plage."
     systeme "Juillet arrive avec une promesse simple : une journée sans cours, sans couloir, sans rumeur à moitié chuchotée."
     systeme "La théorie tient jusqu'au premier prénom qui reste un peu trop longtemps dans l'air."
 

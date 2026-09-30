@@ -55,10 +55,12 @@ define audio.wisper = "audio/fx/whispers.mp3"
 label arc_3_rentree:
     play music audio.mornPiano volume 0.7 fadein 3.0 loop
     play ambiant1 audio.trainInside volume 0.4 fadein 1.5 loop
+    scene black
+    with fade
+    centered "ARC 3 : RENTRÉE — LES REGARDS"
     scene bg shared train inside
     with fade
 
-    systeme "Arc III - Rentrée : les regards."
     systeme "Septembre commence dans un train plus rempli que ceux de l'été."
     systeme "Les uniformes sont revenus, les cartables aussi, et avec eux cette façon qu'a l'école de transformer les petits silences en sujets collectifs."
 

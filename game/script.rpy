@@ -322,36 +322,32 @@ init python:
             return "fragile"
         return "distant"
 
-screen studio_intro():
-
-    # La vidéo prend tout l'écran
-    add Movie(
-        play="videos/intro.webm",
-        loop=False
-    )
-
-    # Empêche toute interaction avec le screen
-    key "dismiss" action NullAction()
-    key "game_menu" action NullAction()
-    key "rollback" action NullAction()
-    key "rollforward" action NullAction()
-    key "skip" action NullAction()
-    key "hide_windows" action NullAction()
+# Vidéo d'introduction temporairement désactivée.
+# screen studio_intro():
+#
+#     # La vidéo prend tout l'écran
+#     add Movie(
+#         play="videos/intro.webm",
+#         loop=False
+#     )
+#
+#     # Empêche toute interaction avec le screen
+#     key "dismiss" action NullAction()
+#     key "game_menu" action NullAction()
+#     key "rollback" action NullAction()
+#     key "rollforward" action NullAction()
+#     key "skip" action NullAction()
+#     key "hide_windows" action NullAction()
 
 
 label splashscreen:
 
     scene black
 
-    # Affichage de la vidéo
-    show screen studio_intro
-
-    # Attendre la durée de la vidéo.
-    # REMPLACE 8.0 par la durée exacte de ta vidéo.
-    $ renpy.pause(19.0, hard=True)
-
-    # Retirer la vidéo
-    hide screen studio_intro
+    # Vidéo d'introduction temporairement désactivée.
+    # show screen studio_intro
+    # $ renpy.pause(19.0, hard=True)
+    # hide screen studio_intro
 
     # ========================================================
     # AVERTISSEMENT
@@ -439,9 +435,8 @@ define SEUIL_ETAT_ECOUTE = 4   # ilona_peut_finir_ses_phrases + interruptions_re
 label ending_family:
     scene bg ending
     with fade
-    $ record_ending("family")
 
-    systeme "Fin 1 - Ils ont bien grandi, les petits."
+    systeme "Épilogue - Ils ont bien grandi, les petits."
     show laplage neutral at char_center
     laplage "Le temps passe comme les vagues. Certaines emportent les châteaux de sable. D'autres apprennent aux enfants à en construire de nouveaux."
     show laplage thumb_up at char_center
@@ -450,24 +445,35 @@ label ending_family:
 
 
 label ending_jessy_ilona:
-    scene bg ending
+    scene bg arc2 minecraft house summer night
     with fade
     $ record_ending("jessy_ilona")
 
     systeme "Fin 2 - Juste Jessy et Ilona."
+    systeme "Quelque temps après la randonnée, ils reviennent dans leur maison Minecraft."
+    show jessy minecraft at char_left
+    show ilona minecraft at char_right
+    with dissolve
     i "On pourrait réparer cette pièce maintenant."
     j "Non. C'est là que tout a commencé."
-    jump post_generique
+    if arc7_jessy_family_epilogue:
+        jump ending_family
+    else:
+        jump post_generique
 
 
 label ending_no_contact:
-    scene bg stream
+    scene bg arc2 minecraft house summer night
     with fade
     $ record_ending("no_contact")
 
-    systeme "Fin 3 - La maison silencieuse."
-    systeme "Jessy se connecte à leur ancien monde. La maison est vide, mais elle n'a jamais été fausse."
-    x "Je suis là si tu veux juste jouer sans parler."
+    systeme "Fin 3 - Une place pour l'amitié."
+    systeme "Après la randonnée, Ilona et Jessy se donnent le temps de retrouver leurs marques. Ils continuent à se parler, sans se promettre plus que ce qu'ils veulent vivre."
+    show jessy minecraft at char_left
+    show ilona minecraft at char_right
+    with dissolve
+    i "Tu as laissé la porte ouverte dans notre monde ?"
+    j "Oui. Pour qu'on puisse revenir quand on en aura envie."
     jump post_generique
 
 
