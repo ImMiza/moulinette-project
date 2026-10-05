@@ -259,50 +259,51 @@ label bad_ending:
     t "... J'entre."
     systeme "Il abaisse la poignée."
 
-    scene black
-    with Dissolve(0.3)
-
-    $ renpy.pause(1.0, hard=True)
-
-    systeme "Un déclic. Puis le frottement lent de la porte sur le sol."
-
-    $ renpy.pause(1.5, hard=True)
-
-    systeme "Théo retient son souffle."
-
-    $ renpy.pause(1.0, hard=True)
-
     # ------------------------------------------------------------------
     # 6. Découverte
     # ------------------------------------------------------------------
 
     scene bg apartment ilona bedroom
-    with dissolve
+    with {"master": Dissolve(0.8)}
+    systeme "La porte vient à peine de s'ouvrir. Théo ne voit ni l'ordinateur éteint ni le lit défait. Il ne voit qu'Ilona." with vpunch
 
-    systeme "La porte s'ouvre sur la chambre silencieuse. L'ordinateur est eteint. Le lit est defait."
-
-    $ renpy.pause(1.0, hard=True)
-
-    with vpunch
-
-    systeme "La porte vient à peine de s'ouvrir. Théo ne voit ni l'ordinateur éteint ni le lit défait. Il ne voit qu'Ilona."
+    systeme "La chambre est silencieuse. L'ordinateur est éteint. Le lit est défait."
 
     $ renpy.pause(1.0, hard=True)
 
     t "Non."
-    t "Non, non, non..."
+    t "Non, non, non... Ilona, non..."
 
     systeme "Le déni, d'abord. C'est inconcevable. Ilona ne ferait jamais ça."
     systeme "Puis la peur balaie tout le reste. Théo se précipite vers elle en appelant son nom."
 
     t "Ilona ! Ilona, réponds-moi, s'il te plaît..."
-    t "Réveille-toi. Réveille-toi !"
+    t "Réveille-toi. Réveille-toi ! Tu peux pas me laisser sans un mot. Pas comme ça..."
 
     $ renpy.pause(1.5, hard=True)
     systeme "Il n'y a plus rien à répondre."
 
     t "Tu m'as dit que tu étais seule. J'ai répondu « après »."
-    systeme "Le mot ne lui avait jamais semblé aussi court. Il contient désormais tout ce qu'il n'a pas fait."
+    t "Après le stream. Après les sponsors. Après tout ce que je devais encore régler pour nous."
+    t "Je me suis épuisé à tout tenir debout. J'ai tout prévu, tout porté, tout repoussé..."
+    t "Je me répétais que c'était pour toi. Pour nous. Que si je prenais les décisions à ta place, tu pourrais enfin souffler."
+    t "J'ai fait tellement de choses par amour que j'ai fini par ne plus te demander ce dont tu avais besoin."
+
+    $ renpy.pause(0.8, hard=True)
+
+    t "Alors pourquoi tu ne m'as pas dit que c'était si grave ?"
+    t "Pourquoi tu m'as laissé croire qu'il restait du temps ?"
+    t "Dis-moi ce que j'aurais dû comprendre. Dis-moi ce que j'aurais dû faire !"
+    t "Je t'en prie... donne-moi une explication. Même si elle me détruit."
+
+    systeme "Sa voix se brise. La colère n'arrive pas à tenir debout sans la peur, ni les reproches sans l'amour qui les a nourris."
+
+    t "Tu m'avais demandé de rester avec toi. Pas de réparer ta vie. Juste de rester..."
+    t "Et moi, j'ai encore trouvé quelque chose à faire avant."
+    t "Je voulais te protéger de tout. Mais je ne t'ai même pas protégée de ma façon de t'aimer."
+    t "Pardon. Pardon, Ilona... s'il te plaît, réponds-moi."
+
+    systeme "Le mot ne lui avait jamais semblé aussi court. Il contient désormais tout ce qu'il n'a pas fait, et tout ce qu'il ne pourra plus lui demander de pardonner."
 
     systeme "Il a perdu Ilona. La chaîne et les contrats lui reviennent ensuite, et avec eux l'horreur d'avoir fini par confondre ce qu'ils construisaient avec celle qui le portait."
     systeme "Tout ce qu'il croyait protéger s'effondre comme un château de cartes."

@@ -161,12 +161,14 @@ label arc_6_diplomes:
     $ arc6_calcule_verdict()
 
     play music audio.mornPiano fadein 2.0 loop volume 0.7
+    scene black
+    with fade
+    centered "ARC 6 : LE JOUR OÙ L'ÉCOLE S'ARRÊTE"
     scene bg arc6 classroom morning
     with fade
 
     
 
-    systeme "Arc VI : le jour où l'école s'arrête."
     systeme "Fin mars. Les cerisiers de la cour ne sont pas encore ouverts. Ils ont l'air de retenir quelque chose."
 
     show jessy neutral at char_center

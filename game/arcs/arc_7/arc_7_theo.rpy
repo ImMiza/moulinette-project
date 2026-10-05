@@ -78,7 +78,7 @@ label arc_7_theo:
     scene black
     with fade
 
-    systeme "Arc VII - Le monde après le départ."
+    centered "ARC 7 : LE MONDE APRÈS LE DÉPART"
 
     # Rappel lisible du point de bascule de l'arc 6, sans afficher de jauge.
     if controle_repetitif >= 3:

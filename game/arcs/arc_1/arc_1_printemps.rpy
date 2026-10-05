@@ -14,10 +14,12 @@ define audio.metalgear = "audio/music/Metal-gear.ogg"
 
 label arc_1_printemps:
     play music audio.ecole loop fadein 2.0 volume 0.7
+    scene black
+    with fade
+    centered "ARC 1 : PRINTEMPS — LA VIE HORS ÉCRAN"
     scene bg arc1 school corridor
     with fade
 
-    systeme "Arc I - Printemps : la vie hors écran."
     systeme "Avril. Depuis la maison Minecraft, Jessy et Ilona se parlent presque tous les soirs sur Discord."
     systeme "Pas de caméra. Pas de photo. Juste leurs voix, leurs pseudos, et des messages envoyés trop tard."
     systeme "Le jour de la rentrée, Jessy cherche son nom sur un panneau trop rempli."

@@ -97,10 +97,12 @@ label arc_4_noel:
 
     play music audio.mornPiano loop fadein 3.0 volume 0.7
     play ambiant1 audio.trainInside fadein 2.5 volume 0.4
+    scene black
+    with fade
+    centered "ARC 4 : NOËL — LE CADEAU QUI DIT TROP DE CHOSES"
     scene bg arc4 train inside
     with fade
 
-    systeme "Arc IV - Noël : le cadeau qui dit trop de choses."
     systeme "Décembre arrive sans demander si quelqu'un a fini de comprendre septembre."
     systeme "Dans le train du matin, les vitres gardent la buée des souffles, et les annonces de soldes de Noël collent aux fenêtres comme des promesses mal placées."
 

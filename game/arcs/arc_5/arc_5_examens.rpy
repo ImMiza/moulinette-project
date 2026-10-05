@@ -48,10 +48,12 @@ define audio.MgsRingtone = "audio/fx/MGS-Ringtone.mp3"
 label arc_5_examens:
 
     play music audio.lib volume 0.7 loop fadein 2.0
+    scene black
+    with fade
+    centered "ARC 5 : JANVIER MANGE LES GENS DE L'INTÉRIEUR"
     scene bg arc5 library
     with fade
 
-    systeme "Arc V : Janvier mange les gens de l'intérieur."
     systeme "Le 12 janvier. La bibliothèque empeste le café froid et la sueur d'angoisse. Dehors, la neige garde une lumière pâle. Dedans, les néons transforment tout le monde en brouillon de lui-même."
 
     show jessy neutral at char_left
