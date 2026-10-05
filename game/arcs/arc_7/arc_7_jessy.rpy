@@ -7,9 +7,6 @@ default arc7_jessy_relation = ""    # amitie / amour
 default arc7_jessy_tente = False
 default arc7_jessy_family_epilogue = False
 
-define audio.alex_peace = "audio/music/alex_peace.ogg"
-define audio.spirit_of_the_night = "audio/music/spirit_of_the_night.ogg"
-
 # Tenues estivales de ville pour les scènes hors montagne.
 image allan beach silence = speaker_sprite("allan", "images/personnages/Allan/beach/uncomfortable_silence.png")
 image allan beach support = speaker_sprite("allan", "images/personnages/Allan/beach/quiet_support.png")
@@ -102,6 +99,35 @@ image bg arc7 sofiane gobelet = arc7_sofiane_cg("gobelet_eau", "conduite_profil.
 image bg arc7 sofiane retroviseur = arc7_sofiane_cg("retroviseur_phares", "conduite_profil.jpg")
 image bg arc7 sofiane route vide = arc7_sofiane_cg("route_vide_fumee", "conduite_profil.jpg")
 
+define audio.alex_peace = "audio/music/alex_peace.ogg"
+define audio.spirit_of_the_night = "audio/music/spirit_of_the_night.ogg"
+define audio.rando = "audio/music/rando.ogg" #peut etre changer
+define audio.shopping = "audio/music/shopping.ogg"
+define audio.randoNight = "audio/music/the-sunset.ogg"
+define audio.barjazz = "audio/music/bar_jazzy.ogg"
+define audio.morningLove = "audio/music/morning_romance.ogg" #changer
+
+define audio.river = "audio/ambience/river.mp3"
+define audio.lake = "audio/ambience/lake.mp3"
+define audio.forestNight = "audio/ambience/forest_night.mp3"
+
+define audio.deca = "audio/fx/Decathlons jingle.mp3"
+define audio.bush = "audio/fx/bush.mp3"
+define audio.bushbird = "audio/fx/bushbird.mp3"
+define audio.map = "audio/fx/map.mp3"
+define audio.shiny = "audio/fx/shiny.ogg"
+define audio.plouf = "audio/fx/plouf.mp3"
+define audio.softWind = "audio/fx/soft-wind.mp3"
+define audio.yess = "audio/fx/yesss_1.mp3"
+define audio.bear = "audio/fx/Bear.mp3"
+define audio.engine = "audio/fx/AE86_engine.mp3"
+define audio.drift = "audio/fx/drift.mp3"
+define audio.engineStart = "audio/fx/AE86_engine_start.mp3"
+define audio.puffpuff = "audio/fx/coins_fucking.mp3"
+define audio.carStop = "audio/fx/car_stop.mp3"
+define audio.sploush = "audio/fx/sploush.mp3"
+define audio.carGo = "audio/fx/car_go.mp3"
+
 # SCENE 1 - LE DEPART SE PREPARE
 label arc_7_jessy:
     $ derniere_route = "Route Jessy"
@@ -110,10 +136,10 @@ label arc_7_jessy:
     $ arc7_jessy_relation = ""
     $ arc7_jessy_tente = False
     $ arc7_jessy_family_epilogue = False
-    play music audio.mcnight loop volume 0.7 fadein 1.5
     scene black
     with fade
     centered "ARC 7 : LA RANDONNÉE"
+    play music audio.mcnight loop volume 0.7 fadein 1.5
     scene bg arc7 jessy minecraft
     with fade
     show jessy minecraft at char_left
@@ -157,7 +183,7 @@ label arc_7_jessy:
 
     scene bg arc7 jessy boutique
     with fade
-    play music audio.cafe loop volume 0.7 fadeout 1.0 fadein 1.0
+    play music audio.shopping loop volume 0.7 fadeout 1.0 fadein 2.0
     show allan beach smirk at char_left
     show alex winter neutral at char_midleft
     show sofiane beach neutral at char_center
@@ -165,6 +191,7 @@ label arc_7_jessy:
     show jessy beach neutral at char_right
     with dissolve
     systeme "Le samedi suivant, les cinq amis envahissent le rayon randonnée d'un magasin de sport."
+    play sound audio.deca volume 0.6
     a "Vingt-deux mille yens. Pour un sac. Il y a un deuxième sac dedans ?"
     x "Il y a un dos ventilé et une répartition de charge sur les hanches."
     a "Mon sac de cours aussi avait une répartition de charge. Tout finissait au fond, sous les miettes."
@@ -213,9 +240,9 @@ label arc_7_jessy:
 
 # SCENE 2 - L'AUBE DU VOYAGE
 label arc_7_jessy_scene_2:
+    play music audio.morningLove loop volume 0.7 fadein 2.0 fadeout 1.0
     scene bg arc7 jessy depart
     with fade
-    play music audio.mornPiano loop volume 0.7 fadeout 1.0 fadein 1.0
     show jessy rando bag neutral at char_left
     show ilona rando bag smile at char_right
     with dissolve
@@ -227,6 +254,7 @@ label arc_7_jessy_scene_2:
     j "Elle est où, là ?"
     i "Dans le sac. J'ai vérifié une quatrième fois."
     systeme "Elle sort un pain au lait de sa poche et mord dedans. Quelque chose commence : Ilona mange."
+    play sound audio.carStop volume 0.6
     systeme "Au bout de la rue, un moteur monte dans les tours. Grave, régulier, bien trop fort pour sept heures du matin."
     show sofiane beach neutral at char_center
     with dissolve
@@ -281,6 +309,7 @@ label arc_7_jessy_scene_2:
     i "Merci d'avoir fait toute cette route pour nous."
     s "Ce n'est pas pour vous. Enfin. Pas seulement."
     s "Marchez à votre rythme. La montagne n'a pas de chronomètre."
+    play sound audio.engineStart volume 0.6
     systeme "Il remonte dans la voiture. Le moteur répond au premier tour de clé. Le bruit s'éloigne dans les lacets, puis il n'y a plus que le vent."
     hide sofiane
     with dissolve
@@ -305,29 +334,32 @@ label arc_7_jessy_scene_2:
 
 # SCENE 3 - L'EPAPOPE DE LA JAJ
 label arc_7_jessy_scene_3:
+    stop music fadeout 1.0
     scene black
     with fade
-    stop music fadeout 1.0
-    play ambiant1 audio.windBirds loop volume 0.45
+    play ambiant1 audio.windBirds loop volume 0.4
     systeme "Il est des légendes que les montagnes se racontent entre elles, quand le vent tombe."
     systeme "Celle de deux voyageurs partis sans carrosse ni armée, avec un sac vert kaki, un hamac et trop de biscuits."
     systeme "Devant eux : des rivières sans pont, des bêtes sans nom, des fruits que nul n'a goûtés, et une carte que l'un d'eux tenait à l'envers."
     systeme "On sait seulement comment leur marche commença."
-    play music audio.springHope loop volume 0.7 fadein 1.5
+    play music audio.rando loop volume 0.7 fadein 1.5
     scene cg arc7 jessy marche
     with fade
     systeme "Et l'épapopé de la jaj commença."
+    play sound audio.bushbird volume 0.5
     scene cg arc7 jessy oiseau
     with dissolve
     systeme "Un oiseau jaillit du fossé. Jessy recule d'un pas. Ilona ne bouge pas."
     i "C'était un oiseau."
     j "Je sais. Je lui ai laissé la priorité."
     scene cg arc7 jessy renard
+    play sound audio.bush volume 0.5
     with dissolve
     systeme "Plus loin, quelque chose de roux traverse le sentier et s'arrête pour les regarder. Ils s'arrêtent aussi. Personne ne bouge. L'animal décide que ce n'est pas son problème et disparaît dans les fougères."
     i "Il nous a jugés."
     j "Il nous a trouvés inoffensifs. C'est vexant."
     scene cg arc7 jessy riviere main
+    play ambiant1 audio.river loop volume 0.4
     with dissolve
     systeme "Une rivière coupe le chemin. Ilona observe les pierres, en choisit trois, traverse sans se mouiller. Sur l'autre rive, elle tend la main."
     i "Tu veux la main ?"
@@ -335,13 +367,17 @@ label arc_7_jessy_scene_3:
     j "... Mais oui."
     scene cg arc7 jessy riviere chaussure
     with dissolve
+    play sound audio.sploush volume 0.6
     systeme "Il prend sa main. La troisième pierre bouge quand même. Sa chaussure plonge dans l'eau ; il rejoint la berge avec toute sa dignité, ou presque."
     scene cg arc7 jessy fleurs fruit
     with dissolve
+    play sound audio.shiny volume 0.4
+    play ambiant1 audio.windBirds loop volume 0.4
     systeme "Un champ de fleurs ondule jusqu'à la crête. Au bord du sentier, Ilona s'accroupit et ramasse un petit fruit en forme d'étoile, jaune pâle, presque lumineux."
     i "Regarde."
     j "Ça, c'est un loot rare. Ravitaillement légendaire. Aucune chance de drop."
     i "Je déciderai au prochain arrêt si ça se mange."
+    play sound audio.map volume 0.5
     scene cg arc7 jessy carte
     with dissolve
     systeme "Dans la montée, Jessy déplie la carte. Il la contemple longtemps. Ilona se penche, la tourne d'un demi-tour sans rien dire, et pose le doigt sur le nord."
@@ -356,7 +392,6 @@ label arc_7_jessy_scene_3:
     i "Parfait. Et on mange avant de repartir. C'est pas négociable."
     scene cg arc7 jessy promontoire
     with fade
-    stop ambiant1 fadeout 1.0
     systeme "Début d'après-midi. Ils posent les sacs sur un promontoire. En dessous, la vallée entière, les routes en fil, un village grand comme une maison Minecraft vue de haut."
     j "On a fait tout ça avec la carte à l'envers ?"
     i "La moitié. L'autre moitié, c'est mes chaussures."
@@ -365,6 +400,7 @@ label arc_7_jessy_scene_3:
     j "Trois pas très hostiles."
     scene cg arc7 jessy fruit question
     with dissolve
+    play sound audio.shiny volume 0.4
     systeme "Ilona sort le fruit étoilé et le fait tourner au soleil. Sa peau luit doucement. Aucun d'eux ne sait ce que c'est."
     i "Il est beau. Je sais pas s'il est comestible."
     menu:
@@ -375,6 +411,7 @@ label arc_7_jessy_scene_3:
             i "Tant pis. Je tente."
             scene cg arc7 jessy fruit goute
             with dissolve
+            play sound audio.eating volume 0.6
             systeme "Elle croque. Sucré d'abord, puis acide, puis quelque chose qui n'a pas de nom. Elle ferme les yeux."
             i "J'ai peut-être mangé un astre."
             j "Encore ?"
@@ -440,8 +477,11 @@ label arc_7_jessy_scene_4:
     systeme "Une heure de marche plus tard, à un embranchement, des pas lourds font trembler les feuilles. Jessy tire Ilona derrière un rocher. Elle se dégage, puis se cache quand même."
     show jessy rando bag embarrassed at char_left
     show ilona rando bag embarrassed at char_right
+    $ renpy.pause(0.5, hard=True)
+    play sound audio.laplage volume 0.6
     show laplage bear neutral at char_center
     with dissolve
+    play sound audio.bear volume 0.6
     systeme "Un ours sort des arbres, paisible, énorme. Sur son dos, jambes croisées, torse nu, Monsieur Laplage."
     systeme "L'ours s'arrête pour renifler un buisson."
     i "Monsieur Laplage ?"
@@ -450,6 +490,7 @@ label arc_7_jessy_scene_4:
     i "Et il a accepté ?"
     laplage "Certaines rencontres n'ont pas besoin d'être expliquées."
     j "Vous saviez qu'on serait là ?"
+    play sound audio.bear volume 0.6
     laplage "Moi, non. C'est l'ours qui a choisi le chemin."
     systeme "L'ours relève la tête et les regarde. Jessy décide de ne plus faire aucun mouvement de sa vie."
     i "Vous avez l'air content."
@@ -459,6 +500,7 @@ label arc_7_jessy_scene_4:
     laplage "Cette partie-là vous appartient encore."
     systeme "L'ours éternue dans le buisson. Une pluie de pétales retombe sur Laplage, qui ne cille pas."
     show laplage bear thumb_up at char_center
+    play sound audio.bear volume 0.6
     systeme "Il lève le pouce. L'ours repart. Ils disparaissent entre les arbres sans se retourner."
     hide laplage
     with dissolve
@@ -467,15 +509,18 @@ label arc_7_jessy_scene_4:
     j "D'accord. On en parle jamais."
 
     stop ambiant1 fadeout 1.0
+    stop music fadeout 2.0
     scene black
     with fade
     systeme "Quarante-cinq minutes de marche plus tard..."
     scene bg arc7 jessy lac
     with fade
-    play music audio.alex_peace volume 0.7 loop fadein 2.0
+    play ambiant1 audio.lake volume 0.4 loop fadein 2.0
     systeme "Jessy et Ilona découvrent un lac immense, lové entre les montagnes. L'eau claire reflète les sommets ; un ponton de bois s'avance dans ce calme presque irréel. Une canne à pêche et un panier attendent au bord de l'eau."
     show cg arc7 alexandre peche dos
     with dissolve
+    play music audio.alex_peace volume 0.7 loop fadein 2.0
+    play sound audio.plouf volume 0.6
     i "... Alexandre ?"
     j "Qu'est-ce que tu fais là ? Depuis quand tu pêches ?"
     x "Depuis ce matin. Je sais pas encore si j'aime ça."
@@ -488,6 +533,7 @@ label arc_7_jessy_scene_4:
     with dissolve
     j "T'as attrapé quelque chose ?"
     x "Rien. Pas une touche."
+    play sound audio.softWind volume 1.0
     systeme "Alexandre laisse son regard suivre les crêtes. Il ferme les yeux un instant. Le vent passe sur le lac."
     scene cg arc7 alexandre portrait yeux fermes
     with Dissolve(1.0)
@@ -511,6 +557,7 @@ label arc_7_jessy_scene_4:
     x "Moi, j'ai passé l'année à chercher à quoi servaient les choses. La cuisine, la porte, la miniature. Il fallait que tout ait une fonction."
     x "Et au final, ce que je garde, c'est les trucs absurdes. Et les fois où on s'est parlé pour de vrai."
     x "On peut laisser un moment compter avant de savoir comment l'appeler. Je crois. Je suis pas sûr. Une journée entière à pêcher, ça fait réfléchir."
+    play sound audio.plouf volume 0.6
     systeme "Le flotteur s'enfonce. Alexandre se redresse et mouline, sérieux comme un chirurgien."
     systeme "Au bout de la ligne : une feuille."
     scene cg arc7 alexandre portrait yeux ouverts
@@ -532,15 +579,15 @@ label arc_7_jessy_scene_4:
     i "Promis."
     x "Bonne route."
     systeme "Ils récupèrent leurs sacs et quittent la rive. Derrière eux, Alexandre est de nouveau tourné vers le lac, la feuille posée à côté de lui comme un trophée."
-    stop music fadeout 1.0
-    stop ambiant1 fadeout 1.0
     jump arc_7_jessy_scene_5
 
 # SCENE 5 - AU CREPUSCULE DE L'AVENTURE
 label arc_7_jessy_scene_5:
+    play music audio.randoNight loop volume 0.7 fadeout 1.0 fadein 2.0
+    play ambiant1 audio.forestNight loop volume 0.4 fadein 2.0
     scene bg arc7 jessy bivouac
     with fade
-    play music audio.melanPiano loop volume 0.65 fadeout 1.0 fadein 1.0
+    
     show jessy rando smile at char_left
     show ilona rando smile at char_right
     with dissolve
@@ -629,19 +676,22 @@ label arc_7_jessy_scene_5:
             show ilona rando smile at char_right
             i "Tu... voudrais dormir dans ma tente ?"
             j "Attends. Tu parles d'un Puff-Puff ?"
-            play music audio.mcnight loop volume 0.6 fadeout 1.0 fadein 1.0
             systeme "Quelque part dans la tête de Jessy démarre la musique des soirées Minecraft du confinement. Celle qu'il n'a jamais su éteindre."
             show ilona rando embarrassed at char_right
             i "Je parlais de dormir. D'abord."
             i "Pour le reste... on peut en parler. Si tu veux."
+            $fade_channe("music",0.4,1.0)
+            play sound audio.yess volume 0.6
             menu:
                 "Que préfère Jessy pour cette nuit ?"
                 "Garder son hamac et prendre leur temps.":
+                    $fade_channe("music",0.7,1.0)
                     j "J'ai envie d'être avec toi. Et ce soir, je crois que j'ai surtout envie de pas aller trop vite."
                     j "Le hamac et moi, on a des choses à régler."
                     i "Ça me va. On a tout l'été."
                     systeme "Elle l'embrasse encore, plus doucement. Puis chacun rejoint son couchage, sans se lâcher des yeux jusqu'à la dernière seconde."
                 "Rejoindre Ilona dans la tente après en avoir parlé.":
+                    $fade_channe("music",0.7,1.0)
                     $ arc7_jessy_tente = True
                     j "J'aimerais te rejoindre. On se dit ce qu'on veut, ce qu'on veut pas. Et on change d'avis si on veut."
                     i "D'accord. On commence par être ensemble. Le reste, on verra."
@@ -658,24 +708,33 @@ label arc_7_jessy_scene_5:
                     hide laplage
                     with dissolve
                     systeme "Il n'y a plus personne derrière le pin. Il n'y a peut-être jamais eu personne."
+                    stop music fadeout 1.5
                     systeme "Jessy décide de ne jamais en parler, et rejoint Ilona. La nuit garde la suite pour elle."
+                    scene black
+                    with fade
+                    play sound audio.puffpuff volume 0.6
+                    $ renpy.pause(8.0, hard=True)
+    stop ambiant1 fadeout 1.5
+    stop music fadeout 1.5
+    stop sound fadeout 1.5
     scene black
     with fade
-    stop music fadeout 1.5
     jump arc_7_jessy_scene_6
 
 # SCENE 6 - LES CONTRE-SOIREES : SOFIANE
 label arc_7_jessy_scene_6:
     systeme "Pendant ce temps, la nuit tombe sur les routes de montagne."
+    play music audio.spirit_of_the_night volume 0.7 loop fadein 2.0
+    play sound audio.car_stop volume 0.6
     scene bg arc7 sofiane belvedere
     with fade
-    play music audio.spirit_of_the_night volume 0.7 loop fadein 2.0
     systeme "L'AE86 s'immobilise au belvédère. Le moteur cliquette en refroidissant. En contrebas, la vallée s'allume point par point, comme une piste qu'on balise."
     systeme "Les deux collègues de Sofiane descendent, déjà en uniforme de maid café. Sofiane s'adosse au capot, les mains dans les poches. Il ne regarde pas la vue. Il regarde la route qui descend."
     "Une collègue" "Tu nous as fait faire vingt minutes de détour juste pour cette vue ?"
     s "La vue, c'est pour vous. Le détour, c'est pour la descente."
     "L'autre collègue" "Et les drifts ? Tu nous les promets depuis le printemps."
     s "Je ne promets rien. Je montre."
+    #bruit de portiere
     systeme "Il ouvre la portière, sort un gobelet en carton de la boîte à gants et le remplit d'eau à ras bord. Il le cale dans le porte-gobelet, entre les deux sièges."
     "Une collègue" "C'est pour quoi, ça ?"
     s "Mon cousin m'a appris à conduire avec. Si une goutte tombe, j'ai mal conduit."
@@ -685,7 +744,9 @@ label arc_7_jessy_scene_6:
     s "Montez. Ceintures. Et accrochez-vous à quelque chose que vous aimez."
     scene bg arc7 sofiane phares
     with dissolve
+    play sound audio.engineStart volume 0.6
     systeme "Les phares escamotables se lèvent dans un claquement sec. Deux yeux ronds s'ouvrent sur la nuit."
+    play sound audio.engine volume 0.6 fadeout 1.0 fadein 0.5
     systeme "Le moteur tousse, puis rugit. Le bruit rebondit sur la paroi et redescend dans la vallée avant eux."
     scene bg arc7 sofiane conduite collegues
     with dissolve
@@ -695,21 +756,25 @@ label arc_7_jessy_scene_6:
     s "On n'a pas encore commencé."
     "L'autre collègue" "Comment ça, pas encore ?!"
     systeme "Devant, la route plonge. Un panneau jaune annonce une épingle à gauche."
+    play sound audio.engine volume 0.6
     scene bg arc7 sofiane pedalier
     with Dissolve(0.2)
     systeme "Sofiane freine tard. Très tard. Puis tout va très vite : le pied droit lâche le frein, le pied gauche enfonce l'embrayage jusqu'au plancher."
     systeme "Un coup de gaz sec. Rapport inférieur. La pédale de frein remonte, encore brillante dans la pénombre, et le moteur hurle dans la nuit."
+    play sound audio.drift volume 0.6
     scene bg arc7 sofiane route euphorie
     with hpunch
     systeme "L'AE86 se met en travers. Les pneus crient. Les phares balaient la glissière, puis le vide, puis la lune, puis la route à nouveau. La voiture glisse tout entière à trente centimètres du rail, et Sofiane la tient du bout des doigts."
     "Une collègue" "AAAAH ! ON EST DE TRAVERS ! ON EST COMPLÈTEMENT DE TRAVERS !"
     "L'autre collègue" "ENCORE ! FAIS-LE ENCORE !"
     s "Il y en a cinq autres avant le pont."
+    play sound audio.drift volume 0.6
     scene bg arc7 sofiane epingles
-    with hpunch
+    with hpunch 
     systeme "Vue d'en haut, la montagne ressemble à un ruban jeté dans le noir. Et sur ce ruban, deux phares qui dessinent des virgules de lumière."
     systeme "Deuxième épingle. Troisième. La Trueno enchaîne les virages comme on tourne des pages : gauche, droite, gauche, sans jamais lâcher la trajectoire."
     systeme "Dans la quatrième, il pose la roue intérieure dans le caniveau. La voiture tourne comme si elle était accrochée à un rail. Le moteur ne redescend plus."
+    play sound audio.drift volume 0.6
     scene bg arc7 sofiane route sourire
     with vpunch
     systeme "À l'arrière, les deux collègues ne crient plus. Elles rient. Du fond du ventre, les yeux fermés, comme au sommet d'un grand huit."
@@ -733,11 +798,13 @@ label arc_7_jessy_scene_6:
     "L'autre collègue" "Il nous rattrape ?!"
     s "Non. Il nous a déjà rattrapés. Il attend que je lui fasse de la place."
     systeme "Sofiane ne lève pas le pied. Il retarde son freinage d'un mètre. Puis d'un autre. Dans le rétroviseur, les phares ne décrochent pas."
+    play sound audio.drift volume 0.6
     scene bg arc7 sofiane epingles laplage
     with hpunch
     systeme "Dans la grande courbe avant le pont, l'AE86 et la berline argentée entrent en glisse côte à côte. Laplage l'a rattrapé."
     scene bg arc7 sofiane conduite profil
     with dissolve
+    play sound audio.laplage volume 0.6
     scene bg arc7 sofiane croisement laplage
     with hpunch
     systeme "La berline argentée reste à hauteur de l'AE86, en travers à ses côtés. Portière contre portière. Cinquante centimètres entre les deux carrosseries."
@@ -750,9 +817,11 @@ label arc_7_jessy_scene_6:
     with dissolve
     systeme "À la corde, Laplage tourne la tête. Il regarde Sofiane. Il regarde le gobelet. Puis il lève le pouce."
     systeme "Sofiane incline la tête d'un centimètre. Pas plus. C'est tout ce qu'un pilote dit à un autre pilote, et c'est déjà beaucoup."
+    play sound audio.car_go volume 0.6
     scene bg arc7 sofiane conduite profil
     with dissolve
     systeme "À la sortie du virage, la berline argentée accélère et passe devant. Elle double l'AE86 par l'extérieur, là où il n'y a pas la place."
+    play sound audio.drift volume 0.6 
     scene bg arc7 sofiane epingles
     with dissolve
     systeme "La berline file hors du cadre. L'AE86 reste seule dans la courbe, avalée un instant par la fumée."
@@ -772,6 +841,8 @@ label arc_7_jessy_scene_6:
     "Une collègue" "Tu te rends compte que c'est la phrase la plus classe que tu aies jamais dite ?"
     s "Je sais. Je ne la répéterai pas."
     systeme "L'AE86 finit la descente. Les lumières de la ville approchent. Les deux collègues arriveront à l'heure. En avance, même."
+    play sound audio.carStop volume 0.6 
+    stop music fadeout 2.0
     systeme "Sur le parking du maid café, Sofiane coupe le moteur et baisse les yeux vers le porte-gobelet."
     systeme "Pas une goutte."
     systeme "Quelque part, un cousin n'est pas déçu."
@@ -780,10 +851,9 @@ label arc_7_jessy_scene_6:
 
 # SCENE 7 - LES CONTRE-SOIREES : ALLAN ET THEO
 label arc_7_jessy_scene_7:
+    play music audio.barjazz loop volume 0.7 fadein 1.0
     scene bg tokyo bar
     with fade
-    play ambiant1 audio.rain loop volume 0.35
-    play music audio.cafe loop volume 0.6 fadein 1.0
     systeme "Le même soir, à Tokyo. Il pleut depuis midi."
     systeme "Allan est arrivé il y a trois jours. Trois jours à écrire des messages à Théo et à les effacer avant la fin de la première phrase."
     systeme "Ce matin, il a fini par envoyer la photo d'une vieille enseigne, avec une seule question : {i}« Tu connais cet endroit ? »{/i}"
@@ -831,8 +901,6 @@ label arc_7_jessy_scene_7:
     t "Le loyer est correct. Le trajet jusqu'au studio, trente-deux minutes. Les horaires sont stables, les trois chaînes tournent bien, le..."
     systeme "Il s'arrête au milieu du mot. Il tourne sa tasse d'un quart de tour. Puis d'un autre."
     t "C'est plus silencieux que prévu."
-    stop music fadeout 2.0
-    play music audio.melanPiano loop volume 0.5 fadein 2.0
     t "J'ai pris un appartement avec deux chambres. Je me suis dit : au cas où."
     t "La deuxième clé est dans un tiroir de la cuisine. Je la vois chaque fois que je cherche une fourchette."
     show allan beach silence
@@ -907,7 +975,7 @@ label arc_7_jessy_scene_7:
     stop ambiant1 fadeout 1.5
     stop music fadeout 1.5
     $ renpy.pause(1.0, hard=True)
-    play music audio.tokyo loop volume 0.5 fadein 2.0
+    play music audio.citynight loop volume 0.7 fadein 1.0 fadeout 1.0
     systeme "Quand ils sortent, la pluie s'est arrêtée sans prévenir. Une rue commerçante brille sous les néons mouillés."
     systeme "Allan déplie une carte papier. Théo la retourne. Allan la retourne à nouveau. Ils se disputent deux minutes sur la position du nord, avec l'énergie de deux gamins de douze ans."
     t "Tu tiens les cartes à l'envers depuis le collège."
@@ -943,11 +1011,12 @@ label arc_7_jessy_scene_7:
     systeme "Une deuxième vibration. {i}« J'appelle demain. »{/i}"
     show allan beach smirk
     a "... Il a mis un point. Même à ça."
-    stop music fadeout 1.5
+    stop music fadeout 1.0
     jump arc_7_jessy_nuit_retour
 
 # RETOUR AU BIVOUAC APRES LES CONTRE-SOIREES
 label arc_7_jessy_nuit_retour:
+    play ambiant1 audio.forestNight volume 0.4 loop fadein 1.5
     scene bg arc7 jessy nuit
     with fade
     systeme "Au même moment, loin de Tokyo, la nuit avance sur la montagne."
@@ -976,13 +1045,14 @@ label arc_7_jessy_nuit_retour:
             systeme "La lampe est éteinte. Derrière la toile de la tente, leurs voix se sont tues. La montagne garde le silence jusqu'à l'aube."
         else:
             systeme "La lampe est éteinte. La montagne garde un silence paisible autour de la tente et du hamac."
+    stop ambiant1 fadeout 1.0
     jump arc_7_jessy_scene_8
 
 # SCENE 8 - LA FIN ET LE COMMENCEMENT
 label arc_7_jessy_scene_8:
     scene bg arc7 jessy aube
     with fade
-    play music audio.mornPiano loop volume 0.65 fadein 1.5
+    play music audio.morningLove loop volume 0.7 fadein 1.0
     play ambiant1 audio.windBirds loop volume 0.4
     show jessy rando neutral at char_left
     show ilona rando neutral at char_right
