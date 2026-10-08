@@ -2049,9 +2049,4 @@ label arc_6_bascule_theo:
 
     $ renpy.pause(2.0, hard=True)
 
-    scene bg arc6 evil theo with dissolve
-    play sound audio.sirene volume 0.6 loop
-    $ renpy.pause(5.0, hard=True)
-    stop sound fadeout 0.5
-
     jump arc_7_theo

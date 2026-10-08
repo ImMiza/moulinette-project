@@ -591,32 +591,65 @@ label arc_7_jessy_scene_5:
     show jessy rando smile at char_left
     show ilona rando smile at char_right
     with dissolve
-    systeme "Une heure plus tard, le soleil passe derrière les crêtes. Ils trouvent une clairière à l'abri du vent et posent les sacs pour la nuit."
-    j "Bilan de la journée : un ours, un professeur sur l'ours, un pêcheur de feuilles."
+    systeme "Une heure plus tard, le soleil passe derrière les crêtes. Dans une clairière à l'abri du vent, la tente et le hamac sont prêts pour la nuit."
+    j "Bilan de la journée : un ours avec Monsieur Laplage dessus, un pêcheur de feuilles."
     i "Tu oublies la carte à l'envers."
     j "J'ai dit bilan, pas procès."
+    j "Et le meilleur moment, c'était quoi ?"
+    i "Quand t'as accepté ma main, à la rivière."
+    j "J'ai surtout demandé à ma chaussure de rester sèche. Elle m'a pas écouté."
+    i "Ta chaussure, je m'en fiche. Tu m'as demandé de l'aide."
+    systeme "Jessy ouvre la bouche pour plaisanter, puis la referme. La lampe balance doucement entre les pins."
+    j "J'ai cru que tu allais me laisser traverser tout seul."
+    i "Je t'ai tendu la main. J'attendais que tu décides de la prendre."
     systeme "Ilona s'assoit sur son sac. Elle regarde le ciel virer au violet."
     i "J'aimerais que l'été dure. Pas pour toujours. Juste un peu plus que prévu."
+    j "J'ai eu le même réflexe à la fin du lycée. Si on restait assez longtemps dans la salle, personne serait obligé de sortir."
+    i "Moi, je voulais sortir. J'avais juste peur de laisser les bonnes choses à l'intérieur."
     i "Tu imagines quoi, quand on rentrera ?"
     if arc7_jessy_dejeuner == "crush":
-        j "Je repense à ce que je t'ai dit à midi. J'ai pas changé d'avis en marchant."
-        j "Et la journée est pas finie. Je te presse pas."
+        j "Je repense à ce que je t'ai dit à midi. J'avais peur de l'avoir lâché là-haut et de te forcer à le porter tout l'après-midi."
+        i "Je l'ai porté. Mais tu m'as pas demandé de le porter pour toi. C'est différent."
+        j "Tu me plais toujours. Et je veux entendre ce que toi tu veux, même si c'est pas ce que j'espère."
         i "Ta phrase de midi, elle a marché avec moi tout l'après-midi. Elle a pris toute la place dans le sac."
-        i "J'y ai beaucoup pensé. À nous."
+        i "Par moments je voulais te répondre tout de suite. Et puis je me rappelais que j'avais demandé jusqu'à ce soir."
+        j "Pour une fois, j'ai réussi à pas te demander toutes les dix minutes."
+        i "J'ai remarqué."
     else:
-        j "Qu'on se voie encore. Que ça devienne pas un truc qu'on fait une fois par an."
-        j "Je tiens à ce qu'on a. Je veux pas te demander de décider ce que ça devient."
-        i "Moi aussi, j'y tiens."
-        i "Mais depuis ce matin, je me pose une question. Et plus je marche, moins elle part."
+        j "Qu'on se voie encore. Que ça devienne pas un truc qu'on raconte plus tard en disant : on était proches, à l'époque."
+        j "À midi, j'ai parlé d'amitié parce que je sais ce que je veux garder. Je veux pas que ça ressemble à une limite que je t'impose."
+        i "Moi aussi, j'y tiens. C'est pour ça que j'ai pas voulu répondre à midi avec le premier mot qui me venait."
+        i "Depuis ce matin, je me pose une question. Et plus je marche, moins elle part."
         if arc5_cinema_ensemble:
             i "En vrai, elle date pas de ce matin. Elle date du cinéma. De ta main, que t'as pas retirée."
         elif arc4_cadeau_jessy == "miniature_aveu":
             i "En vrai, elle date pas de ce matin. Elle date de ta miniature, à Noël. Elle ressemblait pas à un souvenir."
         else:
             i "En vrai, elle date pas de ce matin. Elle date de cette année. De toutes les fois où tu m'as écoutée jusqu'au bout."
-    systeme "Jessy attache son hamac entre deux pins. Ilona monte sa tente en neuf minutes. Elle a chronométré. Ils tendent ensemble une corde pour la lampe."
+        j "Tu peux me la poser. Même si j'ai pas de réponse toute faite."
+        i "C'est justement pour ça que j'attends encore un peu."
+    systeme "Jessy vérifie les sangles du hamac. Ilona retend un coin de la tente ; ils ajustent ensemble la corde de la lampe."
     j "Toi, t'as une petite maison portative. Moi, deux sangles et beaucoup d'optimisme."
     i "Si ton optimisme lâche, la maison a une deuxième place."
+    j "Je vais éviter de tester avant la nuit."
+    i "J'ai pas dit que je voulais te voir tomber."
+    systeme "La phrase reste entre eux. Ilona tire encore sur un piquet déjà bien planté."
+    i "Quand tu m'as proposé cette marche, j'ai cru que tu avais choisi une façon plus jolie de me demander de rester."
+    j "Je sais. J'ai failli te dire que c'était pas ça. Mais j'aurais menti un peu. J'avais envie de te voir, aussi."
+    i "J'avais peur qu'en disant oui au sentier, je dise oui à tout le reste sans le savoir."
+    j "Et aujourd'hui ?"
+    i "Aujourd'hui, je sais que j'ai choisi le sentier. Je sais aussi que j'ai cherché ta main sur les pierres. Les deux sont vrais."
+    j "À la rivière, je pensais que si je prenais ta main, tu allais croire que j'avais déjà décidé ce qu'on était."
+    i "Moi, j'ai pensé que tu allais tomber à l'eau."
+    j "C'est arrivé aussi."
+    systeme "Ils rient, mais Ilona ne lâche pas le piquet. Jessy s'accroupit près d'elle sans y toucher."
+    i "Tu sais ce qui m'a fait peur cette année ? Pas que tu tiennes à moi. Que parfois tu savais déjà ce que j'allais dire avant que j'ouvre la bouche."
+    j "Je croyais t'aider. Je préparais des réponses pour nous deux et j'appelais ça faire attention."
+    i "Et moi, je raccourcissais mes phrases pour pas te décevoir."
+    j "Je suis désolé. Pas pour que tu me dises que c'est réglé. Je sais que ça se règle pas avec une randonnée."
+    i "Non. Mais aujourd'hui, quand j'ai mis du temps à trouver mes mots, tu m'as laissée respirer. Même si ça te faisait peur."
+    j "Terriblement. J'ai fait semblant de m'intéresser à la pêche pour pas te regarder toutes les secondes."
+    i "Alexandre s'intéressait davantage à sa feuille que toi à la pêche."
     systeme "Le froid descend d'un coup. Jessy cherche un pull dans son sac. Ilona regarde le col de sa chemise de randonnée. Rien d'écrit dessous."
     show jessy rando neutral at char_left
     show ilona rando neutral at char_right
@@ -630,18 +663,29 @@ label arc_7_jessy_scene_5:
     i "Tu m'as jamais rien dit."
     j "Je savais pas quoi construire avec."
     i "C'était pas un plan de construction, Jessy. C'était des mots."
-    j "Je sais. C'est pour ça que j'ai pas su."
+    j "Je sais. Je cherchais ce que j'avais le droit d'en faire sans te demander."
+    i "Tu pouvais me demander. J'aurais peut-être dit que je savais pas encore."
+    j "J'avais peur de ce 'pas encore'. Je le transformais en promesse dès que j'y pensais."
+    i "Et moi, je croyais t'avoir écrit quelque chose de clair. C'était pas une promesse. C'était une manière de pas partir sans rien dire."
+    systeme "Jessy cesse de fouiller dans son sac. Ilona relâche enfin le piquet."
+    j "Tu sais, j'ai gardé aussi la veste parce que c'est toi qui as écrit dessus. Même si j'avais jamais compris ces mots, ça aurait compté."
+    i "Ça, j'aurais aimé l'entendre plus tôt."
+    j "Je te le dis maintenant. Et j'aimerais qu'on continue à se dire les choses même quand c'est maladroit."
+    i "Moi aussi. Mais là, si on reste devant la tente, je vais finir par dire un truc juste pour remplir le silence."
     systeme "La nuit tombe tout à fait. Ils se souhaitent bonne nuit. Ilona va jusqu'à sa tente, pose la main sur la fermeture éclair, et s'arrête."
     show ilona rando embarrassed at char_right
     with dissolve
     systeme "Elle ouvre le paquet de biscuits d'Allan. En mange un. Pour gagner quelques secondes."
     i "Jessy. Je veux pas redescendre demain en faisant comme si rien avait changé."
     if arc7_jessy_dejeuner == "crush":
-        i "À midi, je t'ai demandé la journée. Je l'ai eue. J'ai ma réponse."
+        i "À midi, je t'ai demandé la journée. Je l'ai eue. J'ai eu le temps de sentir ce que ça me faisait, ta phrase."
     else:
-        i "Ma question. J'ai eu onze kilomètres pour y répondre."
+        i "Ma question. J'ai eu onze kilomètres pour y répondre. Et une soirée à t'écouter sans qu'on fasse semblant."
+    i "J'avais peur de te le dire parce que je voulais pas que notre maison, nos soirées, même cette marche deviennent les preuves d'un truc que je te devais."
+    i "Mais quand tu m'as pris la main à la rivière, j'ai pas pensé au passé. J'ai eu envie qu'on trouve un autre chemin ensemble."
     i "Je suis amoureuse de toi. J'aimerais essayer. Nous deux. Pour de vrai."
     i "Et dis pas oui pour me faire plaisir. Si c'est non, je préfère un vrai non."
+    systeme "Jessy la regarde. Elle attend, sans toucher à la fermeture éclair. Pour une fois, aucune carte ne peut lui souffler la réponse."
     menu:
         "Que répond Jessy ?"
         "Il tient à elle, mais veut rester son ami.":
@@ -649,27 +693,40 @@ label arc_7_jessy_scene_5:
             show jessy rando listening at char_left
             with dissolve
             systeme "Jessy cherche une blague. Il en trouve trois. Il les laisse toutes dans sa poche."
-            j "Tu comptes énormément. Plus que presque tout."
-            j "Mais je ressens pas la même chose. Pas comme ça. Et je vais pas te mentir pour que ce soir soit plus facile."
+            j "Tu comptes énormément. Et je sais que ça ne rendra pas ma réponse moins douloureuse."
+            if arc7_jessy_dejeuner == "crush":
+                j "À midi, je t'ai dit que tu me plaisais. C'était vrai. Mais je me rends compte que j'ai parlé avant de savoir ce que je pouvais t'offrir."
+                j "Je t'ai laissé croire que j'attendais la même chose que toi. Je suis désolé."
+            else:
+                j "Quand j'ai parlé d'amitié à midi, c'était pas une façon de me protéger en attendant que tu fasses le premier pas. Je le pensais."
+            j "Je suis pas amoureux de toi comme tu l'es de moi. Si je disais oui ce soir, tu le sentirais demain matin."
             show ilona rando sad at char_right
             with dissolve
-            systeme "Ilona hoche la tête trop vite. Elle regarde le biscuit dans sa main comme s'il allait l'aider."
-            i "D'accord. Merci. D'avoir pas menti."
-            i "C'est... un peu la honte, là. J'aurai besoin de temps. Je sais pas combien."
-            j "Prends-le. Tu me dois rien. Même pas de me dire que ça va."
-            i "Ça va pas, là. Mais ça ira."
+            systeme "Ilona hoche la tête trop vite. Elle émiette le biscuit entre ses doigts avant de s'en rendre compte."
+            i "J'avais demandé un vrai non. Je pensais pas que ça ferait aussi mal d'en avoir un."
+            j "Je sais pas quoi te dire pour que ça fasse moins mal."
+            i "Rien. Surtout pas que ça va redevenir comme avant. Je pourrai pas faire ça demain."
+            j "Je te le demanderai pas. Et j'essaierai pas de réparer ça en étant partout autour de toi."
+            i "Merci. J'ai besoin de savoir que tu vas pas transformer ma peine en problème à résoudre."
+            j "Tu me dois rien. Même pas de me dire que ça va."
+            i "Ça va pas, là. Mais ça ira. J'aurai besoin de temps. Je sais pas combien."
+            systeme "Ils restent côte à côte une seconde encore, sans trouver de geste qui ne promette pas autre chose."
             systeme "Elle entre dans la tente. La fermeture éclair descend lentement."
-            systeme "Jessy s'allonge dans son hamac. Il reste éveillé longtemps, les yeux dans les branches. Il ne regrette pas. Ça fait mal quand même."
+            systeme "Jessy s'allonge dans son hamac. Il reste éveillé longtemps, les yeux dans les branches. Il ne reprend pas sa réponse. Ça fait mal quand même."
         "Il l'aime aussi et veut essayer.":
             $ arc7_jessy_relation = "amour"
             show jessy rando determined at char_left
             with dissolve
             systeme "Jessy cherche une métaphore Minecraft. Il n'en trouve aucune d'assez bien. Tant mieux."
-            j "Moi aussi. Je suis amoureux de toi. Depuis... longtemps. Tu le sais sûrement mieux que moi."
-            j "J'ai envie d'essayer. Si t'en as encore envie après ce que je viens de dire."
-            i "T'as rien dit de bizarre."
-            j "Laisse-moi le temps."
-            i "Oui. Alors oui."
+            j "Moi aussi. Je suis amoureux de toi. Depuis assez longtemps pour avoir oublié ce que je faisais avant de regarder si tu étais connectée."
+            j "Quand tu m'as dit oui pour la randonnée, j'ai passé une heure à sourire devant mon écran. Et ensuite j'ai eu peur d'avoir encore décidé à ta place ce que ce oui voulait dire."
+            i "J'ai choisi la randonnée. Je suis aussi en train de te choisir, là. C'est pas le même oui."
+            j "Je sais. C'est pour ça que je veux pas répondre avec un plan pour nous deux. J'ai envie d'essayer avec toi, même si on sait pas encore à quoi ça ressemblera."
+            i "Tu sais que je vais te reprendre quand tu finiras mes phrases ?"
+            j "J'espère. Et je vais probablement me tromper encore. Mais je veux apprendre à t'écouter quand tu me le dis, pas attendre que tu te taises."
+            systeme "Ilona lâche la fermeture éclair. Jessy n'avance pas ; il attend qu'elle l'invite à s'approcher."
+            i "Alors approche. Mais une étape à la fois."
+            j "Ça, je peux essayer."
             systeme "Ils s'embrassent. D'abord maladroitement, le nez au mauvais endroit. Puis avec le soulagement de ne plus avoir à deviner."
             systeme "Ils se séparent. Se regardent. Rient, parce qu'il n'y a rien d'autre à faire."
             show jessy rando smile at char_left
@@ -680,18 +737,18 @@ label arc_7_jessy_scene_5:
             show ilona rando embarrassed at char_right
             i "Je parlais de dormir. D'abord."
             i "Pour le reste... on peut en parler. Si tu veux."
-            $fade_channe("music",0.4,1.0)
+            $fade_channel("music",0.4,1.0)
             play sound audio.yess volume 0.6
             menu:
                 "Que préfère Jessy pour cette nuit ?"
                 "Garder son hamac et prendre leur temps.":
-                    $fade_channe("music",0.7,1.0)
+                    $fade_channel("music",0.7,1.0)
                     j "J'ai envie d'être avec toi. Et ce soir, je crois que j'ai surtout envie de pas aller trop vite."
                     j "Le hamac et moi, on a des choses à régler."
                     i "Ça me va. On a tout l'été."
                     systeme "Elle l'embrasse encore, plus doucement. Puis chacun rejoint son couchage, sans se lâcher des yeux jusqu'à la dernière seconde."
                 "Rejoindre Ilona dans la tente après en avoir parlé.":
-                    $fade_channe("music",0.7,1.0)
+                    $fade_channel("music",0.7,1.0)
                     $ arc7_jessy_tente = True
                     j "J'aimerais te rejoindre. On se dit ce qu'on veut, ce qu'on veut pas. Et on change d'avis si on veut."
                     i "D'accord. On commence par être ensemble. Le reste, on verra."
@@ -801,7 +858,7 @@ label arc_7_jessy_scene_6:
     play sound audio.drift volume 0.6
     scene bg arc7 sofiane epingles laplage
     with hpunch
-    systeme "Dans la grande courbe avant le pont, l'AE86 et la berline argentée entrent en glisse côte à côte. Laplage l'a rattrapé."
+    systeme "Dans la grande courbe avant le pont, l'AE86 et la berline argentée entrent en glisse côte à côte."
     scene bg arc7 sofiane conduite profil
     with dissolve
     play sound audio.laplage volume 0.6
@@ -852,18 +909,18 @@ label arc_7_jessy_scene_6:
 # SCENE 7 - LES CONTRE-SOIREES : ALLAN ET THEO
 label arc_7_jessy_scene_7:
     play music audio.barjazz loop volume 0.7 fadein 1.0
-    scene bg tokyo bar
+    scene bg arc7 tokyo restaurant
     with fade
-    systeme "Le même soir, à Tokyo. Il pleut depuis midi."
+    systeme "Le même soir, à Tokyo. La pluie vient de s'arrêter."
     systeme "Allan est arrivé il y a trois jours. Trois jours à écrire des messages à Théo et à les effacer avant la fin de la première phrase."
     systeme "Ce matin, il a fini par envoyer la photo d'une vieille enseigne, avec une seule question : {i}« Tu connais cet endroit ? »{/i}"
     systeme "La réponse est arrivée quarante minutes plus tard : {i}« Oui. 19h. »{/i} Allan l'a relue plus de fois qu'il ne l'avouera."
-    show allan beach neutral at char_left
+    show allan beach neutral at char_midleft
     with dissolve
-    systeme "C'est un kissaten minuscule. Six tables, une horloge arrêtée, une odeur de café brûlé qui a dû imprégner les murs depuis des décennies."
+    systeme "Le restaurant est calme. Des tables de bois occupent la salle, éclairées par une lanterne au-dessus de la table près de la fenêtre. Les lumières de la ville se brouillent dans la vitre."
     systeme "Allan est arrivé avec vingt minutes d'avance. Il fixe le menu comme un manuscrit à déchiffrer."
     systeme "La porte s'ouvre. Théo secoue son parapluie sur le seuil."
-    show theo tokyo neutral at char_right
+    show theo tokyo neutral at char_midright
     with dissolve
     systeme "Allan se lève. Se rassoit. Se relève à moitié, parce qu'il ne sait plus ce qu'on fait avec quelqu'un qu'on connaît depuis dix ans et à qui on n'a pas parlé depuis trois mois."
     t "Assieds-toi. Tu fais peur au patron."
@@ -976,7 +1033,11 @@ label arc_7_jessy_scene_7:
     stop music fadeout 1.5
     $ renpy.pause(1.0, hard=True)
     play music audio.citynight loop volume 0.7 fadein 1.0 fadeout 1.0
-    systeme "Quand ils sortent, la pluie s'est arrêtée sans prévenir. Une rue commerçante brille sous les néons mouillés."
+    scene bg arc7 tokyo park
+    show allan beach smirk at char_midleft
+    show theo tokyo neutral at char_midright
+    with fade
+    systeme "Ils ressortent et rejoignent un parc voisin. Les allées sont encore humides ; les lampadaires éclairent les cerisiers et, au-delà des arbres, les immeubles de Tokyo."
     systeme "Allan déplie une carte papier. Théo la retourne. Allan la retourne à nouveau. Ils se disputent deux minutes sur la position du nord, avec l'énergie de deux gamins de douze ans."
     t "Tu tiens les cartes à l'envers depuis le collège."
     a "Le nord est une convention sociale."
@@ -996,20 +1057,19 @@ label arc_7_jessy_scene_7:
     t "Si un jour j'ai quelque chose à lui dire, je le dirai moi-même. Sans traducteur."
     show allan beach support
     a "Bonne réponse."
-    systeme "Devant une boutique, Allan s'arrête. L'enseigne de sa photo, en vrai. Il lève son téléphone par réflexe, puis le baisse. Théo est à côté de lui. Il n'a plus besoin de lui envoyer."
+    systeme "Près d'un banc, Allan s'arrête devant les lumières de la ville. Il lève son téléphone par réflexe, puis le baisse. Théo est à côté de lui. Il n'a plus besoin de lui envoyer."
     show theo tokyo reassuring
     t "Prends-la quand même. Ça fera une preuve."
     a "Une preuve de quoi ?"
     t "Qu'on y était. Tous les deux."
-    a "Alors pas l'enseigne. Nous."
-    systeme "Allan tend le bras. Théo se penche au dernier moment, trop tard. La photo est floue. Ils la gardent."
+    a "Alors pas la ville. Nous."
+    systeme "Allan tend le bras pour les prendre en photo avec la ville en arrière-plan. Théo se penche au dernier moment, trop tard. La photo est floue. Ils la gardent."
     systeme "Dix ans d'amitié ne se cassent pas en trois mois de silence. Ça a vacillé, c'est tout. Ils rentrent par le même chemin, et se trompent deux fois de rue, ensemble."
-    hide theo
-    with dissolve
+    scene black
+    with fade
     systeme "À une heure du matin, dans sa chambre d'hôtel, le téléphone d'Allan vibre."
     systeme "Une photo floue. Un bol de nouilles renversé sur un plan de travail. {i}« Dîner raté. Comme promis. »{/i}"
     systeme "Une deuxième vibration. {i}« J'appelle demain. »{/i}"
-    show allan beach smirk
     a "... Il a mis un point. Même à ça."
     stop music fadeout 1.0
     jump arc_7_jessy_nuit_retour
@@ -1017,7 +1077,7 @@ label arc_7_jessy_scene_7:
 # RETOUR AU BIVOUAC APRES LES CONTRE-SOIREES
 label arc_7_jessy_nuit_retour:
     play ambiant1 audio.forestNight volume 0.4 loop fadein 1.5
-    scene bg arc7 jessy nuit
+    scene bg arc7 jessy nuit tente ferme
     with fade
     systeme "Au même moment, loin de Tokyo, la nuit avance sur la montagne."
     if arc7_jessy_relation == "amitie":
@@ -1088,7 +1148,7 @@ label arc_7_jessy_scene_8:
         j "Je sais. Prends-le."
         systeme "Il n'ajoute rien. Il ne demande pas si ça va. Pour une fois, il laisse la phrase finir toute seule."
     i "En tout cas, Alexandre a vraiment pêché une feuille."
-    j "Et un prof est vraiment passé sur un ours."
+    j "Et Monsieur Laplage est vraiment passé sur un ours."
     i "Personne va nous croire."
     j "Tant mieux. C'est à nous."
     systeme "Ils rient. Le matin n'efface pas la veille. Il lui donne juste assez d'air pour continuer."

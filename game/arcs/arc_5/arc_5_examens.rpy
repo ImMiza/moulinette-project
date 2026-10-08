@@ -1118,6 +1118,13 @@ label arc_5_scene_3:
     hide jessy
     with dissolve
 
+    if arc5_theo_proposition == "laisse":
+        stop music fadeout 1.0
+        scene bg arc6 evil theo with dissolve
+        play sound audio.sirene volume 0.6 loop
+        $ renpy.pause(5.0, hard=True)
+        stop sound fadeout 0.5
+
 # SCENE 4 : SAINT-VALENTIN - L'AMOUR ET SES PIÈGES
     play music audio.saintV volume 0.5 loop fadeout 1.0 fadein 1.0
     scene bg arc5 classroom
