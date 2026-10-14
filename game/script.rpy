@@ -398,11 +398,7 @@ label start:
 #   run "premiere option" 246  (lien 46)
 #   run "derniere option" -395
 #   parties aleatoires    mediane -104, p95 92
-# Frontiere score/lien : environ -7 points de score par point de lien gagne
-# (le tier B ne donne que du lien). La fenetre romance est lien 35..64.
 define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
-define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
-define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 
 # Seuils de etat_relation() : conditionnent le TON des scenes des arcs 5 et 6,
 # pas la route finale. Cales sur les parcours de reference, mesures deux fois
@@ -430,102 +426,3 @@ define SEUIL_ETAT_ECOUTE = 4   # ilona_peut_finir_ses_phrases + interruptions_re
 # Le contenu des routes est dans arcs/arc_7/arc_7_jessy.rpy et
 # arcs/arc_7/arc_7_theo.rpy.
 # =============================================================================
-
-
-label ending_family:
-    scene bg ending
-    with fade
-
-    systeme "Épilogue - Ils ont bien grandi, les petits."
-    show laplage neutral at char_center
-    laplage "Le temps passe comme les vagues. Certaines emportent les châteaux de sable. D'autres apprennent aux enfants à en construire de nouveaux."
-    show laplage thumb_up at char_center
-    laplage "Ils ont bien grandi, les petits."
-    jump post_generique
-
-
-label ending_jessy_ilona:
-    scene bg arc2 minecraft house summer night
-    with fade
-    $ record_ending("jessy_ilona")
-
-    systeme "Fin 2 - Juste Jessy et Ilona."
-    systeme "Quelque temps après la randonnée, ils reviennent dans leur maison Minecraft."
-    show jessy minecraft at char_left
-    show ilona minecraft at char_right
-    with dissolve
-    i "On pourrait réparer cette pièce maintenant."
-    j "Non. C'est là que tout a commencé."
-    if arc7_jessy_family_epilogue:
-        jump ending_family
-    else:
-        jump post_generique
-
-
-label ending_no_contact:
-    scene bg arc2 minecraft house summer night
-    with fade
-    $ record_ending("no_contact")
-
-    systeme "Fin 3 - Une place pour l'amitié."
-    systeme "Après la randonnée, Ilona et Jessy se donnent le temps de retrouver leurs marques. Ils continuent à se parler, sans se promettre plus que ce qu'ils veulent vivre."
-    show jessy minecraft at char_left
-    show ilona minecraft at char_right
-    with dissolve
-    i "Tu as laissé la porte ouverte dans notre monde ?"
-    j "Oui. Pour qu'on puisse revenir quand on en aura envie."
-    jump post_generique
-
-
-label ending_monsieur_laplage:
-    scene bg beach
-    with fade
-    $ record_ending("laplage")
-
-    show laplage neutral at char_left
-    systeme "Fin 4 - La plage ne répond plus."
-    i "C'est la première fois depuis longtemps que personne ne me demande de choisir vite."
-    show laplage thumb_up at char_left
-    laplage "Ne détruis pas ce qui t'a appris à construire."
-    jump post_generique
-
-
-label ending_theo_vtuber:
-    scene bg stream
-    with fade
-    $ record_ending("theo_vtuber")
-
-    systeme "Fin 5 - La route de Théo."
-    t "Je ne t'empêche pas de choisir. Je t'aide à ne pas gâcher ce que tu as construit."
-    show laplage neutral at char_center
-    laplage "Quand quelqu'un te promet le monde, regarde d'abord s'il ne t'enlève pas le ciel."
-    systeme "Pouce baissé, lentement."
-    jump post_generique
-
-
-label ending_ilonanium:
-    scene bg ending
-    with fade
-    $ record_ending("ilonanium")
-
-    systeme "Fin 6 - Easter egg : L'Ilonanium."
-    i "Non. J'ai juste fini ce qu'il restait."
-    show laplage thumb_up at char_center
-    laplage "Laisser digérer."
-    jump post_generique
-
-
-label post_generique:
-    scene bg beach
-    with fade
-
-    systeme "Post-générique - Le prochain, c'est toi."
-    show laplage neutral at char_left
-    show theo disappointed at char_right
-    t "Pourquoi moi ? Après tout ce que j'ai fait..."
-    laplage "Comprendre quelqu'un ne te donne pas le droit de choisir pour lui."
-    show laplage thumb_up at char_left
-    laplage "Le prochain choix sera le tien."
-    systeme "Écran noir. À suivre... peut-être."
-
-    return

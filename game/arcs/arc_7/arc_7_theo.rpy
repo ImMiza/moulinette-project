@@ -13,9 +13,6 @@
 # Choix final (scènes déplacées depuis bad_ending.rpy) :
 #   Théo écoute Ilona    -> jump ending_neutre (game/arcs/endings/ending_neutre.rpy)
 #   Théo priorise le business -> jump bad_ending (game/arcs/endings/bad_ending.rpy)
-# Remplace l'ancien dispatch par stats (ending_monsieur_laplage / ending_theo_vtuber),
-# désormais mort code : ces deux labels restent en stub dans script.rpy si besoin
-# de les réutiliser ailleurs.
 
 # --- Personnage local (tchat Twitch, anonyme) ---
 define tchat = Character("Tchat", color="#7fd6ff", callback=speaker_callback(""))

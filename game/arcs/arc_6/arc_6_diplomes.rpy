@@ -490,26 +490,25 @@ label arc_6_diplomes:
     with dissolve
 
     if arc4_5_sofiane_maid:
-        x "J'ai une photo."
+        x "Sofiane, tu nous diras un jour où tu travailles ?"
 
         show sofiane awkward at char_midright
         with dissolve
 
         s "Non."
-        x "J'ai une photo depuis décembre."
-        a "Montre."
+        a "Même maintenant qu'on est diplômés ?"
         s "La route a faim."
         a "Ça ne répond pas à la question."
         s "Si."
 
-        systeme "Alexandre montre l'écran. Allan met exactement trois secondes à comprendre ce qu'il regarde, et le reste de sa vie à l'oublier."
+        systeme "Jessy et Ilona échangent un regard, puis s'intéressent très sérieusement à leurs verres. Ils ont promis de ne rien raconter. Allan et Alexandre n'obtiennent pas d'autre réponse."
     else:
         x "Sofiane, t'as fait quoi cet hiver ?"
         s "J'ai financé de l'essence."
         x "C'est pas une réponse."
         s "C'est la seule qui reste vraie dans dix ans."
 
-        systeme "Sofiane regarde ailleurs. Personne ne saura jamais."
+        systeme "Sofiane regarde ailleurs. Pour l'instant, son lieu de travail reste un mystère."
 
     x "Bon."
     x "Moi je vais reprendre du gâteau avant que les premières années le finissent."

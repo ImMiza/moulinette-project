@@ -38,7 +38,7 @@ Fichiers: `game/arcs/arc_6/arc_6_diplomes.rpy` (« Après aujourd'hui », remise
 - Veste d'uniforme de Jessy: **3 mots au feutre sous le col**, contenu jamais révélé (à payer en arc 7).
 - Carnet offert par Théo (Noël); écharpes (Théo / Jessy); miniature de la maison avec « couloir raté ».
 - Panneau Minecraft « ICI, LES PHRASES ONT LE DROIT DE TREMBLER »; « porte inutile ».
-- Micka: convocation chez le proviseur adjoint. Allan garde l'enveloppe de Sofiane. Photo maid de Sofiane chez Alexandre.
+- Micka: convocation chez le proviseur adjoint. Allan garde l'enveloppe de Sofiane. Le secret du maid café reste entre Jessy, Ilona et Sofiane si l’arc IV.5 a été joué ; Alexandre et Allan n’obtiennent ni photo ni révélation.
 - Allan ↔ Théo: rupture tacite, Allan ne traduit plus.
 - Distributeur 2e étage (pièces de 10), bâtiment en travaux l'été. Salle 3-B. « Zéro yen » → cadre Japon implicite.
 - Running gags: « Personne ne fait ça », planète/ballon, Ilona mange.

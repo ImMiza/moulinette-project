@@ -2,6 +2,13 @@
 
 Ce document sert de cahier des techniques et de cahier des scénarios pour permettre à une IA de créer correctement un jeu Ren’Py. 
 
+## Canon géographique et culturel — priorité pour toute création
+
+- L'histoire se déroule **au Japon depuis le début**. La ville et la région d'origine du groupe ne sont pas nommées ; ne leur invente pas de localisation. Tokyo est la destination de Théo à partir de l'arc 6, et le déplacement reste intérieur au Japon.
+- Le jeu est écrit en français, mais **la langue française ne signifie pas que les personnages vivent en France**. « Lycée », « collège » et « proviseur » sont des choix de traduction pour le lecteur ; ils ne transposent pas l'intrigue dans le système scolaire français.
+- Pour toute nouvelle scène, respecte le cadre japonais contemporain : monnaie en yens, institutions, calendrier scolaire, droit, usages et détails du quotidien cohérents avec le Japon. N'introduis pas de repères spécifiquement français (par exemple euros, PACS ou règles administratives françaises) sans demande explicite de l'auteur.
+- N'ajoute pas de détails japonais stéréotypés simplement pour signaler le pays. Suis les éléments déjà établis dans les arcs et cartographies ; quand un détail géographique n'est pas défini, garde-le neutre.
+
 --- 
 
 # Document 1 – Cahier technique Ren’Py (pour l’IA) 

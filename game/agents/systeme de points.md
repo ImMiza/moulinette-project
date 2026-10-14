@@ -263,8 +263,6 @@ Plus deux mécanismes narratifs :
 
 ```renpy
 define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
-define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
-define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 ```
 
 ### Ce que ça donne
@@ -278,19 +276,12 @@ define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 
 Score maximum théorique : **572**. Parties aléatoires : médiane −104, seuil 180 franchi par ~0,3 %.
 
-### La fenêtre romance
+### Choix de la fin Jessy
 
-Le tier B ne donne que du `lien`. Chaque point de `lien` gagné coûte donc environ **7 points de score**.
-
-```
-lien 18 -> score 569     lien 55 -> score 380
-lien 35 -> score 491     lien 64 -> score 325
-lien 45 -> score 438     lien 65 -> score 316   <- sous le seuil
-```
-
-Avec `SEUIL_ROMANCE = 320` et `SEUIL_LIEN = 35`, la romance est atteignable pour `lien ∈ [35, 64]`. Ni triviale, ni impossible : il faut doser.
-
-C'est la traduction mécanique de la thèse. Espace sans complicité → *ami*. Complicité sans espace → *Théo*. Les deux → *romance*.
+Le score de l'arc 6 détermine l'accès à la route Jessy. À la fin de cette route,
+la réponse de Jessy à la déclaration d'Ilona choisit entre `ending_friend`
+et `ending_family`. La collection complète d'Ilonanium ouvre une troisième fin
+optionnelle. Aucun seuil supplémentaire ne sépare les deux fins normales.
 
 ---
 

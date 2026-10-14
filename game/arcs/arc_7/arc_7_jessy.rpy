@@ -1,11 +1,10 @@
 # ARC VII - ROUTE JESSY : LA RANDONNEE
-# La reponse au bivouac fixe la relation ; le fruit ouvre la piste Ilonanium.
+# L'amour et la nuit dans la tente ouvrent Family ; le fruit ouvre Ilonanium.
 
 default arc7_jessy_fruit = ""       # goute / jette
 default arc7_jessy_dejeuner = ""    # amitie / crush
 default arc7_jessy_relation = ""    # amitie / amour
 default arc7_jessy_tente = False
-default arc7_jessy_family_epilogue = False
 
 # Tenues estivales de ville pour les scènes hors montagne.
 image allan beach silence = speaker_sprite("allan", "images/personnages/Allan/beach/uncomfortable_silence.png")
@@ -135,7 +134,6 @@ label arc_7_jessy:
     $ arc7_jessy_dejeuner = ""
     $ arc7_jessy_relation = ""
     $ arc7_jessy_tente = False
-    $ arc7_jessy_family_epilogue = False
     scene black
     with fade
     centered "ARC 7 : LA RANDONNÉE"
@@ -295,17 +293,15 @@ label arc_7_jessy_scene_2:
     with dissolve
     systeme "Au départ des sentiers, Sofiane sort les sacs du coffre et les pose sur l'herbe comme on remet une épée."
     i "Et toi, tu fais quoi pendant qu'on marche ?"
-    s "Je marche un peu. Je redescends. Ce soir, je ramène deux collègues du maid café avant leur service."
+    s "Je marche un peu. Je redescends. Ce soir, je ramène deux collègues avant leur service."
     if arc4_5_sofiane_maid:
         j "Toujours le maid café."
         s "Ne le dis pas trop fort. Les arbres ont des oreilles."
     else:
-        i "Attends. Tes collègues du quoi ?"
-        s "Du maid café."
-        j "Depuis quand tu travailles dans un maid café ?"
-        s "Depuis assez longtemps pour dessiner un cœur au ketchup sans trembler."
-        i "... On a énormément de questions."
-        s "Gardez-les pour la descente. Ça fait passer les lacets."
+        i "Tes collègues ? Tu travailles où, finalement ?"
+        s "Là où l'on finance les pleins d'essence."
+        j "Ça nous laisse beaucoup d'adresses possibles."
+        s "Le mystère entretient la curiosité. La curiosité occupe les montées."
     i "Merci d'avoir fait toute cette route pour nous."
     s "Ce n'est pas pour vous. Enfin. Pas seulement."
     s "Marchez à votre rythme. La montagne n'a pas de chronomètre."
@@ -742,6 +738,7 @@ label arc_7_jessy_scene_5:
             menu:
                 "Que préfère Jessy pour cette nuit ?"
                 "Garder son hamac et prendre leur temps.":
+                    $ arc7_jessy_tente = False
                     $fade_channel("music",0.7,1.0)
                     j "J'ai envie d'être avec toi. Et ce soir, je crois que j'ai surtout envie de pas aller trop vite."
                     j "Le hamac et moi, on a des choses à régler."
@@ -1182,7 +1179,9 @@ label arc_7_jessy_scene_8:
 
 label arc_7_jessy_fin_relation:
     if arc7_jessy_relation == "amitie":
-        jump ending_no_contact
+        jump ending_friend
+    elif arc7_jessy_relation == "amour" and arc7_jessy_tente:
+        jump ending_family
     else:
-        $ arc7_jessy_family_epilogue = arc6_score >= SEUIL_ROMANCE and lien_jessy_ilona >= SEUIL_LIEN and souvenirs["jessy_repare"] and souvenirs["maison_respectee"] and interruptions_reparees >= 1
-        jump ending_jessy_ilona
+        # Le hamac et les anciennes sauvegardes sans choix complet restent hors Family.
+        jump ending_friend
