@@ -1,11 +1,11 @@
 ﻿# Arc III - Rentrée : les regards.
 
-image bg arc3 festival hallway = im.Scale("images/scenes/arc_3/bg_arc3_festival_hallway.jpg", 1920, 1080)
-image bg arc3 festival stand = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand.jpg", 1920, 1080)
-image bg arc3 festival stand students = im.Scale("images/scenes/arc_3/bg_arc3_festival_stand_with_students.jpg", 1920, 1080)
-image bg arc3 festival courtyard = im.Scale("images/scenes/arc_3/bg_arc3_festival_courtyard.jpg", 1920, 1080)
-image bg arc3 classroom evening = im.Scale("images/scenes/arc_3/bg_arc3_classroom_evening.jpg", 1920, 1080)
-image bg arc3 minecraft night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+image bg arc3 festival hallway = im.Scale("images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg", 1920, 1080)
+image bg arc3 festival stand = im.Scale("images/scenes/backgrounds/school/bg_arc3_festival_stand.jpg", 1920, 1080)
+image bg arc3 festival stand students = im.Scale("images/scenes/backgrounds/school/bg_arc3_festival_stand_with_students.jpg", 1920, 1080)
+image bg arc3 festival courtyard = im.Scale("images/scenes/backgrounds/school/bg_arc3_festival_courtyard.jpg", 1920, 1080)
+image bg arc3 classroom evening = im.Scale("images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg", 1920, 1080)
+image bg arc3 minecraft night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 
 image jessy festival neutral = speaker_sprite("jessy", "images/personnages/Jessy/festival/neutral_attentiveness.png")
 image jessy festival listening = speaker_sprite("jessy", "images/personnages/Jessy/festival/regretful_listening.png")

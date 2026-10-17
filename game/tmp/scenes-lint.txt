@@ -1,0 +1,203 @@
+﻿Ren'Py 8.5.3.26051504 lint report, generated at: Sat Oct 17 15:40:17 2026
+
+
+Obsolete Image Manipulators:
+
+arcs/arc_1/arc_1_printemps.rpy:
+    * line     3 im.Scale
+    * line     4 im.Scale
+    * line     5 im.Scale
+    * line     6 im.Scale
+    * and 2 more.
+
+arcs/arc_2/arc_2_plage.rpy:
+    * line     3 im.Scale
+    * line     4 im.Scale
+    * line     5 im.Scale
+    * line     6 im.Scale
+    * and 4 more.
+
+arcs/arc_3/arc_3_rentree.rpy:
+    * line     3 im.Scale
+    * line     4 im.Scale
+    * line     5 im.Scale
+    * line     6 im.Scale
+    * and 2 more.
+
+arcs/arc_4/arc_4_5_maid_cafe.rpy:
+    * line     4 im.Scale
+    * line     5 im.Scale
+    * line     6 im.Scale
+
+arcs/arc_4/arc_4_5_theo.rpy:
+    * line     9 im.Scale
+    * line    10 im.Scale
+
+arcs/arc_4/arc_4_noel.rpy:
+    * line     3 im.Scale
+    * line     4 im.Scale
+    * line     5 im.Scale
+    * line     6 im.Scale
+    * and 2 more.
+
+arcs/arc_5/arc_5_examens.rpy:
+    * line    20 im.Scale
+    * line    21 im.Scale
+    * line    22 im.Scale
+    * line    23 im.Scale
+    * and 8 more.
+
+arcs/arc_7/arc_7_jessy.rpy:
+    * line    37 im.Scale
+    * line    37 im.Scale
+    * line    37 im.Scale
+    * line    37 im.Scale
+    * and 29 more.
+
+arcs/arc_7/arc_7_theo.rpy:
+    * line    30 im.Scale
+    * line    31 im.Scale
+    * line    32 im.Scale
+    * line    33 im.Scale
+    * and 5 more.
+
+arcs/endings/bad_ending.rpy:
+    * line    22 im.Scale
+    * line    23 im.Scale
+    * line    24 im.Scale
+    * line    25 im.Scale
+    * and 3 more.
+
+script.rpy:
+    * line    14 im.Scale
+    * line    14 im.Scale
+    * line    14 im.Scale
+    * line    14 im.Scale
+    * and 257 more.
+
+images/personnages/Théo/beach/cold_disappointment.png contains non-ASCII characters in its filename.
+(ZIP file distributions can only reliably include ASCII filenames.)
+
+images/personnages/Théo/beach/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/beach/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/cold_disappointment.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/cold_disappointment.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/festival/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/party/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/party/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/party/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/party/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/theo_laplage/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/theo_laplage/neutral_laplage.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/theo_laplage/picture.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/theo_laplage/thumb_up_laplage.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/cold_disappointment.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/tokyo/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/cold_disappointment.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/reassuring_smile.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/cold_disappointment.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/controlled_annoyance.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/defense_frustration.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/feigned_innocence.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/knowing_smirk.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/neutral.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/quiet_jalousy.png contains non-ASCII characters in its filename.
+
+images/personnages/Théo/winter/winter_with_scarf/reassuring_smile.png contains non-ASCII characters in its filename.
+
+tmp/personnage_contact_sheets/Théo.jpg contains non-ASCII characters in its filename.
+
+
+Statistics:
+
+The game contains 6,984 dialogue blocks, containing 69,253 words and 381,537
+characters, for an average of 9.9 words and 55 characters per block.
+
+The game contains 47 menus, 403 images, and 24 screens.
+
+
+Lint is not a substitute for thorough testing. Remember to update Ren'Py
+before releasing. New releases fix bugs and improve compatibility.

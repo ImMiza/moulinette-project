@@ -1,5 +1,5 @@
 # GOOD ENDING (FAMILY) - JESSY ET ILONA
-# Suite de l'aveu réciproque et du choix de dormir avec Ilona dans la tente.
+# Suite de l'aveu réciproque, que Jessy ait choisi la tente ou le hamac.
 # Scénario : agents/Good ending.md ; continuité : agents/cartographies.
 # Les décors dédiés et le plan du câlin sont intégrés. Les pistes Undertale gardent leurs secours.
 
@@ -8,25 +8,25 @@ init -5 python:
         return chemin if renpy.loadable(chemin) else secours
 
 # Les originaux (2752 x 1536) remplissent l'écran sans déformer leur perspective.
-image bg family rendezvous = Transform("images/scenes/ending/family/bg_family_rendezvous.jpg", xysize=(1920, 1080), fit="cover")
-image bg family restaurant jour = Transform("images/scenes/ending/family/bg_family_restaurant_jour.jpg", xysize=(1920, 1080), fit="cover")
-image cg family laplage adieux = Transform("images/scenes/ending/family/cg_family_laplage_adieux.png", xysize=(1920, 1080), fit="cover")
-image bg family salle = Transform("images/scenes/ending/family/bg_family_salle.jpg", xysize=(1920, 1080), fit="cover")
-image bg family maison = Transform("images/scenes/ending/family/bg_family_maison.jpg", xysize=(1920, 1080), fit="cover")
-image bg family pancakes rate = Transform("images/scenes/ending/family/cg_family_pancakes_01.png", xysize=(1920, 1080), fit="cover")
-image bg family pancakes reussi = Transform("images/scenes/ending/family/cg_family_pancakes_02.png", xysize=(1920, 1080), fit="cover")
-image bg family restaurant soir = Transform("images/scenes/ending/family/bg_family_restaurant_soir.jpg", xysize=(1920, 1080), fit="cover")
-image bg family restaurant nuit = Transform("images/scenes/ending/family/bg_family_restaurant_nuit.png", xysize=(1920, 1080), fit="cover")
-image cg family entrance kiss = Transform("images/scenes/ending/family/cg_family_entrance_kiss.png", xysize=(1920, 1080), fit="cover")
-image bg family fete = Transform("images/scenes/ending/family/bg_family_fete.jpg", xysize=(1920, 1080), fit="cover")
-image bg family fete fin = Transform("images/scenes/ending/family/bg_family_fete_fin.png", xysize=(1920, 1080), fit="cover")
-image bg family fete rangement = Transform("images/scenes/ending/family/bg_family_fete_rangement.png", xysize=(1920, 1080), fit="cover")
-image cg family toast = Transform("images/scenes/ending/family/cg_family_toast.png", xysize=(1920, 1080), fit="cover")
-image bg family karaoke = Transform("images/scenes/ending/family/bg_family_karaoke.png", xysize=(1920, 1080), fit="cover")
-image bg family jardin jour = Transform("images/scenes/ending/family/bg_family_jardin_jour.jpg", xysize=(1920, 1080), fit="cover")
-image bg family jardin soir = Transform("images/scenes/ending/family/bg_family_jardin_soir.jpg", xysize=(1920, 1080), fit="cover")
-image cg family lucy hug = Transform("images/scenes/ending/family/cg_family_lucy_hug.png", xysize=(1920, 1080), fit="cover")
-image cg family homecoming = Transform("images/scenes/ending/family/cg_family_homecoming.png", xysize=(1920, 1080), fit="cover")
+image bg family rendezvous = Transform("images/scenes/backgrounds/family/bg_family_rendezvous.jpg", xysize=(1920, 1080), fit="cover")
+image bg family restaurant jour = Transform("images/scenes/backgrounds/family/bg_family_restaurant_jour.jpg", xysize=(1920, 1080), fit="cover")
+image cg family laplage adieux = Transform("images/scenes/cg/family/cg_family_laplage_adieux.png", xysize=(1920, 1080), fit="cover")
+image bg family salle = Transform("images/scenes/backgrounds/family/bg_family_salle.jpg", xysize=(1920, 1080), fit="cover")
+image bg family maison = Transform("images/scenes/backgrounds/family/bg_family_maison.jpg", xysize=(1920, 1080), fit="cover")
+image bg family pancakes rate = Transform("images/scenes/cg/family/cg_family_pancakes_01.png", xysize=(1920, 1080), fit="cover")
+image bg family pancakes reussi = Transform("images/scenes/cg/family/cg_family_pancakes_02.png", xysize=(1920, 1080), fit="cover")
+image bg family restaurant soir = Transform("images/scenes/backgrounds/family/bg_family_restaurant_soir.jpg", xysize=(1920, 1080), fit="cover")
+image bg family restaurant nuit = Transform("images/scenes/backgrounds/family/bg_family_restaurant_nuit.png", xysize=(1920, 1080), fit="cover")
+image cg family entrance kiss = Transform("images/scenes/cg/family/cg_family_entrance_kiss.png", xysize=(1920, 1080), fit="cover")
+image bg family fete = Transform("images/scenes/backgrounds/family/bg_family_fete.jpg", xysize=(1920, 1080), fit="cover")
+image bg family fete fin = Transform("images/scenes/backgrounds/family/bg_family_fete_fin.png", xysize=(1920, 1080), fit="cover")
+image bg family fete rangement = Transform("images/scenes/backgrounds/family/bg_family_fete_rangement.png", xysize=(1920, 1080), fit="cover")
+image cg family toast = Transform("images/scenes/cg/family/cg_family_toast.png", xysize=(1920, 1080), fit="cover")
+image bg family karaoke = Transform("images/scenes/backgrounds/family/bg_family_karaoke.png", xysize=(1920, 1080), fit="cover")
+image bg family jardin jour = Transform("images/scenes/backgrounds/family/bg_family_jardin_jour.jpg", xysize=(1920, 1080), fit="cover")
+image bg family jardin soir = Transform("images/scenes/backgrounds/family/bg_family_jardin_soir.jpg", xysize=(1920, 1080), fit="cover")
+image cg family lucy hug = Transform("images/scenes/cg/family/cg_family_lucy_hug.png", xysize=(1920, 1080), fit="cover")
+image cg family homecoming = Transform("images/scenes/cg/family/cg_family_homecoming.png", xysize=(1920, 1080), fit="cover")
 
 # Tenues disponibles : pas de summer/house pour Jessy, qui conserve beach
 # au quotidien. Les tailles et le suivi du locuteur restent ceux du jeu.

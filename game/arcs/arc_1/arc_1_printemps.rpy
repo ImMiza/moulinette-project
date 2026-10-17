@@ -1,11 +1,11 @@
 # Arc I - Printemps : la vie hors écran.
 
-image bg arc1 school corridor = im.Scale("images/scenes/shared/bg_shared_school_corridor.jpg", 1920, 1080)
-image bg arc1 rooftop = im.Scale("images/scenes/arc_1/bg_arc1_rooftop_lunch.jpg", 1920, 1080)
-image bg arc1 train platform = im.Scale("images/scenes/arc_1/bg_arc1_train_platform.jpg", 1920, 1080)
-image bg arc1 train inside = im.Scale("images/scenes/shared/bg_shared_train_inside.jpg", 1920, 1080)
-image bg arc1 konbini = im.Scale("images/scenes/arc_1/bg_arc1_konbini_snacks.jpg", 1920, 1080)
-image bg arc1 cafeteria = im.Scale("images/scenes/arc_1/bg_arc1_school_cafeteria.jpg", 1920, 1080)
+image bg arc1 school corridor = im.Scale("images/scenes/backgrounds/school/bg_shared_school_corridor.jpg", 1920, 1080)
+image bg arc1 rooftop = im.Scale("images/scenes/backgrounds/school/bg_arc1_rooftop_lunch.jpg", 1920, 1080)
+image bg arc1 train platform = im.Scale("images/scenes/backgrounds/transport/bg_arc1_train_platform.jpg", 1920, 1080)
+image bg arc1 train inside = im.Scale("images/scenes/backgrounds/transport/bg_shared_train_inside.jpg", 1920, 1080)
+image bg arc1 konbini = im.Scale("images/scenes/backgrounds/city/bg_arc1_konbini_snacks.jpg", 1920, 1080)
+image bg arc1 cafeteria = im.Scale("images/scenes/backgrounds/school/bg_arc1_school_cafeteria.jpg", 1920, 1080)
 
 define audio.kombiopen = "audio/fx/kombini_open.mp3"
 define audio.kombini = "audio/music/kombini.ogg"

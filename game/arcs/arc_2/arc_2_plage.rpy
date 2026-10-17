@@ -1,13 +1,13 @@
 ﻿# Arc II - Vacances d'été : la plage.
 
-image bg arc2 beach main = im.Scale("images/scenes/arc_2/bg_arc2_beach_main.jpg", 1920, 1080)
-image bg arc2 beach sunset = im.Scale("images/scenes/arc_2/bg_arc2_beach_sunset.jpg", 1920, 1080)
-image bg arc2 group parasol = im.Scale("images/scenes/arc_2/bg_arc2_group_parasol.jpg", 1920, 1080)
-image bg arc2 jetty = im.Scale("images/scenes/arc_2/bg_arc2_jetty.jpg", 1920, 1080)
-image bg arc2 kakigori counter = im.Scale("images/scenes/arc_2/bg_arc2_kakigori_counter.jpg", 1920, 1080)
-image bg arc2 lost items table = im.Scale("images/scenes/arc_2/bg_arc2_lost_items_table.jpg", 1920, 1080)
-image bg arc2 minecraft house summer night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
-image bg arc2 tide pools = im.Scale("images/scenes/arc_2/bg_arc2_tide_pools.jpg", 1920, 1080)
+image bg arc2 beach main = im.Scale("images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg", 1920, 1080)
+image bg arc2 beach sunset = im.Scale("images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg", 1920, 1080)
+image bg arc2 group parasol = im.Scale("images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg", 1920, 1080)
+image bg arc2 jetty = im.Scale("images/scenes/backgrounds/beach/bg_arc2_jetty.jpg", 1920, 1080)
+image bg arc2 kakigori counter = im.Scale("images/scenes/backgrounds/beach/bg_arc2_kakigori_counter.jpg", 1920, 1080)
+image bg arc2 lost items table = im.Scale("images/scenes/backgrounds/beach/bg_arc2_lost_items_table.jpg", 1920, 1080)
+image bg arc2 minecraft house summer night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+image bg arc2 tide pools = im.Scale("images/scenes/backgrounds/beach/bg_arc2_tide_pools.jpg", 1920, 1080)
 
 image jessy beach angry = speaker_sprite("jessy", "images/personnages/Jessy/beach/angry.png")
 image jessy beach embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/beach/nervous_embarrassment.png")

@@ -8,7 +8,7 @@
 # Les scènes de contexte (stream, dialogue Ilona/Théo, choix) se trouvent dans
 # arc_7_theo.rpy. Ce fichier reprend le 7 décembre, au lendemain du million.
 #
-# Les décors propres à cette fin sont dans images/scenes/ending. Le studio et le
+# Les décors propres à cette fin sont dans images/scenes/backgrounds/tokyo/. Le studio et le
 # salon nocturne réutilisent ceux de l'arc 7. La découverte est montrée très
 # brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
@@ -19,13 +19,13 @@ define audio.majulaLike = "audio/music/Majula.ogg"
 define audio.bar = "audio/music/bar_jazz.ogg"
 
 # --- Décors de la bad ending ---
-image bg apartment night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
-image bg apartment night nolight = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
-image bg apartment corridor = im.Scale("images/scenes/ending/bg_bad_ending_apartment_corridor_night.jpg", 1920, 1080)
-image bg apartment ilona door = im.Scale("images/scenes/ending/bg_bad_ending_ilona_door_bedroom.jpg", 1920, 1080)
-image bg apartment ilona bedroom = im.Scale("images/scenes/ending/bg_bad_ending_ilona_bedroom.png", 1920, 1080)
-image bg tokyo bar = im.Scale("images/scenes/ending/bg_bad_ending_tokyo_bar_night.jpg", 1920, 1080)
-image bg tokyo street night = im.Scale("images/scenes/ending/bg_bad_ending_tokyo_street_night.jpg", 1920, 1080)
+image bg apartment night = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png", 1920, 1080)
+image bg apartment night nolight = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
+image bg apartment corridor = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_apartment_corridor_night.jpg", 1920, 1080)
+image bg apartment ilona door = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_door_bedroom.jpg", 1920, 1080)
+image bg apartment ilona bedroom = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.png", 1920, 1080)
+image bg tokyo bar = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.jpg", 1920, 1080)
+image bg tokyo street night = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.jpg", 1920, 1080)
 
 
 label bad_ending:

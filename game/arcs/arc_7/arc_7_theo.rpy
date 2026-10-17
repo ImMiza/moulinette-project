@@ -27,15 +27,15 @@ define audio.apartsad = "audio/music/apart_tokyo_sad.ogg"
 define auddio.depressed = "audio/music/depressed.ogg"
 
 # --- Décors propres à la route Théo ---
-image bg arc7 intro stream = im.Scale("images/scenes/arc_7/bg_arc7_intro_stream.jpg", 1920, 1080)
-image bg arc7 tokyo studio = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_streaming_studio_night.jpg", 1920, 1080)
-image bg arc7 tokyo morning = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_morning.jpg", 1920, 1080)
-image bg arc7 tokyo house night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night.png", 1920, 1080)
-image bg arc7 tokyo house night nolight = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
-image bg arc7 tokyo konbini night = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_konbini_night.png", 1920, 1080)
-image bg arc7 tokyo arrival = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_arrival_station.jpg", 1920, 1080)
-image bg arc7 tokyo restaurant = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_restaurant_night.jpg", 1920, 1080)
-image bg arc7 tokyo park = im.Scale("images/scenes/arc_7/bg_arc7_tokyo_park_night.jpg", 1920, 1080)
+image bg arc7 intro stream = im.Scale("images/scenes/backgrounds/streaming/bg_arc7_intro_stream.jpg", 1920, 1080)
+image bg arc7 tokyo studio = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg", 1920, 1080)
+image bg arc7 tokyo morning = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg", 1920, 1080)
+image bg arc7 tokyo house night = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png", 1920, 1080)
+image bg arc7 tokyo house night nolight = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg", 1920, 1080)
+image bg arc7 tokyo konbini night = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_konbini_night.png", 1920, 1080)
+image bg arc7 tokyo arrival = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_arrival_station.jpg", 1920, 1080)
+image bg arc7 tokyo restaurant = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.jpg", 1920, 1080)
+image bg arc7 tokyo park = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg", 1920, 1080)
 
 # --- Tenues Tokyo propres à la route Théo ---
 image ilona tokyo embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])

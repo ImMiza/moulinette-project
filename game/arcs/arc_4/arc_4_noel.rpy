@@ -1,11 +1,11 @@
 # Arc IV - Noël : le cadeau qui dit trop de choses.
 
-image bg arc4 train inside = im.Scale("images/scenes/arc_4/bg_arc4_train_inside.jpg", 1920, 1080)
-image bg arc4 illuminations = im.Scale("images/scenes/arc_4/bg_arc4_illuminations.jpg", 1920, 1080)
-image bg arc4 shopping gallery = im.Scale("images/scenes/arc_4/bg_arc4_shopping_gallery.jpg", 1920, 1080)
-image bg arc4 christmas market = im.Scale("images/scenes/arc_4/bg_arc4_christmas_market.jpg", 1920, 1080)
-image bg arc4 riverside winter = im.Scale("images/scenes/arc_4/bg_arc4_riverside_winter.jpg", 1920, 1080)
-image bg arc4 minecraft winter night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+image bg arc4 train inside = im.Scale("images/scenes/backgrounds/transport/bg_arc4_train_inside.jpg", 1920, 1080)
+image bg arc4 illuminations = im.Scale("images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg", 1920, 1080)
+image bg arc4 shopping gallery = im.Scale("images/scenes/backgrounds/city/bg_arc4_shopping_gallery.jpg", 1920, 1080)
+image bg arc4 christmas market = im.Scale("images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg", 1920, 1080)
+image bg arc4 riverside winter = im.Scale("images/scenes/backgrounds/winter/bg_arc4_riverside_winter.jpg", 1920, 1080)
+image bg arc4 minecraft winter night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 
 image jessy winter angry = speaker_sprite("jessy", "images/personnages/Jessy/winter/angry.png", 842, 1264)
 image jessy winter embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/winter/nervous_embarrassment.png", 842, 1264)

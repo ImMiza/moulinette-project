@@ -1,7 +1,7 @@
 # Arc 7 — Cartographie
 
 Fichiers:
-- `game/arcs/arc_7/arc_7_jessy.rpy` — entrée `arc_7_jessy` (jump depuis `arc_6_diplomes.rpy`). Chaîne : `arc_7_jessy` → `arc_7_jessy_scene_2`…`_scene_7` → `arc_7_jessy_nuit_retour` → `_scene_8` → `ending_ilonanium` ou `arc_7_jessy_fin_relation` → `ending_family` (amour **et** nuit dans la tente avec Ilona) / `ending_friend` (amitié, hamac ou choix incomplets).
+- `game/arcs/arc_7/arc_7_jessy.rpy` — entrée `arc_7_jessy` (jump depuis `arc_6_diplomes.rpy`). Chaîne : `arc_7_jessy` → `arc_7_jessy_scene_2`…`_scene_7` → `arc_7_jessy_nuit_retour` → `_scene_8` → `ending_ilonanium` ou `arc_7_jessy_fin_relation` → `ending_family` (amour, tente ou hamac) / `ending_friend` (choix explicite de l'amitié). Une ancienne sauvegarde sans réponse revient au bivouac pour jouer l'aveu.
 - `game/arcs/arc_7/arc_7_theo.rpy` — entrée `arc_7_theo`, toujours via `arc_6_bascule_theo`. Label unique (sections 1–1N, 2, 3). Sorties : `ending_neutre` / `bad_ending`.
 - Aiguillage (`arc6_calcule_verdict`, arc 6) : `controle_repetitif = interruptions_ilona - interruptions_reparees` ; `>= 3` → Théo forcé ; sinon `arc6_score >= SEUIL_JESSY` (180) → Jessy, sinon Théo. Score = espace (autonomie, phrases finies, réparations, communication, confiance) + souvenirs − dette (`influence_theo`, contrôle, `pression_stream`, `jalousie`, `confidences_laplage`).
 

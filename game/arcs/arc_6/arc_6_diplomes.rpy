@@ -121,11 +121,10 @@ init -5 python:
 
 # Assets propres à l'arc 6 : gymnase de cérémonie, classe du matin,
 # classe décorée de fin d'année.
-# arc6_bg() prend l'asset arc_6 s'il existe, sinon le secours indique.
+# arc6_bg() prend le chemin demandé s'il existe, sinon le secours indiqué.
 # fit="cover" recadre sans déformer, contrairement à im.Scale.
 init -5 python:
-    def arc6_bg(nom, secours):
-        chemin = "images/scenes/arc_6/bg_arc6_{}.jpg".format(nom)
+    def arc6_bg(chemin, secours):
         if not renpy.loadable(chemin):
             chemin = secours
         return Transform(chemin, fit="cover", xysize=(1920, 1080), align=(0.5, 0.5))
@@ -133,24 +132,24 @@ init -5 python:
     def arc6_flashbg(chemin):
         return Transform(chemin, fit="cover", xysize=(1920, 1080), align=(0.5, 0.5))
 
-image bg arc6 classroom morning = arc6_bg("classroom_morning", "images/scenes/arc_5/bg_arc5_classroom.jpg")
-image bg arc6 gym ceremony = arc6_bg("gym_ceremony", "images/scenes/arc_1/bg_arc1_school_cafeteria.jpg")
-image bg arc6 corridor empty = arc6_bg("corridor_empty", "images/scenes/shared/bg_shared_school_corridor.jpg")
-image bg arc6 classroom festive = arc6_bg("classroom_festive", "images/scenes/arc_3/bg_arc3_classroom_evening.jpg")
-image bg arc6 courtyard march = arc6_bg("courtyard_march", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc6 rooftop dusk = arc6_bg("rooftop_dusk", "images/scenes/arc_5/bg_arc5_rooftop.jpg")
-image bg arc6 minecraft last = arc6_bg("minecraft_last", "images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
+image bg arc6 classroom morning = arc6_bg("images/scenes/backgrounds/school/bg_arc6_classroom_morning.jpg", "images/scenes/backgrounds/school/bg_arc5_classroom.jpg")
+image bg arc6 gym ceremony = arc6_bg("images/scenes/backgrounds/school/bg_arc6_gym_ceremony.jpg", "images/scenes/backgrounds/school/bg_arc1_school_cafeteria.jpg")
+image bg arc6 corridor empty = arc6_bg("images/scenes/backgrounds/school/bg_arc6_corridor_empty.jpg", "images/scenes/backgrounds/school/bg_shared_school_corridor.jpg")
+image bg arc6 classroom festive = arc6_bg("images/scenes/backgrounds/school/bg_arc6_classroom_festive.jpg", "images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg")
+image bg arc6 courtyard march = arc6_bg("images/scenes/backgrounds/school/bg_arc6_courtyard_march.jpg", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc6 rooftop dusk = arc6_bg("images/scenes/backgrounds/school/bg_arc6_rooftop_dusk.jpg", "images/scenes/backgrounds/school/bg_arc5_rooftop.jpg")
+image bg arc6 minecraft last = arc6_bg("images/scenes/backgrounds/minecraft/bg_arc6_minecraft_last.jpg", "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg")
 
 # Backgrounds de flashback réutilisés tels quels par la scène 3.
-image bg arc6 flash beach = arc6_flashbg("images/scenes/arc_2/bg_arc2_beach_sunset.jpg")
-image bg arc6 flash festival = arc6_flashbg("images/scenes/arc_3/bg_arc3_festival_hallway.jpg")
-image bg arc6 flash minecraft = arc6_flashbg("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
-image bg arc6 flash market = arc6_flashbg("images/scenes/arc_4/bg_arc4_christmas_market.jpg")
-image bg arc6 flash bench = arc6_flashbg("images/scenes/arc_4/bg_arc4_park_bench.jpg")
-image bg arc6 flash cinema = arc6_flashbg("images/scenes/arc_5/bg_arc5_cinema_seated.jpg")
-image bg arc6 flash station = arc6_flashbg("images/scenes/arc_5/bg_arc5_train_station.jpg")
+image bg arc6 flash beach = arc6_flashbg("images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg")
+image bg arc6 flash festival = arc6_flashbg("images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg")
+image bg arc6 flash minecraft = arc6_flashbg("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg")
+image bg arc6 flash market = arc6_flashbg("images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg")
+image bg arc6 flash bench = arc6_flashbg("images/scenes/backgrounds/winter/bg_arc4_park_bench.jpg")
+image bg arc6 flash cinema = arc6_flashbg("images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg")
+image bg arc6 flash station = arc6_flashbg("images/scenes/backgrounds/transport/bg_arc5_train_station.jpg")
 
-image bg arc6 evil theo = arc6_bg("evil_theo", "images/scenes/bg_arc6_evil_theo.jpg")
+image bg arc6 evil theo = arc6_bg("images/scenes/cg/theo/bg_arc6_evil_theo.jpg", "images/scenes/cg/theo/bg_arc6_evil_theo.jpg")
 define audio.sirene = "audio/fx/prowler_sound.mp3"
 
 # SCÈNE 1 : LE STYLO VIOLET

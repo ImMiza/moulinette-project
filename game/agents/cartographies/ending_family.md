@@ -5,7 +5,7 @@ Source narrative : `game/agents/Good ending.md`.
 
 ## Entrée et déroulement
 
-Entrée : `arc_7_jessy_fin_relation` → `ending_family` uniquement si `arc7_jessy_relation == "amour"` **et** `arc7_jessy_tente == True`. Il faut donc choisir l'amour puis rejoindre Ilona dans sa tente. Le choix du hamac mène à `ending_friend`, comme l'amitié ou une ancienne sauvegarde sans choix complet. La fin secrète Ilonanium garde son aiguillage prioritaire. `record_ending("family")` est conservé à l'entrée.
+Entrée : `arc_7_jessy_fin_relation` → `ending_family` si `arc7_jessy_relation == "amour"`, que Jessy ait choisi la tente ou le hamac. Seul le choix explicite de l'amitié mène à `ending_friend`. Une ancienne sauvegarde sans réponse revient au bivouac pour jouer l'aveu. La fin secrète Ilonanium garde son aiguillage prioritaire. `record_ending("family")` est conservé à l'entrée.
 
 1. **Restaurant en ville, quelques jours après la randonnée.** Ils souhaitent habiter ensemble dans les montagnes et découvrent qu'ils ont sélectionné la même annonce. Appel au propriétaire ; Sofiane accepte de les conduire.
 2. **Visite le lendemain.** Monsieur Laplage possède le restaurant et la maison. Il entretenait les lieux après le départ à la retraite d'amis restaurateurs. Visite de la salle et de la maison, puis retour dans la salle pour les questions, le don et les signatures. Sortie dans la cour pour les adieux définitifs de Laplage, dont le mystère reste ouvert.
@@ -23,14 +23,14 @@ Entrée : `arc_7_jessy_fin_relation` → `ending_family` uniquement si `arc7_jes
 - La décision de vivre ensemble précède l'aide de Laplage. Son don reprend le brainstorming ; il n'explique pas la réussite amoureuse.
 - La réconciliation avec Théo prolonge sa conversation avec Allan à Tokyo. Son invitation ne tombe pas sans préparation.
 - Le café du festival prépare le projet, mais le couple doit encore apprendre à tenir un restaurant.
-- L'accès à cette fin, et donc à l'annonce de grossesse, exige l'amour et le choix de partager la tente à la randonnée.
+- L'accès à cette fin exige l'amour réciproque. Le choix de dormir dans la tente ou dans le hamac ne détermine plus la fin ; l'annonce de grossesse suit leur installation commune.
 - Les références optionnelles des anciennes branches ne sont pas imposées : pas de miniature de Noël supposée offerte. Le café de Sofiane est évoqué en aparté par Jessy et Ilona seulement si `arc4_5_sofiane_maid` vaut `True`. Sinon son lieu de travail reste inconnu de la tablée. Les révélations contradictoires de l’arc 6 (photo d’Alexandre) et de l’arc 7 S2 (aveu sans l’arc IV.5) ont été corrigées. La scène du trajet de Sofiane seul avec ses collègues reste une information du joueur, pas des protagonistes.
 - La Trueno effectue deux rotations pour transporter tous les invités.
 - Le contenu des trois mots sur la veste reste celui du récit précédent, non explicité dans cette fin.
 
 ## Décors intégrés
 
-Les huit décors initiaux et le nouveau plan du câlin sont intégrés depuis `images/scenes/ending/family/`, sans fond de secours. Les décors initiaux font 2752 × 1536 ; le plan du câlin fait 1672 × 941. Tous sont affichés en 1920 × 1080 avec `Transform(..., fit="cover")` pour conserver leurs proportions.
+Les huit décors initiaux et le nouveau plan du câlin sont intégrés depuis `images/scenes/backgrounds/family/` (décors) et `images/scenes/cg/family/` (illustrations), sans fond de secours. Les décors initiaux font 2752 × 1536 ; le plan du câlin fait 1672 × 941. Tous sont affichés en 1920 × 1080 avec `Transform(..., fit="cover")` pour conserver leurs proportions.
 
 | Fichier intégré | Contenu visible |
 | --- | --- |
@@ -114,7 +114,7 @@ Consignes de génération : premier plan intime dans la cuisine de leur maison, 
 
 ## Câlin d’adieu Ilona / Laplage — refait le 14 octobre 2026
 
-Le plan intégré est désormais `images/scenes/ending/family/cg_family_laplage_adieux.png` (1672 × 941). Il a été recréé avec imagegen à partir du décor de la cour et des sprites d'Ilona, de Monsieur Laplage et de Jessy, sans reprendre la composition de l'ancien câlin. La caméra est placée dans la cour, en direction du portillon ouvert et du chemin de départ. Ilona et Laplage occupent le premier plan ; Jessy reste en retrait près du restaurant. Le geste décrit par la narration — un bras autour d'Ilona et une main sur sa tête — est visible.
+Le plan intégré est désormais `images/scenes/cg/family/cg_family_laplage_adieux.png` (1672 × 941). Il a été recréé avec imagegen à partir du décor de la cour et des sprites d'Ilona, de Monsieur Laplage et de Jessy, sans reprendre la composition de l'ancien câlin. La caméra est placée dans la cour, en direction du portillon ouvert et du chemin de départ. Ilona et Laplage occupent le premier plan ; Jessy reste en retrait près du restaurant. Le geste décrit par la narration — un bras autour d'Ilona et une main sur sa tête — est visible.
 
 Le plan apparaît après « Me reposer » et reste pendant l'étreinte et les deux répliques. Un fondu de 1,2 seconde le relie au plan large de la cour, qui revient pour la poignée de main de Jessy. L'ancien `bg_family_calin.jpg` a été supprimé du projet.
 

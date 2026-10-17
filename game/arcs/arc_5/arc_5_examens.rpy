@@ -17,18 +17,18 @@ default arc5_theo_dans_maison = False     # Théo a accès à la maison Minecraf
 default arc5_cinema_ensemble = False      # Ils sont allés au cinéma
 default arc5_etat_relation = ""           # "proche" / "fragile" / "distant", fige avant la scene 5
 
-image bg arc5 library = im.Scale("images/scenes/arc_5/bg_arc5_library.jpg", 1920, 1080)
-image bg arc5 library night = im.Scale("images/scenes/arc_5/bg_arc5_library_night.jpg", 1920, 1080)
-image bg arc5 cafe = im.Scale("images/scenes/arc_5/bg_arc5_cafe.jpg", 1920, 1080)
-image bg arc5 rain street = im.Scale("images/scenes/arc_5/bg_arc5_rain_street.jpg", 1920, 1080)
-image bg arc5 classroom = im.Scale("images/scenes/arc_5/bg_arc5_classroom.jpg", 1920, 1080)
-image bg arc5 rooftop = im.Scale("images/scenes/arc_5/bg_arc5_rooftop.jpg", 1920, 1080)
-image bg arc5 cinema box office = im.Scale("images/scenes/arc_5/bg_arc5_cinema_box_office.jpg", 1920, 1080)
-image bg arc5 cinema auditorium = im.Scale("images/scenes/arc_5/bg_arc5_cinema_auditorium.jpg", 1920, 1080)
-image bg arc5 cinema seated = im.Scale("images/scenes/arc_5/bg_arc5_cinema_seated.jpg", 1920, 1080)
-image bg arc5 park spring = im.Scale("images/scenes/arc_5/bg_arc5_park_spring.jpg", 1920, 1080)
-image bg arc5 minecraft night = im.Scale("images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
-image bg arc5 train station = im.Scale("images/scenes/arc_5/bg_arc5_train_station.jpg", 1920, 1080)
+image bg arc5 library = im.Scale("images/scenes/backgrounds/school/bg_arc5_library.jpg", 1920, 1080)
+image bg arc5 library night = im.Scale("images/scenes/backgrounds/school/bg_arc5_library_night.jpg", 1920, 1080)
+image bg arc5 cafe = im.Scale("images/scenes/backgrounds/city/bg_arc5_cafe.jpg", 1920, 1080)
+image bg arc5 rain street = im.Scale("images/scenes/backgrounds/city/bg_arc5_rain_street.jpg", 1920, 1080)
+image bg arc5 classroom = im.Scale("images/scenes/backgrounds/school/bg_arc5_classroom.jpg", 1920, 1080)
+image bg arc5 rooftop = im.Scale("images/scenes/backgrounds/school/bg_arc5_rooftop.jpg", 1920, 1080)
+image bg arc5 cinema box office = im.Scale("images/scenes/backgrounds/city/bg_arc5_cinema_box_office.jpg", 1920, 1080)
+image bg arc5 cinema auditorium = im.Scale("images/scenes/backgrounds/city/bg_arc5_cinema_auditorium.jpg", 1920, 1080)
+image bg arc5 cinema seated = im.Scale("images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg", 1920, 1080)
+image bg arc5 park spring = im.Scale("images/scenes/backgrounds/city/bg_arc5_park_spring.jpg", 1920, 1080)
+image bg arc5 minecraft night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
+image bg arc5 train station = im.Scale("images/scenes/backgrounds/transport/bg_arc5_train_station.jpg", 1920, 1080)
 
 define audio.arc5Cinema = "audio/ambience/the_city_mouse_and_the_country_mouse.mp3"
 
