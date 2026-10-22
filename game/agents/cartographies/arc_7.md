@@ -57,7 +57,7 @@ Fichiers:
 ## 4. Variables / flags / points
 
 - Route Jessy (reset en entrée) : `arc7_jessy_fruit` ("goute"/"jette"), `arc7_jessy_dejeuner` ("amitie"/"crush"), `arc7_jessy_relation` ("amitie"/"amour"), `arc7_jessy_tente`. `derniere_route = "Route Jessy"`.
-- Menus : fruit (goûter → `ilonanium_points += 1`) ; déjeuner (texte bivouac adapté) ; réponse à l'aveu ; si amour, tente (`arc7_jessy_tente = True`) ou hamac ; final si `ilonanium_points >= 6 and arc7_jessy_fruit == "goute"`.
+- Menus : fruit (goûter = manger → `ilonanium_points += 1`) ; déjeuner (texte bivouac adapté) ; réponse à l'aveu ; si amour, tente (`arc7_jessy_tente = True`) ou hamac ; final si `ilonanium_points == 6 and arc7_jessy_fruit == "goute"`.
 - Testés (Jessy) : `arc6_derniere_construction` (porte_ouverte, panneau_partir, cadenas), `arc6_offre_theo` (laisse, accusation, aveu_vide, question), `arc6_conversation` (que_veux_tu, aveu_interruptions).
 - Route Théo : `derniere_route = "Route Théo"`, `controle_repetitif` recalculé. Testés : `arc6_score`, `arc6_offre_theo`, `arc6_stylo` (garde, rendu_explique, rendu, blague), `souvenirs["ilona_veut_streamer_serieusement"]`, `arc4_ilona_avec_theo`, `arc4_5_theo_proposition` (gestion_stream, question, temps), `arc2_choix_activite_theo` (suivre, disparaitre), `arc5_fin_minecraft == "theo_presence"`, `arc5_theo_proposition` (partiel, laisse, refuse, questionne), `arc3_reaction_rumeur` (blague_desarm, silence_paralysie), `arc4_reaction_cadeau_theo` (blague_acide, verite_crue). Menu final : aucun flag, jump direct.
 

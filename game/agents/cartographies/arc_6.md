@@ -44,10 +44,10 @@ Fichiers: `game/arcs/arc_6/arc_6_diplomes.rpy` (« Après aujourd'hui », remise
 - Running gags: « Personne ne fait ça », planète/ballon, Ilona mange.
 
 ## 4. Variables / flags / points
-- Défauts: `arc6_stylo` (rendu/garde/rendu_explique/blague), `arc6_offre_theo` (laisse/question/accusation/aveu_vide), `arc6_ilona_a_pleure`, `arc6_gateau_planete` (jamais modifié), `arc6_conversation` (que_veux_tu/eviter/aveu_interruptions/partir/continuer), `arc6_derniere_construction` (porte_ouverte/panneau_partir/silence/cadenas, route Jessy seulement), `arc6_vignettes_jouees` (plage, rumeur, maison, noel, nuit_theo, cinema, gare, phrase_finie, craquage), `arc6_vignettes_count`, `arc6_flashback`, `arc6_theo_attaques`, `arc6_attaque_1..3`, `arc6_score`, `arc6_route`, `arc6_penchant_debut`, `arc6_penchant`, `arc6_derive` (compat, inutile), `souvenir_flag_bonne`, `controle_repetitif` (store).
+- Défauts: `arc6_stylo` (rendu/garde/rendu_explique/blague), `arc6_offre_theo` (laisse/question/accusation/aveu_vide), `arc6_ilona_a_pleure`, `arc6_gateau_planete` (True si part mangée au buffet), `arc6_conversation` (que_veux_tu/eviter/aveu_interruptions/partir/continuer), `arc6_derniere_construction` (porte_ouverte/panneau_partir/silence/cadenas, route Jessy seulement), `arc6_vignettes_jouees` (plage, rumeur, maison, noel, nuit_theo, cinema, gare, phrase_finie, craquage), `arc6_vignettes_count`, `arc6_flashback`, `arc6_theo_attaques`, `arc6_attaque_1..3`, `arc6_score`, `arc6_route`, `arc6_penchant_debut`, `arc6_penchant`, `arc6_derive` (compat, inutile), `souvenir_flag_bonne`, `controle_repetitif` (store).
 - Verdict: `arc6_score = espace + posture + recidive - dette`; espace = `autonomie_ilona*4 + ilona_peut_finir_ses_phrases*6 + interruptions_reparees*6 + communication + confiance`; dette = `influence_theo*3 + max(0,controle_repetitif)*8 + pression_stream*2 + jalousie*2 + confidences_laplage*4`; posture via `souvenirs["jessy_nomme_sa_peur"|"jessy_repare"|"ilona_libre_sans_abandon"|"maison_respectee"|"theo_utilise_une_verite"]`; recidive via `controles`, `evitements`; +20 si `interruptions_reparees>=2` et `jessy_repare`. `controle_repetitif>=3` → theo forcé; sinon `>= SEUIL_JESSY` → jessy.
 - Lus (arcs antérieurs): `arc2_choix_activite_theo`, `arc3_reaction_rumeur`, `arc3_aide_stand`, `arc3_fin_minecraft`, `arc4_ilona_avec_theo`, `arc4_limite_ilona`, `arc4_cadeau_jessy`, `arc4_5_ilona_reaction`, `arc4_5_sofiane_maid`, `arc5_theo_proposition`, `arc5_fin_minecraft`, `arc5_cinema_ensemble`, `arc5_question_reponse`, `arc5_tension_accumulee`, `pression_stream` (craquage si ≥12 ou tension ≥8), `influence_theo` (≥8 → « Tu vas regretter »).
-- Menus: stylo (4), posture récap (4, aucun effet stocké), « Que répond Jessy ? » (5), dernière construction (4). Aucun ne modifie la route.
+- Menus: stylo (4), gâteau (2 : garder sans point / manger maintenant, `arc6_gateau_planete = True`, `ilonanium_points += 1`), posture récap (4, aucun effet stocké), « Que répond Jessy ? » (5), dernière construction (4). Aucun ne modifie la route.
 
 ## 5. Conventions d'écriture
 - Speakers: `j` Jessy, `i` Ilona, `t` Théo, `a` Allan, `x` Alexandre, `s` Sofiane, `mi` Micka, `systeme` narrateur (italique).
@@ -60,6 +60,6 @@ Fichiers: `game/arcs/arc_6/arc_6_diplomes.rpy` (« Après aujourd'hui », remise
 ## 6. Faiblesses
 - Tics répétés: « Personne ne fait ça », « pour la première fois de l'année », « C'est exactement le problème », « C'est nouveau ».
 - Choix sans poids (route fixée à l'entrée), menus posture sans flag.
-- `arc_6_calcul` vide, `arc6_gateau_planete`/`arc6_derive` morts; `aveu_vide` → `conversation="continuer"` incohérent.
+- `arc_6_calcul` passe-plat, `arc6_derive` mort; `aveu_vide` → `conversation="continuer"` incohérent.
 - Ilona surécrite en aphorismes, voix proche du narrateur.
 - Image « evil theo » + sirène: rupture de ton abrupte.

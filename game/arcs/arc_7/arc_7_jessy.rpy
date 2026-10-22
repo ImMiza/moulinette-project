@@ -1174,7 +1174,7 @@ label arc_7_jessy_scene_8:
     scene black
     with fade
     # La collection complete offre une fin secrete sans effacer leur choix.
-    if ilonanium_points >= 6 and arc7_jessy_fruit == "goute":
+    if ilonanium_points == 6 and arc7_jessy_fruit == "goute":
         menu:
             "Quel chemin suivent-ils après la montagne ?"
             "Suivre la piste du fruit étoilé et finir la planète.":

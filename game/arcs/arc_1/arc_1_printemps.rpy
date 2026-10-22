@@ -364,7 +364,6 @@ label arc_1_printemps:
             systeme "Ilona garde un air sérieux beaucoup trop longtemps."
 
         "Mentionner Monsieur Laplage.":
-            $ ilonanium_points += 1
             $ lien_jessy_ilona += 2
             show jessy smile at char_left
             show ilona determined at char_right

@@ -411,22 +411,31 @@ label arc_6_diplomes:
 
     if arc6_penchant == "jessy":
         i "C'est une planète."
-
-        systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
-        systeme "C'est nouveau."
     elif arc6_penchant == "indecis":
         i "...C'est une planète."
 
         systeme "Elle le dit une demi-seconde trop tard, comme si elle avait vérifié avant que ça vaille encore le coup."
-        systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
-        systeme "C'est nouveau."
     else:
         systeme "Elle ne le redit pas."
-        systeme "Elle prend une part, la plie dans une serviette, la met dans son sac, et regarde la banderole qu'on décroche au fond."
 
-        i "Ouais. Bonne route."
+    menu:
+        "Que fait Ilona de sa part de gâteau ?"
 
-        systeme "Elle ne mange pas tout de suite. C'est nouveau, et Jessy n'a aucune idée de ce que ça veut dire."
+        "La garder pour plus tard.":
+            if arc6_penchant in ("jessy", "indecis"):
+                systeme "Elle en met une part dans une serviette et la glisse dans son sac. Elle ne mange pas tout de suite."
+                systeme "C'est nouveau."
+            else:
+                systeme "Elle prend une part, la plie dans une serviette, la met dans son sac, et regarde la banderole qu'on décroche au fond."
+                i "Ouais. Bonne route."
+                systeme "Elle ne mange pas tout de suite. C'est nouveau, et Jessy n'a aucune idée de ce que ça veut dire."
+
+        "La manger maintenant.":
+            $ arc6_gateau_planete = True
+            $ ilonanium_points += 1
+            play sound audio.eating volume 0.6
+            systeme "Ilona mange sa part jusqu'à la dernière miette de sucre argenté."
+            i "Une planète de moins."
 
     hide jessy
     hide ilona

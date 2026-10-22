@@ -63,7 +63,7 @@ Defaults dans `script.rpy` : 0 partout, `maison_minecraft_transformation = ""`. 
 **Menus**
 - **M1 (omelette)** : accepter L2 ; demander A2 ; refuser E2 ; blague Minecraft L2.
 - **M2 (photo)** : supprimer E2 ; garder A2 ; 2e photo L2.
-- **M3 (étoile)** : salle secrète L2 ; manger A2 + `ilonanium_points += 1` ; Laplage L2 + `ilonanium_points += 1`.
+- **M3 (étoile)** : salle secrète L2 ; manger A2 + `ilonanium_points += 1` ; Laplage L2 (bonbon conservé, aucun point Ilonanium).
 - **M4 (sortez ensemble)** : « J'aimerais bien » S4 ; blague `lien_jessy_ilona += 4` ; laisser Ilona A4 ; nier E4.
 - **M5 (toit)** : demander ce qui aide A4 ; blague puis sincérité S4 ; se défendre E4 ; « prends ton temps » A4.
 

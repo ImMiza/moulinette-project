@@ -195,10 +195,10 @@ Le deuxième choix se *présente* comme protecteur. C'est exactement pour ça qu
 | `interruptions_ilona += 1` | **tier D uniquement**, et seulement s'il coupe la parole |
 | `influence_theo = max(0, influence_theo - N)` | tier S qui tient tête à Théo |
 | `jugement_laplage += 1` | scènes avec Laplage |
-| `ilonanium_points += 1` | les 6 objets cosmiques, rien d'autre |
+| `ilonanium_points += 1` | les 6 objets cosmiques mangés, rien d'autre |
 | `remember("...")` | quand la scène l'appelle |
 
-**Les 6 objets cosmiques** (Ilonanium) : bonbon-météorite (arc 1), gelée marine (arc 2), étoile en sucre (arc 3), mochi cosmique (arc 4), gâteau-planète (arc 6), bloc-lune (arc 7 Jessy). Ne pas en ajouter d'autres : le seuil de la fin cachée est calé sur exactement 6.
+**Les 6 objets cosmiques** (Ilonanium) : bonbon étoile (arc 1), gelée marine (arc 2), étoile en sucre (arc 3), mochi cosmique (arc 4), gâteau-planète (arc 6), fruit étoilé (arc 7 Jessy). Chaque objet donne un point uniquement quand Ilona le mange ; goûter le fruit compte comme le manger. Garder un objet pour plus tard ne donne aucun point, sans rattrapage ultérieur. Ne pas en ajouter d'autres : la fin cachée demande exactement 6 points et `arc7_jessy_fruit == "goute"`.
 
 **Les clés de `souvenirs`** — à ne poser que quand c'est mérité, jamais inconditionnellement :
 
