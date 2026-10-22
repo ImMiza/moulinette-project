@@ -14,6 +14,7 @@ Créés le 17 octobre 2026 avec l'outil **imagegen intégré**, puis copiés dan
 | `friend/bg_friend_appartement_allan.png` | 1672 × 941 | `bg friend appartement` | `exec-bc0ec155-8c19-4f60-80fa-d79d276ec3fc.png` |
 | `friend/bg_friend_appartement_allan_repas.png` | 1672 × 941 | `bg friend appartement repas` | `exec-91243e63-ee62-488f-9a7b-7fa499493ad3.png` |
 | `friend/bg_friend_gare_matin.png` | 1678 × 937 | `bg friend gare matin` | `exec-0a91a55c-534b-450a-a56e-b4cc71d029f5.png` |
+| `friend/bg_friend_train_nuit.png` | 1678 × 937 | `bg friend train nuit` | `exec-06b5ed5d-6374-40b0-91b2-db1c84de9ce0.png` |
 | `friend/bg_friend_promenade_depart.png` | 1672 × 940 | `bg friend promenade depart` | `exec-5477f8dd-9dba-46ba-83fc-f3afb95edfcf.png` |
 | `friend/bg_friend_promenade_arrivee.png` | 1672 × 940 | `bg friend promenade arrivee` | `exec-9fb0820f-49a3-4ac7-b6bf-e8cdebf72a25.png` |
 | `minecraft/bg_friend_minecraft_trou_ouvert.png` | 1672 × 941 | `bg friend minecraft ouvert` | `exec-5663db33-c390-4d83-b82c-4f291f6d46ee.png` |
@@ -33,6 +34,9 @@ Le plafond du trou se referme après la pose du bloc. La table d'Allan se garnit
 seulement après l'arrivée de Sofiane et la mise en place des assiettes.
 Le quai du matin reprend le cadrage de `transport/bg_arc5_train_station.jpg`
 avec ciel et lumière de jour, sans modifier l'image de nuit utilisée ailleurs.
+Le train de nuit reprend `transport/bg_shared_train_inside.jpg` comme cible de
+retouche : même wagon, fenêtres et sièges, éclairage intérieur allumé et maisons
+assombries dehors. Il sert uniquement au retour après les adieux à la gare.
 La promenade du départ reprend la lumière et le paysage de
 `beach/bg_arc2_beach_sunset.jpg` avec un nouveau point de vue : gare à gauche,
 parking à droite. Elle apparaît dès l'arrivée du groupe à la bifurcation.
@@ -96,6 +100,12 @@ Use case: stylized-concept. Asset type: opaque widescreen 16:9 visual-novel back
 
 ```text
 Use case: precise-object-edit. The supplied image is the EDIT TARGET: the open Minecraft stone pit background. Create the immediately following frame after a character places ONE grey stone block into the square ceiling opening. Keep the EXACT same camera, perspective, geometry, crop, pixel-textured stone walls and floor. Change only the square opening and resulting light: replace the blue sky opening completely with the underside of a matching stone cube, flush with the adjacent ceiling. The sky and sunbeam disappear; the entire small chamber becomes dim, cool grey, with just enough low game-style ambient illumination to read the pixelated stone walls and their corners. It is now completely sealed with no gaps or windows. No torches or invented light source, no people, mobs, hands, tools, objects, sign or text. Preserve authentic Minecraft voxel rendering and subtle shader ambient occlusion. No horror effects. Single opaque 16:9 landscape background matching original resolution. The two frames must cut together without any camera movement or room redesign.
+```
+
+### Train de nuit — variante finale
+
+```text
+Use case: lighting-weather. Asset type: Ren'Py visual novel background, 16:9 landscape. Edit target: the provided empty Japanese local train interior at sunset. Primary request: transform this exact same train carriage into a believable night train after dark. Preserve the carriage composition, seats, doors, handrails, camera angle, line art style, and all object positions. Through every window show dark navy night sky, faint silhouettes of suburban buildings and a few distant warm lights; no sunset, no daylight, no sunlight patches on the floor. Interior fluorescent ceiling lights provide soft cool illumination, with subtle warm reflections. Empty carriage, no people, no text, no signage, no logos, no watermark. Output full-frame clean illustration suitable as game background.
 ```
 
 

@@ -12,6 +12,7 @@ image bg friend discord six = Transform("images/scenes/backgrounds/friend/bg_fri
 image bg friend appartement = Transform("images/scenes/backgrounds/friend/bg_friend_appartement_allan.png", xysize=(1920, 1080), fit="cover")
 image bg friend appartement repas = Transform("images/scenes/backgrounds/friend/bg_friend_appartement_allan_repas.png", xysize=(1920, 1080), fit="cover")
 image bg friend gare matin = Transform("images/scenes/backgrounds/friend/bg_friend_gare_matin.png", xysize=(1920, 1080), fit="cover")
+image bg friend train nuit = Transform("images/scenes/backgrounds/friend/bg_friend_train_nuit.png", xysize=(1920, 1080), fit="cover")
 image bg friend promenade depart = Transform("images/scenes/backgrounds/friend/bg_friend_promenade_depart.png", xysize=(1920, 1080), fit="cover")
 image bg friend promenade arrivee = Transform("images/scenes/backgrounds/friend/bg_friend_promenade_arrivee.png", xysize=(1920, 1080), fit="cover")
 image bg friend minecraft ouvert = Transform("images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ouvert.png", xysize=(1920, 1080), fit="cover")
@@ -32,6 +33,28 @@ image cg friend retrouvailles = Transform("images/scenes/cg/friend/cg_friend_pho
 image cg friend chateau = Transform("images/scenes/cg/friend/cg_friend_chateau_sable.png", xysize=(1920, 1080), fit="cover")
 image cg friend salut brindille = Transform("images/scenes/cg/friend/cg_friend_salut_brindille.png", xysize=(1920, 1080), fit="cover")
 image cg friend raquettes = Transform("images/scenes/cg/friend/cg_friend_raquettes.png", xysize=(1920, 1080), fit="cover")
+
+# Les chambres sont cadrées en plan large ; ces portraits doivent occuper
+# la hauteur d'un adulte au premier plan, sans changer l'échelle des autres scènes.
+transform friend_room_left:
+    xalign 0.18
+    yalign 1.0
+    zoom 0.76
+
+transform friend_room_center:
+    xalign 0.50
+    yalign 1.0
+    zoom 0.76
+
+transform friend_room_ilona_center:
+    xalign 0.50
+    yalign 1.0
+    zoom 0.82
+
+transform friend_room_ilona_right:
+    xalign 0.82
+    yalign 1.0
+    zoom 0.82
 
 
 label ending_friend:
@@ -59,7 +82,7 @@ label ending_friend_distance:
     systeme "Il remet le verre dans le coffre. Le bois aussi. Il se déconnecte sans laisser de panneau."
 
     scene bg friend chambre jessy with fade
-    show jessy home neutral at char_left with dissolve
+    show jessy home neutral at friend_room_left with dissolve
     systeme "Quelques jours plus tard, il lui écrit depuis sa chambre."
     j "{i}« Ça te dit une partie ce soir ? »{/i}"
     systeme "La réponse arrive pendant qu'il range son bureau."
@@ -82,6 +105,7 @@ label ending_friend_distance:
     x "Tu comprendras sur place."
     systeme "Jessy regarde le coffre près de la porte, puis prend du pain pour deux."
     j "Bon. Montre-moi ton trou."
+    x "Titre."
 
     scene bg friend minecraft ouvert with fade
     show jessy minecraft at char_left
@@ -110,23 +134,23 @@ label ending_friend_distance:
 
     stop music fadeout 1.5
     scene bg friend chambre ilona with fade
-    show ilona house neutral at char_center with dissolve
+    show ilona house neutral at friend_room_ilona_center with dissolve
     systeme "Chez elle, Ilona remplit une page de petites maisons. Elle efface un toit, troue presque le papier, tourne la page."
     systeme "Sur l'ordinateur, son logiciel de diffusion est ouvert. Elle vérifie le micro, rapproche sa lampe, puis éloigne la tasse du bord du bureau."
     i "Bon. Une heure. On essaie."
     play music audio.stream loop volume 0.4 fadein 1.0
-    show ilona house smile at char_center with dissolve
+    show ilona house smile at friend_room_ilona_center with dissolve
     i "Salut ! Ce soir, je dessine. Vous pouvez proposer des idées, mais je vous préviens, je sais surtout faire des fenêtres de travers."
     tchat "pixel_ramen : on voit ton écran d'attente"
-    show ilona house embarrassed at char_center with dissolve
+    show ilona house embarrassed at friend_room_ilona_center with dissolve
     i "Ah. C'est une fenêtre très droite, du coup. Profitez."
     systeme "Elle change de scène. Le dessin apparaît, minuscule, dans un coin."
     tchat "kiwi_no_kimi : elle est loin la maison"
-    show ilona house smile at char_center with dissolve
+    show ilona house smile at friend_room_ilona_center with dissolve
     i "Quartier calme. Très calme. Attendez, je vous rapproche."
     systeme "Une heure plus tard, elle rit encore en essayant de dessiner un escalier pour une limace. Il n'y a que quelques pseudos dans le tchat ; chacun a son avis sur la rampe."
     stop music fadeout 1.5
-    show ilona house neutral at char_center with dissolve
+    show ilona house neutral at friend_room_ilona_center with dissolve
     systeme "Après avoir coupé la diffusion, elle photographie la page. Son pouce ouvre la conversation de Jessy avant qu'elle y pense."
     systeme "Elle reste devant son dernier « Bonne soirée ». Puis elle ferme la conversation et envoie le dessin dans le groupe."
     i "{i}« Voilà ce qu'on a fait. La limace prendra finalement l'ascenseur. »{/i}"
@@ -146,7 +170,7 @@ label ending_friend_distance:
 # 2. UNE JOURNÉE AVANT LES DÉPARTS
 label ending_friend_invitation:
     scene bg friend chambre ilona with fade
-    show ilona house neutral at char_right with dissolve
+    show ilona house neutral at friend_room_ilona_right with dissolve
     systeme "Vers la fin de l'été, Ilona cherche un soir pour jouer avec tout le monde. La conversation se remplit de jours barrés."
     a "{i}« Mardi, j'ai mes nouveaux horaires. Pour l'instant, même mon responsable sait pas. »{/i}"
     x "{i}« Jeudi, visite d'appartement. Vendredi, probablement visite d'un autre appartement. »{/i}"
@@ -158,7 +182,7 @@ label ending_friend_invitation:
     a "{i}« Avec une zone industrielle. »{/i}"
     i "{i}« J'ai envie de vous voir avant qu'il faille réserver trois semaines pour manger des chips ensemble. »{/i}"
     j "{i}« Dimanche, je peux. »{/i}"
-    show ilona house smile at char_right with dissolve
+    show ilona house smile at friend_room_ilona_right with dissolve
     a "{i}« Je prends le repas. »{/i}"
     x "{i}« Est-ce qu'une vraie pelle entre dans un train ? »{/i}"
     s "{i}« Je prends la voiture et les affaires encombrantes. La pelle voyagera dans une housse. »{/i}"
@@ -427,8 +451,9 @@ label ending_friend_chateau:
     i "Félicitations."
 
     scene cg friend chateau with Dissolve(1.0)
+    systeme "Entre les tours, la route et le restaurant pour crabes, leur château prend toute la place."
     window hide
-    pause 3.0
+    pause
     window show
 
     scene bg arc2 beach main with dissolve
@@ -455,8 +480,9 @@ label ending_friend_chateau:
     systeme "La vague suivante couche la brindille. Ilona éclate de rire en voyant Jessy saluer son ouvrage."
 
     scene cg friend salut brindille with Dissolve(0.8)
+    systeme "Jessy salue la brindille une dernière fois avant de rejoindre les autres."
     window hide
-    pause 3.0
+    pause
     window show
 
     scene bg arc2 group parasol with dissolve
@@ -599,10 +625,11 @@ label ending_friend_promesse:
     show alex beach grin at char_left
     show theo beach reassuring at char_right
     with dissolve
-    systeme "L'après-midi s'étire. Théo et Alexandre jouent aux raquettes. Ils réussissent onze échanges."
+    systeme "L'après-midi s'étire. Théo et Alexandre prennent les raquettes."
     scene cg friend raquettes with Dissolve(0.8)
+    systeme "Ils réussissent onze échanges."
     window hide
-    pause 3.0
+    pause
     window show
     scene bg arc2 beach main with dissolve
     show alex beach grin at char_left
@@ -735,7 +762,7 @@ label ending_friend_photo:
     play sound audio.photo volume 0.4
     scene cg friend premier ete with Dissolve(0.2)
     window hide
-    pause 2.0
+    pause
     window show
     systeme "Sur la photo, Allan parle encore, un biscuit à la main. Alexandre montre quelque chose qui n'est pas dans l'image. Théo regarde dans la mauvaise direction."
     systeme "Sofiane retient la serviette par un coin. Jessy rit, les yeux presque fermés. Ilona n'a pas fini de se retourner vers l'objectif."
@@ -790,17 +817,18 @@ label ending_friend_photo:
     systeme "Allan reste près de la porte jusqu'à ce que son ami disparaisse dans l'escalier. Jessy lui fait signe de venir s'asseoir."
 
     stop ambiant1 fadeout 1.0
-    scene bg shared train inside with fade
+    scene bg friend train nuit with fade
     play ambiant1 audio.trainInside loop volume 0.2 fadein 1.0
     show allan beach smirk at char_center with dissolve
     systeme "Allan rouvre la photo. Il agrandit son propre visage et l'envoie dans le groupe."
     a "{i}« Je précise que le vent était délicieux. »{/i}"
     systeme "Alexandre répond depuis le siège d'en face. Ilona ajoute un biscuit. Théo réagit un peu plus tard, une fois assis dans son train."
-    systeme "Allan range le téléphone. Son front touche presque la vitre quand il se penche pour apercevoir une dernière bande de mer entre les maisons."
+    systeme "Allan range le téléphone. Son front touche presque la vitre quand il se penche vers les lumières qui défilent entre les maisons."
     stop ambiant1 fadeout 1.5
     scene cg friend premier ete with Dissolve(1.0)
+    systeme "La photo du jour revient sur l'écran d'Allan."
     window hide
-    pause 2.0
+    pause
     scene black with Dissolve(1.5)
     window show
     jump ending_friend_annees
@@ -841,10 +869,10 @@ label ending_friend_annees:
     stop ambiant1 fadeout 1.0
     stop music fadeout 1.0
     scene black with fade
-    centered "DEUX ANS APRÈS LA PLAGE"
+    centered "PLUS TARD, CETTE MÊME ANNÉE"
     scene bg friend appel with fade
     play music audio.mornPiano loop volume 0.4 fadein 1.0
-    show alex home grin at char_center with dissolve
+    show alex home grin at friend_room_center with dissolve
     systeme "Trois jours après son anniversaire, Alexandre est chez lui, devant la webcam. Il a posé un petit gâteau rond sur son bureau ; une bougie penche vers le bord."
     systeme "Sur l'écran, Allan appelle de son appartement, Jessy et Ilona chacun de chez soi, et Théo depuis Tokyo. Sofiane termine encore son service ; il les rejoindra plus tard."
     scene bg friend discord cinq with dissolve
@@ -875,12 +903,12 @@ label ending_friend_annees:
     x "J'en suis au troisième gris. Il en reste cinq."
     t "Je t'appelle dimanche."
     scene bg friend appel with dissolve
-    show alex home grin at char_center with dissolve
+    show alex home grin at friend_room_center with dissolve
     systeme "Théo salue tout le monde et quitte l'appel. Les autres restent : Allan va chercher son chargeur ; Ilona leur montre l'assiette qu'elle vient de sortir du four."
     scene black with fade
     centered "LE DIMANCHE SUIVANT"
     scene bg friend appel with fade
-    show alex home grin at char_center with dissolve
+    show alex home grin at friend_room_center with dissolve
     systeme "Alexandre s'est de nouveau installé devant son ordinateur. Théo le rappelle depuis Tokyo ; cette fois, ils sont seuls dans l'appel. Alexandre a préparé une nouvelle page."
     t "Tu en as acheté d'autres ?"
     x "Il manquait un gris."
@@ -889,7 +917,7 @@ label ending_friend_annees:
     stop music fadeout 1.0
     scene black with fade
     systeme "Les appels changent parfois d'heure et les rencontres réunissent rarement tout le monde. Leurs messages continuent de circuler."
-    centered "TROIS ANS APRÈS LA PLAGE"
+    centered "L'ANNÉE D'APRÈS"
     scene bg arc2 minecraft house summer night with fade
     play music audio.mcnight loop volume 0.5 fadein 1.0
     show jessy minecraft at char_left
@@ -931,7 +959,7 @@ label ending_friend_annees:
 
     stop music fadeout 1.0
     scene black with fade
-    centered "CINQ ANS APRÈS LA PLAGE"
+    centered "AU PRINTEMPS SUIVANT"
     scene bg friend appartement with fade
     play music audio.cafe loop volume 0.45 fadein 1.0
     show allan beach neutral at char_left
@@ -948,7 +976,7 @@ label ending_friend_annees:
     a "Elle était pas chargée."
     systeme "Théo appuie sur le bouton. Trois voyants s'allument."
     show allan beach smirk at char_left with dissolve
-    t "Trois ans. Tu as eu le temps."
+    t "Près de deux ans. Tu as eu le temps."
     a "Elle a vécu des choses. Un déménagement, deux coupures de courant..."
     show theo tokyo smirk at char_right with dissolve
     t "Tu as déménagé de l'autre côté du palier."
@@ -973,13 +1001,13 @@ label ending_friend_annees:
     stop music fadeout 1.5
     scene black with fade
     systeme "Certaines invitations restent sans date. D'autres finissent par tenir dans une pause déjeuner, un détour après le travail, une soirée sur le serveur."
-    systeme "L'été suivant, dans la conversation du groupe, Ilona propose de nouveau la plage. Les réponses arrivent sur deux jours. Cette fois, les six prénoms se retrouvent sous le même dimanche."
+    systeme "Au début de l'été, dans la conversation du groupe, Ilona propose de nouveau la plage. Les réponses arrivent sur deux jours. Cette fois, les six prénoms se retrouvent sous le même dimanche."
     jump ending_friend_retrouvailles
 
 
 # 9. UNE AUTRE JOURNÉE
 label ending_friend_retrouvailles:
-    centered "L'ÉTÉ SUIVANT"
+    centered "CET ÉTÉ-LÀ"
     scene bg arc2 group parasol with fade
     play music audio.plage loop volume 0.45 fadein 1.5
     play ambiant1 audio.wave loop volume 0.3 fadein 1.0
@@ -1112,17 +1140,23 @@ label ending_friend_retrouvailles:
     stop music fadeout 2.0
     play music audio.springHope loop volume 0.55 fadein 2.0
     window hide
-    pause 3.0
+    pause
     window show
     systeme "Allan vient de lever le bras pour attraper la pelle. Théo s'écarte en riant. Sofiane regarde enfin l'objectif, pendant qu'Ilona arrive à sa place."
     systeme "Jessy a du sable sur la manche. Alexandre tient toujours son outil. Ils sont tous dans le cadre."
     i "Celle-là aussi, je la garde."
     window hide
-    pause 2.0
+    pause
     scene cg friend premier ete with Dissolve(1.5)
-    pause 2.5
+    window show
+    systeme "La première photo avait saisi le désordre de leur journée."
+    window hide
+    pause
     scene cg friend retrouvailles with Dissolve(1.5)
-    pause 2.0
+    window show
+    systeme "Trois étés plus tard, ils ont encore trouvé une place pour chacun."
+    window hide
+    pause
     window show
     x "Bon. On a encore le temps pour le pont-levis."
     a "On a surtout le temps de manger une glace."
@@ -1153,8 +1187,9 @@ label ending_friend_generique:
     scene bg arc2 minecraft house summer night with dissolve
     centered "Une heure pour jouer."
     scene cg friend retrouvailles with Dissolve(1.0)
+    systeme "Six amis, un même dimanche."
     window hide
-    pause 3.0
+    pause
     scene black with Dissolve(1.5)
     centered "Merci d'avoir partagé leur histoire."
     stop music fadeout 2.0

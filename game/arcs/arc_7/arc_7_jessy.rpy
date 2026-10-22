@@ -1148,7 +1148,10 @@ label arc_7_jessy_scene_8:
     j "Et Monsieur Laplage est vraiment passé sur un ours."
     i "Personne va nous croire."
     j "Tant mieux. C'est à nous."
-    systeme "Ils rient. Le matin n'efface pas la veille. Il lui donne juste assez d'air pour continuer."
+    if arc7_jessy_relation == "amour":
+        systeme "Ils rient. Le matin n'efface pas la veille. Il lui donne juste assez d'air pour continuer."
+    else:
+        systeme "Ilona baisse les yeux vers la tente. Jessy n'insiste pas. Le matin n'efface pas la veille ; il leur donne juste assez d'air pour continuer."
     systeme "Jessy décroche le hamac. Ilona replie la tente, en huit minutes cette fois. Ils ramassent chaque papier, chaque miette. Le bivouac redevient une clairière."
     if arc7_jessy_fruit == "goute":
         systeme "Ilona sort le noyau étoilé de sa poche et le regarde dans la lumière."
@@ -1158,8 +1161,12 @@ label arc_7_jessy_scene_8:
     j "Pour redescendre, tu préfères quel chemin ?"
     i "Celui qui longe les arbres. Il a l'air de prendre son temps."
     j "Alors on prend celui-là."
-    show jessy rando bag smile at char_left
-    show ilona rando bag smile at char_right
+    if arc7_jessy_relation == "amour":
+        show jessy rando bag smile at char_left
+        show ilona rando bag smile at char_right
+    else:
+        show jessy rando bag neutral at char_left
+        show ilona rando bag neutral at char_right
     with dissolve
     systeme "Ils descendent côte à côte dans la lumière neuve. Jessy tient la carte. À l'envers. Ilona ne dit rien."
     stop ambiant1 fadeout 1.0
