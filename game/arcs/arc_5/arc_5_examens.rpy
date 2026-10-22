@@ -34,9 +34,9 @@ define audio.arc5Cinema = "audio/ambience/the_city_mouse_and_the_country_mouse.m
 
 define mi = Character("Micka", color="#e91e63", callback=speaker_callback("micka"))
 
-image micka happy = speaker_sprite("micka", "images/personnages/micka/happy.png", 842, 1264)
-image micka exhausted = speaker_sprite("micka", "images/personnages/micka/exhausted.png", 842, 1264)
-image micka gifts = speaker_sprite("micka", "images/personnages/micka/happy_with_gifts.png", 842, 1264)
+image micka happy = speaker_sprite("micka", "images/personnages/Micka/happy.png", 842, 1264)
+image micka exhausted = speaker_sprite("micka", "images/personnages/Micka/exhausted.png", 842, 1264)
+image micka gifts = speaker_sprite("micka", "images/personnages/Micka/happy_with_gifts.png", 842, 1264)
 
 define audio.saintV = "audio/music/saintv.ogg"
 define audio.rainInside = "audio/ambience/rain-inside.mp3"

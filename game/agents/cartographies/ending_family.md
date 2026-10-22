@@ -69,7 +69,7 @@ Les nouvelles tenues sont intégrées et ont été inspectées visuellement :
 
 Les sprites utilisent `speaker_sprite` et les tailles existantes ; celui de Jessy `party smile` (843 × 1264) est normalisé à 842 × 1264. Les sept participants utilisent désormais leur tenue `party` pendant toute la fête, y compris l'accueil et les départs. Les personnages au premier plan changent selon la conversation, avec trois positions au maximum ; un personnage hors cadre reste présent dans la pièce. Les chanteurs se succèdent réellement à l’image. Les départs vers la gare/la voiture retirent les personnages du cadre.
 
-Lucy utilise `images/personnages/lucy/neutral.png` et `happy.png`, avec un canvas de 576 × 864 avant le zoom 0,50, pour conserver une taille d’enfant. Elle entre après son premier « Papa ! », reste au centre entre ses parents et disparaît avec eux à la fin. Sa pose joyeuse aux bras levés est réservée aux élans de joie ; le neutre revient pour les échanges calmes. Son callback utilise le tag `lucy`. La narration ne lui prête plus un gilet absent du sprite. Les mains, embrassades et déplacements fins sont racontés : les fichiers disponibles sont des poses fixes, pas des animations.
+Lucy utilise `images/personnages/Lucy/neutral.png` et `happy.png`, avec un canvas de 576 × 864 avant le zoom 0,50, pour conserver une taille d’enfant. Elle entre après son premier « Papa ! », reste au centre entre ses parents et disparaît avec eux à la fin. Sa pose joyeuse aux bras levés est réservée aux élans de joie ; le neutre revient pour les échanges calmes. Son callback utilise le tag `lucy`. La narration ne lui prête plus un gilet absent du sprite. Les mains, embrassades et déplacements fins sont racontés : les fichiers disponibles sont des poses fixes, pas des animations.
 
 Deux pistes prévues, chargées seulement si le fichier existe :
 
@@ -90,7 +90,7 @@ Relecture des décors, inspection des nouvelles tenues et des sprites invités, 
 
 ## Variante de surprise de Jessy — 14 octobre 2026
 
-Fichier ajouté : `images/personnages/Jessy/beach/surprised.png`. Génération avec l’outil imagegen intégré, à partir du sprite neutre de la tenue de plage et d’une première variante. Expression : yeux écarquillés, sourcils relevés et bouche entrouverte, avant la joie. Le PNG de 1024 × 1536 possède une transparence vérifiée sur fond uni et est affiché en 842 × 1264 via `speaker_sprite`. L’image originale est conservée. Une variante générée n’est pas une retouche pixel à pixel : le motif de la chemise varie légèrement.
+Fichier ajouté : `images/personnages/Jessy/Beach/surprised.png`. Génération avec l’outil imagegen intégré, à partir du sprite neutre de la tenue de plage et d’une première variante. Expression : yeux écarquillés, sourcils relevés et bouche entrouverte, avant la joie. Le PNG de 1024 × 1536 possède une transparence vérifiée sur fond uni et est affiché en 842 × 1264 via `speaker_sprite`. L’image originale est conservée. Une variante générée n’est pas une retouche pixel à pixel : le motif de la chemise varie légèrement.
 
 Consigne finale utilisée :
 
@@ -98,7 +98,7 @@ Consigne finale utilisée :
 
 ## Bouquet de Micka — 14 octobre 2026
 
-Fichier ajouté : `images/personnages/micka/party/flowers.png`. Créé avec imagegen intégré à partir de `micka/party/neutral.png`, sans modifier l’original. Le PNG de 1024 × 1536 a une transparence contrôlée sur fond uni ; Ren’Py l’affiche en 842 × 1264. Le bouquet est volumineux, mais laisse le visage visible, ce que précise désormais la narration. Les détails du costume peuvent varier légèrement entre les deux poses générées.
+Fichier ajouté : `images/personnages/Micka/Party/flowers.png`. Créé avec imagegen intégré à partir de `micka/party/neutral.png`, sans modifier l’original. Le PNG de 1024 × 1536 a une transparence contrôlée sur fond uni ; Ren’Py l’affiche en 842 × 1264. Le bouquet est volumineux, mais laisse le visage visible, ce que précise désormais la narration. Les détails du costume peuvent varier légèrement entre les deux poses générées.
 
 Consigne finale utilisée :
 

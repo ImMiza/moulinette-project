@@ -98,8 +98,8 @@ compositions fixes des six sprites existants, sans suivi de locuteur ; prévoir
 des illustrations dédiées pour rendre les gestes racontés. Les tenues existantes
 servent aussi aux ellipses de trois ans. La scène de
 Jessy dans sa chambre utilise une variante d'intérieur légère dans
-`images/personnages/Jessy/home/`. Alexandre utilise lui aussi une variante
-d'intérieur dans `images/personnages/Alexandre/home/` pour l'appel d'anniversaire.
+`images/personnages/Jessy/Home/`. Alexandre utilise lui aussi une variante
+d'intérieur dans `images/personnages/Alexandre/Home/` pour l'appel d'anniversaire.
 Les portraits dans les trois chambres ont une échelle locale plus grande que
 dans les scènes de groupe, afin de correspondre aux proportions des meubles.
 

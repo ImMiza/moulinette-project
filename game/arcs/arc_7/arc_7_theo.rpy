@@ -38,35 +38,35 @@ image bg arc7 tokyo restaurant = im.Scale("images/scenes/backgrounds/tokyo/bg_ar
 image bg arc7 tokyo park = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg", 1920, 1080)
 
 # --- Tenues Tokyo propres à la route Théo ---
-image ilona tokyo embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona tokyo neutral = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona tokyo smile = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona tokyo fatigue = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona tokyo sad = speaker_sprite("ilona", "images/personnages/Ilona/tokyo/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona tokyo embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona tokyo neutral = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona tokyo smile = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona tokyo fatigue = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona tokyo sad = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
 # À partir du 6 décembre, Ilona porte les cheveux courts hors stream.
-image ilona short neutral = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona short sad = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona short sad_alt = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/sad_alt.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona short crying = speaker_sprite("ilona", "images/personnages/Ilona/short_hair/Crying.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short neutral = speaker_sprite("ilona", "images/personnages/Ilona/Short_hair/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short sad = speaker_sprite("ilona", "images/personnages/Ilona/Short_hair/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short sad_alt = speaker_sprite("ilona", "images/personnages/Ilona/Short_hair/sad_alt.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona short crying = speaker_sprite("ilona", "images/personnages/Ilona/Short_hair/Crying.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
 # La tenue de stream constitue la persona publique d'IlonaGaming.
-image ilona streaming victory = speaker_sprite("ilona", "images/personnages/Ilona/streaming/playful_excitement.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona streaming celebration = speaker_sprite("ilona", "images/personnages/Ilona/streaming/joyful_celebration.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona streaming joy = speaker_sprite("ilona", "images/personnages/Ilona/streaming/genuine_laughter.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona streaming smile = speaker_sprite("ilona", "images/personnages/Ilona/streaming/bright_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona streaming fatigue = speaker_sprite("ilona", "images/personnages/Ilona/streaming/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona streaming victory = speaker_sprite("ilona", "images/personnages/Ilona/Streaming/playful_excitement.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona streaming celebration = speaker_sprite("ilona", "images/personnages/Ilona/Streaming/joyful_celebration.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona streaming joy = speaker_sprite("ilona", "images/personnages/Ilona/Streaming/genuine_laughter.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona streaming smile = speaker_sprite("ilona", "images/personnages/Ilona/Streaming/bright_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona streaming fatigue = speaker_sprite("ilona", "images/personnages/Ilona/Streaming/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
-image theo tokyo disappointed = speaker_sprite("theo", "images/personnages/Théo/tokyo/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo annoyed = speaker_sprite("theo", "images/personnages/Théo/tokyo/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo defensive = speaker_sprite("theo", "images/personnages/Théo/tokyo/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo innocent = speaker_sprite("theo", "images/personnages/Théo/tokyo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo disappointed = speaker_sprite("theo", "images/personnages/Theo/Tokyo/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo annoyed = speaker_sprite("theo", "images/personnages/Theo/Tokyo/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo defensive = speaker_sprite("theo", "images/personnages/Theo/Tokyo/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo innocent = speaker_sprite("theo", "images/personnages/Theo/Tokyo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
 # La même expression sert ici à une hésitation sincère, sans sous-entendre qu'elle est feinte.
-image theo tokyo hesitant = speaker_sprite("theo", "images/personnages/Théo/tokyo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo smirk = speaker_sprite("theo", "images/personnages/Théo/tokyo/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo neutral = speaker_sprite("theo", "images/personnages/Théo/tokyo/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo jealousy = speaker_sprite("theo", "images/personnages/Théo/tokyo/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo tokyo reassuring = speaker_sprite("theo", "images/personnages/Théo/tokyo/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo hesitant = speaker_sprite("theo", "images/personnages/Theo/Tokyo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo smirk = speaker_sprite("theo", "images/personnages/Theo/Tokyo/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo neutral = speaker_sprite("theo", "images/personnages/Theo/Tokyo/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo jealousy = speaker_sprite("theo", "images/personnages/Theo/Tokyo/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo tokyo reassuring = speaker_sprite("theo", "images/personnages/Theo/Tokyo/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
 
 label arc_7_theo:
     $ derniere_route = "Route Théo"
