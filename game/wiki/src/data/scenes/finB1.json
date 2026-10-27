@@ -1,0 +1,81 @@
+{
+  "arc": "finB1",
+  "title": "Fin B1",
+  "file": "arcs/endings/ending_neutre.rpy",
+  "scenes": [
+    {
+      "id": "finB1-s1",
+      "title": "La première soirée sans solution",
+      "label": "ending_neutre",
+      "lines": "6-85",
+      "requires": "finB1",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Le studio appelle ; Ilona dit non, Théo éteint son téléphone et ne touche pas au carnet. « Reste là. Sans réparer. » Ilona écrit elle-même, en trois versions, l'annonce publiée sur le compte d'IlonaGaming : « Je fais une pause. Je ne sais pas combien de temps. Je ne sais pas encore si je reviendrai. » Théo commence à corriger, puis s'arrête : « Ce sont tes mots. »\n\nElle publie et coupe le son. « Je suis toujours en colère. » « Et soulagée. » Ils restent dans la cuisine, carnet fermé.",
+      "consequences": ["record_ending(\"neutre\") ajoute \"neutre\" à endings_seen (ending_neutre.rpy:7)."],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/sadness.ogg"]
+    },
+    {
+      "id": "finB1-s2",
+      "title": "Le prix du silence",
+      "label": "ending_neutre",
+      "lines": "86-220",
+      "requires": "finB1",
+      "location": "Appartement de Tokyo (jour)",
+      "characters": ["ilona", "theo"],
+      "summary": "Ilona dort jusqu'à midi et ne parvient même plus à jouer. Théo frappe avant d'entrer et accepte ses refus. Le cinquième matin, trois courriers : la marque retire la campagne de six mois, le bail ne sera pas renouvelé (« On a jusqu'à la fin du mois »), l'équipe est réaffectée ; la marque rouvrirait la négociation si Ilona confirmait elle-même un stream sponsorisé.\n\nIlona envisage de le faire « parce que ce serait raisonnable » ; Théo reconnaît sa propre voix et refuse de lui dicter la réponse. Au téléphone, le studio veut savoir ; Théo tend l'appareil à Ilona, qui refuse la campagne et annonce la fin d'IlonaGaming. Le studio propose à Théo un poste de coordination de production ; il accepte. « Je ne veux plus être IlonaGaming. »",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/sadness.ogg"]
+    },
+    {
+      "id": "finB1-s3",
+      "title": "La fin d'IlonaGaming",
+      "label": "ending_neutre",
+      "lines": "221-297",
+      "requires": "finB1",
+      "location": "Appartement de Tokyo (jour)",
+      "characters": ["ilona", "theo"],
+      "summary": "Ilona remet une dernière fois la veste bleue et la perruque blanche et lance seule, depuis l'appartement, un direct de moins de trois minutes : elle a aimé streamer, mais n'entendait plus sa propre raison ; elle ne reviendra pas et laisse les anciennes vidéos en ligne. Elle ne supprime pas la chaîne.\n\nThéo croit le plus dur passé. Ilona : « Il faut que je te dise autre chose. […] Je vais partir. »",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "finB1-s4",
+      "title": "Ce que l'écoute ne répare pas",
+      "label": "ending_neutre",
+      "lines": "298-408",
+      "requires": "finB1",
+      "location": "Appartement de Tokyo (jour)",
+      "characters": ["ilona", "theo"],
+      "summary": "Ilona quittera Tokyo, sans destination encore choisie : elle a besoin d'« arriver quelque part dans une vie que tu n'auras pas organisée avant moi » et de découvrir qui elle est quand Théo n'est pas dans la pièce. Elle ne regrette pas d'être venue. Pas de relation à distance, pas d'attente promise.\n\nThéo trouve ça « horrible », commence à lister ses preuves, puis s'arrête : « Mais tu ne me le demandes pas. » Ils s'aiment encore, s'enlacent sans s'embrasser ; Ilona refuse son aide « pour choisir ».",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "finB1-s5",
+      "title": "Ce qu'on emporte",
+      "label": "ending_neutre",
+      "lines": "409-466",
+      "requires": "finB1",
+      "location": "Appartement de Tokyo",
+      "characters": ["ilona", "theo"],
+      "summary": "Deux jours de cartons. Ilona réserve seule son billet (départ vendredi matin) et ne demande pas l'avis de Théo. Dans sa valise mal remplie, elle glisse le carnet de croquis et le porte-clés bloc de la plage, et laisse la veste trop chaude. Théo l'accompagnera « jusqu'au quai ».",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "finB1-s6",
+      "title": "Jusqu'au quai",
+      "label": "ending_neutre",
+      "lines": "467-588",
+      "requires": "finB1",
+      "location": "Gare de Tokyo",
+      "characters": ["ilona", "theo"],
+      "summary": "Dans la gare où ils étaient arrivés huit mois plus tôt, Théo porte la valise jusqu'au quai seulement. Ils parlent d'onigiris (« Trahison confirmée ») et du badge de son nouveau poste. Sur le quai, il lui rend la poignée, ne dit pas « reviens » et ne demande aucune promesse ; une dernière étreinte « pas pour me retenir ».\n\n« Tu vas t'en sortir ? » « Je ne sais pas encore. » « C'est nouveau. » « J'apprends. » Le train part. Derniers mots : « Cette fois, personne ne remplit le blanc à sa place. »",
+      "consequences": ["Fin du jeu : return (ending_neutre.rpy:588)."],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_arrival_station.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    }
+  ]
+}

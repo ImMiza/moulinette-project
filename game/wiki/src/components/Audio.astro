@@ -1,0 +1,22 @@
+---
+// Lecteur audio : rien n'est téléchargé avant que le lecteur appuie sur lecture.
+import Spoiler from './Spoiler.astro';
+import { mediaUrl, assets, fileName } from '../lib/media';
+import { toArray } from '../lib/keys';
+
+interface Props { path: string; title?: string; requires?: string | string[]; mode?: 'all' | 'any' }
+const { path, title } = Astro.props;
+const url = mediaUrl(path);
+const a = assets[path];
+const req = Astro.props.requires !== undefined ? toArray(Astro.props.requires).filter((k) => k !== 'public') : (a?.requires ?? []);
+const mode = Astro.props.mode ?? a?.requiresMode ?? 'all';
+const name = title ?? fileName(path);
+---
+
+{url && (req.length ? (
+  <Spoiler requires={req} mode={mode} note="piste audio">
+    <div class="audio"><span class="audio__name">{name}</span><audio controls preload="none" src={url}></audio></div>
+  </Spoiler>
+) : (
+  <div class="audio"><span class="audio__name">{name}</span><audio controls preload="none" src={url}></audio></div>
+))}

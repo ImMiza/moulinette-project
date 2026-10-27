@@ -1,0 +1,42 @@
+{
+  "$comment": "Clés de progression utilisées par le système anti-spoiler. Titres publics volontairement neutres.",
+  "trunk": [
+    { "key": "prologue", "label": "Prologue", "short": "Prologue" },
+    { "key": "arc1", "label": "Arc I", "short": "Arc I" },
+    { "key": "arc2", "label": "Arc II", "short": "Arc II" },
+    { "key": "arc3", "label": "Arc III", "short": "Arc III" },
+    { "key": "arc4", "label": "Arc IV (et scènes 4.5)", "short": "Arc IV" },
+    { "key": "arc5", "label": "Arc V", "short": "Arc V" },
+    { "key": "arc6", "label": "Arc VI", "short": "Arc VI" }
+  ],
+  "branches": [
+    { "key": "routeA", "label": "Route A (arc VII)", "parent": "arc6" },
+    { "key": "routeB", "label": "Route B (arc VII)", "parent": "arc6" },
+    { "key": "finA1", "label": "Fin A1", "parent": "routeA" },
+    { "key": "finA2", "label": "Fin A2", "parent": "routeA" },
+    { "key": "finA3", "label": "Fin A3", "parent": "routeA" },
+    { "key": "finB1", "label": "Fin B1", "parent": "routeB" },
+    { "key": "finB2", "label": "Fin B2", "parent": "routeB" },
+    { "key": "extras", "label": "Coulisses et contenus inutilisés", "parent": null }
+  ],
+  "fileKeys": {
+    "script.rpy": "public",
+    "screens.rpy": "public",
+    "options.rpy": "public",
+    "gui.rpy": "public",
+    "arcs/prologue/": "prologue",
+    "arcs/arc_1/": "arc1",
+    "arcs/arc_2/": "arc2",
+    "arcs/arc_3/": "arc3",
+    "arcs/arc_4/": "arc4",
+    "arcs/arc_5/": "arc5",
+    "arcs/arc_6/": "arc6",
+    "arcs/arc_7/arc_7_jessy": "routeA",
+    "arcs/arc_7/arc_7_theo": "routeB",
+    "arcs/endings/ending_friend": "finA1",
+    "arcs/endings/ending_family": "finA2",
+    "arcs/endings/ending_ilonanium": "finA3",
+    "arcs/endings/ending_neutre": "finB1",
+    "arcs/endings/bad_ending": "finB2"
+  }
+}

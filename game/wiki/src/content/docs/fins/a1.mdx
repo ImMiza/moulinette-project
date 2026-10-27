@@ -1,0 +1,60 @@
+---
+title: "Fin A1"
+description: Une des fins de la Route A de Moulinette. Conditions, scènes, résumé et illustrations protégés contre les spoilers.
+sidebar:
+  order: 1
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Route** : [Route A](../../histoire/route-a/).
+**Autres fins de la route** : [Fin A2](../a2/), [Fin A3](../a3/).
+:::
+
+## Comment l'obtenir
+
+<Spoiler requires="routeA" note="conditions exactes">
+
+Fichier : `arcs/endings/ending_friend.rpy`, label `ending_friend` (ligne 60). Catégorie affichée au générique : « GOOD ENDING / FRIEND ».
+
+1. Être sur la Route A (`arc6_route == "jessy"`, `arcs/arc_6/arc_6_diplomes.rpy:1757`).
+2. Au bivouac, au menu « Que répond Jessy ? », choisir « Il tient à elle, mais veut rester son ami. » → `arc7_jessy_relation = "amitie"` (`arcs/arc_7/arc_7_jessy.rpy:687-688`).
+3. Ne pas remplir la condition de la Fin A3, prioritaire et automatique (pas de menu) : `ilonanium_points == 6 and arc7_jessy_fruit == "goute"` doit être faux (`arc_7_jessy.rpy:1177-1180`).
+4. `arc_7_jessy_fin_relation` : `if arc7_jessy_relation == "amitie": jump ending_friend` (`arc_7_jessy.rpy:1183-1184`).
+
+Les autres choix de la route (fruit, déjeuner) ne changent pas cette fin, sauf le fruit goûté avec 6 points, qui mène à la Fin A3. Elle ne contient aucun menu.
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="finA1" />
+
+## Résumé
+
+<Spoiler requires="finA1" note="résumé complet de la fin">
+
+**Après la randonnée**
+
+Le soir du retour, Jessy renonce à construire une surprise dans Minecraft : il a promis de ne pas réparer la peine d'Ilona en étant partout autour d'elle. Quand elle préfère rester seule, il n'insiste pas. Alexandre l'entraîne dans une expédition absurde au fond d'un trou ; Ilona lance un petit stream de dessin et partage son travail avec le groupe. Les messages reprennent doucement, Théo compris.
+
+**La journée à la plage**
+
+À la fin de l'été, Ilona réunit les six amis pour un dimanche à la mer. Allan apporte un buffet démesuré sans serviettes, Alexandre dirige un château de sable que la marée emporte ; seule la porte-brindille de Jessy résiste un temps. En allant chercher les boissons, Ilona et Jessy reparlent de la distance des dernières semaines : elle avait peur de rentrer en ayant encore mal, il gardait ses messages en brouillon. Au coucher du soleil, Allan veut un rendez-vous annuel fixe ; Théo et Sofiane ne peuvent rien promettre, et Allan avoue sa peur de voir le groupe se perdre comme celui de son frère. La photo au retardateur est un joyeux désordre.
+
+**Les années suivantes**
+
+Les rencontres réunissent rarement tout le monde : un café sous la pluie à trois, un anniversaire en appel vidéo, une heure de Minecraft entre Jessy et Ilona, une batterie externe rendue à Théo avec deux ans de retard. Trois étés plus tard, les six se retrouvent sur la même plage ; la nouvelle photo, comparée à l'ancienne, montre qu'ils ont « encore trouvé une place pour chacun ».
+
+</Spoiler>
+
+## Récompenses et CG
+
+<Spoiler requires="finA1" note="illustrations et déblocage">
+
+- **Déblocage** : `record_ending("friend")` à l'entrée (`ending_friend.rpy:61`), qui ajoute `"friend"` à `endings_seen` (`script.rpy:279-281`).
+- **CG** : `images/scenes/cg/friend/cg_friend_chateau_sable.png`, `cg_friend_salut_brindille.png`, `cg_friend_raquettes.png`, `cg_friend_photo_premier_ete.png`, `cg_friend_photo_retrouvailles.png`.
+- **Titre et générique** : « LE DERNIER ÉTÉ », puis « GOOD ENDING / FRIEND » et « Merci d'avoir partagé leur histoire. »
+
+</Spoiler>

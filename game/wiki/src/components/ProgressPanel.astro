@@ -1,0 +1,77 @@
+---
+// Réglage de la progression du lecteur (stockée dans le navigateur uniquement).
+import progression from '../data/progression.json';
+const { trunk, branches } = progression;
+const routes = branches.filter((b) => b.parent === 'arc6');
+---
+
+<form class="progress" data-progress aria-labelledby="progress-title">
+  <p id="progress-title" class="progress__title">Ma progression</p>
+  <label class="progress__row">
+    Dernier chapitre terminé
+    <select name="trunk">
+      <option value="">Je n'ai pas encore commencé</option>
+      {trunk.map((t) => <option value={t.key}>{t.label}</option>)}
+    </select>
+  </label>
+  <fieldset>
+    <legend>Embranchements vus (indépendants les uns des autres)</legend>
+    {routes.map((r) => (
+      <div class="progress__route">
+        <label><input type="checkbox" name="branch" value={r.key} /> {r.label}</label>
+        <div class="progress__endings">
+          {branches.filter((b) => b.parent === r.key).map((f) => (
+            <label><input type="checkbox" name="branch" value={f.key} /> {f.label}</label>
+          ))}
+        </div>
+      </div>
+    ))}
+    <label><input type="checkbox" name="branch" value="extras" /> {branches.find((b) => b.key === 'extras')!.label}</label>
+  </fieldset>
+  <div class="progress__actions">
+    <button type="button" data-all>Tout autoriser</button>
+    <button type="button" data-reset>Réinitialiser</button>
+  </div>
+  <p class="progress__status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  import { load, save, type State } from '../scripts/progress';
+  import progression from '../data/progression.json';
+  const trunk = progression.trunk.map((t) => t.key);
+
+  function render(form: HTMLFormElement, s: State) {
+    const sel = form.elements.namedItem('trunk') as HTMLSelectElement;
+    sel.value = [...trunk].reverse().find((k) => s.keys.includes(k)) ?? '';
+    form.querySelectorAll<HTMLInputElement>('input[name=branch]').forEach((c) => (c.checked = s.keys.includes(c.value)));
+    form.querySelector('.progress__status')!.textContent = s.all ? 'Tous les spoilers sont autorisés.' : '';
+    form.querySelector<HTMLButtonElement>('[data-all]')!.setAttribute('aria-pressed', String(s.all));
+  }
+  function read(form: HTMLFormElement): State {
+    const t = (form.elements.namedItem('trunk') as HTMLSelectElement).value;
+    const b = [...form.querySelectorAll<HTMLInputElement>('input[name=branch]:checked')].map((c) => c.value);
+    return { keys: [...(t ? [t] : []), ...b], all: false };
+  }
+  document.querySelectorAll<HTMLFormElement>('[data-progress]').forEach((form) => {
+    render(form, load());
+    form.addEventListener('change', (e) => {
+      const s = read(form);
+      const c = e.target as HTMLInputElement;
+      const parentOf = (k: string) => progression.branches.find((b) => b.key === k)?.parent;
+      // Décocher une route retire ses fins ; revenir avant l'arc VI retire les embranchements.
+      if (c.name === 'branch' && !c.checked) s.keys = s.keys.filter((k) => parentOf(k) !== c.value);
+      if (c.name === 'trunk' && trunk.indexOf(c.value) < trunk.indexOf('arc6')) s.keys = s.keys.filter((k) => trunk.includes(k) || k === 'extras');
+      // Cocher une route ou une fin implique d'avoir fini l'arc VI.
+      if (c.name === 'branch' && c.checked && c.value !== 'extras' && !s.keys.includes('arc6')) s.keys = ['arc6', ...s.keys.filter((k) => !trunk.includes(k))];
+      // Cocher une fin coche sa route.
+      if (c.name === 'branch' && c.checked) {
+        const p = progression.branches.find((b) => b.key === c.value)?.parent;
+        if (p && p !== 'arc6' && !s.keys.includes(p)) s.keys.push(p);
+      }
+      save(s);
+      render(form, s);
+    });
+    form.querySelector('[data-all]')!.addEventListener('click', () => { const s = { ...load(), all: !load().all }; save(s); render(form, s); });
+    form.querySelector('[data-reset]')!.addEventListener('click', () => { const s = { keys: [], all: false }; save(s); render(form, s); });
+  });
+</script>

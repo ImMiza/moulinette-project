@@ -1,0 +1,221 @@
+{
+  "arc": "finA3",
+  "title": "SPECIAL ENDING ILONANIUM — Le berceau de l'humanité",
+  "file": "arcs/endings/ending_ilonanium.rpy",
+  "scenes": [
+    {
+      "id": "finA3-s1",
+      "title": "Le lendemain",
+      "label": "ending_ilonanium",
+      "lines": "175-208",
+      "location": "Chambre de Jessy",
+      "characters": ["jessy", "ilona"],
+      "summary": "Carton « LE LENDEMAIN DU RETOUR ». Ilona écrit à Jessy qu'elle ne jouera pas ce soir : mal au ventre, nausée, les jambes lourdes. Elle a toujours faim mais rien ne passe. Jessy accuse les biscuits d'Allan, lui promet de laisser la maison Minecraft intacte jusqu'au lendemain et retire le bloc qu'il venait de poser sur le toit.",
+      "condition": "Répliques différentes selon arc7_jessy_relation (amour ou amitié)",
+      "consequences": [
+        "record_ending(\"ilonanium\") est appelé à l'entrée (ending_ilonanium.rpy:176)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/friend/bg_friend_chambre_jessy.png"],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg"]
+    },
+    {
+      "id": "finA3-s2",
+      "title": "Le silence",
+      "label": "ending_ilonanium_silence",
+      "lines": "212-231",
+      "location": "Chambre de Jessy",
+      "characters": ["jessy", "allan", "sofiane", "ilona"],
+      "summary": "Carton « MARDI ». Ilona ne lit plus ses messages et ne répond pas aux appels. Personne dans le groupe n'a de nouvelles ; Alexandre ne répond pas. Puis un seul message : « Je crois que ça va pas. » Jessy prend ses clés.",
+      "backgrounds": ["images/scenes/backgrounds/friend/bg_friend_chambre_jessy.png"],
+      "cgs": [],
+      "music": []
+    },
+    {
+      "id": "finA3-s3",
+      "title": "Chez elle",
+      "label": "ending_ilonanium_chez_elle",
+      "lines": "235-265",
+      "location": "Rue d'Ilona, chambre d'Ilona",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona est assise contre son lit, incapable de se lever. Jessy appelle les secours (le 119). Pendant l'appel, un verre glisse vers Ilona, puis une cuillère, puis le téléphone : « Les choses viennent vers moi. »",
+      "backgrounds": [
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_depart.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_chambre_ilona.png"
+      ],
+      "cgs": ["images/scenes/cg/ilonanium/01_attraction.png"],
+      "music": ["audio/music/tense-piano.ogg"]
+    },
+    {
+      "id": "finA3-s4",
+      "title": "La bascule",
+      "label": "ending_ilonanium_bascule",
+      "lines": "269-310",
+      "location": "Chambre d'Ilona",
+      "characters": ["jessy", "ilona", "laplage"],
+      "summary": "Ilona décolle du sol ; la porte se courbe vers elle. Monsieur Laplage apparaît dans un éclair de lumière. Le noyau étoilé traverse le sac de randonnée : le fruit de la montagne était « le dernier qu'il manquait » pour que tout ce qu'elle a mangé se réveille ensemble. Laplage tente d'arrêter le phénomène et se brûle la main : « Je n'y arrive pas. » Ilona demande à Jessy de partir avec lui : « Et m'oublie pas. »",
+      "condition": "Une réplique d'adieu dépend de arc7_jessy_relation",
+      "backgrounds": [],
+      "cgs": [
+        "images/scenes/cg/ilonanium/02_gravite.png",
+        "images/scenes/cg/ilonanium/03_laplage.png",
+        "images/scenes/cg/ilonanium/04_echec.png",
+        "images/scenes/cg/ilonanium/05_adieu.png"
+      ],
+      "music": ["audio/music/tense-piano.ogg"]
+    },
+    {
+      "id": "finA3-s5",
+      "title": "L'Ilonanium",
+      "label": "ending_ilonanium_catastrophe",
+      "lines": "314-373",
+      "location": "Maison d'Ilona, TARDIS, plage à deux soleils, la Terre",
+      "characters": ["jessy", "laplage", "allan", "theo", "sofiane"],
+      "summary": "Laplage entraîne Jessy dans le TARDIS, une cabine bleue plus grande à l'intérieur, et le dépose sur une plage inconnue sous deux soleils. Il repart sauver ce qu'il peut : habitants, immeubles, forêts, eau, bêtes. Sur Terre, les continents se replient vers Ilona. Allan, Théo et Sofiane (avec sa voiture) arrivent parmi les rescapés ; Alexandre manque. Laplage revient épuisé : il n'a pas pu le ramener, et le TARDIS ne repart plus.\n\nLa Terre devient un astre doté de deux yeux immenses, que les survivants nomment l'Ilonanium. Un dixième de la Terre et de ses habitants a traversé. « Monsieur Laplage, on fait quoi ? » — « Laissez digérer. »",
+      "backgrounds": [
+        "images/scenes/backgrounds/ilonanium/plage_deux_soleils.png",
+        "images/scenes/cg/ilonanium/12_ilonanium.png"
+      ],
+      "cgs": [
+        "images/scenes/cg/ilonanium/06_maison.png",
+        "images/scenes/cg/ilonanium/07_arrachement.png",
+        "images/scenes/cg/ilonanium/08_catastrophe.png",
+        "images/scenes/cg/ilonanium/09_sauvetage.png",
+        "images/scenes/cg/ilonanium/10_terre.png",
+        "images/scenes/cg/ilonanium/16_jessy_survivants.png",
+        "images/scenes/cg/ilonanium/11_naissance_astre.png"
+      ],
+      "music": ["audio/music/tense-piano.ogg"]
+    },
+    {
+      "id": "finA3-s6",
+      "title": "Deux soleils",
+      "label": "ending_ilonanium_deux_soleils",
+      "lines": "377-466",
+      "location": "Plage de l'exoplanète",
+      "characters": ["theo", "laplage"],
+      "summary": "Carton « QUARANTE ANS PLUS TARD ». Théo, grisonnant, regrette ses choix. Laplage s'assoit près de lui et lui montre une photo de Théo et d'Ilona que Théo n'a jamais vécue : Laplage est Théo, revenu du futur. Dans sa vie, il décidait de tout pour Ilona, qui a fini par se donner la mort ; il est revenu pour qu'elle puisse vivre sans lui. Ses pouvoirs lui venaient d'une version plus âgée de lui-même.\n\nSon corps arrive au bout. Il transmet à Théo son porte-clés creeper, qui commande aussi le TARDIS, réparé mais incapable de voyager entre les étoiles. Le voyage temporel ne passe que par des « nœuds de convergence », en aller simple ; le prochain s'ouvre dans un mois et mène neuf cent quatre-vingt-dix-neuf ans plus tard. Théo décide de partir « après » et de réunir les autres ; Laplage lui conseille de recruter Florentin, chef d'une milice. Laplage s'éloigne le long de l'eau ; Théo lève le pouce.",
+      "backgrounds": ["images/scenes/illonanium/plage_exoplanete.png"],
+      "cgs": [
+        "images/scenes/cg/ilonanium/theo_ilona_picture.png",
+        "images/scenes/cg/ilonanium/14_transmission_adieux.png",
+        "images/scenes/cg/ilonanium/13_adieux_laplage.png"
+      ],
+      "music": ["audio/music/Majula.ogg"]
+    },
+    {
+      "id": "finA3-s7",
+      "title": "Ce qu'ils sont devenus",
+      "label": "ending_ilonanium_survivants",
+      "lines": "470-511",
+      "location": "Exoplanète : villes, Capitole, bar",
+      "characters": ["micka", "jessy", "ilona", "sofiane", "allan"],
+      "summary": "Quarante ans après la catastrophe, l'humanité a reconstruit. Micka est gouverneur, réunificateur des colonies et « gigachad » de la Légion d'honneur ; ses recherches ont traité l'infertilité. Jessy a fondé le culte de Laplage, devenu majoritaire ; il n'a pas vieilli et entend la voix d'Ilona : « Retrouve-moi. » Sofiane, « l'ange de la route », a battu Laplage à la course ; sa Trueno a reçu un fragment de son pouvoir. Allan dirige Muchacho Corporation et Gringos Industry.",
+      "backgrounds": [
+        "images/scenes/illonanium/plage_exoplanete.png",
+        "images/scenes/illonanium/governor_office.png",
+        "images/scenes/illonanium/bar.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA3-s8",
+      "title": "Le bar d'Allan",
+      "label": "ending_ilonanium_bar",
+      "lines": "515-556",
+      "location": "Salle privée du bar d'Allan",
+      "characters": ["theo", "allan"],
+      "summary": "Théo raconte tout à Allan, qui comprend que le vendeur de takoyaki, le type des objets trouvés et le Père Noël étaient une autre version de Théo. Démonstration : Théo fait sauter son verre à l'autre bout de la table. Allan accepte de construire en mille ans une arche autonome. Il connaît Florentin, commandant de la plus grande armée de l'humanité, dont la femme est restée sur Terre. « Mon prochain rendez-vous est dans mille ans. »",
+      "backgrounds": ["images/scenes/illonanium/bar.png"],
+      "cgs": [],
+      "music": ["audio/music/bar_jazzy.ogg"]
+    },
+    {
+      "id": "finA3-s9",
+      "title": "Le conseil du Capitole",
+      "label": "ending_ilonanium_conseil",
+      "lines": "560-635",
+      "location": "Bureau du gouverneur, Capitole",
+      "characters": ["micka", "florentin", "allan", "theo", "jessy", "sofiane"],
+      "summary": "Carton « TROIS JOURS PLUS TARD ». Micka réunit Allan, Florentin, Sofiane, Théo et Jessy. Jessy reconnaît en Théo le nouveau « Messi » et explique qu'Ilona lui parle et l'empêche de vieillir. Allan présente le projet TAIKUN, une station annulaire autonome ; la Trueno de Sofiane servira de base au moteur, à condition qu'il conduise. Florentin veut rendre les coups à l'Ilonanium ; Jessy et Théo imposent une reconquête, pas une exécution. Reste un problème : qui garantira la mission pendant presque un millénaire ?",
+      "condition": "Une réplique de Jessy dépend de arc7_jessy_relation",
+      "backgrounds": ["images/scenes/illonanium/governor_office.png"],
+      "cgs": ["images/scenes/cg/ilonanium/15_preparatifs_taikun.png"],
+      "music": ["audio/music/truth-piano.ogg"]
+    },
+    {
+      "id": "finA3-s10",
+      "title": "Celui qui reste",
+      "label": "ending_ilonanium_celui_qui_reste",
+      "lines": "639-707",
+      "location": "Bureau du gouverneur",
+      "characters": ["micka", "jessy", "allan", "theo", "florentin", "sofiane"],
+      "summary": "Jessy annonce qu'il ne montera pas dans le TARDIS : il attendra neuf cent quatre-vingt-dix-neuf ans sur place pour entretenir la prophétie du retour du Messi et faire construire le TAIKUN. Il avoue avoir peur, mais refuse d'arriver devant un terrain vide. Les autres lui confient le dossier et les ordres. Micka ira dire au revoir « à ses femmes ». Rendez-vous dans vingt-sept jours, place d'armes du Capitole.",
+      "backgrounds": ["images/scenes/illonanium/governor_office.png"],
+      "cgs": [],
+      "music": ["audio/music/truth-piano.ogg", "audio/music/melancolique-piano.ogg"]
+    },
+    {
+      "id": "finA3-s11",
+      "title": "Les adieux",
+      "label": "ending_ilonanium_adieux",
+      "lines": "711-767",
+      "location": "Place d'armes du Capitole",
+      "characters": ["micka", "allan", "sofiane", "florentin", "theo", "jessy"],
+      "summary": "Carton « VINGT-SEPT JOURS PLUS TARD ». Parade, drapeaux à l'effigie de Micka. Théo et Jessy s'étreignent : « Pour toi, mille ans. Pour nous, quelques secondes. » Théo appelle le TARDIS avec le porte-clés ; la cabine le reconnaît. Théo, Allan, Micka, Sofiane et Florentin embarquent ; Jessy reste sur la place.",
+      "backgrounds": ["images/scenes/illonanium/capitole_depart.png"],
+      "cgs": [
+        "images/scenes/cg/ilonanium/14_calin_jessy_theo.png",
+        "images/scenes/cg/ilonanium/15_depart_tardis.png"
+      ],
+      "music": ["audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA3-s12",
+      "title": "La promesse tenue",
+      "label": "ending_ilonanium_promesse",
+      "lines": "771-823",
+      "location": "Place du Capitole, neuf siècles plus tard",
+      "characters": ["allan", "micka", "theo", "jessy", "sofiane", "florentin"],
+      "summary": "Carton « NEUF CENT QUATRE-VINGT-DIX-NEUF ANS PLUS TARD ». Pour les voyageurs, quelques instants ; sur la place, une foule acclame « le Messi et ses apôtres ». Jessy les attend, en robe blanche et longue barbe : « Vous avez mis le temps. » Dans le ciel, le TAIKUN est en orbite. Ils embarquent ; la traversée vers l'Ilonanium dure cinq ans.",
+      "backgrounds": [
+        "images/scenes/illonanium/capitole_retour.png",
+        "images/scenes/illonanium/taikun_orbite.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA3-s13",
+      "title": "La reconquête",
+      "label": "ending_ilonanium_reconquete",
+      "lines": "827-866",
+      "location": "Espace, passerelle du TAIKUN",
+      "characters": ["jessy", "florentin", "sofiane", "micka", "allan", "theo"],
+      "summary": "Carton « MILLE QUARANTE-QUATRE ANS APRÈS LA CATASTROPHE ». L'arche arrive devant l'Ilonanium. Sur la passerelle, chacun prend la parole : Jessy à Ilona, Florentin à ses troupes, Sofiane à la trajectoire, Micka à tous les ponts, Allan en commandant. Théo lance « la bataille de reconquête du berceau de l'humanité ».",
+      "backgrounds": [
+        "images/scenes/cg/ilonanium/12_ilonanium.png",
+        "images/scenes/illonanium/fin_ilonanium0.png",
+        "images/scenes/illonanium/passerelle_taikun.png"
+      ],
+      "cgs": ["images/scenes/cg/ilonanium/13_reconquete_espoir.png"],
+      "music": ["audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA3-s14",
+      "title": "Quelque part sur l'Ilonanium…",
+      "label": "ending_ilonanium_alexandre",
+      "lines": "870-900",
+      "location": "Une maison au milieu des champs, sur l'Ilonanium",
+      "characters": ["alexandre"],
+      "summary": "Sur l'Ilonanium, une maison au toit de chaume fume encore au soleil couchant. Alexandre, une main sur sa canne, contemple l'horizon : « N'est-ce pas magnifique ? » L'image vire au sépia et un carton « TO BE CONTINUED » glisse à l'écran. Générique : « SPECIAL ENDING / ILONANIUM », « Le berceau de l'humanité », « Et Alexandre. Toujours là. », crédit Majula — DARK SOULS II, puis « Merci d'avoir fait tout ce chemin. »",
+      "backgrounds": [
+        "images/scenes/illonanium/fin_ilonanium1.jpg",
+        "images/scenes/illonanium/fin_ilonanium2.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/alex_peace.ogg"]
+    }
+  ]
+}

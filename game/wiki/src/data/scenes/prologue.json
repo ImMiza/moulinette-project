@@ -1,0 +1,177 @@
+{
+  "arc": "prologue",
+  "title": "Prologue — Minecraft",
+  "file": "arcs/prologue/prologue_minecraft.rpy",
+  "scenes": [
+    {
+      "id": "prologue-s1",
+      "title": "Une maison beaucoup trop grande",
+      "label": "prologue_minecraft",
+      "lines": "22-64",
+      "requires": "prologue",
+      "location": "Serveur Minecraft public — maison de Jessy (colline, entrée)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Fin d'après-midi, sur un serveur Minecraft public. Jessy (pseudo jessyCube) pose le dernier bloc d'une base qui « a cessé d'être petite depuis longtemps » : trop de fenêtres, trop de toits, une passerelle, et une tour construite pour justifier l'existence d'une autre tour. Il refuse d'appeler cela une erreur et préfère le mot « développement ».\n\nDevant l'entrée, il plante une pancarte : « NE PAS ENTRER. SAUF SI TU AS UNE BONNE IDÉE. » Quelques minutes plus tard, une joueuse, IlonaGaming, s'arrête devant la maison. Au chat, Jessy répond que la maison est « techniquement » à lui et que « les fondations sont légales ».\n\nIlona annonce qu'elle a une idée : entrer. Jessy, pris de court par une lecture littérale de sa pancarte, accepte en prévenant que toute pièce inutile est « en cours de réflexion ».",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_prologue_house_afternoon.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_house_entrance.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s2",
+      "title": "La visite et l'effondrement",
+      "label": "prologue_minecraft",
+      "lines": "65-153",
+      "requires": "prologue",
+      "location": "Intérieur de la maison Minecraft, étage inachevé",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona visite la maison sans cruauté : un escalier qui « change d'avis au milieu » (« en cours de réflexion »), une porte en hauteur qui « attend son étage ».\n\nÀ l'étage, elle retire un bloc qu'elle croit décoratif. Le mur s'effondre, une partie du plafond suit, et une poule tombe aussi. Ilona fait l'inventaire : « le mur », « et peut-être le plafond », « et une poule ». Le joueur choisit la réaction de Jessy.\n\nQuelle que soit la réaction, Ilona regarde le trou avec une gêne qui « essaie déjà de devenir une idée » : plutôt que reconstruire le mur, elle veut faire « un truc mieux qu'un mur », car « un mur, c'est triste ». Elle se présente comme « architecte de conséquences ».",
+      "choices": [
+        {
+          "line": 101,
+          "prompt": "La maison vient de perdre un mur, un bout de plafond et une certaine dignité. Comment Jessy réagit-il ?",
+          "options": [
+            { "text": "Déclarer une guerre de poulets.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Réagir trop vite.", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1" },
+            { "text": "Faire une blague avant de regarder les dégâts.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Réparer ensemble.", "effects": "communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1, souvenir maison_respectee" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Souvenir maison_respectee : relu par le calcul de score de l'arc VI (+3, arcs/arc_6/arc_6_diplomes.rpy:67). D'autres arcs peuvent le réactiver ou l'effacer.",
+        "evitements : relu uniquement par le calcul de l'arc VI (malus au-delà de 3, arcs/arc_6/arc_6_diplomes.rpy:70).",
+        "communication, confiance, pression_stream, jalousie : entrent dans l'état de la relation (etat_relation, script.rpy:283-323) et dans le score de l'arc VI.",
+        "lien_jessy_ilona : relu comme seuil (arc I ligne 442, puis arcs II, IV et V) ; n'entre pas dans le score de l'arc VI.",
+        "Réplique « couloir sans sortie » (branche guerre de poulets, ligne 109) reprise sans condition sur le toit (ligne 361)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_prologue_weird_interior.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_accident_floor.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s3",
+      "title": "Transformer les dégâts",
+      "label": "prologue_minecraft",
+      "lines": "155-227",
+      "requires": "prologue",
+      "location": "Maison Minecraft (le trou devient une serre, un poulet géant, un toboggan ou une piscine)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona veut transformer les dégâts au lieu de les effacer ; le joueur décide de la place que Jessy lui laisse. Le choix fixe la variable maison_minecraft_transformation et le décor de la suite.\n\nSerre : Jessy la laisse faire sans comprendre (« L'incompréhension, c'est une très bonne fondation »). Terre, fleurs et lanterne sont suspendues au-dessus du vide : une « serre aérienne ». Poulet : Jessy annonce qu'il faut « un gardien », un poulet géant, qui surveille ensuite la maison depuis le toit et « protège la cuisine ».\n\nToboggan : ils cherchent une solution « qui ne répare rien, mais qui explique pourquoi c'est cassé » ; le toboggan part d'une chambre inachevée et arrive devant un coffre vide (« le mystère contient trois graines »). Piscine : ils assument le désastre ; la piscine traverse deux pièces, condamne un escalier et met de l'eau dans le couloir.",
+      "choices": [
+        {
+          "line": 155,
+          "prompt": "Ilona veut transformer les dégâts au lieu de les effacer. Quelle place Jessy lui laisse-t-il ?",
+          "options": [
+            { "text": "La laisser essayer son idée de serre.", "effects": "maison_minecraft_transformation = serre, autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0)" },
+            { "text": "Répondre par une idée encore plus stupide.", "effects": "maison_minecraft_transformation = poulet, lien_jessy_ilona +2" },
+            { "text": "Chercher avec elle une solution franchement inutile.", "effects": "maison_minecraft_transformation = toboggan, lien_jessy_ilona +2" },
+            { "text": "Proposer d'assumer le désastre jusqu'au bout.", "effects": "maison_minecraft_transformation = piscine, lien_jessy_ilona +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "maison_minecraft_transformation choisit le décor de retour (lignes 252-259) et la réplique d'Alexandre (lignes 318-339).",
+        "Relue en arc I : réplique d'Ilona dans le couloir (arc_1_printemps.rpy:56-76) et réplique à la cantine (arc_1_printemps.rpy:612-628). Plus relue ensuite."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_prologue_greenhouse_branch.jpg",
+        "images/scenes/backgrounds/minecraft/bg_prologue_chicken_roof_branch.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_slide_branch.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_pool_branch.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s4",
+      "title": "La salle moyennement importante",
+      "label": "prologue_minecraft",
+      "lines": "228-249",
+      "requires": "prologue",
+      "location": "Renfoncement derrière les escaliers — salle secrète",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona remarque un coin discret, caché derrière les escaliers et des murs ajoutés trop vite. Après plusieurs détours, ils en font une petite salle secrète.\n\nIlona y ajoute une porte inutile, « à garder le mystère » ; derrière, il y a surtout un coffre vide. La salle ne contient rien d'utile : un coffre, des fleurs, une pancarte « et l'impression étrange que quelque chose vient de commencer ».\n\nPour la pancarte, « salle très importante » est jugé trop officiel. Ils retiennent « salle moyennement importante » : « Ça met la pression à personne. »",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/minecraft/bg_prologue_secret_room.png"],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s5",
+      "title": "Passer en vocal",
+      "label": "prologue_minecraft",
+      "lines": "250-313",
+      "requires": "prologue",
+      "location": "Maison Minecraft (décor selon la transformation), puis appel Discord",
+      "characters": ["jessy", "ilona"],
+      "summary": "Le soleil descend. Le chat devient trop lent pour leurs plans (« attends non pas CE mur », « il y a trois murs derrière le mur »). Ilona propose de passer en vocal.\n\nLe premier appel Discord commence avec une maladresse simple : « Salut. Enfin... re-salut. » Ilona trouve que Jessy a « une voix moins carrée que [son] bâtiment ». Les dialogues passent alors des pseudos aux prénoms.\n\nIlona lui demande s'il a l'habitude d'« éviter les questions avec des détails techniques ». Jessy finit par concéder « Peut-être. » Elle ne force pas ; ils continuent à construire.",
+      "choices": [
+        {
+          "line": 273,
+          "prompt": "Comment Jessy répond-il à la proposition d'appel vocal ?",
+          "options": [
+            { "text": "Accepter tout de suite.", "effects": "communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1" },
+            { "text": "Faire une blague avant d'accepter.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Demander une minute pour se préparer.", "effects": "communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Les trois options mènent au même appel ; seules les variables diffèrent."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_prologue_greenhouse_branch.jpg",
+        "images/scenes/backgrounds/minecraft/bg_prologue_chicken_roof_branch.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_slide_branch.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_pool_branch.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s6",
+      "title": "Le verdict d'Alexandre",
+      "label": "prologue_minecraft",
+      "lines": "315-348",
+      "requires": "prologue",
+      "location": "Maison Minecraft (décor selon la transformation)",
+      "characters": ["jessy", "ilona", "alexandre"],
+      "summary": "Alexandre, pseudo lorddarktime, se connecte et interroge Jessy sur la transformation : poulet géant sur le toit, serre suspendue dans le mur cassé, piscine dans une pièce qui avait des escaliers, ou toboggan devant un coffre vide. Jessy répond chaque fois « c'est temporaire » ; Ilona défend l'idée (« c'est le gardien », « c'est pour intimider les tomates », « une amélioration du couloir », « une descente vers le mystère »).\n\nSon verdict : « Techniquement inhabitable. Donc parfaite. » Il pose une pancarte à l'entrée, « NE SURTOUT PAS RENDRE ÇA NORMAL. », puis se déconnecte aussi vite qu'il est arrivé.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": [],
+      "cgs": [],
+      "music": ["audio/music/Haggstrom.ogg"]
+    },
+    {
+      "id": "prologue-s7",
+      "title": "Le toit, la nuit, et la rivière",
+      "label": "prologue_minecraft",
+      "lines": "349-395",
+      "requires": "prologue",
+      "location": "Toit de la maison Minecraft la nuit, puis bord de la rivière",
+      "characters": ["jessy", "ilona", "inconnu"],
+      "summary": "La nuit est tombée. Sur le toit, entre les torches, Ilona constate que la maison est « vraiment trop grande », mais refuse d'enlever des pièces : « Ce serait triste. » Même le couloir sans sortie ? « Surtout lui. »\n\nAu bord de la rivière apparaît un personnage sans pseudo, qu'aucun message serveur n'annonce. Jessy cherche une explication simple (un mod, un administrateur, une blague d'Alexandre), sans succès. L'inconnu (« ??? ») déclare : « Construire ensemble, c'est facile. » puis « Le plus difficile, c'est de ne pas casser ce que l'autre construit. » Ilona se demande si c'est un mod et s'il porte un costume ; quand ils regardent de nouveau, il a disparu.\n\nIlona demande s'ils finiront la maison un jour. Jessy : « On finira cette maison un jour. » La dernière image reste sur la maison éclairée, « désormais construite à deux ». L'histoire enchaîne sur l'arc I.",
+      "choices": [],
+      "consequences": [
+        "Compteur caché lié à l'inconnu incrémenté sans condition (ligne 373) ; jamais relu dans les scripts.",
+        "La promesse de finir la maison et la phrase de l'inconnu posent le thème central (construire sans casser ce que l'autre construit)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_prologue_roof_night.png",
+        "images/scenes/backgrounds/minecraft/bg_prologue_river_laplage.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg"]
+    }
+  ]
+}

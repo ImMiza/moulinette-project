@@ -195,6 +195,8 @@ init python:
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+    ## Wiki Astro (sources, node_modules, site généré) : jamais distribué avec le jeu.
+    build.classify('game/wiki/**', None)
 
     ## Pour archiver les fichiers, choisissez la valeur « archive ».
 

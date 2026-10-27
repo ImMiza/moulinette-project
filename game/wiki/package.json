@@ -1,0 +1,26 @@
+{
+  "name": "moulinette-wiki",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wiki non officiel du visual novel Ren'Py « moulinette » (Astro + Starlight).",
+  "scripts": {
+    "inventory": "node scripts/extract-inventory.mjs",
+    "assets": "node scripts/sync-assets.mjs",
+    "refresh": "npm run inventory && npm run assets",
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build && node scripts/coverage.mjs",
+    "coverage": "node scripts/coverage.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.40.0",
+    "astro": "6.4.8",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^5.9.3"
+  }
+}

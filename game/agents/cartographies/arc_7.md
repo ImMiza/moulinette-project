@@ -16,7 +16,7 @@ Fichiers:
 - S6 : Sofiane drifte avec deux collègues du maid café ; Laplage le double.
 - S7 : Tokyo, kissaten. Allan/Théo réconciliation partielle ; Théo seul, triste ; apprend la rando, refuse de passer un message par Allan. Photo floue ; SMS « Dîner raté. Comme promis. » / « J'appelle demain. »
 - Nuit : si amitié, Laplage en « appel codec » (porte ouverte).
-- S8 : aube, rangement, descente. Menu secret Ilonanium possible.
+- S8 : aube, rangement, descente. Fin Ilonanium automatique si les six objets cosmiques ont été mangés ; sinon Family ou Friend selon la réponse de Jessy à l'aveu.
 
 **Route Théo — « Le monde après le départ »** (6 avril → ~novembre ; Ilona à Tokyo)
 - Arrivée gare, appart fourni par le studio, règles de coloc. Studio violet « IlonaGaming », 1er stream (pic 2417, gag manette).
@@ -57,7 +57,7 @@ Fichiers:
 ## 4. Variables / flags / points
 
 - Route Jessy (reset en entrée) : `arc7_jessy_fruit` ("goute"/"jette"), `arc7_jessy_dejeuner` ("amitie"/"crush"), `arc7_jessy_relation` ("amitie"/"amour"), `arc7_jessy_tente`. `derniere_route = "Route Jessy"`.
-- Menus : fruit (goûter = manger → `ilonanium_points += 1`) ; déjeuner (texte bivouac adapté) ; réponse à l'aveu ; si amour, tente (`arc7_jessy_tente = True`) ou hamac ; final si `ilonanium_points == 6 and arc7_jessy_fruit == "goute"`.
+- Menus : fruit (goûter = manger → `ilonanium_points += 1`) ; déjeuner (texte bivouac adapté) ; réponse à l'aveu ; si amour, tente (`arc7_jessy_tente = True`) ou hamac . Aucun menu final : `ilonanium_points == 6 and arc7_jessy_fruit == "goute"` déclenche directement `ending_ilonanium` ; sinon `arc_7_jessy_fin_relation` choisit Family (amour) ou Friend (amitié).
 - Testés (Jessy) : `arc6_derniere_construction` (porte_ouverte, panneau_partir, cadenas), `arc6_offre_theo` (laisse, accusation, aveu_vide, question), `arc6_conversation` (que_veux_tu, aveu_interruptions).
 - Route Théo : `derniere_route = "Route Théo"`, `controle_repetitif` recalculé. Testés : `arc6_score`, `arc6_offre_theo`, `arc6_stylo` (garde, rendu_explique, rendu, blague), `souvenirs["ilona_veut_streamer_serieusement"]`, `arc4_ilona_avec_theo`, `arc4_5_theo_proposition` (gestion_stream, question, temps), `arc2_choix_activite_theo` (suivre, disparaitre), `arc5_fin_minecraft == "theo_presence"`, `arc5_theo_proposition` (partiel, laisse, refuse, questionne), `arc3_reaction_rumeur` (blague_desarm, silence_paralysie), `arc4_reaction_cadeau_theo` (blague_acide, verite_crue). Menu final : aucun flag, jump direct.
 

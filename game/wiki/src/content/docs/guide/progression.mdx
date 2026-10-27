@@ -1,0 +1,27 @@
+---
+title: Ma progression
+description: Indiquez jusqu'où vous avez joué pour afficher automatiquement les spoilers correspondants.
+sidebar:
+  order: 1
+---
+
+import ProgressPanel from '../../../components/ProgressPanel.astro';
+import Spoiler from '../../../components/Spoiler.astro';
+
+Le wiki cache par défaut tout ce qui dépasse le début du jeu. Choisissez le dernier chapitre terminé, puis cochez les routes et les fins que vous avez vues. Ce réglage reste dans votre navigateur (stockage local) : il n'est envoyé nulle part.
+
+<ProgressPanel />
+
+## Comment ça marche
+
+- **Tronc commun** : le prologue et les arcs I à VI se suivent. Choisir un arc débloque aussi tous ceux qui précèdent.
+- **Routes et fins** : après l'arc VI, le jeu se sépare en deux routes (A et B). Chaque route et chaque fin se débloque indépendamment ; cocher une fin coche sa route, et cocher une route suppose l'arc VI terminé.
+- **Coulisses** : contenus présents dans les fichiers du jeu mais jamais affichés (images, pistes, variantes inatteignables).
+- **Révéler à la pièce** : chaque bloc masqué indique ce qu'il faut avoir vu et peut être ouvert avec « Afficher », sans changer votre progression.
+- **Tout autoriser** : affiche tous les spoilers du site d'un coup. Le même bouton les masque à nouveau.
+
+## Tester
+
+<Spoiler requires="arc1" note="exemple">
+Ce bloc s'ouvre seul une fois l'arc I coché.
+</Spoiler>

@@ -36,20 +36,25 @@ Monsieur Laplage : « Laisser digérer. » Pouce levé.
 \*Monsieur Laplage explique à Théo qu’ils sont la même personne, et qu'il est revenu dans le passé pour essayer de réparer ses erreurs  
 \*Il explique que dans sa vie d’avant il était en couple avec Ilona, et qu’elle a fini par se donner la mort à cause de lui  
 \*Il montre la vieille photo de lui avec Ilona à Théo.   
+\*Afficher `theo_ilona_picture.png` au centre avec un effet de lancer depuis la droite : arrivée en biais, rotation, puis léger mouvement de stabilisation. Conserver le tirage complet, son cadre papier et son inscription. Le fond extérieur est déjà transparent ; seules les grandes marges vides du PNG sont recadrées à l'affichage. La photo reste visible pendant la révélation, puis disparaît lorsque Laplage la pose sur le sable, avant la transmission du creeper.
+\*Dans sa propre histoire, Laplage a reçu ses pouvoirs d'une version plus âgée de lui-même sur une plage terrestre. La Terre existait encore lorsqu'il est reparti vers la rentrée ; il n'avait jamais vécu la catastrophe de l'Ilonanium avant son retour dans le passé.
 \*Monsieur Laplage explique à la fin que malheureusement son existence arrive à son terme et que son corps va bientôt rejoindre la plage.
 
 \-Monsieur Laplage donne son porte clé creeper en expliquant le destin de Théo, comme quoi Théo va récupérer ses pouvoirs pour réparer les erreurs commises, et en disant à la fin :  
+\*Au retour du CG de transmission, Laplage utilise le sprite `farewell_no_creeper` : le porte-clés et son attache ont disparu de son manteau. Cette variante reste affichée jusqu'au CG des adieux ; le sprite avec creeper est réservé à l'avant-transmission.
 “réussie là où j’ai échoué car le prochain c'est toi"
 
 \-monsieur Laplage met en garde Théo sur ses pouvoirs  
 \*Le voyage dans l’espace ne peut se faire que sur quelques mètres maintenant. Le sauvetage d’une partie de la terre en a laissé que des fragments de ce pouvoir.  
-\*Et que le voyage temporelle peut être fait dans le passé comme dans le futur mais qu’il ne peut se faire qu'à des moments précis qu’on appelle des “turning point” qui un croisement des lignes temporel entre elles, et le voyage ne peut se faire qu'entre deux turning point  
-\*Et que tout voyage temporel dans les turning point sont des aller simple, aucun retour possible.
+\*Le porte-clés sert aussi à appeler le TARDIS, qui reconnaîtra Théo comme son nouveau détenteur. Après quarante ans de récupération, la cabine peut repartir et transporter les voyageurs entre deux nœuds temporels ; ses moteurs endommagés ne permettent plus le voyage interstellaire. Le TAIKUN reste nécessaire pour rejoindre l'Ilonanium.
+\*Le voyage temporel peut se faire dans le passé comme dans le futur, mais uniquement entre des croisements des lignes temporelles appelés « nœuds de convergence ».
+\*Le pouvoir permet de sentir les dates de ces nœuds, y compris ceux à venir, sans connaître les événements qui s'y dérouleront. Laplage repère les passages de cette histoire grâce à cette perception ; ses souvenirs appartiennent à une autre histoire. Théo commence à ressentir les nœuds après la transmission des pouvoirs.
+\*Tout voyage entre les nœuds de convergence est un aller simple : le passage se referme derrière les voyageurs.
 
-\-monsieur Laplage dit à Théo qu'il n'y a pas eu de turning point depuis plus de 41 ans. Mais que le prochain turning point est dans 1 mois et un autre dans 10 ans, et que celui d’après dans 999 ans  
-\*Il informe que lui avait pris celui qui arrive dans 10 ans pour aller dans celui qu’il y avait avant leurs dernières rentrée des classes.
+\-Monsieur Laplage dit à Théo qu'il n'y a pas eu de nœud de convergence depuis plus de 41 ans. Le prochain est dans un mois, le suivant dans dix ans, puis un autre dans 999 ans et un mois : le saut prévu dure donc 999 ans.
+\*Dans son histoire d'origine, Laplage était reparti vers leur dernière rentrée à l'âge que Théo aura dans dix ans. Cette date appartient à sa vie sur Terre, avant son retour dans le passé.
 
-\-théo réfléchit, et finit par dire qu’il a trouvé un plan. Vu que le voyage dans le passé n’a rien réglé et qu’il a fait qu’empirer chose, il va tenter de faire le voyage dans le futur pour réparer les erreurs, donc prendre le turning point dans 1 mois pour voyager dans celui 999 ans plus tard pour sauver Ilona et récupérer la terre, pour cela il va retrouver ses amis d’enfance pour préparer le terrain pour que dans le futur ils puissent faire le voyage à travers l’espace pour retrouver l’ilonanium
+\-théo réfléchit, et finit par dire qu’il a trouvé un plan. Vu que le voyage dans le passé n’a rien réglé et qu’il a fait qu’empirer chose, il va tenter de faire le voyage dans le futur pour réparer les erreurs, donc prendre le nœud de convergence dans 1 mois pour voyager dans celui 999 ans plus tard pour sauver Ilona et récupérer la terre, pour cela il va retrouver ses amis d’enfance pour préparer le terrain pour que dans le futur ils puissent faire le voyage à travers l’espace pour retrouver l’ilonanium
 
 \-monsieur Laplage dit à Théo que c’est très audacieux, il lui dit aussi d’aller voir un certain Florentin à la tête d’une milice qui se prépare à un conflit intergalactique, et que ce dernier pourrait lui être très utile dans cette mission
 
@@ -101,14 +106,7 @@ Plan sur Allan qui explique qu'il travaille en étroite collaboration avec Micka
 
 Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans un bar pour prendre des nouvelles et discuter de tout et de rien.
 
-\-transition sur des plans du fameux Florentin  
-\*C'est le narrateur qui parle
-
-\-Plan sur Florentin qui explique qu'il est à la tête d’une milice et qu’elle est devenue au fil des années, la plus grosse armée de l’humanité
-
-\-Plan sur Florentin qui explique que lui et son armée a permis de protéger l’humanité contre les créatures de l’exoplanète
-
-\-plan sur Florentin qui explique que depuis qu’il a perdu sa femme dans la catastrophe de l’ilonanium, il est rongé par la colère, il a fondé sa milice dans l’unique but de se venger dans une potentielle guerre inter-galactique dont il est persuadé qu’elle va avoir lieu.
+\-Le montage des anciens amis s'arrête après Allan. Florentin est un nouveau personnage de cette fin, absent des arcs précédents : pas de carton noir à son nom ni de rétrospective le présentant comme un ancien du groupe.
 
 \-transition écran noir  
 \*Et le narrateur dit que tout ce beau monde s’apprête à changer l’histoire 
@@ -119,6 +117,7 @@ Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans
 
 \-Théo explique ensuite à Allan ce qu’il c’est passé avec monsieur Laplage, et le plan qu’il a pour essayer de retrouver Ilona et de récupérer la terre, qui est de préparer le terrain pour que quand ils feront le voyage de 999 ans dans le future dans 1 mois, ils pourront partir dans l’espace pour retrouver l’ilonanium. Mais pour cela il aura besoin de l’aide de tout le monde  
 \*Allan est surpris par la nouvelle, il dit que ça fait beaucoup d’informations à encaisser d’un coup
+\*Sa réaction rappelle les multiples activités de Laplage (takoyaki, objets trouvés, Père Noël) et l'enquête menée avec Alexandre à l'arc 3 sur ses entrées dans un couloir fermé. « Prof » était seulement l'une de ses hypothèses à l'arc 1 ; ce n'est pas le métier établi de Laplage.
 
 \-Ensuite Allan lui dit qu’il la jamais vu aussi sérieux, et qu’il est d’accord pour le rejoindre dans cette aventure
 
@@ -126,7 +125,7 @@ Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans
 \*Théo est ravi de la nouvelle
 
 \-Théo dit à Allan qu’ils auront besoins de l’aide de micka, jessy, et sofiane pour mener à bien cette mission, mais aussi d’un certain Florentin, car lui et son armée pourront être très utiles car ils savent pas quelles dangers il y aura sur l’ilonanium  
-\*Allan connaît florentin, c’est un très bon client de l’équipement militaire que produit gringos industry
+\*Allan présente Florentin à Théo dans cette conversation : commandant de la milice que Gringos équipe, il a d'abord protégé les campements contre les créatures de l'exoplanète. Sa milice est devenue la plus grande armée humaine. Sa femme étant restée sur Terre, il prépare ses hommes à un retour et à une guerre éventuelle.
 
 \-Allan dit à théo qu’il voit régulièrement micka le gouverneur de l’humanité, il dit qu’il va prendre contact avec lui pour faire une réunion de crise, et de demander à Jessy et Sofiane et ce fameux florentin d’y participer, afin de préparer le terrain pour que dans 1 mois ils fassent le voyage 999 ans dans le future et qu’ensuite ils puissent partir dans l’espace à la recherche de l’ilonanium
 
@@ -142,12 +141,13 @@ Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans
 \*Pour information : Florentin est au courant de tout le projet, Allan lui a expliqué la situation pour le convaincre de participer
 
 \-Micka accueil tout le monde dans son bureau, il est ravi de les revoirs  
-\*ils font les retrouvailles, et florentin se présente même si tout le monde le connaît suite à ses faits d’armes
+\*Micka retrouve ses anciens amis puis leur présente le commandant Florentin, que certains n'ont jamais rencontré. Florentin se lève et adresse un salut militaire au gouverneur avant de confirmer son soutien au projet expliqué par Allan.
 
 \-Quand Jessy parle à théo, il l’appelle tout de suite “le messi” car il a ressenti tout de suite que désormais il était devenue comme monsieur Laplage
 
 \-Théo est surpris que jessy sache ça, sans qu’il lui en parle.  
 \*Jessy lui dit que c’est le destin
+\*Théo regarde le porte-clés accroché à l'extérieur de son manteau, comme sur son sprite ; il n'est pas rangé dans sa poche.
 
 \-Ensuite Théo, Micka, allan et sofiane en profite pour savoir pourquoi jessy n’a pas du tout vieilli depuis tout ce temps  
 \*micka, allan, theo et sofiane essayent de deviner le secret de sa jeunesse à coup de blague (par exemple : “c’est parce que tu mange 5 fruits et légumes par jours ???)
@@ -158,8 +158,10 @@ Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans
 
 \-Théo finit par dire que si ils sont tous rassemblé ici, c’est parce qu'ils vont tous jouer un rôle clé pour retrouver l’ilonanium
 
-\-Théo explique la situation et son plan à tout le monde, comme quoi il a récupéré les pouvoirs de monsieur Laplage, et que pour pouvoir retrouver l’ilonanium et récupérer la terre ils vont devoir préparer le terrain pour que l’humanité au cours du millénaire à venir mettent en oeuvre une arche qui leurs permettra de voyager dans l’espace pour retrouver le berceau de l’humanité. Et qu’ils seront les meneurs de ce voyage car ils emprunterons un turning point dans 27 jours qui les emmèneront dans un autre turning point 999 ans plus tard  
+\-Théo explique la situation et son plan à tout le monde, comme quoi il a récupéré les pouvoirs de monsieur Laplage, et que pour pouvoir retrouver l’ilonanium et récupérer la terre ils vont devoir préparer le terrain pour que l’humanité au cours du millénaire à venir mettent en oeuvre une arche qui leurs permettra de voyager dans l’espace pour retrouver le berceau de l’humanité. Et qu’ils seront les meneurs de ce voyage car ils emprunterons un nœud de convergence dans 27 jours qui les emmènera dans un autre nœud 999 ans plus tard.
 \*tout le monde reste sans voix
+\*L'échéance des vingt-sept jours désigne explicitement l'ouverture du prochain nœud de convergence, qui permettra au groupe de voyager 999 ans dans le futur.
+\*Le plan sur le calendrier conserve le cadrage normal du bureau et des personnages, sans zoom de la couche entière. Même règle lorsque Jessy récupère les plans après la réunion.
 
 \-Allan dit à tout le monde qu’il a déjà commencé à lancer le projet “TAIKUN” avec son entreprise Gringos Industry, il explique que ce sera une gigantesque station spatiale autonome qui leur permettra de faire le voyage dans l’espace.
 
@@ -194,6 +196,7 @@ Plan sur Allan qui explique qu' au moins une fois par an, il retrouve Théo dans
 
 \-micka répond qu’ils ont désormais toutes les cartes en jeux pour faire cette expédition, mais il reste un problème à ne surtout pas négliger, c’est est-ce que l’humanité va réussir à ne pas perdre de vue la mission qu’ils vont leurs donner au cours de ces 999 ans ?, car il y a un risque que rien ne soit prêt à leurs arrivé si les générations futures les oublie au cours du temps  
 \*Tout le monde reste silencieux, il y a un blanc dans la salle
+\*Micka parle de « presque un millénaire » de générations à venir, en cohérence avec les 999 ans d'attente.
 
 \-Jessy dit à tout le monde qu’ils n’ont pas à s’inquiéter pour ça
 
@@ -258,21 +261,21 @@ Transition écran noir : 27 jours plus tard
 \-chacun donne sa petite réaction face à la situation 
 
 \-Théo dit ensuite que c’est l’heure de partir…  
-\*Il ouvre un portail grâce à son porte clé creeper
+\*Pour la première fois, Théo appelle le TARDIS grâce au porte-clés creeper. La cabine bleue se matérialise sur la place ; la porte s'ouvre à son contact. Aucun portail lumineux.
 
-\-avant que l’équipe rentre dans le portail, Jessy leurs dit que lui et l’humanité les accueillerons avec le TAIKUN à leurs retours dans 999 ans
+\-Avant que l'équipe monte dans le TARDIS, Jessy leur dit que lui et l'humanité les accueilleront avec le TAIKUN à leur retour dans 999 ans.
 
 \-théo remercie Jessy et lève son pouce
 
-\-l’équipe rentre dans le portail pour voyager 999 ans dans le futur 
+\-L'équipe monte dans le TARDIS pour voyager 999 ans dans le futur. Jessy reste sur la place. Le voyage ne dure que quelques instants pour les cinq passagers.
 
 Transition écran noir : 999 plus tard
 
 **\-Transition scène sur la place d’armes du Capitole dans le futur**
 
-\-l’équipe sort du portail 999 ans plus tard, et se retrouvent face à Jessy avec sa robe religieuse blanche et qui a désormais une très longue barbe
+\-L'équipe sort du TARDIS 999 ans plus tard et retrouve Jessy, avec sa robe religieuse blanche et une très longue barbe. Après la narration « Ses yeux n'ont pas changé », Jessy apparaît seul au centre horizontal de l'écran ; les autres sprites reviennent après son premier échange avec Théo.
 
-\-Derrière Jessy se trouve des parades et une foule gigantesque qui s’étend jusqu'à l’horizon, où l'on peut entendre “La prophétie c’est réalisé \!” et “Le Messi et ses apôtres sont là \!” mais aussi “Micka \! Marie moi \!”
+\-Derrière Jessy se trouvent des parades et une foule gigantesque qui s'étend jusqu'à l'horizon. On entend « La prophétie s'est réalisée ! », « Le Messi et ses apôtres sont là ! » et « Ça doit être lui, l'apôtre Micka ! Marie-moi ! ».
 
 \-l’équipe observe le ciel et vois le TAIKUN en orbite
 
@@ -280,13 +283,14 @@ Transition écran noir : 999 plus tard
 
 \-jessy répond : “ravi de vous revoir les amis, le TAIKUN nous attend”
 
-**\-transition ecran noir " 1040ans après la catastrophe de l’ilonanium"**
+**\-transition ecran noir " 1044 ans après la catastrophe de l'Ilonanium "**
+\*Chronologie : quarante ans d'exil, un mois avant le départ, un saut de 999 ans, les derniers essais et préparatifs du TAIKUN, puis cinq ans de traversée spatiale. L'arrivée a lieu environ 1044 ans après la catastrophe. Les cinq voyageurs vivent réellement les cinq ans de trajet ; le saut temporel de 999 ans ne les fait pas vieillir. Aucun second bond de quarante ans.
 
 \-plan de l’ilonanium sans le taikun  
 \*Lancement de la musique vanir’s legacy du jeu ixion
 
 \-ensuite transition avec un effet sur le plan du taikun avec l'ilonanium en fond  
-\*Le narrateur dit : “L'humanité a survécu dans un autre système planétaire. En quête de retrouver son monde d'origine, l’arche de l'humanité arrive enfin devant le berceaux de son espèce et découvre l'ilonanium 1040 ans plus tard après la catastrophe”
+\*Le narrateur décrit l'arrivée de l'arche devant l'Ilonanium après cinq ans de traversée : les exilés retrouvent le berceau de l'humanité 1044 ans après la catastrophe.
 
 \-transition ensuite sur le plan du poste de commandement du taikun avec l'équipe (Jessy, florentin, Sofiane, Micka, Allan, Théo) 
 
@@ -299,4 +303,5 @@ chacun dit tour à tour une phrase en lien avec le contexte (dans cette ordre : 
 \*note de guitare de roadabout
 
 \-plan d'Alex sur l'ilonaium  
-\*to be continued\* \*musique roadabout\* \*générique\*  
+\*Le portrait garde ses proportions avec une mise à l'échelle uniforme sur la largeur et un cadrage calé en haut pour conserver le visage et le chapeau. Pas d'étirement horizontal ou vertical.
+\*Après la réplique d'Alexandre et la disparition de la boîte de dialogue, une flèche « TO BE CONTINUED » façon JoJo glisse du bas à droite vers le bas à gauche, sur l'image d'Alexandre. En même temps, ce dernier plan passe progressivement au sépia doré en 0,9 seconde. La flèche garde ses couleurs ; le filtre ne s'applique pas au générique. Elle reste affichée avant le fondu au noir et le générique. Musique Roundabout si disponible.

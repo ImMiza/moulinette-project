@@ -1,0 +1,21 @@
+{
+  "id": "tchat",
+  "firstAppearance": "routeB",
+  "role": "Spectateurs en direct",
+  "infobox": [
+    { "label": "Couleur de dialogue", "value": "#7fd6ff", "requires": "routeB" },
+    { "label": "Forme", "value": "Messages du tchat, chacun préfixé d'un pseudo ; aucun sprite", "requires": "routeB" },
+    { "label": "Pseudos (Route B)", "value": "sakura_mod, pixel_ramen, misterclip, kiwi_no_kimi, darkflame92, xXShadow_JPxX, moon_walker21", "requires": "routeB" },
+    { "label": "Pseudos (Fin A1)", "value": "pixel_ramen, kiwi_no_kimi", "requires": "finA1" }
+  ],
+  "aliases": [],
+  "sources": [
+    "arcs/arc_7/arc_7_theo.rpy:18",
+    "arcs/arc_7/arc_7_theo.rpy:313-329",
+    "arcs/arc_7/arc_7_theo.rpy:625-630",
+    "arcs/arc_7/arc_7_theo.rpy:775-779",
+    "arcs/arc_7/arc_7_theo.rpy:879-881",
+    "arcs/arc_7/arc_7_theo.rpy:1127-1138",
+    "arcs/endings/ending_friend.rpy:144-151"
+  ]
+}

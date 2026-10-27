@@ -1,0 +1,615 @@
+[
+ {
+  "id": "jessy",
+  "name": "Jessy",
+  "color": "#8fb7ff",
+  "unlock": "public",
+  "role": "Personnage joué",
+  "firstAppearance": "prologue",
+  "page": "personnages/jessy/",
+  "portrait": "images/personnages/Jessy/neutral_attentiveness.png",
+  "spriteDirs": [
+   "images/personnages/Jessy/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#8fb7ff",
+    "requires": "public"
+   },
+   {
+    "label": "Pseudo Minecraft",
+    "value": "jessyCube",
+    "requires": "prologue"
+   },
+   {
+    "label": "Passion",
+    "value": "Construire des maisons trop grandes dans Minecraft",
+    "requires": "prologue"
+   },
+   {
+    "label": "Scolarité",
+    "value": "Même école qu'Ilona",
+    "requires": "arc1"
+   },
+   {
+    "label": "Après le lycée (Fin A1)",
+    "value": "Formation, puis appartement",
+    "requires": "finA1"
+   },
+   {
+    "label": "Après le lycée (Fin A2)",
+    "value": "Restaurant Les Petits Sommets avec Ilona ; père de Lucy",
+    "requires": "finA2"
+   },
+   {
+    "label": "Après le lycée (Fin A3)",
+    "value": "Fondateur et prophète du culte de Laplage",
+    "requires": "finA3"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "jessyCube",
+    "requires": "prologue",
+    "note": "pseudo sur le serveur Minecraft"
+   },
+   {
+    "name": "le prophète",
+    "requires": "finA3",
+    "note": "fondateur du culte de Laplage"
+   }
+  ]
+ },
+ {
+  "id": "ilona",
+  "name": "Ilona",
+  "color": "#ffb0d0",
+  "unlock": "public",
+  "role": "Personnage principal",
+  "firstAppearance": "prologue",
+  "page": "personnages/ilona/",
+  "portrait": "images/personnages/Ilona/neutral.png",
+  "spriteDirs": [
+   "images/personnages/Ilona/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Pseudo",
+    "value": "IlonaGaming",
+    "requires": "public"
+   },
+   {
+    "label": "Couleur de dialogue",
+    "value": "#ffb0d0 (rose pâle)",
+    "requires": "public"
+   },
+   {
+    "label": "Passion",
+    "value": "Minecraft",
+    "requires": "public"
+   },
+   {
+    "label": "Scolarité",
+    "value": "Même école que Jessy",
+    "requires": "arc1"
+   },
+   {
+    "label": "Classe",
+    "value": "Même classe que Jessy (lycée)",
+    "requires": "arc3"
+   },
+   {
+    "label": "Projet",
+    "value": "Streamer",
+    "requires": "arc5"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "IlonaGaming",
+    "requires": "prologue",
+    "note": "pseudo en ligne, puis nom de sa chaîne"
+   },
+   {
+    "name": "l'Ilonanium",
+    "requires": "finA3",
+    "note": "nom donné par les survivants à l'astre formé autour d'elle"
+   }
+  ]
+ },
+ {
+  "id": "theo",
+  "name": "Théo",
+  "color": "#c8b6ff",
+  "unlock": "public",
+  "role": "Personnage principal",
+  "firstAppearance": "arc2",
+  "page": "personnages/theo/",
+  "portrait": "images/personnages/Theo/neutral.png",
+  "spriteDirs": [
+   "images/personnages/Theo/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#c8b6ff",
+    "requires": "public"
+   },
+   {
+    "label": "Entourage",
+    "value": "Ami d'Allan",
+    "requires": "arc1"
+   },
+   {
+    "label": "Au lycée",
+    "value": "Comité de coordination du festival",
+    "requires": "arc3"
+   },
+   {
+    "label": "Amitié avec Allan",
+    "value": "Dix ans",
+    "requires": "arc6"
+   },
+   {
+    "label": "Après le lycée",
+    "value": "Part à Tokyo le 6 avril",
+    "requires": "arc6"
+   },
+   {
+    "label": "Activité (Route A)",
+    "value": "Travaille dans un studio à Tokyo",
+    "requires": "routeA"
+   },
+   {
+    "label": "Activité (Route B)",
+    "value": "Gère studio, sponsors et planning de la chaîne d'Ilona",
+    "requires": "routeB"
+   },
+   {
+    "label": "Activité (Fin B1)",
+    "value": "Coordination de production au studio",
+    "requires": "finB1"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "Tao",
+    "requires": "routeA",
+    "note": "nom que lui donne son propriétaire à Tokyo"
+   },
+   {
+    "name": "le Messi",
+    "requires": "finA3",
+    "note": "titre que Jessy lui reconnaît dans la Fin A3"
+   },
+   {
+    "name": "Monsieur Laplage",
+    "requires": "finA3",
+    "note": "sa version future, révélée dans la Fin A3"
+   }
+  ]
+ },
+ {
+  "id": "allan",
+  "name": "Allan",
+  "color": "#ffd08a",
+  "unlock": "public",
+  "role": "Ami de la bande",
+  "firstAppearance": "arc1",
+  "page": "personnages/allan/",
+  "portrait": "images/personnages/Allan/neutral.png",
+  "spriteDirs": [
+   "images/personnages/Allan/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#ffd08a",
+    "requires": "public"
+   },
+   {
+    "label": "Scolarité",
+    "value": "Lycée, dans une autre classe que Jessy et Ilona",
+    "requires": "arc3"
+   },
+   {
+    "label": "Lien avec Théo",
+    "value": "Ami depuis le collège (environ dix ans)",
+    "requires": "arc6"
+   },
+   {
+    "label": "Famille",
+    "value": "Un frère",
+    "requires": "finA1"
+   },
+   {
+    "label": "Métier (Fin A2)",
+    "value": "Employé d'une boutique d'informatique",
+    "requires": "finA2"
+   },
+   {
+    "label": "Métier (Fin A3)",
+    "value": "PDG de Muchacho Corporation et de Gringos Industry",
+    "requires": "finA3"
+   }
+  ],
+  "aliases": []
+ },
+ {
+  "id": "alexandre",
+  "name": "Alexandre",
+  "color": "#b9f2c8",
+  "unlock": "public",
+  "role": "Ami de la bande",
+  "firstAppearance": "prologue",
+  "page": "personnages/alexandre/",
+  "portrait": "images/personnages/Alexandre/neutral.png",
+  "spriteDirs": [
+   "images/personnages/Alexandre/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Pseudo Minecraft",
+    "value": "lorddarktime",
+    "requires": "prologue"
+   },
+   {
+    "label": "Couleur de dialogue",
+    "value": "#b9f2c8",
+    "requires": "public"
+   },
+   {
+    "label": "Passion",
+    "value": "Architecture absurde (constructions « techniquement inhabitables », plans impossibles)",
+    "requires": "arc3"
+   },
+   {
+    "label": "Famille",
+    "value": "Grands-parents de l'autre côté d'un lac de montagne",
+    "requires": "routeA"
+   },
+   {
+    "label": "Loisir",
+    "value": "Pêche, avec la canne de son grand-père",
+    "requires": "routeA"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "lorddarktime",
+    "requires": "prologue",
+    "note": "pseudo Minecraft"
+   },
+   {
+    "name": "Alex",
+    "requires": "finA3",
+    "note": "surnom employé par Allan et Jessy"
+   }
+  ]
+ },
+ {
+  "id": "sofiane",
+  "name": "Sofiane",
+  "color": "#d6d6d6",
+  "unlock": "public",
+  "role": "Ami de la bande",
+  "firstAppearance": "arc1",
+  "page": "personnages/sofiane/",
+  "portrait": "images/personnages/Sofiane/quiet_observation.png",
+  "spriteDirs": [
+   "images/personnages/Sofiane/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "Gris clair (#d6d6d6)",
+    "requires": "public"
+   },
+   {
+    "label": "Signe distinctif",
+    "value": "Lunettes",
+    "requires": "public"
+   },
+   {
+    "label": "Travail",
+    "value": "Serveur dans un maid café (depuis trois mois en décembre)",
+    "requires": "arc4"
+   },
+   {
+    "label": "Permis de conduire",
+    "value": "Obtenu en secret six mois avant de l'annoncer",
+    "requires": "arc5"
+   },
+   {
+    "label": "Voiture",
+    "value": "AE86 (Trueno) confiée par son cousin parti à l'armée",
+    "requires": "arc5"
+   },
+   {
+    "label": "Passion",
+    "value": "Les routes de montagne et le drift",
+    "requires": "routeA"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "l'ange de la route",
+    "requires": "finA3",
+    "note": "surnom donné quarante ans après la catastrophe"
+   }
+  ]
+ },
+ {
+  "id": "laplage",
+  "name": "Monsieur Laplage",
+  "color": "#f6e38d",
+  "unlock": "public",
+  "role": "Personnage récurrent",
+  "firstAppearance": "arc1",
+  "page": "personnages/laplage/",
+  "portrait": "images/personnages/Laplage/neutral.png",
+  "spriteDirs": [
+   "images/personnages/Laplage/"
+  ],
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "Jaune pâle (#f6e38d)",
+    "requires": "public"
+   },
+   {
+    "label": "Signe",
+    "value": "Le pouce levé (parfois horizontal)",
+    "requires": "arc1"
+   },
+   {
+    "label": "Son d'apparition",
+    "value": "audio/fx/re-zero-return.mp3",
+    "requires": "arc1"
+   },
+   {
+    "label": "Emplois annoncés",
+    "value": "Surveillant d'horizons, objets trouvés, takoyaki, Père Noël intérimaire",
+    "requires": "arc4"
+   },
+   {
+    "label": "Badges",
+    "value": "« Consultant en Entropie Émotionnelle », « Archiviste des Non-dits »",
+    "requires": "arc5"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "???",
+    "requires": "arc1",
+    "note": "l'inconnu sans pseudo de la rivière Minecraft, au prologue"
+   },
+   {
+    "name": "le Messi",
+    "requires": "arc4",
+    "note": "surnom donné par Théo"
+   },
+   {
+    "name": "le GOAT des conseils cryptiques",
+    "requires": "arc4",
+    "note": "premier surnom donné par Théo, selon Allan"
+   },
+   {
+    "name": "Théo venu du futur",
+    "requires": "finA3",
+    "note": "révélation de la Fin A3"
+   }
+  ]
+ },
+ {
+  "id": "inconnu",
+  "name": "???",
+  "unlock": "public",
+  "role": "Inconnu",
+  "firstAppearance": "prologue",
+  "source": {
+   "file": "script.rpy"
+  },
+  "infobox": [
+   {
+    "label": "Nom affiché",
+    "value": "???",
+    "requires": "public"
+   },
+   {
+    "label": "Pseudo",
+    "value": "Aucun (aucun message serveur ne l'annonce)",
+    "requires": "prologue"
+   },
+   {
+    "label": "Couleur de dialogue",
+    "value": "#f6e38d (la même que Monsieur Laplage)",
+    "requires": "arc1"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "Monsieur Laplage",
+    "requires": "arc1",
+    "note": "reconnu comme « le type de la rivière »"
+   }
+  ]
+ },
+ {
+  "id": "narrateur",
+  "name": "Narration",
+  "unlock": "public",
+  "role": "Narrateur",
+  "firstAppearance": "prologue",
+  "source": {
+   "file": "script.rpy"
+  }
+ },
+ {
+  "id": "micka",
+  "name": "Micka",
+  "unlock": "arc5",
+  "role": "Élève du lycée",
+  "firstAppearance": "arc5",
+  "page": "personnages/autres/",
+  "spriteDirs": [
+   "images/personnages/Micka/"
+  ],
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#e91e63",
+    "requires": "arc5"
+   },
+   {
+    "label": "Statut",
+    "value": "Élève du lycée",
+    "requires": "arc5"
+   },
+   {
+    "label": "Son d'entrée",
+    "value": "Applaudissements",
+    "requires": "arc5"
+   },
+   {
+    "label": "Diplôme",
+    "value": "Obtenu à la cérémonie de fin d'année",
+    "requires": "arc6"
+   },
+   {
+    "label": "Situation (Fin A2)",
+    "value": "Marié à Claire Martin, ancienne prof d'anglais",
+    "requires": "finA2"
+   },
+   {
+    "label": "Fonction (Fin A3)",
+    "value": "Gouverneur de l'humanité",
+    "requires": "finA3"
+   },
+   {
+    "label": "Rang (Fin A3)",
+    "value": "Gigachad de la Légion d'honneur refondée",
+    "requires": "finA3"
+   }
+  ],
+  "aliases": [
+   {
+    "name": "L'apôtre Micka",
+    "requires": "finA3",
+    "note": "surnom donné par la foule"
+   }
+  ]
+ },
+ {
+  "id": "tchat",
+  "name": "Tchat",
+  "color": "#7fd6ff",
+  "unlock": "routeB",
+  "role": "Spectateurs en direct",
+  "firstAppearance": "routeB",
+  "page": "personnages/autres/",
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#7fd6ff",
+    "requires": "routeB"
+   },
+   {
+    "label": "Forme",
+    "value": "Messages du tchat, chacun préfixé d'un pseudo ; aucun sprite",
+    "requires": "routeB"
+   },
+   {
+    "label": "Pseudos (Route B)",
+    "value": "sakura_mod, pixel_ramen, misterclip, kiwi_no_kimi, darkflame92, xXShadow_JPxX, moon_walker21",
+    "requires": "routeB"
+   },
+   {
+    "label": "Pseudos (Fin A1)",
+    "value": "pixel_ramen, kiwi_no_kimi",
+    "requires": "finA1"
+   }
+  ],
+  "aliases": []
+ },
+ {
+  "id": "lucy",
+  "name": "Lucy",
+  "unlock": "finA2",
+  "role": "Personnage de l'épilogue",
+  "firstAppearance": "finA2",
+  "page": "personnages/autres/",
+  "spriteDirs": [
+   "images/personnages/Lucy/"
+  ],
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#f4d183",
+    "requires": "finA2"
+   },
+   {
+    "label": "Parents",
+    "value": "Jessy et Ilona",
+    "requires": "finA2"
+   },
+   {
+    "label": "Frère",
+    "value": "Oliver (à naître)",
+    "requires": "finA2"
+   }
+  ],
+  "aliases": []
+ },
+ {
+  "id": "florentin",
+  "name": "Florentin",
+  "unlock": "finA3",
+  "role": "Commandant",
+  "firstAppearance": "finA3",
+  "page": "personnages/autres/",
+  "spriteDirs": [
+   "images/personnages/Florentin/"
+  ],
+  "infobox": [
+   {
+    "label": "Couleur de dialogue",
+    "value": "#cf8671",
+    "requires": "finA3"
+   },
+   {
+    "label": "Grade",
+    "value": "Commandant de la milice",
+    "requires": "finA3"
+   },
+   {
+    "label": "Famille",
+    "value": "Sa femme, restée sur Terre",
+    "requires": "finA3"
+   }
+  ],
+  "aliases": []
+ }
+]

@@ -1,0 +1,45 @@
+{
+  "id": "micka",
+  "firstAppearance": "arc5",
+  "role": "Élève du lycée",
+  "infobox": [
+    { "label": "Couleur de dialogue", "value": "#e91e63", "requires": "arc5" },
+    { "label": "Statut", "value": "Élève du lycée", "requires": "arc5" },
+    { "label": "Son d'entrée", "value": "Applaudissements", "requires": "arc5" },
+    { "label": "Diplôme", "value": "Obtenu à la cérémonie de fin d'année", "requires": "arc6" },
+    { "label": "Situation (Fin A2)", "value": "Marié à Claire Martin, ancienne prof d'anglais", "requires": "finA2" },
+    { "label": "Fonction (Fin A3)", "value": "Gouverneur de l'humanité", "requires": "finA3" },
+    { "label": "Rang (Fin A3)", "value": "Gigachad de la Légion d'honneur refondée", "requires": "finA3" }
+  ],
+  "aliases": [
+    { "name": "L'apôtre Micka", "requires": "finA3", "note": "surnom donné par la foule" }
+  ],
+  "sources": [
+    "arcs/arc_5/arc_5_examens.rpy:35",
+    "arcs/arc_5/arc_5_examens.rpy:37-39",
+    "arcs/arc_5/arc_5_examens.rpy:1167-1218",
+    "arcs/arc_5/arc_5_examens.rpy:2003-2057",
+    "arcs/arc_5/arc_5_examens.rpy:2300-2303",
+    "arcs/arc_6/arc_6_diplomes.rpy:378-391",
+    "arcs/arc_6/arc_6_diplomes.rpy:454-455",
+    "arcs/arc_6/arc_6_diplomes.rpy:1189-1191",
+    "arcs/endings/ending_family.rpy:59-60",
+    "arcs/endings/ending_family.rpy:563",
+    "arcs/endings/ending_family.rpy:614-623",
+    "arcs/endings/ending_family.rpy:704-724",
+    "arcs/endings/ending_family.rpy:772",
+    "arcs/endings/ending_family.rpy:809",
+    "arcs/endings/ending_family.rpy:828-834",
+    "arcs/endings/ending_family.rpy:907-958",
+    "arcs/endings/ending_family.rpy:1136",
+    "arcs/endings/ending_ilonanium.rpy:139-143",
+    "arcs/endings/ending_ilonanium.rpy:476-482",
+    "arcs/endings/ending_ilonanium.rpy:562-586",
+    "arcs/endings/ending_ilonanium.rpy:607",
+    "arcs/endings/ending_ilonanium.rpy:634-693",
+    "arcs/endings/ending_ilonanium.rpy:719-760",
+    "arcs/endings/ending_ilonanium.rpy:777-795",
+    "arcs/endings/ending_ilonanium.rpy:847-849",
+    "arcs/endings/ending_ilonanium.rpy:888"
+  ]
+}

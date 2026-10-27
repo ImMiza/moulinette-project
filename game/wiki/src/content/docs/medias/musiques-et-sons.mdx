@@ -1,0 +1,28 @@
+---
+title: Musiques et sons
+description: Musiques, ambiances et effets sonores du jeu. Rien n'est téléchargé avant d'appuyer sur lecture.
+sidebar:
+  order: 4
+---
+
+import AudioList from '../../../components/AudioList.astro';
+
+Pistes copiées depuis `game/audio/`. Une piste n'est visible qu'à partir du premier chapitre où elle est jouée ; les pistes jamais jouées sont rangées sous « Coulisses ». La mention entre parenthèses signale une piste déclarée mais jamais jouée, ou jamais référencée par les scripts.
+
+Quelques musiques appelées par les fins n'existent pas dans les fichiers du jeu : une piste de secours est jouée à leur place (voir le rapport de maintenance).
+
+## Musiques
+
+<AudioList prefix="audio/music/" />
+
+## Ambiances
+
+<AudioList prefix="audio/ambience/" />
+
+## Effets sonores
+
+<AudioList prefix="audio/fx/" />
+
+## Vidéos
+
+Deux vidéos d'intro de studio sont présentes dans `game/videos/`, mais aucune n'est jouée : l'appel à `intro.webm` est commenté dans `script.rpy`, et `muchacho_studio_internation_studio.webm` n'est jamais référencée.

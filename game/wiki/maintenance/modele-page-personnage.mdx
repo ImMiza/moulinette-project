@@ -1,0 +1,87 @@
+---
+title: Ilona
+description: Fiche du personnage d'Ilona dans Moulinette. Présentation sans spoiler ; relations, histoire et galerie protégées par arc.
+sidebar:
+  order: 2
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Spoiler from '../../../components/Spoiler.astro';
+import CharacterInfobox from '../../../components/CharacterInfobox.astro';
+import Gallery from '../../../components/Gallery.astro';
+
+<CharacterInfobox id="ilona" />
+
+Accroche publique de 2-3 phrases : qui est le personnage au moment de sa première apparition (rien d'ultérieur).
+
+<Tabs syncKey="fiche">
+<TabItem label="Présentation">
+
+## Description
+
+Public : ce qu'on sait à la première apparition. Ce qui évolue ensuite → Spoiler de l'arc concerné.
+
+## Caractéristiques
+
+- **Trait** : valeur (source `fichier:ligne` dans les notes, pas ici).
+- Traits révélés plus tard dans un `<Spoiler requires="arcN">`.
+
+## Apparence et tenues
+
+Description des sprites de base (public) ; tenues listées avec l'arc où elles apparaissent, chacune dans un Spoiler de cet arc.
+
+## Personnalité
+
+…
+
+## Citations
+
+<Spoiler requires="arc1">
+
+> « Citation exacte. »
+> — contexte (Arc I, scène n)
+
+</Spoiler>
+
+</TabItem>
+<TabItem label="Relations">
+
+## Avec Jessy
+
+Ligne publique neutre, puis évolution :
+
+<Spoiler requires="arc2" note="évolution pendant l'arc II">
+
+…
+
+</Spoiler>
+
+</TabItem>
+<TabItem label="Histoire">
+
+## Prologue
+
+<Spoiler requires="prologue">
+
+Actions et rôle dans l'arc, choix qui le concernent, variables liées.
+
+</Spoiler>
+
+## Arc I
+
+…
+
+## Route A
+
+<Spoiler requires="routeA">…</Spoiler>
+
+## Fins
+
+<Spoiler requires="finA1">Fin A1 : …</Spoiler>
+
+</TabItem>
+<TabItem label="Galerie">
+
+<Gallery prefix="images/personnages/Ilona/" sprite />
+
+</TabItem>
+</Tabs>

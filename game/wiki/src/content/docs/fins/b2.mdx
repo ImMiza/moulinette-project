@@ -1,0 +1,57 @@
+---
+title: "Fin B2"
+description: Une des deux fins de la Route B. Conditions, scènes et résumé protégés.
+sidebar:
+  order: 5
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Route** : [Route B](../../histoire/route-b/).
+**Autre fin de la route** : [Fin B1](../b1/).
+:::
+
+## Comment l'obtenir
+
+<Spoiler requires="routeB" note="dépend du choix final de la Route B">
+
+Au seul menu de la Route B, « La réponse de Théo. » (`arcs/arc_7/arc_7_theo.rpy:1365`), choisir **« Prioriser les sponsors, la chaîne avant tout. »** (ligne 1438). La branche se termine par `jump bad_ending` (ligne 1501). Aucune variable n'est testée : ce choix suffit.
+
+Fichier : `arcs/endings/bad_ending.rpy`, label `bad_ending` (ligne 31).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="finB2" />
+
+## Résumé
+
+<Spoiler requires="finB2" note="résumé complet de la fin ; thèmes graves">
+
+**Avertissement** : cette fin montre la mort d'un personnage ; un geste volontaire est suggéré sans être nommé.
+
+**Au bar**
+
+Le 7 décembre, Théo a signé la campagne de six mois et fête ça avec Allan, de passage à Tokyo. Les deux amis se réconcilient à moitié après leur dispute du diplôme. Peu après 20 h, Ilona n'est pas en direct et ne répond pas. Allan fait remarquer à Théo qu'il décrit les signes, puis sa solution, sans jamais dire comment elle va : « Demande-lui ce qu'elle veut. »
+
+**Le retour**
+
+Théo rentre, efface la réservation qu'il préparait par réflexe, trouve le studio éteint puis l'appartement noir. Devant la porte d'Ilona, il s'excuse et promet de l'écouter. Il entre et la découvre sans vie. Il lui demande pardon, se reproche d'avoir répondu « après » et de l'avoir aimée en décidant pour elle.
+
+**Quarante ans plus tard**
+
+Sur la plage, Théo vieilli tient une photo de leur installation à Tokyo. Monsieur Laplage lui remet le porte-clés bloc qu'Ilona avait gardé jusqu'à sa dernière nuit : « Le prochain, c'est toi. » Théo : « J'aurais dû t'écouter quand tu étais encore là. »
+
+</Spoiler>
+
+## Récompenses et CG
+
+<Spoiler requires="finB2">
+
+- Aucune CG : la découverte est montrée par un décor de chambre (`images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.png`), brièvement, puis sur écran noir.
+- `record_ending("bad_ending")` (ligne 32) ajoute `"bad_ending"` à `endings_seen`. Aucune autre partie des scripts ne lit cette liste pour l'instant.
+- Musique : `audio/music/bar_jazz.ogg` au bar ; ensuite silence. Trois pistes sont déclarées mais jamais jouées (`Baka_Mitai.ogg`, `Sayo-nara.ogg`, `Majula.ogg`, ce dernier en commentaire ligne 323).
+
+</Spoiler>

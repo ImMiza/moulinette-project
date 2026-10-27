@@ -1,0 +1,184 @@
+{
+  "arc": "finA2",
+  "title": "GOOD ENDING FAMILY — Les Petits Sommets",
+  "file": "arcs/endings/ending_family.rpy",
+  "scenes": [
+    {
+      "id": "finA2-s1",
+      "title": "Deux recherches, une adresse",
+      "label": "ending_family_restaurant",
+      "lines": "74-174",
+      "location": "Restaurant en ville",
+      "characters": ["jessy", "ilona"],
+      "summary": "Carton « QUELQUES JOURS APRÈS LA RANDONNÉE ». Jessy et Ilona déjeunent en couple. Ilona propose de vivre ensemble, « là-haut, dans les montagnes » : la randonnée est, dit-elle, le plus beau moment de sa vie. Chacun sort son téléphone pour montrer une annonce : c'est la même, un petit restaurant de montagne avec maison attenante qui cherche des repreneurs, photo prise avec un doigt devant l'objectif.\n\nMalgré la peur de se lancer, ils appellent. Une voix que Jessy croit reconnaître leur donne rendez-vous le lendemain à quatorze heures. Ilona demande à Sofiane de les conduire ; il accepte, « la Trueno réclame une promenade ».",
+      "consequences": [
+        "record_ending(\"family\") est appelé à l'entrée (ending_family.rpy:75)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/family/bg_family_rendezvous.jpg"],
+      "cgs": [],
+      "music": ["audio/music/resto_jazz.ogg"]
+    },
+    {
+      "id": "finA2-s2",
+      "title": "Le propriétaire",
+      "label": "ending_family_visite",
+      "lines": "178-349",
+      "location": "Route de montagne, restaurant et maison",
+      "characters": ["jessy", "ilona", "sofiane", "laplage"],
+      "summary": "Sofiane les dépose devant le restaurant. Le propriétaire qui ouvre est Monsieur Laplage : des amis tenaient l'endroit et, à leur retraite, il leur a promis de lui retrouver une vie. Il fait visiter la salle, la cuisine équipée, puis la maison avec son bureau baigné de lumière où Ilona veut dessiner et streamer.\n\nQuand Ilona demande le prix, Laplage répond : « Je vous les donne. » Il cherchait des gens qui auraient envie d'allumer ici après son départ. Ils décident d'ouvrir le midi et de garder le lundi pour eux, puis signent. Laplage confie les clés à Jessy en lui demandant de prendre soin d'Ilona. Dans la cour, il annonce qu'il ne reviendra pas, qu'il part « se reposer » ; Ilona le serre dans ses bras. Il lève une dernière fois le pouce. Ils ne le reverront jamais.",
+      "backgrounds": [
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_route.jpg",
+        "images/scenes/backgrounds/family/bg_family_restaurant_jour.jpg",
+        "images/scenes/backgrounds/family/bg_family_salle.jpg",
+        "images/scenes/backgrounds/family/bg_family_maison.jpg"
+      ],
+      "cgs": ["images/scenes/cg/family/cg_family_laplage_adieux.png"],
+      "music": ["audio/music/rando.ogg", "audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "finA2-s3",
+      "title": "Une enseigne et du travail",
+      "label": "ending_family_chez_nous",
+      "lines": "353-376",
+      "location": "Cour du restaurant",
+      "characters": ["jessy", "ilona"],
+      "summary": "« On a une maison. » Ils cherchent un nom : Jessy propose « La Salle Moyennement Importante » puis « Le Creeper Gourmand » ; Ilona choisit « Les Petits Sommets », un endroit où l'on peut arriver même quand on est nul avec une carte. Jessy écrit à Sofiane « on a les clés ».",
+      "backgrounds": ["images/scenes/backgrounds/family/bg_family_restaurant_jour.jpg"],
+      "cgs": [],
+      "music": ["audio/music/love-piano.ogg"]
+    },
+    {
+      "id": "finA2-s4",
+      "title": "Le premier matin",
+      "label": "ending_family_premier_matin",
+      "lines": "380-491",
+      "location": "Maison, cuisine et séjour",
+      "characters": ["jessy", "ilona"],
+      "summary": "Quelques jours plus tard, ils emménagent. Le premier matin, Jessy rate un pancake, plié en « petit coussin ». Ilona l'enlace par derrière, réussit le suivant, et Jessy s'arrête devant leurs deux tasses rangées ensemble : il n'a plus à se demander à quelle heure ils se verront. Ils mangent sur le canapé ; Ilona goûte le pancake raté (« Ça a le goût d'un pancake ») et lui demande de rester un peu avant les cartons.",
+      "backgrounds": ["images/scenes/backgrounds/family/bg_family_maison.jpg"],
+      "cgs": [
+        "images/scenes/cg/family/cg_family_pancakes_01.png",
+        "images/scenes/cg/family/cg_family_pancakes_02.png"
+      ],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "finA2-s5",
+      "title": "Les préparatifs",
+      "label": "ending_family_preparatifs",
+      "lines": "494-530",
+      "location": "Salle du restaurant, maison, sentier",
+      "characters": ["jessy", "ilona"],
+      "summary": "Démarches, formations, vérification de la cuisine, aide d'une ancienne restauratrice du village. Jessy écrit six desserts sur la carte ; Ilona n'en garde que les trois qu'ils savent faire. Au premier service, une commande se perd et Jessy recommence à répondre sans regarder Ilona ; elle lui demande de poser l'assiette, et ils reprennent ensemble. Vingt-trois couverts au premier midi. Le lundi, ils ferment et vont marcher sans téléphone.",
+      "backgrounds": [
+        "images/scenes/backgrounds/family/bg_family_salle.jpg",
+        "images/scenes/backgrounds/family/bg_family_maison.jpg",
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_route.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/love-piano.ogg"]
+    },
+    {
+      "id": "finA2-s6",
+      "title": "Une grande table",
+      "label": "ending_family_retrouvailles",
+      "lines": "534-608",
+      "location": "Les Petits Sommets, le soir",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane", "theo"],
+      "summary": "Carton « UN MOIS PLUS TARD ». Le restaurant a déjà ses habitués ; ce soir, il est « fermé pour une grande occasion ». Sofiane amène Allan, Alexandre et Théo, puis redescend chercher Micka à la gare. Théo, qui a repris contact avec Ilona et s'est excusé, a été invité par elle après en avoir parlé avec Jessy. Jessy lui dit qu'il est content qu'il soit venu ; ils se serrent la main.",
+      "backgrounds": [
+        "images/scenes/backgrounds/family/bg_family_restaurant_soir.jpg",
+        "images/scenes/backgrounds/family/bg_family_fete.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/bar_jazzy.ogg"]
+    },
+    {
+      "id": "finA2-s7",
+      "title": "Ce qu'ils sont devenus",
+      "label": "ending_family_repas",
+      "lines": "612-775",
+      "location": "Salle du restaurant",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane", "theo", "micka"],
+      "summary": "Micka arrive avec un bouquet énorme. Alexandre offre un dessin encadré de leur première maison Minecraft, accroché au-dessus du comptoir. Chacun raconte : Allan travaille dans une boutique d'informatique, Alexandre a pêché une deuxième feuille, Sofiane garde la Trueno un an de plus, Théo a délégué les plannings et découvert un petit cinéma. Micka annonce qu'il s'est marié avec Claire Martin, leur ancienne prof d'anglais, au grand désarroi d'Alexandre.\n\nJessy et Ilona racontent la randonnée, l'annonce, Laplage et son départ. Ils parlent d'avoir un jour des enfants. Allan porte un toast ; les sept verres se rejoignent.",
+      "condition": "L'aparté sur le café de Sofiane dépend de arc4_5_sofiane_maid",
+      "consequences": [
+        "Si arc4_5_sofiane_maid est vrai, Ilona et Jessy parlent discrètement à Sofiane de son café ; sinon son lieu de travail reste un mystère pour la tablée (ending_family.rpy:661-682)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/family/bg_family_fete.jpg"],
+      "cgs": ["images/scenes/cg/family/cg_family_toast.png"],
+      "music": ["audio/music/bar_jazzy.ogg"]
+    },
+    {
+      "id": "finA2-s8",
+      "title": "Une piste de danse improvisée",
+      "label": "ending_family_fete",
+      "lines": "779-889",
+      "location": "Salle du restaurant",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane", "theo", "micka"],
+      "summary": "Desserts, photos (dont la photo floue de Tokyo), karaoké : Allan, Alexandre, Micka, Sofiane assis comme au volant, puis Ilona rejointe par Jessy. Théo interprète Baka Mitai avec le plus grand sérieux. Il défie ensuite Jessy dans une battle de danse façon Yakuza 0 (Kiryu contre Majima) ; Jessy glisse et finit accroupi devant Ilona, qui déclare la salle gagnante. Tout le monde danse.",
+      "backgrounds": [
+        "images/scenes/backgrounds/family/bg_family_fete_fin.png",
+        "images/scenes/backgrounds/family/bg_family_karaoke.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/bar_jazzy.ogg", "audio/music/Baka_Mitai.ogg"]
+    },
+    {
+      "id": "finA2-s9",
+      "title": "À la prochaine",
+      "label": "ending_family_depart",
+      "lines": "893-979",
+      "location": "Devant le restaurant, la nuit",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane", "theo", "micka"],
+      "summary": "Les au revoir s'étirent. Théo remercie pour la soirée. Sofiane emmène Allan, Alexandre et Théo, en menaçant quiconque vomirait dans sa Trueno, puis revient chercher Micka. Seuls, Jessy et Ilona ferment le restaurant ; Jessy a l'impression qu'ils habitent là depuis toujours. Il l'embrasse sous les guirlandes de l'entrée.",
+      "backgrounds": [
+        "images/scenes/backgrounds/family/bg_family_restaurant_nuit.png",
+        "images/scenes/backgrounds/family/bg_family_fete_rangement.png"
+      ],
+      "cgs": ["images/scenes/cg/family/cg_family_entrance_kiss.png"],
+      "music": ["audio/music/real-love.ogg"]
+    },
+    {
+      "id": "finA2-s10",
+      "title": "« Je vais être papa ? »",
+      "label": "ending_family_annonce",
+      "lines": "983-1033",
+      "location": "Jardin de la maison",
+      "characters": ["jessy", "ilona"],
+      "summary": "Quelques jours plus tard, un lundi, sous le grand arbre, Jessy feuillette un catalogue de graines. Ilona lui annonce : « Tu vas être papa. » Jessy se fige, puis rit en tremblant et la serre contre lui. Coupe franche : le même jardin au crépuscule, Jessy dans sa tenue « papa ».",
+      "backgrounds": [
+        "images/scenes/backgrounds/family/bg_family_jardin_jour.jpg",
+        "images/scenes/backgrounds/family/bg_family_jardin_soir.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/love-piano.ogg", "audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA2-s11",
+      "title": "Lucy et Oliver",
+      "label": "ending_family_lucy",
+      "lines": "1037-1129",
+      "location": "Jardin au crépuscule, plusieurs années plus tard",
+      "characters": ["jessy", "lucy", "ilona"],
+      "summary": "Plusieurs années plus tard, Lucy, leur fille, offre à son père un bouquet de fleurs sauvages « parce que je t'aime » ; une fleur décoiffée, c'est lui. Ilona sort de la maison, enceinte d'Oliver, qui « fait sa randonnée » dans son ventre avec, vu la direction des coups de pied, une carte de Jessy. Lucy promet de lui construire une maison à deux portes. Ils rentrent tous les trois pour la tarte. Phrase finale : « Ils vécurent heureux et eurent beaucoup d'enfants. »",
+      "backgrounds": ["images/scenes/backgrounds/family/bg_family_jardin_soir.jpg"],
+      "cgs": [
+        "images/scenes/cg/family/cg_family_lucy_hug.png",
+        "images/scenes/cg/family/cg_family_homecoming.png"
+      ],
+      "music": ["audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA2-s12",
+      "title": "Générique",
+      "label": "ending_family_generique",
+      "lines": "1132-1143",
+      "characters": [],
+      "summary": "Cartons « GOOD ENDING / FAMILY », « Jessy et Ilona / Les Petits Sommets », distribution (Allan, Alexandre, Sofiane, Théo et Micka, Monsieur Laplage, Lucy et Oliver), puis « Merci d'avoir partagé leur histoire. » Le carton des crédits musicaux Undertale ne s'affiche que si la piste dédiée est présente.",
+      "backgrounds": [],
+      "cgs": [],
+      "music": ["audio/music/real-love.ogg"]
+    }
+  ]
+}

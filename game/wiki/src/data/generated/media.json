@@ -1,0 +1,2852 @@
+{
+ "audio/ambience/breeze-birds.mp3": {
+  "src": "media/audio/ambience/breeze-birds.mp3"
+ },
+ "audio/ambience/crowd-noise.mp3": {
+  "src": "media/audio/ambience/crowd-noise.mp3"
+ },
+ "audio/ambience/forest_night.mp3": {
+  "src": "media/audio/ambience/forest_night.mp3"
+ },
+ "audio/ambience/foule.mp3": {
+  "src": "media/audio/ambience/foule.mp3"
+ },
+ "audio/ambience/high_school_indoor_ambience_corridor.mp3": {
+  "src": "media/audio/ambience/high_school_indoor_ambience_corridor.mp3"
+ },
+ "audio/ambience/lake.mp3": {
+  "src": "media/audio/ambience/lake.mp3"
+ },
+ "audio/ambience/ocean-waves.mp3": {
+  "src": "media/audio/ambience/ocean-waves.mp3"
+ },
+ "audio/ambience/rain-inside.mp3": {
+  "src": "media/audio/ambience/rain-inside.mp3"
+ },
+ "audio/ambience/rain.mp3": {
+  "src": "media/audio/ambience/rain.mp3"
+ },
+ "audio/ambience/river.mp3": {
+  "src": "media/audio/ambience/river.mp3"
+ },
+ "audio/ambience/the_city_mouse_and_the_country_mouse.mp3": {
+  "src": "media/audio/ambience/the_city_mouse_and_the_country_mouse.mp3"
+ },
+ "audio/ambience/tram-inside.mp3": {
+  "src": "media/audio/ambience/tram-inside.mp3"
+ },
+ "audio/ambience/winter-wind.mp3": {
+  "src": "media/audio/ambience/winter-wind.mp3"
+ },
+ "audio/fx/aaughmp3.mp3": {
+  "src": "media/audio/fx/aaughmp3.mp3"
+ },
+ "audio/fx/AE86_engine.mp3": {
+  "src": "media/audio/fx/AE86_engine.mp3"
+ },
+ "audio/fx/AE86_Engine_Start.mp3": {
+  "src": "media/audio/fx/AE86_Engine_Start.mp3"
+ },
+ "audio/fx/ApplauseClapping.mp3": {
+  "src": "media/audio/fx/ApplauseClapping.mp3"
+ },
+ "audio/fx/Bear.mp3": {
+  "src": "media/audio/fx/Bear.mp3"
+ },
+ "audio/fx/bell.mp3": {
+  "src": "media/audio/fx/bell.mp3"
+ },
+ "audio/fx/big-Chicken.mp3": {
+  "src": "media/audio/fx/big-Chicken.mp3"
+ },
+ "audio/fx/bubble.ogg": {
+  "src": "media/audio/fx/bubble.ogg"
+ },
+ "audio/fx/bush.mp3": {
+  "src": "media/audio/fx/bush.mp3"
+ },
+ "audio/fx/bushbird.mp3": {
+  "src": "media/audio/fx/bushbird.mp3"
+ },
+ "audio/fx/car_go.mp3": {
+  "src": "media/audio/fx/car_go.mp3"
+ },
+ "audio/fx/car_stop.mp3": {
+  "src": "media/audio/fx/car_stop.mp3"
+ },
+ "audio/fx/Chicken_hurt1.ogg": {
+  "src": "media/audio/fx/Chicken_hurt1.ogg"
+ },
+ "audio/fx/coins_fucking.mp3": {
+  "src": "media/audio/fx/coins_fucking.mp3"
+ },
+ "audio/fx/construction.mp3": {
+  "src": "media/audio/fx/construction.mp3"
+ },
+ "audio/fx/Decathlons jingle.mp3": {
+  "src": "media/audio/fx/Decathlons jingle.mp3"
+ },
+ "audio/fx/discord-call-sound.mp3": {
+  "src": "media/audio/fx/discord-call-sound.mp3"
+ },
+ "audio/fx/drift.mp3": {
+  "src": "media/audio/fx/drift.mp3"
+ },
+ "audio/fx/female-sigh.mp3": {
+  "src": "media/audio/fx/female-sigh.mp3"
+ },
+ "audio/fx/footsteps-snow.mp3": {
+  "src": "media/audio/fx/footsteps-snow.mp3"
+ },
+ "audio/fx/jessy_laugh.ogg": {
+  "src": "media/audio/fx/jessy_laugh.ogg"
+ },
+ "audio/fx/Kombini_open.mp3": {
+  "src": "media/audio/fx/Kombini_open.mp3"
+ },
+ "audio/fx/map.mp3": {
+  "src": "media/audio/fx/map.mp3"
+ },
+ "audio/fx/MGS-Ringtone.mp3": {
+  "src": "media/audio/fx/MGS-Ringtone.mp3"
+ },
+ "audio/fx/minecraft-door.mp3": {
+  "src": "media/audio/fx/minecraft-door.mp3"
+ },
+ "audio/fx/minecraft-walking-on-grass.mp3": {
+  "src": "media/audio/fx/minecraft-walking-on-grass.mp3"
+ },
+ "audio/fx/minecraft-wood-break-place.mp3": {
+  "src": "media/audio/fx/minecraft-wood-break-place.mp3"
+ },
+ "audio/fx/photo-taken.mp3": {
+  "src": "media/audio/fx/photo-taken.mp3"
+ },
+ "audio/fx/piano-slam.mp3": {
+  "src": "media/audio/fx/piano-slam.mp3"
+ },
+ "audio/fx/plouf.mp3": {
+  "src": "media/audio/fx/plouf.mp3"
+ },
+ "audio/fx/prowler_sound.mp3": {
+  "src": "media/audio/fx/prowler_sound.mp3"
+ },
+ "audio/fx/re-zero-return.mp3": {
+  "src": "media/audio/fx/re-zero-return.mp3"
+ },
+ "audio/fx/sand-noise.mp3": {
+  "src": "media/audio/fx/sand-noise.mp3"
+ },
+ "audio/fx/sand-walk.mp3": {
+  "src": "media/audio/fx/sand-walk.mp3"
+ },
+ "audio/fx/shiny.ogg": {
+  "src": "media/audio/fx/shiny.ogg"
+ },
+ "audio/fx/snake-alert.mp3": {
+  "src": "media/audio/fx/snake-alert.mp3"
+ },
+ "audio/fx/soft-wind.mp3": {
+  "src": "media/audio/fx/soft-wind.mp3"
+ },
+ "audio/fx/sploush.mp3": {
+  "src": "media/audio/fx/sploush.mp3"
+ },
+ "audio/fx/stones-falling.mp3": {
+  "src": "media/audio/fx/stones-falling.mp3"
+ },
+ "audio/fx/train-passing.mp3": {
+  "src": "media/audio/fx/train-passing.mp3"
+ },
+ "audio/fx/train-stop.mp3": {
+  "src": "media/audio/fx/train-stop.mp3"
+ },
+ "audio/fx/villager.mp3": {
+  "src": "media/audio/fx/villager.mp3"
+ },
+ "audio/fx/water-minecraft.mp3": {
+  "src": "media/audio/fx/water-minecraft.mp3"
+ },
+ "audio/fx/whispers.mp3": {
+  "src": "media/audio/fx/whispers.mp3"
+ },
+ "audio/fx/WOW.mp3": {
+  "src": "media/audio/fx/WOW.mp3"
+ },
+ "audio/fx/yesss_1.mp3": {
+  "src": "media/audio/fx/yesss_1.mp3"
+ },
+ "audio/music/alex_peace.ogg": {
+  "src": "media/audio/music/alex_peace.ogg"
+ },
+ "audio/music/apart_tokyo.ogg": {
+  "src": "media/audio/music/apart_tokyo.ogg"
+ },
+ "audio/music/apart_tokyo_sad.ogg": {
+  "src": "media/audio/music/apart_tokyo_sad.ogg"
+ },
+ "audio/music/Baka_Mitai.ogg": {
+  "src": "media/audio/music/Baka_Mitai.ogg"
+ },
+ "audio/music/bar_jazz.ogg": {
+  "src": "media/audio/music/bar_jazz.ogg"
+ },
+ "audio/music/bar_jazzy.ogg": {
+  "src": "media/audio/music/bar_jazzy.ogg"
+ },
+ "audio/music/cafe.ogg": {
+  "src": "media/audio/music/cafe.ogg"
+ },
+ "audio/music/cafeMC.ogg": {
+  "src": "media/audio/music/cafeMC.ogg"
+ },
+ "audio/music/city-rain.ogg": {
+  "src": "media/audio/music/city-rain.ogg"
+ },
+ "audio/music/depressed.ogg": {
+  "src": "media/audio/music/depressed.ogg"
+ },
+ "audio/music/ecole-music.ogg": {
+  "src": "media/audio/music/ecole-music.ogg"
+ },
+ "audio/music/ecole-nuit.ogg": {
+  "src": "media/audio/music/ecole-nuit.ogg"
+ },
+ "audio/music/ecole-roof.ogg": {
+  "src": "media/audio/music/ecole-roof.ogg"
+ },
+ "audio/music/festival.ogg": {
+  "src": "media/audio/music/festival.ogg"
+ },
+ "audio/music/Haggstrom.ogg": {
+  "src": "media/audio/music/Haggstrom.ogg"
+ },
+ "audio/music/ilona_stream.ogg": {
+  "src": "media/audio/music/ilona_stream.ogg"
+ },
+ "audio/music/kombini.ogg": {
+  "src": "media/audio/music/kombini.ogg"
+ },
+ "audio/music/library.ogg": {
+  "src": "media/audio/music/library.ogg"
+ },
+ "audio/music/love-piano.ogg": {
+  "src": "media/audio/music/love-piano.ogg"
+ },
+ "audio/music/maidCafe.ogg": {
+  "src": "media/audio/music/maidCafe.ogg"
+ },
+ "audio/music/main_music.ogg": {
+  "src": "media/audio/music/main_music.ogg"
+ },
+ "audio/music/Majula.ogg": {
+  "src": "media/audio/music/Majula.ogg"
+ },
+ "audio/music/melancolique-piano.ogg": {
+  "src": "media/audio/music/melancolique-piano.ogg"
+ },
+ "audio/music/Metal-gear.ogg": {
+  "src": "media/audio/music/Metal-gear.ogg"
+ },
+ "audio/music/morning-piano.ogg": {
+  "src": "media/audio/music/morning-piano.ogg"
+ },
+ "audio/music/morning_romance.ogg": {
+  "src": "media/audio/music/morning_romance.ogg"
+ },
+ "audio/music/night-walk.ogg": {
+  "src": "media/audio/music/night-walk.ogg"
+ },
+ "audio/music/plage-day.ogg": {
+  "src": "media/audio/music/plage-day.ogg"
+ },
+ "audio/music/plage-sunset.ogg": {
+  "src": "media/audio/music/plage-sunset.ogg"
+ },
+ "audio/music/rando.ogg": {
+  "src": "media/audio/music/rando.ogg"
+ },
+ "audio/music/real-love.ogg": {
+  "src": "media/audio/music/real-love.ogg"
+ },
+ "audio/music/resto_jazz.ogg": {
+  "src": "media/audio/music/resto_jazz.ogg"
+ },
+ "audio/music/sad-piano.ogg": {
+  "src": "media/audio/music/sad-piano.ogg"
+ },
+ "audio/music/sadness.ogg": {
+  "src": "media/audio/music/sadness.ogg"
+ },
+ "audio/music/saintv.ogg": {
+  "src": "media/audio/music/saintv.ogg"
+ },
+ "audio/music/Sayo-nara.ogg": {
+  "src": "media/audio/music/Sayo-nara.ogg"
+ },
+ "audio/music/shopping.ogg": {
+  "src": "media/audio/music/shopping.ogg"
+ },
+ "audio/music/spirit_of_the_night.ogg": {
+  "src": "media/audio/music/spirit_of_the_night.ogg"
+ },
+ "audio/music/spring-hope.ogg": {
+  "src": "media/audio/music/spring-hope.ogg"
+ },
+ "audio/music/Subwoofer-Lullaby.ogg": {
+  "src": "media/audio/music/Subwoofer-Lullaby.ogg"
+ },
+ "audio/music/tense-piano.ogg": {
+  "src": "media/audio/music/tense-piano.ogg"
+ },
+ "audio/music/the-sunset.ogg": {
+  "src": "media/audio/music/the-sunset.ogg"
+ },
+ "audio/music/tokyo.ogg": {
+  "src": "media/audio/music/tokyo.ogg"
+ },
+ "audio/music/truth-piano.ogg": {
+  "src": "media/audio/music/truth-piano.ogg"
+ },
+ "audio/music/xmas-mall.ogg": {
+  "src": "media/audio/music/xmas-mall.ogg"
+ },
+ "audio/music/xmas-market.ogg": {
+  "src": "media/audio/music/xmas-market.ogg"
+ },
+ "gui/main_menu.png": {
+  "src": "media/gui/main_menu.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "gui/window_icon.png": {
+  "src": "media/gui/window_icon.webp",
+  "w": 250,
+  "h": 250
+ },
+ "images/personnages/Alexandre/akward_realization.png": {
+  "src": "media/images/personnages/Alexandre/akward_realization.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/akward_realization.png": {
+  "src": "media/images/personnages/Alexandre/Beach/akward_realization.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/blunt_seriousness.png": {
+  "src": "media/images/personnages/Alexandre/Beach/blunt_seriousness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/concerned_look.png": {
+  "src": "media/images/personnages/Alexandre/Beach/concerned_look.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/genuine_laughter.png": {
+  "src": "media/images/personnages/Alexandre/Beach/genuine_laughter.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/neutral.png": {
+  "src": "media/images/personnages/Alexandre/Beach/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/peace.png": {
+  "src": "media/images/personnages/Alexandre/Beach/peace.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/playful_grin.png": {
+  "src": "media/images/personnages/Alexandre/Beach/playful_grin.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/supportive_encouragement.png": {
+  "src": "media/images/personnages/Alexandre/Beach/supportive_encouragement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Beach/teasing_skepticism.png": {
+  "src": "media/images/personnages/Alexandre/Beach/teasing_skepticism.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/blunt_seriousness.png": {
+  "src": "media/images/personnages/Alexandre/blunt_seriousness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/concerned_look.png": {
+  "src": "media/images/personnages/Alexandre/concerned_look.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/akward_realization.png": {
+  "src": "media/images/personnages/Alexandre/Festival/akward_realization.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/blunt_seriousness.png": {
+  "src": "media/images/personnages/Alexandre/Festival/blunt_seriousness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/concerned_look.png": {
+  "src": "media/images/personnages/Alexandre/Festival/concerned_look.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/genuine_laughter.png": {
+  "src": "media/images/personnages/Alexandre/Festival/genuine_laughter.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/neutral.png": {
+  "src": "media/images/personnages/Alexandre/Festival/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/peace.png": {
+  "src": "media/images/personnages/Alexandre/Festival/peace.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/playful_grin.png": {
+  "src": "media/images/personnages/Alexandre/Festival/playful_grin.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/supportive_encouragement.png": {
+  "src": "media/images/personnages/Alexandre/Festival/supportive_encouragement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Festival/teasing_skepticism.png": {
+  "src": "media/images/personnages/Alexandre/Festival/teasing_skepticism.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/genuine_laughter.png": {
+  "src": "media/images/personnages/Alexandre/genuine_laughter.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Home/playful_grin.png": {
+  "src": "media/images/personnages/Alexandre/Home/playful_grin.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/minecraft.png": {
+  "src": "media/images/personnages/Alexandre/minecraft.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/neutral.png": {
+  "src": "media/images/personnages/Alexandre/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/akward_realization_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/akward_realization_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/blunt_seriousness_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/blunt_seriousness_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/concerned_look_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/concerned_look_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/genuine_laughter_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/genuine_laughter_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/neutral_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/neutral_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/peace_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/peace_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/playful_grin_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/playful_grin_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/supportive_encouragement_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/supportive_encouragement_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Party/teasing_skepticism_party.png": {
+  "src": "media/images/personnages/Alexandre/Party/teasing_skepticism_party.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/playful_grin.png": {
+  "src": "media/images/personnages/Alexandre/playful_grin.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/supportive_encouragement.png": {
+  "src": "media/images/personnages/Alexandre/supportive_encouragement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/teasing_skepticism.png": {
+  "src": "media/images/personnages/Alexandre/teasing_skepticism.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/akward_realization.png": {
+  "src": "media/images/personnages/Alexandre/Winter/akward_realization.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/blunt_seriousness.png": {
+  "src": "media/images/personnages/Alexandre/Winter/blunt_seriousness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/concerned_look.png": {
+  "src": "media/images/personnages/Alexandre/Winter/concerned_look.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/genuine_laughter.png": {
+  "src": "media/images/personnages/Alexandre/Winter/genuine_laughter.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/neutral.png": {
+  "src": "media/images/personnages/Alexandre/Winter/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/peace.png": {
+  "src": "media/images/personnages/Alexandre/Winter/peace.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/playful_grin.png": {
+  "src": "media/images/personnages/Alexandre/Winter/playful_grin.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/supportive_encouragement.png": {
+  "src": "media/images/personnages/Alexandre/Winter/supportive_encouragement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Alexandre/Winter/teasing_skepticism.png": {
+  "src": "media/images/personnages/Alexandre/Winter/teasing_skepticism.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Allan/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Allan/Beach/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/cheerful_excitement.png": {
+  "src": "media/images/personnages/Allan/Beach/cheerful_excitement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/neutral.png": {
+  "src": "media/images/personnages/Allan/Beach/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/playful_smirk.png": {
+  "src": "media/images/personnages/Allan/Beach/playful_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/quiet_support.png": {
+  "src": "media/images/personnages/Allan/Beach/quiet_support.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/throughtful_doubt.png": {
+  "src": "media/images/personnages/Allan/Beach/throughtful_doubt.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/uncomfortable_silence.png": {
+  "src": "media/images/personnages/Allan/Beach/uncomfortable_silence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Beach/wide_eye_surprise.png": {
+  "src": "media/images/personnages/Allan/Beach/wide_eye_surprise.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/cheerful_excitement.png": {
+  "src": "media/images/personnages/Allan/cheerful_excitement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Allan/Festival/awkward_embarrassment.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/cheerful_excitement.png": {
+  "src": "media/images/personnages/Allan/Festival/cheerful_excitement.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/neutral.png": {
+  "src": "media/images/personnages/Allan/Festival/neutral.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/playful_smirk.png": {
+  "src": "media/images/personnages/Allan/Festival/playful_smirk.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/quiet_support.png": {
+  "src": "media/images/personnages/Allan/Festival/quiet_support.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/throughtful_doubt.png": {
+  "src": "media/images/personnages/Allan/Festival/throughtful_doubt.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/uncomfortable_silence.png": {
+  "src": "media/images/personnages/Allan/Festival/uncomfortable_silence.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Festival/wide_eye_surprise.png": {
+  "src": "media/images/personnages/Allan/Festival/wide_eye_surprise.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/illonanium/ceo.png": {
+  "src": "media/images/personnages/Allan/illonanium/ceo.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Allan/illonanium/ceo_supportive.png": {
+  "src": "media/images/personnages/Allan/illonanium/ceo_supportive.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Allan/illonanium/ceo_surprised.png": {
+  "src": "media/images/personnages/Allan/illonanium/ceo_surprised.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Allan/illonanium/military_commander.png": {
+  "src": "media/images/personnages/Allan/illonanium/military_commander.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Allan/neutral.png": {
+  "src": "media/images/personnages/Allan/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Party/cheerful_excitement.png": {
+  "src": "media/images/personnages/Allan/Party/cheerful_excitement.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Party/neutral.png": {
+  "src": "media/images/personnages/Allan/Party/neutral.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Party/playful_smirk.png": {
+  "src": "media/images/personnages/Allan/Party/playful_smirk.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Party/quiet_support.png": {
+  "src": "media/images/personnages/Allan/Party/quiet_support.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Party/uncomfortable_silence.png": {
+  "src": "media/images/personnages/Allan/Party/uncomfortable_silence.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/playful_smirk.png": {
+  "src": "media/images/personnages/Allan/playful_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/quiet_support.png": {
+  "src": "media/images/personnages/Allan/quiet_support.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/throughtful_doubt.png": {
+  "src": "media/images/personnages/Allan/throughtful_doubt.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/uncomfortable_silence.png": {
+  "src": "media/images/personnages/Allan/uncomfortable_silence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/wide_eye_surprise.png": {
+  "src": "media/images/personnages/Allan/wide_eye_surprise.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Allan/Winter/awkward_embarrassment.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/cheerful_excitement.png": {
+  "src": "media/images/personnages/Allan/Winter/cheerful_excitement.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/neutral.png": {
+  "src": "media/images/personnages/Allan/Winter/neutral.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/playful_smirk.png": {
+  "src": "media/images/personnages/Allan/Winter/playful_smirk.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/quiet_support.png": {
+  "src": "media/images/personnages/Allan/Winter/quiet_support.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/throughtful_doubt.png": {
+  "src": "media/images/personnages/Allan/Winter/throughtful_doubt.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/uncomfortable_silence.png": {
+  "src": "media/images/personnages/Allan/Winter/uncomfortable_silence.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Allan/Winter/wide_eye_surprise.png": {
+  "src": "media/images/personnages/Allan/Winter/wide_eye_surprise.webp",
+  "w": 603,
+  "h": 900
+ },
+ "images/personnages/Florentin/illonanium/armor_angry.png": {
+  "src": "media/images/personnages/Florentin/illonanium/armor_angry.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Florentin/illonanium/armor_resolved.png": {
+  "src": "media/images/personnages/Florentin/illonanium/armor_resolved.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Florentin/illonanium/futuristic_armor.png": {
+  "src": "media/images/personnages/Florentin/illonanium/futuristic_armor.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Ilona/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Beach/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/clear_determination.png": {
+  "src": "media/images/personnages/Ilona/Beach/clear_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/frustrated_restraint.png": {
+  "src": "media/images/personnages/Ilona/Beach/frustrated_restraint.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/neutral.png": {
+  "src": "media/images/personnages/Ilona/Beach/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Beach/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Beach/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Beach/sad.png": {
+  "src": "media/images/personnages/Ilona/Beach/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/clear_determination.png": {
+  "src": "media/images/personnages/Ilona/clear_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Festival/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/clear_determination.png": {
+  "src": "media/images/personnages/Ilona/Festival/clear_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/frustrated_restraint.png": {
+  "src": "media/images/personnages/Ilona/Festival/frustrated_restraint.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/neutral.png": {
+  "src": "media/images/personnages/Ilona/Festival/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Festival/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Festival/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Festival/sad.png": {
+  "src": "media/images/personnages/Ilona/Festival/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/frustrated_restraint.png": {
+  "src": "media/images/personnages/Ilona/frustrated_restraint.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/House/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/House/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/House/neutral.png": {
+  "src": "media/images/personnages/Ilona/House/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/House/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/House/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/House/pregnant.png": {
+  "src": "media/images/personnages/Ilona/House/pregnant.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/illonanium/sick.png": {
+  "src": "media/images/personnages/Ilona/illonanium/sick.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Ilona/minecraft.png": {
+  "src": "media/images/personnages/Ilona/minecraft.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/neutral.png": {
+  "src": "media/images/personnages/Ilona/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Party/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Party/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Party/neutral.png": {
+  "src": "media/images/personnages/Ilona/Party/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Party/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Party/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Rando/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/neutral.png": {
+  "src": "media/images/personnages/Ilona/Rando/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Rando/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/sad.png": {
+  "src": "media/images/personnages/Ilona/Rando/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/With_bag/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Rando/With_bag/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/With_bag/neutral_rando.png": {
+  "src": "media/images/personnages/Ilona/Rando/With_bag/neutral_rando.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/With_bag/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Rando/With_bag/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Rando/With_bag/sad.png": {
+  "src": "media/images/personnages/Ilona/Rando/With_bag/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Short_hair/Crying.png": {
+  "src": "media/images/personnages/Ilona/Short_hair/Crying.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Short_hair/neutral.png": {
+  "src": "media/images/personnages/Ilona/Short_hair/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Short_hair/sad.png": {
+  "src": "media/images/personnages/Ilona/Short_hair/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Short_hair/sad_alt.png": {
+  "src": "media/images/personnages/Ilona/Short_hair/sad_alt.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Streaming/bright_smile.png": {
+  "src": "media/images/personnages/Ilona/Streaming/bright_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Streaming/genuine_laughter.png": {
+  "src": "media/images/personnages/Ilona/Streaming/genuine_laughter.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Streaming/joyful_celebration.png": {
+  "src": "media/images/personnages/Ilona/Streaming/joyful_celebration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Streaming/playful_excitement.png": {
+  "src": "media/images/personnages/Ilona/Streaming/playful_excitement.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Streaming/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Streaming/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Summer/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Summer/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Summer/neutral.png": {
+  "src": "media/images/personnages/Ilona/Summer/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Summer/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Summer/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Tokyo/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Tokyo/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Tokyo/neutral.png": {
+  "src": "media/images/personnages/Ilona/Tokyo/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Tokyo/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Tokyo/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Tokyo/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Tokyo/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Tokyo/sad.png": {
+  "src": "media/images/personnages/Ilona/Tokyo/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Winter/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/clear_determination.png": {
+  "src": "media/images/personnages/Ilona/Winter/clear_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/frustrated_restraint.png": {
+  "src": "media/images/personnages/Ilona/Winter/frustrated_restraint.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/neutral.png": {
+  "src": "media/images/personnages/Ilona/Winter/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Winter/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Winter/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/sad.png": {
+  "src": "media/images/personnages/Ilona/Winter/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/awkward_embarrassment.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/awkward_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/clear_determination.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/clear_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/frustrated_restraint.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/frustrated_restraint.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/neutral_hiver.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/neutral_hiver.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/playful_warm_smile.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/playful_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/quiet_fatigue.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/quiet_fatigue.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Ilona/Winter/Winter_with_scarf/sad.png": {
+  "src": "media/images/personnages/Ilona/Winter/Winter_with_scarf/sad.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/angry.png": {
+  "src": "media/images/personnages/Jessy/Beach/angry.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/happy.png": {
+  "src": "media/images/personnages/Jessy/Beach/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/Beach/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Beach/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/regretful_listening.png": {
+  "src": "media/images/personnages/Jessy/Beach/regretful_listening.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Beach/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/surprised.png": {
+  "src": "media/images/personnages/Jessy/Beach/surprised.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Beach/vulnerable_determination.png": {
+  "src": "media/images/personnages/Jessy/Beach/vulnerable_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/angry.png": {
+  "src": "media/images/personnages/Jessy/Festival/angry.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/happy.png": {
+  "src": "media/images/personnages/Jessy/Festival/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/Festival/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Festival/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/regretful_listening.png": {
+  "src": "media/images/personnages/Jessy/Festival/regretful_listening.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Festival/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Festival/vulnerable_determination.png": {
+  "src": "media/images/personnages/Jessy/Festival/vulnerable_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Home/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Home/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/beach_angry.png": {
+  "src": "media/images/personnages/Jessy/illonanium/beach_angry.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/beach_determined.png": {
+  "src": "media/images/personnages/Jessy/illonanium/beach_determined.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/beach_neutral.png": {
+  "src": "media/images/personnages/Jessy/illonanium/beach_neutral.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/beach_surprised.png": {
+  "src": "media/images/personnages/Jessy/illonanium/beach_surprised.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/priest.png": {
+  "src": "media/images/personnages/Jessy/illonanium/priest.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/priest_determined.png": {
+  "src": "media/images/personnages/Jessy/illonanium/priest_determined.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/priest_emotional.png": {
+  "src": "media/images/personnages/Jessy/illonanium/priest_emotional.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/priest_listening.png": {
+  "src": "media/images/personnages/Jessy/illonanium/priest_listening.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/priest_smile.png": {
+  "src": "media/images/personnages/Jessy/illonanium/priest_smile.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/prophet_determined.png": {
+  "src": "media/images/personnages/Jessy/illonanium/prophet_determined.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/prophet_emotional.png": {
+  "src": "media/images/personnages/Jessy/illonanium/prophet_emotional.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/illonanium/prophet_with_gem.png": {
+  "src": "media/images/personnages/Jessy/illonanium/prophet_with_gem.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Jessy/minecraft.png": {
+  "src": "media/images/personnages/Jessy/minecraft.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Papa/neutral.png": {
+  "src": "media/images/personnages/Jessy/Papa/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Party/happy.png": {
+  "src": "media/images/personnages/Jessy/Party/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Party/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Party/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Party/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Party/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/happy.png": {
+  "src": "media/images/personnages/Jessy/Rando/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/Rando/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Rando/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Rando/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/With_bag/happy.png": {
+  "src": "media/images/personnages/Jessy/Rando/With_bag/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/With_bag/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/Rando/With_bag/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/With_bag/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Rando/With_bag/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Rando/With_bag/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Rando/With_bag/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/regretful_listening.png": {
+  "src": "media/images/personnages/Jessy/regretful_listening.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/vulnerable_determination.png": {
+  "src": "media/images/personnages/Jessy/vulnerable_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/angry.png": {
+  "src": "media/images/personnages/Jessy/Winter/angry.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/happy.png": {
+  "src": "media/images/personnages/Jessy/Winter/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/nervous_embarrassment.png": {
+  "src": "media/images/personnages/Jessy/Winter/nervous_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/neutral_attentiveness.png": {
+  "src": "media/images/personnages/Jessy/Winter/neutral_attentiveness.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/regretful_listening.png": {
+  "src": "media/images/personnages/Jessy/Winter/regretful_listening.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/shy_warm_smile.png": {
+  "src": "media/images/personnages/Jessy/Winter/shy_warm_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Jessy/Winter/vulnerable_determination.png": {
+  "src": "media/images/personnages/Jessy/Winter/vulnerable_determination.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Bear/Laplage_neutral.png": {
+  "src": "media/images/personnages/Laplage/Bear/Laplage_neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Bear/Laplage_thumb_up.png": {
+  "src": "media/images/personnages/Laplage/Bear/Laplage_thumb_up.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Christmas/neutral.png": {
+  "src": "media/images/personnages/Laplage/Christmas/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Christmas/thumb_up.png": {
+  "src": "media/images/personnages/Laplage/Christmas/thumb_up.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Festival/neutral.png": {
+  "src": "media/images/personnages/Laplage/Festival/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Festival/thumb_up.png": {
+  "src": "media/images/personnages/Laplage/Festival/thumb_up.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/illonanium/exhausted.png": {
+  "src": "media/images/personnages/Laplage/illonanium/exhausted.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Laplage/illonanium/farewell.png": {
+  "src": "media/images/personnages/Laplage/illonanium/farewell.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Laplage/illonanium/farewell_no_creeper.png": {
+  "src": "media/images/personnages/Laplage/illonanium/farewell_no_creeper.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Laplage/illonanium/neutral.png": {
+  "src": "media/images/personnages/Laplage/illonanium/neutral.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Laplage/illonanium/thumb_up.png": {
+  "src": "media/images/personnages/Laplage/illonanium/thumb_up.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Laplage/Maid/neutral.png": {
+  "src": "media/images/personnages/Laplage/Maid/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/Maid/thumb_horizontal.png": {
+  "src": "media/images/personnages/Laplage/Maid/thumb_horizontal.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/minecraft.png": {
+  "src": "media/images/personnages/Laplage/minecraft.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/neutral.png": {
+  "src": "media/images/personnages/Laplage/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/thumb_down.png": {
+  "src": "media/images/personnages/Laplage/thumb_down.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/thumb_horizontal.png": {
+  "src": "media/images/personnages/Laplage/thumb_horizontal.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Laplage/thumb_up.png": {
+  "src": "media/images/personnages/Laplage/thumb_up.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Lucy/happy.png": {
+  "src": "media/images/personnages/Lucy/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Lucy/neutral.png": {
+  "src": "media/images/personnages/Lucy/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Micka/exhausted.png": {
+  "src": "media/images/personnages/Micka/exhausted.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Micka/happy.png": {
+  "src": "media/images/personnages/Micka/happy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Micka/happy_with_gifts.png": {
+  "src": "media/images/personnages/Micka/happy_with_gifts.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Micka/illonanium/armor_commanding.png": {
+  "src": "media/images/personnages/Micka/illonanium/armor_commanding.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Micka/illonanium/governor_emotional.png": {
+  "src": "media/images/personnages/Micka/illonanium/governor_emotional.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Micka/illonanium/governor_serious.png": {
+  "src": "media/images/personnages/Micka/illonanium/governor_serious.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Micka/illonanium/governor_suit.png": {
+  "src": "media/images/personnages/Micka/illonanium/governor_suit.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Micka/illonanium/sci_fi_armor.png": {
+  "src": "media/images/personnages/Micka/illonanium/sci_fi_armor.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Micka/Party/flowers.png": {
+  "src": "media/images/personnages/Micka/Party/flowers.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Micka/Party/neutral.png": {
+  "src": "media/images/personnages/Micka/Party/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/akward_silence.png": {
+  "src": "media/images/personnages/Sofiane/akward_silence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Beach/cryptic_smirk.png": {
+  "src": "media/images/personnages/Sofiane/Beach/cryptic_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Beach/quiet_observation.png": {
+  "src": "media/images/personnages/Sofiane/Beach/quiet_observation.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Beach/reserved_neutral.png": {
+  "src": "media/images/personnages/Sofiane/Beach/reserved_neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/cryptic_smirk.png": {
+  "src": "media/images/personnages/Sofiane/cryptic_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/dramatic_intensity.png": {
+  "src": "media/images/personnages/Sofiane/dramatic_intensity.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/illonanium/armor_focused.png": {
+  "src": "media/images/personnages/Sofiane/illonanium/armor_focused.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Sofiane/illonanium/older_civilian_neutral.png": {
+  "src": "media/images/personnages/Sofiane/illonanium/older_civilian_neutral.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Sofiane/illonanium/older_civilian_smirk.png": {
+  "src": "media/images/personnages/Sofiane/illonanium/older_civilian_smirk.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Sofiane/illonanium/tactical_sci_fi_armor.png": {
+  "src": "media/images/personnages/Sofiane/illonanium/tactical_sci_fi_armor.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Sofiane/maid.png": {
+  "src": "media/images/personnages/Sofiane/maid.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Party/quiet_observation.png": {
+  "src": "media/images/personnages/Sofiane/Party/quiet_observation.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Party/reserved_neutral.png": {
+  "src": "media/images/personnages/Sofiane/Party/reserved_neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/quiet_observation.png": {
+  "src": "media/images/personnages/Sofiane/quiet_observation.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/relieved_smile.png": {
+  "src": "media/images/personnages/Sofiane/relieved_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/reserved_neutral.png": {
+  "src": "media/images/personnages/Sofiane/reserved_neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/shy_embarrassment.png": {
+  "src": "media/images/personnages/Sofiane/shy_embarrassment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Winter/cryptic_smirk.png": {
+  "src": "media/images/personnages/Sofiane/Winter/cryptic_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Winter/quiet_observation.png": {
+  "src": "media/images/personnages/Sofiane/Winter/quiet_observation.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Sofiane/Winter/reserved_neutral.png": {
+  "src": "media/images/personnages/Sofiane/Winter/reserved_neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/Beach/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/Beach/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/Beach/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Beach/feigned_innocence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Beach/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/neutral.png": {
+  "src": "media/images/personnages/Theo/Beach/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/Beach/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Beach/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Beach/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/feigned_innocence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/Festival/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/Festival/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/Festival/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Festival/feigned_innocence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Festival/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/neutral.png": {
+  "src": "media/images/personnages/Theo/Festival/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/Festival/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Festival/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Festival/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/laplage_determined.png": {
+  "src": "media/images/personnages/Theo/illonanium/laplage_determined.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/laplage_emotional.png": {
+  "src": "media/images/personnages/Theo/illonanium/laplage_emotional.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/laplage_neutral.png": {
+  "src": "media/images/personnages/Theo/illonanium/laplage_neutral.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/laplage_thumb_up.png": {
+  "src": "media/images/personnages/Theo/illonanium/laplage_thumb_up.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/older_neutral.png": {
+  "src": "media/images/personnages/Theo/illonanium/older_neutral.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/older_regretful.png": {
+  "src": "media/images/personnages/Theo/illonanium/older_regretful.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/illonanium/older_surprised.png": {
+  "src": "media/images/personnages/Theo/illonanium/older_surprised.webp",
+  "w": 900,
+  "h": 900
+ },
+ "images/personnages/Theo/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/neutral.png": {
+  "src": "media/images/personnages/Theo/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Party/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Party/feigned_innocence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Party/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Party/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Party/neutral.png": {
+  "src": "media/images/personnages/Theo/Party/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Party/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Party/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Theo_laplage/neutral.png": {
+  "src": "media/images/personnages/Theo/Theo_laplage/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Theo_laplage/neutral_laplage.png": {
+  "src": "media/images/personnages/Theo/Theo_laplage/neutral_laplage.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Theo_laplage/picture.png": {
+  "src": "media/images/personnages/Theo/Theo_laplage/picture.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Theo_laplage/thumb_up_laplage.png": {
+  "src": "media/images/personnages/Theo/Theo_laplage/thumb_up_laplage.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/Tokyo/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/Tokyo/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/Tokyo/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Tokyo/feigned_innocence.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Tokyo/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/neutral.png": {
+  "src": "media/images/personnages/Theo/Tokyo/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/Tokyo/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Tokyo/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Tokyo/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/Winter/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/Winter/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/Winter/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Winter/feigned_innocence.webp",
+  "w": 599,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Winter/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/neutral.png": {
+  "src": "media/images/personnages/Theo/Winter/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/Winter/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Winter/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/cold_disappointment.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/cold_disappointment.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/controlled_annoyance.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/controlled_annoyance.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/defense_frustration.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/defense_frustration.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/feigned_innocence.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/feigned_innocence.webp",
+  "w": 599,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/knowing_smirk.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/knowing_smirk.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/neutral.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/neutral.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/quiet_jalousy.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/quiet_jalousy.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/personnages/Theo/Winter/Winter_with_scarf/reassuring_smile.png": {
+  "src": "media/images/personnages/Theo/Winter/Winter_with_scarf/reassuring_smile.webp",
+  "w": 600,
+  "h": 900
+ },
+ "images/promo/ilonanium/annonce_ending_ilonanium_discord.png": {
+  "src": "media/images/promo/ilonanium/annonce_ending_ilonanium_discord.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_beach_main.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_beach_sunset.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_group_parasol.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_jetty.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_jetty.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_kakigori_counter.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_kakigori_counter.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_lost_items_table.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_lost_items_table.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/beach/bg_arc2_tide_pools.jpg": {
+  "src": "media/images/scenes/backgrounds/beach/bg_arc2_tide_pools.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc1_konbini_snacks.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc1_konbini_snacks.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc4_shopping_gallery.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc4_shopping_gallery.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_cafe.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_cafe.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_cinema_auditorium.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_cinema_auditorium.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_cinema_box_office.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_cinema_box_office.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_cinema_seated.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_park_spring.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/city/bg_arc5_rain_street.jpg": {
+  "src": "media/images/scenes/backgrounds/city/bg_arc5_rain_street.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_fete.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_fete.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_fete_fin.png": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_fete_fin.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/family/bg_family_fete_rangement.png": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_fete_rangement.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/family/bg_family_jardin_jour.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_jardin_jour.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_jardin_soir.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_jardin_soir.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_karaoke.png": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_karaoke.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/family/bg_family_maison.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_maison.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_rendezvous.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_rendezvous.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_restaurant_jour.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_restaurant_jour.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_restaurant_nuit.png": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_restaurant_nuit.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/family/bg_family_restaurant_soir.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_restaurant_soir.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/family/bg_family_salle.jpg": {
+  "src": "media/images/scenes/backgrounds/family/bg_family_salle.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/friend/bg_friend_appartement_allan.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_appartement_allan.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_appartement_allan_repas.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_appartement_allan_repas.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_appel_alexandre.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_appel_alexandre.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_chambre_ilona.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_chambre_ilona.webp",
+  "w": 1280,
+  "h": 721
+ },
+ "images/scenes/backgrounds/friend/bg_friend_chambre_jessy.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_chambre_jessy.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_discord_cinq.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_discord_cinq.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_discord_six.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_discord_six.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_gare_matin.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_gare_matin.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/friend/bg_friend_promenade_arrivee.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_promenade_arrivee.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_promenade_depart.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_promenade_depart.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/friend/bg_friend_train_nuit.png": {
+  "src": "media/images/scenes/backgrounds/friend/bg_friend_train_nuit.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/hiking/alexandre_peche_lac_ponton_vide.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/alexandre_peche_lac_ponton_vide.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_aube.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_aube.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_bivouac.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_bivouac.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_boutique.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_boutique.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_depart.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_depart.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit_tente_ferme.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit_tente_ferme.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_route.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_route.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier.jpg": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier_ours.png": {
+  "src": "media/images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier_ours.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/ilonanium/plage_deux_soleils.png": {
+  "src": "media/images/scenes/backgrounds/ilonanium/plage_deux_soleils.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ferme.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ferme.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ouvert.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ouvert.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_accident_floor.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_accident_floor.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_chicken_roof_branch.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_chicken_roof_branch.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_greenhouse_branch.jpg": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_greenhouse_branch.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_house_afternoon.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_house_afternoon.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_house_entrance.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_house_entrance.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_pool_branch.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_pool_branch.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_river_laplage.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_river_laplage.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_roof_night.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_roof_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_secret_room.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_secret_room.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_slide_branch.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_slide_branch.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/minecraft/bg_prologue_weird_interior.png": {
+  "src": "media/images/scenes/backgrounds/minecraft/bg_prologue_weird_interior.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc1_rooftop_lunch.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc1_rooftop_lunch.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc1_school_cafeteria.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc1_school_cafeteria.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc1_school_corridor.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc1_school_corridor.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc3_classroom_evening.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc3_festival_courtyard.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc3_festival_courtyard.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc3_festival_hallway.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc3_festival_stand.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc3_festival_stand.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc3_festival_stand_with_students.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc3_festival_stand_with_students.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc5_classroom.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc5_classroom.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc5_library.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc5_library.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc5_library_night.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc5_library_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc5_rooftop.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc5_rooftop.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc6_classroom_festive.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc6_classroom_festive.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc6_classroom_morning.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc6_classroom_morning.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc6_courtyard_march.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc6_courtyard_march.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/school/bg_arc6_gym_ceremony.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_arc6_gym_ceremony.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/school/bg_shared_school_corridor.jpg": {
+  "src": "media/images/scenes/backgrounds/school/bg_shared_school_corridor.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/streaming/bg_arc7_intro_stream.jpg": {
+  "src": "media/images/scenes/backgrounds/streaming/bg_arc7_intro_stream.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_arrival_station.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_arrival_station.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_konbini_night.png": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_konbini_night.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_bad_ending_apartment_corridor_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_bad_ending_apartment_corridor_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.png": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.webp",
+  "w": 1280,
+  "h": 715
+ },
+ "images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_door_bedroom.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_door_bedroom.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.jpg": {
+  "src": "media/images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/transport/bg_arc1_train_inside.jpg": {
+  "src": "media/images/scenes/backgrounds/transport/bg_arc1_train_inside.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/transport/bg_arc1_train_platform.jpg": {
+  "src": "media/images/scenes/backgrounds/transport/bg_arc1_train_platform.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/transport/bg_arc4_train_inside.jpg": {
+  "src": "media/images/scenes/backgrounds/transport/bg_arc4_train_inside.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/transport/bg_arc5_train_station.jpg": {
+  "src": "media/images/scenes/backgrounds/transport/bg_arc5_train_station.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/transport/bg_shared_train_inside.jpg": {
+  "src": "media/images/scenes/backgrounds/transport/bg_shared_train_inside.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg": {
+  "src": "media/images/scenes/backgrounds/winter/bg_arc4_christmas_market.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg": {
+  "src": "media/images/scenes/backgrounds/winter/bg_arc4_illuminations.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/winter/bg_arc4_park_bench.jpg": {
+  "src": "media/images/scenes/backgrounds/winter/bg_arc4_park_bench.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/backgrounds/winter/bg_arc4_riverside_winter.jpg": {
+  "src": "media/images/scenes/backgrounds/winter/bg_arc4_riverside_winter.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/cg/alexandre_fishing/alexandre_peche_de_dos_au_lac.jpg": {
+  "src": "media/images/scenes/cg/alexandre_fishing/alexandre_peche_de_dos_au_lac.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_fermes.jpg": {
+  "src": "media/images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_fermes.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_ouverts.jpg": {
+  "src": "media/images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_ouverts.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/family/cg_family_entrance_kiss.png": {
+  "src": "media/images/scenes/cg/family/cg_family_entrance_kiss.webp",
+  "w": 1280,
+  "h": 716
+ },
+ "images/scenes/cg/family/cg_family_homecoming.png": {
+  "src": "media/images/scenes/cg/family/cg_family_homecoming.webp",
+  "w": 1280,
+  "h": 716
+ },
+ "images/scenes/cg/family/cg_family_laplage_adieux.png": {
+  "src": "media/images/scenes/cg/family/cg_family_laplage_adieux.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/family/cg_family_lucy_hug.png": {
+  "src": "media/images/scenes/cg/family/cg_family_lucy_hug.webp",
+  "w": 1280,
+  "h": 716
+ },
+ "images/scenes/cg/family/cg_family_pancakes_01.png": {
+  "src": "media/images/scenes/cg/family/cg_family_pancakes_01.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/family/cg_family_pancakes_02.png": {
+  "src": "media/images/scenes/cg/family/cg_family_pancakes_02.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/family/cg_family_toast.png": {
+  "src": "media/images/scenes/cg/family/cg_family_toast.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/friend/cg_friend_chateau_sable.png": {
+  "src": "media/images/scenes/cg/friend/cg_friend_chateau_sable.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/friend/cg_friend_photo_premier_ete.png": {
+  "src": "media/images/scenes/cg/friend/cg_friend_photo_premier_ete.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/friend/cg_friend_photo_retrouvailles.png": {
+  "src": "media/images/scenes/cg/friend/cg_friend_photo_retrouvailles.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/friend/cg_friend_raquettes.png": {
+  "src": "media/images/scenes/cg/friend/cg_friend_raquettes.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/friend/cg_friend_salut_brindille.png": {
+  "src": "media/images/scenes/cg/friend/cg_friend_salut_brindille.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/01_attraction.png": {
+  "src": "media/images/scenes/cg/ilonanium/01_attraction.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/02_gravite.png": {
+  "src": "media/images/scenes/cg/ilonanium/02_gravite.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/03_laplage.png": {
+  "src": "media/images/scenes/cg/ilonanium/03_laplage.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/04_echec.png": {
+  "src": "media/images/scenes/cg/ilonanium/04_echec.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/05_adieu.png": {
+  "src": "media/images/scenes/cg/ilonanium/05_adieu.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/06_maison.png": {
+  "src": "media/images/scenes/cg/ilonanium/06_maison.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/07_arrachement.png": {
+  "src": "media/images/scenes/cg/ilonanium/07_arrachement.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/08_catastrophe.png": {
+  "src": "media/images/scenes/cg/ilonanium/08_catastrophe.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/09_sauvetage.png": {
+  "src": "media/images/scenes/cg/ilonanium/09_sauvetage.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/10_terre.png": {
+  "src": "media/images/scenes/cg/ilonanium/10_terre.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/11_naissance_astre.png": {
+  "src": "media/images/scenes/cg/ilonanium/11_naissance_astre.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/12_ilonanium.png": {
+  "src": "media/images/scenes/cg/ilonanium/12_ilonanium.webp",
+  "w": 1280,
+  "h": 721
+ },
+ "images/scenes/cg/ilonanium/13_adieux_laplage.png": {
+  "src": "media/images/scenes/cg/ilonanium/13_adieux_laplage.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/13_reconquete_espoir.png": {
+  "src": "media/images/scenes/cg/ilonanium/13_reconquete_espoir.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/14_calin_jessy_theo.png": {
+  "src": "media/images/scenes/cg/ilonanium/14_calin_jessy_theo.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/14_transmission_adieux.png": {
+  "src": "media/images/scenes/cg/ilonanium/14_transmission_adieux.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/15_depart_tardis.png": {
+  "src": "media/images/scenes/cg/ilonanium/15_depart_tardis.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/15_preparatifs_taikun.png": {
+  "src": "media/images/scenes/cg/ilonanium/15_preparatifs_taikun.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/16_jessy_survivants.png": {
+  "src": "media/images/scenes/cg/ilonanium/16_jessy_survivants.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/ilonanium/theo_ilona_picture.png": {
+  "src": "media/images/scenes/cg/ilonanium/theo_ilona_picture.webp",
+  "w": 843,
+  "h": 1264
+ },
+ "images/scenes/cg/jessy_epopee/01_marche.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/01_marche.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/02_oiseau.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/02_oiseau.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/03_renard.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/03_renard.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/04_riviere_main.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/04_riviere_main.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/05_riviere_chaussure.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/05_riviere_chaussure.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/06_fleurs_fruit.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/06_fleurs_fruit.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/07_carte.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/07_carte.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/08_gourde.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/08_gourde.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/09_promontoire.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/09_promontoire.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/10_fruit_question.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/10_fruit_question.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/11_fruit_goute.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/11_fruit_goute.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/13_dejeuner.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/13_dejeuner.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/14_amitie.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/14_amitie.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/jessy_epopee/15_aveu.jpg": {
+  "src": "media/images/scenes/cg/jessy_epopee/15_aveu.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_belvedere_collegues.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_belvedere_collegues.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_collegues.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_collegues.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_profil.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_profil.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage_pouce.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage_pouce.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne_with_laplage.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne_with_laplage.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_gobelet_eau.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_gobelet_eau.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_pedalier_talon_pointe.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_pedalier_talon_pointe.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_phares_depart.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_phares_depart.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_retroviseur_phares.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_retroviseur_phares.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.png": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_sourire.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_sourire.webp",
+  "w": 1280,
+  "h": 719
+ },
+ "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_vide_fumee.jpg": {
+  "src": "media/images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_vide_fumee.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/cg/theo/bg_arc6_evil_theo.jpg": {
+  "src": "media/images/scenes/cg/theo/bg_arc6_evil_theo.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/illonanium/bar.png": {
+  "src": "media/images/scenes/illonanium/bar.webp",
+  "w": 1280,
+  "h": 698
+ },
+ "images/scenes/illonanium/capitole_depart.png": {
+  "src": "media/images/scenes/illonanium/capitole_depart.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/illonanium/capitole_retour.png": {
+  "src": "media/images/scenes/illonanium/capitole_retour.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/illonanium/fin_ilonanium0.png": {
+  "src": "media/images/scenes/illonanium/fin_ilonanium0.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/illonanium/fin_ilonanium1.jpg": {
+  "src": "media/images/scenes/illonanium/fin_ilonanium1.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/illonanium/fin_ilonanium2.jpg": {
+  "src": "media/images/scenes/illonanium/fin_ilonanium2.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/illonanium/governor_office.png": {
+  "src": "media/images/scenes/illonanium/governor_office.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/illonanium/passerelle_taikun.png": {
+  "src": "media/images/scenes/illonanium/passerelle_taikun.webp",
+  "w": 1280,
+  "h": 720
+ },
+ "images/scenes/illonanium/plage_exoplanete.png": {
+  "src": "media/images/scenes/illonanium/plage_exoplanete.webp",
+  "w": 1280,
+  "h": 714
+ },
+ "images/scenes/illonanium/taikun_orbite.png": {
+  "src": "media/images/scenes/illonanium/taikun_orbite.webp",
+  "w": 1280,
+  "h": 720
+ }
+}

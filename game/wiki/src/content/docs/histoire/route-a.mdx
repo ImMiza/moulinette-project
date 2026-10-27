@@ -1,0 +1,98 @@
+---
+title: "Route A"
+description: L'une des deux routes de l'arc VII de Moulinette. Conditions, scènes, variables et fins, protégées contre les spoilers.
+sidebar:
+  order: 8
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc VI](../arc-6/), l'une des deux routes possibles (voir aussi la [Route B](../route-b/)).
+**Fins** : [Fin A1](../../fins/a1/), [Fin A2](../../fins/a2/), [Fin A3](../../fins/a3/).
+:::
+
+## En bref
+
+<Spoiler requires="arc6" note="mise en place de la route, suppose l'arc VI terminé">
+
+Quelques jours après les diplômes, un projet de randonnée en montagne prend forme : un vrai sentier, une nuit en bivouac, « de l'air et un endroit où dormir ». Toute la bande se retrouve au rayon randonnée d'un magasin de sport pour l'équipement, puis Sofiane, au volant de la voiture de son cousin, dépose les marcheurs au départ des sentiers. Pendant ce week-end d'été, d'autres soirées se déroulent ailleurs.
+
+</Spoiler>
+
+## Conditions d'entrée
+
+<Spoiler requires="arc6" note="révèle l'issue de l'arc VI">
+
+Fichier de la route : `arcs/arc_7/arc_7_jessy.rpy` (titre affiché en jeu : « ARC 7 : LA RANDONNÉE »).
+
+La route est choisie par le verdict calculé une seule fois à l'entrée de l'arc VI (`arc6_calcule_verdict()`, `arcs/arc_6/arc_6_diplomes.rpy:160`, fonction lignes 44-84) :
+
+- si `interruptions_ilona - interruptions_reparees >= 3` (contrôle répété), la route Théo est forcée ;
+- sinon, `arc6_route = "jessy"` si `arc6_score >= SEUIL_JESSY` (180, `script.rpy:401`), sinon route Théo.
+
+`arc6_score` additionne l'espace laissé à Ilona (autonomie, phrases finies, réparations, communication, confiance), des souvenirs (`jessy_repare`, `jessy_nomme_sa_peur`, etc.), retranche la dette (influence de Théo, contrôle, pression du stream, jalousie, confidences à Laplage) et les récidives ; +20 si au moins deux interruptions réparées et `souvenirs["jessy_repare"]`.
+
+Dans la cour, `if arc6_route == "jessy"` mène à `arc_6_decision_jessy` (`arc_6_diplomes.rpy:1757-1758`) : Ilona annonce qu'elle reste avec Jessy, puis la scène Minecraft se termine par `jump arc_7_jessy` (`arc_6_diplomes.rpy:1892`).
+
+</Spoiler>
+
+## Étapes
+
+<SceneList arc="routeA" />
+
+## Variables déterminantes
+
+<Spoiler requires="routeA">
+
+| Variable | Valeurs | Où | Effet |
+| --- | --- | --- | --- |
+| `arc7_jessy_fruit` | `"goute"` / `"jette"` | scène 3, `arc_7_jessy.rpy:402-422` | goûter donne `ilonanium_points += 1` ; requis pour la Fin A3 |
+| `arc7_jessy_dejeuner` | `"amitie"` / `"crush"` | scène 3, `:434-455` | répliques du bivouac et de la réponse de Jessy |
+| `arc7_jessy_relation` | `"amitie"` / `"amour"` | bivouac, `:685-713` | choisit la Fin A1 ou la Fin A2 |
+| `arc7_jessy_tente` | `True` / `False` | bivouac (si amour), `:738-749` | nuit et réveil seulement |
+| `ilonanium_points` | 0 à 6 | arcs I, II, III, IV, VI, VII | 6 + fruit goûté → Fin A3 automatique |
+
+Variables héritées lues : `arc6_derniere_construction` (scène 1), `arc4_5_sofiane_maid` (scène 2), `arc5_cinema_ensemble` et `arc4_cadeau_jessy` (bivouac), `arc6_offre_theo` et `arc6_conversation` (soirée de Tokyo). Les quatre variables `arc7_jessy_*` sont remises à zéro à l'entrée (`:133-136`).
+
+</Spoiler>
+
+## Fins possibles
+
+- [Fin A1](../../fins/a1/)
+- [Fin A2](../../fins/a2/)
+- [Fin A3](../../fins/a3/)
+
+<Spoiler requires="routeA" note="conditions des trois fins">
+
+- **Fin A1** : réponse d'amitié au bivouac (`arc7_jessy_relation == "amitie"`), si la Fin A3 ne se déclenche pas.
+- **Fin A2** : réponse d'amour au bivouac (`arc7_jessy_relation == "amour"`), quel que soit le choix tente ou hamac, si la Fin A3 ne se déclenche pas.
+- **Fin A3** est une fin secrète, déclenchée automatiquement à l'aube, sans menu et en priorité sur A1/A2, si `ilonanium_points == 6 and arc7_jessy_fruit == "goute"` (`arc_7_jessy.rpy:1176-1178`), c'est-à-dire si Ilona a mangé les six objets cosmiques du jeu, fruit étoilé compris. Sinon, `arc_7_jessy_fin_relation` aiguille vers A1 ou A2 (`:1182-1186`).
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="routeA" note="résumé complet de la route">
+
+**Les préparatifs**
+
+Quatre jours après les diplômes, dans leur maison Minecraft, Ilona apprend à Jessy que Théo part le 6 ; elle ne sait pas si elle ira à la gare. Jessy lui propose une randonnée d'été, sans en faire une « contre-offre » à Tokyo. Elle accepte, mais veut faire les courses avec Allan, Alexandre et Sofiane. Au magasin, Alexandre juge les coutures, Allan plaide pour les biscuits, et chacun évoque son été : Allan ira peut-être voir Théo à Tokyo, Sofiane empruntera la voiture de son cousin.
+
+**La marche**
+
+Un samedi d'été, Sofiane les conduit en AE86 jusqu'au départ des sentiers. Jessy abandonne sa feuille d'itinéraires pliée en huit. La marche est racontée comme une épopée parodique : oiseau, renard, rivière où Ilona tend la main et où Jessy se mouille quand même, carte tenue à l'envers. Ilona trouve un fruit en forme d'étoile ; au promontoire, elle le goûte ou le laisse à la montagne. Pendant le déjeuner, Jessy parle d'amitié ou avoue qu'elle lui plaît. Plus loin, Monsieur Laplage passe à dos d'ours, puis ils trouvent Alexandre en train de pêcher au bord d'un lac : il n'attrape qu'une feuille, mais trouve le paysage magnifique et dit que ce qu'il garde de l'année, ce sont les choses absurdes et les vraies conversations.
+
+**Le bivouac**
+
+Le soir, ils parlent de leurs habitudes : Jessy prépare les réponses d'Ilona, Ilona raccourcit ses phrases pour ne pas le décevoir. Ils évoquent les trois mots écrits sous le col de la veste des diplômes. Ilona déclare son amour et demande un vrai non plutôt qu'un oui de complaisance. Jessy répond par l'amitié (elle entre seule dans la tente, blessée) ou par l'amour (ils s'embrassent ; il garde son hamac ou la rejoint dans la tente, sous le pouce levé de Laplage).
+
+**Les contre-soirées**
+
+Pendant ce temps, Sofiane ramène deux collègues du maid café par la route de montagne, un gobelet d'eau entre les sièges. Il enchaîne les drifts jusqu'à ce que Laplage, au volant d'une berline argentée, glisse à ses côtés, lève le pouce et disparaît sur une route sans sortie. Pas une goutte n'est tombée. À Tokyo, Allan retrouve Théo : appartement trop silencieux, deuxième clé dans un tiroir, dispute du gymnase, dix ans de « traduction ». Théo apprend la randonnée et refuse d'envoyer un message par Allan. Ils prennent une photo floue ; Théo envoie plus tard son « dîner raté » et promet d'appeler.
+
+**Le retour**
+
+Si Jessy a choisi l'amitié, Laplage lui apparaît la nuit comme dans un appel codec : laisser la porte ouverte, ne pas confondre attendre et renoncer. À l'aube, le couple plaisante, ou Ilona remercie Jessy de son honnêteté et demande du temps. Ils rangent le bivouac ; si le fruit a été goûté, Ilona regarde le noyau étoilé. Ils redescendent, carte à l'envers. Selon la partie, la Fin A3 se déclenche d'elle-même ; sinon la relation choisie mène à la Fin A1 ou à la Fin A2.
+
+</Spoiler>

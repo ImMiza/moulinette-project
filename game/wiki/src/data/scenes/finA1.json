@@ -1,0 +1,176 @@
+{
+  "arc": "finA1",
+  "title": "GOOD ENDING FRIEND — Le dernier été",
+  "file": "arcs/endings/ending_friend.rpy",
+  "scenes": [
+    {
+      "id": "finA1-s1",
+      "title": "Après la randonnée",
+      "label": "ending_friend_distance",
+      "lines": "60-167",
+      "location": "Maison Minecraft, chambre de Jessy, trou Minecraft, chambre d'Ilona",
+      "characters": ["jessy", "ilona", "alexandre", "tchat"],
+      "summary": "Carton « LE DERNIER ÉTÉ ». Le soir du retour, Jessy se connecte pour construire une terrasse qu'Ilona aimerait, puis renonce : au bivouac, il a promis de ne pas réparer sa peine en étant partout autour d'elle. Quelques jours plus tard, il lui propose une partie ; elle préfère rester seule, il n'insiste pas.\n\nLe vendredi, Alexandre l'emmène voir « un trou, mais très loin » dans Minecraft, puis les enferme dedans en posant un bloc au-dessus d'eux. Chez elle, Ilona lance un petit stream de dessin, rit avec quelques pseudos du tchat et envoie le dessin au groupe plutôt qu'à Jessy. Les semaines passent ; les messages reprennent par petites touches, Théo compris, et Jessy félicite Ilona pour un extrait de son stream.",
+      "consequences": [
+        "record_ending(\"friend\") est appelé à l'entrée (ending_friend.rpy:61)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_chambre_jessy.png",
+        "images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ouvert.png",
+        "images/scenes/backgrounds/minecraft/bg_friend_minecraft_trou_ferme.png",
+        "images/scenes/backgrounds/friend/bg_friend_chambre_ilona.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg", "audio/music/Haggstrom.ogg", "audio/music/ilona_stream.ogg", "audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "finA1-s2",
+      "title": "Une journée avant les départs",
+      "label": "ending_friend_invitation",
+      "lines": "171-211",
+      "location": "Chambre d'Ilona (conversation de groupe)",
+      "characters": ["ilona", "allan", "alexandre", "sofiane", "jessy", "theo"],
+      "summary": "Vers la fin de l'été, Ilona cherche un soir pour réunir tout le monde ; les agendas se remplissent de jours barrés. Elle propose un dimanche à la plage, « celle où Alexandre a essayé de construire une ville ». Allan prend le repas, Alexandre veut emporter une vraie pelle, Sofiane prendra la voiture et le matériel. Théo propose de les rejoindre à la correspondance depuis Tokyo. Rendez-vous à neuf heures dix devant le panneau des départs ; Allan avoue avoir « peut-être acheté large ».",
+      "backgrounds": ["images/scenes/backgrounds/friend/bg_friend_chambre_ilona.png"],
+      "cgs": [],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "finA1-s3",
+      "title": "Le train pour la mer",
+      "label": "ending_friend_trajet",
+      "lines": "215-341",
+      "location": "Gare, train, parking de la plage",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "theo", "sofiane"],
+      "summary": "Carton « DIMANCHE ». Jessy et Ilona se retrouvent sous le panneau des départs ; Allan et Alexandre arrivent chargés, Théo descend du train de Tokyo. Dans le train, Alexandre reproche à Allan d'avoir retiré les marches d'un pont Minecraft, et Théo montre son « dîner raté ». Jessy raconte sa future formation ; Ilona, un dessin fait dehors. À l'arrivée, Sofiane les attend près de la Trueno avec le parasol, la glacière et la pelle dans sa housse.",
+      "backgrounds": [
+        "images/scenes/backgrounds/friend/bg_friend_gare_matin.png",
+        "images/scenes/backgrounds/transport/bg_shared_train_inside.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "finA1-s4",
+      "title": "La grande catastrophe collective",
+      "label": "ending_friend_chateau",
+      "lines": "345-501",
+      "location": "Plage",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "theo", "sofiane"],
+      "summary": "Allan déballe un buffet démesuré mais a oublié les serviettes sur sa table. Alexandre trace un château « raisonnable » ; Ilona veut une cuisine vue sur mer, Allan une réserve à biscuits, Sofiane trace une route de montagne, Jessy plante une brindille en guise de porte sans mur. Théo demande avant d'aider Alexandre. Jessy et Ilona transforment un tunnel effondré en restaurant pour crabes.\n\nLa marée monte : tout le monde sauve les affaires, Alexandre tente de retenir une vague avec sa pelle. La moitié de la cour part ; seule la porte de Jessy tient, avant d'être couchée à son tour. Jessy salue la brindille.",
+      "backgrounds": [
+        "images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg"
+      ],
+      "cgs": [
+        "images/scenes/cg/friend/cg_friend_chateau_sable.png",
+        "images/scenes/cg/friend/cg_friend_salut_brindille.png"
+      ],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "finA1-s5",
+      "title": "Les boissons et le reste",
+      "label": "ending_friend_promenade",
+      "lines": "505-619",
+      "location": "Plage, stand de boissons",
+      "characters": ["ilona", "jessy", "allan", "alexandre", "theo", "sofiane"],
+      "summary": "Ilona et Jessy partent chercher les boissons et les serviettes. En chemin, Ilona avoue avoir failli ne pas proposer la journée : elle avait peur de rentrer en ayant encore mal, et n'osait pas écrire à Jessy pour ne pas attendre ses réponses. Jessy, lui, gardait ses messages en brouillon par peur de revenir trop vite. Ils sont contents de s'être vus.\n\nIlona lui parle d'une idée de stream où le public propose des bâtiments impossibles. Elle boit par distraction dans le citron d'Allan, et le lui avoue au retour.",
+      "backgrounds": [
+        "images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_kakigori_counter.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "finA1-s6",
+      "title": "Tous les ans, le même jour",
+      "label": "ending_friend_promesse",
+      "lines": "623-733",
+      "location": "Plage, puis coucher de soleil",
+      "characters": ["allan", "alexandre", "theo", "ilona", "jessy", "sofiane"],
+      "summary": "Théo et Alexandre réussissent onze échanges de raquettes. Au coucher du soleil, chacun parle de ses projets : appartement d'Alexandre, petit boulot d'Ilona, formation de Jessy. Allan propose de revenir chaque année, même jour, même plage. Théo et Sofiane ne peuvent rien promettre. Allan explique sa peur : le groupe de son frère s'est perdu de report en report. Ils fixent plutôt un repas chez Allan dans trois semaines, quand Théo reviendra voir sa mère ; Alexandre et Sofiane ne pourront pas venir.",
+      "backgrounds": [
+        "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg"
+      ],
+      "cgs": ["images/scenes/cg/friend/cg_friend_raquettes.png"],
+      "music": ["audio/music/morning-piano.ogg", "audio/music/plage-sunset.ogg"]
+    },
+    {
+      "id": "finA1-s7",
+      "title": "Personne n'est prêt",
+      "label": "ending_friend_photo",
+      "lines": "737-834",
+      "location": "Plage, promenade, gare de correspondance, train de nuit",
+      "characters": ["ilona", "jessy", "allan", "alexandre", "theo", "sofiane"],
+      "summary": "Ilona veut une photo avant la nuit. Jessy, au bord du groupe, demande qu'on lui fasse une place ; tout le monde se décale. La photo au retardateur est un désordre : Allan « mange le vent », Théo regarde ailleurs, Ilona n'a pas fini de se retourner. Elle la garde.\n\nOn range. Sofiane repart en voiture, Théo reprend sa correspondance à la gare en promettant de confirmer son billet. Dans le train de nuit, Allan rouvre la photo.",
+      "backgrounds": [
+        "images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_promenade_depart.png",
+        "images/scenes/backgrounds/transport/bg_arc5_train_station.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_train_nuit.png"
+      ],
+      "cgs": ["images/scenes/cg/friend/cg_friend_photo_premier_ete.png"],
+      "music": ["audio/music/plage-sunset.ogg"]
+    },
+    {
+      "id": "finA1-s8",
+      "title": "Parfois cinq, parfois trois",
+      "label": "ending_friend_annees",
+      "lines": "838-1005",
+      "location": "Café près de la gare, appel vidéo, maison Minecraft, appartement d'Allan",
+      "characters": ["allan", "alexandre", "ilona", "jessy", "theo", "sofiane"],
+      "summary": "L'année suivante, la plage prévue tourne au café sous la pluie, avec seulement Allan, Alexandre et Ilona. Plus tard, l'anniversaire d'Alexandre se fête en appel vidéo à six ; Théo, qui a oublié une batterie externe chez Allan, part tôt puis rappelle Alexandre seul le dimanche suivant.\n\nL'année d'après, Jessy et Ilona jouent une heure à Minecraft : elle a dessiné une affiche pour un atelier, lui a dit oui pour un appartement. Au printemps suivant, chez Allan, Théo récupère enfin sa batterie, avec Sofiane et des plats à emporter. Au début de l'été, les six prénoms se retrouvent sous le même dimanche.",
+      "backgrounds": [
+        "images/scenes/backgrounds/city/bg_arc5_cafe.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_appel_alexandre.png",
+        "images/scenes/backgrounds/friend/bg_friend_discord_cinq.png",
+        "images/scenes/backgrounds/friend/bg_friend_discord_six.png",
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_appartement_allan.png",
+        "images/scenes/backgrounds/friend/bg_friend_appartement_allan_repas.png"
+      ],
+      "cgs": [],
+      "music": ["audio/music/cafe.ogg", "audio/music/morning-piano.ogg", "audio/music/Subwoofer-Lullaby.ogg"]
+    },
+    {
+      "id": "finA1-s9",
+      "title": "Une autre journée",
+      "label": "ending_friend_retrouvailles",
+      "lines": "1009-1176",
+      "location": "Plage, promenade",
+      "characters": ["ilona", "jessy", "allan", "alexandre", "sofiane", "theo"],
+      "summary": "Carton « CET ÉTÉ-LÀ ». Les six se retrouvent sur la même plage. Allan apporte enfin un gros paquet de serviettes ; Alexandre ressort ses plans corrigés du château, restaurant pour crabes compris. Théo arrive en retard et doit repartir par le train de quinze heures quarante.\n\nIlona montre à Jessy l'ancienne photo. Avant le départ de Théo, une nouvelle photo réunit tout le monde dans le cadre ; le jeu alterne les deux clichés : « Trois étés plus tard, ils ont encore trouvé une place pour chacun. » Une tour s'affaisse ; Alexandre reste assis avec les autres.",
+      "backgrounds": [
+        "images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_promenade_arrivee.png"
+      ],
+      "cgs": [
+        "images/scenes/cg/friend/cg_friend_photo_retrouvailles.png",
+        "images/scenes/cg/friend/cg_friend_photo_premier_ete.png"
+      ],
+      "music": ["audio/music/plage-day.ogg", "audio/music/spring-hope.ogg"]
+    },
+    {
+      "id": "finA1-s10",
+      "title": "Générique",
+      "label": "ending_friend_generique",
+      "lines": "1179-1198",
+      "characters": [],
+      "summary": "Cartons « GOOD ENDING / FRIEND », titre « Le dernier été », distribution (Jessy et Ilona, Allan, Alexandre, Sofiane et Théo), trois rappels illustrés (une table près de la gare, un anniversaire en retard, une heure pour jouer), puis la photo des retrouvailles : « Six amis, un même dimanche. » Fin sur « Merci d'avoir partagé leur histoire. » et retour au menu.",
+      "backgrounds": [
+        "images/scenes/backgrounds/city/bg_arc5_cafe.jpg",
+        "images/scenes/backgrounds/friend/bg_friend_discord_six.png",
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"
+      ],
+      "cgs": ["images/scenes/cg/friend/cg_friend_photo_retrouvailles.png"],
+      "music": ["audio/music/spring-hope.ogg"]
+    }
+  ]
+}

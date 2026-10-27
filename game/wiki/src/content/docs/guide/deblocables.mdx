@@ -1,0 +1,92 @@
+---
+title: Déblocables
+description: Galerie, succès, fins enregistrées et clins d'œil cachés de Moulinette. Les détails sont protégés.
+sidebar:
+  order: 3
+---
+import Spoiler from '../../../components/Spoiler.astro';
+
+## Galerie et succès
+
+Le jeu ne contient **ni galerie d'images, ni salle de musique, ni succès**. Aucun écran ni script ne les définit (aucune occurrence de galerie, de succès ou de variable `persistent` dans les scripts du jeu ; seules les traductions par défaut de Ren'Py, dans `game/tl/None/common.rpym`, mentionnent la galerie du moteur).
+
+## Fins enregistrées
+
+Chaque fin appelle `record_ending(clé)` dès son début. La fonction ajoute la clé à la liste `endings_seen` si elle n'y est pas déjà (`script.rpy:279-281`, liste déclarée `script.rpy:256`).
+
+Cette liste n'est **jamais affichée ni relue** : aucun écran ne montre les fins obtenues, et rien dans le jeu ne change selon les fins déjà vues. Comme c'est une variable de partie (`default`) et non une donnée `persistent`, elle est enregistrée avec chaque sauvegarde et repart vide à chaque nouvelle partie.
+
+Les clés enregistrées, fin par fin :
+
+<Spoiler requires="finA1">
+
+- [Fin A1](../../fins/a1/) : `record_ending("friend")` (`arcs/endings/ending_friend.rpy:61`).
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+- [Fin A2](../../fins/a2/) : `record_ending("family")` (`arcs/endings/ending_family.rpy:75`).
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+- [Fin A3](../../fins/a3/) : `record_ending("ilonanium")` (`arcs/endings/ending_ilonanium.rpy:176`).
+
+</Spoiler>
+
+<Spoiler requires="finB1">
+
+- [Fin B1](../../fins/b1/) : `record_ending("neutre")` (`arcs/endings/ending_neutre.rpy:7`).
+
+</Spoiler>
+
+<Spoiler requires="finB2">
+
+- [Fin B2](../../fins/b2/) : `record_ending("bad_ending")` (`arcs/endings/bad_ending.rpy:32`).
+
+</Spoiler>
+
+## Scènes conditionnelles et clins d'œil
+
+Sans galerie, le seul moyen de « débloquer » du contenu est de rejouer en faisant d'autres choix. Les éléments ci-dessous ont été vérifiés dans les scripts.
+
+Avant même le menu principal, un écran d'avertissement s'affiche : « Toute ressemblance avec des faits et des personnages existants ou ayant existé serait purement fortuite… » (`script.rpy:358`).
+
+<Spoiler requires="arc1">
+
+- **Monsieur Plume** : si le trou du prologue est devenu un poulet géant, Ilona révèle son nom à la cantine (`arc_1_printemps.rpy:618`). Les autres transformations ont aussi leur réplique, sauf le toboggan (l. 612-628).
+- **Alerte Metal Gear** : quand Allan demande « Donc... vous sortez ensemble ? », le jeu joue l'alerte `snake-alert.mp3` puis la musique `Metal-gear.ogg` (l. 414-420).
+
+</Spoiler>
+
+<Spoiler requires="arc4" note="deux scènes optionnelles">
+
+- **Les scènes 4.5** : après le marché de Noël, au plus une scène bonus se joue.
+  - [Le maid café secret](../../histoire/arc-4/#arc4-5-maid) : si `lien_jessy_ilona >= 10`, `communication >= 25` et `confiance >= 15` (`arc_4_noel.rpy:1258`).
+  - [La marche avec Théo](../../histoire/arc-4/#arc4-5-theo) : si `influence_theo >= 10`, `confiance <= 8` et la limite `demande_theo` (l. 1203).
+  - Aucune des deux si aucune condition n'est remplie.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+- **La version cinéma** de la [scène 2](../../histoire/arc-5/#arc5-s2) : jouée seulement si `(lien_jessy_ilona >= 20 or autonomie_ilona >= 30) and confiance >= 15 and communication >= 20` (`arc_5_examens.rpy:374`) ; sinon, la sortie est annulée.
+- **La traînée cosmique** : à la fin de l'arc, dans Minecraft, quelque chose peut scintiller dans un coin de l'écran. « On dirait une traînée cosmique. » / « Dans Minecraft ? » (`arc_5_examens.rpy:2557-2564`). Sa condition est donnée plus bas.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="condition de la traînée cosmique">
+
+La traînée cosmique apparaît si `ilonanium_points >= 3` et si, à la Saint-Valentin, Jessy a choisi l'option `demande` (`arc_5_examens.rpy:2556`). Le commentaire du script précise qu'elle ne donne aucun point (l. 2554-2555). C'est un signe avant-coureur de la [Fin A3](../../fins/a3/), qui se déclenche automatiquement à la fin de la Route A si `ilonanium_points == 6` et le fruit étoilé goûté (`arc_7_jessy.rpy:1177-1178`).
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+- **L'appel codec** : si Jessy a répondu par l'amitié au bivouac, Monsieur Laplage lui apparaît la nuit « comme dans un appel codec au milieu d'une infiltration » (`arc_7_jessy.rpy:1088-1095`).
+- **Derrière un pin** : si Jessy rejoint Ilona dans la tente, Laplage apparaît derrière un pin (l. 755-761).
+- **Le gobelet d'eau** : pendant les drifts de Sofiane, un gobelet d'eau posé entre les sièges sert de test de conduite (l. 792-796).
+
+</Spoiler>

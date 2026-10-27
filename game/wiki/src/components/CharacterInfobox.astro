@@ -1,0 +1,28 @@
+---
+import { getEntry } from 'astro:content';
+import Spoiler from './Spoiler.astro';
+import { keyLabel } from '../lib/keys';
+import { mediaUrl, mediaInfo } from '../lib/media';
+
+interface Props { id: string }
+const c = await getEntry('characters', Astro.props.id);
+if (!c) throw new Error(`Personnage introuvable : ${Astro.props.id}`);
+const d = c.data;
+const img = d.portrait && mediaUrl(d.portrait);
+const info = d.portrait ? mediaInfo(d.portrait) : null;
+---
+
+<aside class="infobox" aria-label={`Fiche de ${d.unlock === 'public' ? d.name : 'personnage'}`} style={d.color ? `--char:${d.color}` : undefined}>
+  <p class="infobox__name">{d.name}</p>
+  {img && <img class="infobox__portrait" src={img} alt={`Portrait de ${d.name}`} width={info?.w} height={info?.h} />}
+  <dl>
+    <dt>Rôle</dt><dd>{d.role}</dd>
+    <dt>Première apparition</dt><dd>{keyLabel(d.firstAppearance)}</dd>
+    {d.infobox.map((r) => (
+      <><dt>{r.label}</dt><dd>{r.requires === 'public' ? r.value : <Spoiler inline requires={r.requires}>{r.value}</Spoiler>}</dd></>
+    ))}
+    {d.aliases.length > 0 && (
+      <><dt>Autres noms</dt><dd>{d.aliases.map((a) => <Spoiler inline requires={a.requires}>{a.name}{a.note && ` (${a.note})`}</Spoiler>)}</dd></>
+    )}
+  </dl>
+</aside>

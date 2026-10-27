@@ -1,0 +1,81 @@
+---
+title: "Arc III — Rentrée : les regards"
+description: Troisième arc de Moulinette. Résumé sans spoiler, scènes, choix et résumé détaillé protégés.
+sidebar:
+  order: 4
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc II](../arc-2/), avant l'[Arc IV](../arc-4/).
+**Fichier** : `arcs/arc_3/arc_3_rentree.rpy`.
+:::
+
+## En bref
+
+<Spoiler requires="arc2" note="mise en place de l'arc, suppose l'arc précédent terminé">
+
+Septembre. Les uniformes reviennent, le train du matin est bondé, et l'été reste dans les conversations. Allan annonce le festival culturel : sa classe tiendra un café temporaire, celle de Jessy et Ilona s'occupera de la décoration, et Théo fera partie du comité de coordination. Ilona propose un thème très personnel, le « Blocky House Café ». Le ton du trajet dépend de la façon dont la journée à la plage s'est terminée.
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc3">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Théo](../../personnages/theo/), [Allan](../../personnages/allan/), [Alexandre](../../personnages/alexandre/), [Sofiane](../../personnages/sofiane/), [Monsieur Laplage](../../personnages/laplage/) (stand de takoyaki). Deux élèves anonymes lancent la rumeur.
+- **Lieux** : train, lycée (couloir du deuxième étage, stand du Blocky House Café, cour du festival avec stand de tir, étal de sucreries et stand de takoyaki, salle de classe le soir), maison Minecraft.
+- **Objets** : le panneau principal du café, l'étoile en sucre, la porte inutile (en carton au lycée, en blocs dans la maison).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc3" />
+
+## Choix majeurs
+
+<Spoiler requires="arc3">
+
+- **La rumeur** (scène 3) : regarder Ilona d'abord, se taire, la défendre sans lui demander ou désamorcer par une blague. Le choix fixe `arc3_reaction_rumeur`. Après le silence ou la blague, Théo marque un point (`influence_theo +1`, souvenir `theo_utilise_une_verite`). La variable est relue à l'Arc VI.
+- **Le stand** (scène 4) : dire « Je suis jaloux » et revenir (souvenir `jessy_nomme_sa_peur`), aider en retrait, demander ce qu'elle ressent ou lancer une blague acide. Le choix fixe `arc3_aide_stand`, relu à l'Arc VI.
+- **Le duel avec Théo** (scène 7) : se taire, admettre la blessure, refuser le duel ou lui rentrer dedans. Aucune variable dédiée, mais le souvenir `theo_utilise_une_verite` est posé dans tous les cas.
+- **La vérité d'Ilona** (scène 8) : déclaration, excuse précise (souvenir `jessy_repare` après une blague), demande de réponse ou promesse que Théo ne compte pas. Ce choix décide du panneau et de la maison Minecraft, via `arc3_fin_minecraft`, relu aux arcs IV, V et VI.
+- **L'étoile en sucre** (scène 11, sauf destruction) : en garder une trace dans la salle secrète (`maison_respectee`) ou la laisser la manger (1 point d'objet cosmique, `ilonanium_points`).
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc3" note="résumé complet de l'arc">
+
+**Préparatifs**
+
+Dans le train, Ilona baptise le projet de café « Blocky House Café », en hommage à leur maison Minecraft. Au lycée, Théo corrige utilement le plan absurde d'Alexandre en inventant une « fausse porte importante ». Le malaise de Jessy n'en devient que plus difficile à nommer : Théo aide vraiment.
+
+**La rumeur**
+
+Trois jours plus tard, deux élèves chuchotent en passant que Théo a rapporté son porte-clés à Ilona à la plage et que Jessy « regardait ailleurs. Pathétique ». La réaction de Jessy laisse plus ou moins de place à Ilona. Théo tente de s'engouffrer (« on te met une pression que tu n'as pas demandée »), mais Ilona le reprend : c'est lui qui la lui remet entre les mains.
+
+**Le festival**
+
+Le jour J, Théo répond encore à la place d'Ilona et la neutralité d'Allan se fissure. Ilona, elle, captive la file d'attente pendant des heures, mais élude quand Allan lui demande si elle a pensé à « faire ça ailleurs ». Allan et Alexandre enquêtent sur l'ubiquité de Monsieur Laplage. Sofiane les met en garde contre « ceux qui creusent » le silence.
+
+**Confidences et duel**
+
+Dans la cour, Ilona achète une étoile en sucre, puis confie à Laplage qu'elle est en colère et que la gentillesse de Théo la repose avant de la culpabiliser. Pendant ce temps, Théo affronte Jessy au couloir : « certaines personnes écoutent Ilona seulement quand elles ont peur de la perdre ». Sofiane console ensuite Jessy avec une canette de thé vert : « La vérité peut être une main tendue. Ou un poing fermé. »
+
+**La vérité d'Ilona**
+
+De retour, Ilona avoue sa colère, sa frustration ou son trouble, et la part d'elle qui aime être remarquée par Théo. Elle craint que leur souvenir soit devenu un spectacle. La réponse de Jessy décide de la suite. Il peut rester à ses côtés, ranger les tasses avec elle, porter ses serviettes faute de mieux ou la regarder partir la première.
+
+**Le soir**
+
+En classe, Sofiane se révèle l'organisateur secret du rangement, et le panneau du café est gardé, confié à Allan ou retourné contre le mur. Seul, Allan efface trois messages commencés par « En vrai, moi je pense que— ». Sur Minecraft, Ilona pose un panneau (« ICI, LES PHRASES ONT LE DROIT DE TREMBLER »), range la cuisine d'été, ferme la porte inutile ou détruit la cuisine d'été entière. « La rentrée n'a rien tranché. Elle a seulement rendu les regards visibles. »
+
+</Spoiler>
+
+## Suite
+
+L'histoire continue avec l'[Arc IV](../arc-4/).

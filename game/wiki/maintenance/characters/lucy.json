@@ -1,0 +1,17 @@
+{
+  "id": "lucy",
+  "firstAppearance": "finA2",
+  "role": "Personnage de l'épilogue",
+  "infobox": [
+    { "label": "Couleur de dialogue", "value": "#f4d183", "requires": "finA2" },
+    { "label": "Parents", "value": "Jessy et Ilona", "requires": "finA2" },
+    { "label": "Frère", "value": "Oliver (à naître)", "requires": "finA2" }
+  ],
+  "aliases": [],
+  "sources": [
+    "arcs/endings/ending_family.rpy:28",
+    "arcs/endings/ending_family.rpy:62-65",
+    "arcs/endings/ending_family.rpy:1037-1121",
+    "arcs/endings/ending_family.rpy:1136"
+  ]
+}

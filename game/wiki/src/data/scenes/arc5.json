@@ -1,0 +1,350 @@
+{
+  "arc": "arc5",
+  "title": "ARC 5 : JANVIER MANGE LES GENS DE L'INTÉRIEUR",
+  "file": "arcs/arc_5/arc_5_examens.rpy",
+  "scenes": [
+    {
+      "id": "arc5-s1",
+      "title": "Révisions en bibliothèque — la fatigue qui s'accumule",
+      "label": "arc_5_examens",
+      "lines": "46-351",
+      "requires": "arc5",
+      "condition": "Toujours jouée. Plusieurs phrases de narration varient selon la fin Minecraft de l'Arc IV (arc4_fin_minecraft : miniature_trace, echarpe_coffre, carnet_hors_maison ou autre) et, si Ilona a passé la soirée de Noël avec Théo (arc4_ilona_avec_theo), selon sa réaction lors de cette marche (arc4_5_ilona_reaction : accepte, prudente ou directe).",
+      "location": "Bibliothèque",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "theo", "laplage"],
+      "summary": "Le 12 janvier, en pleine période de révisions, la bande travaille à la bibliothèque. Ilona n'a pas dormi, a un peu maigri et feuillette les mêmes pages sans les lire ; Alexandre présente un planning de révisions dessiné comme un bâtiment « techniquement inhabitable ». Selon la fin de l'Arc IV, la narration évoque ses sourires fatigués, l'écharpe de Noël jamais portée, ou le fait qu'elle construit désormais hors de la maison Minecraft. Si Ilona a marché avec Théo après Noël, sa présence est décrite comme plus installée (accepte), tenue à distance (prudente) ou interrogée (directe) ; dans le cas « accepte » avec un projet de stream évoqué, Ilona a aussi parlé de streamer (pression_stream +1).\n\nThéo arrive avec des cafés et apporte à Ilona exactement le thé qu'elle prend quand elle est à bout. Elle se détend en trente secondes ; Jessy se sent inutile. Sa réaction (vérifier, compenser, remercier ou se taire) donne le ton. Monsieur Laplage traverse ensuite la bibliothèque avec un badge « Consultant en Entropie Émotionnelle » et lance à Ilona : « Les étoiles qui ne se reposent jamais finissent par s'effondrer sur elles-mêmes. »\n\nIlona rentre seule. Allan demande à Jessy combien elle dort et s'il lui a posé la question : Jessy peut esquiver ou admettre qu'il a peur de vouloir la « réparer ». En partant, il ramasse un stylo violet à étoiles oublié par Ilona et se promet de le lui rendre le lendemain.",
+      "choices": [
+        {
+          "line": 156,
+          "prompt": "Le gobelet de thé est là, entre les mains d'Ilona. Théo attend, détendu, comme quelqu'un qui sait qu'il a fait la bonne chose.",
+          "options": [
+            { "text": "Demander à Ilona si elle voulait vraiment ce thé-là.", "effects": "autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +2, interruptions_ilona +1 (Ilona : « Tu ne demandes pas. Tu vérifies. »)" },
+            { "text": "Proposer d'aller chercher autre chose, quelque chose de personnel.", "effects": "autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1" },
+            { "text": "Remercier Théo sincèrement.", "effects": "communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2" },
+            { "text": "Ne rien dire. Avaler la pilule.", "effects": "communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +1" }
+          ]
+        },
+        {
+          "line": 291,
+          "prompt": "Allan attend. Alexandre aussi. Même Théo, de sa table, semble écouter.",
+          "options": [
+            { "text": "Changer de sujet. Parler des examens.", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1, arc5_tension_accumulee +1" },
+            { "text": "Dire qu'il lui fait confiance pour gérer.", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1 (le script le traite comme un mensonge)" },
+            { "text": "Admettre qu'il ne lui a pas demandé parce qu'il avait peur de la réponse.", "effects": "communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Le stylo violet ramassé ici n'est jamais rendu pendant l'arc ; il ouvre l'Arc VI (arc_6_diplomes.rpy:178).",
+        "interruptions_ilona, controles et evitements alimentent etat_relation() (script.rpy:283), figé en scène 5, puis le verdict de l'Arc VI (arc_6_diplomes.rpy:44-84).",
+        "arc5_tension_accumulee est relue en scène 4 (seuils 3 et 4) et dans l'Arc VI (arc_6_diplomes.rpy:1236, seuil 8)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc5_library.jpg"],
+      "cgs": [],
+      "music": ["audio/music/library.ogg"]
+    },
+    {
+      "id": "arc5-s2",
+      "title": "Sortie annulée — ce qu'on entend dans le silence",
+      "label": "arc_5_examens",
+      "lines": "353-904",
+      "requires": "arc5",
+      "condition": "Deux versions. Cinéma si (lien_jessy_ilona ≥ 20 ou autonomie_ilona ≥ 30) et confiance ≥ 15 et communication ≥ 20 : la scène se termine par un saut direct vers la scène 3. Sinon : annulation par message, puis café avec Allan et Théo.",
+      "location": "Rue sous la pluie devant le cinéma ; hall et salle de cinéma (version cinéma) ; café (version annulation)",
+      "characters": ["jessy", "ilona", "allan", "theo"],
+      "summary": "Une semaine plus tard, sous la pluie, Jessy attend Ilona devant le cinéma : la sortie était prévue depuis dix jours. Si la relation est solide (voir condition), Ilona vient malgré ses cernes. Elle paie les places, Jessy le pop-corn ; ils s'attendent à un film nul. Dans la salle presque vide, elle le remercie de ne pas avoir insisté sur sa fatigue ; en cherchant l'accoudoir, elle trouve la main de Jessy et aucun des deux ne la retire. À la sortie, ils conviennent que c'était « un chef-d'œuvre » (lien_jessy_ilona +1, confiance +1, arc5_cinema_ensemble = True) et l'histoire passe directement à la scène 3.\n\nSinon, Ilona annule par message (« Je suis désolée. Je peux pas ce soir. Je suis crevée. », 53 caractères). Jessy peut se taire, s'inquiéter, compter les annulations ou lui laisser de l'espace ; s'il se tait, un second échange lui permet d'avouer franchement sa déception ou de mentir (« Rien de spécial »). Il se réfugie dans un café où Allan commente sa réponse : « Progrès » s'il a laissé de l'espace, surprise s'il a été honnête, reproche s'il a compté, et « Tu mens » dans les autres cas.\n\nThéo arrive : Ilona lui a demandé ses notes de cours, elle a manqué deux jours, et il va passer chez elle. Il surnomme Laplage « le Messi », « le GOAT des conseils cryptiques ». Selon la réaction de Jessy, Allan peut quitter la table. Si Jessy a « confronté » Ilona ou si sa jalousie atteint 12, Théo lui demande : « Est-ce que tu lui fais confiance ? » et peut rappeler qu'il l'a déjà suivie à la plage (arc2_choix_activite_theo = suivre). Ensuite, si Théo a posé cette question ou si son influence atteint 10, et à condition qu'Allan soit resté, Allan confie qu'il connaît Théo depuis le collège et qu'il ne sait pas toujours ce qu'il veut : « C'est comme quelqu'un qui ne perd jamais. »",
+      "choices": [
+        {
+          "line": 520,
+          "prompt": "Le curseur clignote. Le message attend une réponse.",
+          "condition": "version annulation (conditions du cinéma non réunies)",
+          "options": [
+            { "text": "Ne pas répondre tout de suite. Attendre. Réfléchir.", "effects": "arc5_sortie_annulee = silence ; communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +2 ; ouvre un second choix" },
+            { "text": "« Tu es sûre que ça va ? Tu annules beaucoup ces derniers temps. »", "effects": "arc5_sortie_annulee = inquiet ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +1" },
+            { "text": "« C'est la troisième fois ce mois-ci. Je commence à me demander si c'est vraiment la fatigue. »", "effects": "arc5_sortie_annulee = confronte ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +3" },
+            { "text": "« D'accord. Repose-toi bien. Je suis là si tu as besoin. »", "effects": "arc5_sortie_annulee = accepte ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), souvenir ilona_libre_sans_abandon" }
+          ]
+        },
+        {
+          "line": 604,
+          "prompt": "Elle attend. La pluie continue.",
+          "condition": "arc5_sortie_annulee = silence",
+          "options": [
+            { "text": "« Que je comprends. Et que ça me fait chier quand même. »", "effects": "communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1 ; arc5_sortie_annulee = honnetete" },
+            { "text": "« Rien de spécial. Repose-toi bien. »", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1" }
+          ]
+        },
+        {
+          "line": 765,
+          "prompt": "Théo attend. Allan observe. Le café est presque vide à cette heure.",
+          "condition": "version annulation",
+          "options": [
+            { "text": "« Elle t'a demandé à toi ? »", "effects": "autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +1" },
+            { "text": "Rester silencieux. Observer Théo.", "effects": "communication -4, confiance -2, pression_stream +2, evitements +1" },
+            { "text": "« Tant mieux qu'elle ait quelqu'un pour l'aider. »", "effects": "communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2" },
+            { "text": "« Tu passes beaucoup de temps avec elle ces derniers temps. »", "effects": "autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +2, arc5_allan_parti_cafe = True (Allan quitte la table)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc5_cinema_ensemble est relu dans l'Arc VI (flashback et vignette du cinéma, arc_6_diplomes.rpy:754 et 1013) et sur la Route A (arc_7_jessy.rpy:619).",
+        "arc5_sortie_annulee = confronte ou une tension ≥ 4 déclenche la remarque d'Alexandre en scène 4.",
+        "arc5_allan_voit_theo n'est mis à True que par la question de Théo (ligne 874) ; il n'est relu qu'à la ligne 879, pour l'avertissement d'Allan.",
+        "La version cinéma saute tout le passage au café, y compris le rappel du stylo violet."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/city/bg_arc5_rain_street.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_cinema_box_office.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_cinema_auditorium.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_cafe.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/city-rain.ogg",
+        "audio/ambience/the_city_mouse_and_the_country_mouse.mp3",
+        "audio/music/cafe.ogg",
+        "audio/music/sad-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc5-s3",
+      "title": "Théo propose de « gérer » — le piège doux",
+      "label": "arc_5_scene_3",
+      "lines": "906-1126",
+      "requires": "arc5",
+      "condition": "Toujours jouée. Le dialogue change si Théo a déjà parlé d'un projet de stream lors de la marche de Noël (arc4_5_theo_proposition = gestion_stream). Quelques répliques dépendent aussi de arc4_5_ilona_reaction (prudente ou directe).",
+      "location": "Bibliothèque, le soir (près des casiers)",
+      "characters": ["jessy", "theo"],
+      "summary": "Janvier devient février et les résultats des examens tombent. À la sortie de la bibliothèque, Théo retient Jessy pour lui parler d'Ilona : elle est épuisée et ne sait pas demander de l'aide. Théo propose de prendre en charge ses notes de cours, les messages du club, les sollicitations pour le festival de printemps… et son stream.\n\nSi Théo n'en a pas déjà parlé à Noël, Jessy découvre ce projet : Ilona ne streame pas, « pas encore ». Théo énumère ses indices : elle commente à voix haute, a tenu une file d'attente deux heures en septembre, regarde des setups à deux heures du matin et utilise un pseudo finissant par « Gaming » depuis ses douze ans. « Ce n'est pas un secret, Jessy. C'est juste que personne ne regarde. » Sinon, Jessy comprend qu'une partie de la conversation a commencé sans lui depuis Noël.\n\nThéo veut que la proposition vienne de Jessy, pour qu'Ilona ne se sente pas « infantilisée ». Jessy peut accepter en partie (seulement les notes, en lui demandant d'abord), tout déléguer, refuser ou demander pourquoi Théo ne s'adresse pas directement à elle. S'il laisse Théo gérer, un écran de Théo inquiétant s'affiche cinq secondes, accompagné d'une sirène.",
+      "choices": [
+        {
+          "line": 1001,
+          "prompt": "Théo attend. Sa proposition est raisonnable. Peut-être trop.",
+          "options": [
+            { "text": "Accepter partiellement. Certaines choses peuvent être gérées.", "effects": "arc5_theo_proposition = partiel ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1 ; pression_stream +1 si arc4_5_theo_proposition = gestion_stream" },
+            { "text": "Accepter. Laisser Théo gérer.", "effects": "arc5_theo_proposition = laisse ; autonomie_ilona -4, confiance -4, influence_theo +4, jalousie +6, lien_jessy_ilona -2, pression_stream +2, controles +1, arc5_theo_dans_maison = True ; pression_stream +1 de plus si gestion_stream ; écran de Théo + sirène" },
+            { "text": "Refuser net. Ce n'est pas à eux de décider pour elle.", "effects": "arc5_theo_proposition = refuse ; autonomie_ilona +4, communication +2, confiance +2, influence_theo -2 (plancher 0), pression_stream -2 (plancher 0), jugement_laplage +1" },
+            { "text": "Demander pourquoi il ne propose pas à Ilona directement.", "effects": "arc5_theo_proposition = questionne ; autonomie_ilona +4, communication +2, confiance +2, influence_theo -1 (plancher 0), pression_stream -2 (plancher 0)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "laisse : message de Théo en scène 4 ; maison Minecraft réorganisée par Théo en scène 10 (fin theo_presence), si aucune condition prioritaire ne s'applique.",
+        "laisse ou partiel : reproche de Théo dans l'Arc VI (arc_6_diplomes.rpy:115-118).",
+        "Les quatre valeurs sont rappelées sur la Route B (arc_7_theo.rpy:1098-1105).",
+        "jugement_laplage n'est relu par aucune condition dans les scripts."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc5_library_night.jpg"],
+      "cgs": ["images/scenes/cg/theo/bg_arc6_evil_theo.jpg"],
+      "music": ["audio/music/library.ogg"]
+    },
+    {
+      "id": "arc5-s4",
+      "title": "Saint-Valentin — l'amour et ses pièges",
+      "label": "arc_5_scene_3",
+      "lines": "1128-1471",
+      "requires": "arc5",
+      "condition": "Toujours jouée. Le cadeau d'Ilona dépend des statistiques : chocolats ambigus si lien_jessy_ilona ≥ 20 et confiance ≥ 15 ; sinon chocolats d'amitié si lien_jessy_ilona ≥ 10 et confiance ≥ 8 ; sinon rien. Les répliques d'Alexandre et d'Ilona varient selon arc5_tension_accumulee et arc5_theo_proposition.",
+      "location": "Salle de classe ; toit du lycée",
+      "characters": ["jessy", "alexandre", "micka", "ilona"],
+      "summary": "Le 14 février, Alexandre taquine Jessy : Ilona va-t-elle lui offrir des chocolats ? Si Jessy a parlé de la « troisième annulation » ou si la tension accumulée atteint 4, Alexandre (informé par Allan) lui demande de ne pas transformer un chocolat en verdict. Micka, un nouveau personnage, entre alors, enseveli sous une quinzaine de boîtes de chocolats reçues « ce matin », dont certaines viennent de professeures (Madame Tanaka, prof de maths, a même joint une carte) ; la prof d'anglais veut « discuter de son avenir » avec un clin d'œil. C'est un intermède comique. Jessy, lui, n'a reçu que trois chocolats d'Alexandre, signés « Ta fan mystérieuse, bisous, Alexandre, PS : c'est moi ».\n\nSur le toit, Jessy retrouve Ilona. Si la tension accumulée atteint 3, elle propose de « parler de ce qui se passe ». Selon l'état de la relation, elle offre des chocolats en forme de blocs Minecraft sans savoir ce qu'ils signifient, des chocolats d'amitié clairement présentés comme tels, ou dit franchement qu'elle n'a rien apporté. Jessy peut se fermer, plaisanter, la remercier simplement ou lui demander ce qu'elle veut. Seule cette dernière réponse amène Ilona à dire qu'il a changé et qu'elle avait besoin qu'on lui demande ce qu'elle voulait au lieu de décider pour elle.\n\nSi Jessy a laissé Théo gérer, Ilona reçoit un message : Théo a trié les messages du club. « Parfois j'ai l'impression qu'il gère ma vie mieux que moi. »",
+      "choices": [
+        {
+          "line": 1282,
+          "prompt": "Le toit. Le vent. Elle. Lui. Le moment demande quelque chose.",
+          "condition": "chocolats ambigus (lien_jessy_ilona ≥ 20 et confiance ≥ 15)",
+          "options": [
+            { "text": "Rester figé. Il a trop peur de comprendre de travers.", "effects": "arc5_valentin_choix = rien_peur ; communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +1" },
+            { "text": "Faire une blague sur leurs blocs. Laisser le moment respirer.", "effects": "arc5_valentin_choix = souvenir ; lien_jessy_ilona +4" },
+            { "text": "La remercier. Sans chercher de réponse cachée.", "effects": "arc5_valentin_choix = simple ; lien_jessy_ilona +4" },
+            { "text": "Lui demander ce qu'elle veut que ce geste signifie.", "effects": "arc5_valentin_choix = demande ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), jugement_laplage +1, souvenir ilona_libre_sans_abandon, puis confiance +2" }
+          ]
+        },
+        {
+          "line": 1306,
+          "prompt": "Le toit. Le vent. Elle. Lui. Le moment demande quelque chose.",
+          "condition": "chocolats d'amitié (lien_jessy_ilona ≥ 10 et confiance ≥ 8, sans atteindre les seuils précédents)",
+          "options": [
+            { "text": "Cacher sa déception derrière un « pas grave ».", "effects": "arc5_valentin_choix = rien_peur ; mêmes effets que ci-dessus" },
+            { "text": "Faire une blague sur l'étiquette « amitié ».", "effects": "arc5_valentin_choix = souvenir ; lien_jessy_ilona +4" },
+            { "text": "La remercier et accepter le geste pour ce qu'il est.", "effects": "arc5_valentin_choix = simple ; lien_jessy_ilona +4" },
+            { "text": "Lui dire qu'il tient aussi à leur amitié, sans réclamer davantage.", "effects": "arc5_valentin_choix = demande ; mêmes effets que ci-dessus" }
+          ]
+        },
+        {
+          "line": 1328,
+          "prompt": "Le toit. Le vent. Elle. Lui. Le moment demande quelque chose.",
+          "condition": "aucun cadeau (seuils non atteints)",
+          "options": [
+            { "text": "Prétendre que ça ne lui fait rien. Fermer la conversation.", "effects": "arc5_valentin_choix = rien_peur ; mêmes effets que ci-dessus" },
+            { "text": "Désamorcer avec une blague sur les chocolats d'Alexandre.", "effects": "arc5_valentin_choix = souvenir ; lien_jessy_ilona +4" },
+            { "text": "Lui dire qu'il est content de la voir, cadeau ou non.", "effects": "arc5_valentin_choix = simple ; lien_jessy_ilona +4" },
+            { "text": "Lui demander ce dont elle a envie maintenant.", "effects": "arc5_valentin_choix = demande ; mêmes effets que ci-dessus" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc5_valentin_offre modifie la narration et des répliques du White Day (scène 7).",
+        "arc5_valentin_choix = demande est l'une des deux conditions d'un événement caché en scène 10."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc5_classroom.jpg",
+        "images/scenes/backgrounds/school/bg_arc5_rooftop.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/saintv.ogg", "audio/music/ecole-roof.ogg"]
+    },
+    {
+      "id": "arc5-s5",
+      "title": "Confidence à Laplage — ce que personne ne demande",
+      "label": "arc_5_scene_3",
+      "lines": "1473-1633",
+      "requires": "arc5",
+      "condition": "Toujours jouée. L'état de la relation est figé ici (arc5_etat_relation = etat_relation()) : proche, fragile ou distant. Chaque état a sa propre confidence. Il conditionne aussi les scènes 6 et 10.",
+      "location": "Bibliothèque, le soir",
+      "characters": ["ilona", "laplage"],
+      "summary": "Quelques jours plus tard, Ilona est seule au fond de la bibliothèque. Monsieur Laplage, avec un badge « Archiviste des Non-dits », lui demande ce qui pèse. Tout le monde lui demande ce qu'elle va choisir : l'université, le stream, la suite.\n\nSi la relation est proche, Ilona dit que Jessy essaie maintenant de lui demander ce qu'elle veut, mais qu'elle a peur que cela ne dure que si ses réponses lui conviennent. Si elle est fragile, Jessy la fait rire mais coupe toujours ses phrases sérieuses par une blague : « Je veux juste pouvoir finir une phrase de temps en temps. » Si elle est distante, personne ne lui demande si elle est fatiguée ; Laplage répond que « les gens confondent souvent être proche et être propriétaire », et Ilona lâche : « Qu'on me foute la paix. » Dans ces deux derniers cas, la confidence compte comme une dette (confidences_laplage +1).\n\nLaplage la renvoie vers les personnes concernées (« Pas à moi. »), puis part avec un pouce horizontal : « Les étoiles qui demandent la permission avant de briller... ne brillent jamais. » Ilona envoie à Jessy : « On peut se voir ? J'ai quelque chose à te demander. »",
+      "choices": [],
+      "consequences": [
+        "arc5_laplage_deuxieme_confidence = True dans tous les cas ; il est relu par l'épilogue de l'arc (ligne 2603).",
+        "confidences_laplage (+1 si fragile ou distant) compte dans la dette d'etat_relation() et dans le verdict de l'Arc VI (×4, arc_6_diplomes.rpy:61)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc5_library_night.jpg"],
+      "cgs": [],
+      "music": ["audio/music/library.ogg"]
+    },
+    {
+      "id": "arc5-s6",
+      "title": "La question — peur ou confiance",
+      "label": "arc_5_scene_3",
+      "lines": "1635-1977",
+      "requires": "arc5",
+      "condition": "Toujours jouée. La formulation de la question, l'une des options et les répliques dépendent de arc5_etat_relation (proche, fragile ou distant).",
+      "location": "Gare (quai désert)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Le lendemain, Ilona donne rendez-vous à Jessy sur un quai de gare, en terrain neutre. En version fragile ou distante, Jessy se rappelle la phrase coupée par un train (« Ilona, je voulais te dire que— ») ; en version proche, c'est Ilona qui l'évoque. Avec une relation proche, elle demande : « Est-ce que tu me feras confiance... même si je choisis quelque chose que tu n'espérais pas ? » Sinon, elle pose la question entière, une seule fois : « Est-ce que tu as peur de me perdre... ou est-ce que tu ne me fais pas confiance ? » En version fragile, elle reproche à Jessy de répondre aux moments sérieux par une blague.\n\nC'est le choix pivot de l'arc. Jessy peut reconnaître que sa peur lui appartient (« responsable »), accuser Théo, demander du temps ou avouer honnêtement que sa peur et ses doutes coexistent. L'accusation contre Théo pousse Ilona à répondre qu'elle l'interrogeait sur lui, pas sur Théo. Demander du temps donne un ultimatum « jusqu'à White Day » ; en relation distante, Ilona monte dans le train suivant et laisse Jessy sur le quai.\n\nAprès une réponse honnête ou responsable, Ilona précise ce qu'elle cherchait : une réponse qui la laisse encore choisir (proche), une réponse entière « avec la fin dedans » (fragile), ou que Jessy cesse de voir Théo comme un ennemi (distant). Chaque fois, elle conclut : « Essayer, c'est déjà beaucoup. »",
+      "choices": [
+        {
+          "line": 1746,
+          "prompt": "Elle attend. Le train suivant passera dans huit minutes. Il a huit minutes pour trouver les mots.",
+          "options": [
+            { "text": "« J'ai peur. Mais ma peur ne devrait pas devenir ton problème. »", "effects": "arc5_question_reponse = responsable ; souvenir jessy_nomme_sa_peur ; autonomie_ilona +6, communication +3, confiance +3, pression_stream -3 (plancher 0)" },
+            { "text": "« Bien sûr que je te fais confiance. C'est Théo le problème. »", "effects": "arc5_question_reponse = theo ; autonomie_ilona -6, confiance -6, influence_theo +3, jalousie +9, lien_jessy_ilona -3, controles +1, souvenir theo_utilise_une_verite" },
+            { "text": "« Je ne sais pas. J'ai besoin de temps pour réfléchir. »", "effects": "arc5_question_reponse = temps ; communication -6, confiance -3, pression_stream +3, evitements +1 ; en relation distante, arc5_tension_accumulee +2 et Ilona part en train" },
+            { "text": "« J'ai peur. Et ma confiance tremble parfois. Les deux sont vrais. »", "condition": "arc5_etat_relation = proche", "effects": "arc5_question_reponse = honnete ; souvenir jessy_nomme_sa_peur ; communication +6, confiance +3, jalousie -3 (plancher 0), lien_jessy_ilona +3, jugement_laplage +2" },
+            { "text": "« J'ai peur. Et je ne sais pas si je te fais confiance. Les deux sont vrais. »", "condition": "arc5_etat_relation différent de proche", "effects": "arc5_question_reponse = honnete ; souvenir jessy_nomme_sa_peur ; communication +6, confiance +3, jalousie -3 (plancher 0), lien_jessy_ilona +3, jugement_laplage +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc5_question_reponse oriente le White Day (scène 7), la fin Minecraft (scène 10) et l'épilogue de l'arc.",
+        "Arc VI : vignette de la gare propre à chaque réponse (arc_6_diplomes.rpy:1041-1085) ; la réponse temps modifie aussi l'une des répliques d'Ilona dans l'Arc VI (arc_6_diplomes.rpy:1916 et 1926).",
+        "Les souvenirs jessy_nomme_sa_peur (+6) et theo_utilise_une_verite (−6) entrent dans le score de posture de l'Arc VI (arc_6_diplomes.rpy:63-69).",
+        "Choix pivot (poids ×3) selon la doc de conception (systeme de points.md, section 4)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/transport/bg_arc5_train_station.jpg"],
+      "cgs": [],
+      "music": [
+        "audio/music/ecole-nuit.ogg",
+        "audio/music/sad-piano.ogg",
+        "audio/music/truth-piano.ogg",
+        "audio/music/tense-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc5-s7",
+      "title": "White Day — la réponse",
+      "label": "arc_5_scene_3",
+      "lines": "1979-2284",
+      "requires": "arc5",
+      "condition": "Toujours jouée. La narration d'ouverture varie selon arc5_question_reponse, arc4_cadeau_jessy / arc4_limite_ilona, arc4_5_ilona_reaction et arc5_valentin_offre. Certaines répliques varient aussi selon ces variables.",
+      "location": "Salle de classe ; parc près de la gare (cerisiers)",
+      "characters": ["jessy", "alexandre", "micka", "ilona"],
+      "summary": "Le 14 mars, jour du White Day, Micka arrive épuisé, de la farine dans les cheveux, après une nuit de pâtisserie : il a fait trente-sept gâteaux pour « rendre le triple » de plus de quarante-deux chocolats. L'intermède comique se poursuit avec les demandes des professeures (Madame Tanaka, Madame Yamamoto, la prof d'anglais, la prof de sport). Alexandre déclare ne plus rien comprendre à ce monde.\n\nAu parc, sous les premiers cerisiers en fleurs, Jessy retrouve Ilona. La narration rappelle où ils en sont depuis la gare, le sort du cadeau de Noël (miniature emportée, gardée par Jessy, ou écharpe jamais portée), la présence de Théo et ce qu'Ilona a offert à la Saint-Valentin. Ilona demande : « Alors ? »\n\nJessy peut faire un grand geste (un album photo de leurs souvenirs, qu'Ilona juge trop lourd : « un souvenir qui pèse trois kilos »), lui offrir de l'espace sans condition, lui retourner la question de la confiance ou dire avec des mots ce qu'il a compris. La question retournée devient un échange sincère si Jessy a répondu honnêtement ou de façon responsable à la gare, et un « match de tennis » sinon. Si Jessy offre de l'espace ou des mots après une réponse honnête ou responsable, Ilona dit : « Je crois qu'on peut y arriver », ce que la narration présente comme « une déclaration d'intention ».",
+      "choices": [
+        {
+          "line": 2130,
+          "prompt": "Le parc est presque vide. Les pétales tombent lentement. C'est maintenant.",
+          "options": [
+            { "text": "Tenter de réparer avec un grand geste. Parce qu'il ne sait pas faire autrement.", "effects": "arc5_white_day_reponse = grand_geste ; communication -4, confiance -2, pression_stream +2, evitements +1" },
+            { "text": "Lui offrir de l'espace. Vraiment. Sans condition.", "effects": "arc5_white_day_reponse = espace ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), souvenir ilona_libre_sans_abandon" },
+            { "text": "Lui poser la question en retour. Parce qu'il a le droit de savoir aussi.", "effects": "arc5_white_day_reponse = retour ; communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 ; puis confiance +2 si arc5_question_reponse = honnete ou responsable, sinon confiance -4" },
+            { "text": "Lui dire ce qu'il a compris. Sans cadeau. Avec des mots.", "effects": "arc5_white_day_reponse = mots ; communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Bonus si arc5_white_day_reponse = espace ou mots et arc5_question_reponse = honnete ou responsable : confiance +1, lien_jessy_ilona +1 (ligne 2268). La même condition change le récit d'Allan en scène 8.",
+        "grand_geste : panneau « BESOIN D'AIR » en scène 10, si aucune condition prioritaire ne s'applique."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc5_classroom.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/saintv.ogg",
+        "audio/music/spring-hope.ogg",
+        "audio/music/sad-piano.ogg",
+        "audio/music/melancolique-piano.ogg",
+        "audio/music/love-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc5-s8",
+      "title": "Allan et Alexandre — ce qu'ils voient",
+      "label": "arc_5_scene_3",
+      "lines": "2286-2374",
+      "requires": "arc5",
+      "condition": "Toujours jouée. Allan décrit Jessy et Ilona comme ayant « enfin décidé d'avancer ensemble » si White Day = espace ou mots et si la question = honnete ou responsable ; sinon : « Moins tendu qu'avant. Mais pas réglé. »",
+      "location": "Café",
+      "characters": ["allan", "alexandre"],
+      "summary": "Allan et Alexandre font le bilan au café. Allan a croisé Jessy et Ilona au parc. Sur Théo : « Le problème avec Théo, c'est qu'il n'est jamais le problème. » Il aide et remarque tout, mais accepte mal qu'on lui dise non : il « trouve un autre chemin », comme si « non » voulait dire « pas encore ». Il « optimise ».\n\nResté seul, Allan relit deux messages : « Merci pour tantôt » de Jessy et « T'es pas obligé de toujours tout expliquer » d'Ilona. Il a « traduit » Théo quatre fois ce mois-ci et, depuis le festival, il a l'impression de voler des conversations en le faisant. Il se demande si, tant qu'il éclaire le chemin des autres, il évite de chercher le sien.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/city/bg_arc5_cafe.jpg"],
+      "cgs": [],
+      "music": ["audio/music/cafe.ogg"]
+    },
+    {
+      "id": "arc5-s9",
+      "title": "Sofiane — la route",
+      "label": "arc_5_scene_3",
+      "lines": "2376-2440",
+      "requires": "arc5",
+      "location": "Rue, sous un auvent, à la tombée de la nuit",
+      "characters": ["allan", "alexandre", "sofiane"],
+      "summary": "Alexandre attend Allan à la sortie du café pour ne pas le laisser rentrer seul. Sofiane surgit (« Les chemins convergent ») et montre une clé : son cousin part à l'armée et lui confie sa voiture, une AE86 « comme dans Initial D ». Il a le permis depuis six mois sans l'avoir dit.\n\nIl annonce un projet pour l'été : les montagnes, « loin des choix, des questions, des regards qui attendent des réponses ». Il repart sur une dernière phrase : « Les étoiles parlent à ceux qui savent se taire. »",
+      "choices": [],
+      "consequences": [
+        "L'AE86 et le projet de montagne annoncent des scènes de la Route A (arc_7_jessy.rpy, décors sofiane_initial_d)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/city/bg_arc5_rain_street.jpg"],
+      "cgs": [],
+      "music": ["audio/music/city-rain.ogg"]
+    },
+    {
+      "id": "arc5-s10",
+      "title": "Minecraft — l'état des lieux",
+      "label": "arc_5_scene_3",
+      "lines": "2442-2620",
+      "requires": "arc5",
+      "condition": "Toujours jouée. Fin Minecraft déterminée dans cet ordre : salle_repos (question = honnete et White Day = espace ou mots) ; distance (question = theo) ; theo_presence (Théo laissé gérer) ; panneau (White Day = grand_geste) ; neutre (tous les autres cas). Rappel de la fin Minecraft de l'Arc III (destruction, panneau_finir_phrase, lanterne_cour).",
+      "location": "Maison Minecraft (de nuit)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Le soir, sur le serveur, la maison Minecraft porte les traces des mois passés : pièce détruite au festival, panneau « Laisse-la finir ses phrases » ou lanterne bleue de la cour, selon l'Arc III. Selon le parcours, Ilona construit à côté une salle de repos « reliée, mais séparée » et permet à Jessy de rester pendant qu'elle construit. Sinon, elle construit au loin et répond « Pas maintenant ». Dans d'autres cas, Jessy découvre des coffres et des panneaux de classement : Ilona a donné le mot de passe du serveur à Théo « parce que toi, tu avais dit de le laisser faire ». Elle peut aussi avoir posé un panneau « BESOIN D'AIR » devant la salle secrète, ou Jessy dépose un coffre de matériaux « pour toi, sans attente ».\n\nSous certaines conditions cachées, une « traînée cosmique » scintille dans un coin de l'écran ; Ilona suggère que ce n'est peut-être « pas vraiment Minecraft ». L'épilogue rappelle selon la réponse de la gare que Jessy a nommé sa peur, que Théo reste « un fantôme entre eux » ou que le temps demandé n'a rien résolu. Il reprend la confidence faite à Laplage selon l'état de la relation, puis annonce l'Arc VI : diplômes et choix d'orientation.",
+      "choices": [],
+      "consequences": [
+        "arc5_fin_minecraft = salle_repos : lien_jessy_ilona +2, confiance +1, souvenir maison_respectee (relu par l'Arc VI, arc_6_diplomes.rpy:67).",
+        "distance : pression_stream +1 ; theo_presence : influence_theo +1 ; neutre : confiance +1.",
+        "theo_presence est relu dans l'Arc VI (mot de passe du serveur, arc_6_diplomes.rpy:224) et sur la Route B (arc_7_theo.rpy:1057).",
+        "Les ajouts à maison_minecraft_ajouts (salle_repos_arc5, construction_loin_arc5, coffres_theo_arc5, panneau_air_arc5, coffre_libre_arc5) ne sont relus nulle part.",
+        "Fin de l'arc : jump arc_6_diplomes."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg"]
+    }
+  ]
+}

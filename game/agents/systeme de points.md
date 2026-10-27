@@ -280,8 +280,7 @@ Score maximum théorique : **572**. Parties aléatoires : médiane −104, seuil
 
 Le score de l'arc 6 détermine l'accès à la route Jessy. À la fin de cette route,
 la réponse de Jessy à la déclaration d'Ilona choisit entre `ending_friend`
-et `ending_family`. La collection complète d'Ilonanium ouvre une troisième fin
-optionnelle. Aucun seuil supplémentaire ne sépare les deux fins normales.
+et `ending_family`. Si Ilona a mangé les six objets cosmiques (`ilonanium_points == 6` et `arc7_jessy_fruit == "goute"`), `ending_ilonanium` se déclenche automatiquement, sans menu final, quelle que soit la réponse de Jessy. Sinon, cette réponse détermine la fin normale. Aucun seuil supplémentaire ne sépare les deux fins normales.
 
 ---
 

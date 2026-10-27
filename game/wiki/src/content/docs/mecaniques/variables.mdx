@@ -1,0 +1,342 @@
+---
+title: Variables
+description: Les variables qui mémorisent les choix de Moulinette. Rôle, lignes où elles sont écrites et lues, seuils. Contenu protégé par arc.
+sidebar:
+  order: 1
+---
+import Spoiler from '../../../components/Spoiler.astro';
+
+:::note[Repères]
+Variables globales déclarées dans `game/script.rpy` (lignes 219-258). Les variables propres à un arc (`arc2_*`, `arc3_*`…) sont détaillées dans les pages d'arc et dans [Choix](../choix/). Le détail ligne par ligne des effets de chaque option est dans [Choix](../choix/). Le calcul de l'embranchement a sa propre page : [Calcul de l'embranchement](../verdict-arc-6/).
+:::
+
+## Vue d'ensemble
+
+Toutes ces variables partent de leur valeur par défaut au début d'une partie. Le joueur ne les voit jamais à l'écran.
+
+| Variable | Défaut | Déclaration | Rôle |
+| --- | --- | --- | --- |
+| `lien_jessy_ilona` | `0` | `script.rpy:219` | complicité entre Jessy et Ilona |
+| `confiance` | `0` | `script.rpy:221` | confiance dans la relation |
+| `communication` | `0` | `script.rpy:222` | qualité de la parole échangée |
+| `jalousie` | `0` | `script.rpy:223` | jalousie de Jessy |
+| `autonomie_ilona` | `0` | `script.rpy:224` | place laissée à Ilona pour décider seule |
+| `interruptions_ilona` | `0` | `script.rpy:232` | fois où Jessy a coupé Ilona |
+| `interruptions_reconnues` | `0` | `script.rpy:233` | interruptions reconnues ensuite |
+| `interruptions_reparees` | `0` | `script.rpy:234` | interruptions réparées ensuite |
+| `ilona_peut_finir_ses_phrases` | `0` | `script.rpy:235` | fois où Jessy laisse Ilona finir |
+| `evitements` | `0` | `script.rpy:239` | compteur de choix d'évitement |
+| `controles` | `0` | `script.rpy:240` | compteur de choix de contrôle |
+| `maison_minecraft_destructions` | `[]` | `script.rpy:243` | liste des pièces détruites |
+| `maison_minecraft_ajouts` | `[]` | `script.rpy:244` | liste des ajouts à la maison |
+| `souvenirs` | dictionnaire de 7 clés à `False` | `script.rpy:246-254` | moments marquants, voir plus bas |
+| `endings_seen` | `[]` | `script.rpy:256` | liste des fins atteintes |
+| `maison_minecraft_transformation` | `""` | `script.rpy:258` | transformation choisie au prologue |
+
+<Spoiler requires="arc2" note="variables liées à des personnages révélés plus tard">
+
+| Variable | Défaut | Déclaration | Rôle |
+| --- | --- | --- | --- |
+| `lien_ilona_theo` | `0` | `script.rpy:225` | lien entre Ilona et Théo |
+| `influence_theo` | `0` | `script.rpy:226` | place que prend Théo dans les décisions d'Ilona |
+| `pression_stream` | `0` | `script.rpy:227` | pression qui pèse sur Ilona ; baisse quand Jessy lui laisse de l'espace |
+| `jugement_laplage` | `0` | `script.rpy:228` | compteur lié à Monsieur Laplage (jamais lu) |
+| `confidences_laplage` | `0` | `script.rpy:229` | confidences d'Ilona à Monsieur Laplage |
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="variable de la fin secrète">
+
+| Variable | Défaut | Déclaration | Rôle |
+| --- | --- | --- | --- |
+| `ilonanium_points` | `0` | `script.rpy:230` | objets cosmiques mangés par Ilona (0 à 6) |
+
+</Spoiler>
+
+Fonctions utilitaires (`script.rpy:261-323`) : `migrate_souvenirs()` complète les anciennes sauvegardes (appelée par `after_load`, l. 369-371) ; `remember(clé)` passe un souvenir à `True` ; `record_ending(clé)` ajoute une fin à `endings_seen` ; `etat_relation()` est décrite plus bas.
+
+## Profils d'effets des choix
+
+<Spoiler requires="arc2" note="profils observés du prologue à l'arc II">
+
+La plupart des options appliquent l'un de ces profils, multiplié par 1, 2 ou 3 selon le poids du moment (×3 pour les menus pivots, par exemple à l'arc II, `arc_2_plage.rpy:490`). Les baisses de `jalousie` et `pression_stream` (et parfois d'`influence_theo`) ont un plancher à 0 (`max(0, …)`).
+
+| Profil | Effets de base (×1) |
+| --- | --- |
+| Complicité | `lien_jessy_ilona +2` |
+| Espace laissé à Ilona | `autonomie_ilona +2`, `communication +1`, `confiance +1`, `pression_stream -1` ; souvent `ilona_peut_finir_ses_phrases +1` |
+| Parole sincère | `communication +2`, `confiance +1`, `jalousie -1`, `lien_jessy_ilona +1` |
+| Évitement | `communication -2`, `confiance -1`, `pression_stream +1`, `evitements +1` |
+| Contrôle | `autonomie_ilona -2`, `confiance -2`, `influence_theo +1`, `jalousie +3`, `lien_jessy_ilona -1`, `controles +1` |
+
+Le commentaire `script.rpy:237-238` appelle « tier C » l'évitement et « tier D » le contrôle. Le profil « contrôle » apparaît à l'arc II (premier menu, `arc_2_plage.rpy:78`). Quelques options sortent de ces profils (par exemple « Proposer de refaire la photo » : `communication +1`, `jalousie +1`).
+
+</Spoiler>
+
+## Jauges de relation
+
+<Spoiler requires="arc5" note="écritures jusqu'à l'arc V">
+
+**Écritures** (nombre de lignes qui modifient la variable, par fichier ; aucune écriture après l'arc V) :
+
+| Variable | Prologue | Arc I | Arc II | Arc III | Arc IV | Scènes 4.5 | Arc V |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `lien_jessy_ilona` | 9 | 8 | 17 | 16 | 15 | 3 | 22 |
+| `confiance` | 5 | 12 | 20 | 20 | 21 | 1 | 39 |
+| `communication` | 5 | 12 | 16 | 13 | 15 | 2 | 23 |
+| `jalousie` | 3 | 2 | 12 | 8 | 8 | 0 | 17 |
+| `autonomie_ilona` | 1 | 6 | 6 | 10 | 8 | 3 | 15 |
+| `influence_theo` | 0 | 0 | 4 | 6 | 5 | 3 | 12 |
+| `pression_stream` | 2 | 10 | 11 | 14 | 13 | 3 | 20 |
+
+Le détail des effets par option est dans [Choix](../choix/).
+
+</Spoiler>
+
+**Lectures, arc par arc** (seuils qui changent une réplique ou une scène) :
+
+<Spoiler requires="arc1">
+
+- `lien_jessy_ilona >= 6` : regard entendu d'Allan et d'Alexandre après « J'aimerais bien. » (`arc_1_printemps.rpy:442`).
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+- `ilona_peut_finir_ses_phrases >= 2` / `communication < 0` : rappel du printemps dans le couloir (`arc_2_plage.rpy:140-147`).
+- `lien_jessy_ilona >= 10` : réponse complice d'Ilona sous le parasol (l. 204).
+- `jalousie >= 6` (l. 344, 481), `> 0` (l. 483), `>= 9` (l. 1162) : narration de la jalousie.
+- `autonomie_ilona >= 12` (l. 674), `communication >= 12` (l. 1108) : variantes aux mares et sur Minecraft.
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+- `jalousie >= 6` (`arc_3_rentree.rpy:116`).
+- État d'Ilona après le duel : « en colère » si `jalousie >= 9` (ou rumeur `silence_paralysie`, ou stand `blague_defense`), « frustrée » si `jalousie >= 3` (ou `defendre_immediat`), sinon « perdue » (l. 774-778).
+
+</Spoiler>
+
+<Spoiler requires="arc4" note="seuils de Noël et des scènes 4.5">
+
+- `jalousie >= 9` (`arc_4_noel.rpy:151`) ; `confiance >= 15 and communication >= 15` (l. 155) ; `pression_stream >= 6` : fatigue liée au stream (l. 166).
+- `influence_theo >= 6`, sinon `lien_ilona_theo >= 2` : regard sur Théo au marché (l. 353-356).
+- **Synergie** `lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15` : répliques de Sofiane (l. 615, 626), phrase de fin (l. 1255, 1267) et **scène 4.5 du maid café** (l. 1258).
+- Garder les cadeaux : limite `cadeau_respirant`, `parole_sans_verdict` ou `marche_silencieuse`, accueil différent de `accuser_theo`, et `communication >= 25` (l. 1089).
+- **Départ avec Théo** (scène 4.5 Théo) : `influence_theo >= 10 and confiance <= 8 and arc4_limite_ilona == "demande_theo"` (l. 1203).
+- Réaction d'Ilona pendant la marche (`arc_4_5_theo.rpy:156-163`) : `accepte` si `influence_theo >= 14 and autonomie_ilona <= 0` ; sinon `directe` si `communication >= 15 or ilona_peut_finir_ses_phrases >= 3` ; sinon `prudente` si `autonomie_ilona >= 15` ; sinon `accepte`.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+- **Cinéma** : `(lien_jessy_ilona >= 20 or autonomie_ilona >= 30) and confiance >= 15 and communication >= 20` (`arc_5_examens.rpy:374`).
+- `jalousie >= 12` (ou sortie `confronte`) : Allan voit Théo (l. 851) ; `influence_theo >= 10` : avertissement d'Allan (l. 879).
+- Saint-Valentin : chocolats ambigus si `lien_jessy_ilona >= 20 and confiance >= 15` (l. 1272), d'amitié si `lien_jessy_ilona >= 10 and confiance >= 8` (l. 1297), sinon rien.
+- `arc5_etat_relation = etat_relation()` (l. 1510), voir plus bas.
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+- Toutes les jauges entrent dans `arc6_calcule_verdict()` (`arc_6_diplomes.rpy:44-84`) : voir [Calcul de l'embranchement](../verdict-arc-6/).
+- `pression_stream >= 12` (ou `arc5_tension_accumulee >= 8`) : vignette où Ilona craque (l. 1236).
+- `influence_theo >= 8` (ou ton `theo`) : « Tu vas regretter » (l. 1805).
+- `lien_jessy_ilona` n'entre ni dans le verdict ni dans `etat_relation()`.
+
+</Spoiler>
+
+## État de la relation
+
+<Spoiler requires="arc5" note="lecture figée à l'arc V">
+
+`etat_relation()` (`script.rpy:283-323`) renvoie `"proche"`, `"fragile"` ou `"distant"` :
+
+- `ecoute = ilona_peut_finir_ses_phrases + interruptions_reparees`
+- `controle = max(0, interruptions_ilona - interruptions_reparees)`
+- `espace = autonomie_ilona × 4 + ilona_peut_finir_ses_phrases × 6 + interruptions_reparees × 6 + communication + confiance`
+- `dette = influence_theo × 3 + controle × 8 + pression_stream × 2 + jalousie × 2 + confidences_laplage × 4`
+- `indice = espace - dette`
+
+| Résultat | Condition (dans l'ordre) |
+| --- | --- |
+| `distant` | `controle >= 3` |
+| `proche` | `indice >= 200` (`SEUIL_ETAT_PROCHE`) et `ecoute >= 4` (`SEUIL_ETAT_ECOUTE`) |
+| `fragile` | `indice >= 40` (`SEUIL_ETAT_FRAGILE`) |
+| `distant` | sinon |
+
+Seuils : `script.rpy:414-416`. À l'arc V, le résultat est figé dans `arc5_etat_relation` (`arc_5_examens.rpy:1510`) : il choisit la confidence à Laplage, la formulation de la question à la gare et une option de réponse.
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+À l'arc VI, `arc6_palier()` (`arc_6_diplomes.rpy:35-42`, appelée l. 159) traduit l'état en ton : `proche` → `"jessy"`, `fragile` → `"indecis"`, `distant` → `"theo"` (`arc6_penchant`). Ce ton change des répliques, pas la route.
+
+</Spoiler>
+
+## Interruptions et phrases finies
+
+<Spoiler requires="arc2">
+
+- `interruptions_ilona +1` : option « Dire oui, puis les suivre discrètement » (`arc_2_plage.rpy:516`).
+- Réparation : au coucher de soleil, « Reconnaître précisément son erreur » ajoute 1 à `interruptions_reconnues` et `interruptions_reparees` si `interruptions_ilona > interruptions_reconnues` (l. 992-994).
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+- Réparation possible avec « S'excuser sans se rendre petit » (`arc_3_rentree.rpy:822-824`).
+- `ilona_peut_finir_ses_phrases +1` : l. 224, 669, 800 (en plus de l'arc I : `arc_1_printemps.rpy:461, 525, 565`).
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+- `interruptions_ilona +1` si la réaction au carnet est `blague_acide` (`arc_4_noel.rpy:969-970`).
+- Réparation avec « Accueillir la limite sans se défendre » (l. 1034-1036) ; `ilona_peut_finir_ses_phrases +1` (l. 411, 1032).
+- Souvenir `ilona_pose_une_limite` si `ilona_peut_finir_ses_phrases >= 2 and interruptions_ilona <= interruptions_reparees` (l. 977-978).
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+- `interruptions_ilona +1` : « Demander à Ilona si elle voulait vraiment ce thé-là » (`arc_5_examens.rpy:180`). Aucune réparation possible dans l'arc V.
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+- `controle_repetitif = interruptions_ilona - interruptions_reparees` (`arc_6_diplomes.rpy:47`, recalculé l. 1201) : s'il vaut 3 ou plus, la route est imposée (l. 77). Il faut pour cela les trois interruptions possibles (arcs II, IV, V) sans aucune réparation. S'il est positif, la vignette « phrase finie » est jouée (l. 1202).
+- Lectures : `arc_6_diplomes.rpy:47, 51-52, 74`, `script.rpy:301-305`.
+
+</Spoiler>
+
+<Spoiler requires="routeB">
+
+- `controle_repetitif` est recalculé à l'entrée de la Route B (`arc_7_theo.rpy:73`) et relu l. 81.
+
+</Spoiler>
+
+## Compteurs de récidive
+
+<Spoiler requires="arc5" note="écritures jusqu'à l'arc V">
+
+`evitements` (profil évitement) et `controles` (profil contrôle) ne servent qu'au calcul de l'arc VI (commentaire `script.rpy:237-238`).
+
+| Variable | Écritures |
+| --- | --- |
+| `evitements` | prologue (l. 118), arc I (4 lignes), arc II (7), arc III (3), arc IV (4), arc V (9) |
+| `controles` | arc II (4 lignes), arc III (4), arc IV (3), arc V (9) |
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+Seule lecture : `recidive = -6 × max(0, controles - 2) - 3 × max(0, evitements - 3)` (`arc_6_diplomes.rpy:70`).
+
+</Spoiler>
+
+## Souvenirs
+
+<Spoiler requires="arc5" note="écritures jusqu'à l'arc V">
+
+`souvenirs` est un dictionnaire de drapeaux, passés à `True` par `remember()` :
+
+| Souvenir | Écrit | Lu avant l'arc VI |
+| --- | --- | --- |
+| `maison_respectee` | `prologue_minecraft.rpy:142` ; `arc_2_plage.rpy:1136` ; `arc_3_rentree.rpy:1136` (remis à `False` l. 1116 en cas de destruction) ; `arc_4_noel.rpy:246, 263, 853` ; `arc_5_examens.rpy:2467` | — |
+| `ilona_libre_sans_abandon` | `arc_2_plage.rpy:499` ; `arc_5_examens.rpy:595, 1435, 2171` | — |
+| `jessy_nomme_sa_peur` | `arc_2_plage.rpy:561, 1057` ; `arc_3_rentree.rpy:388` ; `arc_4_noel.rpy:311, 908, 1074` ; `arc_5_examens.rpy:1751, 1884, 1908` | `arc_3_rentree.rpy:118` ; `arc_4_noel.rpy:231` |
+| `jessy_repare` | `arc_2_plage.rpy:991` ; `arc_3_rentree.rpy:821` ; `arc_4_noel.rpy:1037` | — |
+| `theo_utilise_une_verite` | `arc_3_rentree.rpy:311, 619` (la l. 619 est inconditionnelle) ; `arc_4_5_theo.rpy:224` ; `arc_5_examens.rpy:1822` | `arc_4_noel.rpy:589` |
+| `ilona_pose_une_limite` | `arc_4_noel.rpy:978` | jamais lu |
+| `ilona_veut_streamer_serieusement` | `arc_4_5_theo.rpy:225` | — |
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+Dans le verdict, `posture = 6·jessy_nomme_sa_peur + 8·jessy_repare + 5·ilona_libre_sans_abandon + 3·maison_respectee − 6·theo_utilise_une_verite` (`arc_6_diplomes.rpy:63-69`) ; bonus +20 si `interruptions_reparees >= 2` et `jessy_repare` (l. 74-75). `jessy_repare` est aussi relu dans les répliques (l. 1147, 1229, 1272).
+
+</Spoiler>
+
+<Spoiler requires="routeB">
+
+`ilona_veut_streamer_serieusement` est relu une seule fois, dans la Route B (`arc_7_theo.rpy:968`).
+
+</Spoiler>
+
+## Variables de Monsieur Laplage et de Théo
+
+<Spoiler requires="arc2">
+
+- `lien_ilona_theo` : `+2` aux mares (`arc_2_plage.rpy:672, 763`, toutes les variantes sauf `suivre`).
+- `jugement_laplage` : `+1` au prologue (`prologue_minecraft.rpy:373`) et à l'arc II (`arc_2_plage.rpy:786`).
+
+</Spoiler>
+
+<Spoiler requires="arc5" note="suite des écritures">
+
+- `lien_ilona_theo` : `+1` pendant la marche de la scène 4.5 Théo (`arc_4_5_theo.rpy:74, 405`). Seule lecture : `>= 2` au marché (`arc_4_noel.rpy:356`).
+- `jugement_laplage` : `+1` à `arc_3_rentree.rpy:532`, `arc_4_noel.rpy:751`, `arc_4_5_theo.rpy:372`, `arc_5_examens.rpy:1064, 1414` ; `+2` à `arc_5_examens.rpy:1889, 1913`. **Aucune lecture** dans les scripts : variable inutilisée.
+- `confidences_laplage` : `+1` à l'arc III si `ilona_peut_finir_ses_phrases < 2` (`arc_3_rentree.rpy:530-531`), à l'arc IV si `< 4` (`arc_4_noel.rpy:749-750`), à l'arc V si l'état est `fragile` (`arc_5_examens.rpy:1554`) ou `distant` (l. 1585). Lu à `arc_4_noel.rpy:720` (Laplage se souvient du festival), dans `etat_relation()` (`script.rpy:312`).
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+`confidences_laplage × 4` compte comme dette dans le verdict (`arc_6_diplomes.rpy:61`). Commentaire `arc_4_noel.rpy:748` : « Une confidence à Laplage est une dette, pas un crédit ».
+
+</Spoiler>
+
+## Maison Minecraft
+
+<Spoiler requires="arc1">
+
+- `maison_minecraft_transformation` : écrite au prologue (`prologue_minecraft.rpy:159, 179, 197, 213` : `serre`, `poulet`, `toboggan`, `piscine`). Lue au prologue (décor l. 252-256, Alexandre l. 318-330) et à l'arc I (`arc_1_printemps.rpy:56-65, 612-623`). Plus jamais ensuite.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+- `maison_minecraft_ajouts` : ajouts à l'arc III (`arc_3_rentree.rpy:1063, 1075, 1086, 1125`), à l'arc IV (`arc_4_noel.rpy:1286, 1311, 1328, 1342, 1352`) et à l'arc V (`arc_5_examens.rpy:2489, 2505, 2522, 2534, 2552`).
+- `maison_minecraft_destructions` : une seule écriture, la cuisine d'été (`arc_3_rentree.rpy:1115`).
+- Ces deux listes ne sont **jamais relues** ; les arcs suivants relisent plutôt `arc3_fin_minecraft`, `arc4_fin_minecraft` et `arc5_fin_minecraft`.
+
+</Spoiler>
+
+## Objets cosmiques
+
+<Spoiler requires="finA3" note="fin secrète">
+
+`ilonanium_points` gagne 1 à chaque objet cosmique mangé par Ilona :
+
+| Arc | Objet | Ligne |
+| --- | --- | --- |
+| I | bonbon étoile | `arc_1_printemps.rpy:352` |
+| II | gelée lumineuse (option absente si `arc2_retour_minecraft == "porte_fermee"`) | `arc_2_plage.rpy:1137` |
+| III | étoile en sucre (menu absent si `arc3_fin_minecraft == "destruction"`) | `arc_3_rentree.rpy:1150` |
+| IV | mochi pailleté | `arc_4_noel.rpy:687` |
+| VI | gâteau-planète | `arc_6_diplomes.rpy:435` |
+| VII (Route A) | fruit étoilé | `arc_7_jessy.rpy:406` |
+
+Lectures : `>= 3` avec `arc5_valentin_choix == "demande"` pour la traînée cosmique, sans point (`arc_5_examens.rpy:2556`) ; `== 6` avec `arc7_jessy_fruit == "goute"` : saut automatique vers la [Fin A3](../../fins/a3/), sans menu (`arc_7_jessy.rpy:1177-1178`). Le test `game/tests/ilonanium.rpy` fixe aussi la variable (l. 16) et la relit (l. 45).
+
+</Spoiler>
+
+## Route et fins
+
+<Spoiler requires="arc6">
+
+- `arc6_score`, `arc6_route` : écrits par `arc6_calcule_verdict()` au début de l'arc VI (`arc_6_diplomes.rpy:72-82`, appel l. 160), avec `SEUIL_JESSY = 180` (`script.rpy:401`). Détails : [Calcul de l'embranchement](../verdict-arc-6/).
+
+</Spoiler>
+
+<Spoiler requires={['routeA', 'routeB']} mode="any">
+
+- `derniere_route` : `"Route Jessy"` (`arc_7_jessy.rpy:132`) ou `"Route Théo"` (`arc_7_theo.rpy:72`). Aucun `default`, aucune lecture.
+
+</Spoiler>
+
+- `endings_seen` : remplie par `record_ending()` (`script.rpy:279-281`) à l'entrée de chaque fin. Elle n'est **jamais affichée ni relue** ailleurs (voir [Déblocables](../../guide/deblocables/)).

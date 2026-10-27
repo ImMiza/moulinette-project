@@ -1,0 +1,252 @@
+{
+  "arc": "arc3",
+  "title": "ARC 3 : RENTRÉE — LES REGARDS",
+  "file": "arcs/arc_3/arc_3_rentree.rpy",
+  "scenes": [
+    {
+      "id": "arc3-s1",
+      "title": "Le train de septembre",
+      "label": "arc_3_rentree",
+      "lines": "55-146",
+      "requires": "arc3",
+      "location": "Train",
+      "characters": ["jessy", "ilona", "allan"],
+      "summary": "Septembre. Après le carton-titre, Jessy et Ilona prennent un train bondé, en uniforme. Leur échange dépend de la plage. Il est froid si Jessy a suivi Ilona ou disparu, ou s'il s'est tu ou l'a interrogée au coucher de soleil (« Tu as fini par retrouver ta serviette ? »). Après la confiance, il est complice (« C'est un sable engagé ») ; après les dix minutes, il est gêné (« Tu es revenu, ce jour-là »). Dans les autres cas, l'humour revient avec prudence.\n\nAllan monte, chargé de rouleaux de papier : le festival culturel approche. Sa classe tient un café temporaire, la classe de Jessy et Ilona aide à la décoration, et Théo est au comité de coordination. Ce prénom touche Jessy plus ou moins fort selon sa jalousie (≥ 6) ou s'il a déjà nommé sa peur.\n\nIlona propose le thème : le « Blocky House Café », un café cubique avec monstres en papier et portes qui ne mènent pas tout à fait où on pense. Leur maison Minecraft devient « un concept scolaire ». Jessy est heureux de reconnaître leur souvenir, mais remarque que Théo va aider à le construire.",
+      "choices": [],
+      "consequences": [
+        "lien_jessy_ilona +1 sans condition (arc_3_rentree.rpy:134)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/transport/bg_shared_train_inside.jpg"],
+      "cgs": [],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "arc3-s2",
+      "title": "Le chantier du couloir",
+      "label": "arc_3_rentree",
+      "lines": "147-179",
+      "requires": "arc3",
+      "location": "Lycée, couloir du deuxième étage",
+      "characters": ["jessy", "alexandre", "allan", "ilona", "theo"],
+      "summary": "Le lendemain, Alexandre présente un plan qui place une cuisine au milieu de l'entrée, « référence culturelle » validée par Ilona. Théo fait remarquer que la caisse bloquerait la porte et propose de garder la porte inutile hors du chemin principal : une « fausse porte importante ».\n\nIlona aime l'idée. Le narrateur souligne que Théo « ne vole pas l'idée. Il l'ajuste » : c'est justement parce qu'il aide vraiment que la gêne de Jessy est difficile à nommer.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg"],
+      "cgs": [],
+      "music": ["audio/music/festival.ogg"]
+    },
+    {
+      "id": "arc3-s3",
+      "title": "La rumeur au stand",
+      "label": "arc_3_rentree",
+      "lines": "180-320",
+      "requires": "arc3",
+      "location": "Stand du Blocky House Café",
+      "characters": ["jessy", "ilona", "theo"],
+      "summary": "Trois jours plus tard, Ilona colle les menus et propose un menu « salle moyennement importante », référence que personne d'autre ne comprendra. Deux élèves passent en chuchotant : « C'est celle qui s'est fait ramener son porte-clés par l'autre, à la plage. » / « Apparemment Jessy regardait ailleurs. Pathétique. » Si Jessy a suivi Ilona ou disparu à la plage, il craint qu'on l'ait vu faire.\n\nLe choix porte sur sa réaction : regarder Ilona (elle refuse de donner une réaction aux élèves et rembarre aussi Théo, « Je n'ai pas demandé ton avis »), se taire, la défendre sans lui demander (« tu viens de leur donner exactement ce qu'ils voulaient »), ou désamorcer par une blague.\n\nThéo glisse ensuite qu'« on te met une pression que tu n'as pas demandée ». Ilona l'admet, puis lui renvoie : « là, c'est toi qui es en train de me la remettre dans les mains. »",
+      "choices": [
+        {
+          "line": 216,
+          "prompt": "La rumeur vient de tomber devant Ilona, Jessy et Théo.",
+          "options": [
+            { "text": "Regarder Ilona d'abord.", "effects": "arc3_reaction_rumeur = demander_ilona, autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (minimum 0)" },
+            { "text": "Se taire et laisser passer.", "effects": "arc3_reaction_rumeur = silence_paralysie, communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Défendre Ilona immédiatement.", "effects": "arc3_reaction_rumeur = defendre_immediat, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1" },
+            { "text": "Faire une blague pour désamorcer.", "effects": "arc3_reaction_rumeur = blague_desarm, lien_jessy_ilona +4" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Après la blague ou le silence : influence_theo +1 et souvenir theo_utilise_une_verite (arc_3_rentree.rpy:309-311).",
+        "arc3_reaction_rumeur règle aussi le ton de la confession d'Ilona plus loin dans l'arc (l. 774-778).",
+        "Relue à l'arc 6 (arc_6_diplomes.rpy:102-105 et 801-821), puis dans la Route B."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_stand.jpg"],
+      "cgs": [],
+      "music": ["audio/music/cafeMC.ogg", "audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc3-s4",
+      "title": "Le jour du festival",
+      "label": "arc_3_rentree",
+      "lines": "321-457",
+      "requires": "arc3",
+      "location": "Stand du Blocky House Café, jour du festival",
+      "characters": ["jessy", "ilona", "theo", "allan", "alexandre"],
+      "summary": "La file est trop longue pour un café de lycéens. Quand Allan transmet une question sur la porte inutile, Théo répond à la place d'Ilona (« La porte inutile est en pause ») ; quelque chose se fissure dans la neutralité d'Allan.\n\nIlona prend la file en charge depuis deux heures, présente le thème à des inconnus et les fait rire. Alexandre et Allan la trouvent très douée ; à « t'as déjà pensé à faire ça ailleurs ? », elle répond à côté : « C'est un stand de café, Allan. »\n\nLe choix porte sur la manière dont Jessy reste présent pendant qu'Ilona et Théo travaillent côte à côte.",
+      "choices": [
+        {
+          "line": 379,
+          "prompt": "Ilona et Théo travaillent côte à côte au stand. Comment Jessy choisit-il d'être présent ?",
+          "options": [
+            { "text": "Annoncer qu'il a besoin d'air, et revenir.", "effects": "arc3_aide_stand = distance_honnete, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur ; Jessy dit « Je suis jaloux. »" },
+            { "text": "Aider sans se mettre au centre.", "effects": "arc3_aide_stand = aider_retrait, autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (minimum 0)" },
+            { "text": "Demander franchement ce qu'elle ressent.", "effects": "arc3_aide_stand = demande_directe, autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (minimum 0)" },
+            { "text": "Faire une blague acide pour cacher sa blessure.", "effects": "arc3_aide_stand = blague_defense, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc3_aide_stand change la narration du retour de Jessy (arc_3_rentree.rpy:591-602), le ton de la confession d'Ilona (l. 774) et une option d'excuse (l. 820).",
+        "Relue à l'arc 6 (arc_6_diplomes.rpy:107-110)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_stand_with_students.jpg"],
+      "cgs": [],
+      "music": ["audio/music/cafeMC.ogg"]
+    },
+    {
+      "id": "arc3-s5",
+      "title": "L'enquête sur Monsieur Laplage",
+      "label": "arc_3_rentree",
+      "lines": "458-504",
+      "requires": "arc3",
+      "location": "Lycée, couloir",
+      "characters": ["allan", "alexandre", "sofiane"],
+      "summary": "Allan et Alexandre enquêtent : Monsieur Laplage tiendrait le stand de takoyaki de la cour, et Alexandre l'a vu entrer dans un couloir fermé. Sofiane surgit avec un takoyaki (« Il m'a choisi ») et les recadre : « Mauvaise quête. Cherchez plutôt pourquoi vous avez besoin de comprendre. »\n\nAvant de repartir, il regarde le couloir où Théo vient de passer : « Certaines personnes parlent pour remplir le silence. D'autres pour le creuser. Faites attention à ceux qui creusent. » Allan et Alexandre se demandent s'il parlait de Laplage ou de Théo.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg"],
+      "cgs": [],
+      "music": ["audio/music/festival.ogg"]
+    },
+    {
+      "id": "arc3-s6",
+      "title": "Takoyaki dans la cour",
+      "label": "arc_3_rentree",
+      "lines": "505-583",
+      "requires": "arc3",
+      "location": "Cour du lycée (festival) : étal de sucreries et stand de takoyaki",
+      "characters": ["ilona", "laplage"],
+      "summary": "Ilona quitte le stand sous prétexte de rapporter des serviettes. Dans la cour, entre stand de tir et lanternes rouges, personne ne la regarde vraiment. Elle achète une étoile en sucre « simplement parce qu'elle brille » : « Toi, au moins, tu n'as rien à décider. »\n\nAu stand de takoyaki, Monsieur Laplage « tourne les sphères ». Ilona finit par lâcher qu'elle est en colère contre Jessy, les gens et elle-même, et que la gentillesse de Théo « me repose. Et après je m'en veux ». Elle ne veut pas choisir devant tout le monde.\n\nLaplage répond par aphorismes : « Deux voix fortes ne font pas une vérité », « Un cœur vide prend de mauvaises décisions ». Quand Ilona se retourne, une cliente jure l'avoir vu au stand de tir trente secondes plus tôt.",
+      "choices": [],
+      "consequences": [
+        "confidences_laplage +1 seulement si ilona_peut_finir_ses_phrases < 2 (arc_3_rentree.rpy:530) ; le commentaire du code la présente comme une dette. Relue à l'arc 4 (arc_4_noel.rpy:720) et dans les calculs etat_relation() et de fin d'arc 6.",
+        "jugement_laplage +1 (l. 532), jamais relue.",
+        "L'étoile en sucre est l'objet cosmique de l'arc : son sort se décide à la dernière scène."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_courtyard.jpg"],
+      "cgs": [],
+      "music": ["audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc3-s7",
+      "title": "Le duel du couloir",
+      "label": "arc_3_rentree",
+      "lines": "585-739",
+      "requires": "arc3",
+      "location": "Lycée, couloir",
+      "characters": ["jessy", "theo", "sofiane"],
+      "summary": "Jessy revient au couloir, et la narration rappelle son choix au stand. Théo l'aborde : « Tu as vu qu'elle n'était plus là. Ce n'est pas pareil. » Puis il frappe juste : « certaines personnes écoutent Ilona seulement quand elles ont peur de la perdre. » Le narrateur parle d'« une vérité utilisée comme une lame ».\n\nSi Jessy se tait, Théo enfonce le clou : « Alors elle vient chercher des réponses ailleurs », et ajoute « Comme à la plage » si Jessy l'avait suivie ou avait disparu. Jessy peut aussi admettre sa peur en démasquant Théo, refuser le duel ou lui rentrer dedans. Dans tous les cas, il déteste Théo à cet instant.\n\nSofiane lui apporte une canette de thé vert et l'avertit : « La vérité peut être une main tendue. Ou un poing fermé. Théo sait très bien laquelle il utilise. » Puis : « ralentir n'est pas reculer. »",
+      "choices": [
+        {
+          "line": 624,
+          "prompt": "Théo vient de toucher juste, et Jessy le sait.",
+          "options": [
+            { "text": "Se taire pour ne pas exploser.", "effects": "communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Admettre la blessure sans baisser les yeux.", "effects": "communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2" },
+            { "text": "Refuser le duel, mais pas la colère.", "effects": "autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (minimum 0)" },
+            { "text": "Lui rentrer dedans.", "effects": "autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Le souvenir theo_utilise_une_verite est posé sans condition avant le menu (arc_3_rentree.rpy:619) ; il compte négativement dans le calcul de fin d'arc 6 (arc_6_diplomes.rpy:68).",
+        "Aucune variable dédiée à ce menu : seuls les compteurs bougent."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg"],
+      "cgs": [],
+      "music": ["audio/music/tense-piano.ogg", "audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc3-s8",
+      "title": "Une vérité désordonnée",
+      "label": "arc_3_rentree",
+      "lines": "741-925",
+      "requires": "arc3",
+      "location": "Lycée, couloir",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona revient avec les serviettes et devine la dispute ; Jessy finit par l'avouer, elle le remercie de ne pas mentir plus longtemps. Elle explique que le Blocky House Café était leur maison Minecraft, « une blague à nous », et qu'elle a l'impression que tout le monde a mis les doigts dans ce souvenir.\n\nSon état dépend du parcours. Elle est « en colère » si jalousie ≥ 9, après le silence face à la rumeur ou après la blague acide au stand. Elle est « frustrée » si jalousie ≥ 3 ou s'il l'a défendue sans lui demander, et « perdue » sinon. Dans tous les cas, elle avoue détester trouver agréable que Théo remarque sa fatigue.\n\nLe choix décide de la fin de journée. Si Jessy dit son amour sans laisse, elle lui demande de rester à côté d'elle. S'il s'excuse précisément, ils rangent les tasses ensemble. S'il exige une réponse, elle lui confie des serviettes, entre confiance et distance. S'il promet que Théo ne compte pas, elle garde les serviettes et part la première.",
+      "choices": [
+        {
+          "line": 793,
+          "prompt": "Ilona vient de lâcher une vérité désordonnée, presque trop intime pour le couloir.",
+          "options": [
+            { "text": "Lui dire qu'il l'aime trop pour faire semblant.", "effects": "arc3_reaction_laplage = demander_besoin, communication +4, confiance +2, ilona_peut_finir_ses_phrases +1, jalousie −2 (minimum 0), lien_jessy_ilona +2, puis lien_jessy_ilona +1" },
+            { "text": "S'excuser sans se rendre petit.", "effects": "arc3_reaction_laplage = excuse_precise, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 ; souvenir jessy_repare si arc3_aide_stand = blague_defense ou arc3_reaction_rumeur = blague_desarm ; interruptions_reconnues +1 et interruptions_reparees +1 si interruptions_ilona > interruptions_reconnues ; puis confiance +1" },
+            { "text": "Demander une réponse sur ses sentiments.", "effects": "arc3_reaction_laplage = demande_reponse, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1, puis pression_stream +1" },
+            { "text": "Promettre que Théo ne compte pas.", "effects": "arc3_reaction_laplage = promesse_theo, communication −4, confiance −2, pression_stream +2, evitements +1, puis influence_theo +1 et pression_stream +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc3_reaction_laplage (nom trompeur : la scène se passe avec Ilona, pas avec Laplage) décide du sort du panneau en classe et de la fin Minecraft (arc_3_rentree.rpy:977-1125).",
+        "La variable elle-même n'est pas relue hors de l'arc 3 ; sa traduction arc3_fin_minecraft l'est."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg"],
+      "cgs": [],
+      "music": ["audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc3-s9",
+      "title": "Le bilan du soir",
+      "label": "arc_3_rentree",
+      "lines": "927-1019",
+      "requires": "arc3",
+      "location": "Salle de classe, le soir",
+      "characters": ["allan", "alexandre", "jessy", "ilona", "sofiane"],
+      "summary": "Dans la classe vidée, tout le café a été vendu et trois visiteurs ont demandé si la porte inutile menait à une quête secrète. Sofiane révèle qu'il a organisé tout le rangement en secret, avec un planning parfait (« Quelqu'un devait conduire le chaos vers une sortie »), et compare les festivals aux virages en épingle.\n\nIlona décroche le panneau principal. Après la déclaration, elle veut le garder ; après l'excuse, elle le garde « pas parce que tout va bien » et ils le portent à deux. Après la promesse sur Théo, elle le confie à Allan avec le matériel de classe ; après la demande de réponse, elle le pose contre le mur, face cachée.",
+      "choices": [],
+      "consequences": [
+        "demander_besoin ou excuse_precise : lien_jessy_ilona +1, confiance +1 ; promesse_theo ou demande_reponse : pression_stream +1 (arc_3_rentree.rpy:977-1013)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-nuit.ogg"]
+    },
+    {
+      "id": "arc3-s10",
+      "title": "Les brouillons d'Allan",
+      "label": "arc_3_rentree",
+      "lines": "1021-1040",
+      "requires": "arc3",
+      "location": "Salle de classe, le soir",
+      "characters": ["allan"],
+      "summary": "Resté seul, Allan regarde trois messages non envoyés : un pour Jessy, un pour Ilona, un pour Théo. Tous commencent par « En vrai, moi je pense que— » et aucun n'a de fin.\n\nIl les efface. « Allan est très bon pour expliquer ce que les autres veulent dire. Il ne sait juste pas encore ce qu'il veut dire, lui. »",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-nuit.ogg"]
+    },
+    {
+      "id": "arc3-s11",
+      "title": "La maison Minecraft après le festival",
+      "label": "arc_3_rentree",
+      "lines": "1042-1162",
+      "requires": "arc3",
+      "location": "Maison Minecraft (nuit)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Le soir même, la maison Minecraft semble porter les traces du festival. Le geste d'Ilona dépend du choix du couloir (arc3_fin_minecraft). Après la déclaration, elle pose près de la salle moyennement importante un panneau : « ICI, LES PHRASES ONT LE DROIT DE TREMBLER. » Après l'excuse, elle range la cuisine d'été, « Pas casser. Pas réparer. Ranger. » Après la promesse sur Théo, elle bloque la porte inutile « pour ce soir ».\n\nSi Jessy a exigé une réponse, Ilona détruit bloc par bloc la cuisine d'été construite après la plage (« Je détruis. […] Tais-toi. »), puis se déconnecte en laissant un trou dans la maison.\n\nHors destruction, Ilona retrouve l'étoile en sucre du festival : Jessy peut proposer d'en garder une trace dans la salle secrète ou la laisser la manger. La narration conclut : « La rentrée n'a rien tranché. Elle a seulement rendu les regards visibles. »",
+      "choices": [
+        {
+          "line": 1132,
+          "prompt": "Ilona retrouve dans son sac une petite étoile en sucre achetée au festival.",
+          "condition": "arc3_fin_minecraft différent de destruction",
+          "options": [
+            { "text": "Proposer d'en garder une trace dans la salle secrète.", "effects": "souvenir maison_respectee, lien_jessy_ilona +2 ; la vraie étoile reste sur le bureau d'Ilona" },
+            { "text": "La laisser la manger pendant qu'elle réfléchit.", "effects": "autonomie_ilona +2, communication +1, confiance +1, ilonanium_points +1, pression_stream −1 (minimum 0)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "panneau_finir_phrase : communication +1, autonomie_ilona +1. rangement_silencieux : confiance +1. porte_fermee : pression_stream +1. destruction : pression_stream +2, lien_jessy_ilona −1, souvenir maison_respectee remis à faux (arc_3_rentree.rpy:1051-1116).",
+        "Chaque issue ajoute une entrée dans maison_minecraft_ajouts ou maison_minecraft_destructions ; ces listes ne sont jamais relues.",
+        "arc3_fin_minecraft est relue aux arcs 4, 4.5, 5 et 6 (arc_4_noel.rpy:112-140, 211-220, 1288 ; scènes 4.5 ; arc_5_examens.rpy:2454-2461 ; arc_6_diplomes.rpy:832-890).",
+        "La branche lanterne_cour (l. 1117-1125) est inatteignable : arc3_reaction_laplage reçoit toujours l'une des quatre autres valeurs."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg", "audio/music/tense-piano.ogg"]
+    }
+  ]
+}

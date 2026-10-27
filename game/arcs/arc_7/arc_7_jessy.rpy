@@ -1173,14 +1173,9 @@ label arc_7_jessy_scene_8:
     stop music fadeout 2.0
     scene black
     with fade
-    # La collection complete offre une fin secrete sans effacer leur choix.
+    # Les six aliments cosmiques declenchent automatiquement la fin Ilonanium.
     if ilonanium_points == 6 and arc7_jessy_fruit == "goute":
-        menu:
-            "Quel chemin suivent-ils après la montagne ?"
-            "Suivre la piste du fruit étoilé et finir la planète.":
-                jump ending_ilonanium
-            "Continuer la vie qu'ils ont choisie ensemble.":
-                jump arc_7_jessy_fin_relation
+        jump ending_ilonanium
     else:
         jump arc_7_jessy_fin_relation
 

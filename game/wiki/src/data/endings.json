@@ -1,0 +1,153 @@
+[
+  {
+    "id": "finA1",
+    "publicTitle": "Fin A1",
+    "title": "Le dernier été",
+    "key": "finA1",
+    "route": "routeA",
+    "category": "GOOD ENDING FRIEND",
+    "label": "ending_friend",
+    "record": "friend",
+    "conditionCode": "arc7_jessy_relation == \"amitie\" and not (ilonanium_points == 6 and arc7_jessy_fruit == \"goute\")",
+    "conditions": [
+      "Être sur la Route A (arc6_route == \"jessy\", calculé à l'entrée de l'arc VI : contrôle répété < 3 et arc6_score >= SEUIL_JESSY = 180).",
+      "Au bivouac, répondre à l'aveu d'Ilona par « Il tient à elle, mais veut rester son ami. » (arc_7_jessy.rpy:687-688).",
+      "Ne pas remplir la condition de la Fin A3, prioritaire et automatique : ilonanium_points différent de 6 ou fruit non goûté (arc_7_jessy.rpy:1177-1180).",
+      "Aiguillage dans arc_7_jessy_fin_relation (arc_7_jessy.rpy:1183-1184)."
+    ],
+    "summary": "Après la randonnée, Jessy respecte la peine d'Ilona et s'éloigne sans disparaître ; les messages reprennent peu à peu dans le groupe. À la fin de l'été, les six amis passent une journée à la plage : château de sable emporté par la marée, boissons, promesse avortée d'un rendez-vous annuel, photo désordonnée. Les années suivantes les réunissent rarement au complet, mais trois étés plus tard, ils se retrouvent tous sur la même plage pour une nouvelle photo où chacun a sa place.",
+    "cgs": [
+      "images/scenes/cg/friend/cg_friend_chateau_sable.png",
+      "images/scenes/cg/friend/cg_friend_salut_brindille.png",
+      "images/scenes/cg/friend/cg_friend_raquettes.png",
+      "images/scenes/cg/friend/cg_friend_photo_premier_ete.png",
+      "images/scenes/cg/friend/cg_friend_photo_retrouvailles.png"
+    ],
+    "source": {
+      "file": "arcs/endings/ending_friend.rpy",
+      "line": 60,
+      "label": "ending_friend"
+    }
+  },
+  {
+    "id": "finA2",
+    "publicTitle": "Fin A2",
+    "title": "Les Petits Sommets",
+    "key": "finA2",
+    "route": "routeA",
+    "category": "GOOD ENDING FAMILY",
+    "label": "ending_family",
+    "record": "family",
+    "conditionCode": "arc7_jessy_relation == \"amour\" and not (ilonanium_points == 6 and arc7_jessy_fruit == \"goute\")",
+    "conditions": [
+      "Être sur la Route A (arc6_route == \"jessy\").",
+      "Au bivouac, répondre à l'aveu d'Ilona par « Il l'aime aussi et veut essayer. » (arc_7_jessy.rpy:712-713). Le choix tente ou hamac qui suit ne change pas la fin.",
+      "Ne pas remplir la condition de la Fin A3, prioritaire et automatique : ilonanium_points différent de 6 ou fruit non goûté (arc_7_jessy.rpy:1177-1180).",
+      "Aiguillage dans arc_7_jessy_fin_relation (arc_7_jessy.rpy:1185-1186)."
+    ],
+    "summary": "Jessy et Ilona, désormais en couple, repèrent la même annonce : un petit restaurant de montagne avec sa maison. Le propriétaire, Monsieur Laplage, le leur donne avant de partir pour de bon. Ils le baptisent Les Petits Sommets, emménagent, apprennent le métier, puis réunissent leurs amis, Théo et Micka compris, pour une soirée de retrouvailles et de karaoké. Ilona annonce à Jessy qu'il va être papa ; des années plus tard, leur fille Lucy lui offre des fleurs tandis qu'Ilona attend Oliver.",
+    "cgs": [
+      "images/scenes/cg/family/cg_family_laplage_adieux.png",
+      "images/scenes/cg/family/cg_family_pancakes_01.png",
+      "images/scenes/cg/family/cg_family_pancakes_02.png",
+      "images/scenes/cg/family/cg_family_toast.png",
+      "images/scenes/cg/family/cg_family_entrance_kiss.png",
+      "images/scenes/cg/family/cg_family_lucy_hug.png",
+      "images/scenes/cg/family/cg_family_homecoming.png"
+    ],
+    "source": {
+      "file": "arcs/endings/ending_family.rpy",
+      "line": 74,
+      "label": "ending_family"
+    }
+  },
+  {
+    "id": "finA3",
+    "publicTitle": "Fin A3",
+    "title": "Le berceau de l'humanité",
+    "key": "finA3",
+    "route": "routeA",
+    "category": "SPECIAL ENDING ILONANIUM",
+    "label": "ending_ilonanium",
+    "record": "ilonanium",
+    "conditionCode": "ilonanium_points == 6 and arc7_jessy_fruit == \"goute\"",
+    "conditions": [
+      "Être sur la Route A (arc6_route == \"jessy\").",
+      "Avoir laissé Ilona manger les six objets cosmiques : bonbon étoile (arc_1_printemps.rpy:351-352), gelée lumineuse (arc_2_plage.rpy:1135-1137, option absente si arc2_retour_minecraft == \"porte_fermee\"), étoile en sucre (arc_3_rentree.rpy:1146-1150, menu absent si arc3_fin_minecraft == \"destruction\"), mochi cosmique (arc_4_noel.rpy:685-687), gâteau-planète (arc_6_diplomes.rpy:433-435), fruit étoilé (arc_7_jessy.rpy:404-406).",
+      "À l'aube du dimanche, après la descente, le jeu saute automatiquement vers ending_ilonanium, sans menu et en priorité sur les Fins A1 et A2 (arc_7_jessy.rpy:1176-1178).",
+      "La réponse à l'aveu (amitié ou amour) ne bloque pas cette fin ; elle change seulement quelques répliques."
+    ],
+    "summary": "Le lendemain du retour, Ilona tombe malade : le fruit étoilé était le dernier aliment cosmique qu'il lui manquait, et tout ce qu'elle a mangé se réveille. Les objets, puis la maison et la Terre entière sont attirés vers elle ; Monsieur Laplage sauve un dixième de l'humanité vers une exoplanète, mais Alexandre reste en arrière. La Terre devient l'Ilonanium. Quarante ans plus tard, Laplage révèle à Théo qu'il est son double venu du futur et lui transmet ses pouvoirs. Théo, Allan, Micka, Sofiane et le commandant Florentin sautent neuf cent quatre-vingt-dix-neuf ans dans le futur pendant que Jessy, resté jeune, fait construire l'arche TAIKUN. Ils reviennent enfin devant l'Ilonanium pour lancer la reconquête, tandis qu'Alexandre, quelque part à sa surface, contemple l'horizon.",
+    "cgs": [
+      "images/scenes/cg/ilonanium/01_attraction.png",
+      "images/scenes/cg/ilonanium/02_gravite.png",
+      "images/scenes/cg/ilonanium/03_laplage.png",
+      "images/scenes/cg/ilonanium/04_echec.png",
+      "images/scenes/cg/ilonanium/05_adieu.png",
+      "images/scenes/cg/ilonanium/06_maison.png",
+      "images/scenes/cg/ilonanium/07_arrachement.png",
+      "images/scenes/cg/ilonanium/08_catastrophe.png",
+      "images/scenes/cg/ilonanium/09_sauvetage.png",
+      "images/scenes/cg/ilonanium/10_terre.png",
+      "images/scenes/cg/ilonanium/16_jessy_survivants.png",
+      "images/scenes/cg/ilonanium/11_naissance_astre.png",
+      "images/scenes/cg/ilonanium/12_ilonanium.png",
+      "images/scenes/cg/ilonanium/theo_ilona_picture.png",
+      "images/scenes/cg/ilonanium/14_transmission_adieux.png",
+      "images/scenes/cg/ilonanium/13_adieux_laplage.png",
+      "images/scenes/cg/ilonanium/15_preparatifs_taikun.png",
+      "images/scenes/cg/ilonanium/14_calin_jessy_theo.png",
+      "images/scenes/cg/ilonanium/15_depart_tardis.png",
+      "images/scenes/cg/ilonanium/13_reconquete_espoir.png"
+    ],
+    "source": {
+      "file": "arcs/endings/ending_ilonanium.rpy",
+      "line": 175,
+      "label": "ending_ilonanium"
+    }
+  },
+  {
+    "id": "finB1",
+    "publicTitle": "Fin B1",
+    "title": "Ending neutre",
+    "key": "finB1",
+    "route": "routeB",
+    "label": "ending_neutre",
+    "record": "neutre",
+    "conditionCode": "menu: \"La réponse de Théo.\" → \"Annuler les sponsors, écouter Ilona.\": … jump ending_neutre",
+    "conditions": [
+      "Être sur la Route B (verdict de l'arc 6 : controle_repetitif >= 3, ou arc6_score < SEUIL_JESSY = 180).",
+      "Au choix final de la Route B (arc_7_theo.rpy:1365), choisir « Annuler les sponsors, écouter Ilona. » (ligne 1368, jump ligne 1436).",
+      "Aucune autre variable n'est testée : le choix suffit."
+    ],
+    "summary": "Théo cesse de décider à la place d'Ilona. Elle annonce elle-même une pause, refuse la campagne qui aurait sauvé l'appartement et l'équipe, met fin à IlonaGaming par un dernier direct de trois minutes, puis décide de quitter Tokyo seule. Théo accepte un poste de coordination au studio. Ils s'aiment encore mais se séparent sans promesse ; il l'accompagne jusqu'au quai et la laisse partir.",
+    "cgs": [],
+    "source": {
+      "file": "arcs/endings/ending_neutre.rpy",
+      "line": 6,
+      "label": "ending_neutre"
+    }
+  },
+  {
+    "id": "finB2",
+    "publicTitle": "Fin B2",
+    "title": "Bad ending — La cage dorée",
+    "key": "finB2",
+    "route": "routeB",
+    "label": "bad_ending",
+    "record": "bad_ending",
+    "conditionCode": "menu: \"La réponse de Théo.\" → \"Prioriser les sponsors, la chaîne avant tout.\": … jump bad_ending",
+    "conditions": [
+      "Être sur la Route B (verdict de l'arc 6 : controle_repetitif >= 3, ou arc6_score < SEUIL_JESSY = 180).",
+      "Au choix final de la Route B (arc_7_theo.rpy:1365), choisir « Prioriser les sponsors, la chaîne avant tout. » (ligne 1438, jump ligne 1501).",
+      "Aucune autre variable n'est testée : le choix suffit."
+    ],
+    "summary": "Théo maintient les sponsors et un stream court. Le lendemain, il fête la campagne de six mois avec Allan à Tokyo ; Ilona ne lance pas le live et ne répond plus. Poussé par Allan, Théo rentre décidé à enfin l'écouter, mais la découvre sans vie dans sa chambre. Quarante ans plus tard, sur la plage, Monsieur Laplage lui remet le porte-clés d'Ilona ; Théo n'a jamais cessé de regretter de ne pas l'avoir écoutée.",
+    "cgs": [],
+    "source": {
+      "file": "arcs/endings/bad_ending.rpy",
+      "line": 31,
+      "label": "bad_ending"
+    }
+  }
+]

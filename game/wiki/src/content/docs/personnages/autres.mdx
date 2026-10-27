@@ -1,0 +1,452 @@
+---
+title: Autres personnages
+description: Personnages secondaires, voix ponctuelles et figurants de Moulinette. Chaque fiche est protégée par la clé de progression où le personnage apparaît.
+sidebar:
+  order: 8
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import CharacterInfobox from '../../../components/CharacterInfobox.astro';
+import Gallery from '../../../components/Gallery.astro';
+
+Cette page regroupe les personnages qui n'ont pas de fiche dédiée. Chaque section reste masquée tant que la partie de l'histoire où le personnage apparaît n'a pas été atteinte.
+
+## L'inconnu du prologue
+
+<Spoiler requires="prologue" note="fiche">
+
+<CharacterInfobox id="inconnu" />
+
+**Présentation**
+
+À la fin du prologue, Jessy et Ilona aperçoivent depuis le toit de la maison Minecraft un personnage au bord de la rivière. Aucun message serveur ne l'annonce et aucun pseudo ne flotte au-dessus de sa tête. Son nom s'affiche « ??? ». Il prononce deux phrases, puis disparaît quand Jessy et Ilona regardent de nouveau ([Prologue, scène 7](../../histoire/prologue/#prologue-s7)).
+
+**Caractéristiques**
+
+- Nom affiché : « ??? ».
+- Aucun pseudo, contrairement aux joueurs du serveur.
+- Son apparition s'accompagne d'un effet sonore distinctif.
+
+**Relations**
+
+Il s'adresse à Jessy et Ilona sans se présenter. Jessy envisage « un mod, un administrateur, une blague d'Alexandre », mais rien ne colle.
+
+**Citations**
+
+> « Construire ensemble, c'est facile. »
+> « Le plus difficile, c'est de ne pas casser ce que l'autre construit. »
+> — au bord de la rivière (Prologue, scène 7)
+
+</Spoiler>
+
+**Identité**
+
+<Spoiler requires="arc1" note="identité de l'inconnu">
+
+Jessy et Ilona le reconnaissent au konbini à l'Arc I : « Le type de la rivière. » Il se présente alors : « Monsieur Laplage. » / « Aujourd'hui, oui. » ([Arc I, scène 4](../../histoire/arc-1/#arc1-s4)). L'inconnu est donc [Monsieur Laplage](../laplage/). Le script le confirme : le locuteur `m_inconnu` utilise la couleur et l'effet de voix de Laplage, et son sprite est `laplage minecraft`. Son apparition incrémente `jugement_laplage`, une variable qui n'est relue par aucune condition.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="révélation tardive">
+
+Dans la Fin A3, Monsieur Laplage révèle une autre identité. Voir la [fiche de Monsieur Laplage](../laplage/) et la [Fin A3](../../fins/a3/).
+
+</Spoiler>
+
+**Galerie**
+
+<Spoiler requires="arc1" note="galerie">
+
+<Gallery prefix="images/personnages/Laplage/minecraft" sprite />
+
+</Spoiler>
+
+## Pseudos du prologue
+
+<Spoiler requires="prologue" note="à qui correspondent les pseudos">
+
+Au début du prologue, les joueurs du serveur Minecraft parlent dans le chat, sous leur pseudo :
+
+- **jessyCube** : [Jessy](../jessy/). C'est le constructeur de la maison.
+- **IlonaGaming** : [Ilona](../ilona/). Elle entre malgré la pancarte.
+- **lorddarktime** : [Alexandre](../alexandre/). La narration le nomme quand il pose sa pancarte.
+
+Après le son d'appel Discord, Jessy et Ilona passent en vocal et parlent sous leur vrai prénom ([Prologue, scène 5](../../histoire/prologue/#prologue-s5)). Alexandre, lui, ne parle que dans le chat ([scène 6](../../histoire/prologue/#prologue-s6)). Chaque pseudo garde la couleur de dialogue de son personnage.
+
+</Spoiler>
+
+<Spoiler requires="arc5" note="rappel du pseudo">
+
+À l'Arc V, Théo rappelle qu'Ilona « a un pseudo qui finit par « Gaming » depuis qu'elle a douze ans » ([Arc V, scène 3](../../histoire/arc-5/#arc5-s3)).
+
+</Spoiler>
+
+## Personnage secondaire (Arc V)
+
+<Spoiler requires="arc5" note="identité et fiche">
+
+<CharacterInfobox id="micka" />
+
+**Présentation**
+
+Micka est un élève du lycée de Jessy. Il apparaît pour la première fois à la Saint-Valentin, presque caché par une montagne de chocolats. Il parle d'un ton flegmatique. Il prend tout au pied de la lettre et ne semble jamais remarquer le sous-entendu des attentions qu'il reçoit, en particulier celles des professeures. La narration le résume ainsi : « Toujours aussi épuisé. Toujours aussi inconscient. »
+
+**Caractéristiques**
+
+- Couleur de dialogue : rose vif (`#e91e63`).
+- Ses entrées s'accompagnent d'applaudissements (`audio/fx/ApplauseClapping.mp3`).
+- Il reçoit énormément de cadeaux : quinze boîtes comptées par Jessy un matin, avant même « le tour des autres classes ». Il a arrêté de compter à quarante-deux.
+- Apparence à l'Arc V : les bras chargés de chocolats (`happy_with_gifts`), puis épuisé, avec de la farine dans les cheveux (`exhausted`).
+
+</Spoiler>
+
+<Spoiler requires="arc6" note="Arc VI">
+
+- Il obtient son diplôme à la cérémonie de l'Arc VI (sprite `happy`).
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+- Fin A2 : tenue de soirée (`Party/flowers`, `Party/neutral`). Il est marié.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+- Fin A3 : costume de gouverneur (`governor_suit`, `governor_serious`, `governor_emotional`), puis armure de commandement (`armor_commanding`). Une armure `sci_fi_armor` est déclarée, mais jamais affichée.
+
+</Spoiler>
+
+**Relations**
+
+<Spoiler requires="arc5" note="Arc V">
+
+- [Alexandre](../alexandre/) réagit à chaque histoire de Micka avec stupeur, souvent en majuscules : « UNE PROF T'A DONNÉ DES CHOCOLATS ? », « SON NUMÉRO ? ». Il finit par lâcher : « Je... je comprends plus rien à ce monde. »
+- [Jessy](../jessy/) lui pose les questions pratiques (« Micka, t'as fait combien de gâteaux ? »).
+- [Allan](../allan/) résume la journée du White Day : « Micka a survécu. C'est déjà ça. »
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+- Il épouse Claire Martin, leur ancienne professeure d'anglais. Ils se sont revus après les diplômes.
+- Avec [Théo](../theo/), il rit pendant deux minutes d'une blague dont ils ont oublié le début.
+- [Sofiane](../sofiane/) va le chercher à la gare, puis le ramène en dernier.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+- Gouverneur de l'humanité, il signe des contrats avec [Allan](../allan/), qui dirige Muchacho Corporation et Gringos Industry.
+- Le commandant de la milice le salue militairement au Capitole.
+- Il compare sa « deudeuche », qui « a rendu l'âme », à la Trueno de [Sofiane](../sofiane/).
+- Il demande à [Jessy](../jessy/) s'il pourra tenir neuf cent quatre-vingt-dix-neuf ans avec « le destin de l'humanité entre les mains ».
+
+</Spoiler>
+
+**Histoire**
+
+<Spoiler requires="arc5" note="Arc V">
+
+**Saint-Valentin** ([Arc V, scène 4](../../histoire/arc-5/#arc5-s4)). Micka entre en classe sous une montagne de chocolats : « Quelqu'un peut m'aider ? Je vois plus mes pieds. » Trois professeures lui en ont offert, dont Madame Tanaka, la prof de maths, qui a ajouté une carte qu'il n'a pas lue (« Y'avait la queue devant mon casier »). Jessy dit en avoir reçu trois, d'Alexandre. Alexandre précise qu'ils étaient ironiques. Micka répond : « L'ironie, c'est de l'affection mal exprimée. » Il part voir la prof d'anglais, qui veut « discuter de [son] avenir », avec un clin d'œil. Il laisse sur le bureau la moitié de ses chocolats, et personne n'ose y toucher.
+
+**White Day** ([Arc V, scène 7](../../histoire/arc-5/#arc5-s7)). Micka n'a pas dormi de la nuit et a fait trente-sept gâteaux, parce qu'au White Day, « tu dois rendre le triple de ce que t'as reçu ». Madame Tanaka veut un gâteau fait maison, Madame Yamamoto des macarons. La prof d'anglais lui a dit « surprends-moi » : il lui a fait « un opéra au chocolat avec son prénom en ganache ». Elle lui avait donné son prénom et son numéro à la Saint-Valentin, et c'est elle qui l'appelle « pour vérifier que [il a] bien compris les exercices ». Il repart ensuite à un rendez-vous avec la prof de sport, qui veut « discuter de [sa] forme physique ». Plus tard, Allan et Alexandre font le point ([scène 8](../../histoire/arc-5/#arc5-s8)) : Micka a survécu, et Madame Tanaka avait l'air « satisfaite ».
+
+Aucun choix du joueur ne concerne Micka, et aucune variable ne lui est liée.
+
+</Spoiler>
+
+<Spoiler requires="arc6" note="Arc VI">
+
+**La cérémonie** ([Arc VI, scène 2](../../histoire/arc-6/#arc6-s2)). Micka reçoit son diplôme et trois enveloppes : « Deux lettres de profs. Et une convocation chez le proviseur adjoint. » Il l'a lue trois fois : « Le mot « convocation » ne change pas. » Alexandre : « Je ne veux toujours pas savoir. » Plus tard, quand une enveloppe sans nom reste sur la table, Allan croit que Micka l'a oubliée. Sofiane le corrige : « Non. Il en a trois. » Au [récapitulatif](../../histoire/arc-6/#arc6-s3), Jessy en reparle à Ilona : « Micka a eu trois enveloppes. »
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+**Les retrouvailles** ([Fin A2](../../fins/a2/#finA2-s7)). Lors des retrouvailles, « un mois plus tard », Micka arrive avec Sofiane, par le train suivant, avec un bouquet « presque aussi large que lui ». Il avait pourtant demandé au fleuriste « quelque chose de discret ». Au repas, il annonce : « Moi, je me suis marié. » Il a épousé Claire Martin, leur ancienne prof d'anglais : « On a tous fini le lycée en même temps. » Elle est chez sa sœur ce week-end. Alexandre rappelle qu'il a passé un oral avec elle. Micka : « Elle t'avait trouvé très tendu. » Au toast, il ajoute : « Et à Claire, qui aurait vraiment aimé cette tarte. »
+
+**La soirée** ([Fin A2](../../fins/a2/#finA2-s8)). Au karaoké, il chante une chanson d'amour en anglais avec une prononciation qui impose « un silence admiratif ». Pendant la battle de danse, il applaudit « comme si la salle était immense ». Au départ ([Fin A2](../../fins/a2/#finA2-s9)), il reste pour la vaisselle (« Je peux faire les deux ») et repart en dernier avec Sofiane. Il promet : « On revient avec Claire. » Il figure au générique.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+**Quarante ans plus tard** ([Fin A3](../../fins/a3/#finA3-s7)). Micka est devenu gouverneur de l'humanité. Il a réuni les colonies, imposé la paix et fait construire un Capitole dont il trouve le balcon trop petit. Ses recherches sur ses propres gènes ont permis de traiter l'infertilité. Meilleur combattant de la planète, il a reçu « le rang de gigachad de la Légion d'honneur refondée ».
+
+**Le conseil** ([Fin A3](../../fins/a3/#finA3-s9)). Il accueille le groupe dans le bureau ovale du Capitole et présente le commandant de la milice. Il interroge Jessy sur le fait qu'il a « toujours vingt ans ». Il soulève ensuite le principal problème du projet : comment être sûr que, dans neuf cent quatre-vingt-dix-neuf ans, quelqu'un suivra encore les consignes ([scène 10](../../fins/a3/#finA3-s10)). Quand Jessy décide de rester, Micka prépare l'annonce de la mission et la passation, puis part dire au revoir « à [ses] femmes ».
+
+**Le départ et le retour** ([Fin A3](../../fins/a3/#finA3-s11)). Le jour du départ, son visage est imprimé sur les deux côtés des drapeaux, « pour les gens derrière ». Il monte dans le TARDIS avec Théo, Allan, Sofiane et le commandant. Neuf cent quatre-vingt-dix-neuf ans plus tard ([scène 12](../../fins/a3/#finA3-s12)), la foule le reconnaît comme « l'apôtre Micka ». C'est lui qui montre le TAIKUN en orbite : « Levez les yeux. » Sur la passerelle ([scène 13](../../fins/a3/#finA3-s13)), il s'adresse à tout l'équipage avant la reconquête.
+
+</Spoiler>
+
+**Citations**
+
+<Spoiler requires="arc5" note="Arc V">
+
+> « L'ironie, c'est de l'affection mal exprimée. »
+> — à Alexandre, Saint-Valentin (Arc V, scène 4)
+
+> « J'ai arrêté de compter à quarante-deux. »
+> — White Day (Arc V, scène 7)
+
+</Spoiler>
+
+<Spoiler requires="arc6" note="Arc VI">
+
+> « Après le diplôme. Techniquement, c'est de l'optimisme administratif. »
+> — à propos de sa convocation (Arc VI, scène 2)
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+> « J'ai demandé quelque chose de discret. »
+> — en offrant son bouquet (Fin A2)
+
+> « Ancienne, oui. On a tous fini le lycée en même temps. »
+> — à propos de sa femme (Fin A2)
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+> « Le problème du balcon, c'est qu'on me voit pas assez depuis les côtés. »
+> — gouverneur (Fin A3)
+
+> « L'humanité a gardé ses priorités. »
+> — au retour, acclamé par la foule (Fin A3)
+
+</Spoiler>
+
+**Galerie**
+
+<Gallery prefix="images/personnages/Micka/" sprite />
+
+## Personnage de la Route B
+
+<Spoiler requires={['routeB', 'finA1']} mode="any" note="identité et fiche">
+
+<CharacterInfobox id="tchat" />
+
+**Présentation**
+
+Le « Tchat » n'est pas une personne : il représente les spectateurs des streams d'Ilona. Chaque réplique commence par le pseudo de son auteur. Il réagit en direct, transforme les erreurs en blagues et compte les paliers.
+
+**Caractéristiques**
+
+- Couleur de dialogue : bleu clair (`#7fd6ff`). Aucun sprite.
+- Locuteur défini dans le fichier de la Route B (`arc_7_theo.rpy:18`), mais réutilisé dans une autre fin.
+
+</Spoiler>
+
+<Spoiler requires="routeB" note="Route B">
+
+- Pseudos (Route B) : sakura_mod, pixel_ramen, misterclip, kiwi_no_kimi, darkflame92, xXShadow_JPxX, moon_walker21.
+
+</Spoiler>
+
+<Spoiler requires="finA1" note="Fin A1">
+
+- Pseudos (Fin A1) : pixel_ramen et kiwi_no_kimi.
+
+</Spoiler>
+
+**Relations**
+
+<Spoiler requires={['routeB', 'finA1']} mode="any" note="relations">
+
+Le tchat ne parle qu'à [Ilona](../ilona/), pendant ses directs. Elle lui répond en plaisantant.
+
+</Spoiler>
+
+**Histoire**
+
+<Spoiler requires="routeB" note="Route B">
+
+- **Premier stream** ([Route B, scène 4](../../histoire/route-b/#routeB-s4)) : « BIENVENUE ILONA !!! ». Ilona fait comme s'ils étaient douze. Réponse : « nous sommes tous douze ce soir ». Après un tutoriel raté, le tchat proclame : « LA MANETTE EST INNOCENTE ». Pic à 2 400 spectateurs.
+- **Dix mille abonnés** ([scène 9](../../histoire/route-b/#routeB-s9)) : « 10K 10K 10K !!! », « CE SOURIRE EST SUSPECT ».
+- **Cent mille abonnés en juin** ([scène 12](../../histoire/route-b/#routeB-s12)) : « 100K EN DEUX MOIS C'EST FOU », « pleure pas ilona sinon on pleure ».
+- **Opération spéciale** ([scène 14](../../histoire/route-b/#routeB-s14)) : « ça fait quatre dernières tentatives ». Le sponsor offre 100 abonnements.
+- **Le million** ([scène 18](../../histoire/route-b/#routeB-s18)) : « ENFIN LE MILLION ILONA ON T'AIME », « best vtubeuse fr jp no debate ». Puis « Ilona tu nous quittes jamais hein ?? », et Ilona répond : « Jamais ! ». Le terme « vtubeuse » ne correspond pas à son stream en caméra avec perruque : simple vocabulaire du tchat ou incohérence, ce n'est pas tranché.
+
+</Spoiler>
+
+<Spoiler requires="finA1" note="Fin A1">
+
+**Un petit stream** ([Fin A1, scène 1](../../fins/a1/#finA1-s1)). Ilona lance une heure de stream de dessin. pixel_ramen lui signale : « on voit ton écran d'attente ». Puis kiwi_no_kimi : « elle est loin la maison ». Il n'y a « que quelques pseudos dans le tchat ; chacun a son avis sur la rampe ».
+
+</Spoiler>
+
+**Citations**
+
+<Spoiler requires="routeB" note="Route B">
+
+> « kiwi_no_kimi : nous sommes tous douze ce soir »
+> — premier stream (Route B, scène 4)
+
+> « darkflame92 : LA MANETTE EST INNOCENTE »
+> — premier stream (Route B, scène 4)
+
+> « moon_walker21 : Ilona tu nous quittes jamais hein ?? »
+> — le million (Route B, scène 18)
+
+</Spoiler>
+
+<Spoiler requires="finA1" note="Fin A1">
+
+> « pixel_ramen : on voit ton écran d'attente »
+> — stream de dessin (Fin A1, scène 1)
+
+</Spoiler>
+
+**Galerie**
+
+Aucun sprite.
+
+## Personnage de la Fin A2
+
+<Spoiler requires="finA2" note="identité et fiche">
+
+<CharacterInfobox id="lucy" />
+
+**Présentation**
+
+Lucy est la fille de Jessy et Ilona. Elle apparaît dans l'épilogue de la Fin A2, « plusieurs années plus tard », dans le jardin de la maison des Petits Sommets ([Fin A2, scène 11](../../fins/a2/#finA2-s11)). Son âge n'est pas précisé : le script réduit son sprite pour qu'elle « reste à hauteur d'enfant » auprès de ses parents.
+
+**Caractéristiques**
+
+- Couleur de dialogue : jaune doré (`#f4d183`).
+- Sprites `neutral` et `happy`.
+- Elle a des bottes roses minuscules. Elle a dessiné à la craie rose une petite porte sur celle du cabanon.
+
+**Relations**
+
+- [Jessy](../jessy/) (« Papa ! ») : elle lui offre un bouquet de fleurs sauvages et essaie de lui aplatir les cheveux.
+- [Ilona](../ilona/) : « Non ! C'est toi la plus belle, maman ! ».
+- Oliver, son petit frère à naître : elle lui parle à travers le ventre de sa mère et prévoit de lui prêter ses cubes, « mais pas le rouge ». Oliver est seulement nommé (dialogues et générique) : il n'a ni sprite ni réplique.
+
+**Histoire**
+
+Lucy cache un bouquet derrière son dos et demande à Jessy de fermer les yeux (« Les deux. »). La plus petite fleur s'est cassée : elle ira dans le petit verre au canard. Quand Ilona sort de la maison, enceinte, Lucy sent Oliver bouger (« Il m'a répondu ! ») et promet de lui construire une maison avec deux portes, et une chambre pour ses parents. Elle rentre ensuite dîner entre eux deux, une main de chaque côté. Elle figure au générique avec Oliver.
+
+**Citations**
+
+> « Oui. Parce que je t'aime. »
+> — en offrant le bouquet à Jessy
+
+> « Celle-là, c'est un soleil. Et celle-là, c'est toi. »
+> — en montrant les fleurs
+
+> « Oliver ! La sortie, c'est pas par là ! »
+> — au ventre d'Ilona
+
+> « Deux. Pour quand on veut sortir en même temps. »
+> — sur les portes de la maison qu'elle construira
+
+</Spoiler>
+
+**Galerie**
+
+<Gallery prefix="images/personnages/Lucy/" sprite />
+
+<Gallery prefix={['images/scenes/cg/family/cg_family_lucy_hug', 'images/scenes/cg/family/cg_family_homecoming']} />
+
+## Personnage de la Fin A3
+
+<Spoiler requires="finA3" note="identité et fiche">
+
+<CharacterInfobox id="florentin" />
+
+**Présentation**
+
+Florentin est le commandant de la milice, quarante ans après la catastrophe. D'après Allan, cette milice protégeait au départ les campements contre les créatures de l'exoplanète. Elle est devenue « la plus grande armée de l'humanité », et Gringos Industry équipe ses hommes. Monsieur Laplage a lui-même donné son nom à Théo. Allan dit qu'il « commande toujours comme si la guerre commençait jeudi ».
+
+**Caractéristiques**
+
+- Couleur de dialogue : brun rosé (`#cf8671`).
+- En armure : sprites `armor_resolved` et `armor_angry`. Le sprite `futuristic_armor` est déclaré, mais jamais affiché.
+- Sa femme est restée sur Terre. Il n'a « jamais cessé de vouloir y retourner ».
+
+**Relations**
+
+- [Allan](../allan/) le connaît et se charge de le convaincre. Florentin dit oui « avant [qu'il] finisse la phrase ».
+- Micka, le gouverneur, qu'il salue militairement.
+- [Jessy](../jessy/) : le plan de Jessy le heurte, puis Jessy lui demande pardon : « Je sais ce que tu as perdu. »
+- [Théo](../theo/) recadre son projet : « ce sera une reconquête. Pas une exécution. »
+
+**Histoire**
+
+- **Le conseil** ([Fin A3, scène 9](../../fins/a3/#finA3-s9)) : il arrive avec une mallette fermée et met ses forces à disposition. Il veut « rendre les coups depuis quarante ans » et demande : « Et si c'est elle qui me l'a prise ? ». Jessy n'a pas de réponse. Après l'intervention de Théo, il hoche la tête et promet de préparer la relève.
+- **Celui qui reste** ([scène 10](../../fins/a3/#finA3-s10)) : il signera avec Jessy les ordres de transmission, pour que « l'armée [sache] à qui répondre ».
+- **Les adieux** ([scène 11](../../fins/a3/#finA3-s11)) : « La relève a reçu ses ordres. On peut partir. » Il fait partie des cinq voyageurs du TARDIS.
+- **Le retour** ([scène 12](../../fins/a3/#finA3-s12)) : neuf cent quatre-vingt-dix-neuf ans plus tard, Jessy lui dit que la relève l'attend à bord et que tous « connaissent ton nom ».
+- **La reconquête** ([scène 13](../../fins/a3/#finA3-s13)) : sur la passerelle du TAIKUN, il annonce que les troupes sont prêtes. Il figure au générique.
+
+**Citations**
+
+> « Allan m'a expliqué votre projet. Mes forces sont disponibles. »
+> — au conseil du Capitole
+
+> « Ma femme est restée sur Terre. Tu me demandes de regarder ça comme un rendez-vous ? »
+> — à Jessy
+
+> « Les troupes sont prêtes. Cette fois, on ne laissera personne derrière. »
+> — sur la passerelle du TAIKUN
+
+</Spoiler>
+
+**Galerie**
+
+<Gallery prefix="images/personnages/Florentin/" sprite />
+
+## Figurants et personnages cités
+
+<Spoiler requires="arc3" note="Arc III">
+
+- **Deux élèves** du couloir lancent la rumeur sur Ilona et Jessy. Ils n'ont pas de nom ([Arc III, scène 3](../../histoire/arc-3/#arc3-s3)).
+
+</Spoiler>
+
+<Spoiler requires="arc5" note="Arc V">
+
+- **Madame Tanaka**, prof de maths : elle offre des chocolats à Micka avec une carte, puis attend de lui un gâteau fait maison. Elle est seulement citée.
+- **Madame Yamamoto**, professeure : elle veut des macarons. Elle est seulement citée.
+- **La prof d'anglais** donne son prénom et son numéro à Micka. **La prof de sport** veut « discuter de [sa] forme physique ».
+- **La caissière du cinéma** (version cinéma de la [scène 2](../../histoire/arc-5/#arc5-s2)) et **le cousin de Sofiane**, qui lui confie une AE86, sont seulement mentionnés.
+
+</Spoiler>
+
+<Spoiler requires="arc6" note="Arc VI">
+
+- La prof d'anglais pleure pendant toute la cérémonie des diplômes et n'a signé que quatre livrets.
+
+</Spoiler>
+
+<Spoiler requires="routeA" note="Route A">
+
+- **« Une collègue »** et **« L'autre collègue »** : les collègues de Sofiane, passagers de la Trueno ([Route A, scène 6](../../histoire/route-a/#routeA-s6)).
+- Le propriétaire de Théo à Tokyo, qui l'appelle « Tao » cette semaine. Il est seulement cité ([scène 7](../../histoire/route-a/#routeA-s7)).
+
+</Spoiler>
+
+<Spoiler requires="finA1" note="Fin A1">
+
+- **« La vendeuse »** : « Le citron, grand ou petit ? » ([Fin A1, scène 5](../../fins/a1/#finA1-s5)).
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+- **« La voix au téléphone »** répond à l'annonce du restaurant. Jessy « connai[t] cette voix ». C'est probablement Monsieur Laplage, qui les accueille le lendemain comme propriétaire (« Aujourd'hui, je suis propriétaire. ») : interprétation ([scène 1](../../fins/a2/#finA2-s1), [scène 2](../../fins/a2/#finA2-s2)).
+- **Claire Martin**, ancienne prof d'anglais, devenue la femme de Micka. Elle est absente de la soirée et seulement citée.
+- **Oliver**, l'enfant à naître. Il est seulement nommé.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+- **« Messagerie »** (répondeur), **« La foule »** et **« Une voix »** (« Ça doit être lui, l'apôtre Micka ! Marie-moi ! »).
+- La femme de Florentin, restée sur Terre. Elle est seulement citée.
+
+</Spoiler>

@@ -1,0 +1,85 @@
+---
+// Galerie filtrable construite depuis l'inventaire. Les images protégées sont regroupées
+// par prérequis dans des blocs Spoiler (aucune miniature, légende ou alt avant révélation).
+import Spoiler from './Spoiler.astro';
+import { assetList, mediaUrl, mediaInfo, fileName } from '../lib/media';
+import { trunkKeys } from '../lib/keys';
+
+interface Props {
+  prefix: string | string[];
+  exclude?: string[];
+  /** Profondeur du dossier utilisé comme catégorie de filtre (après le préfixe). */
+  categoryDepth?: number;
+  sprite?: boolean;
+  alt?: (path: string) => string;
+}
+const { prefix, exclude = [], categoryDepth = 1, sprite = false } = Astro.props;
+const prefixes = Array.isArray(prefix) ? prefix : [prefix];
+const items = assetList
+  .filter((a) => a.kind === 'images' && prefixes.some((p) => a.path.startsWith(p)) && !exclude.some((e) => a.path.startsWith(e)) && mediaUrl(a.path))
+  .sort((a, b) => a.path.localeCompare(b.path));
+const cat = (p: string) => {
+  const pre = prefixes.find((x) => p.startsWith(x))!;
+  const parts = p.slice(pre.length).split('/');
+  return parts.length > categoryDepth ? parts.slice(0, categoryDepth).join('/') : '(racine)';
+};
+const label = (p: string) => fileName(p).replace(/[_-]+/g, ' ');
+const order = (r: string[]) => { const i = trunkKeys.indexOf(r[0]); return i >= 0 ? i : 100 + r.join().length; };
+
+const pub = items.filter((a) => !a.requires.length);
+const groups = new Map<string, { req: string[]; mode: 'all' | 'any'; items: typeof items }>();
+for (const a of items.filter((a) => a.requires.length)) {
+  const k = `${a.requiresMode}:${a.requires.join(',')}`;
+  if (!groups.has(k)) groups.set(k, { req: a.requires, mode: a.requiresMode ?? 'all', items: [] });
+  groups.get(k)!.items.push(a);
+}
+const sorted = [...groups.values()].sort((x, y) => order(x.req) - order(y.req));
+const pubCats = [...new Set(pub.map((a) => cat(a.path)))];
+---
+
+<div class="gallery" data-gallery>
+  {pubCats.length > 1 && (
+    <div class="gallery__filters" role="group" aria-label="Filtrer la galerie">
+      <button type="button" aria-pressed="true" data-filter="*">Tout</button>
+      {pubCats.map((c) => <button type="button" aria-pressed="false" data-filter={c}>{c.replace(/[_-]+/g, ' ')}</button>)}
+    </div>
+  )}
+  {pub.length > 0 && (
+    <ul class:list={['gallery__grid', { 'gallery__grid--sprite': sprite }]}>
+      {pub.map((a) => { const i = mediaInfo(a.path)!; return (
+        <li data-cat={cat(a.path)}>
+          <a href={mediaUrl(a.path)} class="gallery__item">
+            <img src={mediaUrl(a.path)} alt={Astro.props.alt?.(a.path) ?? label(a.path)} width={i.w} height={i.h} loading="lazy" decoding="async" />
+            <span>{label(a.path)}</span>
+          </a>
+        </li>
+      ); })}
+    </ul>
+  )}
+  {sorted.map((g) => (
+    <Spoiler requires={g.req} mode={g.mode} note={`${g.items.length} image(s)`}>
+      <ul class:list={['gallery__grid', { 'gallery__grid--sprite': sprite }]}>
+        {g.items.map((a) => { const i = mediaInfo(a.path)!; return (
+          <li data-cat={cat(a.path)}>
+            <a href={mediaUrl(a.path)} class="gallery__item">
+              <img src={mediaUrl(a.path)} alt={Astro.props.alt?.(a.path) ?? label(a.path)} width={i.w} height={i.h} loading="lazy" decoding="async" />
+              <span>{label(a.path)}</span>
+            </a>
+          </li>
+        ); })}
+      </ul>
+    </Spoiler>
+  ))}
+  {!items.length && <p>Aucune image.</p>}
+</div>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-filter]');
+    if (!b) return;
+    const g = b.closest('[data-gallery]')!;
+    g.querySelectorAll('[data-filter]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const f = b.dataset.filter;
+    g.querySelectorAll<HTMLElement>(':scope > .gallery__grid > li').forEach((li) => (li.hidden = f !== '*' && li.dataset.cat !== f));
+  });
+</script>
