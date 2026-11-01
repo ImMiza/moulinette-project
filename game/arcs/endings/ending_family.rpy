@@ -76,6 +76,7 @@ define audio.newChapter = "audio/music/new_chapter.ogg"
 define audio.doorbell = "audio/fx/doorbell.mp3"
 
 
+
 label ending_family:
     $ record_ending("family")
     stop ambiant1 fadeout 1.0
@@ -83,7 +84,6 @@ label ending_family:
     scene black with fade
     centered "QUELQUES JOURS APRÈS LA RANDONNÉE"
     jump ending_family_restaurant
-
 
 # 1. DEUX RECHERCHES, UNE ADRESSE
 label ending_family_restaurant:
