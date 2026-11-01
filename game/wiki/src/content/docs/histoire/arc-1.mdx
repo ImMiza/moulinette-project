@@ -1,0 +1,85 @@
+---
+title: "Arc I — Printemps : la vie hors écran"
+description: Premier arc de Moulinette. Résumé sans spoiler, scènes, choix et résumé détaillé protégés.
+sidebar:
+  order: 2
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après le [Prologue](../prologue/), avant l'[Arc II](../arc-2/).
+**Fichier** : `arcs/arc_1/arc_1_printemps.rpy`.
+:::
+
+## En bref
+
+<Spoiler requires="prologue" note="mise en place de l'arc, suppose le prologue terminé">
+
+Avril. Depuis la maison Minecraft, Jessy et Ilona se parlent presque tous les soirs sur Discord, sans caméra ni photo : seulement leurs voix et leurs pseudos. Le jour de la rentrée, devant un panneau des classes trop rempli, Ilona reconnaît la voix de Jessy. Ils sont dans la même école, et doivent apprendre à se parler sans le bruit du jeu.
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc1">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Allan](../../personnages/allan/) (première apparition), [Alexandre](../../personnages/alexandre/), [Sofiane](../../personnages/sofiane/) (première apparition, une réplique), [Monsieur Laplage](../../personnages/laplage/). [Théo](../../personnages/theo/) est seulement mentionné.
+- **Lieux** : l'école (couloir, toit, cantine), le quai et le train, un konbini.
+- **Révélation** : l'inconnu sans pseudo de la rivière Minecraft réapparaît en chair et en os au konbini et se présente comme Monsieur Laplage (« C'est votre nom ? » « Aujourd'hui, oui. »).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc1" />
+
+## Choix majeurs
+
+<Spoiler requires="arc1">
+
+- **L'omelette** (scène 2) : accepter ou plaisanter (`lien_jessy_ilona +2`), demander si elle en a envie (`autonomie_ilona +2`, `communication +1`, `confiance +1`, `pression_stream -1`), refuser trop vite (`communication -2`, `confiance -1`, `pression_stream +1`, `evitements +1`).
+- **La photo** (scène 3) : supprimer (mêmes effets négatifs), la garder si elle l'aime bien (profil autonomie), poser pour une deuxième (`lien_jessy_ilona +2`).
+- **Le bonbon étoile** (scène 4) : le garder pour la salle secrète ou « pour plus tard » (`lien_jessy_ilona +2`), ou laisser Ilona le manger (`ilonanium_points +1` et profil autonomie). Seul le fait de le manger compte ; aucun rattrapage plus tard.
+- **« Vous sortez ensemble ? »** (scène 5) : « J'aimerais bien » (`communication +4`, `confiance +2`, `jalousie -2`, `lien_jessy_ilona +2`), blague (`lien_jessy_ilona +4`), laisser Ilona répondre (`autonomie_ilona +4`, `communication +2`, `confiance +2`, `ilona_peut_finir_ses_phrases +1`, `pression_stream -2`), nier trop vite (`communication -4`, `confiance -2`, `pression_stream +2`, `evitements +1`).
+- **Le toit après les cours** (scène 6) : demander ce qui l'aiderait ou lui laisser son temps (profil autonomie +4 avec `ilona_peut_finir_ses_phrases +1`), blague puis sincérité (`communication +4`, `confiance +2`, `jalousie -2`, `lien_jessy_ilona +2`), se défendre (`communication -4`, `confiance -2`, `pression_stream +2`, `evitements +1`).
+
+La transformation choisie au prologue (`maison_minecraft_transformation`) ne change que des répliques dans le couloir (scène 1) et à la cantine (scène 7).
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="mécanique d'une fin secrète">
+
+Le bonbon étoile est le premier des six objets cosmiques. Un point n'est gagné que si Ilona le mange ; la Fin A3 ne se déclenche (automatiquement, en fin de Route A) qu'avec les six points et le fruit goûté (`ilonanium_points == 6 and arc7_jessy_fruit == "goute"`, `arc_7_jessy.rpy:1177`).
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc1" note="résumé complet de l'arc">
+
+**Même école**
+
+Le jour de la rentrée, Ilona reconnaît Jessy à sa voix devant le panneau des classes. Ils sont dans la même école, ce qui est « bizarre bien ». À midi, sur le toit, face à face sans clavier ni souris, ils découvrent que c'est plus difficile qu'en vocal ; Ilona lui offre un morceau d'omelette. Les jours suivants, les petits moments deviennent une habitude.
+
+**Le train**
+
+Ils prennent le même train. Ilona photographie Jessy par surprise ; la photo devient un sujet pendant deux jours. Un soir, Jessy commence une phrase importante (« Ilona, je voulais te dire que— »), couverte par le freinage et la sonnerie des portes. Il renonce, en promettant peut-être de recommencer « si je retrouve le courage ».
+
+**Le konbini**
+
+Le vendredi, au konbini, Ilona ouvre un bonbon en forme d'étoile. Le personnage sans pseudo de la rivière Minecraft se tient devant le rayon des boissons : il se nomme Monsieur Laplage, « aujourd'hui », commente le bonbon (« Choisir un bonbon, c'est déjà choisir une petite catastrophe. ») puis disparaît vers les lessives, où il n'y a pas de sortie. Le bonbon est mangé ou gardé selon le joueur.
+
+**La question**
+
+Le lundi, Allan les aborde : « C'est vous, la maison Minecraft bizarre ? » Alexandre, lui, l'a déjà vue. Ilona leur raconte la rencontre du konbini. Allan demande, trop fort : « Donc... vous sortez ensemble ? » La réponse de Jessy (sincère, blague, silence laissé à Ilona, déni) laisse la question ouverte toute la journée. Le soir, sur le toit, Ilona explique qu'en ligne ses silences ne se voient pas ; ici, « on les entend ».
+
+**La cantine**
+
+À la cantine, Allan a vu Monsieur Laplage à son tour et propose trois hypothèses, dont « un type qui apparaît quand il veut ». Il compte demander à Théo, un ami qui « parle comme s'il avait déjà lu la fin ». Sofiane, à la table voisine, glisse une phrase sur les premiers liens. Ce n'est pas encore simple entre Jessy et Ilona, mais ce n'est plus seulement dans Minecraft.
+
+</Spoiler>
+
+## Suite
+
+L'histoire continue avec l'[Arc II](../arc-2/).

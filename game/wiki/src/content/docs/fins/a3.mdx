@@ -1,0 +1,77 @@
+---
+title: "Fin A3"
+description: Une des fins de la Route A de Moulinette. Conditions, scènes, résumé et illustrations protégés contre les spoilers.
+sidebar:
+  order: 3
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Route** : [Route A](../../histoire/route-a/).
+**Autres fins de la route** : [Fin A1](../a1/), [Fin A2](../a2/).
+:::
+
+## Comment l'obtenir
+
+<Spoiler requires="routeA" note="conditions exactes, fin secrète">
+
+Fin secrète. Fichier : `arcs/endings/ending_ilonanium.rpy`, label `ending_ilonanium` (ligne 175). Catégorie affichée au générique : « SPECIAL ENDING / ILONANIUM ».
+
+Condition de déclenchement automatique (`arcs/arc_7/arc_7_jessy.rpy:1177`) :
+
+```python
+if ilonanium_points == 6 and arc7_jessy_fruit == "goute":
+    jump ending_ilonanium
+```
+
+`ilonanium_points` (défaut 0, `script.rpy:230`) gagne 1 point à chaque objet cosmique mangé par Ilona, et seulement là :
+
+| Arc | Objet | Option à choisir | Source |
+| --- | --- | --- | --- |
+| I | bonbon étoile | « La laisser manger l'étoile. » | `arc_1_printemps.rpy:351-352` |
+| II | gelée lumineuse | « La laisser manger la gelée lumineuse avant d'en construire une version Minecraft. » (option absente si `arc2_retour_minecraft == "porte_fermee"`) | `arc_2_plage.rpy:1135-1137` |
+| III | étoile en sucre | « La laisser la manger pendant qu'elle réfléchit. » (menu absent si `arc3_fin_minecraft == "destruction"`) | `arc_3_rentree.rpy:1127-1150` |
+| IV | mochi pailleté | « Le manger pour gagner du temps. » | `arc_4_noel.rpy:685-687` |
+| VI | gâteau-planète | « La manger maintenant. » | `arc_6_diplomes.rpy:433-435` |
+| VII | fruit étoilé | « La laisser goûter. » (`arc7_jessy_fruit = "goute"`) | `arc_7_jessy.rpy:404-406` |
+
+L'arc V ne donne aucun point (simple clin d'œil si `ilonanium_points >= 3`, `arc_5_examens.rpy:2556`). Il faut aussi être sur la Route A (`arc6_route == "jessy"`).
+
+À l'aube du dimanche, après la descente, le jeu saute directement vers cette fin, sans menu, en priorité sur les Fins A1 et A2 (`arc_7_jessy.rpy:1176-1178`). La réponse au bivouac (amitié ou amour) n'empêche pas cette fin ; elle modifie quelques répliques (`ending_ilonanium.rpy:193-199, 301-306, 593-596`). au bivouac (amitié ou amour) n'empêche pas cette fin ; elle modifie quelques répliques (`ending_ilonanium.rpy:193-199, 301-306, 593-596`).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="finA3" />
+
+## Résumé
+
+<Spoiler requires="finA3" note="résumé complet de la fin">
+
+**La transformation**
+
+Le lendemain du retour, Ilona tombe malade. Le mardi, Jessy la trouve chez elle, incapable de se lever, pendant que les objets glissent vers elle. Monsieur Laplage apparaît : le fruit étoilé était le dernier aliment cosmique qu'il manquait pour que tout ce qu'elle a mangé « se réveille ensemble ». Il ne parvient pas à l'arrêter. Ilona demande à Jessy de partir et de ne pas l'oublier. Laplage l'emmène dans le TARDIS vers une plage à deux soleils, puis sauve ce qu'il peut. Allan, Théo et Sofiane sont rescapés ; Alexandre est resté là-bas. La Terre devient un astre aux yeux immenses, l'Ilonanium. « Laissez digérer. »
+
+**Quarante ans plus tard**
+
+Sur l'exoplanète, Laplage révèle à Théo qu'il est son double venu du futur : dans sa vie, Ilona est morte à cause de lui, et il était revenu pour qu'elle vive sans lui. Mourant, il transmet à Théo le porte-clés creeper qui commande le TARDIS et lui explique les nœuds de convergence. Théo décide de sauter neuf cent quatre-vingt-dix-neuf ans dans le futur. Allan, devenu industriel, Micka, gouverneur, Sofiane, « ange de la route », et le commandant Florentin le suivent. Jessy, qui n'a pas vieilli et entend la voix d'Ilona, reste pour faire construire l'arche TAIKUN au fil des siècles.
+
+**La reconquête**
+
+Neuf cent quatre-vingt-dix-neuf ans plus tard, Jessy, barbu et vénéré comme prophète, les accueille sous le TAIKUN en orbite. Après cinq ans de traversée, mille quarante-quatre ans après la catastrophe, l'arche arrive devant l'Ilonanium et Théo lance la bataille de reconquête. Quelque part à la surface, Alexandre, toujours en vie, contemple l'horizon : « N'est-ce pas magnifique ? » — TO BE CONTINUED.
+
+</Spoiler>
+
+## Récompenses et CG
+
+<Spoiler requires="finA3" note="illustrations et déblocage">
+
+- **Déblocage** : `record_ending("ilonanium")` à l'entrée (`ending_ilonanium.rpy:176`), qui ajoute `"ilonanium"` à `endings_seen` (`script.rpy:279-281`).
+- **CG** (`images/scenes/cg/ilonanium/`) : `01_attraction.png`, `02_gravite.png`, `03_laplage.png`, `04_echec.png`, `05_adieu.png`, `06_maison.png`, `07_arrachement.png`, `08_catastrophe.png`, `09_sauvetage.png`, `10_terre.png`, `16_jessy_survivants.png`, `11_naissance_astre.png`, `12_ilonanium.png`, `theo_ilona_picture.png`, `14_transmission_adieux.png`, `13_adieux_laplage.png`, `15_preparatifs_taikun.png`, `14_calin_jessy_theo.png`, `15_depart_tardis.png`, `13_reconquete_espoir.png`.
+- **Plan final** : `images/scenes/illonanium/fin_ilonanium2.jpg` passé en sépia, avec le carton « TO BE CONTINUED » (`images/ui/ilonanium_to_be_continued.svg`).
+- **Générique** : « SPECIAL ENDING / ILONANIUM », « Le berceau de l'humanité », « Et Alexandre. Toujours là. », crédit « Majula — DARK SOULS II ». Les crédits IXION et Yes n'apparaissent que si les pistes dédiées existent (absentes actuellement).
+- **Test automatisé** : `game/tests/ilonanium.rpy` vérifie l'enchaînement des CG pour les deux relations.
+
+</Spoiler>

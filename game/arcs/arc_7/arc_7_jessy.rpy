@@ -1,100 +1,99 @@
 # ARC VII - ROUTE JESSY : LA RANDONNEE
-# La reponse au bivouac fixe la relation ; le fruit ouvre la piste Ilonanium.
+# L'amour ouvre Family, l'amitié ouvre Friend ; le fruit ouvre Ilonanium.
 
 default arc7_jessy_fruit = ""       # goute / jette
 default arc7_jessy_dejeuner = ""    # amitie / crush
 default arc7_jessy_relation = ""    # amitie / amour
 default arc7_jessy_tente = False
-default arc7_jessy_family_epilogue = False
 
 # Tenues estivales de ville pour les scènes hors montagne.
-image allan beach silence = speaker_sprite("allan", "images/personnages/Allan/beach/uncomfortable_silence.png")
-image allan beach support = speaker_sprite("allan", "images/personnages/Allan/beach/quiet_support.png")
+image allan beach silence = speaker_sprite("allan", "images/personnages/Allan/Beach/uncomfortable_silence.png")
+image allan beach support = speaker_sprite("allan", "images/personnages/Allan/Beach/quiet_support.png")
 # Tenues de randonnée. Les expressions indisponibles sans sac reprennent le sprite le plus proche.
-image jessy rando neutral = speaker_sprite("jessy", "images/personnages/Jessy/rando/neutral_attentiveness.png")
-image jessy rando smile = speaker_sprite("jessy", "images/personnages/Jessy/rando/shy_warm_smile.png")
-image jessy rando listening = speaker_sprite("jessy", "images/personnages/Jessy/rando/neutral_attentiveness.png")
-image jessy rando determined = speaker_sprite("jessy", "images/personnages/Jessy/rando/happy.png")
-image jessy rando embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/rando/nervous_embarrassment.png")
-image jessy rando bag neutral = speaker_sprite("jessy", "images/personnages/Jessy/rando/with_bag/neutral_attentiveness.png")
-image jessy rando bag smile = speaker_sprite("jessy", "images/personnages/Jessy/rando/with_bag/shy_warm_smile.png")
-image jessy rando bag listening = speaker_sprite("jessy", "images/personnages/Jessy/rando/with_bag/neutral_attentiveness.png")
-image jessy rando bag determined = speaker_sprite("jessy", "images/personnages/Jessy/rando/with_bag/happy.png")
-image jessy rando bag embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/rando/with_bag/nervous_embarrassment.png")
-image ilona rando neutral = speaker_sprite("ilona", "images/personnages/Ilona/rando/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando smile = speaker_sprite("ilona", "images/personnages/Ilona/rando/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/rando/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando sad = speaker_sprite("ilona", "images/personnages/Ilona/rando/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando bag neutral = speaker_sprite("ilona", "images/personnages/Ilona/rando/with_bag/neutral_rando.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando bag smile = speaker_sprite("ilona", "images/personnages/Ilona/rando/with_bag/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
-image ilona rando bag embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/rando/with_bag/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image jessy rando neutral = speaker_sprite("jessy", "images/personnages/Jessy/Rando/neutral_attentiveness.png")
+image jessy rando smile = speaker_sprite("jessy", "images/personnages/Jessy/Rando/shy_warm_smile.png")
+image jessy rando listening = speaker_sprite("jessy", "images/personnages/Jessy/Rando/neutral_attentiveness.png")
+image jessy rando determined = speaker_sprite("jessy", "images/personnages/Jessy/Rando/happy.png")
+image jessy rando embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/Rando/nervous_embarrassment.png")
+image jessy rando bag neutral = speaker_sprite("jessy", "images/personnages/Jessy/Rando/With_bag/neutral_attentiveness.png")
+image jessy rando bag smile = speaker_sprite("jessy", "images/personnages/Jessy/Rando/With_bag/shy_warm_smile.png")
+image jessy rando bag listening = speaker_sprite("jessy", "images/personnages/Jessy/Rando/With_bag/neutral_attentiveness.png")
+image jessy rando bag determined = speaker_sprite("jessy", "images/personnages/Jessy/Rando/With_bag/happy.png")
+image jessy rando bag embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/Rando/With_bag/nervous_embarrassment.png")
+image ilona rando neutral = speaker_sprite("ilona", "images/personnages/Ilona/Rando/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando smile = speaker_sprite("ilona", "images/personnages/Ilona/Rando/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/Rando/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando sad = speaker_sprite("ilona", "images/personnages/Ilona/Rando/sad.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando bag neutral = speaker_sprite("ilona", "images/personnages/Ilona/Rando/With_bag/neutral_rando.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando bag smile = speaker_sprite("ilona", "images/personnages/Ilona/Rando/With_bag/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
+image ilona rando bag embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/Rando/With_bag/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
 # Les futurs decors propres a l'arc remplaceront automatiquement ces secours.
 init -5 python:
     def arc7_jessy_bg(nom, secours):
-        chemin = "images/scenes/arc_7/bg_arc7_jessy_{}.jpg".format(nom)
+        chemin = "images/scenes/backgrounds/hiking/bg_arc7_jessy_{}.jpg".format(nom)
         if not renpy.loadable(chemin):
             chemin = secours
         return im.Scale(chemin, 1920, 1080)
 
-image bg arc7 jessy boutique = arc7_jessy_bg("boutique", "images/scenes/arc_4/bg_arc4_shopping_gallery.jpg")
-image bg arc7 jessy depart = arc7_jessy_bg("depart", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy route = arc7_jessy_bg("route", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy sentier = arc7_jessy_bg("sentier", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy sentier ours = im.Scale("images/scenes/arc_7/bg_arc7_jessy_sentier_ours.png", 1920, 1080)
-image laplage bear neutral = speaker_sprite("laplage", "images/personnages/laplage/bear/Laplage_neutral.png")
-image laplage bear thumb_up = speaker_sprite("laplage", "images/personnages/laplage/bear/Laplage_thumb_up.png")
-image bg arc7 jessy riviere = arc7_jessy_bg("riviere", "images/scenes/prologue/bg_prologue_river_laplage.png")
-image bg arc7 jessy fleurs = arc7_jessy_bg("fleurs", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy promontoire = arc7_jessy_bg("promontoire", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
+image bg arc7 jessy boutique = arc7_jessy_bg("boutique", "images/scenes/backgrounds/city/bg_arc4_shopping_gallery.jpg")
+image bg arc7 jessy depart = arc7_jessy_bg("depart", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy route = arc7_jessy_bg("route", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy sentier = arc7_jessy_bg("sentier", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy sentier ours = im.Scale("images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier_ours.png", 1920, 1080)
+image laplage bear neutral = speaker_sprite("laplage", "images/personnages/Laplage/Bear/Laplage_neutral.png")
+image laplage bear thumb_up = speaker_sprite("laplage", "images/personnages/Laplage/Bear/Laplage_thumb_up.png")
+image bg arc7 jessy riviere = arc7_jessy_bg("riviere", "images/scenes/backgrounds/minecraft/bg_prologue_river_laplage.png")
+image bg arc7 jessy fleurs = arc7_jessy_bg("fleurs", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy promontoire = arc7_jessy_bg("promontoire", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
 # Diaporama de la scene 3 : personnages peints directement dans chaque CG.
-image cg arc7 jessy marche = "images/scenes/arc_7/jessy_epopee/01_marche.jpg"
-image cg arc7 jessy oiseau = "images/scenes/arc_7/jessy_epopee/02_oiseau.jpg"
-image cg arc7 jessy renard = "images/scenes/arc_7/jessy_epopee/03_renard.jpg"
-image cg arc7 jessy riviere main = "images/scenes/arc_7/jessy_epopee/04_riviere_main.jpg"
-image cg arc7 jessy riviere chaussure = "images/scenes/arc_7/jessy_epopee/05_riviere_chaussure.jpg"
-image cg arc7 jessy fleurs fruit = "images/scenes/arc_7/jessy_epopee/06_fleurs_fruit.jpg"
-image cg arc7 jessy carte = "images/scenes/arc_7/jessy_epopee/07_carte.jpg"
-image cg arc7 jessy gourde = "images/scenes/arc_7/jessy_epopee/08_gourde.jpg"
-image cg arc7 jessy promontoire = "images/scenes/arc_7/jessy_epopee/09_promontoire.jpg"
-image cg arc7 jessy fruit question = "images/scenes/arc_7/jessy_epopee/10_fruit_question.jpg"
-image cg arc7 jessy fruit goute = "images/scenes/arc_7/jessy_epopee/11_fruit_goute.jpg"
-image cg arc7 jessy dejeuner = "images/scenes/arc_7/jessy_epopee/13_dejeuner.jpg"
-image cg arc7 jessy amitie = "images/scenes/arc_7/jessy_epopee/14_amitie.jpg"
-image cg arc7 jessy aveu = "images/scenes/arc_7/jessy_epopee/15_aveu.jpg"
-image bg arc7 jessy lac = im.Scale("images/scenes/arc_7/alexandre_fishing/alexandre_peche_lac_ponton_vide.jpg", 1920, 1080)
-image cg arc7 alexandre peche dos = im.Scale("images/scenes/arc_7/alexandre_fishing/alexandre_peche_de_dos_au_lac.jpg", 1920, 1080)
-image cg arc7 alexandre portrait yeux ouverts = im.Scale("images/scenes/arc_7/alexandre_fishing/alexandre_peche_portrait_yeux_ouverts.jpg", 1920, 1080)
-image cg arc7 alexandre portrait yeux fermes = im.Scale("images/scenes/arc_7/alexandre_fishing/alexandre_peche_portrait_yeux_fermes.jpg", 1920, 1080)
-image bg arc7 jessy bivouac = arc7_jessy_bg("bivouac", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy nuit = arc7_jessy_bg("nuit", "images/scenes/arc_7/bg_arc7_tokyo_park_night.jpg")
-image bg arc7 jessy nuit tente ferme = im.Scale("images/scenes/arc_7/bg_arc7_jessy_nuit_tente_ferme.jpg", 1920, 1080)
-image bg arc7 jessy belvedere = arc7_jessy_bg("belvedere", "images/scenes/arc_7/bg_arc7_tokyo_park_night.jpg")
-image bg arc7 jessy cafe = arc7_jessy_bg("cafe", "images/scenes/arc_5/bg_arc5_cafe.jpg")
-image bg arc7 jessy aube = arc7_jessy_bg("aube", "images/scenes/arc_5/bg_arc5_park_spring.jpg")
-image bg arc7 jessy minecraft = arc7_jessy_bg("minecraft", "images/scenes/arc_2/bg_arc2_minecraft_house_summer_night.jpg")
+image cg arc7 jessy marche = "images/scenes/cg/jessy_epopee/01_marche.jpg"
+image cg arc7 jessy oiseau = "images/scenes/cg/jessy_epopee/02_oiseau.jpg"
+image cg arc7 jessy renard = "images/scenes/cg/jessy_epopee/03_renard.jpg"
+image cg arc7 jessy riviere main = "images/scenes/cg/jessy_epopee/04_riviere_main.jpg"
+image cg arc7 jessy riviere chaussure = "images/scenes/cg/jessy_epopee/05_riviere_chaussure.jpg"
+image cg arc7 jessy fleurs fruit = "images/scenes/cg/jessy_epopee/06_fleurs_fruit.jpg"
+image cg arc7 jessy carte = "images/scenes/cg/jessy_epopee/07_carte.jpg"
+image cg arc7 jessy gourde = "images/scenes/cg/jessy_epopee/08_gourde.jpg"
+image cg arc7 jessy promontoire = "images/scenes/cg/jessy_epopee/09_promontoire.jpg"
+image cg arc7 jessy fruit question = "images/scenes/cg/jessy_epopee/10_fruit_question.jpg"
+image cg arc7 jessy fruit goute = "images/scenes/cg/jessy_epopee/11_fruit_goute.jpg"
+image cg arc7 jessy dejeuner = "images/scenes/cg/jessy_epopee/13_dejeuner.jpg"
+image cg arc7 jessy amitie = "images/scenes/cg/jessy_epopee/14_amitie.jpg"
+image cg arc7 jessy aveu = "images/scenes/cg/jessy_epopee/15_aveu.jpg"
+image bg arc7 jessy lac = im.Scale("images/scenes/backgrounds/hiking/alexandre_peche_lac_ponton_vide.jpg", 1920, 1080)
+image cg arc7 alexandre peche dos = im.Scale("images/scenes/cg/alexandre_fishing/alexandre_peche_de_dos_au_lac.jpg", 1920, 1080)
+image cg arc7 alexandre portrait yeux ouverts = im.Scale("images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_ouverts.jpg", 1920, 1080)
+image cg arc7 alexandre portrait yeux fermes = im.Scale("images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_fermes.jpg", 1920, 1080)
+image bg arc7 jessy bivouac = arc7_jessy_bg("bivouac", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy nuit = arc7_jessy_bg("nuit", "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg")
+image bg arc7 jessy nuit tente ferme = im.Scale("images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit_tente_ferme.jpg", 1920, 1080)
+image bg arc7 jessy belvedere = arc7_jessy_bg("belvedere", "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg")
+image bg arc7 jessy cafe = arc7_jessy_bg("cafe", "images/scenes/backgrounds/city/bg_arc5_cafe.jpg")
+image bg arc7 jessy aube = arc7_jessy_bg("aube", "images/scenes/backgrounds/city/bg_arc5_park_spring.jpg")
+image bg arc7 jessy minecraft = arc7_jessy_bg("minecraft", "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg")
 
 # CG de la contre-soiree de Sofiane : la descente de nuit et la rencontre avec Laplage.
-image bg arc7 sofiane belvedere = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_belvedere_collegues.jpg", 1920, 1080)
-image bg arc7 sofiane conduite collegues = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_conduite_collegues.jpg", 1920, 1080)
-image bg arc7 sofiane route euphorie = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_route_nuit_collegues_euphorie.png", 1920, 1080)
-image bg arc7 sofiane route sourire = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_route_nuit_collegues_sourire.jpg", 1920, 1080)
-image bg arc7 sofiane conduite profil = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_conduite_profil.jpg", 1920, 1080)
-image bg arc7 sofiane croisement laplage = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_croisement_laplage.jpg", 1920, 1080)
-image bg arc7 sofiane croisement laplage pouce = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_croisement_laplage_pouce.jpg", 1920, 1080)
+image bg arc7 sofiane belvedere = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_belvedere_collegues.jpg", 1920, 1080)
+image bg arc7 sofiane conduite collegues = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_collegues.jpg", 1920, 1080)
+image bg arc7 sofiane route euphorie = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.png", 1920, 1080)
+image bg arc7 sofiane route sourire = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_sourire.jpg", 1920, 1080)
+image bg arc7 sofiane conduite profil = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_profil.jpg", 1920, 1080)
+image bg arc7 sofiane croisement laplage = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage.jpg", 1920, 1080)
+image bg arc7 sofiane croisement laplage pouce = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage_pouce.jpg", 1920, 1080)
 
 # CG epiques a generer : tant que le fichier manque, une image existante prend le relais.
 init -5 python:
     def arc7_sofiane_cg(nom, secours):
-        chemin = "images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_{}.jpg".format(nom)
+        chemin = "images/scenes/cg/sofiane_initial_d/sofiane_ae86_{}.jpg".format(nom)
         if not renpy.loadable(chemin):
-            chemin = "images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_{}".format(secours)
+            chemin = "images/scenes/cg/sofiane_initial_d/sofiane_ae86_{}".format(secours)
         return im.Scale(chemin, 1920, 1080)
 
 image bg arc7 sofiane phares = arc7_sofiane_cg("phares_depart", "belvedere_collegues.jpg")
 image bg arc7 sofiane pedalier = arc7_sofiane_cg("pedalier_talon_pointe", "conduite_profil.jpg")
 image bg arc7 sofiane epingles = arc7_sofiane_cg("epingles_vue_aerienne", "route_nuit_collegues_euphorie.png")
-image bg arc7 sofiane epingles laplage = im.Scale("images/scenes/arc_7/sofiane_inital_d/sofiane_ae86_epingles_vue_aerienne_with_laplage.jpg", 1920, 1080)
+image bg arc7 sofiane epingles laplage = im.Scale("images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne_with_laplage.jpg", 1920, 1080)
 image bg arc7 sofiane gobelet = arc7_sofiane_cg("gobelet_eau", "conduite_profil.jpg")
 image bg arc7 sofiane retroviseur = arc7_sofiane_cg("retroviseur_phares", "conduite_profil.jpg")
 image bg arc7 sofiane route vide = arc7_sofiane_cg("route_vide_fumee", "conduite_profil.jpg")
@@ -135,7 +134,6 @@ label arc_7_jessy:
     $ arc7_jessy_dejeuner = ""
     $ arc7_jessy_relation = ""
     $ arc7_jessy_tente = False
-    $ arc7_jessy_family_epilogue = False
     scene black
     with fade
     centered "ARC 7 : LA RANDONNÉE"
@@ -295,17 +293,15 @@ label arc_7_jessy_scene_2:
     with dissolve
     systeme "Au départ des sentiers, Sofiane sort les sacs du coffre et les pose sur l'herbe comme on remet une épée."
     i "Et toi, tu fais quoi pendant qu'on marche ?"
-    s "Je marche un peu. Je redescends. Ce soir, je ramène deux collègues du maid café avant leur service."
+    s "Je marche un peu. Je redescends. Ce soir, je ramène deux collègues avant leur service."
     if arc4_5_sofiane_maid:
         j "Toujours le maid café."
         s "Ne le dis pas trop fort. Les arbres ont des oreilles."
     else:
-        i "Attends. Tes collègues du quoi ?"
-        s "Du maid café."
-        j "Depuis quand tu travailles dans un maid café ?"
-        s "Depuis assez longtemps pour dessiner un cœur au ketchup sans trembler."
-        i "... On a énormément de questions."
-        s "Gardez-les pour la descente. Ça fait passer les lacets."
+        i "Tes collègues ? Tu travailles où, finalement ?"
+        s "Là où l'on finance les pleins d'essence."
+        j "Ça nous laisse beaucoup d'adresses possibles."
+        s "Le mystère entretient la curiosité. La curiosité occupe les montées."
     i "Merci d'avoir fait toute cette route pour nous."
     s "Ce n'est pas pour vous. Enfin. Pas seulement."
     s "Marchez à votre rythme. La montagne n'a pas de chronomètre."
@@ -742,6 +738,7 @@ label arc_7_jessy_scene_5:
             menu:
                 "Que préfère Jessy pour cette nuit ?"
                 "Garder son hamac et prendre leur temps.":
+                    $ arc7_jessy_tente = False
                     $fade_channel("music",0.7,1.0)
                     j "J'ai envie d'être avec toi. Et ce soir, je crois que j'ai surtout envie de pas aller trop vite."
                     j "Le hamac et moi, on a des choses à régler."
@@ -1151,7 +1148,10 @@ label arc_7_jessy_scene_8:
     j "Et Monsieur Laplage est vraiment passé sur un ours."
     i "Personne va nous croire."
     j "Tant mieux. C'est à nous."
-    systeme "Ils rient. Le matin n'efface pas la veille. Il lui donne juste assez d'air pour continuer."
+    if arc7_jessy_relation == "amour":
+        systeme "Ils rient. Le matin n'efface pas la veille. Il lui donne juste assez d'air pour continuer."
+    else:
+        systeme "Ilona baisse les yeux vers la tente. Jessy n'insiste pas. Le matin n'efface pas la veille ; il leur donne juste assez d'air pour continuer."
     systeme "Jessy décroche le hamac. Ilona replie la tente, en huit minutes cette fois. Ils ramassent chaque papier, chaque miette. Le bivouac redevient une clairière."
     if arc7_jessy_fruit == "goute":
         systeme "Ilona sort le noyau étoilé de sa poche et le regarde dans la lumière."
@@ -1161,28 +1161,30 @@ label arc_7_jessy_scene_8:
     j "Pour redescendre, tu préfères quel chemin ?"
     i "Celui qui longe les arbres. Il a l'air de prendre son temps."
     j "Alors on prend celui-là."
-    show jessy rando bag smile at char_left
-    show ilona rando bag smile at char_right
+    if arc7_jessy_relation == "amour":
+        show jessy rando bag smile at char_left
+        show ilona rando bag smile at char_right
+    else:
+        show jessy rando bag neutral at char_left
+        show ilona rando bag neutral at char_right
     with dissolve
     systeme "Ils descendent côte à côte dans la lumière neuve. Jessy tient la carte. À l'envers. Ilona ne dit rien."
     stop ambiant1 fadeout 1.0
     stop music fadeout 2.0
     scene black
     with fade
-    # La collection complete offre une fin secrete sans effacer leur choix.
-    if ilonanium_points >= 6 and arc7_jessy_fruit == "goute":
-        menu:
-            "Quel chemin suivent-ils après la montagne ?"
-            "Suivre la piste du fruit étoilé et finir la planète.":
-                jump ending_ilonanium
-            "Continuer la vie qu'ils ont choisie ensemble.":
-                jump arc_7_jessy_fin_relation
+    # Les six aliments cosmiques declenchent automatiquement la fin Ilonanium.
+    if ilonanium_points == 6 and arc7_jessy_fruit == "goute":
+        jump ending_ilonanium
     else:
         jump arc_7_jessy_fin_relation
 
 label arc_7_jessy_fin_relation:
     if arc7_jessy_relation == "amitie":
-        jump ending_no_contact
+        jump ending_friend
+    elif arc7_jessy_relation == "amour":
+        jump ending_family
     else:
-        $ arc7_jessy_family_epilogue = arc6_score >= SEUIL_ROMANCE and lien_jessy_ilona >= SEUIL_LIEN and souvenirs["jessy_repare"] and souvenirs["maison_respectee"] and interruptions_reparees >= 1
-        jump ending_jessy_ilona
+        # Ancienne sauvegarde sans réponse : rejouer l'aveu avant de choisir une fin.
+        $ arc7_jessy_tente = False
+        jump arc_7_jessy_scene_5

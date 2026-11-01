@@ -1,0 +1,28 @@
+---
+// Liste de pistes audio depuis l'inventaire. Les pistes protégées sont regroupées par prérequis
+// dans des Spoiler (noms de fichiers compris). Rien n'est chargé avant lecture.
+import Spoiler from './Spoiler.astro';
+import { assetList, mediaUrl, fileName } from '../lib/media';
+import { trunkKeys } from '../lib/keys';
+
+interface Props { prefix: string }
+const items = assetList.filter((a) => a.kind === 'audio' && a.path.startsWith(Astro.props.prefix) && mediaUrl(a.path)).sort((a, b) => a.path.localeCompare(b.path));
+const order = (r: string[]) => { const i = trunkKeys.indexOf(r[0]); return i >= 0 ? i : 100 + r.join().length; };
+const groups = new Map<string, { req: string[]; mode: 'all' | 'any'; items: typeof items }>();
+for (const a of items) {
+  const k = `${a.requiresMode}:${a.requires.join(',')}`;
+  if (!groups.has(k)) groups.set(k, { req: a.requires, mode: a.requiresMode ?? 'all', items: [] });
+  groups.get(k)!.items.push(a);
+}
+const sorted = [...groups.values()].sort((x, y) => (x.req.length ? order(x.req) : -1) - (y.req.length ? order(y.req) : -1));
+const row = (a: (typeof items)[number]) => ({ name: fileName(a.path), url: mediaUrl(a.path)!, status: a.status });
+---
+
+{sorted.map((g) => {
+  const rows = g.items.map(row);
+  const body = rows.map((r) => (
+    <div class="audio"><span class="audio__name">{r.name}</span><audio controls preload="none" src={r.url}></audio>{r.status !== 'utilisé' && <em>({r.status})</em>}</div>
+  ));
+  return g.req.length ? <Spoiler requires={g.req} mode={g.mode} note={`${rows.length} piste(s)`}>{body}</Spoiler> : <div>{body}</div>;
+})}
+{!items.length && <p>Aucune piste.</p>}

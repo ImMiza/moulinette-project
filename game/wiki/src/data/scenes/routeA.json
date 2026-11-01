@@ -1,0 +1,228 @@
+{
+  "arc": "routeA",
+  "title": "ARC 7 : LA RANDONNÉE",
+  "file": "arcs/arc_7/arc_7_jessy.rpy",
+  "scenes": [
+    {
+      "id": "routeA-s1",
+      "title": "Le départ se prépare",
+      "label": "arc_7_jessy",
+      "lines": "131-237",
+      "location": "Maison Minecraft, puis rayon randonnée d'un magasin de sport",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane"],
+      "summary": "Quatre jours après les diplômes, Jessy et Ilona se retrouvent dans leur maison Minecraft. Ilona annonce que Théo part le 6 et qu'elle n'a pas décidé si elle ira le voir à la gare. Jessy, qui pose des torches « pour s'occuper les mains », propose une vraie marche en montagne cet été. Ilona accepte, puis propose de faire les courses avec Allan, Alexandre et Sofiane, en précisant que la marche se fera à deux.\n\nLe samedi suivant, les cinq amis envahissent le rayon randonnée. Alexandre inspecte les coutures des sacs, Allan remplit le panier de biscuits, Ilona choisit seule un sac vert kaki. Chacun évoque son été : Allan ira peut-être voir Théo à Tokyo, Alexandre veut un été sans programme, Sofiane empruntera la voiture de son cousin. Il accepte de déposer les deux marcheurs au départ du sentier. Juin passe ; le départ approche.",
+      "consequences": [
+        "Au réveil sur Minecraft, la phrase du narrateur dépend de arc6_derniere_construction (porte_ouverte, panneau_partir, cadenas, sinon rien de posé) (arc_7_jessy.rpy:147-154).",
+        "Les variables arc7_jessy_fruit, arc7_jessy_dejeuner, arc7_jessy_relation et arc7_jessy_tente sont remises à zéro ; derniere_route = « Route Jessy » (arc_7_jessy.rpy:132-136)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg",
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_boutique.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg", "audio/music/shopping.ogg"]
+    },
+    {
+      "id": "routeA-s2",
+      "title": "L'aube du voyage",
+      "label": "arc_7_jessy_scene_2",
+      "lines": "240-329",
+      "location": "Point de rendez-vous, route de montagne, départ des sentiers",
+      "characters": ["jessy", "ilona", "sofiane"],
+      "summary": "Un samedi d'été, à sept heures, Jessy et Ilona attendent sacs sur le dos. Sofiane arrive au volant d'une AE86 blanche et noire prêtée par son cousin, qui ne lui a dit qu'une chose : « Ne la déçois pas. » Pendant le trajet, il sourit « depuis le troisième virage » ; il attend cette route depuis l'hiver.\n\nAu départ des sentiers, Sofiane explique qu'il ramènera ce soir deux collègues avant leur service, puis repart. Jessy sort une feuille pliée en huit avec trois itinéraires et des variantes ; Ilona propose de choisir au fur et à mesure, chacun pouvant demander de faire demi-tour. Elle part la première ; Jessy range la feuille pour de bon.",
+      "consequences": [
+        "Si arc4_5_sofiane_maid est vrai, Jessy évoque le maid café de Sofiane ; sinon Sofiane reste évasif sur son lieu de travail (arc_7_jessy.rpy:297-304)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_depart.jpg",
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_route.jpg",
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/morning_romance.ogg"]
+    },
+    {
+      "id": "routeA-s3",
+      "title": "L'épapopé de la jaj",
+      "label": "arc_7_jessy_scene_3",
+      "lines": "332-463",
+      "location": "Sentier de montagne, rivière, champ de fleurs, promontoire",
+      "characters": ["jessy", "ilona"],
+      "summary": "Un prologue faussement épique ouvre « l'épapopé de la jaj ». La marche défile en illustrations : un oiseau qui fait reculer Jessy, un renard qui les juge inoffensifs, une rivière où Ilona tend la main à Jessy, qui finit quand même un pied dans l'eau. Dans un champ de fleurs, Ilona ramasse un petit fruit en forme d'étoile, jaune pâle, presque lumineux. Plus haut, elle retourne en silence la carte que Jessy tenait à l'envers et partage sa gourde.\n\nAu promontoire, en début d'après-midi, Ilona se demande si le fruit est comestible. Pendant le déjeuner, elle parle de son envie d'essayer des choses sans plan ; Jessy veut continuer à construire avec les gens qui comptent. Ilona lui demande ce qu'il espère pour eux après l'été. Rien n'est promis, rien n'est fermé ; ils repartent vers le lac.",
+      "choices": [
+        {
+          "line": 402,
+          "prompt": "Que fait Ilona de sa trouvaille ?",
+          "options": [
+            { "text": "La laisser goûter.", "effects": "arc7_jessy_fruit = \"goute\", ilonanium_points +1 ; Ilona garde le noyau étoilé" },
+            { "text": "Le laisser à la montagne.", "effects": "arc7_jessy_fruit = \"jette\" ; le fruit reste sur le rocher" }
+          ]
+        },
+        {
+          "line": 434,
+          "prompt": "Que dit Jessy de leur lien ?",
+          "options": [
+            { "text": "Dire qu'il tient à leur amitié.", "effects": "arc7_jessy_dejeuner = \"amitie\"" },
+            { "text": "Lui avouer ce qu'il ressent.", "effects": "arc7_jessy_dejeuner = \"crush\" ; Ilona demande la journée pour répondre" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Le fruit goûté est le sixième et dernier objet cosmique ; avec les six points, il déclenche automatiquement la Fin A3 à la fin de la scène 8 (arc_7_jessy.rpy:1177).",
+        "Si le fruit est goûté, Ilona ressort le noyau étoilé à l'aube (arc_7_jessy.rpy:1156-1160).",
+        "Le choix du déjeuner change les répliques du bivouac et de la réponse de Jessy (arc_7_jessy.rpy:606-626, 676-679, 693-697)."
+      ],
+      "backgrounds": [],
+      "cgs": [
+        "images/scenes/cg/jessy_epopee/01_marche.jpg",
+        "images/scenes/cg/jessy_epopee/02_oiseau.jpg",
+        "images/scenes/cg/jessy_epopee/03_renard.jpg",
+        "images/scenes/cg/jessy_epopee/04_riviere_main.jpg",
+        "images/scenes/cg/jessy_epopee/05_riviere_chaussure.jpg",
+        "images/scenes/cg/jessy_epopee/06_fleurs_fruit.jpg",
+        "images/scenes/cg/jessy_epopee/07_carte.jpg",
+        "images/scenes/cg/jessy_epopee/08_gourde.jpg",
+        "images/scenes/cg/jessy_epopee/09_promontoire.jpg",
+        "images/scenes/cg/jessy_epopee/10_fruit_question.jpg",
+        "images/scenes/cg/jessy_epopee/11_fruit_goute.jpg",
+        "images/scenes/cg/jessy_epopee/13_dejeuner.jpg",
+        "images/scenes/cg/jessy_epopee/14_amitie.jpg",
+        "images/scenes/cg/jessy_epopee/15_aveu.jpg"
+      ],
+      "music": ["audio/music/rando.ogg"]
+    },
+    {
+      "id": "routeA-s4",
+      "title": "À la croisée des chemins",
+      "label": "arc_7_jessy_scene_4",
+      "lines": "466-578",
+      "location": "Embranchement en forêt, puis lac de montagne",
+      "characters": ["jessy", "ilona", "laplage", "alexandre"],
+      "summary": "À un embranchement, un ours sort des arbres. Sur son dos, torse nu et jambes croisées : Monsieur Laplage, qui « avait besoin d'un raccourci ». Il leur dit qu'ils ont hésité, se sont trompés et ont appris à s'écouter, puis repart en levant le pouce. Jessy et Ilona décident de ne jamais en parler.\n\nQuarante-cinq minutes plus tard, au bord d'un lac, ils trouvent Alexandre en train de pêcher avec la canne de son grand-père ; ses grands-parents habitent de l'autre côté. Il n'a rien attrapé, mais trouve le paysage « magnifique ». Il repense au château de sable avec cuisine, à la porte inutile du festival, à la miniature de Noël : ce qu'il garde de l'année, ce sont les choses absurdes et les vraies conversations. Il finit par pêcher une feuille, « nouvelle espèce de poisson, très plate ». Ilona rit ; ils repartent.",
+      "backgrounds": [
+        "images/scenes/backgrounds/hiking/bg_arc7_jessy_sentier_ours.png",
+        "images/scenes/backgrounds/hiking/alexandre_peche_lac_ponton_vide.jpg"
+      ],
+      "cgs": [
+        "images/scenes/cg/alexandre_fishing/alexandre_peche_de_dos_au_lac.jpg",
+        "images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_fermes.jpg",
+        "images/scenes/cg/alexandre_fishing/alexandre_peche_portrait_yeux_ouverts.jpg"
+      ],
+      "music": ["audio/music/rando.ogg", "audio/music/alex_peace.ogg"]
+    },
+    {
+      "id": "routeA-s5",
+      "title": "Au crépuscule de l'aventure",
+      "label": "arc_7_jessy_scene_5",
+      "lines": "581-776",
+      "location": "Bivouac dans une clairière",
+      "characters": ["jessy", "ilona", "laplage"],
+      "summary": "Au bivouac, tente pour Ilona, hamac pour Jessy. Ilona dit que son meilleur moment a été quand Jessy a accepté sa main à la rivière. Ils parlent de l'après-lycée, de la peur de laisser les bonnes choses derrière soi, de l'habitude de Jessy de préparer les réponses à la place d'Ilona et de celle d'Ilona de raccourcir ses phrases pour ne pas le décevoir. Jessy s'excuse. Ils évoquent la veste des diplômes, que Jessy garde sans la laver à cause des trois mots écrits au feutre sous le col.\n\nAvant d'entrer dans sa tente, Ilona déclare à Jessy qu'elle est amoureuse de lui et veut essayer, en demandant un vrai non plutôt qu'un oui pour lui faire plaisir. Si Jessy répond par l'amitié, Ilona encaisse, demande du temps et entre seule dans la tente. S'il répond par l'amour, ils s'embrassent et Ilona lui propose de dormir dans sa tente.",
+      "choices": [
+        {
+          "line": 685,
+          "prompt": "Que répond Jessy ?",
+          "options": [
+            { "text": "Il tient à elle, mais veut rester son ami.", "effects": "arc7_jessy_relation = \"amitie\"" },
+            { "text": "Il l'aime aussi et veut essayer.", "effects": "arc7_jessy_relation = \"amour\"" }
+          ]
+        },
+        {
+          "line": 738,
+          "prompt": "Que préfère Jessy pour cette nuit ?",
+          "condition": "réponse « Il l'aime aussi et veut essayer. »",
+          "options": [
+            { "text": "Garder son hamac et prendre leur temps.", "effects": "arc7_jessy_tente = False" },
+            { "text": "Rejoindre Ilona dans la tente après en avoir parlé.", "effects": "arc7_jessy_tente = True ; apparition de Laplage derrière un pin" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc7_jessy_relation choisit la fin : amitié → Fin A1, amour → Fin A2 (arc_7_jessy.rpy:1182-1186), sauf si la Fin A3 se déclenche (6 points et fruit goûté, prioritaire).",
+        "Selon arc7_jessy_dejeuner, la conversation évoque l'aveu de midi ou une question qu'Ilona se pose ; dans ce second cas, son origine dépend de arc5_cinema_ensemble ou de arc4_cadeau_jessy == \"miniature_aveu\" (arc_7_jessy.rpy:606-626).",
+        "arc7_jessy_tente change seulement la nuit et le réveil (arc_7_jessy.rpy:1101-1104, 1117-1131), pas la fin."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/hiking/bg_arc7_jessy_bivouac.jpg"],
+      "cgs": [],
+      "music": ["audio/music/the-sunset.ogg"]
+    },
+    {
+      "id": "routeA-s6",
+      "title": "Les contre-soirées : Sofiane",
+      "label": "arc_7_jessy_scene_6",
+      "lines": "779-904",
+      "location": "Belvédère et route de montagne de nuit, parking du maid café",
+      "characters": ["sofiane", "laplage"],
+      "summary": "Le même soir, Sofiane conduit deux collègues, déjà en uniforme de maid café, jusqu'à un belvédère. Il cale un gobelet rempli d'eau entre les sièges : son cousin lui a appris à conduire ainsi, et une goutte renversée signifie une mauvaise conduite. La descente commence : talon-pointe, drifts dans les épingles, collègues terrifiées puis hilares.\n\nDes phares apparaissent dans le rétroviseur et rattrapent l'AE86. Dans la grande courbe avant le pont, une berline argentée glisse portière contre portière : au volant, Monsieur Laplage, cheveux blancs et moustache. Il regarde le gobelet, lève le pouce, double par l'extérieur et disparaît sur une route sans sortie. « La prochaine fois, ce sera une course. » Sur le parking, pas une goutte n'est tombée.",
+      "consequences": [],
+      "backgrounds": [],
+      "cgs": [
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_belvedere_collegues.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_phares_depart.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_collegues.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_pedalier_talon_pointe.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_euphorie.png",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_nuit_collegues_sourire.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_conduite_profil.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_gobelet_eau.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_retroviseur_phares.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_epingles_vue_aerienne_with_laplage.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_croisement_laplage_pouce.jpg",
+        "images/scenes/cg/sofiane_initial_d/sofiane_ae86_route_vide_fumee.jpg"
+      ],
+      "music": ["audio/music/spirit_of_the_night.ogg"]
+    },
+    {
+      "id": "routeA-s7",
+      "title": "Les contre-soirées : Allan et Théo",
+      "label": "arc_7_jessy_scene_7",
+      "lines": "907-1072",
+      "location": "Tokyo : restaurant après la pluie, puis parc",
+      "characters": ["allan", "theo"],
+      "summary": "Le même soir, à Tokyo. Arrivé depuis trois jours, Allan a fini par écrire à Théo, qui lui donne rendez-vous dans un petit restaurant. Théo raconte une vie bien réglée, puis avoue que c'est « plus silencieux que prévu » : il a pris un appartement à deux chambres, et la deuxième clé reste dans un tiroir. Allan lui reproche de n'envoyer que des plannings et des plans de métro. Ils reparlent du 6 avril, où Allan n'est pas venu à la gare, et de leur dispute du gymnase. Théo reconnaît qu'Allan l'a « traduit » pendant dix ans sans qu'il lui demande si ça le fatiguait.\n\nDans un parc, ils se disputent sur le nord d'une carte. Allan apprend à Théo qu'Ilona est en randonnée avec Jessy ; Théo dit que ça pique, mais refuse de faire passer un message : s'il a quelque chose à lui dire, il le dira lui-même. Ils prennent une photo floue d'eux deux. À une heure du matin, Théo envoie la photo d'un « dîner raté », comme promis, et « J'appelle demain. »",
+      "consequences": [
+        "Ce que Théo dit de sa conversation avec Jessy dans le couloir dépend de arc6_offre_theo (laisse, accusation, aveu_vide, question) ou de arc6_conversation (que_veux_tu, aveu_interruptions) (arc_7_jessy.rpy:997-1016).",
+        "La photo floue de Tokyo et la promesse d'appeler sont rappelées dans les Fins A1 et A2."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.jpg",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/bar_jazzy.ogg", "audio/music/night-walk.ogg"]
+    },
+    {
+      "id": "routeA-s8",
+      "title": "Retour au bivouac après les contre-soirées",
+      "label": "arc_7_jessy_nuit_retour",
+      "lines": "1075-1106",
+      "location": "Bivouac de nuit",
+      "characters": ["jessy", "laplage"],
+      "summary": "Retour sur la montagne pendant la nuit. Si Jessy a répondu par l'amitié, il se réveille face à une silhouette près du hamac et crie « Un clochard ! ». Laplage, deux doigts à l'oreille comme dans un appel codec, lui parle de laisser la porte ouverte et de ne pas confondre attendre avec renoncer, puis disparaît.\n\nSi Jessy a répondu par l'amour, la lampe est éteinte et la montagne garde le silence, autour de la tente seule ou de la tente et du hamac selon le choix de la nuit.",
+      "condition": "Contenu différent selon arc7_jessy_relation et arc7_jessy_tente",
+      "backgrounds": ["images/scenes/backgrounds/hiking/bg_arc7_jessy_nuit_tente_ferme.jpg"],
+      "cgs": [],
+      "music": []
+    },
+    {
+      "id": "routeA-s9",
+      "title": "La fin et le commencement",
+      "label": "arc_7_jessy_scene_8",
+      "lines": "1109-1190",
+      "location": "Bivouac à l'aube, puis descente",
+      "characters": ["jessy", "ilona"],
+      "summary": "Dimanche, à l'aube. Selon la nuit, Jessy se réveille dans la tente ou dans son hamac. En couple, Ilona et lui plaisantent et se promettent de ne pas tout planifier avant d'être en bas. Après l'amitié, Ilona le remercie de son honnêteté et dit qu'il lui faudra du temps ; Jessy n'insiste pas. Ils rangent le bivouac. Si Ilona a goûté le fruit, elle regarde le noyau étoilé à la lumière.\n\nIls redescendent par le chemin qui longe les arbres ; Jessy tient la carte à l'envers. La fin est ensuite choisie automatiquement, sans menu.",
+      "choices": [],
+      "consequences": [
+        "Si ilonanium_points == 6 et arc7_jessy_fruit == \"goute\", le jeu saute automatiquement vers ending_ilonanium (Fin A3), en priorité sur les Fins A1 et A2 (arc_7_jessy.rpy:1176-1178).",
+        "Sinon, arc_7_jessy_fin_relation : arc7_jessy_relation == \"amitie\" → ending_friend (Fin A1) ; \"amour\" → ending_family (Fin A2) (arc_7_jessy.rpy:1179-1186).",
+        "Sans réponse enregistrée (ancienne sauvegarde), le jeu remet arc7_jessy_tente à False et rejoue le bivouac (arc_7_jessy.rpy:1187-1190)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/hiking/bg_arc7_jessy_aube.jpg"],
+      "cgs": [],
+      "music": ["audio/music/morning_romance.ogg"]
+    }
+  ]
+}

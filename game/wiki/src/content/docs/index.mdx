@@ -1,0 +1,41 @@
+---
+title: Wiki Moulinette
+description: Wiki du visual novel Moulinette — personnages, arcs, routes, fins et ressources, sans spoilers par défaut.
+template: splash
+hero:
+  tagline: Le wiki du visual novel Moulinette. Les spoilers restent cachés tant que vous ne dites pas jusqu'où vous avez joué.
+  actions:
+    - text: Régler ma progression
+      link: guide/progression/
+      icon: right-arrow
+    - text: Guide sans spoilers
+      link: guide/sans-spoilers/
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Media from '../../components/Media.astro';
+import CharacterGrid from '../../components/CharacterGrid.astro';
+
+<Media path="gui/main_menu.png" alt="Écran titre de Moulinette" requires="public" />
+
+Moulinette suit Jessy et Ilona sur une année de lycée, des soirées Minecraft aux examens, entre amis, festivals et premières décisions d'adulte. Le récit est découpé en un prologue et six arcs communs, puis se sépare en deux routes qui mènent à plusieurs fins.
+
+## Personnages
+
+<CharacterGrid />
+
+D'autres personnages apparaissent plus tard : ils sont regroupés dans [Autres personnages](personnages/autres/), derrière des spoilers.
+
+## Explorer
+
+<CardGrid>
+  <LinkCard title="L'histoire, arc par arc" href="histoire/prologue/" description="Prologue, arcs I à VI, puis les routes." />
+  <LinkCard title="Les fins" href="fins/a1/" description="Conditions et résumés, protégés fin par fin." />
+  <LinkCard title="Mécaniques" href="mecaniques/verdict-arc-6/" description="Variables, choix et calcul de l'embranchement." />
+  <LinkCard title="Galerie" href="medias/decors/" description="Décors, illustrations, sprites et musiques du jeu." />
+</CardGrid>
+
+## Comment fonctionnent les spoilers
+
+Tout ce qui dépasse votre progression est masqué : texte, images, noms et pistes audio. Rien n'est chargé ni lu par un lecteur d'écran avant que vous cliquiez sur « Afficher ». Indiquez votre progression une fois sur la page [Ma progression](guide/progression/) : elle est enregistrée dans votre navigateur seulement, et les sections correspondantes s'ouvrent seules. Les deux routes et leurs fins se débloquent indépendamment.

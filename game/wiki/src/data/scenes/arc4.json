@@ -1,0 +1,289 @@
+{
+  "arc": "arc4",
+  "title": "ARC 4 : NOËL — LE CADEAU QUI DIT TROP DE CHOSES",
+  "file": "arcs/arc_4/arc_4_noel.rpy",
+  "scenes": [
+    {
+      "id": "arc4-s1",
+      "title": "Le train du matin",
+      "label": "arc_4_noel",
+      "lines": "94-184",
+      "requires": "arc4",
+      "location": "Train du matin, puis arrivée près de la galerie commerciale",
+      "characters": ["jessy", "ilona"],
+      "summary": "Décembre. Dans le train du matin, Jessy et Ilona parlent de la maison Minecraft telle que le festival de septembre l'a laissée : trou jamais réparé, porte fermée, panneau relu, cuisine rangée avec un tapis, ou simple lanterne, selon la fin de l'arc III (`arc3_fin_minecraft`).\n\nAllan a envoyé le planning : marché de Noël après les cours. Alexandre a répondu par un « plan d'évacuation des stands de nourriture » et une question sur Monsieur Laplage en Père Noël. Ilona sourit ; selon les jauges, le texte note la peur de Jessy (jalousie ≥ 9), un silence moins dangereux (confiance ≥ 15 et communication ≥ 15) ou la fatigue d'Ilona (pression_stream ≥ 6). Si Jessy avait suivi Ilona aux mares à la plage, le souvenir pèse encore.\n\nJessy porte depuis le matin un petit paquet. Il a presque dit « j'ai quelque chose pour toi », puis il a gardé la phrase.",
+      "choices": [],
+      "consequences": [
+        "Variantes de dialogue selon `arc3_fin_minecraft` (destruction, porte_fermee, panneau_finir_phrase, rangement_silencieux, autre) et `arc2_choix_activite_theo == \"suivre\"`."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/transport/bg_arc4_train_inside.jpg"],
+      "cgs": [],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "arc4-s2",
+      "title": "La galerie commerciale : choisir ce que porte le cadeau",
+      "label": "arc_4_noel",
+      "lines": "186-331",
+      "requires": "arc4",
+      "location": "Galerie commerciale (papeterie), puis rue illuminée",
+      "characters": ["jessy", "alexandre"],
+      "summary": "Après les cours, Jessy retrouve Alexandre devant une papeterie. Le paquet, emballé dans un papier bleu sombre, contient une miniature de leur maison Minecraft avec toutes ses erreurs : couloir sans sortie, cuisine trop grande, pièces que personne ne comprend. Selon la fin de l'arc III, la partie cassée ou la porte fermée y figurent aussi.\n\nAlexandre demande si c'est « un souvenir ou une réponse » et prévient : « si tu ne décides pas, ta peur le fera à ta place ». Jessy doit choisir le sens du cadeau : avouer qu'il dit trop de choses, l'offrir comme souvenir, paniquer et acheter une écharpe chère, ajouter un panneau-blague « Pièce moyennement importante, édition neige », ou garder la boîte et miser sur la parole.\n\nEn sortant, Jessy traverse la rue illuminée vers le marché.",
+      "choices": [
+        {
+          "line": 237,
+          "prompt": "Alexandre attend. La miniature pèse dans le sac de Jessy. Il doit décider ce qu'elle porte.",
+          "options": [
+            { "text": "Offrir la miniature en avouant qu'elle porte trop de choses.", "effects": "arc4_cadeau_jessy = miniature_aveu ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir maison_respectee" },
+            { "text": "Offrir la miniature avec ses erreurs, comme témoin de ce qui a existé.", "effects": "arc4_cadeau_jessy = miniature_souvenir ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir maison_respectee" },
+            { "text": "Paniquer et acheter un cadeau neutre à la place.", "effects": "arc4_cadeau_jessy = cadeau_couteux (une écharpe chère) ; communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Offrir la miniature mais en blague, pour désamorcer le poids.", "effects": "arc4_cadeau_jessy = blague_interne ; lien_jessy_ilona +4" },
+            { "text": "Ne rien offrir ce soir et miser sur la conversation seule.", "effects": "arc4_cadeau_jessy = discussion_honnete ; autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (min 0), souvenir jessy_nomme_sa_peur" }
+          ]
+        }
+      ],
+      "consequences": [
+        "`arc4_cadeau_jessy` décide des options disponibles au menu de la rivière (arc_4_noel.rpy:825, 847, 902) et de la scène Minecraft finale (l.1285).",
+        "Relu dans la scène bonus avec Théo (arc_4_5_theo.rpy:129, 429), puis dans les arcs 5 et 6 et dans une route ultérieure."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/city/bg_arc4_shopping_gallery.jpg",
+        "images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/xmas-mall.ogg"]
+    },
+    {
+      "id": "arc4-s3",
+      "title": "Le marché de Noël : le carnet de Théo",
+      "label": "arc_4_noel",
+      "lines": "333-527",
+      "requires": "arc4",
+      "location": "Marché de Noël du quartier",
+      "characters": ["allan", "ilona", "theo", "jessy"],
+      "summary": "Le marché ouvre sous des guirlandes blanches. Allan veut « manger quelque chose en forme d'étoile avant Ilona » ; Théo a déjà repéré un stand de mochi au sucre pailleté. Puis il sort un petit paquet plat : un carnet de croquis minuscule, couverture noire, coins renforcés. En juillet, à la plage, Ilona avait dit une seule fois qu'elle oubliait ses idées quand elle était dehors. « Je fais attention », dit Théo.\n\nJessy, qui avait le même souvenir, voit Théo le transformer en objet. Le joueur choisit sa réaction : reconnaître le cadeau et nommer sa douleur, demander simplement à Ilona si ça la touche, se taire, dire une vérité crue, ou lancer une remarque acide.\n\nUne vérité crue ou une remarque acide déclenche un accrochage avec Théo. Ilona coupe : « Vous allez arrêter de transformer chaque putain de cadeau en duel », « Je ne suis pas un trophée », puis s'éloigne avec le carnet. Dans les autres cas, Théo s'éclipse : vers Allan et les boissons, ou parce qu'il comprend que la scène n'est plus à lui.",
+      "choices": [
+        {
+          "line": 385,
+          "prompt": "Théo vient d'offrir à Ilona un cadeau très précis. Jessy sent quelque chose se déchirer entre rester digne et hurler.",
+          "options": [
+            { "text": "Reconnaître le cadeau mais nommer sa propre douleur.", "effects": "arc4_reaction_cadeau_theo = reconnaitre ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2" },
+            { "text": "Poser une question simple à Ilona.", "effects": "arc4_reaction_cadeau_theo = demander_ressenti ; autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (min 0)" },
+            { "text": "Rester silencieux et encaisser seul.", "effects": "arc4_reaction_cadeau_theo = laisser_repondre ; communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Dire une vérité crue sans filtre.", "effects": "arc4_reaction_cadeau_theo = verite_crue ; communication +4, confiance +2, lien_jessy_ilona +2 (accrochage avec Théo)" },
+            { "text": "Faire une remarque acide qui déborde.", "effects": "arc4_reaction_cadeau_theo = blague_acide ; autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 ; plus tard interruptions_ilona +1 (l.969-970)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "La remarque acide ajoute une interruption (arc_4_noel.rpy:969-970), ce qui peut empêcher le souvenir `ilona_pose_une_limite` (l.977).",
+        "`arc4_reaction_cadeau_theo` (verite_crue / blague_acide) est relu dans une route ultérieure."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg"],
+      "cgs": [],
+      "music": ["audio/music/xmas-market.ogg"]
+    },
+    {
+      "id": "arc4-s4",
+      "title": "Théo et Monsieur Laplage",
+      "label": "arc_4_noel",
+      "lines": "529-562",
+      "requires": "arc4",
+      "location": "Marché de Noël, devant un stand de cartes postales",
+      "characters": ["theo", "laplage"],
+      "summary": "Point de vue sur Théo, qui s'éloigne sans sourire et pense déjà au prochain détail qu'il sortira. Monsieur Laplage, en tenue de Père Noël, l'attend devant un stand de cartes postales. Théo le salue : « Le Messi ».\n\nLaplage lui dit qu'un souvenir bien placé est « comme une clé » : il peut ouvrir une porte « ou verrouiller quelqu'un dedans ». Théo répond qu'il ne force personne à rester. « Non. Mais tu gardes la clé. » Laplage ne lève pas le pouce et Théo part sans un mot.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg"],
+      "cgs": [],
+      "music": ["audio/music/xmas-market.ogg"]
+    },
+    {
+      "id": "arc4-s5",
+      "title": "Allan, Alexandre et l'enveloppe de Sofiane",
+      "label": "arc_4_noel",
+      "lines": "564-667",
+      "requires": "arc4",
+      "location": "Marché de Noël, banc près du brasero",
+      "characters": ["allan", "alexandre", "sofiane"],
+      "summary": "Allan, deux chocolats chauds à la main, commence à trouver sa neutralité fatigante. Avec Alexandre, il explique le surnom « le Messi » : Théo avait appelé Laplage « le GOAT des conseils cryptiques », puis trouvé que Messi sonnait mieux. Ils parlent de Théo, qui « se souvient de tout » mais range ses souvenirs comme des arguments, ou des preuves, selon que le souvenir `theo_utilise_une_verite` existe. Alexandre ajoute : « comprendre quelqu'un, c'est pas forcément avoir raison sur lui ».\n\nSofiane arrive : « Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit. » Il glisse une carte dans une enveloppe sans nom et la pose sur le banc : « Quelqu'un la lira au moment exact où il pensera qu'elle n'était pas pour lui. » Si la complicité entre Jessy et Ilona est assez forte, il ajoute qu'il doit partir parce que « le service » l'appelle, « celui qui nourrit la route ».\n\nAllan avoue qu'il éclaire le chemin des autres sans savoir où va le sien. Il laisse l'enveloppe : « Si elle est vraiment pour moi, elle attendra. » Sofiane la récupère, toujours fermée, et disparaît dans la foule.",
+      "choices": [],
+      "consequences": [
+        "`arc4_carte_sofiane_lue` passe toujours à vrai (arc_4_noel.rpy:624), même si personne ne lit la carte ; relu dans la scène bonus du maid café (arc_4_5_maid_cafe.rpy:195).",
+        "La mention du « service » n'apparaît que si `lien_jessy_ilona >= 10 and communication >= 25 and confiance >= 15` (l.615, 626)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg"],
+      "cgs": [],
+      "music": ["audio/music/xmas-market.ogg"]
+    },
+    {
+      "id": "arc4-s6",
+      "title": "La rivière : le mochi et le Père Noël intérimaire",
+      "label": "arc_4_noel",
+      "lines": "669-751",
+      "requires": "arc4",
+      "location": "Rambarde le long de la rivière",
+      "characters": ["ilona", "laplage"],
+      "summary": "Poussée par la foule, Ilona arrive près de la rambarde de la rivière, le carnet de Théo dans une main et un mochi pailleté dans l'autre. « Tu as l'air trop cosmique pour un dessert. » Elle peut le manger ou le garder pour plus tard.\n\nMonsieur Laplage, « Père Noël intérimaire. Service des horizons froids », s'approche. Ilona lui avoue qu'elle a envie de jeter le carnet dans la rivière et qu'elle se sent bête de ne pas être simplement contente. Laplage lui répond qu'elle n'a pas décidé si ce souvenir est un cadeau ou la preuve que quelqu'un « collectionne tes morceaux ». Si elle s'était déjà confiée à lui au festival, il le rappelle.\n\nIl lui dit : « Poser une limite n'est pas casser le cadeau. » Il lui tend ensuite un café chaud, « Les décisions froides méritent une main chaude », lève le pouce et retourne à son stand.",
+      "choices": [
+        {
+          "line": 682,
+          "prompt": "Ilona regarde le mochi pailleté.",
+          "options": [
+            { "text": "Le manger pour gagner du temps.", "effects": "arc4_mochi_cosmique = vrai, ilonanium_points +1" },
+            { "text": "Le garder pour plus tard.", "effects": "aucun" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Après la scène : confidences_laplage +1 si ilona_peut_finir_ses_phrases < 4 (arc_4_noel.rpy:749-750), jugement_laplage +1 dans tous les cas (l.751).",
+        "Mochi mangé : réplique « J'ai peut-être mangé un astre ce soir » dans la scène Minecraft finale (l.1354-1359). Garder le mochi ne donne aucun point plus tard."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_riverside_winter.jpg"],
+      "cgs": [],
+      "music": ["audio/music/melancolique-piano.ogg"]
+    },
+    {
+      "id": "arc4-s7",
+      "title": "La rivière : la limite d'Ilona",
+      "label": "arc_4_noel",
+      "lines": "753-1144",
+      "requires": "arc4",
+      "location": "Rambarde le long de la rivière",
+      "characters": ["jessy", "ilona"],
+      "summary": "Jessy demande s'il peut venir, puis avoue : « Il t'a offert quelque chose que j'aurais dû voir. » Il ne lui a jamais donné de carnet. Pour lui, c'est devenu un concours, et il a l'impression de perdre sans savoir qu'on jouait. Selon l'épisode des mares (arc II), Ilona lui rappelle qu'il a déjà perdu en voulant gagner, ou qu'il sait nommer sa peur.\n\nC'est le choix pivot de l'arc (`arc4_limite_ilona`). Jessy peut demander ce que le carnet signifie pour elle (Ilona y voit une épreuve de loyauté), donner l'écharpe achetée par panique, offrir la miniature, avouer sans offrir qu'il « veut gagner » (Ilona répond qu'elle aussi voudrait parfois compter plus que son jeu et sa peur), ou proposer de marcher sans parler de cadeaux.\n\nIlona pose ensuite sa limite : « Ce n'est pas parce que quelqu'un connaît mes goûts qu'il sait ce que je veux », « j'ai le droit de vous aimer tous les deux différemment sans que ce soit un classement ». Si Jessy a exigé une réponse sur le carnet, elle ajoute qu'elle ne choisira « aucun des deux » s'il la force. Jessy choisit comment accueillir cette limite.\n\nTrois issues existent. Si la limite était respirante, que Jessy n'a pas accusé Théo et que communication ≥ 25, Ilona garde le carnet et le cadeau de Jessy sans promettre de les aimer pareil. Après l'écharpe ou la question sur Théo, elle rentre avec Allan et dit « non » à Jessy. Sinon, la soirée reste en suspens (« Le Père Noël va porter plainte. »).",
+      "choices": [
+        {
+          "line": 797,
+          "prompt": "Jessy vient d'avouer qu'il se sent en compétition. Ilona peut l'accueillir, le rejeter, ou montrer qu'elle aussi a peur.",
+          "options": [
+            { "text": "Demander ce que le cadeau de Théo signifie vraiment pour elle.", "effects": "arc4_limite_ilona = demande_theo ; autonomie_ilona −6, confiance −6, influence_theo +3, jalousie +9, lien_jessy_ilona −3, controles +1" },
+            { "text": "Offrir le cadeau neutre en essayant de sauver la face.", "condition": "arc4_cadeau_jessy = cadeau_couteux", "effects": "arc4_limite_ilona = cadeau_preuve ; communication −6, confiance −3, pression_stream +3, evitements +1" },
+            { "text": "Offrir la miniature en avouant qu'elle porte trop de sens.", "condition": "arc4_cadeau_jessy = miniature_souvenir, blague_interne ou miniature_aveu", "effects": "arc4_limite_ilona = cadeau_respirant ; communication +6, confiance +3, jalousie −3 (min 0), lien_jessy_ilona +3, souvenir maison_respectee" },
+            { "text": "Ne rien offrir et avouer la peur sans filtre.", "condition": "arc4_cadeau_jessy = discussion_honnete", "effects": "arc4_limite_ilona = parole_sans_verdict ; autonomie_ilona +6, communication +3, confiance +3, pression_stream −3 (min 0), souvenir jessy_nomme_sa_peur" },
+            { "text": "Proposer de marcher ensemble sans parler de cadeaux.", "effects": "arc4_limite_ilona = marche_silencieuse ; lien_jessy_ilona +6" }
+          ]
+        },
+        {
+          "line": 987,
+          "prompt": "Ilona vient de poser sa limite. Jessy doit choisir comment l'accueillir.",
+          "options": [
+            { "text": "Demander ce qu'elle attend de lui, concrètement.", "effects": "arc4_accueil_limite = demander ; autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (min 0)" },
+            { "text": "Accepter la limite en silence, juste acquiescer.", "effects": "arc4_accueil_limite = silence ; communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Accueillir la limite sans se défendre.", "effects": "arc4_accueil_limite = accueillir ; autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (min 0) ; si interruptions_ilona > interruptions_reconnues : interruptions_reconnues +1, interruptions_reparees +1, souvenir jessy_repare" },
+            { "text": "Dire qu'elle a raison mais que Théo joue quand même.", "effects": "arc4_accueil_limite = accuser_theo ; autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1" },
+            { "text": "Nommer sa peur sans s'effondrer.", "effects": "arc4_accueil_limite = nommer_peur ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Entre les deux menus : interruptions_ilona +1 si remarque acide au marché (l.969-970) ; souvenir ilona_pose_une_limite si ilona_peut_finir_ses_phrases ≥ 2 et interruptions_ilona ≤ interruptions_reparees (l.977-978). Ce test a lieu avant le second menu.",
+        "Issue « garde les cadeaux » (cadeau_respirant, parole_sans_verdict ou marche_silencieuse, accueil différent de accuser_theo, communication ≥ 25) : lien_jessy_ilona +1, confiance +1 (l.1089-1115).",
+        "Issue « rentre avec Allan » (cadeau_preuve ou demande_theo) : pression_stream +2, lien_jessy_ilona −1 (l.1116-1130).",
+        "`arc4_limite_ilona` est le pivot ×3 du barème. Il décide de la scène Minecraft finale et de l'accès à la scène bonus avec Théo, et il est relu dans les arcs 5 et 6."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_riverside_winter.jpg"],
+      "cgs": [],
+      "music": ["audio/music/melancolique-piano.ogg"]
+    },
+    {
+      "id": "arc4-s8",
+      "title": "La sortie du marché",
+      "label": "arc_4_noel",
+      "lines": "1146-1271",
+      "requires": "arc4",
+      "location": "Sortie du marché de Noël",
+      "characters": ["allan", "alexandre", "jessy", "ilona", "theo"],
+      "summary": "Le groupe se retrouve à la sortie du marché. Allan a acheté quatre chocolats chauds, « un exploit logistique, pas une invitation à parler de sentiments devant la caisse ». Théo demande à Ilona si elle rentre. Après une limite apaisée, elle répond « Avec le groupe ». Après l'écharpe ou la question sur Théo, elle répond « Avec Allan », puis recadre Théo quand il insiste : « J'ai dit avec Allan ». Allan la soutient : « Elle a répondu, Théo. » Sinon, elle répond « Pas maintenant ».\n\nSi Jessy a exigé une réponse sur le carnet et que les jauges sont très dégradées (influence_theo ≥ 10 et confiance ≤ 8), Ilona rappelle Théo : « Finalement... je veux bien marcher un peu. » Elle dit à Jessy qu'elle a besoin de parler à quelqu'un « qui ne me demande pas de le rassurer » et part avec Théo, côte à côte.\n\nLa soirée se termine ensuite, sans grande scène si la complicité est insuffisante, ou par l'une des scènes bonus (voir les scènes 4.5).",
+      "choices": [],
+      "consequences": [
+        "Départ avec Théo (influence_theo ≥ 10, confiance ≤ 8, arc4_limite_ilona = demande_theo ; l.1203) : influence_theo +2, pression_stream +2, confiance −1, arc4_ilona_avec_theo = vrai (l.1245-1248).",
+        "Appel de la scène bonus du maid café si lien_jessy_ilona ≥ 10, communication ≥ 25 et confiance ≥ 15 (l.1258-1259) ; appel de la scène bonus avec Théo si arc4_ilona_avec_theo (l.1265-1266).",
+        "`arc4_ilona_avec_theo` est relu dans les arcs 5 et 6 et dans une route ultérieure."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg"],
+      "cgs": [],
+      "music": ["audio/music/xmas-market.ogg"]
+    },
+    {
+      "id": "arc4-s9",
+      "title": "La maison Minecraft sous la neige",
+      "label": "arc_4_noel",
+      "lines": "1272-1373",
+      "requires": "arc4",
+      "location": "Maison Minecraft (nuit, neige)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Plus tard, la maison Minecraft apparaît « sous une neige carrée ». La fin dépend de la limite posée à la rivière (`arc4_fin_minecraft`).\n\nAprès une limite apaisée (`miniature_trace`), si la miniature existait, Ilona construit une version du cadeau dans la salle secrète, avec les erreurs (« non négociable ») ; après une destruction à l'arc III, elle la place à côté du trou. Variante blague : « JESSY A RUINÉ NOËL ». Les deux parlent de « mise en abyme émotionnelle ». Sans miniature, ils construisent simplement un espace plus calme. Après l'écharpe (`echarpe_coffre`), Ilona range un bloc de laine bleu dans un coffre : elle garde l'écharpe, « mais pas sur moi ». Après la question sur Théo (`carnet_hors_maison`), Ilona n'entre pas : son avatar tient un livre, et elle va construire dehors parce que « la maison a trop entendu de choses aujourd'hui ».\n\nSi le mochi a été mangé : « J'ai peut-être mangé un astre ce soir. » L'arc enchaîne sur l'arc V (`jump arc_5_examens`).",
+      "choices": [],
+      "consequences": [
+        "miniature_trace : lien_jessy_ilona +1, confiance +1, ajout maison miniature_noel_arc4 (avec miniature) ou espace_calme_arc4 (sans).",
+        "echarpe_coffre : pression_stream +1, ajout echarpe_coffre_arc4. carnet_hors_maison : influence_theo +1, pression_stream +1, ajout coin_dehors_carnet_arc4.",
+        "Branche neige_sur_toit (lien_jessy_ilona +1, ajout neige_toit_arc4, l.1343-1352) présente dans le code mais en pratique inaccessible (arc4_limite_ilona est toujours renseignée).",
+        "`arc4_fin_minecraft` est relu au début de l'arc 5 (arc_5_examens.rpy:89-97)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg"]
+    },
+    {
+      "id": "arc4-5-maid",
+      "title": "Scène 4.5 — Le maid café secret",
+      "label": "arc_4_5_maid_cafe",
+      "lines": "arc_4_5_maid_cafe.rpy:13-253",
+      "requires": "arc4",
+      "condition": "Seulement si, à la fin du marché, lien_jessy_ilona ≥ 10 ET communication ≥ 25 ET confiance ≥ 15 (arc_4_noel.rpy:1258). Fichier arcs/arc_4/arc_4_5_maid_cafe.rpy, appelé par call puis retour vers la scène Minecraft.",
+      "location": "Rues illuminées, puis maid café (extérieur et intérieur)",
+      "characters": ["allan", "alexandre", "jessy", "ilona", "sofiane"],
+      "summary": "Au premier carrefour, Allan et Alexandre partent à gauche. Alexandre lance un « En amoureux » ; Ilona menace son chocolat de finir dans sa capuche. Jessy et Ilona continuent tout droit. Ilona ne veut pas rentrer tout de suite. Ils marchent sans destination sous une neige légère, jusqu'à une pancarte : « MAID CAFÉ - OUVERT JUSQU'À MINUIT ». Jessy hésite, et le joueur choisit sa réponse.\n\nDerrière le comptoir se trouve Sofiane, en tenue de maid : tablier blanc, bandeau à froufrous, lunettes, cœur avec les mains. « Bienvenue, Maîtres. » Il y travaille depuis trois mois : « Le salaire finance l'essence. La route a faim. » Il recommande le chocolat chaud aux épices et leur demande de ne rien raconter à Allan et Alexandre.\n\nJessy et Ilona éclatent de rire. Pour la première fois de la soirée, quelque chose se détend. Ils restent une demi-heure à parler de tout sauf de Théo et des cadeaux. « Revenez quand vos cœurs auront besoin d'une pause entre deux virages. » « On reviendra. » « Promis. » Rien n'est réglé, mais la soirée est plus légère.",
+      "choices": [
+        {
+          "line": 86,
+          "prompt": "Jessy doit répondre.",
+          "options": [
+            { "text": "Accepter avec curiosité honnête.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Faire une blague pour désamorcer la gêne.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Demander si Ilona est sûre.", "effects": "autonomie_ilona +2, communication +1, confiance +1, pression_stream −1 (min 0)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Dans tous les cas : lien_jessy_ilona +2, pression_stream −1 (min 0), arc4_5_sofiane_maid = vrai (arc_4_5_maid_cafe.rpy:212-214).",
+        "`arc4_5_sofiane_maid` est relu en arc 6 et plus tard (une route, une fin).",
+        "Variante sans carte (l.200-204) inaccessible : arc4_carte_sofiane_lue est toujours vrai."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg",
+        "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.jpg",
+        "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/night-walk.ogg", "audio/music/maidCafe.ogg"]
+    },
+    {
+      "id": "arc4-5-theo",
+      "title": "Scène 4.5 — La marche avec Théo",
+      "label": "arc_4_5_theo",
+      "lines": "arc_4_5_theo.rpy:23-463",
+      "requires": "arc4",
+      "condition": "Seulement si Ilona est partie avec Théo à la sortie du marché (arc4_ilona_avec_theo), c'est-à-dire si influence_theo ≥ 10 ET confiance ≤ 8 ET arc4_limite_ilona = demande_theo (arc_4_noel.rpy:1203). Fichier arcs/arc_4/arc_4_5_theo.rpy, appelé par call.",
+      "location": "Parc résidentiel (allée, banc sous le lampadaire), puis maid café",
+      "characters": ["theo", "ilona", "laplage"],
+      "summary": "La scène est vue d'un point de vue omniscient ; Jessy est absent. Théo et Ilona marchent dans un parc résidentiel sous la neige. « Tu trembles. » Il lui donne son écharpe, qu'elle accepte. Sur le banc, il lui propose « juste... un espace » et lui dit qu'« essayer et réussir, c'est pas la même chose ». Le narrateur précise que ces vérités bien placées ouvrent des portes et créent des dettes. Quand Ilona dit se sentir obligée de choisir, « Par... tout le monde. Les rumeurs. Jessy. Toi. », le masque de Théo craque une seconde : « Moi ? »\n\nIl n'y a pas de menu : la réaction d'Ilona est calculée à partir des jauges. Réaction « accepte » : elle confie vouloir streamer « pour de vrai », avec un planning et une communauté, et Théo propose de modérer, gérer les horaires et filtrer : « Bien sûr. » Le narrateur ajoute : « Deux mots. Une dette qui commence. » Réaction « directe » : elle demande s'il l'aide parce qu'il veut l'aider « ou parce que tu veux être celui qui m'aide ? », et Théo reste sans réponse. Réaction « prudente » : elle ne veut pas qu'on lui dise ce qu'elle devrait vouloir et demande « du temps ».\n\nIls se réchauffent dans le même maid café. Monsieur Laplage y remplace quelqu'un, en tenue de maid : « La chaîne s'arrête à moi pour ce soir. » Il sert un thé et un café, puis dit : « Les chemins qui divergent font moins de bruit. Mais le silence n'est pas toujours une paix. » Il tend un pouce horizontal. Ilona rentre seule, l'écharpe de Théo autour du cou, et se demande si elle n'est pas en train de « remplacer une cage par une autre ».",
+      "choices": [],
+      "consequences": [
+        "Toujours : lien_ilona_theo +1 (l.74), influence_theo +2 (l.105), jugement_laplage +1 (l.372). Ilona porte désormais l'écharpe de Théo (variables de sprite l.69-70, relues en arc 5).",
+        "Réaction calculée (l.156-163) : accepte si influence_theo ≥ 14 et autonomie_ilona ≤ 0 ; sinon directe si communication ≥ 15 ou ilona_peut_finir_ses_phrases ≥ 3 ; sinon prudente si autonomie_ilona ≥ 15 ; sinon accepte.",
+        "accepte : influence_theo +3, autonomie_ilona −3, pression_stream +4, arc4_5_theo_proposition = gestion_stream, souvenirs theo_utilise_une_verite et ilona_veut_streamer_serieusement, lien_ilona_theo +1 (l.405).",
+        "directe : communication +3, influence_theo −3 (min 0), arc4_5_theo_proposition = question. prudente : autonomie_ilona +3, arc4_5_theo_proposition = temps.",
+        "`arc4_5_ilona_reaction` et `arc4_5_theo_proposition` sont relus dans les arcs 5 et 6 et dans une route ultérieure."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/winter/bg_arc4_park_bench.jpg",
+        "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.jpg",
+        "images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/night-walk.ogg", "audio/music/maidCafe.ogg"]
+    }
+  ]
+}

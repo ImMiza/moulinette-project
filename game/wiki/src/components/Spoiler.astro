@@ -1,0 +1,74 @@
+---
+// Bloc anti-spoiler : le contenu est placé dans un <template> (ni affiché, ni lu par les
+// lecteurs d'écran, ni indexé, images non chargées) et n'est inséré qu'après révélation.
+import { requirementText, toArray } from '../lib/keys';
+
+interface Props {
+  /** Clé(s) de progression nécessaires (voir src/data/progression.json). */
+  requires: string | string[];
+  /** 'all' : toutes les clés ; 'any' : au moins une. */
+  mode?: 'all' | 'any';
+  /** Précision facultative ajoutée à l'avertissement (sans spoiler !). */
+  note?: string;
+  inline?: boolean;
+}
+const { requires, mode = 'all', note, inline = false } = Astro.props;
+const keys = toArray(requires);
+const text = requirementText(keys, mode);
+const Tag = inline ? 'span' : 'div';
+---
+
+<Tag class:list={['spoiler', { 'spoiler--inline': inline }]} data-requires={keys.join(' ')} data-mode={mode} data-pagefind-ignore="all">
+  <Tag class="spoiler__gate">
+    <span class="spoiler__warning">
+      <span aria-hidden="true">🔒 </span>Spoiler : {text}{note && <> — {note}</>}
+    </span>
+    <button type="button" class="spoiler__btn" aria-expanded="false">Afficher</button>
+  </Tag>
+  <template><slot /></template>
+  <Tag class="spoiler__body" tabindex="-1" hidden></Tag>
+</Tag>
+
+<script>
+  import { load, unlocked } from '../scripts/progress';
+
+  function show(el: HTMLElement, focus = false) {
+    const body = el.querySelector<HTMLElement>(':scope > .spoiler__body')!;
+    if (!body.childNodes.length) body.append(el.querySelector('template')!.content.cloneNode(true));
+    body.hidden = false;
+    el.dataset.open = 'true';
+    const btn = el.querySelector<HTMLButtonElement>(':scope > .spoiler__gate .spoiler__btn')!;
+    btn.setAttribute('aria-expanded', 'true');
+    btn.textContent = 'Masquer';
+    if (focus) body.focus();
+  }
+  function hide(el: HTMLElement) {
+    const body = el.querySelector<HTMLElement>(':scope > .spoiler__body')!;
+    body.replaceChildren();
+    body.hidden = true;
+    delete el.dataset.open;
+    const btn = el.querySelector<HTMLButtonElement>(':scope > .spoiler__gate .spoiler__btn')!;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Afficher';
+  }
+  function sync() {
+    const s = load();
+    document.querySelectorAll<HTMLElement>('.spoiler').forEach((el) => {
+      const ok = unlocked((el.dataset.requires || '').split(' ').filter(Boolean), el.dataset.mode as 'all' | 'any', s);
+      el.classList.toggle('spoiler--unlocked', ok);
+      if (ok && !el.dataset.open) show(el);
+      else if (!ok && el.dataset.open && !el.dataset.manual) hide(el);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.spoiler__btn');
+    if (!btn) return;
+    const el = btn.closest<HTMLElement>('.spoiler')!;
+    if (el.dataset.open) { delete el.dataset.manual; hide(el); }
+    else { el.dataset.manual = 'true'; show(el, true); sync(); }
+  });
+  document.addEventListener('wiki:progress', sync);
+  // Les spoilers imbriqués apparaissent après révélation du parent : on resynchronise.
+  new MutationObserver(() => sync()).observe(document.body, { childList: true, subtree: true });
+  sync();
+</script>

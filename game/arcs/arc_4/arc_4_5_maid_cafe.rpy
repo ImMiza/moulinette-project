@@ -1,9 +1,9 @@
 # Arc IV.5 - Maid Café Secret : Sofiane a trouvé un job.
 # Scène bonus accessible seulement si synergie Jessy-Ilona bonne.
 
-image bg arc4_city_night = im.Scale("images/scenes/arc_4/bg_arc4_illuminations.jpg", 1920, 1080)
-image bg arc4_maid_cafe_exterior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
-image bg arc4_maid_cafe_interior = im.Scale("images/scenes/arc_4/bg_arc4_5_maid_cafe_interior.jpg", 1920, 1080)
+image bg arc4_city_night = im.Scale("images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg", 1920, 1080)
+image bg arc4_maid_cafe_exterior = im.Scale("images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
+image bg arc4_maid_cafe_interior = im.Scale("images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.jpg", 1920, 1080)
 
 define audio.wow = "audio/fx/WOW.mp3"
 

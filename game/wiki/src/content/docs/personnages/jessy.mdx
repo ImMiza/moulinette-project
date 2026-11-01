@@ -1,0 +1,758 @@
+---
+title: Jessy
+description: Fiche du personnage joué de Moulinette. Présentation sans spoiler ; relations, histoire et galerie protégées par arc.
+sidebar:
+  order: 1
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Spoiler from '../../../components/Spoiler.astro';
+import CharacterInfobox from '../../../components/CharacterInfobox.astro';
+import Gallery from '../../../components/Gallery.astro';
+
+<CharacterInfobox id="jessy" />
+
+Jessy est le personnage joué de Moulinette. On le découvre en fin d'après-midi sur un serveur Minecraft public, en train de poser le dernier bloc d'une maison beaucoup trop grande. Une grande partie de ses réactions est choisie par le joueur : cette fiche décrit donc des possibilités, pas un parcours unique.
+
+<Tabs syncKey="fiche">
+<TabItem label="Présentation">
+
+## Description
+
+Jessy est le point de vue du joueur : presque tous les menus du jeu décident de ce qu'il dit, tait ou fait. Ses relations et la suite de l'histoire dépendent de ces réponses.
+
+<Spoiler requires="prologue" note="présentation au prologue">
+
+Sur le serveur, il joue sous le pseudo **jessyCube**. Sa base « a cessé d'être petite depuis longtemps » : trop de fenêtres, trop de toits, une passerelle et une tour construite pour justifier l'existence d'une autre tour. Il refuse d'appeler cela une erreur et préfère le mot « développement ». Devant l'entrée, il plante une pancarte : « NE PAS ENTRER. SAUF SI TU AS UNE BONNE IDÉE. » C'est ainsi qu'il rencontre IlonaGaming, puis passe pour la première fois en vocal avec elle.
+
+</Spoiler>
+
+<Spoiler requires="arc1" note="la vie hors écran">
+
+Au printemps, Jessy découvre qu'Ilona fréquente la même école que lui et prend le même train : ils ne s'étaient jamais vus, « Pas de caméra. Pas de photo. ». À partir de là, l'histoire suit leur année scolaire, du printemps jusqu'aux diplômes.
+
+</Spoiler>
+
+<Spoiler requires="arc6" note="fin de l'année">
+
+L'année se termine par la remise des diplômes, le 26 mars. Ce jour-là, la suite de l'histoire est déjà tranchée par les choix de Jessy tout au long de l'année (voir l'onglet Histoire).
+
+</Spoiler>
+
+## Caractéristiques
+
+- **Rôle** : personnage joué.
+- **Couleur de dialogue** : bleu clair (`#8fb7ff`).
+- **Âge** : non précisé dans les scripts.
+
+<Spoiler requires="prologue">
+
+- **Pseudo Minecraft** : jessyCube.
+- **Loisir** : construire dans Minecraft, de préférence des bâtiments trop grands et « en cours de réflexion ».
+- **Voix** : selon Ilona, « une voix moins carrée que [son] bâtiment ».
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+- **Scolarité** : élève dans la même école qu'Ilona ; il prend le même train qu'elle.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+- **Fin A1** : commence une formation, puis s'installe dans un appartement.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+- **Fin A2** : tient avec Ilona un restaurant de montagne, Les Petits Sommets ; père de Lucy, et bientôt d'Oliver.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+- **Fin A3** : fondateur et prophète du culte de Laplage ; il ne vieillit plus.
+
+</Spoiler>
+
+## Apparence et tenues
+
+Les sprites de Jessy reprennent les mêmes expressions d'une tenue à l'autre : attention neutre, gêne, écoute, sourire timide, détermination, et selon les tenues colère, joie ou surprise.
+
+<Spoiler requires="prologue">
+
+- **Avatar Minecraft** (prologue) : sprite `minecraft`, repris à chaque scène qui se passe sur le serveur.
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+- **Tenue de base** (Arc I) : sprites du dossier principal, réutilisés ensuite pour les scènes d'école (ouverture de l'Arc II, train de l'Arc III, Arcs V et VI).
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+- **Beach** (Arc II) : tenue de plage, avec une expression de colère pour la soirée la plus tendue.
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+- **Festival** (Arc III) : tenue du festival culturel, avec elle aussi une expression de colère.
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+- **Winter** (Arc IV) : tenue d'hiver du marché de Noël et de la scène 4.5 du maid café. Elle revient à l'Arc V (sortie sous la pluie, rendez-vous sur le quai).
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+- **Rando** et **Rando / With_bag** (Route A) : tenue de randonnée, avec ou sans sac. Pour les courses au magasin de sport, Jessy porte encore la tenue Beach.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+- **Home** (Fin A1) : tenue d'intérieur, dans sa chambre. La tenue Beach revient pour les journées à la plage.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+- **Beach** (Fin A2) : tenue du quotidien au restaurant, avec une expression de surprise pour une annonce.
+- **Party** (Fin A2) : tenue de la soirée de retrouvailles.
+- **Papa** (Fin A2) : tenue de l'épilogue.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+- **illonanium** (Fin A3) : trois séries. `beach_*` (neutre, colère, détermination) pour la catastrophe et la plage aux deux soleils ; `priest_*` pour le prophète, quarante ans plus tard ; `prophet_*` pour l'homme en robe blanche à longue barbe, neuf cent quatre-vingt-dix-neuf ans plus tard.
+
+</Spoiler>
+
+<Spoiler requires="extras" note="sprites présents mais non affichés">
+
+Fichiers présents mais jamais affichés : `Festival/happy`, `Winter/angry`, `Winter/happy`, `Rando/With_bag/happy`, `illonanium/beach_surprised` et `illonanium/prophet_with_gem` (déclaré, jamais montré).
+
+</Spoiler>
+
+## Personnalité
+
+Le joueur peut le rendre plus franc, plus blagueur, plus jaloux, plus fuyant ou plus attentif : chaque menu propose en général une réponse sincère, une blague, un silence et une réaction de contrôle.
+
+<Spoiler requires="prologue">
+
+Constructeur enthousiaste et désordonné, il répond aux questions par des détails techniques. Ilona le lui fait remarquer ; il finit par concéder « Peut-être. ».
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+Timide hors ligne, il ne sait « pas quoi faire de son visage » et utilise volontiers l'humour. Il commence une déclaration dans le train, puis renonce quand le bruit couvre sa phrase.
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+L'arrivée de Théo révèle sa jalousie et sa peur d'être remplaçable. Selon les choix, il peut la nommer calmement ou paniquer, jusqu'à suivre Ilona en cachette.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+Sa difficulté centrale apparaît clairement : quand Ilona va mal, il veut « réparer ». Il avoue à Allan ne pas savoir distinguer « demander comment ça va » et « essayer de réparer ».
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+Planificateur, il prépare trois itinéraires sur une feuille « pliée en huit », pose des torches « pour s'occuper les mains » et reconnaît avoir préparé les réponses d'Ilona « et appel[é] ça faire attention ».
+
+</Spoiler>
+
+## Peurs et réparations
+
+<Spoiler requires="arc2" note="deux souvenirs cachés liés à Jessy">
+
+Deux souvenirs cachés suivent les moments où Jessy fait face à lui-même. Ils ne s'effacent jamais une fois obtenus.
+
+**`jessy_nomme_sa_peur` : nommer sa peur sans la poser sur Ilona.** À l'Arc II, il s'obtient de deux façons. Aux mares, « Dire qu'il a besoin de dix minutes pour respirer. » (« Parce que j'ai peur. »). Au coucher du soleil, « Nommer sa peur sans accuser. » (« Parce que je me suis senti remplaçable. »).
+
+**`jessy_repare` : revenir sur une erreur précise.** À l'Arc II, au coucher du soleil, il faut choisir « Reconnaître précisément son erreur. » après une mauvaise réaction aux mares (blague jalouse, filature ou départ sans réponse).
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+**Arc III.** Au stand, « Annoncer qu'il a besoin d'air, et revenir. » donne `jessy_nomme_sa_peur` (« Je suis jaloux. »). Après la confession d'Ilona, « S'excuser sans se rendre petit. » donne `jessy_repare` si Jessy avait fait la blague acide au stand ou désamorcé la rumeur par une blague. Le souvenir de la peur nommée adoucit aussi la narration du train de septembre.
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+**Arc IV.** `jessy_nomme_sa_peur` s'obtient en choisissant de « Ne rien offrir ce soir et miser sur la conversation seule. », « Ne rien offrir et avouer la peur sans filtre. » ou « Nommer sa peur sans s'effondrer. ». « Accueillir la limite sans se défendre. » donne `jessy_repare` si Jessy avait coupé Ilona sans le reconnaître. À la galerie, si la peur a déjà été nommée, Jessy se souvient de la plage et du festival.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+**Arc V.** Sur le quai, les réponses « J'ai peur. Mais ma peur ne devrait pas devenir ton problème. » et « J'ai peur. Et ma confiance tremble parfois. Les deux sont vrais. » (ou sa variante) donnent `jessy_nomme_sa_peur`. L'épilogue de l'arc constate alors : « Jessy a nommé sa peur. C'est un début. Pas une fin. »
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+**Arc VI.** Les deux souvenirs comptent dans le verdict de l'année : +6 pour la peur nommée, +8 pour la réparation, et +20 de plus si Jessy a réparé au moins deux coupures (voir [le verdict de l'Arc VI](../../mecaniques/verdict-arc-6/)). `jessy_repare` change aussi des répliques du récapitulatif. Ilona répond « Tu me l'as déjà dit une fois » à une excuse précise et dit « Tu es revenu me le dire, une fois. » après sa phrase finie. Si elle craque, la narration constate : « Il a mis un an à apprendre que c'était une action. »
+
+</Spoiler>
+
+## Citations
+
+<Spoiler requires="prologue">
+
+> « On finira cette maison un jour. »
+> — à Ilona, sur le toit, après l'apparition de l'inconnu (Prologue, scène 7)
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+> « Peut-être. Si je retrouve le courage. »
+> — après sa déclaration coupée par le train (Arc I, scène 3)
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+> « Pas parce que t'as fait quelque chose de mal. Parce que je me suis senti remplaçable. »
+> — au coucher du soleil, option « Nommer sa peur sans accuser. » (Arc II, scène 10)
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+> « Mais je t'aime assez pour ne pas transformer cette haine en laisse. »
+> — à Ilona, après sa confession (Arc III, scène 8)
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+> « Je veux gagner. » […] « Et je déteste tout ce que je viens de dire. »
+> — à la rivière, sans cadeau (Arc IV, scène 7)
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+> « En pratique, je ne sais pas faire la différence. »
+> — à Allan, à la bibliothèque (Arc V, scène 1)
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+> « Je crois que si je dis un truc, je vais essayer de le réparer. »
+> — quand Ilona craque, le jour du diplôme (Arc VI, scène 3)
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+> « Je croyais t'aider. Je préparais des réponses pour nous deux et j'appelais ça faire attention. »
+> — au bivouac (Route A, scène 5)
+
+</Spoiler>
+
+</TabItem>
+<TabItem label="Relations">
+
+## Avec Ilona
+
+Le lien entre Jessy et Ilona est le fil principal du jeu ; son évolution dépend presque entièrement des choix du joueur.
+
+<Spoiler requires="prologue" note="la rencontre">
+
+IlonaGaming entre dans sa maison parce qu'elle a « une idée », fait tomber un mur, un bout de plafond et une poule, puis transforme les dégâts. Jessy décide de la place qu'il lui laisse. Le soir, ils passent en vocal, construisent une salle secrète « moyennement importante » et Jessy promet : « On finira cette maison un jour. »
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+Ils se rencontrent en vrai à l'école ; elle le reconnaît à sa voix. Toit à midi, train, konbini : l'habitude s'installe. Jessy tente une déclaration (« Ilona, je voulais te dire que— »), coupée par le train. À la question d'Allan (« vous sortez ensemble ? »), il peut répondre « J'aimerais bien. », plaisanter, laisser Ilona répondre ou nier trop vite.
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+À la plage, ils forment un couple implicite (Ilona parle de « test de fidélité »). Le choix des mares est décisif. La confiance laisse Ilona libre. La filature fait éclater la journée (« Je voulais marcher. Pas passer un test de fidélité. »). Le coucher du soleil peut réparer, aggraver ou nommer la peur. Le soir, Ilona peut murer la porte de la maison Minecraft.
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+Au festival, leur maison devient le thème du café, et Jessy voit Théo aider à le construire. Ilona avoue trouver la gentillesse de Théo reposante et le dit à Jessy. Selon sa réponse, elle lui demande de rester près d'elle, range les tasses avec lui, prend ses distances ou détruit la cuisine d'été de la maison.
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+À Noël, Jessy porte une miniature de leur maison. Il avoue vivre la situation comme un concours (« Si. Ça l'est devenu. »). Ilona pose sa limite : elle a « le droit de vous aimer tous les deux différemment sans que ce soit un classement ». Selon l'accueil de Jessy, elle garde les deux cadeaux, rentre avec Allan ou part marcher avec Théo. Avec une complicité forte, ils finissent la soirée au maid café.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+Ilona s'épuise. Jessy peut vérifier, compenser ou se taire. La sortie au cinéma a lieu seulement si la relation est solide ; leurs mains s'y trouvent. Sinon, Ilona annule. Sur le quai, elle lui pose la question de l'année : « Est-ce que tu as peur de me perdre... ou est-ce que tu ne me fais pas confiance ? », ou sa version « proche ». Le White Day peut aboutir à « Je crois qu'on peut y arriver ».
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+Le jour du diplôme, Ilona raconte l'année, écrit trois mots sous le col de la veste de Jessy et tranche seule. Si le verdict est favorable, elle reste : elle le choisit « Parce qu'avec lui, aujourd'hui, je peux encore décider où je vais moi-même. », sans lui épargner ses torts. Sinon, elle part à Tokyo avec Théo : « T'as pas mal fait. T'as fait lentement. »
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+Pendant la randonnée, Ilona déclare qu'elle est amoureuse de Jessy et demande « un vrai non » plutôt qu'un oui de politesse. Jessy répond par l'amitié ou par l'amour ; dans les deux cas, il reconnaît avoir préparé ses réponses à sa place.
+
+</Spoiler>
+
+<Spoiler requires="routeB">
+
+Sur la Route B, Ilona vit à Tokyo avec Théo ; Jessy n'apparaît plus et n'est jamais nommé.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+Fin A1 : après le refus, Jessy lui laisse de l'espace, sans réparer ni insister. Ils se retrouvent en amis, au sein du groupe, d'été en été.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+Fin A2 : couple, ils reprennent ensemble un restaurant de montagne, vivent sous le même toit et ont une fille, Lucy ; Ilona attend un deuxième enfant.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+Fin A3 : Ilona devient l'astre Ilonanium. Pendant plus de mille ans, Jessy entend sa voix lui demander de la retrouver, et il conduit l'humanité jusqu'à elle.
+
+</Spoiler>
+
+## Avec Théo
+
+Théo est l'autre figure majeure de l'histoire de Jessy ; leur relation dépend beaucoup des choix.
+
+<Spoiler requires="arc1">
+
+Jessy ne connaît d'abord Théo que par Allan : « un ami » qui « parle comme s'il avait déjà lu la fin ».
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+À la plage, Théo retrouve le porte-clés d'Ilona là où Jessy a échoué. Il propose de l'accompagner aux mares. Jessy peut le remercier sincèrement ou le surveiller ; dans la branche de la filature, il lui lance « Ferme-la ».
+
+</Spoiler>
+
+<Spoiler requires="arc3">
+
+Au festival, Théo frappe juste : « certaines personnes écoutent Ilona seulement quand elles ont peur de la perdre. » Jessy peut se taire, admettre la blessure, refuser le duel ou lui rentrer dedans ; à cet instant, il le déteste.
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+Le carnet de croquis de Théo transforme en objet un souvenir que Jessy avait aussi. La rivalité devient une compétition avouée.
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+Théo apporte à Ilona le thé exact, puis propose à Jessy de « gérer » sa vie : notes, club, stream. Jessy peut accepter en partie, le laisser tout gérer, refuser ou demander pourquoi Théo ne parle pas à Ilona directement. Au café, Théo lui dit : « Jessy. Je ne suis pas ton ennemi. »
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+Théo fait son offre de Tokyo devant Jessy, puis l'attaque avec des faits réels de l'année. La réponse de Jessy à « Et toi, qu'est-ce que tu veux ? » fixe le ton de la fin.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+Fin A1 : Théo fait partie du groupe d'amis ; il rejoint la plage depuis Tokyo et demande avant d'aider.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+Fin A2 : invité par Ilona après en avoir parlé avec Jessy, Théo s'est excusé. Jessy se dit content qu'il soit venu et ils se serrent la main, puis s'affrontent dans une battle de danse façon Yakuza 0.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+Fin A3 : Jessy reconnaît en Théo le nouveau « Messi » (« C'est toi, maintenant. ») et l'étreint avant le départ du TARDIS : « Pour toi, mille ans. Pour nous, quelques secondes. »
+
+</Spoiler>
+
+## Avec Allan
+
+Allan est un ami de la bande, souvent celui qui pose les questions que personne n'ose poser.
+
+<Spoiler requires="arc1">
+
+Il demande devant tout le monde : « Donc... vous sortez ensemble ? »
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+Si Ilona part avec Théo à la sortie du marché, Allan pose une main sur l'épaule de Jessy, « la seule chose qu'il puisse faire ».
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+Il demande à Jessy s'il a demandé à Ilona combien elle dort ; Jessy peut esquiver ou avouer sa peur de « réparer ». Au café, il commente ses réponses (« Progrès », « Tu mens ») et le met en garde contre Théo.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+Fin A1 : Allan veut un rendez-vous annuel pour que le groupe ne se perde pas ; Jessy fait partie des six amis qui se retrouvent trois étés plus tard.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+Fin A3 : au retour des voyageurs, Allan serre Jessy contre lui sans rien dire.
+
+</Spoiler>
+
+## Avec Alexandre
+
+Alexandre fait partie de la bande ; il adore les constructions absurdes.
+
+<Spoiler requires="prologue">
+
+Il visite la maison Minecraft, juge qu'elle est « Techniquement inhabitable. Donc parfaite. » et pose la pancarte « NE SURTOUT PAS RENDRE ÇA NORMAL. ».
+
+</Spoiler>
+
+<Spoiler requires="arc2">
+
+Après le choix des mares, il conseille Jessy. S'il l'a suivie, Jessy finit par lui crier : « Parce que j'ai paniqué, bordel ! »
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+Il aide Jessy à choisir l'emballage du cadeau et le prévient : « si tu ne décides pas, ta peur le fera à ta place. »
+
+</Spoiler>
+
+<Spoiler requires="arc5">
+
+À la Saint-Valentin, il envoie à Jessy trois chocolats signés « Ta fan mystérieuse, bisous, Alexandre, PS : c'est moi ».
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+Jessy et Ilona le croisent au lac pendant la randonnée, où il pêche une feuille.
+
+</Spoiler>
+
+<Spoiler requires="finA1">
+
+Fin A1 : il emmène Jessy voir « un trou, mais très loin » dans Minecraft, puis les y enferme.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+Fin A3 : Jessy le cherche parmi les rescapés (« J'ai vu tous mes amis sauf Alexandre ! ») ; Alexandre est resté sur Terre.
+
+</Spoiler>
+
+## Avec Sofiane
+
+Sofiane fait partie de la bande ; il apparaît souvent quand on ne l'attend pas.
+
+<Spoiler requires="arc3">
+
+Après le duel avec Théo, il apporte à Jessy une canette de thé vert : « La vérité peut être une main tendue. Ou un poing fermé. »
+
+</Spoiler>
+
+<Spoiler requires="arc4">
+
+Scène 4.5 : Jessy et Ilona découvrent qu'il travaille dans un maid café et promettent de garder le secret.
+
+</Spoiler>
+
+<Spoiler requires="arc6">
+
+Si la scène du maid café a eu lieu, Jessy et Ilona tiennent leur promesse quand Alexandre l'interroge.
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+Il conduit Jessy et Ilona au départ de la randonnée dans l'AE86 de son cousin.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+Fin A2 : il les conduit au restaurant de montagne ; Jessy lui écrit « on a les clés ».
+
+</Spoiler>
+
+## Avec Monsieur Laplage
+
+Un personnage étrange qui croise Jessy et Ilona à des moments clés.
+
+<Spoiler requires="prologue">
+
+Au bord de la rivière Minecraft, un personnage sans pseudo leur dit : « Le plus difficile, c'est de ne pas casser ce que l'autre construit. » Jessy ne trouve aucune explication.
+
+</Spoiler>
+
+<Spoiler requires="arc1">
+
+Au konbini, il se présente comme Monsieur Laplage ; Jessy le vouvoie (« C'est votre nom ? »).
+
+</Spoiler>
+
+<Spoiler requires="routeA">
+
+Il apparaît sur un ours pendant la randonnée. Si Jessy a répondu par l'amitié, il lui rend visite la nuit près du hamac ; Jessy crie « Un clochard ! ».
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+Fin A2 : il leur donne le restaurant et la maison, confie les clés à Jessy (« Prenez soin d'elle. ») et part pour de bon.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+Fin A3 : il sauve Jessy dans le TARDIS. Jessy fonde ensuite le culte de Laplage, dont il devient le prophète.
+
+</Spoiler>
+
+## Autres liens
+
+<Spoiler requires="arc5">
+
+**Micka** : élève inondé de chocolats à la Saint-Valentin et au White Day, sous les yeux de Jessy.
+
+</Spoiler>
+
+<Spoiler requires="finA2">
+
+**Lucy** : fille de Jessy et Ilona ; elle lui offre un bouquet de fleurs sauvages « parce que je t'aime ». **Oliver** : leur deuxième enfant, à naître dans l'épilogue.
+
+</Spoiler>
+
+<Spoiler requires="finA3">
+
+**Florentin** : commandant de la milice. Au conseil, Jessy s'oppose à sa volonté de frapper l'Ilonanium, puis lui demande pardon : « Je sais ce que tu as perdu. » **Micka**, gouverneur, lui confie « le destin de l'humanité ».
+
+</Spoiler>
+
+</TabItem>
+<TabItem label="Histoire">
+
+## Prologue
+
+<Spoiler requires="prologue">
+
+Jessy finit sa base sur un serveur public et plante sa pancarte. IlonaGaming entre et fait s'effondrer un mur.
+
+**L'effondrement** ([scène 2](../../histoire/prologue/#prologue-s2))
+- « Déclarer une guerre de poulets. » ou « Faire une blague avant de regarder les dégâts. » → `lien_jessy_ilona` +2.
+- « Réagir trop vite. » → communication −2, confiance −1, `pression_stream` +1, `evitements` +1.
+- « Réparer ensemble. » → communication +2, confiance +1, jalousie −1, lien +1, souvenir `maison_respectee`.
+
+**La transformation** ([scène 3](../../histoire/prologue/#prologue-s3)), variable `maison_minecraft_transformation`
+- « La laisser essayer son idée de serre. » → serre aérienne, `autonomie_ilona` +2, communication +1, confiance +1, `pression_stream` −1.
+- « Répondre par une idée encore plus stupide. » → poulet géant sur le toit, lien +2.
+- « Chercher avec elle une solution franchement inutile. » → toboggan vers un coffre vide, lien +2.
+- « Proposer d'assumer le désastre jusqu'au bout. » → piscine dans le couloir, lien +2.
+
+**Le vocal** ([scène 5](../../histoire/prologue/#prologue-s5)) : « Accepter tout de suite. » ou « Demander une minute pour se préparer. » (communication +2, confiance +1, jalousie −1, lien +1) ; « Faire une blague avant d'accepter. » (lien +2). L'appel est le même dans tous les cas.
+
+Face à Alexandre, Jessy répond « c'est temporaire » à chaque transformation. Sur le toit, il voit un inconnu au bord de la rivière, puis promet à Ilona de finir la maison.
+
+</Spoiler>
+
+## Arc I
+
+<Spoiler requires="arc1">
+
+Avril. Ilona le reconnaît à sa voix (« Super première impression. »). Les variantes de dialogue suivent la transformation du prologue.
+
+**Les choix**
+- **Omelette** ([scène 2](../../histoire/arc-1/#arc1-s2)) : « Accepter et partager ses biscuits. » ou « Faire une blague sur Minecraft. » (lien +2) ; « Lui demander si elle en a vraiment envie. » (`autonomie_ilona` +2) ; « Refuser trop vite. » (négatif ; Ilona : « Tu peux juste dire non. C'est pas grave. »).
+- **Photo du train** ([scène 3](../../histoire/arc-1/#arc1-s3)) : « Lui demander de supprimer. » (négatif) ; « Lui demander de la garder si elle l'aime bien. » (autonomie +2) ; « Poser pour une deuxième photo. » (lien +2). Dans tous les cas, sa déclaration est ensuite couverte par le train.
+- **Bonbon étoile** ([scène 4](../../histoire/arc-1/#arc1-s4)) : « Proposer de la garder pour la maison Minecraft. » ou « Mentionner Monsieur Laplage. » (lien +2) ; « La laisser manger l'étoile. » (`ilonanium_points` +1, autonomie +2).
+- **« Vous sortez ensemble ? »** ([scène 5](../../histoire/arc-1/#arc1-s5)) : « Répondre sincèrement : « J'aimerais bien. » » (communication +4, confiance +2, jalousie −2, lien +2) ; « Faire une blague pour détendre l'atmosphère. » (lien +4) ; « Laisser Ilona répondre. » (autonomie +4, `ilona_peut_finir_ses_phrases` +1, `pression_stream` −2) ; « Nier trop vite. » (communication −4, confiance −2).
+- **Le toit** ([scène 6](../../histoire/arc-1/#arc1-s6)) : « Lui demander ce qui l'aiderait. » ou « Lui dire qu'elle peut prendre son temps. » (autonomie +4, `ilona_peut_finir_ses_phrases` +1) ; « Faire une petite blague, puis répondre vraiment. » (communication +4) ; « Se défendre. » (négatif).
+
+</Spoiler>
+
+## Arc II
+
+<Spoiler requires="arc2">
+
+Juillet, journée à la plage avec Théo. Jessy ne le connaît « surtout » que par les phrases d'Allan.
+
+**Avant le pivot**
+- **Annonce** ([scène 1](../../histoire/arc-2/#arc2-s1)) : blague, « Demander simplement qui vient. », « Répondre trop vite à propos de Théo. » (jalousie +3, `influence_theo` +1, `controles` +1) ou « Se taire. ».
+- **Porte-clés** ([scène 4](../../histoire/arc-2/#arc2-s4)) : « Le remercier sincèrement. » ; « Chercher aussi et trouver autre chose. » (une coquille blanche offerte à Ilona) ; « Faire une blague pour masquer sa blessure. » ou « Se taire et encaisser. ».
+- **Photo de groupe** ([scène 5](../../histoire/arc-2/#arc2-s5)) : `arc2_photo_reaction`, relu à l'Arc V seulement pour le silence.
+
+**« Je peux y aller ? »** ([scène 7](../../histoire/arc-2/#arc2-s7)), variable `arc2_choix_activite_theo`, relue jusqu'à la Route B :
+- « Lui faire confiance et proposer d'en parler au retour. » → autonomie +6, souvenir `ilona_libre_sans_abandon`.
+- « Dire oui, puis les suivre discrètement. » → autonomie −6, confiance −6, jalousie +9, `interruptions_ilona` +1. Ilona le surprend ; il lance « Ferme-la » à Théo.
+- « Cacher sa jalousie derrière une blague. » → communication −6.
+- « Dire qu'il a besoin de dix minutes pour respirer. » → communication +6, souvenir `jessy_nomme_sa_peur`.
+- « Partir sans répondre. » → communication −6 ; Théo accompagne Ilona aux mares.
+
+**Coucher du soleil** ([scène 10](../../histoire/arc-2/#arc2-s10)), `arc2_reaction_coucher` : « Se taire trop longtemps. » ; « Reconnaître précisément son erreur. » (`jessy_repare` après une mauvaise réaction aux mares, et réparation d'une coupure si besoin) ; « Demander ce qui s'est passé avec Théo. » (jalousie +6 ; « Va te faire foutre, Jessy. ») ; « Nommer sa peur sans accuser. » (`jessy_nomme_sa_peur`).
+
+**Le soir** ([scène 11](../../histoire/arc-2/#arc2-s11)) : après une filature, un départ, un silence ou un interrogatoire, Ilona mure la porte de la maison. Sinon, Jessy peut la laisser manger la gelée lumineuse (`ilonanium_points` +1, `maison_respectee`).
+
+</Spoiler>
+
+## Arc III
+
+<Spoiler requires="arc3">
+
+Septembre, festival culturel. Le ton du train dépend de la plage.
+
+- **Rumeur** ([scène 3](../../histoire/arc-3/#arc3-s3)), `arc3_reaction_rumeur` : « Regarder Ilona d'abord. » (autonomie +4) ; « Se taire et laisser passer. » ; « Défendre Ilona immédiatement. » (jalousie +6, contrôle) ; « Faire une blague pour désamorcer. » (lien +4). Après le silence ou la blague, Théo marque un point (`influence_theo` +1).
+- **Au stand** ([scène 4](../../histoire/arc-3/#arc3-s4)), `arc3_aide_stand` : « Annoncer qu'il a besoin d'air, et revenir. » (« Je suis jaloux. », `jessy_nomme_sa_peur`) ; « Aider sans se mettre au centre. » ; « Demander franchement ce qu'elle ressent. » ; « Faire une blague acide pour cacher sa blessure. » (jalousie +6).
+- **Duel** ([scène 7](../../histoire/arc-3/#arc3-s7)) : « Se taire pour ne pas exploser. » ; « Admettre la blessure sans baisser les yeux. » ; « Refuser le duel, mais pas la colère. » ; « Lui rentrer dedans. ».
+- **Confession d'Ilona** ([scène 8](../../histoire/arc-3/#arc3-s8)), `arc3_reaction_laplage` : « Lui dire qu'il l'aime trop pour faire semblant. » (« je t'aime assez pour ne pas transformer cette haine en laisse ») ; « S'excuser sans se rendre petit. » (`jessy_repare` sous condition) ; « Demander une réponse sur ses sentiments. » (jalousie +6) ; « Promettre que Théo ne compte pas. » (évitement).
+
+Le soir ([scène 11](../../histoire/arc-3/#arc3-s11)), la maison garde la trace de sa réponse. Ilona pose un panneau, range, ferme la porte inutile, ou détruit la cuisine d'été si Jessy a exigé une réponse (`maison_respectee` est alors effacé). Hors destruction, il peut lui laisser manger l'étoile en sucre (`ilonanium_points` +1) ou en garder une trace dans la salle secrète.
+
+</Spoiler>
+
+## Arc IV
+
+<Spoiler requires="arc4">
+
+Décembre. Jessy porte depuis le matin une miniature de leur maison Minecraft.
+
+- **Le cadeau** ([scène 2](../../histoire/arc-4/#arc4-s2)), `arc4_cadeau_jessy` : « Offrir la miniature en avouant qu'elle porte trop de choses. » ; « Offrir la miniature avec ses erreurs, comme témoin de ce qui a existé. » ; « Paniquer et acheter un cadeau neutre à la place. » (une écharpe « Belle. Chère. Vide. ») ; « Offrir la miniature mais en blague, pour désamorcer le poids. » ; « Ne rien offrir ce soir et miser sur la conversation seule. » (`jessy_nomme_sa_peur`).
+- **Le carnet de Théo** ([scène 3](../../histoire/arc-4/#arc4-s3)), `arc4_reaction_cadeau_theo` : reconnaître et nommer sa douleur, poser une question simple, se taire, « Dire une vérité crue sans filtre. » ou « Faire une remarque acide qui déborde. ». Ces deux dernières réponses déclenchent un accrochage.
+- **La limite** ([scène 7](../../histoire/arc-4/#arc4-s7)), pivot `arc4_limite_ilona` : « Demander ce que le cadeau de Théo signifie vraiment pour elle. » (jalousie +9) ; offrir l'écharpe ou la miniature, selon le cadeau choisi ; « Ne rien offrir et avouer la peur sans filtre. » (« Je veux gagner. ») ; « Proposer de marcher ensemble sans parler de cadeaux. » (lien +6).
+- **L'accueil** : « Demander ce qu'elle attend de lui, concrètement. » ; « Accepter la limite en silence, juste acquiescer. » ; « Accueillir la limite sans se défendre. » (`jessy_repare` sous condition) ; « Dire qu'elle a raison mais que Théo joue quand même. » ; « Nommer sa peur sans s'effondrer. ».
+
+Si Jessy a exigé une réponse sur le carnet et que les jauges sont très dégradées, Ilona part marcher avec Théo et Jessy reste immobile ([scène 8](../../histoire/arc-4/#arc4-s8)). Si la complicité est forte, le [maid café](../../histoire/arc-4/#arc4-5-maid) s'ouvre : « Accepter avec curiosité honnête. », « Faire une blague pour désamorcer la gêne. » ou « Demander si Ilona est sûre. ». La maison Minecraft reflète ensuite la limite : miniature reconstruite, laine bleue dans un coffre, ou Ilona qui construit dehors.
+
+</Spoiler>
+
+## Arc V
+
+<Spoiler requires="arc5">
+
+Janvier-mars, examens. Jessy garde un stylo violet oublié par Ilona.
+
+- **Le thé de Théo** ([scène 1](../../histoire/arc-5/#arc5-s1)) : vérifier (« Tu ne demandes pas. Tu vérifies. »), proposer autre chose, remercier Théo, ou se taire. À Allan, il peut changer de sujet, dire qu'il fait confiance, ou avouer qu'il a eu peur de la réponse.
+- **La sortie** ([scène 2](../../histoire/arc-5/#arc5-s2)) : cinéma si la relation est solide. Sinon, il répond au message d'annulation (`arc5_sortie_annulee`) : silence, inquiétude, « C'est la troisième fois ce mois-ci. » ou « D'accord. Repose-toi bien. Je suis là si tu as besoin. ». Il réagit ensuite à Théo au café.
+- **« Gérer » Ilona** ([scène 3](../../histoire/arc-5/#arc5-s3)), `arc5_theo_proposition` : accepter en partie, « Accepter. Laisser Théo gérer. » (Théo entre dans la maison Minecraft), « Refuser net. Ce n'est pas à eux de décider pour elle. » ou demander pourquoi il ne s'adresse pas à elle.
+- **Saint-Valentin** ([scène 4](../../histoire/arc-5/#arc5-s4)) : se fermer, plaisanter, remercier, ou demander ce qu'elle veut (`ilona_libre_sans_abandon`).
+- **Sur le quai** ([scène 6](../../histoire/arc-5/#arc5-s6)), pivot `arc5_question_reponse` : « J'ai peur. Mais ma peur ne devrait pas devenir ton problème. » ; « Bien sûr que je te fais confiance. C'est Théo le problème. » ; « Je ne sais pas. J'ai besoin de temps pour réfléchir. » (en relation distante, Ilona prend le train) ; « J'ai peur. Et ma confiance tremble parfois. Les deux sont vrais. » (ou « …je ne sais pas si je te fais confiance… »).
+- **White Day** ([scène 7](../../histoire/arc-5/#arc5-s7)) : grand geste (un album photo « qui pèse trois kilos »), espace, question retournée, ou mots.
+
+Le soir, sur Minecraft ([scène 10](../../histoire/arc-5/#arc5-s10)), la maison montre où ils en sont : salle de repos « reliée, mais séparée », distance, mot de passe donné à Théo ou panneau « BESOIN D'AIR ».
+
+</Spoiler>
+
+## Arc VI
+
+<Spoiler requires="arc6">
+
+Avant la première image, le jeu calcule le verdict de l'année à partir des choix de Jessy. La route d'Ilona est fixée si le score atteint 180 sans trois coupures non réparées (voir [le verdict](../../mecaniques/verdict-arc-6/)).
+
+- **Le stylo violet** ([scène 1](../../histoire/arc-6/#arc6-s1)), gardé « depuis le 12 janvier » : « Le rendre, et dire pourquoi tu l'as gardé. », « Le garder encore un peu. », « Le rendre, sans rien ajouter. » ou « En faire une blague. » (« Je le rends contre trois émeraudes. »).
+- **Le récapitulatif** ([scène 3](../../histoire/arc-6/#arc6-s3)) : Ilona raconte l'année en vignettes qui reprennent ses choix. Sa posture (laisser continuer, demander si c'est Théo, s'excuser précisément, dire sa peur) ne change que les répliques. Ilona écrit trois mots sous le col de sa veste et la lui rend : « Tu regarderas ce soir. »
+- **L'offre de Théo** ([scène 4](../../histoire/arc-6/#arc6-s4)) : « Je veux que tu restes. Mais pas pour me porter. » ou « Je t'ai coupée toute l'année. Je veux apprendre à te laisser finir. » (bonnes réponses) ; « Théo veut une place dans ton futur. » ; « Ne pas répondre. » ; « J'ai rien à mettre en face de Tokyo. ». Ces réponses sont relues sur les deux routes.
+- **Si Ilona reste** ([scène 5a](../../histoire/arc-6/#arc6-s5a)) : le soir, Jessy construit un dernier objet. Les choix sont « Une porte qui donne sur l'extérieur, sans mur autour. », « Deux panneaux : « finir ses phrases » et « droit de partir ». », « Rien. Juste rester connectés en silence. » ou « Un cadenas sur le coffre commun. ».
+- **Si Ilona part** ([scène 5b](../../histoire/arc-6/#arc6-s5b)) : Jessy refuse de lui demander de rester et reste sous les cerisiers fermés, sans lire les trois mots du col. Le 6 avril, il ne vient pas à la gare.
+
+</Spoiler>
+
+## Route A
+
+<Spoiler requires="routeA">
+
+Quatre jours après les diplômes, Jessy pose des torches « pour s'occuper les mains » et propose une marche en montagne. Sur le sentier, il range pour de bon sa feuille pliée en huit.
+
+- **Le fruit étoilé** ([scène 3](../../histoire/route-a/#routeA-s3)) : « La laisser goûter. » (`ilonanium_points` +1, noyau gardé) ou « Le laisser à la montagne. ».
+- **Au déjeuner** : « Dire qu'il tient à leur amitié. » ou « Lui avouer ce qu'il ressent. ».
+- **Au bivouac** ([scène 5](../../histoire/route-a/#routeA-s5)) : il s'excuse d'avoir préparé les réponses d'Ilona. Il avoue avoir lu « le soir même » les trois mots sous le col. À l'aveu d'Ilona, il répond « Il tient à elle, mais veut rester son ami. » ou « Il l'aime aussi et veut essayer. » (`arc7_jessy_relation`). En couple, il choisit ensuite de garder son hamac ou de rejoindre la tente.
+
+Après une réponse d'amitié, il passe la nuit seul dans le hamac, où Monsieur Laplage vient lui parler. À l'aube, il redescend en tenant la carte à l'envers. Le script enchaîne automatiquement : Fin A3 si Ilona a mangé les six objets cosmiques, fruit compris ; sinon Fin A1 après l'amitié, Fin A2 après l'amour.
+
+</Spoiler>
+
+## Fins
+
+<Spoiler requires="finA1" note="Fin A1">
+
+**Fin A1.** Jessy tient sa promesse du bivouac : il remet au coffre la terrasse qu'il voulait construire et accepte « Je préfère rester seule ce soir ». Il commence une formation (« Lundi, je commence ma formation. »). À la plage de fin d'été, il plante une brindille en guise de porte ; elle résiste à la marée, car « Elle a moins de responsabilités. ». Il demande qu'on lui fasse une place sur la photo. L'année d'après, il dit oui pour un appartement. Trois étés après, il a réparé la porte de son placard : « Maintenant, il faut réussir à l'ouvrir. »
+
+</Spoiler>
+
+<Spoiler requires="finA2" note="Fin A2">
+
+**Fin A2.** Jessy et Ilona trouvent la même annonce pour un restaurant de montagne. Le propriétaire, Monsieur Laplage, le leur donne ; Jessy signe et promet : « Je l'aime. Je vais faire de mon mieux. » Il rate son premier pancake, apprend à ne plus répondre sans regarder Ilona pendant le service et perd une battle de danse contre Théo. Ilona lui annonce : « Tu vas être papa. » Des années plus tard, il est le père de Lucy, avec Oliver à naître.
+
+</Spoiler>
+
+<Spoiler requires="finA3" note="Fin A3">
+
+**Fin A3.** Le lendemain du retour, Ilona tombe malade, puis attire les objets ; Jessy appelle les secours et refuse de la laisser (« Je vais pas te laisser là. »). Monsieur Laplage l'emmène dans le TARDIS sur une plage à deux soleils, tandis que la Terre devient l'Ilonanium. Quarante ans plus tard, Jessy a fondé le culte de Laplage, n'a pas vieilli et entend Ilona. Selon la Route A, il dit « On venait de se choisir. » ou « Je lui avais demandé de rester mon amie. Ça voulait pas dire que j'allais l'abandonner. » Il reste neuf cent quatre-vingt-dix-neuf ans pour faire construire le TAIKUN (« J'ai peur de rester. »). Il accueille ensuite les voyageurs (« Vous avez mis le temps. ») et part reconquérir l'Ilonanium : « Ilona. Je t'entends. Cette fois, je suis là. »
+
+</Spoiler>
+
+<Spoiler requires="finB1" note="Fin B1">
+
+**Fin B1.** Jessy n'apparaît pas et n'est jamais nommé, ni dans cette fin ni sur la Route B. Sur ce chemin, on le voit pour la dernière fois dans la cour, le 26 mars, avec sa veste.
+
+</Spoiler>
+
+<Spoiler requires="finB2" note="Fin B2">
+
+**Fin B2.** Jessy n'apparaît pas et n'est jamais nommé, ni dans cette fin ni sur la Route B. Sur ce chemin, on le voit pour la dernière fois dans la cour, le 26 mars, avec sa veste.
+
+</Spoiler>
+
+</TabItem>
+<TabItem label="Galerie">
+
+<Gallery prefix="images/personnages/Jessy/" sprite />
+
+<Gallery prefix={["images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg", "images/scenes/cg/jessy_epopee/", "images/scenes/cg/friend/", "images/scenes/cg/family/", "images/scenes/cg/ilonanium/01_attraction.png", "images/scenes/cg/ilonanium/02_gravite.png", "images/scenes/cg/ilonanium/03_laplage.png", "images/scenes/cg/ilonanium/04_echec.png", "images/scenes/cg/ilonanium/05_adieu.png", "images/scenes/cg/ilonanium/14_calin_jessy_theo.png", "images/scenes/cg/ilonanium/16_jessy_survivants.png"]} />
+
+</TabItem>
+</Tabs>

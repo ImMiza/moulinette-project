@@ -1,0 +1,77 @@
+---
+title: "Arc II — Vacances d'été : la plage"
+description: Deuxième arc de Moulinette. Résumé sans spoiler, scènes, choix et résumé détaillé protégés.
+sidebar:
+  order: 3
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc I](../arc-1/), avant l'[Arc III](../arc-3/).
+**Fichier** : `arcs/arc_2/arc_2_plage.rpy`.
+:::
+
+## En bref
+
+<Spoiler requires="arc1" note="mise en place de l'arc, suppose l'arc précédent terminé">
+
+Juillet. Allan organise une journée à la mer pour le samedi suivant : Jessy, Ilona, Alexandre, lui-même… et Théo, un ami d'Allan que Jessy ne connaît que de réputation, « toujours là au bon moment, toujours avec une réponse prête ». Une journée sans cours ni rumeurs, en théorie. L'arc suit cette sortie, du train du matin jusqu'à une soirée sur la maison Minecraft.
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc2">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Théo](../../personnages/theo/) (première apparition à l'écran), [Allan](../../personnages/allan/), [Alexandre](../../personnages/alexandre/), [Sofiane](../../personnages/sofiane/) (dans le train), [Monsieur Laplage](../../personnages/laplage/) (table des objets trouvés).
+- **Lieux** : couloir de l'école, train vers la mer, plage (coin du parasol, stand de kakigōri, jetée, mares entre les rochers, table des objets trouvés, coucher de soleil), maison Minecraft de nuit.
+- **Objets** : le porte-clés bloc d'Ilona, la photo de groupe, la gelée marine lumineuse, une coquille blanche (selon un choix).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc2" />
+
+## Choix majeurs
+
+<Spoiler requires="arc2">
+
+- **« Je peux y aller ? »** (scène 7, choix pivot) : confiance, suivre, pique, dix minutes ou départ sans réponse. Ce choix fixe `arc2_choix_activite_theo`, qui oriente toute la fin de l'arc. Il est aussi relu aux arcs 3, 4, 5 et 6. La confiance donne le souvenir `ilona_libre_sans_abandon` ; les dix minutes donnent `jessy_nomme_sa_peur`. Suivre Ilona coûte le plus : autonomie −6, confiance −6, jalousie +9.
+- **Le coucher de soleil** (scène 10) : se taire, reconnaître son erreur (souvenir `jessy_repare` après une mauvaise réaction aux mares), interroger Ilona sur Théo, ou nommer sa peur. Le choix est relu à l'ouverture de l'Arc III.
+- **Le porte-clés** (scène 4) : remercier Théo, offrir une coquille, plaisanter ou se taire. Les effets restent chiffrés.
+- **La photo** (scène 5) : `arc2_photo_reaction`, relu une seule fois plus tard.
+- **La gelée marine** (scène 11) : la laisser la manger rapporte 1 point d'objet cosmique (`ilonanium_points`) et le souvenir `maison_respectee`. L'option disparaît si Ilona a fermé la porte de la maison ce soir-là.
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc2" note="résumé complet de l'arc">
+
+**Avant le départ**
+
+Dans le couloir de l'école, Allan annonce la plage et cite Théo parmi les invités. Le samedi, dans le train, Ilona rêve d'une « cuisine de plage » pour leur maison Minecraft ; Sofiane apparaît, des chips à la main, parce que « la mer a appelé ».
+
+**Une journée où Théo remarque tout**
+
+Sur la plage, Théo s'impose par petites attentions. Il prévient que la marée monte et pose le sac d'Ilona à l'ombre sans demander. Au stand de kakigōri, Ilona perd son porte-clés bloc, celui de la maison : Jessy fouille au hasard, Théo le retrouve grâce à sa mémoire des détails. Jessy reconnaît dans le sourire d'Ilona celui qu'elle lui réservait quand il réparait quelque chose. La photo de groupe le place au bord du cadre, Ilona près de Théo. Plus tard, Théo coupe Ilona au milieu d'une phrase, et Allan le reprend : « Ralentis. »
+
+**Les mares**
+
+Ilona veut voir les mares entre les rochers ; Théo propose le chemin par la jetée et elle demande à Jessy : « Je peux y aller ? » Si Jessy la laisse partir, Théo s'excuse auprès d'elle et lui confie qu'avec elle, il aimerait « juste... écouter ». Si Jessy la suit, la confrontation éclate (« Je voulais marcher. Pas passer un test de fidélité. »). S'il disparaît, Théo explique à Ilona que Jessy a peur de la laisser « exister sans lui ».
+
+**Objets trouvés et coucher de soleil**
+
+Sur le chemin du retour, Ilona croise Monsieur Laplage derrière une table d'objets trouvés. Il parle d'objets rendus trop vite et constate que « la plage est sèche ». Elle confie ensuite à Allan qu'elle aimerait finir ses phrases « avant qu'on trouve une solution pour moi ». Au coucher du soleil, Jessy et Ilona se retrouvent ; selon les choix, la discussion répare, blesse ou fait naître une phrase lourde : « Si je voulais être avec Théo, je serais avec Théo. »
+
+**La maison Minecraft**
+
+Le soir, Ilona peut murer la porte d'entrée, ouvrir le couloir sans issue, poser une lanterne bleue dans la cuisine d'été ou errer seule. Le gobelet de gelée marine attend sur son bureau. L'été se clôt sur l'une de trois conclusions : rien de réparé, rien de tranché, ou une confiance qui « se construit pas à pas ».
+
+</Spoiler>
+
+## Suite
+
+L'histoire continue avec l'[Arc III](../arc-3/).

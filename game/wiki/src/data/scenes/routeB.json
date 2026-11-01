@@ -1,0 +1,300 @@
+{
+  "arc": "routeB",
+  "title": "ARC 7 : LE MONDE APRÈS LE DÉPART",
+  "file": "arcs/arc_7/arc_7_theo.rpy",
+  "scenes": [
+    {
+      "id": "routeB-s1",
+      "title": "Arrivée à Tokyo",
+      "label": "arc_7_theo",
+      "lines": "71-148",
+      "requires": "routeB",
+      "location": "Gare de Tokyo, puis rues jusqu'à l'appartement",
+      "characters": ["ilona", "theo"],
+      "summary": "Le titre « ARC 7 : LE MONDE APRÈS LE DÉPART » s'affiche, suivi d'un rappel du narrateur qui varie selon la raison de la bascule de l'arc 6 (petites coupures répétées, manque d'espace autour d'Ilona, ou « trace fausse » si la route a été forcée) et selon la façon dont l'offre de Théo s'est imposée (arc6_offre_theo : laisse, accusation, question, aveu_vide).\n\nLe 6 avril, Ilona et Théo sortent de la gare. Ilona est submergée par les écrans et la foule, attrape la manche de Théo quand elle le perd de vue. Théo porte sa valise (« Vingt-deux virgule huit. Je l'ai pesée avant de partir. »). Ilona photographie tout sur le trajet jusqu'à l'appartement, à deux rues du studio.",
+      "consequences": [
+        "Variables écrites : derniere_route = \"Route Théo\" ; controle_repetitif recalculé (interruptions_ilona - interruptions_reparees) (arc_7_theo.rpy:72-73).",
+        "Rappel conditionnel lisant controle_repetitif, arc6_score / SEUIL_JESSY et arc6_offre_theo (arc_7_theo.rpy:81-95)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_arrival_station.jpg"],
+      "music": ["audio/music/tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s2",
+      "title": "L'appartement : le rêve commence",
+      "label": "arc_7_theo",
+      "lines": "149-217",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (matin)",
+      "characters": ["ilona", "theo"],
+      "summary": "Le studio a loué pour eux un appartement clair de deux chambres, « pour huit mois au moins ». Ilona visite chaque pièce comme un cadeau. Théo lui laisse la chambre la plus calme ; elle refuse et lui laisse, en imitant son ton de « présentateur du journal ».\n\nIls fixent des règles de colocation : chacun sa chambre, message avant intrusion, pas de réunion de travail pendant les repas, celui qui finit le café en rachète. La régie vit dans une autre colocation. Ilona exige de voir le studio tout de suite.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s3",
+      "title": "La visite du studio",
+      "label": "arc_7_theo",
+      "lines": "219-282",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "theo"],
+      "summary": "Deux rues plus loin, Théo montre à Ilona sa pièce : écrans, micro, lumières violettes et son pseudo déjà affiché. Elle commence le lendemain soir ; l'équipe a préparé un teaser et des relais partenaires. Théo propose de repousser si elle préfère ; elle refuse : « Je vais être terrifiée. Mais je suis sûre. »\n\nElle s'entraîne micro coupé (« Coucou tout le monde... ») et trouve la phrase nulle.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s4",
+      "title": "Le premier stream",
+      "label": "arc_7_theo",
+      "lines": "284-367",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "theo", "tchat"],
+      "summary": "Le lendemain soir, 832 personnes attendent. Théo conseille de parler « à une personne. Puis à la suivante » et reste en régie. Première soirée d'IlonaGaming : Ilona rate le tutoriel, accuse la manette, laisse le micro ouvert ; le tchat (sakura_mod, pixel_ramen, darkflame92…) transforme chaque erreur en blague. Pic à 2 417 spectateurs.\n\nAprès le direct, elle a adoré. Théo cite la rétention et les extraits ; « Très romantique », plaisante-t-elle quand il dit protéger son investissement. « L'équipe les a fait venir. Toi, tu les as fait rester. »",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/ilona_stream.ogg"]
+    },
+    {
+      "id": "routeB-s5",
+      "title": "Le premier soir après le stream",
+      "label": "arc_7_theo",
+      "lines": "369-411",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Nouilles sur la table basse. Ilona rêve à voix haute d'un jeu d'horreur et d'un stream en extérieur ; Théo répond aussitôt autorisations et logistique (« Les idées servent à devenir des projets »). Elle lui demande de la laisser être une idée jusqu'au lendemain.\n\nDans six mois, Théo voit une chaîne installée et une équipe stable ; Ilona voit un tapis. Ils trinquent avec deux canettes.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/apart_tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s6",
+      "title": "Dix jours plus tard : l'invitation",
+      "label": "arc_7_theo",
+      "lines": "413-447",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "En dix jours, ils trouvent leur rythme ; les streams réunissent 1 500 à 3 000 spectateurs et le salon gagne un tapis. Le dixième soir, Théo fixe son téléphone éteint, puis invite Ilona dans un bon restaurant, « pas professionnel ». Elle accepte.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/apart_tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s7",
+      "title": "Le trajet et le restaurant",
+      "label": "arc_7_theo",
+      "lines": "449-571",
+      "requires": "routeB",
+      "location": "Konbini du quartier, puis petit restaurant",
+      "characters": ["ilona", "theo"],
+      "summary": "Sur le trajet, Théo regarde l'heure sans arrêt et parle plus que d'habitude. Au restaurant, ils commandent en montrant des photos. Théo finit par demander : « Ilona... est-ce que tu veux sortir avec moi ? Pour de vrai. » Elle le fait un peu attendre, puis accepte.\n\nIlona demande qu'ils gardent une différence entre le travail et eux ; Théo promet : « Je dois entendre ton non. Même si on sort ensemble. » Premier baiser au dessert ; ils sortent officiellement ensemble.",
+      "consequences": ["La promesse « entendre ton non » est rappelée par Ilona au choix final (arc_7_theo.rpy:1419 et 1466)."],
+      "backgrounds": [
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_konbini_night.png",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.jpg"
+      ],
+      "music": ["audio/music/night-walk.ogg", "audio/music/resto_jazz.ogg"]
+    },
+    {
+      "id": "routeB-s8",
+      "title": "Le retour du restaurant",
+      "label": "arc_7_theo",
+      "lines": "572-610",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Ilona classe la soirée dans son « top trois ». Théo propose de regarder Kung Pow ; ils le lancent volume bas et rient sans regarder l'heure.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/apart_tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s9",
+      "title": "Le lendemain : dix mille abonnés",
+      "label": "arc_7_theo",
+      "lines": "612-639",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "tchat"],
+      "summary": "Ilona arrive en direct pleine d'énergie ; la chaîne franchit les 10 000 abonnés. Le tchat soupçonne la raison de son sourire (« CE SOURIRE EST SUSPECT ») ; elle refuse toute enquête.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/ilona_stream.ogg"]
+    },
+    {
+      "id": "routeB-s10",
+      "title": "Se retrouver après leurs journées",
+      "label": "arc_7_theo",
+      "lines": "641-675",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Théo a suivi le stream entre deux appels (« Tu as débordé de vingt-sept minutes »). Ils échangent les petits riens de leurs journées, puis Théo propose une promenade au parc sans ouvrir son planning.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/apart_tokyo.ogg"]
+    },
+    {
+      "id": "routeB-s11",
+      "title": "La promenade et l'avertissement de Laplage",
+      "label": "arc_7_theo",
+      "lines": "677-762",
+      "requires": "routeB",
+      "location": "Parc de nuit, Tokyo",
+      "characters": ["ilona", "theo", "laplage"],
+      "summary": "Théo a déjà imaginé les six prochains mois. Sur un banc, Monsieur Laplage les salue, café à la main. Il conseille de garder « une place au rien » : une soirée sans objectif, une idée qui ne devient pas un projet, « un non qui ne demande pas d'explication ». « Le bonheur peut parler très fort. Vérifiez seulement qu'il ne répond pas à votre place. » Puis : « Parfois, je vends des boissons. »\n\nIlona finit la promenade « sans destination », main dans la main ; le banc est vide quand elle se retourne. Ellipse : pendant le premier mois, ils séparent encore stream et couple, puis sponsors et VOD urgentes remplacent promenades et dîners (« on se rattrape demain »).",
+      "consequences": ["La « place au rien » est rappelée le 6 décembre : « Le carnet de planning n'en contient plus » (arc_7_theo.rpy:1029)."],
+      "backgrounds": [
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg"
+      ],
+      "music": ["audio/music/night-walk.ogg"]
+    },
+    {
+      "id": "routeB-s12",
+      "title": "Juin : cent mille abonnés",
+      "label": "arc_7_theo",
+      "lines": "764-836",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "theo", "tchat"],
+      "summary": "En juin, deux mois après le lancement, la chaîne atteint 100 000 abonnés en direct (6 000 à 8 000 spectateurs réguliers). Ilona remercie, émue.\n\nThéo arrive avec un « cadeau » : une opération spéciale avec une grande marque la semaine suivante. Ilona répond « Ah. », puis « merci » « comme si je venais de t'offrir une facture ». Théo promet de fêter les cent mille au restaurant après l'opération, puis repart travailler ; le dîner attend au frigo (« Deux minutes trente. J'ai testé. »).",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/ilona_stream.ogg"]
+    },
+    {
+      "id": "routeB-s13",
+      "title": "Le repas qui attend",
+      "label": "arc_7_theo",
+      "lines": "838-864",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Ilona mange seule. Par message, Théo lui dit de ne pas l'attendre. Elle s'endort sur le canapé ; le film qu'ils devaient voir n'a jamais été lancé.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "routeB-s14",
+      "title": "L'opération spéciale",
+      "label": "arc_7_theo",
+      "lines": "866-899",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "tchat"],
+      "summary": "L'opération dépasse les deux heures prévues ; le sponsor offre 100 subs, Ilona réussit le défi et les retours sont excellents. Dès la coupure, ses épaules retombent : chaque succès ajoute une case au planning.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/ilona_stream.ogg"]
+    },
+    {
+      "id": "routeB-s15",
+      "title": "Le film qui attend encore",
+      "label": "arc_7_theo",
+      "lines": "901-947",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Le sponsor parle déjà d'une deuxième opération. Ilona, lessivée, propose de regarder Shaolin Soccer « sans téléphone ». Théo part en déplacement tôt le lendemain (« C'était dans le planning commun ») ; ils mangent et se couchent.\n\nEllipse sur huit mois : la chaîne devient leur travail, leur sujet et presque leur seule activité commune. Ilona retourne le carnet de planning face contre table ; Théo l'allège de deux rendez-vous et le remet face visible.",
+      "backgrounds": [
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg"
+      ],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "routeB-s16",
+      "title": "Le 6 décembre, au matin",
+      "label": "arc_7_theo",
+      "lines": "948-1046",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (matin)",
+      "characters": ["ilona", "theo"],
+      "summary": "Le 6 décembre, IlonaGaming est un succès national. Ilona porte désormais les cheveux courts. Plusieurs rappels conditionnels évoquent le stylo violet, la phrase sur le stream « sérieux », l'écharpe de Théo, le carnet de croquis de Noël, le second carnet de planning et la plage (porte-clés, mares).\n\nThéo a commandé des pancakes « sans melon » et remet le carnet face visible : demain, brief agence à 10 h, tournage sponsor avancé à 14 h, stream le soir ; il a déjà retiré un essayage et une interview. « Si on tient le rythme maintenant, après on pourra respirer. » Le narrateur conclut : « Avec Théo, être comprise et être conduite prennent souvent la même voix. »",
+      "consequences": [
+        "Variantes lues : arc6_stylo (garde, rendu_explique, rendu, blague), souvenirs[\"ilona_veut_streamer_serieusement\"], arc4_ilona_avec_theo, arc4_5_theo_proposition (gestion_stream, question, temps, autre), arc2_choix_activite_theo (suivre, disparaitre, autre) (arc_7_theo.rpy:959-1027)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_morning.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "routeB-s17",
+      "title": "Les paliers",
+      "label": "arc_7_theo",
+      "lines": "1048-1113",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "theo"],
+      "summary": "Le soir, au studio, la « chance fragile » est devenue une machine. Retour sur les paliers : fin août, 250 000 abonnés et une photo cadrée par Théo pour la marque ; fin octobre, 600 000 abonnés, un gâteau au studio et un tweet que Théo rédige (« Mets le cœur »). À chaque palier, Ilona sourit sur les photos.\n\nLa régie prépare un tournage extérieur et partira avant l'aube le lendemain du million. « Puis vient le million. Il est 23 h passées. »",
+      "consequences": [
+        "Variantes lues : arc5_fin_minecraft == \"theo_presence\", arc6_offre_theo (question, aveu_vide), arc5_theo_proposition (partiel, laisse, refuse, questionne) (arc_7_theo.rpy:1057-1105).",
+        "Départ de la régie rappelé dans la Fin B2 (bad_ending.rpy:38)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/apart_tokyo_sad.ogg"]
+    },
+    {
+      "id": "routeB-s18",
+      "title": "Le million",
+      "label": "arc_7_theo",
+      "lines": "1115-1257",
+      "requires": "routeB",
+      "location": "Studio de streaming, Tokyo",
+      "characters": ["ilona", "theo", "tchat"],
+      "summary": "En veste bleue et longue perruque blanche, Ilona franchit le million d'abonnés après huit mois, devant plus de 46 000 spectateurs. Au tchat qui demande « tu nous quittes jamais hein ?? », elle répond « Jamais ! ». Le stream coupé, son visage se décompose.\n\nThéo apporte un verre d'eau sans glaçons, l'embrasse, puis revient aux écrans : trois mails, dont une campagne de six mois. « Quand tu dis \"on\", tu parles de qui ? » Ilona lui reproche de connaître ses goûts sans savoir ce qu'elle veut. Deux minutes de silence ; elle retire la perruque et remet son pull gris avant de partir.",
+      "consequences": [
+        "Variantes lues : arc3_reaction_rumeur (blague_desarm / silence_paralysie ou autre), arc4_reaction_cadeau_theo (blague_acide, verite_crue) (arc_7_theo.rpy:1153-1233).",
+        "La campagne de six mois est signée dans la Fin B2 (bad_ending.rpy:44) et retirée dans la Fin B1 (ending_neutre.rpy:105)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_streaming_studio_night.jpg"],
+      "music": ["audio/music/ilona_stream.ogg", "audio/music/sadness.ogg"]
+    },
+    {
+      "id": "routeB-s19",
+      "title": "Le konbini",
+      "label": "arc_7_theo",
+      "lines": "1258-1286",
+      "requires": "routeB",
+      "location": "Konbini, entre le studio et la maison",
+      "characters": ["ilona", "theo"],
+      "summary": "Théo propose un onigiri ; le thon-mayo a « remonté » dans son classement (« Trahison »). Ilona n'a pas faim. Théo n'insiste pas et ne traverse pas la rue.",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_konbini_night.png"],
+      "music": ["audio/music/sadness.ogg"]
+    },
+    {
+      "id": "routeB-s20",
+      "title": "La demande d'Ilona",
+      "label": "arc_7_theo",
+      "lines": "1287-1359",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Dans la maison éteinte, Ilona dit qu'il n'y a presque plus de « nous » sans la chaîne : elle se sent seule « alors que je suis censée être entourée d'un million de personnes ». Théo remarque qu'elle tire sur sa manche, promet un moment à deux… « pas tout de suite ».\n\nElle demande le lendemain après-midi. Théo a les sponsors à 15 h, « peut essayer » de déplacer. Elle propose d'annuler le stream du soir : « Annuler le soir du million, ce serait un mauvais signal. » « À qui ? » « Aux gens. Aux marques. À l'algorithme. » « Et à moi ? »",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/sadness.ogg"]
+    },
+    {
+      "id": "routeB-s21",
+      "title": "La réponse de Théo",
+      "label": "arc_7_theo",
+      "lines": "1360-1501",
+      "requires": "routeB",
+      "location": "Appartement de Tokyo (nuit)",
+      "characters": ["ilona", "theo"],
+      "summary": "Le joueur choisit la réponse de Théo.\n\nS'il écoute, Théo propose aussitôt de tout décaler et de prévenir l'équipe ; Ilona lui reproche d'organiser encore à sa place. Il demande ce qu'elle veut annuler : « Tout. Pour demain, tout. Et je veux écrire le message moi-même. » Elle demande une vraie pause du stream ; Théo avoue sa peur, « Mais c'est ma peur. Pas ta consigne. »\n\nS'il priorise les sponsors, Théo décide : sieste l'après-midi, sponsors pour lui, stream d'une heure à 20 h, ralentir « après cette vague ». « C'est toujours après. » Il dit entendre son non mais lui demande de lui faire confiance. Ilona répond « Je comprends », va se coucher et pleure seule, le porte-clés bloc de la plage à la main.",
+      "choices": [
+        {
+          "line": 1365,
+          "prompt": "La réponse de Théo.",
+          "options": [
+            { "text": "Annuler les sponsors, écouter Ilona.", "effects": "aucune variable ; jump ending_neutre (Fin B1)" },
+            { "text": "Prioriser les sponsors, la chaîne avant tout.", "effects": "aucune variable ; musique audio.depressed ; jump bad_ending (Fin B2)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Option 1 → Fin B1 (arc_7_theo.rpy:1436).",
+        "Option 2 → Fin B2 (arc_7_theo.rpy:1501).",
+        "Variantes de l'option 2 : arc4_5_theo_proposition == \"gestion_stream\", sinon arc4_ilona_avec_theo (arc_7_theo.rpy:1476-1479)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png"],
+      "music": ["audio/music/sadness.ogg", "audio/music/depressed.ogg"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "image_gen (outil intégré)",
+  "mode": "edit, precise-object-edit",
+  "date": "2026-10-26",
+  "reference": "images/scenes/illonanium/plage_exoplanete.png",
+  "output": "images/scenes/backgrounds/ilonanium/plage_deux_soleils.png",
+  "native_source": "C:/Users/Allan/.codex/generated_images/01a179fc-a582-7d01-be68-895550db7bbd/exec-e5f19bda-25ae-4d29-9a22-ff0db116edba.png",
+  "runtime_canvas": [
+    1920,
+    1080
+  ],
+  "use": "Arrivée de Jessy et Laplage sur l'exoplanète et sauvetage, avant la reconstruction ; deux soleils visibles.",
+  "prompt": "Use case: precise-object-edit.\nAsset type: finished visual-novel background for the first arrival on an uninhabited exoplanet, before forty years of human rebuilding.\nImage 1 is the EDIT TARGET and continuity reference. Create the SAME alien beach seen here but BEFORE any human settlement. Remove ALL buildings, towers, cranes, pipes, platforms, railings, signs, logos, lettering, docks, roads and every manufactured structure from the left half and the horizon. Replace that whole industrial city with a natural rocky headland, low coastal cliffs, distant untamed islands and sparse alien coastal vegetation, matching the existing rocky beach. Preserve the same open sandy foreground, large shoreline boulder on the right, tide pools, small natural vegetation and sea, the original eye-level viewpoint and broad beach composition. Keep the horizon unobstructed.\nCrucial: exactly TWO visible suns, both intact and unambiguously separate: the large orange-red sun near the ocean horizon toward the middle, and the smaller bright pale-yellow sun higher on the right, as in the reference. Preserve their two warm reflections and late-day colors. No moons, no planets, no extra light disks.\nStyle: keep the reference's hand-drawn anime visual novel illustration, clean dark linework, soft painterly cel shading, detailed natural surfaces, warm amber sand and cool purple twilight sky. A strange beautiful unfamiliar shore, not an Earth beach resort. Wide 16:9 composition, opaque PNG, ideally 1920 x 1080. Lower 40 percent is quiet empty beach usable behind two or three character sprites and the dialogue box. No people, no crowd, no vehicle, no TARDIS, no ships, no UI, no captions, no borders, no watermark. Change only the evidence of human settlement; retain the natural scene and binary-sun identity."
+}

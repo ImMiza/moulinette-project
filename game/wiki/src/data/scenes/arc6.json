@@ -1,0 +1,340 @@
+{
+  "arc": "arc6",
+  "title": "ARC 6 : LE JOUR OÙ L'ÉCOLE S'ARRÊTE",
+  "file": "arcs/arc_6/arc_6_diplomes.rpy",
+  "scenes": [
+    {
+      "id": "arc6-s1",
+      "title": "Le stylo violet",
+      "label": "arc_6_diplomes",
+      "lines": "155-360",
+      "requires": "arc6",
+      "location": "Salle de classe, le matin de la cérémonie (fin mars)",
+      "characters": [
+        "jessy",
+        "ilona"
+      ],
+      "summary": "Avant même la première image, le jeu fixe le ton de l'arc (arc6_palier, d'après etat_relation()) et calcule une fois pour toutes la route de la suite (arc6_calcule_verdict, ligne 160). Fin mars, les cerisiers de la cour ne sont pas encore ouverts. Jessy arrive à 7 h 50, une heure trop tôt, avec dans la poche le stylo violet d'Ilona qu'il garde depuis le 12 janvier.\n\nIlona entre en mangeant un pain au lait. Selon le ton hérité, elle s'assoit dans la même rangée que lui (proche), dans la rangée d'à côté (indécis) ou deux rangées plus loin, face à la fenêtre (distant). Des rappels conditionnels montrent ce qu'elle transporte : l'écharpe de Théo, l'écharpe coûteuse jamais portée, la miniature de la maison, ou le nouveau mot de passe du serveur écrit sur sa main.\n\nJessy décide quoi faire du stylo : le rendre en expliquant, le garder, le rendre sans un mot ou en faire une blague. La réaction d'Ilona varie avec le ton. La façon dont elle range ensuite sa trousse annonce déjà la direction, puis la classe descend au gymnase.",
+      "choices": [
+        {
+          "line": 227,
+          "prompt": "Que faire du stylo violet ? (pas de question affichée)",
+          "options": [
+            {
+              "text": "Le rendre, et dire pourquoi tu l'as gardé.",
+              "effects": "arc6_stylo = \"rendu_explique\""
+            },
+            {
+              "text": "Le garder encore un peu.",
+              "effects": "arc6_stylo = \"garde\""
+            },
+            {
+              "text": "Le rendre, sans rien ajouter.",
+              "effects": "arc6_stylo = \"rendu\""
+            },
+            {
+              "text": "En faire une blague.",
+              "effects": "arc6_stylo = \"blague\""
+            }
+          ]
+        }
+      ],
+      "consequences": [
+        "Aucun effet sur la route : elle est déjà calculée à la ligne 160.",
+        "arc6_stylo change une réplique de la scène 4 (option « J'ai rien à mettre en face de Tokyo. », lignes 1638-1645) et le geste d'Ilona en scène 5 (lignes 1769-1773 et 1902-1905). Il est relu plus tard dans l'histoire (arc_7_theo.rpy:959-965)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_classroom_morning.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/morning-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s2",
+      "title": "La cérémonie",
+      "label": "arc_6_diplomes",
+      "lines": "362-663",
+      "requires": "arc6",
+      "location": "Gymnase transformé pour la remise des diplômes",
+      "characters": [
+        "alexandre",
+        "allan",
+        "micka",
+        "jessy",
+        "ilona",
+        "sofiane",
+        "theo"
+      ],
+      "summary": "Discours du proviseur, trois cent quarante noms appelés par ordre alphabétique. Micka reçoit son diplôme et trois enveloppes, dont une convocation chez le proviseur adjoint. Au buffet, un gâteau bleu nuit marqué « BONNE ROUTE » : Ilona y voit une planète, Jessy un ballon. Elle le répète avec conviction, avec retard ou pas du tout selon le ton. Le joueur choisit ce qu'Ilona fait de sa part.\n\nSofiane glisse sous le diplôme d'Allan l'enveloppe de décembre qu'il avait laissée sur le banc : « Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit. » Allan, qui a passé l'année à traduire les autres, se rend compte que personne ne lui a demandé où il allait, lui. Alexandre interroge Sofiane sur son travail d'hiver : Sofiane esquive dans tous les cas, et si la scène du maid café a été jouée (arc4_5_sofiane_maid), Jessy et Ilona gardent le secret promis.\n\nAllan aborde enfin Théo sans lui chercher d'excuse. Théo annonce qu'il part à Tokyo le 6 avril, dans onze jours, et qu'il le dira à Ilona aujourd'hui. Il défend son offre sans mauvaise foi : là-bas, personne ne lui demandera de se justifier. Allan part sans rien traduire. Ilona écrit à Jessy : « Salle 3-B. J'ai un feutre. »",
+      "choices": [
+        {
+          "line": 421,
+          "prompt": "Que fait Ilona de sa part de gâteau ?",
+          "options": [
+            {
+              "text": "La garder pour plus tard.",
+              "effects": "aucun effet stocké (texte différent si le ton est distant)"
+            },
+            {
+              "text": "La manger maintenant.",
+              "effects": "arc6_gateau_planete = True, ilonanium_points +1"
+            }
+          ]
+        }
+      ],
+      "consequences": [
+        "ilonanium_points est un compteur caché relu bien plus tard dans l'histoire (voir notes de maintenance). arc6_gateau_planete n'est relu nulle part dans les scripts.",
+        "La réplique « Elle viendra pas » d'Allan et la réponse de Théo varient selon arc6_penchant (lignes 630-649)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_gym_ceremony.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/tense-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s3",
+      "title": "Le récapitulatif",
+      "label": "arc_6_diplomes",
+      "lines": "665-1373",
+      "requires": "arc6",
+      "location": "Salle 3-B décorée pour la fin d'année",
+      "characters": [
+        "jessy",
+        "ilona"
+      ],
+      "summary": "Dans la salle décorée de guirlandes trop courtes, Ilona a gardé la veste d'uniforme de Jessy sur ses genoux et tient un feutre indélébile. Elle annonce un « truc bizarre » : raconter l'année dans l'ordre, pour la première fois, à quelqu'un. Elle dit détester le mot « souvenir », qui sert à ranger ce qui est fini.\n\nSi au moins un choix concerné a été fait plus tôt (arc6_flashback), la scène passe en flashbacks : la plage, la rumeur du festival, la maison Minecraft, Noël, la nuit avec Théo, le cinéma, la gare. Chaque vignette est racontée par Ilona et dépend de ce que Jessy a fait à ce moment-là. Avant Noël, elle s'interrompt (« Je saute un truc ») puis se reprend. Sans aucun de ces choix, elle se contente des petites choses.\n\nAprès un choix de posture, Ilona dit si elle se souvient d'avoir respiré avec lui, si elle ne sait plus pourquoi elle est restée, ou si elle était déjà en train de partir. Si Jessy l'a coupée sans réparer (interruptions_ilona > interruptions_reparees), elle finit enfin la phrase qu'il avait interrompue. Si la fatigue est trop forte (pression_stream ≥ 12 ou arc5_tension_accumulee ≥ 8), elle craque : « Je suis fatiguée. Depuis septembre. »\n\nJessy lui fait remarquer qu'elle n'a jamais parlé d'elle. Elle écrit trois mots au feutre sous le col de la veste, sans les montrer, et lui rend la veste pliée : « Tu regarderas ce soir. » Ils sortent dans le couloir, où quelqu'un attend.",
+      "choices": [
+        {
+          "line": 1116,
+          "prompt": "Réponse de Jessy après « À pourquoi je suis encore là. » (pas de question affichée)",
+          "options": [
+            {
+              "text": "La laisser continuer.",
+              "effects": "aucun effet stocké"
+            },
+            {
+              "text": "Lui demander si elle parle de Théo.",
+              "effects": "aucun effet stocké"
+            },
+            {
+              "text": "S'excuser, précisément.",
+              "effects": "aucun effet stocké (réponse d'Ilona différente si souvenir jessy_repare)"
+            },
+            {
+              "text": "Dire qu'il a peur de la perdre, sans le poser sur elle.",
+              "effects": "aucun effet stocké"
+            }
+          ]
+        }
+      ],
+      "consequences": [
+        "Le commentaire du code le dit lui-même (ligne 1098) : ce menu ne décide pas la route.",
+        "Vignettes jouées : arc6_vignettes_jouees (plage, rumeur, maison, noel, nuit_theo, cinema, gare, phrase_finie, craquage). La variable n'est relue nulle part ailleurs.",
+        "arc6_ilona_a_pleure = True en cas de craquage (ligne 1270). La variable change seulement l'expression d'Ilona à la ligne 1292.",
+        "La variable controle_repetitif est recalculée dans le store à la ligne 1201 et relue plus tard (arc_7_theo.rpy:81).",
+        "Les trois mots écrits sous le col ne sont jamais révélés dans l'arc 6."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_classroom_festive.jpg",
+        "images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg",
+        "images/scenes/backgrounds/school/bg_arc3_festival_hallway.jpg",
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg",
+        "images/scenes/backgrounds/winter/bg_arc4_christmas_market.jpg",
+        "images/scenes/backgrounds/winter/bg_arc4_park_bench.jpg",
+        "images/scenes/backgrounds/city/bg_arc5_cinema_seated.jpg",
+        "images/scenes/backgrounds/transport/bg_arc5_train_station.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/melancolique-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s4",
+      "title": "L'offre de Théo",
+      "label": "arc_6_diplomes",
+      "lines": "1375-1723",
+      "requires": "arc6",
+      "location": "Couloir vide du deuxième étage",
+      "characters": [
+        "theo",
+        "ilona",
+        "jessy"
+      ],
+      "summary": "Théo attend seul dans le couloir vide, entre la salle et l'escalier. Il demande cinq minutes à Ilona et propose à Jessy de rester. Jessy recule jusqu'aux fenêtres : assez loin pour ne pas entrer dans leur face-à-face, assez près pour entendre. Théo décrit une offre concrète : un studio à Tokyo, une équipe qui gère déjà trois chaînes, une modération, un planning, et un endroit où personne ne connaît la plage, la rumeur, Noël ni la gare. Le narrateur insiste : il ne ment pas.\n\nIlona demande s'il lui propose une opportunité ou s'il lui demande de venir avec lui. Si le ton est distant, Théo répond « Les deux ». Sinon, il hésite pour la première fois et avoue : « Je veux que tu viennes. » Jessy s'avance (« J'ai tout entendu »). Sa place dans le couloir dépend du ton. Théo s'en prend alors à lui avec des faits réels des arcs précédents, choisis par arc6_construit_attaques_theo(). S'il n'a rien à lui reprocher, il parle d'usure, ou dit que Jessy a appris.\n\nIlona coupe court : pas de procès, pas de sauvetage. « Et toi, qu'est-ce que tu veux ? » Si la réponse de Jessy est juste (souvenir_flag_bonne), Théo perd son sourire, ou reconnaît que c'est « bien dit », mais trop tard, si le ton est distant. Sinon, il garde « une place vide dans le train ». Il fixe une date limite au 3 avril. Ilona passe devant eux et pousse la porte des escaliers. Le label arc_6_calcul qui suit ne recalcule rien.",
+      "choices": [
+        {
+          "line": 1589,
+          "prompt": "Que répond Jessy ?",
+          "options": [
+            {
+              "text": "« Je veux que tu restes. Mais pas pour me porter. »",
+              "effects": "arc6_offre_theo = \"question\", arc6_conversation = \"que_veux_tu\", souvenir_flag_bonne = True"
+            },
+            {
+              "text": "« Théo veut une place dans ton futur. »",
+              "effects": "arc6_offre_theo = \"accusation\", arc6_conversation = \"eviter\", souvenir_flag_bonne = False"
+            },
+            {
+              "text": "« Je t'ai coupée toute l'année. Je veux apprendre à te laisser finir. »",
+              "effects": "arc6_offre_theo = \"question\", arc6_conversation = \"aveu_interruptions\", souvenir_flag_bonne = True"
+            },
+            {
+              "text": "Ne pas répondre.",
+              "effects": "arc6_offre_theo = \"laisse\", arc6_conversation = \"partir\", souvenir_flag_bonne = False"
+            },
+            {
+              "text": "« J'ai rien à mettre en face de Tokyo. »",
+              "effects": "arc6_offre_theo = \"aveu_vide\", arc6_conversation = \"continuer\", souvenir_flag_bonne = False (réplique variable selon arc6_stylo)"
+            }
+          ]
+        }
+      ],
+      "consequences": [
+        "Aucun effet sur la route : elle est déjà fixée (commentaire des lignes 1379-1380).",
+        "arc6_offre_theo et arc6_conversation sont relus dans les deux suites possibles (arc_7_jessy.rpy:997-1014, arc_7_theo.rpy:88-95 et 1059-1061).",
+        "souvenir_flag_bonne ne sert qu'à la réaction de Théo juste après (lignes 1654-1680)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_shared_school_corridor.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/tense-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s5",
+      "title": "La décision",
+      "label": "arc_6_decision",
+      "lines": "1726-1760",
+      "requires": "arc6",
+      "location": "Cour du lycée, 26 mars, cerisiers encore fermés",
+      "characters": [
+        "ilona",
+        "jessy",
+        "theo"
+      ],
+      "summary": "La cour, le 26 mars. Les cerisiers longent la grille, encore fermés, et les affiches de la cérémonie claquent contre les vitres. Ilona marche devant. Jessy et Théo la suivent chacun d'un côté, sans oser réduire la distance.\n\nElle les arrête : « Je vais le dire moi-même. Une fois. Et vous allez me laisser finir ma phrase. » La suite dépend uniquement de arc6_route, calculée au début de l'arc : soit la variante où elle reste, soit celle où elle part.",
+      "choices": [],
+      "consequences": [
+        "Si arc6_route == \"jessy\", la scène continue avec arc_6_decision_jessy, sinon avec arc_6_decision_theo (lignes 1757-1760)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_courtyard_march.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/melancolique-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s5a",
+      "title": "La décision : Ilona reste",
+      "label": "arc_6_decision_jessy",
+      "lines": "1763-1892",
+      "requires": "routeA",
+      "condition": "Seulement si le verdict calculé au début de l'arc a donné arc6_route = \"jessy\"",
+      "location": "Cour du lycée, puis maison Minecraft le soir",
+      "characters": [
+        "ilona",
+        "jessy",
+        "theo"
+      ],
+      "summary": "Ilona range le stylo violet dans sa trousse, avec ceux qui servent tous les jours. Si Jessy l'avait gardé, elle tend la main et il le lui rend enfin. Le carnet offert par Théo finit au fond de son sac, rangé avec ce qui appartient à avant. « Je vais rester avec Jessy. » Elle le choisit parce qu'avec lui elle peut encore décider elle-même où elle va, pas parce qu'il saurait mieux que Théo. Elle ne lui épargne rien : il n'a pas été à la hauteur, il a coupé, repoussé, eu peur. Le stream restera peut-être petit et amateur, jusqu'au jour où elle décidera qu'il est sérieux.\n\nThéo répond « Tu vas regretter » si le ton est distant ou si influence_theo ≥ 8. Sinon : « Je pensais vraiment que tu viendrais. » Il recule et s'en va seul. Le soir, Jessy lance le serveur Minecraft. Ilona lui demande ce qu'ils laissent dans la maison, et Jessy construit un dernier objet. La narration conclut qu'après tout ce qu'ils avaient fait cette année, elle ne pouvait presque pas décider autrement.",
+      "choices": [
+        {
+          "line": 1850,
+          "prompt": "Que construit Jessy en dernier ?",
+          "options": [
+            {
+              "text": "Une porte qui donne sur l'extérieur, sans mur autour.",
+              "effects": "arc6_derniere_construction = \"porte_ouverte\""
+            },
+            {
+              "text": "Deux panneaux : « finir ses phrases » et « droit de partir ».",
+              "effects": "arc6_derniere_construction = \"panneau_partir\""
+            },
+            {
+              "text": "Rien. Juste rester connectés en silence.",
+              "effects": "arc6_derniere_construction = \"silence\""
+            },
+            {
+              "text": "Un cadenas sur le coffre commun.",
+              "effects": "arc6_derniere_construction = \"cadenas\""
+            }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc6_derniere_construction est relu au début de la suite (arc_7_jessy.rpy:147-154) : la porte, le panneau et le cadenas ont chacun leur texte, « silence » passe par le cas par défaut.",
+        "Fin de la scène : jump arc_7_jessy (ligne 1892), c'est-à-dire la Route A."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_courtyard_march.jpg",
+        "images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/melancolique-piano.ogg",
+        "audio/music/Subwoofer-Lullaby.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s5b",
+      "title": "La décision : Ilona part",
+      "label": "arc_6_decision_theo",
+      "lines": "1895-1977",
+      "requires": "routeB",
+      "condition": "Seulement si le verdict calculé au début de l'arc n'a pas donné arc6_route = \"jessy\"",
+      "location": "Cour du lycée",
+      "characters": [
+        "ilona",
+        "jessy",
+        "theo"
+      ],
+      "summary": "Ilona rend à Jessy sa veste, pliée proprement. Si Jessy a gardé le stylo violet, elle ne le réclame pas. Sinon, elle le met dans la poche extérieure de son sac, pas dans sa trousse. « Je vais partir avec Théo. » Elle ne dit pas que Théo a tout compris. Il marche vers demain, alors que Jessy marche vers « plus tard » si sa réponse à la gare était de demander du temps (arc5_question_reponse == \"temps\"), ou arrive avec tout ce qu'il a fallu porter avant.\n\nCe n'est pas une punition : « T'as pas mal fait. T'as fait lentement. Sur certaines choses, c'est la même conséquence. » Jessy refuse de lui demander de rester pour qu'il respire, et elle l'en remercie. Elle part vers la grille avec Théo. Jessy reste sous les branches fermées avec la veste, sans lire les trois mots écrits sous le col.",
+      "choices": [],
+      "consequences": [
+        "La scène continue avec arc_6_bascule_theo (ligne 1977)."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/school/bg_arc6_courtyard_march.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/melancolique-piano.ogg"
+      ]
+    },
+    {
+      "id": "arc6-s5c",
+      "title": "Les onze jours",
+      "label": "arc_6_bascule_theo",
+      "lines": "1980-2059",
+      "requires": "routeB",
+      "condition": "Seulement après la variante où Ilona part (arc6_route ≠ \"jessy\")",
+      "location": "Ellipse du 28 mars au 3 avril, puis la gare le 6 avril",
+      "characters": [
+        "ilona",
+        "theo"
+      ],
+      "summary": "Les onze jours passent sur fond noir. Le 28 mars, Ilona confirme son choix et le studio réserve deux places. Le 31 mars, elle trie ses affaires et remplit une page de son carnet d'idées de streams. Le 3 avril, la date limite passe sans rien changer.\n\nLe 6 avril, sur le quai, Ilona et Théo sont en tenues de voyage. Ilona dit qu'elle a pris « ce que j'ai décidé de prendre », qu'elle est terrifiée mais ne regrette rien. Jessy n'est pas venu, et personne ne le lui avait demandé. Ilona monte dans le train sans regarder derrière elle : elle va vers Tokyo, le studio et la chaîne qu'elle a décidé de construire.",
+      "choices": [],
+      "consequences": [
+        "D'après le commentaire du code (lignes 1981-1983), c'est le seul passage vers jump arc_7_theo (ligne 2059), c'est-à-dire la Route B."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/transport/bg_arc5_train_station.jpg"
+      ],
+      "cgs": [],
+      "music": [
+        "audio/music/spring-hope.ogg"
+      ]
+    }
+  ]
+}

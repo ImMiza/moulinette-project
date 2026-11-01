@@ -1,0 +1,65 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import Spoiler from './Spoiler.astro';
+import { keyLabel } from '../lib/keys';
+import { mediaUrl, mediaInfo } from '../lib/media';
+
+interface Props { arc: string }
+const entry = await getEntry('scenes', Astro.props.arc);
+if (!entry) throw new Error(`Scènes introuvables : ${Astro.props.arc}`);
+const chars = Object.fromEntries((await getCollection('characters')).map((c) => [c.id, c.data]));
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const { scenes, arc } = entry.data;
+---
+
+<ol class="scenes">
+  {scenes.map((s, i) => (
+    <li class="scene" id={s.id}>
+      <p class="scene__num">Scène {i + 1}</p>
+      <Spoiler requires={s.requires ?? arc}>
+        <article class="scene__card" aria-label={s.title}>
+          <p class="scene__title">{s.title}</p>
+          <dl class="scene__meta">
+            {s.condition && <><dt>Condition</dt><dd>{s.condition}</dd></>}
+            {s.location && <><dt>Lieu</dt><dd>{s.location}</dd></>}
+            {s.characters.length > 0 && <><dt>Personnages</dt><dd>{s.characters.map((c, k) => {
+              const d = chars[c];
+              const name = d?.name ?? c;
+              return <>{k > 0 && ', '}{d?.page ? <a href={base + d.page}>{name}</a> : name}</>;
+            })}</dd></>}
+            {s.music.length > 0 && <><dt>Musique</dt><dd>{s.music.map((m) => m.split('/').pop()).join(', ')}</dd></>}
+          </dl>
+          {s.backgrounds.slice(0, 1).map((b) => mediaUrl(b) && (
+            <img class="scene__bg" src={mediaUrl(b)} alt="" width={mediaInfo(b)?.w} height={mediaInfo(b)?.h} loading="lazy" />
+          ))}
+          <div class="scene__summary">{s.summary.split('\n\n').map((p) => <p>{p}</p>)}</div>
+          {s.choices.length > 0 && (
+            <div class="scene__choices">
+              <p class="scene__sub">Choix</p>
+              {s.choices.map((c) => (
+                <div class="choice">
+                  {c.prompt && <p class="choice__prompt">{c.prompt}</p>}
+                  {c.condition && <p class="choice__cond">Apparaît si : {c.condition}</p>}
+                  <ul>{c.options.map((o) => (
+                    <li><span class="choice__opt">« {o.text} »</span>{o.condition && <em> (si {o.condition})</em>}{o.effects && <span class="choice__fx"> → {o.effects}</span>}</li>
+                  ))}</ul>
+                </div>
+              ))}
+            </div>
+          )}
+          {s.consequences.length > 0 && (
+            <div><p class="scene__sub">Conséquences</p><ul>{s.consequences.map((c) => <li>{c}</li>)}</ul></div>
+          )}
+          {s.cgs.length > 0 && (
+            <div class="scene__cgs">{s.cgs.map((c) => mediaUrl(c) && <img src={mediaUrl(c)} alt="" width={mediaInfo(c)?.w} height={mediaInfo(c)?.h} loading="lazy" />)}</div>
+          )}
+          <p class="scene__nav">
+            {i > 0 && <a href={`#${scenes[i - 1].id}`}>← Scène précédente</a>}
+            {i < scenes.length - 1 && <a href={`#${scenes[i + 1].id}`}>Scène suivante →</a>}
+          </p>
+        </article>
+      </Spoiler>
+    </li>
+  ))}
+</ol>
+<p class="scenes__count">{scenes.length} scène(s) — prérequis : {keyLabel(arc)}.</p>

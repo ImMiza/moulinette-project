@@ -1,0 +1,148 @@
+---
+title: Calcul de l'embranchement
+description: Fonctionnement du calcul qui oriente l'histoire à la fin du tronc commun. Contenu protégé.
+---
+import Spoiler from '../../../components/Spoiler.astro';
+
+:::note[Source]
+`arcs/arc_6/arc_6_diplomes.rpy` (fonctions `init -5 python`, lignes 23-120) et `script.rpy` (`etat_relation()`, seuils).
+:::
+
+## Quand le calcul a lieu
+
+<Spoiler requires="arc6">
+
+`arc6_calcule_verdict()` n'est appelée qu'**une seule fois**, à la ligne 160, en tête du label `arc_6_diplomes`, juste après `arc6_palier()` et avant même le titre de l'arc. Le label `arc_6_calcul` (lignes 1721-1723) ne recalcule rien : il fait seulement `jump arc_6_decision`. C'est là, à la ligne 1757, que `arc6_route` est lue.
+
+Conséquence : **aucun choix de l'arc 6 ne modifie la route**. Le stylo, le gâteau, la posture et la réponse à Théo ne changent que le texte de l'arc et des variables relues plus tard.
+
+</Spoiler>
+
+## Formule
+
+<Spoiler requires="arc6">
+
+Code exact (`arc_6_diplomes.rpy`, lignes 44-84) :
+
+```python
+controle_repetitif = interruptions_ilona - interruptions_reparees
+
+espace = (autonomie_ilona * 4
+          + ilona_peut_finir_ses_phrases * 6
+          + interruptions_reparees * 6
+          + communication
+          + confiance)
+dette = (influence_theo * 3
+         + max(0, controle_repetitif) * 8
+         + pression_stream * 2
+         + jalousie * 2
+         + confidences_laplage * 4)
+posture = (6 * souvenirs["jessy_nomme_sa_peur"]
+           + 8 * souvenirs["jessy_repare"]
+           + 5 * souvenirs["ilona_libre_sans_abandon"]
+           + 3 * souvenirs["maison_respectee"]
+           - 6 * souvenirs["theo_utilise_une_verite"])
+recidive = -6 * max(0, controles - 2) - 3 * max(0, evitements - 3)
+
+arc6_score = espace + posture + recidive - dette
+
+if interruptions_reparees >= 2 and souvenirs["jessy_repare"]:
+    arc6_score += 20
+
+if controle_repetitif >= 3:
+    arc6_route = "theo"
+elif arc6_score >= SEUIL_JESSY:      # 180, script.rpy:401
+    arc6_route = "jessy"
+else:
+    arc6_route = "theo"
+```
+
+- `arc6_route == "jessy"` mène à `arc_6_decision_jessy`, puis à `jump arc_7_jessy` (ligne 1892) : c'est la **Route A**.
+- Toute autre valeur mène à `arc_6_decision_theo`, puis à `arc_6_bascule_theo` et `jump arc_7_theo` (ligne 2059) : c'est la **Route B**.
+- Les souvenirs sont des booléens, donc chaque terme de `posture` vaut 0 ou son coefficient.
+
+</Spoiler>
+
+## Verrou, bonus et seuil
+
+<Spoiler requires="arc6">
+
+**Verrou dur.** Si `controle_repetitif` vaut 3 ou plus, la Route B est imposée quel que soit le score. Avant l'arc 6, `interruptions_ilona` n'augmente qu'à trois endroits (voir le tableau ci-dessous). Le verrou exige donc les trois interruptions sans **aucune** réparation.
+
+**Réparation.** `interruptions_reparees` n'augmente que si `interruptions_ilona > interruptions_reconnues`, c'est-à-dire s'il existe une interruption pas encore reconnue. On ne peut pas « réparer d'avance ». Aucune réparation n'existe après celle de l'arc 4, donc l'interruption de l'arc 5 ne peut plus être réparée. Le maximum pratique est de 2 réparations.
+
+**Bonus de +20.** Il faut `interruptions_reparees >= 2` et le souvenir `jessy_repare`. D'après les conditions du code, il faut donc avoir coupé Ilona à l'arc 2 (suivre en secret) et à l'arc 4 (remarque acide), puis réparé les deux fois. Le bonus ne récompense que quelqu'un qui a fauté puis réparé (déduction à partir du code).
+
+**Seuil.** `SEUIL_JESSY = 180` (`script.rpy:401`). Repères de calibrage notés en commentaire (`script.rpy:396-400`) : maximum théorique 572, parcours « première option » 246, « dernière option » −395, médiane aléatoire −104, 95e centile 92.
+
+**Souvenir toujours actif.** `remember("theo_utilise_une_verite")` est exécuté sans condition à `arc_3_rentree.rpy:619`, et aucun script ne le remet à `False`. Dans une partie normale, `posture` comprend donc toujours le terme −6. Elle varie de −6 à +16 et non de −6 à +22 (constat sur le code, effet peut-être non voulu).
+
+</Spoiler>
+
+## Variables
+
+<Spoiler requires="arc6">
+
+Écritures relevées dans `game/arcs` avant l'arc 6 (prologue → arc 5). Les variables les plus fréquentes sont résumées par fichier.
+
+| Variable | Poids dans le calcul | Où elle est écrite |
+|---|---|---|
+| `autonomie_ilona` | espace ×4 | 28 hausses et 21 baisses : prologue 1, arc 1 : 6, arc 2 : 6, arc 3 : 10, arc 4 : 8, maid café 1, arc 4.5 Théo 2, arc 5 : 15 |
+| `ilona_peut_finir_ses_phrases` | espace ×6 ; ton | +1 : `arc_1_printemps.rpy:461` (« Laisser Ilona répondre. »), `:525` (« Lui demander ce qui l'aiderait. »), `:565` (« Lui dire qu'elle peut prendre son temps. ») ; `arc_3_rentree.rpy:224` (« Regarder Ilona d'abord. »), `:669` (« Refuser le duel, mais pas la colère. »), `:800` (« Lui dire qu'il l'aime trop pour faire semblant. ») ; `arc_4_noel.rpy:411` (« Poser une question simple à Ilona. »), `:1032` (« Accueillir la limite sans se défendre. ») |
+| `interruptions_reparees` | espace ×6, réduit `controle_repetitif`, bonus | +1 seulement s'il reste une interruption non reconnue : `arc_2_plage.rpy:994` (« Reconnaître précisément son erreur. »), `arc_3_rentree.rpy:824` (« S'excuser sans se rendre petit. »), `arc_4_noel.rpy:1036` (« Accueillir la limite sans se défendre. ») |
+| `interruptions_ilona` | `controle_repetitif` (dette ×8, verrou) | +1 : `arc_2_plage.rpy:516` (« Dire oui, puis les suivre discrètement. »), `arc_4_noel.rpy:970` (si `arc4_reaction_cadeau_theo == "blague_acide"`, option « Faire une remarque acide qui déborde. », l. 456), `arc_5_examens.rpy:180` (« Demander à Ilona si elle voulait vraiment ce thé-là. ») |
+| `communication` | espace ×1 | 58 hausses et 28 baisses : prologue 5, arc 1 : 12, arc 2 : 16, arc 3 : 13, arc 4 : 15, maid café 1, arc 4.5 Théo 1, arc 5 : 23 |
+| `confiance` | espace ×1 | 68 hausses et 50 baisses : prologue 5, arc 1 : 12, arc 2 : 20, arc 3 : 20, arc 4 : 21, maid café 1, arc 5 : 39 |
+| `influence_theo` | dette ×3 | 27 hausses (arc 2 : 4, arc 3 : 6, arc 4 : 5, arc 4.5 Théo : 3, arc 5 : 12) ; baisses `max(0, …)` : `arc_4_5_theo.rpy:252` (−3), `arc_5_examens.rpy:1062` (−2), `:1092` (−1) |
+| `pression_stream` | dette ×2 | 46 hausses, 27 baisses `max(0, pression_stream - n)` (prologue 2, arc 1 : 10, arc 2 : 11, arc 3 : 14, arc 4 : 13, maid café 2, arc 4.5 Théo 1, arc 5 : 20 écritures au total) |
+| `jalousie` | dette ×2 | 22 hausses, 28 baisses `max(0, jalousie - n)` (prologue 3, arc 1 : 2, arc 2 : 12, arc 3 : 8, arc 4 : 8, arc 5 : 17 écritures au total) |
+| `confidences_laplage` | dette ×4 | +1 : `arc_3_rentree.rpy:531` (si `ilona_peut_finir_ses_phrases < 2`), `arc_4_noel.rpy:750` (si `< 4`), `arc_5_examens.rpy:1554` (état « fragile ») ou `:1585` (état « distant ») ; rien si l'état est « proche » |
+| `controles` | récidive −6 par contrôle au-delà de 2 | 20 hausses, choix de « tier D » : arc 2 : 4, arc 3 : 4, arc 4 : 3, arc 5 : 9 |
+| `evitements` | récidive −3 par évitement au-delà de 3 | 28 hausses, choix de « tier C » : prologue 1, arc 1 : 4, arc 2 : 7, arc 3 : 3, arc 4 : 4, arc 5 : 9 |
+| souvenir `jessy_nomme_sa_peur` | +6 | `arc_2_plage.rpy:561`, `:1057` ; `arc_3_rentree.rpy:388` ; `arc_4_noel.rpy:311`, `:908`, `:1074` ; `arc_5_examens.rpy:1751`, `:1884`, `:1908` |
+| souvenir `jessy_repare` | +8 ; bonus | `arc_2_plage.rpy:991` (si `arc2_choix_activite_theo` ∈ blague_jalouse, suivre, disparaitre), `arc_3_rentree.rpy:821` (si `arc3_aide_stand == "blague_defense"` ou `arc3_reaction_rumeur == "blague_desarm"`), `arc_4_noel.rpy:1037` (seulement si une interruption reste à reconnaître) |
+| souvenir `ilona_libre_sans_abandon` | +5 | `arc_2_plage.rpy:499` ; `arc_5_examens.rpy:595`, `:1435` (si `arc5_valentin_choix == "demande"`), `:2171` |
+| souvenir `maison_respectee` | +3 | `prologue_minecraft.rpy:142` ; `arc_2_plage.rpy:1136` ; `arc_3_rentree.rpy:1136` ; `arc_4_noel.rpy:246`, `:263`, `:853` ; `arc_5_examens.rpy:2467`. **Remis à `False`** à `arc_3_rentree.rpy:1116` si Ilona détruit la cuisine d'été |
+| souvenir `theo_utilise_une_verite` | −6 | `arc_3_rentree.rpy:311` (conditionnel), `:619` (**sans condition**) ; `arc_4_5_theo.rpy:224` ; `arc_5_examens.rpy:1822` |
+
+</Spoiler>
+
+## Ton de l'arc
+
+<Spoiler requires="arc6">
+
+Le ton est indépendant de la route. `arc6_palier()` (ligne 159) appelle `arc6_penche()`, qui traduit `etat_relation()` (`script.rpy:283-323`) :
+
+- `etat_relation()` calcule le même `espace − dette` que le verdict, sans posture, sans récidive ni bonus. Il renvoie **distant** si `controle ≥ 3`, **proche** si `indice ≥ 200` et `ilona_peut_finir_ses_phrases + interruptions_reparees ≥ 4`, **fragile** si `indice ≥ 40`, et **distant** sinon.
+- `arc6_penche()` : proche → `"jessy"`, fragile → `"indecis"`, distant → `"theo"`. La valeur est stockée dans `arc6_penchant`. `arc6_penchant_debut` n'est rempli que s'il est vide, et `arc6_derive` est remis à 0 (variable conservée pour les anciennes sauvegardes).
+- `arc6_penchant` change le texte de presque toutes les scènes (place d'Ilona, réplique de Théo, géométrie du couloir, réaction à la bonne réponse) mais **jamais la route**.
+- Déduction : le score ne peut dépasser l'indice que de 36 au plus (posture +16 et bonus +20). Sur la Route A, l'indice vaut donc au moins 144 et le ton ne peut pas être `"theo"`. À l'inverse, un ton `"jessy"` reste possible sur la Route B si la récidive ou la posture font retomber le score sous 180.
+
+</Spoiler>
+
+## Attaques de Théo
+
+<Spoiler requires="arc6">
+
+`arc6_construit_attaques_theo()` (lignes 86-120) est appelée à la scène 4 (ligne 1507). Elle retient au plus **trois** reproches, dans cet ordre :
+
+1. Arc 2 : `arc2_choix_activite_theo` vaut `suivre` (« tu l'as suivie pour vérifier »), `disparaitre` (« tu es parti sans répondre ») ou `blague_jalouse` (« tu as appelé ça une blague »).
+2. Arc 3, rumeur : `arc3_reaction_rumeur` vaut `silence_paralysie` (« Tu as regardé les menus ») ou `defendre_immediat` (« défendue avant de lui demander »).
+3. Arc 3, stand : `arc3_aide_stand` vaut `blague_defense` ou `demande_directe`.
+4. Arc 4 : `arc4_ilona_avec_theo` et `arc4_limite_ilona == "demande_theo"`.
+5. Arc 5 : `arc5_theo_proposition` vaut `laisse` ou `partiel`.
+
+Le nombre de reproches prononcés dépend du ton : 1 ou 2 si le ton est `"jessy"`, 1 seul si le ton est `"theo"`, jusqu'à 3 si le ton est `"indecis"`. Sans aucun reproche, Théo parle d'usure, ou reconnaît que Jessy a appris. Ces attaques n'influencent pas le verdict.
+
+</Spoiler>
+
+## Écarts avec la documentation
+
+<Spoiler requires="arc6">
+
+- `agents/systeme de points.md` (§9) écrit `arc6_score = espace + posture + recidive + arc6_mod - dette`. Le code n'a **pas** de `arc6_mod`.
+- Ce même document et plusieurs commentaires (`script.rpy:292-293`, `:421`) situent le calcul « en fin d'arc 6, label `arc_6_calcul` ». Dans le code, le calcul a lieu **au début** de l'arc (ligne 160) et `arc_6_calcul` est un simple passage.
+- `script.rpy:391` mentionne un label `arc_6_debug_score`, qui n'existe pas.
+- Maximum théorique : 572 dans `script.rpy:397`, 568 dans la documentation.
+
+</Spoiler>

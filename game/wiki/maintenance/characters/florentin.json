@@ -1,0 +1,26 @@
+{
+  "id": "florentin",
+  "firstAppearance": "finA3",
+  "role": "Commandant",
+  "infobox": [
+    { "label": "Couleur de dialogue", "value": "#cf8671", "requires": "finA3" },
+    { "label": "Grade", "value": "Commandant de la milice", "requires": "finA3" },
+    { "label": "Famille", "value": "Sa femme, restée sur Terre", "requires": "finA3" }
+  ],
+  "aliases": [],
+  "sources": [
+    "arcs/endings/ending_ilonanium.rpy:121",
+    "arcs/endings/ending_ilonanium.rpy:162-164",
+    "arcs/endings/ending_ilonanium.rpy:543-549",
+    "arcs/endings/ending_ilonanium.rpy:563-572",
+    "arcs/endings/ending_ilonanium.rpy:598",
+    "arcs/endings/ending_ilonanium.rpy:619-633",
+    "arcs/endings/ending_ilonanium.rpy:679",
+    "arcs/endings/ending_ilonanium.rpy:719",
+    "arcs/endings/ending_ilonanium.rpy:732-734",
+    "arcs/endings/ending_ilonanium.rpy:760",
+    "arcs/endings/ending_ilonanium.rpy:813-816",
+    "arcs/endings/ending_ilonanium.rpy:838-841",
+    "arcs/endings/ending_ilonanium.rpy:888"
+  ]
+}

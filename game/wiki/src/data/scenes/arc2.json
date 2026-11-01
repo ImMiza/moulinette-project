@@ -1,0 +1,272 @@
+{
+  "arc": "arc2",
+  "title": "ARC 2 : VACANCES D'ÉTÉ — LA PLAGE",
+  "file": "arcs/arc_2/arc_2_plage.rpy",
+  "scenes": [
+    {
+      "id": "arc2-s1",
+      "title": "L'annonce de la plage",
+      "label": "arc_2_plage",
+      "lines": "52-125",
+      "requires": "arc2",
+      "location": "Couloir de l'école",
+      "characters": ["allan", "alexandre", "jessy", "ilona"],
+      "summary": "Juillet. Après le carton-titre de l'arc, Allan annonce dans le couloir de l'école une sortie à la plage pour samedi. Alexandre demande si c'est « une annonce ou une menace », Ilona conclut : « une menace avec horaires ».\n\nAllan précise la liste : eux, Jessy et Ilona, et Théo. Le narrateur rappelle que Jessy ne connaît Théo qu'à travers les phrases d'Allan : « toujours là au bon moment, toujours avec une réponse prête ». Le premier choix porte sur la façon dont Jessy réagit à ce prénom.",
+      "choices": [
+        {
+          "line": 78,
+          "prompt": "Allan vient d'annoncer que Théo sera là.",
+          "options": [
+            { "text": "Faire une blague sur le château de sable impossible.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Demander simplement qui vient.", "effects": "communication +2, confiance +1, jalousie −1 (minimum 0), lien_jessy_ilona +1 ; Allan annonce « Cinq. Six si Sofiane apparaît »" },
+            { "text": "Répondre trop vite à propos de Théo.", "effects": "autonomie_ilona −2, confiance −2, influence_theo +1, jalousie +3, lien_jessy_ilona −1, controles +1" },
+            { "text": "Se taire.", "effects": "communication −2, confiance −1, pression_stream +1, evitements +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Effets purement chiffrés : aucune variable propre à ce menu n'est relue plus tard."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_shared_school_corridor.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-music.ogg"]
+    },
+    {
+      "id": "arc2-s2",
+      "title": "Le train vers la mer",
+      "label": "arc_2_plage",
+      "lines": "126-158",
+      "requires": "arc2",
+      "location": "Train",
+      "characters": ["jessy", "ilona", "sofiane"],
+      "summary": "Samedi matin, dans un train presque vide. Ilona propose d'ajouter une « cuisine de plage » à leur maison Minecraft — une quatrième cuisine, au nom des traditions.\n\nSelon le passé du couple, une réplique s'ajoute : si Jessy a laissé Ilona finir ses phrases au printemps (ilona_peut_finir_ses_phrases ≥ 2), elle le remarque ; sinon, si la communication est négative, elle trouve « plus simple quand personne ne nous demande ce qu'on est ».\n\nSofiane surgit avec des chips et une phrase sibylline : « La mer a appelé. J'ai laissé sonner deux fois. »",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/transport/bg_shared_train_inside.jpg"],
+      "cgs": [],
+      "music": ["audio/music/morning-piano.ogg"]
+    },
+    {
+      "id": "arc2-s3",
+      "title": "Sous le parasol",
+      "label": "arc_2_plage",
+      "lines": "160-237",
+      "requires": "arc2",
+      "location": "Plage (coin du parasol)",
+      "characters": ["allan", "alexandre", "jessy", "ilona", "theo"],
+      "summary": "Sur la plage, Alexandre planifie un château de sable doté d'une cuisine. Théo arrive et conseille de s'éloigner des rochers parce que la marée monte : « Je lis les panneaux. »\n\nSans demander, il plante le parasol et pose le sac d'Ilona à l'ombre : « Tu préfères l'ombre, non ? » Jessy remarque qu'il a retenu ce détail sans avoir à le demander. Le choix porte sur la place de la serviette d'Ilona.\n\nLa journée reprend ensuite son cours : crème solaire, château déclaré instable, porte posée sur le toit. Pendant quelques minutes, Théo n'est « plus un sujet ».",
+      "choices": [
+        {
+          "line": 189,
+          "prompt": "Ilona cherche une place pour sa serviette.",
+          "options": [
+            { "text": "L'aider sans commenter son désordre.", "effects": "autonomie_ilona +2, communication +1, confiance +1, pression_stream −1 (minimum 0)" },
+            { "text": "Faire une blague sur la zone Ilona.", "effects": "lien_jessy_ilona +2 ; la réponse d'Ilona est complice si lien_jessy_ilona ≥ 10, plus sèche sinon" },
+            { "text": "Regarder surtout ce que fait Théo.", "effects": "autonomie_ilona −2, confiance −2, influence_theo +1, jalousie +3, lien_jessy_ilona −1, controles +1" }
+          ]
+        }
+      ],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "arc2-s4",
+      "title": "Le stand de kakigōri et le porte-clés",
+      "label": "arc_2_plage",
+      "lines": "239-350",
+      "requires": "arc2",
+      "location": "Plage (stand de kakigōri)",
+      "characters": ["ilona", "jessy", "theo"],
+      "summary": "Ilona revient du stand de kakigōri en débattant seule à voix haute entre sirop bleu et sirop vert ; surprise, elle explique que choisir est plus facile en parlant. À Théo qui demande si elle fait ça souvent, elle répond « non » une demi-seconde trop vite.\n\nElle s'aperçoit qu'elle a perdu son porte-clés bloc, celui de la maison Minecraft. Jessy fouille le sable avec empressement ; Théo, lui, se souvient qu'elle l'a sorti près du stand et le retrouve sous la table. Leurs doigts se frôlent, Ilona rougit. « Je fais attention. »\n\nJessy reconnaît dans le sourire d'Ilona la reconnaissance qu'elle lui réservait autrefois quand il réparait quelque chose. Le choix porte sur sa réaction.",
+      "choices": [
+        {
+          "line": 290,
+          "prompt": "Théo vient de briller là où Jessy a échoué. Ilona le regarde encore.",
+          "options": [
+            { "text": "Le remercier sincèrement.", "effects": "communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2" },
+            { "text": "Chercher aussi et trouver autre chose.", "effects": "lien_jessy_ilona +4 ; Jessy offre une petite coquille blanche qu'Ilona garde" },
+            { "text": "Faire une blague pour masquer sa blessure.", "effects": "communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Se taire et encaisser.", "effects": "communication −4, confiance −2, pression_stream +2, evitements +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Si jalousie ≥ 6 après le choix, une ligne de narration décrit l'impuissance de Jessy (arc_2_plage.rpy:344).",
+        "Le porte-clés bloc retrouvé par Théo revient à plusieurs reprises dans la suite de l'histoire."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_kakigori_counter.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "arc2-s5",
+      "title": "La photo de groupe",
+      "label": "arc_2_plage",
+      "lines": "351-436",
+      "requires": "arc2",
+      "location": "Plage",
+      "characters": ["allan", "alexandre", "jessy", "ilona", "theo"],
+      "summary": "Allan recule trop vite en cadrant la photo de groupe : sur l'écran, Jessy est à une extrémité, Ilona sourit près de Théo. Alexandre parle de « composition narrativement suspecte », puis retire « narrativement ».\n\nAprès le choix, le groupe se disperse. Ilona annonce qu'elle va prendre la « gelée marine lumineuse », dont personne ne défend la composition : « Il m'a regardée en premier. »",
+      "choices": [
+        {
+          "line": 370,
+          "prompt": "La photo n'a rien décidé. Jessy la regarde pourtant comme si elle avait pris parti.",
+          "options": [
+            { "text": "Se taire et garder pour soi.", "effects": "arc2_photo_reaction = silence_photo, communication −2, confiance −1, pression_stream +1, evitements +1" },
+            { "text": "Proposer de refaire la photo, avec légèreté.", "effects": "arc2_photo_reaction = refaire_doux, communication +1, jalousie +1 ; une seconde photo est prise" },
+            { "text": "Dire que la composition est bizarre, sans insister.", "effects": "arc2_photo_reaction = remarque_neutre, communication +2, confiance +1, jalousie −1 (minimum 0), lien_jessy_ilona +1" },
+            { "text": "Accepter la photo et complimenter Ilona.", "effects": "arc2_photo_reaction = accepter_compliment, lien_jessy_ilona +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc2_photo_reaction n'est relue qu'une fois, à l'arc 5 (valeur silence_photo, arc_5_examens.rpy:649)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_beach_main.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "arc2-s6",
+      "title": "Une phrase coupée",
+      "label": "arc_2_plage",
+      "lines": "437-463",
+      "requires": "arc2",
+      "location": "Plage (coin du parasol)",
+      "characters": ["jessy", "allan", "ilona", "theo"],
+      "summary": "Ilona rapporte sa gelée marine lumineuse. Elle commence à dire qu'elle veut voir les petites mares, mais Théo finit sa phrase à sa place : « Les rochers, oui. C'est plus simple par la jetée. »\n\nAllan le reprend calmement : « Attends. Elle parlait encore. […] Ralentis. » Théo s'excuse avec un sourire qui « ne monte pas jusqu'aux yeux » ; Ilona répond « C'est bon » trop vite, pour que la tension disparaisse.",
+      "choices": [],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_group_parasol.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-day.ogg"]
+    },
+    {
+      "id": "arc2-s7",
+      "title": "« Je peux y aller ? »",
+      "label": "arc_2_plage",
+      "lines": "464-623",
+      "requires": "arc2",
+      "location": "Plage (mares entre les rochers)",
+      "characters": ["jessy", "ilona", "theo", "alexandre"],
+      "summary": "Près des rochers, Ilona tient son gobelet lumineux et son porte-clés. Théo propose de lui montrer le chemin par la jetée, « comme si c'était déjà décidé ». Ilona se tourne vers Jessy et demande : « Je peux y aller ? » La narration varie selon la jalousie accumulée.\n\nC'est le choix pivot de l'arc. Jessy peut la laisser partir en confiance, dire oui puis la suivre, cacher sa jalousie sous une pique, nommer sa peur et demander dix minutes, ou partir sans répondre.\n\nSi Jessy l'a laissée partir (confiance, dix minutes ou pique), Alexandre vient lui parler : « Alors ne saute pas dessus pour vérifier s'il tient », « reviens avant que ton absence devienne une phrase », ou « Comprendre une blague, ce n'est pas toujours la recevoir légèrement ».",
+      "choices": [
+        {
+          "line": 490,
+          "prompt": "Ilona attend. Théo aussi. Comment Jessy gère-t-il ?",
+          "options": [
+            { "text": "Lui faire confiance et proposer d'en parler au retour.", "effects": "arc2_choix_activite_theo = confiance, autonomie_ilona +6, communication +3, confiance +3, pression_stream −3 (minimum 0), souvenir ilona_libre_sans_abandon" },
+            { "text": "Dire oui, puis les suivre discrètement.", "effects": "arc2_choix_activite_theo = suivre, autonomie_ilona −6, confiance −6, influence_theo +3, interruptions_ilona +1, jalousie +9, lien_jessy_ilona −3, controles +1" },
+            { "text": "Cacher sa jalousie derrière une blague.", "effects": "arc2_choix_activite_theo = blague_jalouse, communication −6, confiance −3, jalousie +2, pression_stream +3, evitements +1" },
+            { "text": "Dire qu'il a besoin de dix minutes pour respirer.", "effects": "arc2_choix_activite_theo = dix_minutes, communication +6, confiance +3, jalousie −3 (minimum 0), lien_jessy_ilona +3, souvenir jessy_nomme_sa_peur" },
+            { "text": "Partir sans répondre.", "effects": "arc2_choix_activite_theo = disparaitre, communication −6, confiance −3, pression_stream +3, evitements +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc2_choix_activite_theo oriente toute la fin de l'arc : scène suivante, objets trouvés, coucher de soleil, maison Minecraft.",
+        "Relue trois fois à l'arc 3 (arc_3_rentree.rpy:70-101, 211-214 et 645).",
+        "Relue aussi aux arcs 4, 5 et 6 (arc_4_noel.rpy:173 et 783-795, arc_5_examens.rpy:862, arc_6_diplomes.rpy:95-100 et 764-791), puis dans la Route B."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_tide_pools.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-sunset.ogg", "audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc2-s8",
+      "title": "Aux mares avec Théo",
+      "label": "arc_2_plage",
+      "lines": "625-767",
+      "requires": "arc2",
+      "condition": "Contenu entièrement différent selon arc2_choix_activite_theo",
+      "location": "Jetée et mares entre les rochers",
+      "characters": ["ilona", "theo", "jessy"],
+      "summary": "Confiance, dix minutes ou pique : près de la jetée, Théo s'excuse de l'avoir coupée et confie : « Avec toi, j'aimerais juste... écouter. » Après la pique, il ajoute que Jessy a peur de lui « parce qu'il sait que je te comprends » ; sinon, il glisse que Jessy « a de la chance ». Si autonomie_ilona ≥ 12, Ilona décide elle-même de rentrer « avant que ce moment devienne... autre chose » ; sinon elle s'attarde.\n\nSuivre : Ilona surprend Jessy derrière eux. Confrontation : « Je voulais marcher. Pas passer un test de fidélité. » Jessy lance « Ferme-la » à Théo ; Ilona part, Théo conclut « T'as tout gâché, mec » et Jessy reste seul face aux rochers.\n\nPartir sans répondre : Théo explique à Ilona que Jessy a peur de la perdre « en te laissant exister sans lui », puis l'accompagne aux mares. À « Et toi, tu veux quoi ? », il répond : « Que tu n'aies pas à rassurer quelqu'un chaque fois que tu bouges. »",
+      "choices": [],
+      "consequences": [
+        "lien_ilona_theo +2 dans toutes les branches sauf « suivre » (arc_2_plage.rpy:672 et 763) ; cette variable est relue à l'arc 4 (arc_4_noel.rpy:356)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_jetty.jpg", "images/scenes/backgrounds/beach/bg_arc2_tide_pools.jpg"],
+      "cgs": [],
+      "music": ["audio/music/sad-piano.ogg", "audio/music/tense-piano.ogg"]
+    },
+    {
+      "id": "arc2-s9",
+      "title": "La table des objets trouvés",
+      "label": "arc_2_plage",
+      "lines": "769-878",
+      "requires": "arc2",
+      "location": "Table des objets trouvés, près de la jetée",
+      "characters": ["ilona", "laplage", "allan", "alexandre"],
+      "summary": "Sur le chemin du retour, Ilona tombe sur une table « OBJETS TROUVÉS » tenue par Monsieur Laplage, qui « remplace quelqu'un qui n'était pas prévu ». Il parle d'objets rendus trop vite, « avant que la personne sache si elle en a encore besoin » : s'il n'est pas réclamé, l'objet reste là, « personne ne le force ». Le gag de la « plage sèche » arrache un rire à Ilona.\n\nAllan et Alexandre la rejoignent : Alexandre a « perdu » une pelle qui menait selon lui « une vie indépendante ». Ilona explique à Allan que Théo a répondu trop vite et qu'elle aimerait « finir [s]es phrases avant qu'on trouve une solution pour [elle] ».\n\nElle refuse qu'Allan en reparle à Théo comme d'un reproche et enterre la « Commission temporaire des phrases inachevées » d'Alexandre. « On garde une place sans panneau », promet Allan.",
+      "choices": [],
+      "consequences": [
+        "jugement_laplage +1 (arc_2_plage.rpy:786) ; aucune lecture de cette variable trouvée dans le jeu."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_lost_items_table.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-sunset.ogg"]
+    },
+    {
+      "id": "arc2-s10",
+      "title": "Le coucher de soleil",
+      "label": "arc_2_plage",
+      "lines": "879-1081",
+      "requires": "arc2",
+      "location": "Plage au coucher du soleil",
+      "characters": ["jessy", "alexandre", "ilona"],
+      "summary": "Alexandre rejoint d'abord Jessy. S'il est parti sans répondre, il lui reproche de ne pas avoir parlé ; s'il l'a suivie, Jessy finit par crier « Parce que j'ai paniqué, bordel ! ». Dans les autres cas, il plaisante sur Allan, convaincu que Monsieur Laplage « possède légalement le sable ».\n\nIlona revient. Selon la branche, elle parle d'un coquillage « inutile, comme nos portes » (confiance), répète que Théo lui a dit que Jessy avait peur (dix minutes), refuse les excuses (« T'as choisi la pire option ») si Jessy l'a suivie ou a disparu, ou dit simplement que Théo a été « gentil » (pique).\n\nLe choix du coucher de soleil peut réparer, aggraver ou nommer la peur. Interroger Ilona sur ce qui s'est passé avec Théo provoque un « Va te faire foutre, Jessy. » ; nommer sa peur obtient « Si je voulais être avec Théo, je serais avec Théo. » La table des objets trouvés ferme à la tombée du jour.",
+      "choices": [
+        {
+          "line": 964,
+          "prompt": "Le coucher de soleil commence. Que fait Jessy ?",
+          "options": [
+            { "text": "Se taire trop longtemps.", "effects": "arc2_reaction_coucher = silence, communication −4, confiance −2, pression_stream +2, evitements +1" },
+            { "text": "Reconnaître précisément son erreur.", "effects": "arc2_reaction_coucher = reparation, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 ; souvenir jessy_repare si arc2_choix_activite_theo vaut blague_jalouse, suivre ou disparaitre ; interruptions_reconnues +1 et interruptions_reparees +1 si interruptions_ilona > interruptions_reconnues" },
+            { "text": "Demander ce qui s'est passé avec Théo.", "effects": "arc2_reaction_coucher = interrogatoire, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1" },
+            { "text": "Nommer sa peur sans accuser.", "effects": "arc2_reaction_coucher = peur_nommee, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur" }
+          ]
+        }
+      ],
+      "consequences": [
+        "arc2_reaction_coucher décide, avec le choix des mares, si Ilona ferme la porte de la maison Minecraft le soir même (arc_2_plage.rpy:1095).",
+        "Relue à l'ouverture de l'arc 3 (arc_3_rentree.rpy:70) : silence ou interrogatoire en changent le ton.",
+        "Les souvenirs jessy_repare et jessy_nomme_sa_peur entrent dans le calcul de fin d'arc 6 (arc_6_diplomes.rpy:64-65)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg"],
+      "cgs": [],
+      "music": ["audio/music/plage-sunset.ogg", "audio/music/sad-piano.ogg"]
+    },
+    {
+      "id": "arc2-s11",
+      "title": "La maison Minecraft, une nuit d'été",
+      "label": "arc_2_plage",
+      "lines": "1083-1171",
+      "requires": "arc2",
+      "location": "Maison Minecraft (nuit d'été)",
+      "characters": ["jessy", "ilona"],
+      "summary": "Le soir, sur Minecraft. Le gobelet de gelée marine attend, intact, sur le bureau d'Ilona. Ce qu'elle fait dépend de la journée (arc2_retour_minecraft). Si Jessy l'a suivie ou a disparu, ou s'il s'est tu ou l'a interrogée au coucher de soleil, elle mure la porte d'entrée : « Je ferme. »\n\nAprès la confiance ou les dix minutes, elle ajoute une sortie au couloir sans issue si communication ≥ 12 (« si quelqu'un a besoin de marcher, il peut revenir ») ; sinon, elle pose sèchement une lanterne bleue dans la cuisine d'été. Après la pique, elle marche seule dans les couloirs sans rien construire.\n\nLe dernier choix porte sur la gelée lumineuse, que la porte fermée rend impossible. Trois narrations de clôture existent : porte fermée (« L'été ne répare rien »), jalousie ≥ 9 (« L'été ne tranche rien ») ou version apaisée (« la confiance se construit pas à pas »).",
+      "choices": [
+        {
+          "line": 1132,
+          "prompt": "Dans le jeu, Ilona place un bloc lumineux bleu dans l'inventaire.",
+          "options": [
+            { "text": "La laisser manger la gelée lumineuse avant d'en construire une version Minecraft.", "condition": "arc2_retour_minecraft différent de porte_fermee", "effects": "souvenir maison_respectee, ilonanium_points +1, lien_jessy_ilona +2" },
+            { "text": "Poser un bloc lumineux dehors sans rien dire.", "effects": "aucun effet chiffré ; Jessy trouve ça « joli » si sortie_couloir ou lanterne_bleue, sinon silence" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Avant le menu : porte_fermee → pression_stream +2, lien_jessy_ilona −1 ; sortie_couloir → lien_jessy_ilona +1, confiance +1 ; silence → pression_stream +1 (arc_2_plage.rpy:1095-1130).",
+        "arc2_retour_minecraft n'est relue nulle part après l'arc 2.",
+        "Manger la gelée marine est la seule façon de gagner le point d'objet cosmique de l'arc ; il est perdu si la porte est fermée.",
+        "Le souvenir maison_respectee peut être remis à faux plus tard (arc_3_rentree.rpy:1116)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg"],
+      "cgs": [],
+      "music": ["audio/music/Subwoofer-Lullaby.ogg"]
+    }
+  ]
+}

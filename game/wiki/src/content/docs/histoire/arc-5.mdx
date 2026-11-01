@@ -1,0 +1,75 @@
+---
+title: "Arc V — Janvier mange les gens de l'intérieur"
+description: Cinquième arc de Moulinette. Résumé sans spoiler, scènes, choix et résumé détaillé protégés.
+sidebar:
+  order: 6
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc IV](../arc-4/), avant l'[Arc VI](../arc-6/).
+**Fichier** : `arcs/arc_5/arc_5_examens.rpy` (labels `arc_5_examens` et `arc_5_scene_3`).
+:::
+
+## En bref
+
+<Spoiler requires="arc4" note="mise en place de l'arc, suppose l'arc précédent terminé">
+
+Le 12 janvier, la bande révise à la bibliothèque, entre la neige du dehors et les néons du dedans. [Ilona](../../personnages/ilona/) n'a pas dormi et ne répond plus que par « non ». [Théo](../../personnages/theo/) lui apporte exactement le thé qu'il lui faut, et [Jessy](../../personnages/jessy/) se sent inutile. L'arc traverse les examens, la Saint-Valentin et le White Day autour d'une question : connaître les goûts de quelqu'un, est-ce savoir ce qu'il veut ?
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc5">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Théo](../../personnages/theo/), [Allan](../../personnages/allan/), [Alexandre](../../personnages/alexandre/), [Sofiane](../../personnages/sofiane/), [Monsieur Laplage](../../personnages/laplage/).
+- **Nouveau personnage** : Micka (voir [Autres personnages](../../personnages/autres/)), élève couvert de chocolats et de sollicitations des professeures. Il sert d'intermède comique à la Saint-Valentin et au White Day.
+- **Personnages seulement cités** : Madame Tanaka (prof de maths), Madame Yamamoto, la prof d'anglais, la prof de sport ; le cousin de Sofiane.
+- **Lieux** : bibliothèque (jour et soir), rue sous la pluie, cinéma (hall et salle), café, salle de classe, toit du lycée, quai de gare, parc aux cerisiers près de la gare, maison Minecraft.
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc5" />
+
+## Choix majeurs
+
+<Spoiler requires="arc5">
+
+- **Le thé de Théo** (scène 1) : vérifier ou compenser (contrôle, la première option compte aussi une interruption d'Ilona), remercier Théo (+ communication) ou se taire (évitement).
+- **L'annulation** (scène 2, si le cinéma n'a pas lieu) : `arc5_sortie_annulee` = `accepte` (espace, souvenir `ilona_libre_sans_abandon`), `silence` (puis `honnetete` ou mensonge), `inquiet` ou `confronte` (contrôle). Au café, la réaction à Théo peut faire partir Allan (`arc5_allan_parti_cafe`).
+- **« Je gère »** (scène 3) : `arc5_theo_proposition` = `partiel`, `laisse` (influence de Théo +4, Théo entre dans la maison Minecraft), `refuse` ou `questionne`. Cette variable est reprise dans l'Arc VI et sur la Route B.
+- **Saint-Valentin** (scène 4) : le cadeau d'Ilona (ambigu, amitié ou rien) dépend du lien et de la confiance ; la réponse `demande` est la seule à rendre de l'espace.
+- **La question de la gare** (scène 6, choix pivot) : `arc5_question_reponse` = `responsable`, `honnete` (deux formulations selon l'état de la relation), `theo` ou `temps`. Cette réponse oriente le White Day, la fin Minecraft, l'épilogue et une vignette de l'Arc VI.
+- **White Day** (scène 7) : `grand_geste`, `espace`, `retour` ou `mots`. Les réponses `espace` ou `mots`, après une réponse honnête ou responsable à la gare, mènent à « Je crois qu'on peut y arriver ».
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc5" note="résumé complet de l'arc">
+
+**Janvier : la fatigue**
+
+À la bibliothèque, Ilona est à bout. Théo lui apporte le bon thé, et elle se détend aussitôt ; Jessy peut le remercier, ou au contraire « vérifier » et « compenser », ce qu'Ilona relève sèchement. Monsieur Laplage passe avec un badge de « Consultant en Entropie Émotionnelle » et l'avertit que les étoiles qui ne se reposent jamais s'effondrent. Allan demande à Jessy s'il a seulement demandé à Ilona combien elle dort. Jessy ramasse un stylo violet à étoiles qu'elle a oublié.
+
+Une semaine plus tard, si la relation est assez solide, Ilona vient quand même au cinéma : le film « nul » devient « un chef-d'œuvre », et leurs mains se frôlent sans se retirer. Sinon, elle annule par message. Au café, Allan juge la réponse de Jessy, et Théo annonce qu'il va porter ses notes à Ilona. Il peut demander à Jessy s'il fait confiance à Ilona. Allan, ami de Théo depuis le collège, confie parfois son malaise : Théo « ne perd jamais », il trouve « un autre angle ».
+
+**Février : gérer, offrir, demander**
+
+Après les résultats, Théo propose à Jessy de « gérer » une partie de la vie d'Ilona, jusqu'à un stream qu'elle n'a pas encore lancé. Il veut que la proposition vienne de Jessy. À la Saint-Valentin, Micka fait irruption sous une montagne de chocolats ; sur le toit, Ilona offre à Jessy des chocolats-blocs Minecraft, des chocolats d'amitié ou rien, selon l'état de leur relation. Quelques jours plus tard, elle se confie à Laplage, devenu « Archiviste des Non-dits ». L'état de la relation est figé à ce moment : proche, fragile ou distant. Ilona envoie ensuite un message à Jessy : elle a quelque chose à lui demander.
+
+Sur un quai de gare, elle pose la question : as-tu peur de me perdre, ou ne me fais-tu pas confiance ? En relation proche, elle demande s'il lui fera confiance même si elle choisit ce qu'il n'espérait pas. Jessy peut nommer sa peur, accuser Théo ou demander du temps. En relation distante, cette dernière réponse fait partir Ilona dans le train.
+
+**Mars : White Day et état des lieux**
+
+Le 14 mars, Micka a fait trente-sept gâteaux. Au parc, Jessy répond à Ilona par un album photo trop lourd, par de l'espace, par la question retournée ou par des mots. Au café, Allan et Alexandre parlent de Théo (« il n'est jamais le problème »). Seul, Allan se demande pourquoi il passe son temps à « traduire » Théo. Sofiane annonce qu'il a hérité de l'AE86 de son cousin et prévoit un été dans les montagnes. Dans la maison Minecraft, la soirée aboutit à une salle de repos, une construction lointaine, des coffres rangés par Théo, un panneau « BESOIN D'AIR » ou un coffre de matériaux laissé libre. L'épilogue annonce les diplômes.
+
+</Spoiler>
+
+## Suite
+
+L'histoire continue avec l'[Arc VI](../arc-6/).

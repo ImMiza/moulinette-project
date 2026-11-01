@@ -1,0 +1,30 @@
+---
+// Image du jeu (version WebP optimisée). Protégée automatiquement selon l'inventaire
+// sauf si `requires` est fourni explicitement (par ex. "public").
+import Spoiler from './Spoiler.astro';
+import { mediaInfo, mediaUrl, assets } from '../lib/media';
+import { toArray } from '../lib/keys';
+
+interface Props { path: string; alt: string; caption?: string; requires?: string | string[]; mode?: 'all' | 'any'; width?: number; class?: string }
+const { path, alt, caption, width, class: cls } = Astro.props;
+const url = mediaUrl(path);
+const info = mediaInfo(path);
+const a = assets[path];
+const req = Astro.props.requires !== undefined ? toArray(Astro.props.requires).filter((k) => k !== 'public') : (a?.requires ?? []);
+const mode = Astro.props.mode ?? a?.requiresMode ?? 'all';
+if (!url) console.warn(`[Media] ressource introuvable : ${path}`);
+---
+
+{url && (req.length ? (
+  <Spoiler requires={req} mode={mode} note="image">
+    <figure class:list={['media', cls]} style={width ? `max-width:${width}px` : undefined}>
+      <img src={url} alt={alt} width={info?.w} height={info?.h} loading="lazy" decoding="async" />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  </Spoiler>
+) : (
+  <figure class:list={['media', cls]} style={width ? `max-width:${width}px` : undefined}>
+    <img src={url} alt={alt} width={info?.w} height={info?.h} loading="lazy" decoding="async" />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+))}

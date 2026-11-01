@@ -1,0 +1,77 @@
+---
+title: "Arc VI — Le jour où l'école s'arrête"
+description: Sixième arc de Moulinette. Résumé sans spoiler, scènes, choix et résumé détaillé protégés.
+sidebar:
+  order: 7
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc V](../arc-5/), avant la séparation en deux routes.
+**Fichier** : `arcs/arc_6/arc_6_diplomes.rpy`.
+:::
+
+## En bref
+
+<Spoiler requires="arc5" note="mise en place de l'arc, suppose l'arc précédent terminé">
+
+Fin mars, c'est le jour de la remise des diplômes. Les cerisiers de la cour ne sont pas encore ouverts. Jessy arrive une heure trop tôt dans une salle vide, avec dans la poche un stylo violet qui appartient à Ilona et qu'il garde depuis janvier. Il doit décider quoi en faire avant que la cérémonie ne commence.
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc6">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Théo](../../personnages/theo/), [Allan](../../personnages/allan/), Sofiane, Alexandre, Micka.
+- **Lieux** : salle de classe du matin, gymnase de la cérémonie, salle 3-B décorée, couloir vide du deuxième étage, cour aux cerisiers. Selon la décision finale : la maison Minecraft le soir, ou la gare le 6 avril.
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc6" />
+
+## Choix majeurs
+
+<Spoiler requires="arc6">
+
+- **Le verdict caché** : la route est calculée une seule fois, au tout début de l'arc (ligne 160), d'après tout ce qui s'est passé depuis le prologue. **Aucun choix de l'arc 6 ne la modifie.** Le détail est sur la page [Calcul de l'embranchement](../../mecaniques/verdict-arc-6/).
+- **Le stylo violet** (scène 1) : le rendre en expliquant, le garder, le rendre sans rien dire ou en faire une blague (`arc6_stylo`). Le choix change des répliques des scènes 4 et 5 et revient plus tard dans l'histoire.
+- **La part de gâteau** (scène 2) : la manger tout de suite donne `ilonanium_points +1`, un compteur caché. La garder n'a aucun effet.
+- **La posture face au récit d'Ilona** (scène 3) : quatre réponses. Aucune n'est enregistrée, seule la réplique d'Ilona qui suit change.
+- **« Et toi, qu'est-ce que tu veux ? »** (scène 4) : cinq réponses qui fixent `arc6_offre_theo` et `arc6_conversation`. Les deux suites relisent ces variables. Les deux réponses « justes » (rester sans être porté, avouer les interruptions) déstabilisent Théo, ou arrivent trop tard si le ton est distant.
+- **Le dernier geste Minecraft** (variante « Ilona reste ») : une porte sans mur, deux panneaux, le silence ou un cadenas (`arc6_derniere_construction`), repris au début de la suite.
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc6" note="résumé complet de l'arc">
+
+**Un ton hérité, une route déjà tranchée**
+
+Au lancement de l'arc, le jeu traduit l'état de la relation (`etat_relation()`) en un ton : proche, indécis ou distant. Ce ton colore presque toutes les scènes : la place où Ilona s'assoit, sa façon de dire « C'est une planète », la réponse de Théo, la place de Jessy dans le couloir. Au même moment, le verdict qui décidera de la route est calculé. Les choix du jour ne font que colorer la suite.
+
+**Le stylo et la cérémonie**
+
+Dans la salle vide, Jessy rend (ou garde) le stylo violet d'Ilona. Au gymnase, Micka récolte trois enveloppes, dont une convocation. Ilona voit une planète dans le gâteau « BONNE ROUTE ». Sofiane rend à Allan l'enveloppe de décembre (« Les lumières ne disent pas où aller. Elles disent juste qu'il fait nuit. »). Allan, qui a passé l'année à traduire les autres, finit par aborder Théo sans lui chercher d'excuse. Théo lui annonce qu'il part à Tokyo le 6 avril, dans onze jours, et qu'il proposera à Ilona de venir. Son offre est sincère, et c'est ce qui la rend dangereuse.
+
+**Ilona raconte l'année**
+
+Dans la salle 3-B, la veste de Jessy sur les genoux et un feutre à la main, Ilona raconte l'année dans l'ordre. Elle reprend en flashbacks chaque moment où Jessy a fait un choix : la plage, la rumeur, la maison, Noël, la nuit avec Théo, le cinéma, la gare. Si Jessy l'a coupée sans réparer, elle finit enfin la phrase interrompue. Si la fatigue accumulée est trop lourde, elle pleure (« Depuis septembre »). Elle remarque qu'elle n'a jamais parlé d'elle. Elle écrit trois mots sous le col de la veste, sans les montrer.
+
+**L'offre**
+
+Dans le couloir, Théo décrit le studio, l'équipe, le planning, un endroit où personne ne la connaît. À la question « opportunité ou venir avec toi ? », il répond « Les deux », ou avoue qu'il veut qu'elle vienne. Il s'en prend à Jessy avec des faits réels de l'année. Ilona les arrête et demande à Jessy ce qu'il veut, lui. Théo fixe la date limite au 3 avril.
+
+**La décision**
+
+Dans la cour, Ilona exige qu'on la laisse finir sa phrase. Si le verdict est favorable, elle reste avec Jessy sans rien effacer de ses torts, et ils laissent une dernière trace dans la maison Minecraft. Sinon, elle lui rend sa veste pliée et part avec Théo (« T'as pas mal fait. T'as fait lentement. »). Les onze jours passent jusqu'au quai de la gare, le 6 avril.
+
+</Spoiler>
+
+## Suite
+
+L'histoire se divise ensuite en deux routes : la [Route A](../route-a/) et la [Route B](../route-b/).

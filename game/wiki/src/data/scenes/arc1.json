@@ -1,0 +1,184 @@
+{
+  "arc": "arc1",
+  "title": "ARC 1 : PRINTEMPS — LA VIE HORS ÉCRAN",
+  "file": "arcs/arc_1/arc_1_printemps.rpy",
+  "scenes": [
+    {
+      "id": "arc1-s1",
+      "title": "Retrouvailles dans le couloir",
+      "label": "arc_1_printemps",
+      "lines": "15-92",
+      "requires": "arc1",
+      "location": "École — couloir, devant le panneau des classes",
+      "characters": ["jessy", "ilona"],
+      "summary": "Carton « ARC 1 : PRINTEMPS — LA VIE HORS ÉCRAN ». Avril : depuis la maison Minecraft, Jessy et Ilona se parlent presque tous les soirs sur Discord. Pas de caméra, pas de photo, seulement leurs voix et leurs pseudos.\n\nLe jour de la rentrée, Jessy cherche son nom sur le panneau des classes en parlant tout seul (« première B, deuxième étage... »). Derrière lui, Ilona le reconnaît à sa voix. Ils découvrent qu'ils sont dans la même école : « C'est bizarre. » « Bizarre bien. »\n\nIlona évoque la maison selon la transformation du prologue : elle n'a montré la serre suspendue à personne (« nos crimes d'architecture privés »), la piscine du couloir « bloquait deux portes » (« Utile émotionnellement »), le toboggan devant le coffre vide « ne sert toujours à rien » (« Justement »), ou, dans le cas du poulet, la maison « a toujours autant de pièces inutiles » (« Ça l'est, pour nous »).\n\nLa sonnerie les sépare ; ils se donnent rendez-vous à midi. La matinée passe lentement pour Jessy, qui ne sait même pas dans quelle classe est Ilona.",
+      "choices": [],
+      "consequences": [
+        "Réplique conditionnée par maison_minecraft_transformation (lignes 56-76) ; la valeur poulet tombe dans la branche générale."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_shared_school_corridor.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-music.ogg"]
+    },
+    {
+      "id": "arc1-s2",
+      "title": "Midi sur le toit",
+      "label": "arc_1_printemps",
+      "lines": "94-175",
+      "requires": "arc1",
+      "location": "Toit de l'école, à midi",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona attend Jessy près de l'escalier du toit avec deux boissons au melon (« Si tu n'aimes pas, tu peux souffrir en silence »). Assis près du grillage, ils constatent que c'est « plus simple en vocal » ; Jessy ne sait pas quoi faire de son visage.\n\nIlona lui propose un morceau de son omelette (« C'est une omelette, Jessy. Pas mon héritage familial. »). Selon le choix, Jessy partage ses biscuits, lui demande si elle en a vraiment envie, refuse trop vite (Ilona : « Tu peux juste dire non. C'est pas grave. »), ou plaisante sur le plafond cassé.\n\nAprès ce midi-là, ils ne deviennent pas naturels d'un coup : un salut dans l'escalier, un message envoyé trop tard, une blague Minecraft. Au bout de quelques jours, cela ressemble à une habitude.",
+      "choices": [
+        {
+          "line": 120,
+          "prompt": "Ilona lui propose un morceau de son repas.",
+          "options": [
+            { "text": "Accepter et partager ses biscuits.", "effects": "lien_jessy_ilona +2" },
+            { "text": "Lui demander si elle en a vraiment envie.", "effects": "autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0)" },
+            { "text": "Refuser trop vite.", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1" },
+            { "text": "Faire une blague sur Minecraft.", "effects": "lien_jessy_ilona +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Variables relues par l'état de la relation (script.rpy:283-323) et le score de l'arc VI ; evitements seulement par l'arc VI (malus au-delà de 3)."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc1_rooftop_lunch.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-roof.ogg"]
+    },
+    {
+      "id": "arc1-s3",
+      "title": "Le même train",
+      "label": "arc_1_printemps",
+      "lines": "177-272",
+      "requires": "arc1",
+      "location": "Quai de gare, puis intérieur du train",
+      "characters": ["jessy", "ilona"],
+      "summary": "Un après-midi, ils se retrouvent sur le quai : ils prennent le même train et auraient « pu se croiser depuis des mois ». « Et on a choisi Minecraft. »\n\nDans le wagon, Ilona prend Jessy en photo par surprise : il a « la tête de quelqu'un qui vient d'être pris en photo », elle trouve qu'il a l'air « vivant ». Selon le choix, Jessy lui demande de supprimer (elle le fait aussitôt et promet de demander la prochaine fois), lui propose de la garder si elle l'aime bien, ou pose pour une deuxième photo.\n\nLa photo reste un sujet pendant deux jours. Un soir, toujours dans le train, Jessy commence : « Ilona, je voulais te dire que— » ; le train freine et la sonnerie des portes couvre la fin. Il renonce (« Rien. Laisse tomber. »). Ilona, mi-amusée mi-frustrée : « Tu recommenceras plus tard ? » « Peut-être. Si je retrouve le courage. »",
+      "choices": [
+        {
+          "line": 216,
+          "prompt": "Ilona regarde la photo en souriant.",
+          "options": [
+            { "text": "Lui demander de supprimer.", "effects": "communication -2, confiance -1, pression_stream +1, evitements +1" },
+            { "text": "Lui demander de la garder si elle l'aime bien.", "effects": "autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0)" },
+            { "text": "Poser pour une deuxième photo.", "effects": "lien_jessy_ilona +2" }
+          ]
+        }
+      ],
+      "consequences": [
+        "La déclaration interrompue reste en suspens à la fin de l'arc."
+      ],
+      "backgrounds": [
+        "images/scenes/backgrounds/transport/bg_arc1_train_platform.jpg",
+        "images/scenes/backgrounds/transport/bg_shared_train_inside.jpg"
+      ],
+      "cgs": [],
+      "music": ["audio/music/ecole-nuit.ogg"]
+    },
+    {
+      "id": "arc1-s4",
+      "title": "Le konbini et le bonbon étoile",
+      "label": "arc_1_printemps",
+      "lines": "274-379",
+      "requires": "arc1",
+      "location": "Konbini (rayon snacks, rayon boissons)",
+      "characters": ["jessy", "ilona", "laplage"],
+      "summary": "Le vendredi, Ilona veut passer au konbini (« J'ai faim. »). Devant les snacks, elle repère un bonbon en forme d'étoile : « sucre » selon Jessy, « ou destin » selon elle. Elle l'ouvre pour voir « si ça donne des pouvoirs ».\n\nUn homme « au calme impossible » se tient devant le rayon des boissons : « Le pouvoir vient rarement du sucre. » Ilona et Jessy le reconnaissent : c'est le personnage sans pseudo de la rivière Minecraft. Il se présente comme Monsieur Laplage (« C'est votre nom ? » « Aujourd'hui, oui. »), dit surveiller « les horizons. Et parfois les offres deux pour un », lève le pouce et ajoute : « Choisir un bonbon, c'est déjà choisir une petite catastrophe. » Il part vers les lessives, où il n'y a pas de sortie.\n\nIlona conclut que ce n'était « pas juste un souvenir bizarre du serveur ». Le joueur décide du sort du bonbon : le garder pour la salle secrète de la maison, laisser Ilona le manger (« Sucre. » « Pas destin ? » « Pas encore. »), ou le mettre de côté « pour plus tard » à cause de Monsieur Laplage.",
+      "choices": [
+        {
+          "line": 337,
+          "prompt": "Ilona lève le bonbon étoile comme si c'était très sérieux.",
+          "options": [
+            { "text": "Proposer de la garder pour la maison Minecraft.", "effects": "lien_jessy_ilona +2" },
+            { "text": "La laisser manger l'étoile.", "effects": "ilonanium_points +1, autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0)" },
+            { "text": "Mentionner Monsieur Laplage.", "effects": "lien_jessy_ilona +2 (le bonbon reste dans la poche d'Ilona)" }
+          ]
+        }
+      ],
+      "consequences": [
+        "Seule l'option « La laisser manger l'étoile » donne un point ilonanium_points ; garder le bonbon ne donne rien et n'est pas rattrapé plus tard.",
+        "ilonanium_points relu en arc V (arc_5_examens.rpy:2556) et en Route A (arc_7_jessy.rpy:1177).",
+        "Le bonbon conservé n'est plus mentionné ensuite dans les scripts."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/city/bg_arc1_konbini_snacks.jpg"],
+      "cgs": [],
+      "music": ["audio/music/kombini.ogg"]
+    },
+    {
+      "id": "arc1-s5",
+      "title": "La question d'Allan",
+      "label": "arc_1_printemps",
+      "lines": "380-494",
+      "requires": "arc1",
+      "location": "École — couloir, au premier intercours du lundi",
+      "characters": ["jessy", "ilona", "allan", "alexandre"],
+      "summary": "Le week-end passe ; le lundi, ils résument l'histoire ainsi : « un monsieur sorti de nulle part a donné son avis sur un bonbon ». Sans le dire, ils marchent désormais ensemble entre deux salles.\n\nAllan les aborde : « C'est vous, la maison Minecraft bizarre ? » Alexandre l'a vue : « Elle est incroyable. » « Elle est pas finie. » « Ça se voit. » Ilona raconte qu'ils ont recroisé « le type bizarre du serveur », « le monsieur au pouce levé », au konbini.\n\nAllan demande alors : « Donc... vous sortez ensemble ? » (alerte et musique façon Metal Gear). Selon le choix, Jessy répond « J'aimerais bien. » (Ilona : « Je sais pas encore. Mais merci. »), esquive par une blague sur la « maison impossible » sans enfermer Ilona dans une réponse, la laisse répondre (« Pour l'instant, c'est celle-là. »), ou nie trop vite (« Ah. »).\n\nLe reste de la journée se passe avec cette question au-dessus d'eux. Après les cours, Ilona lui envoie seulement : « toit ? »",
+      "choices": [
+        {
+          "line": 422,
+          "prompt": "Allan vient de poser la question un peu trop fort.",
+          "options": [
+            { "text": "Répondre sincèrement : « J'aimerais bien. »", "effects": "communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 ; si lien_jessy_ilona >= 6 après ce gain, Allan et Alexandre échangent un regard entendu" },
+            { "text": "Faire une blague pour détendre l'atmosphère.", "effects": "lien_jessy_ilona +4" },
+            { "text": "Laisser Ilona répondre.", "effects": "autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0)" },
+            { "text": "Nier trop vite.", "effects": "communication -4, confiance -2, pression_stream +2, evitements +1" }
+          ]
+        }
+      ],
+      "consequences": [
+        "ilona_peut_finir_ses_phrases : pèse fortement dans l'état de la relation et le score de l'arc VI (x6, arc_6_diplomes.rpy:51).",
+        "La question reste ouverte à la fin de l'arc, quelle que soit l'option."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_shared_school_corridor.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-music.ogg", "audio/music/Metal-gear.ogg"]
+    },
+    {
+      "id": "arc1-s6",
+      "title": "Le toit après les cours",
+      "label": "arc_1_printemps",
+      "lines": "496-579",
+      "requires": "arc1",
+      "location": "Toit de l'école, après les cours",
+      "characters": ["jessy", "ilona"],
+      "summary": "Ilona attend Jessy sur le toit. « En ligne, c'est plus facile » : quand elle réfléchit trop longtemps, personne ne le voit. Jessy avoue préférer cacher les blancs avec le bruit du jeu. « Là, on les entend. »\n\nSelon le choix, Jessy lui demande ce qui l'aiderait (parler plus ou juste rester là ; « On verra »), fait une petite blague (« silence, travaux en cours ») avant de dire qu'il ne veut pas qu'elle se sente pressée, se défend (« Je fais pas exprès d'être bizarre. », réponse trop rapide), ou lui dit qu'elle peut prendre son temps avec lui (« Mais c'est mieux quand tu le sais. »).\n\nIls restent jusqu'à ce que le toit se vide, sans trouver de conclusion parfaite.",
+      "choices": [
+        {
+          "line": 518,
+          "prompt": "Ilona parle doucement, sans chercher la bonne phrase.",
+          "options": [
+            { "text": "Lui demander ce qui l'aiderait.", "effects": "autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0)" },
+            { "text": "Faire une petite blague, puis répondre vraiment.", "effects": "communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2" },
+            { "text": "Se défendre.", "effects": "communication -4, confiance -2, pression_stream +2, evitements +1" },
+            { "text": "Lui dire qu'elle peut prendre son temps.", "effects": "autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0)" }
+          ]
+        }
+      ],
+      "consequences": [],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc1_rooftop_lunch.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-roof.ogg"]
+    },
+    {
+      "id": "arc1-s7",
+      "title": "À la cantine",
+      "label": "arc_1_printemps",
+      "lines": "580-646",
+      "requires": "arc1",
+      "location": "Cantine de l'école, à midi",
+      "characters": ["jessy", "ilona", "allan", "alexandre", "sofiane"],
+      "summary": "À midi, Allan et Alexandre rejoignent Jessy et Ilona à la cantine. Allan a vu Monsieur Laplage (« Pouce levé. Regard de vieux sage devant les distributeurs. ») et propose trois hypothèses : un prof, un employé, ou « un type qui apparaît quand il veut ». Alexandre a une capture de la maison, « pour la science ».\n\nAllan dit qu'il demandera à Théo, un ami qui « a toujours une réponse » et « parle comme s'il avait déjà lu la fin ». Selon la transformation du prologue : le poulet géant a un nom, Monsieur Plume ; la serre « intimide toujours les tomates » ; le couloir de la piscine a « des vagues maintenant » et un toboggan aquatique (Allan : « Vous réparez rien, en fait. ») ; rien de spécial pour le toboggan.\n\nDepuis la table voisine, Sofiane lâche : « Les premiers liens font beaucoup de bruit quand personne ne sait encore quoi dire. » puis reprend son repas. « Il était là depuis le début ? » « Je crois qu'il est toujours là depuis le début. » Ilona et Jessy rient : ce n'est pas encore simple entre eux, mais ce n'est « plus seulement dans Minecraft ». L'histoire enchaîne sur l'arc II.",
+      "choices": [],
+      "consequences": [
+        "Réplique conditionnée par maison_minecraft_transformation (lignes 612-628) ; aucune variante pour toboggan.",
+        "Théo est seulement mentionné."
+      ],
+      "backgrounds": ["images/scenes/backgrounds/school/bg_arc1_school_cafeteria.jpg"],
+      "cgs": [],
+      "music": ["audio/music/ecole-music.ogg"]
+    }
+  ]
+}

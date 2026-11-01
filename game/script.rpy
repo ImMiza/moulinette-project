@@ -68,17 +68,17 @@ define m_inconnu = Character("???", color="#f6e38d", callback=speaker_callback("
 
 
 image bg minecraft = Solid("#18241d")
-image bg prologue house afternoon = im.Scale("images/scenes/prologue/bg_prologue_house_afternoon.png", 1920, 1080)
-image bg prologue house entrance = im.Scale("images/scenes/prologue/bg_prologue_house_entrance.png", 1920, 1080)
-image bg prologue weird interior = im.Scale("images/scenes/prologue/bg_prologue_weird_interior.png", 1920, 1080)
-image bg prologue accident floor = im.Scale("images/scenes/prologue/bg_prologue_accident_floor.png", 1920, 1080)
-image bg prologue greenhouse branch = im.Scale("images/scenes/prologue/bg_prologue_greenhouse_branch.jpg", 1920, 1080)
-image bg prologue pool branch = im.Scale("images/scenes/prologue/bg_prologue_pool_branch.png", 1920, 1080)
-image bg prologue slide branch = im.Scale("images/scenes/prologue/bg_prologue_slide_branch.png", 1920, 1080)
-image bg prologue chicken roof branch = im.Scale("images/scenes/prologue/bg_prologue_chicken_roof_branch.png", 1920, 1080)
-image bg prologue secret room = im.Scale("images/scenes/prologue/bg_prologue_secret_room.png", 1920, 1080)
-image bg prologue roof night = im.Scale("images/scenes/prologue/bg_prologue_roof_night.png", 1920, 1080)
-image bg prologue river laplage = im.Scale("images/scenes/prologue/bg_prologue_river_laplage.png", 1920, 1080)
+image bg prologue house afternoon = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_house_afternoon.png", 1920, 1080)
+image bg prologue house entrance = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_house_entrance.png", 1920, 1080)
+image bg prologue weird interior = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_weird_interior.png", 1920, 1080)
+image bg prologue accident floor = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_accident_floor.png", 1920, 1080)
+image bg prologue greenhouse branch = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_greenhouse_branch.jpg", 1920, 1080)
+image bg prologue pool branch = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_pool_branch.png", 1920, 1080)
+image bg prologue slide branch = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_slide_branch.png", 1920, 1080)
+image bg prologue chicken roof branch = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_chicken_roof_branch.png", 1920, 1080)
+image bg prologue secret room = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_secret_room.png", 1920, 1080)
+image bg prologue roof night = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_roof_night.png", 1920, 1080)
+image bg prologue river laplage = im.Scale("images/scenes/backgrounds/minecraft/bg_prologue_river_laplage.png", 1920, 1080)
 image bg school = Solid("#1b2330")
 image bg beach = Solid("#24445b")
 image bg festival = Solid("#2b1b32")
@@ -88,8 +88,8 @@ image bg graduation = Solid("#25242b")
 image bg mountain = Solid("#1d2c28")
 image bg stream = Solid("#15151f")
 image bg ending = Solid("#111217")
-image bg shared school corridor = im.Scale("images/scenes/shared/bg_shared_school_corridor.jpg", 1920, 1080)
-image bg shared train inside = im.Scale("images/scenes/shared/bg_shared_train_inside.jpg", 1920, 1080)
+image bg shared school corridor = im.Scale("images/scenes/backgrounds/school/bg_shared_school_corridor.jpg", 1920, 1080)
+image bg shared train inside = im.Scale("images/scenes/backgrounds/transport/bg_shared_train_inside.jpg", 1920, 1080)
 
 
 image jessy minecraft = speaker_sprite("jessy", "images/personnages/Jessy/minecraft.png")
@@ -107,14 +107,14 @@ image ilona neutral = speaker_sprite("ilona", "images/personnages/Ilona/neutral.
 image ilona smile = speaker_sprite("ilona", "images/personnages/Ilona/playful_warm_smile.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona fatigue = speaker_sprite("ilona", "images/personnages/Ilona/quiet_fatigue.png", ILONA_SIZE[0], ILONA_SIZE[1])
 
-image theo disappointed = speaker_sprite("theo", "images/personnages/Théo/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo annoyed = speaker_sprite("theo", "images/personnages/Théo/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo defensive = speaker_sprite("theo", "images/personnages/Théo/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo innocent = speaker_sprite("theo", "images/personnages/Théo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo smirk = speaker_sprite("theo", "images/personnages/Théo/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo neutral = speaker_sprite("theo", "images/personnages/Théo/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo jealousy = speaker_sprite("theo", "images/personnages/Théo/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
-image theo reassuring = speaker_sprite("theo", "images/personnages/Théo/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo disappointed = speaker_sprite("theo", "images/personnages/Theo/cold_disappointment.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo annoyed = speaker_sprite("theo", "images/personnages/Theo/controlled_annoyance.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo defensive = speaker_sprite("theo", "images/personnages/Theo/defense_frustration.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo innocent = speaker_sprite("theo", "images/personnages/Theo/feigned_innocence.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo smirk = speaker_sprite("theo", "images/personnages/Theo/knowing_smirk.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo neutral = speaker_sprite("theo", "images/personnages/Theo/neutral.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo jealousy = speaker_sprite("theo", "images/personnages/Theo/quiet_jalousy.png", 842, 1264, THEO_CROP_BOTTOM)
+image theo reassuring = speaker_sprite("theo", "images/personnages/Theo/reassuring_smile.png", 842, 1264, THEO_CROP_BOTTOM)
 
 image allan embarrassed = speaker_sprite("allan", "images/personnages/Allan/awkward_embarrassment.png")
 image allan excited = speaker_sprite("allan", "images/personnages/Allan/cheerful_excitement.png")
@@ -144,11 +144,11 @@ image sofiane smile = speaker_sprite("sofiane", "images/personnages/Sofiane/reli
 image sofiane neutral = speaker_sprite("sofiane", "images/personnages/Sofiane/reserved_neutral.png")
 image sofiane shy = speaker_sprite("sofiane", "images/personnages/Sofiane/shy_embarrassment.png")
 
-image laplage neutral = speaker_sprite("laplage", "images/personnages/laplage/neutral.png")
-image laplage thumb_up = speaker_sprite("laplage", "images/personnages/laplage/thumb_up.png")
-image laplage thumb_horizontal = speaker_sprite("laplage", "images/personnages/laplage/thumb_horizontal.png")
-image laplage thumb_down = speaker_sprite("laplage", "images/personnages/laplage/thumb_down.png")
-image laplage minecraft = speaker_sprite("laplage", "images/personnages/laplage/minecraft.png")
+image laplage neutral = speaker_sprite("laplage", "images/personnages/Laplage/neutral.png")
+image laplage thumb_up = speaker_sprite("laplage", "images/personnages/Laplage/thumb_up.png")
+image laplage thumb_horizontal = speaker_sprite("laplage", "images/personnages/Laplage/thumb_horizontal.png")
+image laplage thumb_down = speaker_sprite("laplage", "images/personnages/Laplage/thumb_down.png")
+image laplage minecraft = speaker_sprite("laplage", "images/personnages/Laplage/minecraft.png")
 
 init python:
     renpy.music.register_channel("ambiant1", mixer="sfx", loop=True)
@@ -398,11 +398,7 @@ label start:
 #   run "premiere option" 246  (lien 46)
 #   run "derniere option" -395
 #   parties aleatoires    mediane -104, p95 92
-# Frontiere score/lien : environ -7 points de score par point de lien gagne
-# (le tier B ne donne que du lien). La fenetre romance est lien 35..64.
 define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
-define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
-define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 
 # Seuils de etat_relation() : conditionnent le TON des scenes des arcs 5 et 6,
 # pas la route finale. Cales sur les parcours de reference, mesures deux fois

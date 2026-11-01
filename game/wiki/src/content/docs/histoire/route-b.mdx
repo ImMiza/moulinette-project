@@ -1,0 +1,83 @@
+---
+title: "Route B"
+description: Une des deux routes de l'arc VII. Conditions d'accès, scènes, choix et résumé protégés.
+sidebar:
+  order: 9
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc VI](../arc-6/), à la place de la [Route A](../route-a/).
+**Fins** : [Fin B1](../../fins/b1/) ou [Fin B2](../../fins/b2/).
+:::
+
+## En bref
+
+<Spoiler requires="arc6" note="mise en place de la route, suppose l'arc VI terminé">
+
+Le 6 avril, Ilona et Théo arrivent à Tokyo. Le studio leur a loué un appartement à deux rues des locaux où Ilona doit lancer sa chaîne, IlonaGaming, dès le lendemain soir. Tout est prêt avant elle : la pièce de stream, l'équipe, l'annonce de son premier direct. L'arc, intitulé en jeu « ARC 7 : LE MONDE APRÈS LE DÉPART », suit huit mois de vie à deux entre succès et planning.
+
+Fichier : `arcs/arc_7/arc_7_theo.rpy`, label `arc_7_theo`.
+
+</Spoiler>
+
+## Conditions d'entrée
+
+<Spoiler requires="arc6" note="dépend du verdict de l'arc VI">
+
+La route est décidée par le verdict calculé une seule fois au début de l'arc VI (`arc6_calcule_verdict`, `arcs/arc_6/arc_6_diplomes.rpy:44-84`) :
+
+- si `controle_repetitif` (interruptions d'Ilona non réparées) vaut **3 ou plus**, la Route B est imposée, quel que soit le score ;
+- sinon, si `arc6_score` est **inférieur à 180** (`SEUIL_JESSY`, `script.rpy:401`), c'est aussi la Route B.
+
+Le jeu passe alors par `arc_6_decision_theo` (Ilona annonce « Je vais partir avec Théo. »), puis par `arc_6_bascule_theo` (les onze jours et le départ en gare du 6 avril), seul point d'entrée vers `arc_7_theo` (`arc_6_diplomes.rpy:2059`). Détail du calcul : [verdict de l'arc VI](../../mecaniques/verdict-arc-6/).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="routeB" />
+
+## Choix décisif
+
+<Spoiler requires="routeB">
+
+- **La réponse de Théo** (scène 21, `arc_7_theo.rpy:1365`) : seul menu de la route. Le joueur choisit comment Théo répond quand Ilona, le soir du million, demande un après-midi à deux et l'annulation du stream.
+  - « Annuler les sponsors, écouter Ilona. » → Fin B1.
+  - « Prioriser les sponsors, la chaîne avant tout. » → Fin B2.
+- Aucune variable n'est écrite par ce menu : la fin dépend uniquement de cette option.
+- Les choix des arcs II à VI ne changent pas le déroulé, seulement des phrases de rappel du narrateur (stylo violet, carnets, plage, festival, cadeau de Noël, offre de Théo).
+
+</Spoiler>
+
+## Fins possibles
+
+- [Fin B1](../../fins/b1/)
+- [Fin B2](../../fins/b2/)
+
+## Résumé détaillé
+
+<Spoiler requires="routeB" note="résumé complet de la route">
+
+**Le rêve (avril)**
+
+À Tokyo, Ilona découvre l'appartement fourni par le studio et fixe avec Théo des règles de colocation. Le premier stream d'IlonaGaming réunit 832 personnes au départ et culmine à 2 417 : elle rate le tutoriel, accuse la manette, et le tchat l'adopte. Dix jours plus tard, au restaurant, Théo lui demande de sortir avec lui « pour de vrai ». Elle accepte et lui fait promettre de garder une différence entre le travail et eux ; il répond qu'il doit « entendre son non ». Premier baiser, puis Kung Pow dans le salon.
+
+**L'avertissement**
+
+Le lendemain, la chaîne passe les 10 000 abonnés. Au parc, Monsieur Laplage, assis sur un banc, leur conseille de garder « une place au rien » et de vérifier que le bonheur « ne répond pas à votre place ». Puis les sponsors commencent à remplacer les promenades.
+
+**La dérive (juin à décembre)**
+
+À 100 000 abonnés, Théo offre comme « cadeau » une opération avec une grande marque ; Ilona dîne seule. Après l'opération, il refuse Shaolin Soccer pour un déplacement. Ilona retourne le carnet de planning face contre table ; Théo le remet face visible. Le 6 décembre, elle a les cheveux courts, il a déjà allégé son agenda à sa place : « Si on tient le rythme maintenant, après on pourra respirer. » Les paliers s'enchaînent (250 000 fin août, 600 000 fin octobre) ; Théo rédige les messages, Ilona sourit sur les photos.
+
+**Le million**
+
+Le soir du 6 décembre, devant plus de 46 000 spectateurs, Ilona atteint le million et promet au tchat de ne « jamais » partir, puis s'effondre de fatigue. Théo l'embrasse et revient vite aux mails : une campagne de six mois. « Quand tu dis "on", tu parles de qui ? » De retour à la maison, Ilona avoue qu'elle se sent seule et demande le lendemain après-midi à deux, puis l'annulation du stream. Théo parle d'un « mauvais signal » pour les marques et l'algorithme. « Et à moi ? » Le joueur choisit alors la réponse de Théo.
+
+**Les deux réponses**
+
+S'il l'écoute, Théo veut aussitôt tout organiser, se fait reprendre, puis la laisse décider et écrire elle-même son message. Elle demande une vraie pause ; il admet que sa peur de tout perdre n'est « pas ta consigne ». S'il garde les sponsors, il décide pour elle : sieste, stream d'une heure, ralentir « après ». « C'est toujours après. » Ilona dit « Je comprends » et pleure seule dans sa chambre, le porte-clés de la plage serré dans la main.
+
+</Spoiler>

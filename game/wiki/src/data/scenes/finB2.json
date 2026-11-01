@@ -1,0 +1,61 @@
+{
+  "arc": "finB2",
+  "title": "Fin B2",
+  "file": "arcs/endings/bad_ending.rpy",
+  "scenes": [
+    {
+      "id": "finB2-s1",
+      "title": "Le 7 décembre : Théo et Allan au bar",
+      "label": "bad_ending",
+      "lines": "31-206",
+      "requires": "finB2",
+      "location": "Bar de Tokyo (soir)",
+      "characters": ["theo", "allan"],
+      "summary": "Le 7 décembre, la régie est partie en tournage ; Ilona doit lancer seule le live court maintenu par Théo. Théo vient de décrocher la campagne de six mois et retrouve Allan, de passage à Tokyo. Allan refuse le « rapport d'activité » et demande comment il va ; ils évoquent leur dispute du gymnase et se réconcilient à demi-mot (« Dix ans d'amitié, huit mois de messages nuls »).\n\nPeu après 20 h, la chaîne d'Ilona est hors ligne et elle ne répond pas. Théo liste ses signes d'épuisement et la solution qu'il a appliquée. Allan : « T'entends pas le trou entre les deux ? » et lui demande de lui demander ce qu'elle veut, en acceptant que la réponse soit « non, rien, ou pas avec toi ». Théo rentre.",
+      "consequences": ["record_ending(\"bad_ending\") ajoute \"bad_ending\" à endings_seen (bad_ending.rpy:32)."],
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.jpg"],
+      "music": ["audio/music/bar_jazz.ogg"]
+    },
+    {
+      "id": "finB2-s2",
+      "title": "Retour vers l'appartement",
+      "label": "bad_ending",
+      "lines": "208-262",
+      "requires": "finB2",
+      "location": "Rue de Tokyo, studio, appartement",
+      "characters": ["theo"],
+      "summary": "Dans la rue, Théo se surprend à planifier un dîner et efface la réservation : il veut la laisser choisir. Au studio, les écrans sont noirs : Ilona n'est jamais venue. À l'appartement, tout est éteint. Devant la porte de sa chambre, il s'excuse d'avoir transformé sa réponse en planning, promet de l'écouter, puis entre.",
+      "backgrounds": [
+        "images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.jpg",
+        "images/scenes/backgrounds/streaming/bg_arc7_intro_stream.jpg",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night_nolight.jpg",
+        "images/scenes/backgrounds/tokyo/bg_arc7_tokyo_house_night.png",
+        "images/scenes/backgrounds/tokyo/bg_bad_ending_apartment_corridor_night.jpg",
+        "images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_door_bedroom.jpg"
+      ]
+    },
+    {
+      "id": "finB2-s3",
+      "title": "Découverte",
+      "label": "bad_ending",
+      "lines": "263-316",
+      "requires": "finB2",
+      "location": "Chambre d'Ilona",
+      "characters": ["theo"],
+      "summary": "Théo découvre Ilona sans vie dans sa chambre ; la scène est très brève puis passe au noir. Le texte ne nomme pas la cause ; « Ilona ne ferait jamais ça » suggère un geste volontaire (interprétation). Théo supplie, puis se reproche d'avoir répondu « après » et d'avoir tout décidé « par amour » : « je ne t'ai même pas protégée de ma façon de t'aimer. »",
+      "backgrounds": ["images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.png"]
+    },
+    {
+      "id": "finB2-s4",
+      "title": "Quarante ans plus tard : la plage",
+      "label": "bad_ending",
+      "lines": "318-368",
+      "requires": "finB2",
+      "location": "Plage au crépuscule",
+      "characters": ["theo", "laplage"],
+      "summary": "Quarante ans plus tard, Théo, grisonnant, tient une photo de leur installation à Tokyo. Monsieur Laplage apparaît (« Je remplace quelqu'un qui n'était pas prévu ») : « Trop tard, c'est encore une heure. Jamais, ça n'en est pas une. » Il lui tend le porte-clés bloc qu'Ilona avait gardé jusqu'à sa dernière nuit : « Le prochain, c'est toi. »\n\nSeul face à la mer : « J'aurais dû t'écouter quand tu étais encore là. » Puis, sur écran noir : « Je suis désolé, Ilona. »",
+      "consequences": ["Fin du jeu : return (bad_ending.rpy:368)."],
+      "backgrounds": ["images/scenes/backgrounds/beach/bg_arc2_beach_sunset.jpg"]
+    }
+  ]
+}

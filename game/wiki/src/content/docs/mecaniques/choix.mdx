@@ -1,0 +1,293 @@
+---
+title: Choix
+description: Tous les menus de Moulinette, arc par arc, avec leurs options exactes et leurs effets. Contenu protégé par arc.
+sidebar:
+  order: 2
+---
+import Spoiler from '../../../components/Spoiler.astro';
+
+:::note[Repères]
+Chaque arc a son tableau, protégé par sa clé. Les options sont recopiées telles qu'elles s'affichent en jeu ; la colonne « Ligne » indique où commence le `menu:` dans le script. Les jauges sont expliquées dans [Variables](../variables/), le calcul de la route dans [Calcul de l'embranchement](../verdict-arc-6/). « Plancher 0 » signifie que la valeur ne descend pas sous zéro.
+:::
+
+## Prologue
+
+<Spoiler requires="prologue" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [La visite et l'effondrement](../../histoire/prologue/#prologue-s2) | `prologue_minecraft.rpy:101` | La maison vient de perdre un mur, un bout de plafond et une certaine dignité. Comment Jessy réagit-il ? | « Déclarer une guerre de poulets. » | lien_jessy_ilona +2 |
+|  |  |  | « Réagir trop vite. » | communication -2, confiance -1, pression_stream +1, evitements +1 |
+|  |  |  | « Faire une blague avant de regarder les dégâts. » | lien_jessy_ilona +2 |
+|  |  |  | « Réparer ensemble. » | communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1, souvenir maison_respectee |
+| [Transformer les dégâts](../../histoire/prologue/#prologue-s3) | `prologue_minecraft.rpy:155` | Ilona veut transformer les dégâts au lieu de les effacer. Quelle place Jessy lui laisse-t-il ? | « La laisser essayer son idée de serre. » | maison_minecraft_transformation = serre, autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0) |
+|  |  |  | « Répondre par une idée encore plus stupide. » | maison_minecraft_transformation = poulet, lien_jessy_ilona +2 |
+|  |  |  | « Chercher avec elle une solution franchement inutile. » | maison_minecraft_transformation = toboggan, lien_jessy_ilona +2 |
+|  |  |  | « Proposer d'assumer le désastre jusqu'au bout. » | maison_minecraft_transformation = piscine, lien_jessy_ilona +2 |
+| [Passer en vocal](../../histoire/prologue/#prologue-s5) | `prologue_minecraft.rpy:273` | Comment Jessy répond-il à la proposition d'appel vocal ? | « Accepter tout de suite. » | communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1 |
+|  |  |  | « Faire une blague avant d'accepter. » | lien_jessy_ilona +2 |
+|  |  |  | « Demander une minute pour se préparer. » | communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1 |
+
+Trois menus, aucun n'est conditionnel. Dans le menu de la ligne 273, « Accepter tout de suite » et « Demander une minute » ont exactement les mêmes effets.
+
+</Spoiler>
+
+## Arc I
+
+<Spoiler requires="arc1" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [Midi sur le toit](../../histoire/arc-1/#arc1-s2) | `arc_1_printemps.rpy:120` | Ilona lui propose un morceau de son repas. | « Accepter et partager ses biscuits. » | lien_jessy_ilona +2 |
+|  |  |  | « Lui demander si elle en a vraiment envie. » | autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0) |
+|  |  |  | « Refuser trop vite. » | communication -2, confiance -1, pression_stream +1, evitements +1 |
+|  |  |  | « Faire une blague sur Minecraft. » | lien_jessy_ilona +2 |
+| [Le même train](../../histoire/arc-1/#arc1-s3) | `arc_1_printemps.rpy:216` | Ilona regarde la photo en souriant. | « Lui demander de supprimer. » | communication -2, confiance -1, pression_stream +1, evitements +1 |
+|  |  |  | « Lui demander de la garder si elle l'aime bien. » | autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0) |
+|  |  |  | « Poser pour une deuxième photo. » | lien_jessy_ilona +2 |
+| [Le konbini et le bonbon étoile](../../histoire/arc-1/#arc1-s4) | `arc_1_printemps.rpy:337` | Ilona lève le bonbon étoile comme si c'était très sérieux. | « Proposer de la garder pour la maison Minecraft. » | lien_jessy_ilona +2 |
+|  |  |  | « La laisser manger l'étoile. » | +1 au compteur caché (voir fin de page), autonomie_ilona +2, communication +1, confiance +1, pression_stream -1 (plancher 0) |
+|  |  |  | « Mentionner Monsieur Laplage. » | lien_jessy_ilona +2 (le bonbon reste dans la poche d'Ilona) |
+| [La question d'Allan](../../histoire/arc-1/#arc1-s5) | `arc_1_printemps.rpy:422` | Allan vient de poser la question un peu trop fort. | « Répondre sincèrement : « J'aimerais bien. » » | communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 ; si lien_jessy_ilona >= 6 après ce gain, Allan et Alexandre échangent un regard entendu |
+|  |  |  | « Faire une blague pour détendre l'atmosphère. » | lien_jessy_ilona +4 |
+|  |  |  | « Laisser Ilona répondre. » | autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0) |
+|  |  |  | « Nier trop vite. » | communication -4, confiance -2, pression_stream +2, evitements +1 |
+| [Le toit après les cours](../../histoire/arc-1/#arc1-s6) | `arc_1_printemps.rpy:518` | Ilona parle doucement, sans chercher la bonne phrase. | « Lui demander ce qui l'aiderait. » | autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0) |
+|  |  |  | « Faire une petite blague, puis répondre vraiment. » | communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 |
+|  |  |  | « Se défendre. » | communication -4, confiance -2, pression_stream +2, evitements +1 |
+|  |  |  | « Lui dire qu'elle peut prendre son temps. » | autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream -2 (plancher 0) |
+
+Cinq menus. Seul le bonbon étoile (l. 337) a une suite cachée selon l'option choisie ; la transformation du prologue ne modifie que des répliques.
+
+</Spoiler>
+
+## Arc II
+
+<Spoiler requires="arc2" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [L'annonce de la plage](../../histoire/arc-2/#arc2-s1) | `arc_2_plage.rpy:78` | Allan vient d'annoncer que Théo sera là. | « Faire une blague sur le château de sable impossible. » | lien_jessy_ilona +2 |
+|  |  |  | « Demander simplement qui vient. » | communication +2, confiance +1, jalousie −1 (minimum 0), lien_jessy_ilona +1 ; Allan annonce « Cinq. Six si Sofiane apparaît » |
+|  |  |  | « Répondre trop vite à propos de Théo. » | autonomie_ilona −2, confiance −2, influence_theo +1, jalousie +3, lien_jessy_ilona −1, controles +1 |
+|  |  |  | « Se taire. » | communication −2, confiance −1, pression_stream +1, evitements +1 |
+| [Sous le parasol](../../histoire/arc-2/#arc2-s3) | `arc_2_plage.rpy:189` | Ilona cherche une place pour sa serviette. | « L'aider sans commenter son désordre. » | autonomie_ilona +2, communication +1, confiance +1, pression_stream −1 (minimum 0) |
+|  |  |  | « Faire une blague sur la zone Ilona. » | lien_jessy_ilona +2 ; la réponse d'Ilona est complice si lien_jessy_ilona ≥ 10, plus sèche sinon |
+|  |  |  | « Regarder surtout ce que fait Théo. » | autonomie_ilona −2, confiance −2, influence_theo +1, jalousie +3, lien_jessy_ilona −1, controles +1 |
+| [Le stand de kakigōri et le porte-clés](../../histoire/arc-2/#arc2-s4) | `arc_2_plage.rpy:290` | Théo vient de briller là où Jessy a échoué. Ilona le regarde encore. | « Le remercier sincèrement. » | communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 |
+|  |  |  | « Chercher aussi et trouver autre chose. » | lien_jessy_ilona +4 ; Jessy offre une petite coquille blanche qu'Ilona garde |
+|  |  |  | « Faire une blague pour masquer sa blessure. » | communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Se taire et encaisser. » | communication −4, confiance −2, pression_stream +2, evitements +1 |
+| [La photo de groupe](../../histoire/arc-2/#arc2-s5) | `arc_2_plage.rpy:370` | La photo n'a rien décidé. Jessy la regarde pourtant comme si elle avait pris parti. | « Se taire et garder pour soi. » | arc2_photo_reaction = silence_photo, communication −2, confiance −1, pression_stream +1, evitements +1 |
+|  |  |  | « Proposer de refaire la photo, avec légèreté. » | arc2_photo_reaction = refaire_doux, communication +1, jalousie +1 ; une seconde photo est prise |
+|  |  |  | « Dire que la composition est bizarre, sans insister. » | arc2_photo_reaction = remarque_neutre, communication +2, confiance +1, jalousie −1 (minimum 0), lien_jessy_ilona +1 |
+|  |  |  | « Accepter la photo et complimenter Ilona. » | arc2_photo_reaction = accepter_compliment, lien_jessy_ilona +2 |
+| [« Je peux y aller ? »](../../histoire/arc-2/#arc2-s7) | `arc_2_plage.rpy:490` | Ilona attend. Théo aussi. Comment Jessy gère-t-il ? | « Lui faire confiance et proposer d'en parler au retour. » | arc2_choix_activite_theo = confiance, autonomie_ilona +6, communication +3, confiance +3, pression_stream −3 (minimum 0), souvenir ilona_libre_sans_abandon |
+|  |  |  | « Dire oui, puis les suivre discrètement. » | arc2_choix_activite_theo = suivre, autonomie_ilona −6, confiance −6, influence_theo +3, interruptions_ilona +1, jalousie +9, lien_jessy_ilona −3, controles +1 |
+|  |  |  | « Cacher sa jalousie derrière une blague. » | arc2_choix_activite_theo = blague_jalouse, communication −6, confiance −3, jalousie +2, pression_stream +3, evitements +1 |
+|  |  |  | « Dire qu'il a besoin de dix minutes pour respirer. » | arc2_choix_activite_theo = dix_minutes, communication +6, confiance +3, jalousie −3 (minimum 0), lien_jessy_ilona +3, souvenir jessy_nomme_sa_peur |
+|  |  |  | « Partir sans répondre. » | arc2_choix_activite_theo = disparaitre, communication −6, confiance −3, pression_stream +3, evitements +1 |
+| [Le coucher de soleil](../../histoire/arc-2/#arc2-s10) | `arc_2_plage.rpy:964` | Le coucher de soleil commence. Que fait Jessy ? | « Se taire trop longtemps. » | arc2_reaction_coucher = silence, communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Reconnaître précisément son erreur. » | arc2_reaction_coucher = reparation, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 ; souvenir jessy_repare si arc2_choix_activite_theo vaut blague_jalouse, suivre ou disparaitre ; interruptions_reconnues +1 et interruptions_reparees +1 si interruptions_ilona > interruptions_reconnues |
+|  |  |  | « Demander ce qui s'est passé avec Théo. » | arc2_reaction_coucher = interrogatoire, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 |
+|  |  |  | « Nommer sa peur sans accuser. » | arc2_reaction_coucher = peur_nommee, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur |
+| [La maison Minecraft, une nuit d'été](../../histoire/arc-2/#arc2-s11) | `arc_2_plage.rpy:1132` | Dans le jeu, Ilona place un bloc lumineux bleu dans l'inventaire. | « La laisser manger la gelée lumineuse avant d'en construire une version Minecraft. » *(si arc2_retour_minecraft différent de porte_fermee)* | souvenir maison_respectee, +1 au compteur caché (voir fin de page), lien_jessy_ilona +2 |
+|  |  |  | « Poser un bloc lumineux dehors sans rien dire. » | aucun effet chiffré ; Jessy trouve ça « joli » si sortie_couloir ou lanterne_bleue, sinon silence |
+
+Sept menus. Dans le dernier (l. 1132), l'option de la gelée est masquée si `arc2_retour_minecraft == "porte_fermee"` (valeur calculée l. 1095-1130 à partir des choix de la journée). Le menu pivot est celui de la ligne 490 (`arc2_choix_activite_theo`), relu jusqu'à l'arc VII.
+
+</Spoiler>
+
+## Arc III
+
+<Spoiler requires="arc3" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [La rumeur au stand](../../histoire/arc-3/#arc3-s3) | `arc_3_rentree.rpy:216` | La rumeur vient de tomber devant Ilona, Jessy et Théo. | « Regarder Ilona d'abord. » | arc3_reaction_rumeur = demander_ilona, autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (minimum 0) |
+|  |  |  | « Se taire et laisser passer. » | arc3_reaction_rumeur = silence_paralysie, communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Défendre Ilona immédiatement. » | arc3_reaction_rumeur = defendre_immediat, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 |
+|  |  |  | « Faire une blague pour désamorcer. » | arc3_reaction_rumeur = blague_desarm, lien_jessy_ilona +4 |
+| [Le jour du festival](../../histoire/arc-3/#arc3-s4) | `arc_3_rentree.rpy:379` | Ilona et Théo travaillent côte à côte au stand. Comment Jessy choisit-il d'être présent ? | « Annoncer qu'il a besoin d'air, et revenir. » | arc3_aide_stand = distance_honnete, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur ; Jessy dit « Je suis jaloux. » |
+|  |  |  | « Aider sans se mettre au centre. » | arc3_aide_stand = aider_retrait, autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (minimum 0) |
+|  |  |  | « Demander franchement ce qu'elle ressent. » | arc3_aide_stand = demande_directe, autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (minimum 0) |
+|  |  |  | « Faire une blague acide pour cacher sa blessure. » | arc3_aide_stand = blague_defense, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 |
+| [Le duel du couloir](../../histoire/arc-3/#arc3-s7) | `arc_3_rentree.rpy:624` | Théo vient de toucher juste, et Jessy le sait. | « Se taire pour ne pas exploser. » | communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Admettre la blessure sans baisser les yeux. » | communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 |
+|  |  |  | « Refuser le duel, mais pas la colère. » | autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (minimum 0) |
+|  |  |  | « Lui rentrer dedans. » | autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 |
+| [Une vérité désordonnée](../../histoire/arc-3/#arc3-s8) | `arc_3_rentree.rpy:793` | Ilona vient de lâcher une vérité désordonnée, presque trop intime pour le couloir. | « Lui dire qu'il l'aime trop pour faire semblant. » | arc3_reaction_laplage = demander_besoin, communication +4, confiance +2, ilona_peut_finir_ses_phrases +1, jalousie −2 (minimum 0), lien_jessy_ilona +2, puis lien_jessy_ilona +1 |
+|  |  |  | « S'excuser sans se rendre petit. » | arc3_reaction_laplage = excuse_precise, communication +4, confiance +2, jalousie −2 (minimum 0), lien_jessy_ilona +2 ; souvenir jessy_repare si arc3_aide_stand = blague_defense ou arc3_reaction_rumeur = blague_desarm ; interruptions_reconnues +1 et interruptions_reparees +1 si interruptions_ilona > interruptions_reconnues ; puis confiance +1 |
+|  |  |  | « Demander une réponse sur ses sentiments. » | arc3_reaction_laplage = demande_reponse, autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1, puis pression_stream +1 |
+|  |  |  | « Promettre que Théo ne compte pas. » | arc3_reaction_laplage = promesse_theo, communication −4, confiance −2, pression_stream +2, evitements +1, puis influence_theo +1 et pression_stream +1 |
+| [La maison Minecraft après le festival](../../histoire/arc-3/#arc3-s11) | `arc_3_rentree.rpy:1132` | Ilona retrouve dans son sac une petite étoile en sucre achetée au festival. *(si arc3_fin_minecraft différent de destruction)* | « Proposer d'en garder une trace dans la salle secrète. » | souvenir maison_respectee, lien_jessy_ilona +2 ; la vraie étoile reste sur le bureau d'Ilona |
+|  |  |  | « La laisser la manger pendant qu'elle réfléchit. » | autonomie_ilona +2, communication +1, confiance +1, +1 au compteur caché (voir fin de page), pression_stream −1 (minimum 0) |
+
+Cinq menus. Le menu de l'étoile en sucre (l. 1132) n'apparaît pas si `arc3_fin_minecraft == "destruction"`. La variable `arc3_reaction_laplage` (menu l. 793) enregistre en réalité la réponse à la confession d'Ilona.
+
+</Spoiler>
+
+## Arc IV
+
+<Spoiler requires="arc4" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [La galerie commerciale : choisir ce que porte le cadeau](../../histoire/arc-4/#arc4-s2) | `arc_4_noel.rpy:237` | Alexandre attend. La miniature pèse dans le sac de Jessy. Il doit décider ce qu'elle porte. | « Offrir la miniature en avouant qu'elle porte trop de choses. » | arc4_cadeau_jessy = miniature_aveu ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir maison_respectee |
+|  |  |  | « Offrir la miniature avec ses erreurs, comme témoin de ce qui a existé. » | arc4_cadeau_jessy = miniature_souvenir ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir maison_respectee |
+|  |  |  | « Paniquer et acheter un cadeau neutre à la place. » | arc4_cadeau_jessy = cadeau_couteux (une écharpe chère) ; communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Offrir la miniature mais en blague, pour désamorcer le poids. » | arc4_cadeau_jessy = blague_interne ; lien_jessy_ilona +4 |
+|  |  |  | « Ne rien offrir ce soir et miser sur la conversation seule. » | arc4_cadeau_jessy = discussion_honnete ; autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (min 0), souvenir jessy_nomme_sa_peur |
+| [Le marché de Noël : le carnet de Théo](../../histoire/arc-4/#arc4-s3) | `arc_4_noel.rpy:385` | Théo vient d'offrir à Ilona un cadeau très précis. Jessy sent quelque chose se déchirer entre rester digne et hurler. | « Reconnaître le cadeau mais nommer sa propre douleur. » | arc4_reaction_cadeau_theo = reconnaitre ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2 |
+|  |  |  | « Poser une question simple à Ilona. » | arc4_reaction_cadeau_theo = demander_ressenti ; autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (min 0) |
+|  |  |  | « Rester silencieux et encaisser seul. » | arc4_reaction_cadeau_theo = laisser_repondre ; communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Dire une vérité crue sans filtre. » | arc4_reaction_cadeau_theo = verite_crue ; communication +4, confiance +2, lien_jessy_ilona +2 (accrochage avec Théo) |
+|  |  |  | « Faire une remarque acide qui déborde. » | arc4_reaction_cadeau_theo = blague_acide ; autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 ; plus tard interruptions_ilona +1 (l.969-970) |
+| [La rivière : le mochi et le Père Noël intérimaire](../../histoire/arc-4/#arc4-s6) | `arc_4_noel.rpy:682` | Ilona regarde le mochi pailleté. | « Le manger pour gagner du temps. » | arc4_mochi_cosmique = vrai, +1 au compteur caché (voir fin de page) |
+|  |  |  | « Le garder pour plus tard. » | aucun |
+| [La rivière : la limite d'Ilona](../../histoire/arc-4/#arc4-s7) | `arc_4_noel.rpy:797` | Jessy vient d'avouer qu'il se sent en compétition. Ilona peut l'accueillir, le rejeter, ou montrer qu'elle aussi a peur. | « Demander ce que le cadeau de Théo signifie vraiment pour elle. » | arc4_limite_ilona = demande_theo ; autonomie_ilona −6, confiance −6, influence_theo +3, jalousie +9, lien_jessy_ilona −3, controles +1 |
+|  |  |  | « Offrir le cadeau neutre en essayant de sauver la face. » *(si arc4_cadeau_jessy = cadeau_couteux)* | arc4_limite_ilona = cadeau_preuve ; communication −6, confiance −3, pression_stream +3, evitements +1 |
+|  |  |  | « Offrir la miniature en avouant qu'elle porte trop de sens. » *(si arc4_cadeau_jessy = miniature_souvenir, blague_interne ou miniature_aveu)* | arc4_limite_ilona = cadeau_respirant ; communication +6, confiance +3, jalousie −3 (min 0), lien_jessy_ilona +3, souvenir maison_respectee |
+|  |  |  | « Ne rien offrir et avouer la peur sans filtre. » *(si arc4_cadeau_jessy = discussion_honnete)* | arc4_limite_ilona = parole_sans_verdict ; autonomie_ilona +6, communication +3, confiance +3, pression_stream −3 (min 0), souvenir jessy_nomme_sa_peur |
+|  |  |  | « Proposer de marcher ensemble sans parler de cadeaux. » | arc4_limite_ilona = marche_silencieuse ; lien_jessy_ilona +6 |
+| [La rivière : la limite d'Ilona](../../histoire/arc-4/#arc4-s7) | `arc_4_noel.rpy:987` | Ilona vient de poser sa limite. Jessy doit choisir comment l'accueillir. | « Demander ce qu'elle attend de lui, concrètement. » | arc4_accueil_limite = demander ; autonomie_ilona +4, communication +2, confiance +2, pression_stream −2 (min 0) |
+|  |  |  | « Accepter la limite en silence, juste acquiescer. » | arc4_accueil_limite = silence ; communication −4, confiance −2, pression_stream +2, evitements +1 |
+|  |  |  | « Accueillir la limite sans se défendre. » | arc4_accueil_limite = accueillir ; autonomie_ilona +4, communication +2, confiance +2, ilona_peut_finir_ses_phrases +1, pression_stream −2 (min 0) ; si interruptions_ilona > interruptions_reconnues : interruptions_reconnues +1, interruptions_reparees +1, souvenir jessy_repare |
+|  |  |  | « Dire qu'elle a raison mais que Théo joue quand même. » | arc4_accueil_limite = accuser_theo ; autonomie_ilona −4, confiance −4, influence_theo +2, jalousie +6, lien_jessy_ilona −2, controles +1 |
+|  |  |  | « Nommer sa peur sans s'effondrer. » | arc4_accueil_limite = nommer_peur ; communication +4, confiance +2, jalousie −2 (min 0), lien_jessy_ilona +2, souvenir jessy_nomme_sa_peur |
+| [Scène 4.5 — Le maid café secret](../../histoire/arc-4/#arc4-5-maid) | `arc_4_5_maid_cafe.rpy:86` | Jessy doit répondre. | « Accepter avec curiosité honnête. » | lien_jessy_ilona +2 |
+|  |  |  | « Faire une blague pour désamorcer la gêne. » | lien_jessy_ilona +2 |
+|  |  |  | « Demander si Ilona est sûre. » | autonomie_ilona +2, communication +1, confiance +1, pression_stream −1 (min 0) |
+
+Six menus, dont celui du maid café (`arc_4_5_maid_cafe.rpy:86`), joué seulement si la scène 4.5 correspondante se déclenche. Au menu de la limite (l. 797), trois options dépendent du cadeau choisi plus tôt. La scène 4.5 avec Théo n'a pas de menu : la réaction d'Ilona est calculée (`arc_4_5_theo.rpy:156-163`).
+
+</Spoiler>
+
+## Arc V
+
+<Spoiler requires="arc5" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [Révisions en bibliothèque — la fatigue qui s'accumule](../../histoire/arc-5/#arc5-s1) | `arc_5_examens.rpy:156` | Le gobelet de thé est là, entre les mains d'Ilona. Théo attend, détendu, comme quelqu'un qui sait qu'il a fait la bonne chose. | « Demander à Ilona si elle voulait vraiment ce thé-là. » | autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +2, interruptions_ilona +1 (Ilona : « Tu ne demandes pas. Tu vérifies. ») |
+|  |  |  | « Proposer d'aller chercher autre chose, quelque chose de personnel. » | autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1 |
+|  |  |  | « Remercier Théo sincèrement. » | communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 |
+|  |  |  | « Ne rien dire. Avaler la pilule. » | communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +1 |
+| [Révisions en bibliothèque — la fatigue qui s'accumule](../../histoire/arc-5/#arc5-s1) | `arc_5_examens.rpy:291` | Allan attend. Alexandre aussi. Même Théo, de sa table, semble écouter. | « Changer de sujet. Parler des examens. » | communication -2, confiance -1, pression_stream +1, evitements +1, arc5_tension_accumulee +1 |
+|  |  |  | « Dire qu'il lui fait confiance pour gérer. » | communication -2, confiance -1, pression_stream +1, evitements +1 (le script le traite comme un mensonge) |
+|  |  |  | « Admettre qu'il ne lui a pas demandé parce qu'il avait peur de la réponse. » | communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1 |
+| [Sortie annulée — ce qu'on entend dans le silence](../../histoire/arc-5/#arc5-s2) | `arc_5_examens.rpy:520` | Le curseur clignote. Le message attend une réponse. *(si version annulation (conditions du cinéma non réunies))* | « Ne pas répondre tout de suite. Attendre. Réfléchir. » | arc5_sortie_annulee = silence ; communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +2 ; ouvre un second choix |
+|  |  |  | « « Tu es sûre que ça va ? Tu annules beaucoup ces derniers temps. » » | arc5_sortie_annulee = inquiet ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +1 |
+|  |  |  | « « C'est la troisième fois ce mois-ci. Je commence à me demander si c'est vraiment la fatigue. » » | arc5_sortie_annulee = confronte ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +3 |
+|  |  |  | « « D'accord. Repose-toi bien. Je suis là si tu as besoin. » » | arc5_sortie_annulee = accepte ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), souvenir ilona_libre_sans_abandon |
+| [Sortie annulée — ce qu'on entend dans le silence](../../histoire/arc-5/#arc5-s2) | `arc_5_examens.rpy:604` | Elle attend. La pluie continue. *(si arc5_sortie_annulee = silence)* | « « Que je comprends. Et que ça me fait chier quand même. » » | communication +2, confiance +1, jalousie -1 (plancher 0), lien_jessy_ilona +1 ; arc5_sortie_annulee = honnetete |
+|  |  |  | « « Rien de spécial. Repose-toi bien. » » | communication -2, confiance -1, pression_stream +1, evitements +1 |
+| [Sortie annulée — ce qu'on entend dans le silence](../../histoire/arc-5/#arc5-s2) | `arc_5_examens.rpy:765` | Théo attend. Allan observe. Le café est presque vide à cette heure. *(si version annulation)* | « « Elle t'a demandé à toi ? » » | autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +1 |
+|  |  |  | « Rester silencieux. Observer Théo. » | communication -4, confiance -2, pression_stream +2, evitements +1 |
+|  |  |  | « « Tant mieux qu'elle ait quelqu'un pour l'aider. » » | communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 |
+|  |  |  | « « Tu passes beaucoup de temps avec elle ces derniers temps. » » | autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1, arc5_tension_accumulee +2, arc5_allan_parti_cafe = True (Allan quitte la table) |
+| [Théo propose de « gérer » — le piège doux](../../histoire/arc-5/#arc5-s3) | `arc_5_examens.rpy:1001` | Théo attend. Sa proposition est raisonnable. Peut-être trop. | « Accepter partiellement. Certaines choses peuvent être gérées. » | arc5_theo_proposition = partiel ; autonomie_ilona -4, confiance -4, influence_theo +2, jalousie +6, lien_jessy_ilona -2, controles +1 ; pression_stream +1 si arc4_5_theo_proposition = gestion_stream |
+|  |  |  | « Accepter. Laisser Théo gérer. » | arc5_theo_proposition = laisse ; autonomie_ilona -4, confiance -4, influence_theo +4, jalousie +6, lien_jessy_ilona -2, pression_stream +2, controles +1, arc5_theo_dans_maison = True ; pression_stream +1 de plus si gestion_stream ; écran de Théo + sirène |
+|  |  |  | « Refuser net. Ce n'est pas à eux de décider pour elle. » | arc5_theo_proposition = refuse ; autonomie_ilona +4, communication +2, confiance +2, influence_theo -2 (plancher 0), pression_stream -2 (plancher 0), jugement_laplage +1 |
+|  |  |  | « Demander pourquoi il ne propose pas à Ilona directement. » | arc5_theo_proposition = questionne ; autonomie_ilona +4, communication +2, confiance +2, influence_theo -1 (plancher 0), pression_stream -2 (plancher 0) |
+| [Saint-Valentin — l'amour et ses pièges](../../histoire/arc-5/#arc5-s4) | `arc_5_examens.rpy:1282` | Le toit. Le vent. Elle. Lui. Le moment demande quelque chose. *(si chocolats ambigus (lien_jessy_ilona ≥ 20 et confiance ≥ 15))* | « Rester figé. Il a trop peur de comprendre de travers. » | arc5_valentin_choix = rien_peur ; communication -4, confiance -2, pression_stream +2, evitements +1, arc5_tension_accumulee +1 |
+|  |  |  | « Faire une blague sur leurs blocs. Laisser le moment respirer. » | arc5_valentin_choix = souvenir ; lien_jessy_ilona +4 |
+|  |  |  | « La remercier. Sans chercher de réponse cachée. » | arc5_valentin_choix = simple ; lien_jessy_ilona +4 |
+|  |  |  | « Lui demander ce qu'elle veut que ce geste signifie. » | arc5_valentin_choix = demande ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), jugement_laplage +1, souvenir ilona_libre_sans_abandon, puis confiance +2 |
+| [Saint-Valentin — l'amour et ses pièges](../../histoire/arc-5/#arc5-s4) | `arc_5_examens.rpy:1306` | Le toit. Le vent. Elle. Lui. Le moment demande quelque chose. *(si chocolats d'amitié (lien_jessy_ilona ≥ 10 et confiance ≥ 8, sans atteindre les seuils précédents))* | « Cacher sa déception derrière un « pas grave ». » | arc5_valentin_choix = rien_peur ; mêmes effets que ci-dessus |
+|  |  |  | « Faire une blague sur l'étiquette « amitié ». » | arc5_valentin_choix = souvenir ; lien_jessy_ilona +4 |
+|  |  |  | « La remercier et accepter le geste pour ce qu'il est. » | arc5_valentin_choix = simple ; lien_jessy_ilona +4 |
+|  |  |  | « Lui dire qu'il tient aussi à leur amitié, sans réclamer davantage. » | arc5_valentin_choix = demande ; mêmes effets que ci-dessus |
+| [Saint-Valentin — l'amour et ses pièges](../../histoire/arc-5/#arc5-s4) | `arc_5_examens.rpy:1328` | Le toit. Le vent. Elle. Lui. Le moment demande quelque chose. *(si aucun cadeau (seuils non atteints))* | « Prétendre que ça ne lui fait rien. Fermer la conversation. » | arc5_valentin_choix = rien_peur ; mêmes effets que ci-dessus |
+|  |  |  | « Désamorcer avec une blague sur les chocolats d'Alexandre. » | arc5_valentin_choix = souvenir ; lien_jessy_ilona +4 |
+|  |  |  | « Lui dire qu'il est content de la voir, cadeau ou non. » | arc5_valentin_choix = simple ; lien_jessy_ilona +4 |
+|  |  |  | « Lui demander ce dont elle a envie maintenant. » | arc5_valentin_choix = demande ; mêmes effets que ci-dessus |
+| [La question — peur ou confiance](../../histoire/arc-5/#arc5-s6) | `arc_5_examens.rpy:1746` | Elle attend. Le train suivant passera dans huit minutes. Il a huit minutes pour trouver les mots. | « « J'ai peur. Mais ma peur ne devrait pas devenir ton problème. » » | arc5_question_reponse = responsable ; souvenir jessy_nomme_sa_peur ; autonomie_ilona +6, communication +3, confiance +3, pression_stream -3 (plancher 0) |
+|  |  |  | « « Bien sûr que je te fais confiance. C'est Théo le problème. » » | arc5_question_reponse = theo ; autonomie_ilona -6, confiance -6, influence_theo +3, jalousie +9, lien_jessy_ilona -3, controles +1, souvenir theo_utilise_une_verite |
+|  |  |  | « « Je ne sais pas. J'ai besoin de temps pour réfléchir. » » | arc5_question_reponse = temps ; communication -6, confiance -3, pression_stream +3, evitements +1 ; en relation distante, arc5_tension_accumulee +2 et Ilona part en train |
+|  |  |  | « « J'ai peur. Et ma confiance tremble parfois. Les deux sont vrais. » » *(si arc5_etat_relation = proche)* | arc5_question_reponse = honnete ; souvenir jessy_nomme_sa_peur ; communication +6, confiance +3, jalousie -3 (plancher 0), lien_jessy_ilona +3, jugement_laplage +2 |
+|  |  |  | « « J'ai peur. Et je ne sais pas si je te fais confiance. Les deux sont vrais. » » *(si arc5_etat_relation différent de proche)* | arc5_question_reponse = honnete ; souvenir jessy_nomme_sa_peur ; communication +6, confiance +3, jalousie -3 (plancher 0), lien_jessy_ilona +3, jugement_laplage +2 |
+| [White Day — la réponse](../../histoire/arc-5/#arc5-s7) | `arc_5_examens.rpy:2130` | Le parc est presque vide. Les pétales tombent lentement. C'est maintenant. | « Tenter de réparer avec un grand geste. Parce qu'il ne sait pas faire autrement. » | arc5_white_day_reponse = grand_geste ; communication -4, confiance -2, pression_stream +2, evitements +1 |
+|  |  |  | « Lui offrir de l'espace. Vraiment. Sans condition. » | arc5_white_day_reponse = espace ; autonomie_ilona +4, communication +2, confiance +2, pression_stream -2 (plancher 0), souvenir ilona_libre_sans_abandon |
+|  |  |  | « Lui poser la question en retour. Parce qu'il a le droit de savoir aussi. » | arc5_white_day_reponse = retour ; communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 ; puis confiance +2 si arc5_question_reponse = honnete ou responsable, sinon confiance -4 |
+|  |  |  | « Lui dire ce qu'il a compris. Sans cadeau. Avec des mots. » | arc5_white_day_reponse = mots ; communication +4, confiance +2, jalousie -2 (plancher 0), lien_jessy_ilona +2 |
+
+Dans la version « cinéma » de la scène 2, les trois menus de l'annulation (l. 520, 604, 765) ne sont pas joués. À la Saint-Valentin, un seul des trois menus (l. 1282, 1306 ou 1328) apparaît, selon le cadeau d'Ilona ; les options « mêmes effets que ci-dessus » reprennent ceux du premier menu. Au menu de la gare (l. 1746), une seule des deux options « honnete » est proposée, selon `arc5_etat_relation`.
+
+</Spoiler>
+
+## Arc VI
+
+<Spoiler requires="arc6" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [Le stylo violet](../../histoire/arc-6/#arc6-s1) | `arc_6_diplomes.rpy:227` | Que faire du stylo violet ? (pas de question affichée) | « Le rendre, et dire pourquoi tu l'as gardé. » | arc6_stylo = "rendu_explique" |
+|  |  |  | « Le garder encore un peu. » | arc6_stylo = "garde" |
+|  |  |  | « Le rendre, sans rien ajouter. » | arc6_stylo = "rendu" |
+|  |  |  | « En faire une blague. » | arc6_stylo = "blague" |
+| [La cérémonie](../../histoire/arc-6/#arc6-s2) | `arc_6_diplomes.rpy:421` | Que fait Ilona de sa part de gâteau ? | « La garder pour plus tard. » | aucun effet stocké (texte différent si le ton est distant) |
+|  |  |  | « La manger maintenant. » | arc6_gateau_planete = True, +1 au compteur caché (voir fin de page) |
+| [Le récapitulatif](../../histoire/arc-6/#arc6-s3) | `arc_6_diplomes.rpy:1116` | Réponse de Jessy après « À pourquoi je suis encore là. » (pas de question affichée) | « La laisser continuer. » | aucun effet stocké |
+|  |  |  | « Lui demander si elle parle de Théo. » | aucun effet stocké |
+|  |  |  | « S'excuser, précisément. » | aucun effet stocké (réponse d'Ilona différente si souvenir jessy_repare) |
+|  |  |  | « Dire qu'il a peur de la perdre, sans le poser sur elle. » | aucun effet stocké |
+| [L'offre de Théo](../../histoire/arc-6/#arc6-s4) | `arc_6_diplomes.rpy:1589` | Que répond Jessy ? | « « Je veux que tu restes. Mais pas pour me porter. » » | arc6_offre_theo = "question", arc6_conversation = "que_veux_tu", souvenir_flag_bonne = True |
+|  |  |  | « « Théo veut une place dans ton futur. » » | arc6_offre_theo = "accusation", arc6_conversation = "eviter", souvenir_flag_bonne = False |
+|  |  |  | « « Je t'ai coupée toute l'année. Je veux apprendre à te laisser finir. » » | arc6_offre_theo = "question", arc6_conversation = "aveu_interruptions", souvenir_flag_bonne = True |
+|  |  |  | « Ne pas répondre. » | arc6_offre_theo = "laisse", arc6_conversation = "partir", souvenir_flag_bonne = False |
+|  |  |  | « « J'ai rien à mettre en face de Tokyo. » » | arc6_offre_theo = "aveu_vide", arc6_conversation = "continuer", souvenir_flag_bonne = False (réplique variable selon arc6_stylo) |
+
+Le verdict de la route est calculé au début de l'arc (`arc_6_diplomes.rpy:160`), avant le premier menu : aucun menu de l'arc VI ne change la route. Le menu de la ligne 1116 n'a aucun effet stocké. Le menu de la dernière construction n'existe que dans l'une des deux variantes de la décision : il est classé dans la section Route A.
+
+</Spoiler>
+
+## Route A
+
+<Spoiler requires="routeA" note="menus et effets">
+
+Le premier menu appartient encore à l'arc VI (variante où Ilona reste, `arc_6_diplomes.rpy`), les suivants à `arc_7_jessy.rpy`.
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [La décision : Ilona reste](../../histoire/arc-6/#arc6-s5a) | `arc_6_diplomes.rpy:1850` | Que construit Jessy en dernier ? | « Une porte qui donne sur l'extérieur, sans mur autour. » | arc6_derniere_construction = "porte_ouverte" |
+|  |  |  | « Deux panneaux : « finir ses phrases » et « droit de partir ». » | arc6_derniere_construction = "panneau_partir" |
+|  |  |  | « Rien. Juste rester connectés en silence. » | arc6_derniere_construction = "silence" |
+|  |  |  | « Un cadenas sur le coffre commun. » | arc6_derniere_construction = "cadenas" |
+| [L'épapopé de la jaj](../../histoire/route-a/#routeA-s3) | `arc_7_jessy.rpy:402` | Que fait Ilona de sa trouvaille ? | « La laisser goûter. » | arc7_jessy_fruit = "goute", +1 au compteur caché (voir fin de page) ; Ilona garde le noyau étoilé |
+|  |  |  | « Le laisser à la montagne. » | arc7_jessy_fruit = "jette" ; le fruit reste sur le rocher |
+| [L'épapopé de la jaj](../../histoire/route-a/#routeA-s3) | `arc_7_jessy.rpy:434` | Que dit Jessy de leur lien ? | « Dire qu'il tient à leur amitié. » | arc7_jessy_dejeuner = "amitie" |
+|  |  |  | « Lui avouer ce qu'il ressent. » | arc7_jessy_dejeuner = "crush" ; Ilona demande la journée pour répondre |
+| [Au crépuscule de l'aventure](../../histoire/route-a/#routeA-s5) | `arc_7_jessy.rpy:685` | Que répond Jessy ? | « Il tient à elle, mais veut rester son ami. » | arc7_jessy_relation = "amitie" |
+|  |  |  | « Il l'aime aussi et veut essayer. » | arc7_jessy_relation = "amour" |
+| [Au crépuscule de l'aventure](../../histoire/route-a/#routeA-s5) | `arc_7_jessy.rpy:738` | Que préfère Jessy pour cette nuit ? *(si réponse « Il l'aime aussi et veut essayer. »)* | « Garder son hamac et prendre leur temps. » | arc7_jessy_tente = False |
+|  |  |  | « Rejoindre Ilona dans la tente après en avoir parlé. » | arc7_jessy_tente = True ; apparition de Laplage derrière un pin |
+
+Il n'y a **pas de menu final**. À la fin de la route, le jeu enchaîne automatiquement (`arc_7_jessy.rpy:1176-1186`) : la fin secrète si une condition cachée est remplie (voir la [Fin A3](../../fins/a3/)), sinon la [Fin A1](../../fins/a1/) si `arc7_jessy_relation == "amitie"` ou la [Fin A2](../../fins/a2/) si `"amour"`. Le choix tente ou hamac ne change pas la fin.
+
+</Spoiler>
+
+## Route B
+
+<Spoiler requires="routeB" note="menus et effets">
+
+| Scène | Ligne | Question | Option | Effets |
+| --- | --- | --- | --- | --- |
+| [La réponse de Théo](../../histoire/route-b/#routeB-s21) | `arc_7_theo.rpy:1365` | La réponse de Théo. | « Annuler les sponsors, écouter Ilona. » | aucune variable ; jump ending_neutre (Fin B1) |
+|  |  |  | « Prioriser les sponsors, la chaîne avant tout. » | aucune variable ; musique audio.depressed ; jump bad_ending (Fin B2) |
+
+Un seul menu dans toute la route, sans variable écrite : la première option mène à la [Fin B1](../../fins/b1/) (`arc_7_theo.rpy:1436`), la seconde à la [Fin B2](../../fins/b2/) (l. 1501).
+
+</Spoiler>
+
+## Fins
+
+Les fins ne contiennent aucun menu : une fois lancée, chacune se déroule jusqu'au générique.
+
+## Compteur caché
+
+<Spoiler requires="finA3" note="fin secrète">
+
+Le « compteur caché » des tableaux est `ilonanium_points`. Il gagne 1 à chaque objet cosmique mangé par Ilona (arcs I, II, III, IV, VI et Route A). À 6, avec le fruit étoilé goûté, la Route A mène automatiquement à la [Fin A3](../../fins/a3/) (`arc_7_jessy.rpy:1177-1178`). Détails : [Variables](../variables/#objets-cosmiques).
+
+</Spoiler>

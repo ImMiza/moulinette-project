@@ -1,0 +1,36 @@
+[
+  {
+    "id": "routeA",
+    "publicTitle": "Route A",
+    "title": "ARC 7 : LA RANDONNÉE",
+    "key": "routeA",
+    "label": "arc_7_jessy",
+    "entryCode": "controle_repetitif < 3 and arc6_score >= SEUIL_JESSY  →  arc6_route = \"jessy\"  →  if arc6_route == \"jessy\": jump arc_6_decision_jessy  →  jump arc_7_jessy",
+    "entry": [
+      "Le verdict est calculé une seule fois, au tout début de l'arc 6 (arc_6_diplomes.rpy:160, arc6_calcule_verdict()), avant tout choix du jour : aucun menu de l'arc 6 ne change la route.",
+      "Verrou : controle_repetitif = interruptions_ilona - interruptions_reparees doit valoir moins de 3. Sinon, la Route B est imposée quel que soit le score.",
+      "Score : arc6_score = espace + posture + recidive - dette, avec espace = autonomie_ilona×4 + ilona_peut_finir_ses_phrases×6 + interruptions_reparees×6 + communication + confiance ; dette = influence_theo×3 + max(0, controle_repetitif)×8 + pression_stream×2 + jalousie×2 + confidences_laplage×4 ; posture = 6·jessy_nomme_sa_peur + 8·jessy_repare + 5·ilona_libre_sans_abandon + 3·maison_respectee − 6·theo_utilise_une_verite ; recidive = −6×max(0, controles − 2) − 3×max(0, evitements − 3).",
+      "Bonus : +20 si interruptions_reparees ≥ 2 et souvenir jessy_repare.",
+      "Seuil : arc6_score ≥ SEUIL_JESSY (180, script.rpy:401).",
+      "Après la variante « Ilona reste » de la scène 5 et le dernier geste Minecraft, jump arc_7_jessy (arc_6_diplomes.rpy:1892)."
+    ],
+    "endings": ["finA1", "finA2", "finA3"],
+    "source": { "file": "arcs/arc_6/arc_6_diplomes.rpy", "line": 1757, "label": "arc_6_decision" }
+  },
+  {
+    "id": "routeB",
+    "publicTitle": "Route B",
+    "title": "ARC 7 : LE MONDE APRÈS LE DÉPART",
+    "key": "routeB",
+    "label": "arc_7_theo",
+    "entryCode": "controle_repetitif >= 3 or arc6_score < SEUIL_JESSY  →  arc6_route = \"theo\"  →  else: jump arc_6_decision_theo  →  jump arc_6_bascule_theo  →  jump arc_7_theo",
+    "entry": [
+      "Même calcul unique au début de l'arc 6 (arc_6_diplomes.rpy:160) : la Route B est la valeur par défaut quand les conditions de la Route A ne sont pas remplies.",
+      "Verrou : si controle_repetitif = interruptions_ilona - interruptions_reparees ≥ 3, la Route B est forcée, même avec un score suffisant. Il faut pour cela avoir commis les trois interruptions existantes (arc 2, arc 4, arc 5) sans jamais en réparer une seule.",
+      "Sinon, Route B si arc6_score < 180 (SEUIL_JESSY), bonus de +20 compris.",
+      "Après la variante « Ilona part » de la scène 5, le passage obligé arc_6_bascule_theo (les onze jours jusqu'à la gare) se termine par jump arc_7_theo (arc_6_diplomes.rpy:2059)."
+    ],
+    "endings": ["finB1", "finB2"],
+    "source": { "file": "arcs/arc_6/arc_6_diplomes.rpy", "line": 1757, "label": "arc_6_decision" }
+  }
+]

@@ -1,0 +1,81 @@
+---
+title: "Arc IV — Noël : le cadeau qui dit trop de choses"
+description: Quatrième arc de Moulinette. Résumé sans spoiler, scènes, choix, scènes bonus et résumé détaillé protégés.
+sidebar:
+  order: 5
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Place dans l'histoire** : après l'[Arc III](../arc-3/), avant l'[Arc V](../arc-5/).
+**Fichiers** : `arcs/arc_4/arc_4_noel.rpy`, plus deux scènes bonus conditionnelles (`arcs/arc_4/arc_4_5_maid_cafe.rpy`, `arcs/arc_4/arc_4_5_theo.rpy`).
+:::
+
+## En bref
+
+<Spoiler requires="arc3" note="mise en place de l'arc, suppose l'arc précédent terminé">
+
+Décembre. La maison Minecraft garde encore la trace du festival de septembre, et Allan a organisé une sortie au marché de Noël après les cours. Dans son sac, Jessy transporte depuis le matin un petit paquet qu'il n'ose pas encore donner. Il doit décider avant le soir ce que ce cadeau veut dire, et s'il veut le dire.
+
+</Spoiler>
+
+## Personnages et lieux
+
+<Spoiler requires="arc4">
+
+- **Personnages** : [Jessy](../../personnages/jessy/), [Ilona](../../personnages/ilona/), [Théo](../../personnages/theo/), [Allan](../../personnages/allan/), [Alexandre](../../personnages/alexandre/), [Sofiane](../../personnages/sofiane/), [Monsieur Laplage](../../personnages/laplage/) (en Père Noël intérimaire).
+- **Lieux** : le train du matin, une galerie commerciale, le marché de Noël du quartier, la rambarde le long de la rivière, la maison Minecraft sous la neige. Dans les scènes bonus : les rues illuminées, un parc résidentiel et un maid café.
+- **Tenues** : tenues d'hiver pour le groupe (Ilona et Théo existent aussi avec écharpe), Père Noël pour Monsieur Laplage, tenue de maid dans les scènes bonus.
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="arc4" />
+
+## Choix majeurs
+
+<Spoiler requires="arc4">
+
+- **Le sens du cadeau** (scène 2) : avouer que la miniature dit trop, l'offrir comme souvenir, la rendre drôle avec un panneau, ne rien offrir et miser sur la parole, ou paniquer et acheter une écharpe chère. Ce choix détermine les options proposées à la rivière, la fin Minecraft et des rappels dans les arcs suivants.
+- **La réaction au carnet de Théo** (scène 3) : nommer sa douleur, demander simplement à Ilona si ça la touche, se taire, dire une vérité crue ou lancer une remarque acide. La vérité crue et la remarque acide provoquent un duel qu'Ilona arrête net. La remarque acide compte en plus comme une interruption d'Ilona.
+- **Le mochi cosmique** (scène 6) : le manger donne un point d'objet cosmique (`ilonanium_points +1`). Le garder ne donne rien, ni maintenant ni plus tard.
+- **La limite d'Ilona** (scène 7, pivot du barème) : demander ce que le carnet signifie pour elle (option la plus coûteuse : autonomie −6, confiance −6, jalousie +9, influence de Théo +3, lien −3), offrir son cadeau, avouer sa peur sans rien offrir, ou proposer de marcher. Ce choix fixe la fin de soirée, la fin Minecraft, l'accès à la scène bonus avec Théo et de nombreux rappels ultérieurs.
+- **Accueillir la limite** (scène 7) : demander, se taire, accueillir sans se défendre, nommer sa peur, ou accuser Théo. Accuser Théo empêche Ilona de garder les cadeaux.
+
+</Spoiler>
+
+## Scènes bonus
+
+<Spoiler requires="arc4" note="conditions d'accès aux scènes 4.5">
+
+Deux scènes « 4.5 » peuvent s'insérer entre la sortie du marché et la scène Minecraft finale. Elles sont appelées à la fin de `arc_4_noel.rpy` (l.1258-1266). Elles sont exclusives en pratique (confiance ≥ 15 d'un côté, ≤ 8 de l'autre), et aucune des deux n'a lieu si aucune condition n'est remplie.
+
+**Le maid café secret** (`arc_4_5_maid_cafe.rpy`) : il se déclenche si, au moment du test, **lien_jessy_ilona ≥ 10, communication ≥ 25 et confiance ≥ 15**. Jessy et Ilona prolongent la soirée à deux et découvrent où travaille Sofiane. La scène donne lien +2 et pression_stream −1, quel que soit le choix, et pose `arc4_5_sofiane_maid`, relu plus tard. Les mêmes seuils font aussi apparaître, plus tôt dans l'arc, une réplique de Sofiane sur « le service ».
+
+**La marche avec Théo** (`arc_4_5_theo.rpy`) : elle se déclenche si Ilona part avec Théo à la sortie du marché. Il faut pour cela **avoir choisi à la rivière de demander ce que le cadeau de Théo signifie (`demande_theo`), avec influence_theo ≥ 10 et confiance ≤ 8**. La scène n'a pas de menu : la réaction d'Ilona (accepte, directe, prudente) est calculée à partir de l'influence de Théo, de l'autonomie d'Ilona, de la communication et de sa capacité à finir ses phrases. Le commentaire en tête du fichier indique d'autres seuils (≥ 5, ≤ 2), mais c'est le code d'`arc_4_noel.rpy` qui fait foi.
+
+</Spoiler>
+
+## Résumé détaillé
+
+<Spoiler requires="arc4" note="résumé complet de l'arc">
+
+**Le matin.** Dans le train, Jessy et Ilona évoquent l'état de la maison Minecraft depuis le festival : trou, porte fermée, panneau, cuisine rangée ou lanterne. Le planning d'Allan prévoit le marché de Noël. Jessy garde pour lui la phrase « j'ai quelque chose pour toi ».
+
+**La galerie.** Jessy montre à Alexandre une miniature de leur maison Minecraft, avec ses erreurs : couloir sans sortie, cuisine trop grande, pièces incompréhensibles. Alexandre lui demande si c'est « un souvenir ou une réponse » et l'avertit : « si tu ne décides pas, ta peur le fera à ta place ». Jessy choisit ce que portera le cadeau. Dans une branche, il le remplace par une écharpe « belle, chère, vide ».
+
+**Le carnet.** Au marché, Théo offre à Ilona un minuscule carnet de croquis noir, parce qu'en juillet elle avait dit oublier ses idées dehors. Jessy voit son propre souvenir transformé en cadeau par quelqu'un d'autre. Selon sa réaction, la scène reste digne ou tourne au duel, qu'Ilona arrête : « Je ne suis pas un trophée qu'on gagne avec des souvenirs bien placés. » Monsieur Laplage, en Père Noël, avertit Théo qu'un souvenir peut « verrouiller quelqu'un dedans ». Allan et Alexandre constatent que Théo range ses souvenirs comme des arguments. Sofiane laisse sur un banc une enveloppe sans destinataire ; Allan ne la prend pas, et Sofiane la récupère.
+
+**La rivière.** Ilona s'isole avec le carnet et un mochi pailleté. Laplage lui dit : « Poser une limite n'est pas casser le cadeau. » Jessy la rejoint et avoue se sentir en compétition. Après son choix, Ilona pose sa limite : connaître ses goûts n'est pas savoir ce qu'elle veut, et elle a le droit d'aimer différemment sans classement. Selon l'accueil de Jessy, elle garde les deux cadeaux, rentre avec Allan après un « non » net, ou laisse la question en suspens.
+
+**La sortie.** Théo propose de raccompagner Ilona. Elle le tient à distance, sauf si Jessy a transformé le carnet en épreuve de loyauté et que la confiance s'est effondrée : elle part alors marcher avec Théo. La soirée peut se prolonger par l'une des scènes bonus.
+
+**La nuit.** Dans la maison Minecraft enneigée, la fin reflète la limite posée : miniature reconstruite dans la salle secrète ou espace calme, écharpe rangée dans un coffre, ou Ilona qui construit dehors parce que « la maison a trop entendu de choses aujourd'hui ».
+
+</Spoiler>
+
+## Suite
+
+L'histoire continue avec l'[Arc V](../arc-5/).

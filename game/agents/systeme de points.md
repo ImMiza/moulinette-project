@@ -195,10 +195,10 @@ Le deuxième choix se *présente* comme protecteur. C'est exactement pour ça qu
 | `interruptions_ilona += 1` | **tier D uniquement**, et seulement s'il coupe la parole |
 | `influence_theo = max(0, influence_theo - N)` | tier S qui tient tête à Théo |
 | `jugement_laplage += 1` | scènes avec Laplage |
-| `ilonanium_points += 1` | les 6 objets cosmiques, rien d'autre |
+| `ilonanium_points += 1` | les 6 objets cosmiques mangés, rien d'autre |
 | `remember("...")` | quand la scène l'appelle |
 
-**Les 6 objets cosmiques** (Ilonanium) : bonbon-météorite (arc 1), gelée marine (arc 2), étoile en sucre (arc 3), mochi cosmique (arc 4), gâteau-planète (arc 6), bloc-lune (arc 7 Jessy). Ne pas en ajouter d'autres : le seuil de la fin cachée est calé sur exactement 6.
+**Les 6 objets cosmiques** (Ilonanium) : bonbon étoile (arc 1), gelée marine (arc 2), étoile en sucre (arc 3), mochi cosmique (arc 4), gâteau-planète (arc 6), fruit étoilé (arc 7 Jessy). Chaque objet donne un point uniquement quand Ilona le mange ; goûter le fruit compte comme le manger. Garder un objet pour plus tard ne donne aucun point, sans rattrapage ultérieur. Ne pas en ajouter d'autres : la fin cachée demande exactement 6 points et `arc7_jessy_fruit == "goute"`.
 
 **Les clés de `souvenirs`** — à ne poser que quand c'est mérité, jamais inconditionnellement :
 
@@ -263,8 +263,6 @@ Plus deux mécanismes narratifs :
 
 ```renpy
 define SEUIL_JESSY = 180     # sous ce score -> arc_7_theo
-define SEUIL_ROMANCE = 320   # au-dessus -> option romance debloquee en arc 7
-define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 ```
 
 ### Ce que ça donne
@@ -278,19 +276,11 @@ define SEUIL_LIEN = 35       # complicite minimale requise pour la romance
 
 Score maximum théorique : **572**. Parties aléatoires : médiane −104, seuil 180 franchi par ~0,3 %.
 
-### La fenêtre romance
+### Choix de la fin Jessy
 
-Le tier B ne donne que du `lien`. Chaque point de `lien` gagné coûte donc environ **7 points de score**.
-
-```
-lien 18 -> score 569     lien 55 -> score 380
-lien 35 -> score 491     lien 64 -> score 325
-lien 45 -> score 438     lien 65 -> score 316   <- sous le seuil
-```
-
-Avec `SEUIL_ROMANCE = 320` et `SEUIL_LIEN = 35`, la romance est atteignable pour `lien ∈ [35, 64]`. Ni triviale, ni impossible : il faut doser.
-
-C'est la traduction mécanique de la thèse. Espace sans complicité → *ami*. Complicité sans espace → *Théo*. Les deux → *romance*.
+Le score de l'arc 6 détermine l'accès à la route Jessy. À la fin de cette route,
+la réponse de Jessy à la déclaration d'Ilona choisit entre `ending_friend`
+et `ending_family`. Si Ilona a mangé les six objets cosmiques (`ilonanium_points == 6` et `arc7_jessy_fruit == "goute"`), `ending_ilonanium` se déclenche automatiquement, sans menu final, quelle que soit la réponse de Jessy. Sinon, cette réponse détermine la fin normale. Aucun seuil supplémentaire ne sépare les deux fins normales.
 
 ---
 

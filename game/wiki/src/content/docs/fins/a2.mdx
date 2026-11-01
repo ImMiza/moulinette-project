@@ -1,0 +1,60 @@
+---
+title: "Fin A2"
+description: Une des fins de la Route A de Moulinette. Conditions, scènes, résumé et illustrations protégés contre les spoilers.
+sidebar:
+  order: 2
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Route** : [Route A](../../histoire/route-a/).
+**Autres fins de la route** : [Fin A1](../a1/), [Fin A3](../a3/).
+:::
+
+## Comment l'obtenir
+
+<Spoiler requires="routeA" note="conditions exactes">
+
+Fichier : `arcs/endings/ending_family.rpy`, label `ending_family` (ligne 74). Catégorie affichée au générique : « GOOD ENDING / FAMILY ».
+
+1. Être sur la Route A (`arc6_route == "jessy"`, `arcs/arc_6/arc_6_diplomes.rpy:1757`).
+2. Au bivouac, au menu « Que répond Jessy ? », choisir « Il l'aime aussi et veut essayer. » → `arc7_jessy_relation = "amour"` (`arcs/arc_7/arc_7_jessy.rpy:712-713`). Le menu suivant (hamac ou tente, `arc7_jessy_tente`) ne change pas la fin.
+3. Ne pas remplir la condition de la Fin A3, prioritaire et automatique (pas de menu) : `ilonanium_points == 6 and arc7_jessy_fruit == "goute"` doit être faux (`arc_7_jessy.rpy:1177-1180`).
+4. `arc_7_jessy_fin_relation` : `elif arc7_jessy_relation == "amour": jump ending_family` (`arc_7_jessy.rpy:1185-1186`).
+
+Seule variante interne : l'aparté sur le café de Sofiane si `arc4_5_sofiane_maid` est vrai (`ending_family.rpy:661-682`). La fin ne contient aucun menu.
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="finA2" />
+
+## Résumé
+
+<Spoiler requires="finA2" note="résumé complet de la fin">
+
+**Une adresse dans les montagnes**
+
+Quelques jours après la randonnée, Jessy et Ilona, en couple, veulent vivre ensemble dans les montagnes. Ils découvrent qu'ils ont repéré la même annonce : un petit restaurant avec maison attenante. Le propriétaire est Monsieur Laplage, qui gardait l'endroit pour des amis partis à la retraite. Il le leur donne, petites cuillères comprises, confie les clés à Jessy en lui demandant de prendre soin d'Ilona, puis s'en va « se reposer ». Ils ne le reverront jamais.
+
+**Les Petits Sommets**
+
+Ilona baptise le restaurant Les Petits Sommets. Premier matin dans la maison : pancake raté, tasses rangées ensemble. Ils apprennent le métier, réduisent la carte aux desserts qu'ils savent faire, gardent le lundi pour eux. Un mois plus tard, ils ferment pour recevoir Allan, Alexandre, Sofiane, Théo (avec qui Ilona a renoué) et Micka, qui annonce son mariage avec leur ancienne prof d'anglais. Toast, karaoké, Baka Mitai interprété par Théo, battle de danse : la soirée finit par un baiser sous les guirlandes.
+
+**La famille**
+
+Quelques jours plus tard, dans le jardin, Ilona annonce à Jessy qu'il va être papa. Des années après, leur fille Lucy lui offre un bouquet de fleurs sauvages tandis qu'Ilona attend un petit garçon, Oliver. « Ils vécurent heureux et eurent beaucoup d'enfants. »
+
+</Spoiler>
+
+## Récompenses et CG
+
+<Spoiler requires="finA2" note="illustrations et déblocage">
+
+- **Déblocage** : `record_ending("family")` à l'entrée (`ending_family.rpy:75`), qui ajoute `"family"` à `endings_seen` (`script.rpy:279-281`).
+- **CG** : `images/scenes/cg/family/cg_family_laplage_adieux.png`, `cg_family_pancakes_01.png`, `cg_family_pancakes_02.png`, `cg_family_toast.png`, `cg_family_entrance_kiss.png`, `cg_family_lucy_hug.png`, `cg_family_homecoming.png`.
+- **Générique** : « GOOD ENDING / FAMILY », « Jessy et Ilona / Les Petits Sommets ». Le carton de crédits musicaux Undertale n'apparaît que si `audio/music/family_hopes_dreams_save_last_goodbye.ogg` existe (absent actuellement).
+
+</Spoiler>

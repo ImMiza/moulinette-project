@@ -1,0 +1,55 @@
+---
+title: "Fin B1"
+description: Une des deux fins de la Route B. Conditions, scènes et résumé protégés.
+sidebar:
+  order: 4
+---
+import Spoiler from '../../../components/Spoiler.astro';
+import SceneList from '../../../components/SceneList.astro';
+
+:::note[Repères]
+**Route** : [Route B](../../histoire/route-b/).
+**Autre fin de la route** : [Fin B2](../b2/).
+:::
+
+## Comment l'obtenir
+
+<Spoiler requires="routeB" note="dépend du choix final de la Route B">
+
+Au seul menu de la Route B, « La réponse de Théo. » (`arcs/arc_7/arc_7_theo.rpy:1365`), choisir **« Annuler les sponsors, écouter Ilona. »** (ligne 1368). La branche se termine par `jump ending_neutre` (ligne 1436). Aucune variable n'est testée : ce choix suffit.
+
+Fichier : `arcs/endings/ending_neutre.rpy`, label `ending_neutre` (ligne 6).
+
+</Spoiler>
+
+## Scènes
+
+<SceneList arc="finB1" />
+
+## Résumé
+
+<Spoiler requires="finB1" note="résumé complet de la fin">
+
+**La pause**
+
+Le soir du million, Théo laisse sonner le studio et ne touche pas au carnet. Ilona écrit et publie elle-même l'annonce d'une pause sans durée. Elle reste en colère, et soulagée.
+
+**Le prix**
+
+Cinq jours plus tard, la marque retire la campagne, le bail ne sera pas renouvelé et l'équipe est réaffectée. Ilona pourrait tout sauver avec un seul stream sponsorisé ; Théo refuse de lui dire quoi répondre et lui tend le téléphone. Elle refuse la campagne et annonce la fin d'IlonaGaming. Le studio garde Théo comme coordinateur de production : « organiser le travail, pas décider de la vie de quelqu'un ».
+
+**Le dernier direct et le départ**
+
+Ilona fait un dernier direct de moins de trois minutes, en tenue de stream, sans compte à rebours, et laisse les anciennes vidéos en ligne. Puis elle annonce qu'elle quitte Tokyo : elle doit découvrir qui elle est sans Théo dans la pièce. Ils s'aiment encore et se séparent sans relation à distance ni promesse d'attente. Elle réserve seule son billet ; il l'accompagne jusqu'au quai, lui rend la valise et ne dit pas « reviens ». « Cette fois, personne ne remplit le blanc à sa place. »
+
+</Spoiler>
+
+## Récompenses et CG
+
+<Spoiler requires="finB1">
+
+- Aucune CG : la fin utilise uniquement des décors (appartement de nuit et de jour, gare de Tokyo).
+- `record_ending("neutre")` (ligne 7) ajoute `"neutre"` à `endings_seen`. Aucune autre partie des scripts ne lit cette liste pour l'instant.
+- Musiques : `audio/music/sadness.ogg` (héritée de la route), puis `audio/music/apart_tokyo_sad.ogg` à partir de l'annonce du départ.
+
+</Spoiler>

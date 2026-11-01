@@ -1,0 +1,19 @@
+{
+  "id": "inconnu",
+  "firstAppearance": "prologue",
+  "role": "Inconnu",
+  "infobox": [
+    { "label": "Nom affiché", "value": "???", "requires": "public" },
+    { "label": "Pseudo", "value": "Aucun (aucun message serveur ne l'annonce)", "requires": "prologue" },
+    { "label": "Couleur de dialogue", "value": "#f6e38d (la même que Monsieur Laplage)", "requires": "arc1" }
+  ],
+  "aliases": [
+    { "name": "Monsieur Laplage", "requires": "arc1", "note": "reconnu comme « le type de la rivière »" }
+  ],
+  "sources": [
+    "script.rpy:67",
+    "arcs/prologue/prologue_minecraft.rpy:364-387",
+    "arcs/arc_1/arc_1_printemps.rpy:316-320",
+    "arcs/endings/ending_ilonanium.rpy:396-398"
+  ]
+}
