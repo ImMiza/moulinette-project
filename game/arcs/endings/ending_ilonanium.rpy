@@ -11,11 +11,13 @@ init -5 python:
 image bg ilonanium rue = Transform("images/scenes/backgrounds/hiking/bg_arc7_jessy_depart.jpg", xysize=(1920, 1080), fit="cover")
 # Meme chambre que les premiers CG : bureau a gauche, lit a droite.
 image bg ilonanium chambre = Transform("images/scenes/backgrounds/friend/bg_friend_chambre_ilona.png", xysize=(1920, 1080), fit="cover")
-image bg ilonanium astre = Transform("images/scenes/cg/ilonanium/12_ilonanium.png", xysize=(1920, 1080), fit="cover")
+image bg ilonanium astre = Transform("images/scenes/illonanium/fin_ilonanium.png", xysize=(1920, 1080), fit="cover")
 # Plage sauvage a deux soleils, avant la reconstruction de la civilisation.
 image bg ilonanium plage = Transform("images/scenes/backgrounds/ilonanium/plage_deux_soleils.png", xysize=(1920, 1080), fit="cover")
 image bg ilonanium plage reconstruite = Transform("images/scenes/illonanium/plage_exoplanete.png", xysize=(1920, 1080), fit="cover")
 image bg ilonanium exoplanete = Transform("images/scenes/illonanium/plage_exoplanete.png", xysize=(1920, 1080), fit="cover")
+image bg ilonanium sanctuaire = Transform("images/scenes/backgrounds/ilonanium/sanctuaire_laplage.png", xysize=(1920, 1080), fit="cover")
+image bg ilonanium garage = Transform("images/scenes/backgrounds/ilonanium/garage_ange_route.png", xysize=(1920, 1080), fit="cover")
 image bg ilonanium bar = Transform("images/scenes/illonanium/bar.png", xysize=(1920, 1080), fit="cover")
 image bg ilonanium conseil = Transform("images/scenes/illonanium/governor_office.png", xysize=(1920, 1080), fit="cover")
 image bg ilonanium capitole = Transform("images/scenes/illonanium/capitole_depart.png", xysize=(1920, 1080), fit="cover")
@@ -29,7 +31,7 @@ image bg ilonanium maison alex = Transform("images/scenes/illonanium/fin_ilonani
 image bg ilonanium alex = "images/scenes/illonanium/fin_ilonanium2.jpg"
 
 # Transformation : personnages deja peints dans les CG, sans sprites superposes.
-# Le douzieme plan est aussi le decor « bg ilonanium astre », repris a la reconquete.
+# Le douzieme plan presente l'Ilonanium seul ; la reconquete a son propre plan d'arrivee du TAIKUN.
 image cg ilonanium attraction = Transform("images/scenes/cg/ilonanium/01_attraction.png", xysize=(1920, 1080), fit="cover")
 image cg ilonanium gravite = Transform("images/scenes/cg/ilonanium/02_gravite.png", xysize=(1920, 1080), fit="cover")
 image cg ilonanium laplage = Transform("images/scenes/cg/ilonanium/03_laplage.png", xysize=(1920, 1080), fit="cover")
@@ -477,22 +479,28 @@ label ending_ilonanium_deux_soleils:
     laplage "Dans le temps, les passages existent encore. Mais seulement aux croisements des lignes temporelles. Des nœuds de convergence."
     t "Je peux choisir une date ?"
     laplage "Tu peux sauter d'un nœud à un autre. Pas t'arrêter entre les deux. Passé ou futur, chaque voyage est un aller simple. Le passage se ferme derrière toi."
-    t "Vous savez déjà où ils mènent ? Vous aviez vécu tout ça avant de revenir ?"
-    laplage "Non. Dans ma vie, j'ai attendu dix ans de plus avant de repartir vers la rentrée. La Terre existait encore. L'Ilonanium, je l'ai découvert avec vous."
-    t "Alors comment vous trouvez les passages ?"
+    t "Alors on revient avant la randonnée. On empêche Ilona de manger ce fruit."
+    laplage "Tu reviendrais dans le passé de cette exoplanète. Pas sur Terre."
+    t "Mais vous êtes bien revenu avant la rentrée."
+    laplage "J'étais encore sur Terre. Dans ma vie, j'ai attendu dix ans de plus avant de repartir vers la rentrée. L'Ilonanium, je l'ai découvert avec vous."
+    laplage "Aujourd'hui, remonter le temps nous laisserait ici, sous ces deux soleils. Il faudrait toujours rejoindre la Terre, et ni mes pouvoirs ni le TARDIS ne peuvent plus franchir cette distance."
+    t "On arriverait avant la randonnée, mais à des années-lumière d'Ilona."
+    laplage "Oui."
+    systeme "Théo baisse les yeux vers la photo restée sur le sable. Ilona y sourit encore."
+    t "Et les passages, comment je les trouve ?"
     laplage "Le pouvoir permet de les sentir, même ceux qui ne se sont pas encore ouverts. Tu peux en percevoir la date. Pas ce qui t'attend de l'autre côté."
     systeme "Théo baisse les yeux vers le porte-clés. Au creux de sa main, la chaleur pulse à intervalles irréguliers."
     laplage "Ferme les yeux. Ne cherche pas un lieu. Cherche quand."
     $ ilonanium_effect("ilona", level=0.60, channel="ilon_detail")
-    systeme "Théo ferme les yeux. Il sent une première résistance, proche. Puis une autre, beaucoup plus loin. Il rouvre les yeux, le souffle court."
-    t "Le dernier ?"
-    laplage "Avant notre dernière rentrée des classes. Il y a plus de quarante et un ans. Aucun depuis."
+    systeme "Théo ferme les yeux. Il sent un point très loin dans le passé. Vers l'avenir, une première résistance, proche. Puis d'autres, plus loin. Il rouvre les yeux, le souffle court."
+    t "Le dernier nœud était avant la rentrée ?"
+    laplage "Oui. Il y a plus de quarante et un ans. Aucun depuis."
     t "Et les prochains ?"
     laplage "Un dans un mois. Un dans dix ans. Puis plus rien avant neuf cent quatre-vingt-dix-neuf ans et un mois."
     systeme "Théo referme ses doigts sur le creeper. Le deuxième soleil atteint enfin la mer."
     show theo ilonanium laplage_determined at ilonanium_left with dissolve
     $ ilonanium_music_level(0.82, 2.0)
-    t "Revenir avant n'a pas suffi. Alors je vais partir après."
+    t "Revenir avant ne nous rapprochera pas d'elle. Alors il faut préparer ce qui vient après."
     laplage "Après ?"
     t "Le nœud qui s'ouvre dans un mois. Je l'emprunte pour ressortir neuf cent quatre-vingt-dix-neuf ans plus tard."
     t "Un millénaire pour construire un vaisseau. Je prépare le projet maintenant, et je vais le chercher quand il est prêt."
@@ -537,7 +545,7 @@ label ending_ilonanium_survivants:
     mi "Le problème du balcon, c'est qu'on me voit pas assez depuis les côtés."
     scene black with dissolve
     centered "JESSY"
-    scene bg ilonanium exoplanete with dissolve
+    scene bg ilonanium sanctuaire with dissolve
     show jessy ilonanium priest at ilonanium_center with dissolve
     systeme "Jessy a fondé le culte de Laplage. Le sauveur de l'humanité est devenu son Messi ; lui, son prophète. En quarante ans, sa religion est devenue majoritaire."
     systeme "Son visage, lui, est resté celui du garçon revenu de randonnée. Il cache quelque chose de plus étrange encore."
@@ -550,7 +558,7 @@ label ending_ilonanium_survivants:
     scene black with dissolve
     $ ilonanium_music_level(0.64, 1.5)
     centered "SOFIANE"
-    scene bg ilonanium exoplanete with dissolve
+    scene bg ilonanium garage with dissolve
     show sofiane ilonanium civilian_neutral at ilonanium_center with dissolve
     systeme "Sofiane a tracé les routes qui relient les communautés humaines. On l'appelle l'ange de la route. Il trouve le titre un peu chargé pour quelqu'un qui fait aussi les ronds-points."
     systeme "Il a fini par affronter Monsieur Laplage dans une course. Et par gagner."
@@ -906,12 +914,18 @@ label ending_ilonanium_reconquete:
     systeme "L'Ilonanium tourne dans le vide. Des nuages couvrent ses reliefs. Sous eux, quelque part, se trouve ce qu'il reste de la Terre."
     $ ilonanium_music("vanir", level=0.78, fadein=0.8)
     $ ilonanium_bed_stop(channel="ilon_texture", seconds=2.0)
+    window hide
+    $ renpy.pause(2.0)
     scene bg ilonanium reconquete with Dissolve(2.0)
-    systeme "Une lumière fend l'espace. Après cinq ans de traversée, l'arche de l'humanité ralentit devant le monde qui a englouti son berceau. Mille quarante-quatre ans après la catastrophe, les exilés sont revenus."
+    window auto
+    systeme "Une lumiere fend l'espace : le TAIKUN ralentit devant le monde qui a englouti son berceau. Mille quarante-quatre ans apres la catastrophe, les exiles sont revenus."
+    window hide
+    $ renpy.pause(2.0)
+    window auto
+    scene bg ilonanium passerelle with fade
+    systeme "Apres cinq ans de traversee, les six voyageurs retrouvent la passerelle. Devant eux, l'Ilonanium occupe toute la baie."
     $ ilonanium_bed("ship", level=0.45)
     $ ilonanium_bed("engine", level=0.32, channel="ilon_machine")
-    scene bg ilonanium passerelle with fade
-    systeme "Sur la passerelle du TAIKUN, six silhouettes font face à la baie. Aucun écran ne suffit à contenir l'astre."
     show jessy ilonanium prophet_determined at ilonanium_left
     show florentin ilonanium armor_resolved at ilonanium_right
     with dissolve

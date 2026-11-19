@@ -46,15 +46,16 @@ Monsieur Laplage : « Laisser digérer. » Pouce levé.
 
 \-monsieur Laplage met en garde Théo sur ses pouvoirs  
 \*Le voyage dans l’espace ne peut se faire que sur quelques mètres maintenant. Le sauvetage d’une partie de la terre en a laissé que des fragments de ce pouvoir.  
-\*Le porte-clés sert aussi à appeler le TARDIS, qui reconnaîtra Théo comme son nouveau détenteur. Après quarante ans de récupération, la cabine peut repartir et transporter les voyageurs entre deux nœuds temporels ; ses moteurs endommagés ne permettent plus le voyage interstellaire. Le TAIKUN reste nécessaire pour rejoindre l'Ilonanium.
-\*Le voyage temporel peut se faire dans le passé comme dans le futur, mais uniquement entre des croisements des lignes temporelles appelés « nœuds de convergence ».
-\*Le pouvoir permet de sentir les dates de ces nœuds, y compris ceux à venir, sans connaître les événements qui s'y dérouleront. Laplage repère les passages de cette histoire grâce à cette perception ; ses souvenirs appartiennent à une autre histoire. Théo commence à ressentir les nœuds après la transmission des pouvoirs.
+\*Le porte-clés sert aussi à appeler le TARDIS, qui reconnaîtra Théo comme son nouveau détenteur. Après quarante ans de récupération, la cabine peut repartir et transporter les voyageurs entre deux nœuds temporels, dans le passé comme dans le futur ; ses moteurs endommagés ne permettent plus le voyage interstellaire. Le TAIKUN reste nécessaire pour rejoindre l'Ilonanium.
+\*Les voyages temporels se font uniquement entre des croisements des lignes temporelles appelés « nœuds de convergence ». Un saut temporel change l'époque, sans ramener les voyageurs sur Terre : ils restent sur l'exoplanète où ils se trouvent actuellement. Revenir avant la catastrophe les conduirait donc dans le passé de cette exoplanète, toujours à des années-lumière d'Ilona. Il n'y a pas d'interdiction générale du voyage vers le passé.
+\*Théo propose explicitement de revenir avant la randonnée pour empêcher Ilona de manger le fruit. Laplage lui explique que ce retour serait inutile depuis leur lieu actuel : ni ses pouvoirs réduits ni le TARDIS endommagé ne peuvent les ramener jusqu'à la Terre. Son propre retour vers la rentrée avait eu lieu alors qu'il était encore sur Terre.
+\*Le pouvoir permet de sentir les dates des nœuds, y compris ceux à venir, sans connaître les événements qui s'y dérouleront. Laplage repère les passages de cette histoire grâce à cette perception ; ses souvenirs appartiennent à une autre histoire. Après la transmission des pouvoirs, Théo perçoit un nœud dans le passé et d'autres dans l'avenir.
 \*Tout voyage entre les nœuds de convergence est un aller simple : le passage se referme derrière les voyageurs.
 
-\-Monsieur Laplage dit à Théo qu'il n'y a pas eu de nœud de convergence depuis plus de 41 ans. Le prochain est dans un mois, le suivant dans dix ans, puis un autre dans 999 ans et un mois : le saut prévu dure donc 999 ans.
-\*Dans son histoire d'origine, Laplage était reparti vers leur dernière rentrée à l'âge que Théo aura dans dix ans. Cette date appartient à sa vie sur Terre, avant son retour dans le passé.
+\-Monsieur Laplage dit à Théo qu'il n'y a pas eu de nœud de convergence depuis plus de 41 ans ; le dernier correspond à l'époque d'avant leur dernière rentrée. Le prochain est dans un mois, le suivant dans dix ans, puis un autre dans 999 ans et un mois : le saut prévu dure donc 999 ans.
+\*Dans son histoire d'origine, Laplage était reparti vers leur dernière rentrée à l'âge que Théo aura dans dix ans. Cette date appartient à sa vie sur Terre, avant son retour dans le passé et avant la catastrophe. Le même saut temporel depuis l'exoplanète ne ramènerait pas Théo sur Terre.
 
-\-théo réfléchit, et finit par dire qu’il a trouvé un plan. Vu que le voyage dans le passé n’a rien réglé et qu’il a fait qu’empirer chose, il va tenter de faire le voyage dans le futur pour réparer les erreurs, donc prendre le nœud de convergence dans 1 mois pour voyager dans celui 999 ans plus tard pour sauver Ilona et récupérer la terre, pour cela il va retrouver ses amis d’enfance pour préparer le terrain pour que dans le futur ils puissent faire le voyage à travers l’espace pour retrouver l’ilonanium
+\-Théo réfléchit et trouve un plan : remonter le temps depuis l'exoplanète ne le rapprocherait pas d'Ilona. Il choisit donc de donner à l'humanité le temps de préparer son sauvetage et la reconquête de la Terre. Il prendra le nœud de convergence dans un mois pour rejoindre celui situé 999 ans plus tard. Il va retrouver ses amis d'enfance pour préparer la construction du vaisseau qui les mènera jusqu'à l'Ilonanium.
 
 \-monsieur Laplage dit à Théo que c’est très audacieux, il lui dit aussi d’aller voir un certain Florentin à la tête d’une milice qui se prépare à un conflit intergalactique, et que ce dernier pourrait lui être très utile dans cette mission
 
@@ -81,6 +82,7 @@ Monsieur Laplage : « Laisser digérer. » Pouce levé.
 
 \-transition sur des plans de Jessy  
 \*C'est le narrateur qui parle
+\*Le montage montre Jessy au centre du grand sanctuaire de Laplage : arches de pierre claire, bancs, vitrail de Laplage au pouce levé au-dessus de lui et ouvertures sur l'océan de l'exoplanète aux deux soleils. Décor `images/scenes/backgrounds/ilonanium/sanctuaire_laplage.png`, sans personnage intégré.
 
 \-plan sur Jessy qui explique qu’il a fondé le culte de Laplage dont il est le prophète dans le but de faire revenir le messie qui a sauvé l'humanité (monsieur Laplage),cette religion à récupérer au fil des années beaucoup d’adeptes au point qu’elle est devenue majoritaire
 
@@ -90,6 +92,7 @@ Monsieur Laplage : « Laisser digérer. » Pouce levé.
 
 \-transition sur des plans de Sofiane   
 \*C'est le narrateur qui parle
+\*Le montage montre Sofiane au centre de son garage de l'ange de la route : outils et cartes des itinéraires, Trueno AE86 blanche et noire garée à droite, porte ouverte sur une route côtière et les ponts de l'archipel. La voiture reste visible à côté du sprite. Décor `images/scenes/backgrounds/ilonanium/garage_ange_route.png`, sans personnage intégré.
 
 \-plan sur Sofiane qui explique qu’il est devenue "l'ange de la route", il a conçu tous les itinéraire et les routes qui a permis de connecter l'humanité entre elles sur cette exoplanète
 
@@ -287,6 +290,7 @@ Transition écran noir : 999 plus tard
 \*Chronologie : quarante ans d'exil, un mois avant le départ, un saut de 999 ans, les derniers essais et préparatifs du TAIKUN, puis cinq ans de traversée spatiale. L'arrivée a lieu environ 1044 ans après la catastrophe. Les cinq voyageurs vivent réellement les cinq ans de trajet ; le saut temporel de 999 ans ne les fait pas vieillir. Aucun second bond de quarante ans.
 
 \-plan de l’ilonanium sans le taikun  
+\*Transition directe en fondu de `images/scenes/illonanium/fin_ilonanium.png` vers `images/scenes/illonanium/fin_ilonanium0.png` en deux secondes, puis passage a la passerelle du TAIKUN.
 \*Lancement de la musique vanir’s legacy du jeu ixion
 
 \-ensuite transition avec un effet sur le plan du taikun avec l'ilonanium en fond  
