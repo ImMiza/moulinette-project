@@ -4,6 +4,8 @@
 image bg arc4_city_night = im.Scale("images/scenes/backgrounds/winter/bg_arc4_illuminations.jpg", 1920, 1080)
 image bg arc4_maid_cafe_exterior = im.Scale("images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_exterior.jpg", 1920, 1080)
 image bg arc4_maid_cafe_interior = im.Scale("images/scenes/backgrounds/city/bg_arc4_5_maid_cafe_interior.jpg", 1920, 1080)
+image cg arc4 sofiane maid = "images/scenes/cg/noel/sofiane_maid_cafe.png"
+image cg arc4 pas amoureux = "images/scenes/cg/noel/les_pas_amoureux.png"
 
 define audio.wow = "audio/fx/WOW.mp3"
 
@@ -16,9 +18,11 @@ label arc_4_5_maid_cafe:
     systeme "Au premier carrefour, leurs trajets se séparent."
     a "Alexandre et moi, c'est à gauche."
     show alex winter teasing at char_midleft
+    show cg arc4 pas amoureux zorder 10
     x "Et vous deux, tout droit. Seuls. En amoureux."
     show jessy winter embarrassed at char_midright
     j "On n'est pas..."
+    hide cg arc4 pas amoureux
     show ilona winter frustrated at char_right
     i "Alexandre."
     x "Oui ?"
@@ -136,12 +140,14 @@ label arc_4_5_maid_cafe:
     systeme "Sofiane."
     systeme "En tenue de maid."
     systeme "Tablier blanc impeccable. Bandeau à froufrous. Lunettes toujours en place."
+    show cg arc4 sofiane maid zorder 10 with dissolve
     systeme "Il fait un cœur avec ses mains. Sourire parfaitement professionnel."
     
     s "Bienvenue, Maîtres. Votre table vous attend dans l'ombre de vos destins entrelacés."
     
     show jessy winter embarrassed at char_left
     show ilona winter embarrassed at char_right
+    hide cg
     with dissolve
     
     systeme "Silence absolu."

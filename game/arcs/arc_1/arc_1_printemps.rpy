@@ -7,6 +7,12 @@ image bg arc1 train inside = im.Scale("images/scenes/backgrounds/transport/bg_sh
 image bg arc1 konbini = im.Scale("images/scenes/backgrounds/city/bg_arc1_konbini_snacks.jpg", 1920, 1080)
 image bg arc1 cafeteria = im.Scale("images/scenes/backgrounds/school/bg_arc1_school_cafeteria.jpg", 1920, 1080)
 
+image cg arc1 rencontre = "images/scenes/cg/printemps/premiere_rencontre.png"
+image cg arc1 bento = "images/scenes/cg/printemps/bento_sur_le_toit.png"
+image cg arc1 train = "images/scenes/cg/printemps/phrase_dans_le_train.png"
+image arc1_photo_jessy_surprise = Transform("images/scenes/cg/printemps/photo_jessy_surprise.png", xysize=(1120, 632), fit="contain")
+image arc1_photo_jessy_pose = Transform("images/scenes/cg/printemps/photo_jessy_pose.png", xysize=(1120, 632), fit="contain")
+
 define audio.kombiopen = "audio/fx/kombini_open.mp3"
 define audio.kombini = "audio/music/kombini.ogg"
 define audio.snake = "audio/fx/snake-alert.mp3"
@@ -44,6 +50,7 @@ label arc_1_printemps:
     show ilona smile at char_right
     i "C'était très Discord, en vrai."
 
+    show cg arc1 rencontre zorder 10 with dissolve
     systeme "Ils se regardent une seconde. En vocal, il y avait toujours un bruit de clavier, un clic de souris, quelque chose à faire avec les mains. Là, il n'y a que le couloir."
     i "On est dans la même école."
     j "Oui."
@@ -53,6 +60,7 @@ label arc_1_printemps:
     show jessy smile at char_left
     j "Oui. Bizarre bien."
 
+    hide cg with dissolve
     if maison_minecraft_transformation == "serre":
         i "Au fait, je n'ai montré la serre suspendue à personne."
         j "Merci."
@@ -112,11 +120,13 @@ label arc_1_printemps:
     j "C'est gentil et inquiétant."
 
     show ilona embarrassed at char_right
+    show cg arc1 bento zorder 10 with dissolve
     systeme "Ilona ouvre son bentô, hésite, puis pousse un morceau d'omelette vers lui."
     i "Tu veux goûter ?"
     j "Tu es sûre ?"
     i "C'est une omelette, Jessy. Pas mon héritage familial."
 
+    hide cg with dissolve
     menu:
         "Ilona lui propose un morceau de son repas."
 
@@ -204,6 +214,7 @@ label arc_1_printemps:
     i "Bouge pas."
     j "Pourquoi ?"
     play sound audio.photo volume 0.6
+    show screen arc2_photo("arc1_photo_jessy_surprise")
     systeme "Elle prend une photo avant qu'il ait le temps de comprendre."
     show jessy embarrassed at char_left
     j "Oh non."
@@ -213,6 +224,7 @@ label arc_1_printemps:
     j "Donc mauvaise."
     i "Vivante."
 
+    hide screen arc2_photo with Dissolve(0.25)
     menu:
         "Ilona regarde la photo en souriant."
 
@@ -248,7 +260,9 @@ label arc_1_printemps:
             i "C'est ambitieux."
             j "Je crois en moi."
             play sound audio.photo volume 0.6
+            show screen arc2_photo("arc1_photo_jessy_pose")
             i "Magnifique. On dirait une photo de carte de club refusée."
+            hide screen arc2_photo with Dissolve(0.25)
 
     show jessy neutral at char_left
     systeme "La photo reste un sujet pendant deux jours."
@@ -257,10 +271,12 @@ label arc_1_printemps:
     stop ambiant1 fadeout 1.0
     play sound audio.trainstop volume 0.6
     show jessy determined at char_left
+    show cg arc1 train zorder 10 with Dissolve(0.2)
     j "Ilona, je voulais te dire que—"
     systeme "Le train s'arrête brutalement. La sonnerie de fermeture des portes couvre la fin de sa phrase."
     i "Quoi ?"
     show jessy embarrassed at char_left
+    hide cg with dissolve
     j "Rien. Laisse tomber."
     show ilona frustrated at char_right
     systeme "Ilona le regarde avec un air mi-amusé, mi-frustré."

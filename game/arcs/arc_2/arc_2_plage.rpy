@@ -9,6 +9,39 @@ image bg arc2 lost items table = im.Scale("images/scenes/backgrounds/beach/bg_ar
 image bg arc2 minecraft house summer night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 image bg arc2 tide pools = im.Scale("images/scenes/backgrounds/beach/bg_arc2_tide_pools.jpg", 1920, 1080)
 
+image cg arc2 porte cles = "images/scenes/cg/beach/porte_cles_bloc.png"
+
+# CG entiers : meme boite, proportions conservees, aucun recadrage.
+image arc2_photo_premiere = Transform("images/scenes/cg/beach/first_photo.png", xysize=(1120, 632), fit="contain")
+image arc2_photo_deuxieme = Transform("images/scenes/cg/beach/second_photo.png", xysize=(1120, 632), fit="contain")
+
+# Meme principe que la photo de l'ending : arrivee lancee, puis pose de biais.
+transform arc2_photo_lancer:
+    subpixel True
+    anchor (0.5, 0.5)
+    pos (1.12, 0.16)
+    zoom 0.72
+    rotate 24
+    alpha 0.0
+    parallel:
+        linear 0.12 alpha 1.0
+    parallel:
+        easeout 0.55 pos (0.5, 0.34) zoom 1.03 rotate -4
+        ease 0.15 zoom 1.0 rotate -2.5
+
+# Papier et ombre animes ensemble, devant les sprites et au-dessus du texte.
+screen arc2_photo(photo):
+    zorder 10
+
+    fixed:
+        xysize (1156, 668)
+        at arc2_photo_lancer
+
+        add Solid("#00000018") pos (6, 9) xysize (1168, 680)
+        add Solid("#00000024") pos (4, 6) xysize (1160, 672)
+        add Solid("#f7f2e8") xysize (1156, 668)
+        add photo pos (18, 18)
+
 image jessy beach angry = speaker_sprite("jessy", "images/personnages/Jessy/Beach/angry.png")
 image jessy beach embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/Beach/nervous_embarrassment.png")
 image jessy beach happy = speaker_sprite("jessy", "images/personnages/Jessy/Beach/happy.png")
@@ -275,6 +308,7 @@ label arc_2_plage:
     hide theo
     with dissolve
     systeme "Théo retrouve le porte-clés près du comptoir, coincé contre une caisse de sirop bleu."
+    show cg arc2 porte cles zorder 10 with dissolve
     systeme "Quand il revient, il le tend à Ilona. Ses doigts frôlent les siens une demi-seconde de trop."
     show theo beach reassuring at char_midright
     t "Il avait roulé sous la table. Tu l'avais regardé juste après avoir parlé de la cuisine."
@@ -282,6 +316,7 @@ label arc_2_plage:
     t "Je fais attention."
     systeme "Ilona reprend le porte-clés. Elle rougit légèrement. Pas beaucoup. Juste assez."
     show ilona beach smile at char_left
+    hide cg with dissolve
     i "Merci. Vraiment. Je croyais l'avoir perdu."
     t "Je savais qu'il n'était pas loin."
     systeme "Jessy les regarde. Théo vient de faire en trente secondes ce que lui n'a pas su faire en deux minutes."
@@ -361,11 +396,14 @@ label arc_2_plage:
 
     play sound audio.photo volume 0.6
     systeme "Quand le groupe prend une photo, Allan recule trop vite pour cadrer. Tout le monde se décale."
+    show screen arc2_photo("arc2_photo_premiere")
     systeme "Sur l'écran, Jessy est à une extrémité. Ilona sourit près de Théo."
     a "Désolé. J'ai bougé."
     x "Composition narrativement suspecte."
     a "Alexandre."
     x "Je retire le mot narrativement."
+
+    hide screen arc2_photo with Dissolve(0.25)
 
     menu:
         "La photo n'a rien décidé. Jessy la regarde pourtant comme si elle avait pris parti."
@@ -391,6 +429,7 @@ label arc_2_plage:
             i "Oui."
             t "Bonne idée."
             play sound audio.photo volume 0.6
+            show screen arc2_photo("arc2_photo_deuxieme")
             systeme "La première photo reste. La deuxième existe aussi."
             systeme "Jessy a exprimé son besoin. Mais il sait aussi qu'il vient de montrer son insécurité."
 
@@ -418,6 +457,7 @@ label arc_2_plage:
             systeme "Jessy a choisi la confiance. Mais il voit bien qu'Ilona sourit près de Théo."
             systeme "Le compliment était sincère. La blessure aussi."
 
+    hide screen arc2_photo with Dissolve(0.25)
     systeme "Après la photo, le groupe se disperse sans vraiment se séparer."
     systeme "Allan part chercher les boissons. Alexandre tente de sauver son château de sable."
     i "Vous voulez quelque chose de spécial ?"

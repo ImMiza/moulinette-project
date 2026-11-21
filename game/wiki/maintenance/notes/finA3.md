@@ -34,7 +34,7 @@ Citations :
 ## Objets et concepts
 
 - Six objets cosmiques (voir notes Route A) ; le noyau étoilé traverse le sac (285).
-- TARDIS (cabine bleue), porte-clés creeper (commande le TARDIS), nœuds de convergence : voyages en aller simple, dates ressenties ; dernier il y a plus de 41 ans, prochains dans un mois, dix ans, puis 999 ans et un mois (427-440).
+- TARDIS (cabine bleue), porte-clés creeper (commande le TARDIS), nœuds de convergence : voyages possibles vers le passé comme vers le futur, en aller simple. Remonter le temps depuis l'exoplanète laisse les voyageurs sur cette exoplanète ; cela ne les ramène ni sur Terre ni sur l'Ilonanium. Le retour avant la randonnée serait donc inutile pour empêcher la catastrophe : les pouvoirs réduits et les moteurs endommagés du TARDIS ne permettent plus de franchir la distance jusqu'à la Terre. Laplage avait effectué son propre retour alors qu'il se trouvait encore sur Terre, dans une autre histoire. Dates ressenties dans le passé et l'avenir ; dernier nœud il y a plus de 41 ans ; prochains dans un mois, dix ans, puis 999 ans et un mois. Théo choisit le saut de 999 ans pour laisser construire le TAIKUN.
 - TAIKUN : station annulaire autonome (604) ; moteur tiré de la Trueno, « en V8000 » (613-614).
 - Culte de Laplage, prophétie du retour du Messi et de ses apôtres (680) ; symbole du pouce levé (779).
 - Photo Théo/Ilona d'une autre vie (`theo_ilona_picture.png`, animation `ilonanium_photo_lancer`, 54-68, 392).

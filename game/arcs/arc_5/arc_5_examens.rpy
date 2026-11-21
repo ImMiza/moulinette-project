@@ -30,6 +30,9 @@ image bg arc5 park spring = im.Scale("images/scenes/backgrounds/city/bg_arc5_par
 image bg arc5 minecraft night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 image bg arc5 train station = im.Scale("images/scenes/backgrounds/transport/bg_arc5_train_station.jpg", 1920, 1080)
 
+image cg arc5 stylo = "images/scenes/cg/examens/stylo_violet.png"
+image cg arc5 quai = "images/scenes/cg/examens/question_sur_le_quai.png"
+
 define audio.arc5Cinema = "audio/ambience/the_city_mouse_and_the_country_mouse.mp3"
 
 define mi = Character("Micka", color="#e91e63", callback=speaker_callback("micka"))
@@ -347,6 +350,7 @@ label arc_5_examens:
     hide jessy
     with dissolve
 
+    show cg arc5 stylo zorder 10 with dissolve
     systeme "En rangeant ses affaires, Jessy trouve un stylo violet avec des étoiles sous la chaise où Ilona était assise."
     systeme "Il le glisse dans sa poche. Il le lui rendra demain."
 
@@ -1670,6 +1674,7 @@ label arc_5_scene_3:
         play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu me feras confiance..."
 
+        show cg arc5 quai zorder 10 with dissolve
         systeme "Elle le regarde droit dans les yeux."
 
         i "...même si je choisis quelque chose que tu n'espérais pas ?"
@@ -1707,6 +1712,7 @@ label arc_5_scene_3:
         play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu as peur de me perdre..."
 
+        show cg arc5 quai zorder 10 with dissolve
         systeme "Elle le regarde droit dans les yeux."
 
         i "...ou est-ce que tu ne me fais pas confiance ?"
@@ -1735,6 +1741,7 @@ label arc_5_scene_3:
         play music audio.sadPiano fadeout 1.5 fadein 4.0 loop volume 0.7
         i "Est-ce que tu as peur de me perdre..."
 
+        show cg arc5 quai zorder 10 with dissolve
         systeme "Elle le regarde droit dans les yeux."
 
         i "...ou est-ce que tu ne me fais pas confiance ?"
@@ -1743,6 +1750,7 @@ label arc_5_scene_3:
         systeme "Jessy sent son cœur battre dans sa gorge. Il n'y a pas de bonne réponse facile."
         systeme "Seulement la vraie. Ou les mensonges."
 
+    hide cg with dissolve
     menu:
         systeme "Elle attend. Le train suivant passera dans huit minutes. Il a huit minutes pour trouver les mots."
 

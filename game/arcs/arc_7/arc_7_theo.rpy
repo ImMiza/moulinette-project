@@ -37,6 +37,10 @@ image bg arc7 tokyo arrival = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_
 image bg arc7 tokyo restaurant = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_restaurant_night.jpg", 1920, 1080)
 image bg arc7 tokyo park = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tokyo_park_night.jpg", 1920, 1080)
 
+# --- Soirées cinéma : même cadrage, une place qui se vide ---
+image cg arc7 theo kung pow = Transform("images/scenes/cg/theo/arc7_theo_kung_pow.png", xysize=(1920, 1080), fit="contain")
+image cg arc7 theo film attente = Transform("images/scenes/cg/theo/arc7_theo_film_attente.png", xysize=(1920, 1080), fit="contain")
+
 # --- Tenues Tokyo propres à la route Théo ---
 image ilona tokyo embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
 image ilona tokyo neutral = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/neutral.png", ILONA_SIZE[0], ILONA_SIZE[1])
@@ -129,7 +133,7 @@ label arc_7_theo:
     show ilona tokyo smile at char_left
     with dissolve
 
-    systeme "Dans la rue, Ilona photographie une enseigne, un distributeur de boissons et un taxi qu'elle trouve trop propre pour être réel. Théo attend chaque fois qu'elle s'arrête."
+    systeme "Dans la rue, Ilona photographie jusqu'aux taxis. Théo attend chaque fois qu'elle s'arrête."
 
     i "On vit vraiment ici, maintenant ?"
     t "À deux rues du studio."
@@ -144,7 +148,7 @@ label arc_7_theo:
     hide ilona
     with dissolve
 
-    systeme "Le trajet jusqu'à l'appartement prend vingt minutes et trois nouveaux arrêts photo. Pour Ilona, même se tromper de sortie ressemble encore au début d'une aventure."
+    systeme "Vingt minutes et trois arrêts photo plus tard, ils arrivent à l'appartement."
     $fade_channel("music",0,1.0)
     # ------------------------------------------------------------------
     # 1A. Leur appartement : le rêve commence
@@ -168,7 +172,7 @@ label arc_7_theo:
     show ilona tokyo smile at char_left
     with dissolve
 
-    systeme "Ilona traverse chaque pièce comme si elle ouvrait des cadeaux. Elle teste le canapé, ouvre tous les placards et finit devant la fenêtre du salon."
+    systeme "Ilona teste le canapé, ouvre les placards et finit devant la fenêtre du salon."
 
     i "On voit les lumières de la rue."
     t "Et un morceau de la station, entre les deux immeubles."
@@ -199,7 +203,7 @@ label arc_7_theo:
     i "Celui qui finit le café en rachète."
     t "Ça me paraît beaucoup plus dangereux."
 
-    systeme "La régie vit dans une autre colocation, plus près de la gare. La cuisine et le salon ne sont qu'à Ilona et Théo. Pour Ilona, cette adresse n'est pas seulement pratique : c'est la première pièce d'une vie qu'elle a choisie."
+    systeme "La régie vit dans une autre colocation. Cette cuisine, ce salon et cette première adresse choisie sont à eux."
 
     i "J'adore."
     t "L'appartement ?"
@@ -230,16 +234,14 @@ label arc_7_theo:
 
     i "C'est la pièce de qui ?"
     t "La tienne."
-    i "Non, sérieusement."
-    t "Sérieusement. La régie est derrière la vitre. Le monteur travaille dans la salle d'à côté. Et ça..."
+    t "La régie est derrière la vitre. Le monteur travaille à côté."
 
     systeme "Théo allume les panneaux. Une lumière violette glisse sur le bureau."
 
-    t "...c'est encore modifiable. On a gardé tes couleurs, mais tu pourras tout changer."
+    t "On a gardé tes couleurs. Tu pourras tout changer."
     i "Il y a mon pseudo sur l'écran."
     t "C'est plus pratique pour savoir qui doit s'asseoir là."
     i "Théo."
-    t "Quoi ?"
     i "Laisse-moi être impressionnée correctement."
 
     show ilona tokyo smile at char_left
@@ -247,33 +249,17 @@ label arc_7_theo:
 
     i "C'est incroyable."
     t "Tu commences demain soir."
-    i "Demain, genre demain demain ?"
-    t "C'est généralement ce que veut dire demain."
     i "Je pensais avoir une semaine pour paniquer."
-    t "Tu peux paniquer ce soir. Demain, tu streams."
-    i "Combien de personnes vont savoir que j'existe ?"
-    t "Difficile à dire. L'équipe a préparé un teaser, quelques comptes partenaires vont le relayer et le compte du studio annoncera ton lancement demain matin."
-    i "Vous avez déjà fait tout ça ?"
-    t "On voulait que tu n'arrives pas devant une salle vide. Si tu préfères repousser, je peux encore leur dire."
+    t "L'équipe a préparé un teaser avec les partenaires. Mais si tu préfères repousser, je peux encore leur dire."
     i "Non ! Enfin... non. Je veux le faire."
     t "Tu es sûre ?"
     i "Je vais être terrifiée. Mais je suis sûre."
 
-    systeme "Ilona s'assoit, approche le micro et regarde son reflet dans l'écran encore noir. Pour la première fois, son projet ressemble à un vrai travail sans cesser de ressembler à son rêve."
+    systeme "Ilona s'assoit et approche le micro éteint."
 
-    i "Tu crois que je peux dire quelque chose ?"
-    t "Le micro est coupé."
-    i "Je sais. C'est pour m'entraîner."
-    t "Alors vas-y."
     i "Coucou tout le monde..."
-
-    show ilona tokyo embarrassed at char_left
-    with dissolve
-
     i "Non. C'était nul."
-    t "C'était une phrase de quatre mots."
-    i "Quatre mots nuls."
-    t "Demain, tu en auras de meilleurs."
+    t "Garde au moins le coucou. Ça commence bien."
 
     stop music fadeout 2.0
 
@@ -337,9 +323,7 @@ label arc_7_theo:
     show ilona streaming smile at char_center
     with dissolve
 
-    systeme "L'écran de fin apparaît. Ilona retire son casque et reste une seconde immobile, le sourire encore accroché au visage."
-
-    systeme "La porte s'ouvre. Théo quitte la régie et entre dans la pièce pendant qu'Ilona essaie encore de comprendre ce qui vient de se passer."
+    systeme "L'écran de fin apparaît. Ilona retire son casque, toujours souriante, lorsque Théo la rejoint."
 
     show theo tokyo reassuring at char_right
     with dissolve
@@ -420,13 +404,10 @@ label arc_7_theo:
     show ilona tokyo neutral at char_left
     with dissolve
 
-    systeme "Le dixième soir, Ilona est assise par terre devant la table basse, occupée à choisir quel extrait du premier stream elle déteste le moins. Théo relit trois fois le même message sur son téléphone."
+    systeme "Le dixième soir, Ilona trie des extraits devant la table basse. Théo relit le même message sur son téléphone."
 
     i "Tu sais que ton écran est éteint ?"
     t "Oui."
-    i "Tu le fixes depuis une minute."
-    t "Je réfléchis."
-    i "Ça a l'air grave."
     t "Tu fais quelque chose ce soir ?"
     i "Je vis ici. Tu connais probablement mieux mon planning que moi."
     t "Justement. Tu es libre."
@@ -453,7 +434,7 @@ label arc_7_theo:
     scene bg arc7 tokyo konbini night
     with fade
 
-    systeme "Dix jours plus tôt, Tokyo obligeait Ilona à regarder partout à la fois. Ce soir, elle reconnaît déjà le konbini, le feu trop long et la ruelle qui ramène chez eux. Théo, lui, vérifie l'heure pour la troisième fois."
+    systeme "Ilona reconnaît déjà le chemin du konbini. Théo vérifie l'heure pour la troisième fois."
 
     show theo tokyo neutral at char_right
     show ilona tokyo smile at char_left
@@ -461,13 +442,7 @@ label arc_7_theo:
 
     i "On va rater la réservation ?"
     t "Non."
-    i "Alors pourquoi tu regardes l'heure toutes les trente secondes ?"
-    t "Je ne la regarde pas toutes les trente secondes."
-    i "Tu as raison. La dernière fois, c'était vingt."
-    t "J'aime être à l'heure."
-    i "Tu parles aussi beaucoup plus que d'habitude."
-    t "Tu veux que je me taise ?"
-    i "Non. Je veux profiter du phénomène."
+    i "Alors regarde-moi plutôt que ta montre. Je suis presque aussi ponctuelle."
     hide theo
     hide ilona
     with dissolve
@@ -476,7 +451,7 @@ label arc_7_theo:
     scene bg arc7 tokyo restaurant
     with fade
 
-    systeme "Le restaurant est petit et presque vide. Leur table est au fond de la salle, sous une lampe basse, assez loin de la cuisine pour qu'ils puissent parler sans hausser la voix."
+    systeme "Leur table est au fond d'un petit restaurant presque vide, sous une lampe basse."
 
     show theo tokyo neutral at char_right
     show ilona tokyo neutral at char_left
@@ -526,8 +501,6 @@ label arc_7_theo:
     t "C'est cruel."
     i "Un peu."
     t "Alors ?"
-
-    systeme "Théo garde les yeux sur elle. Toute l'assurance qu'il avait en réservant la table s'est arrêtée au bord de la question."
 
     show ilona tokyo smile at char_left
     with dissolve
@@ -579,13 +552,7 @@ label arc_7_theo:
     # ------------------------------------------------------------------
     # 1G. Le retour du restaurant
     # ------------------------------------------------------------------
-    i "Je crois que je vais garder cette soirée dans mon top trois."
-    t "Seulement troisième ?"
-    i "Je laisse deux places libres pour te motiver."
-    t "La pression commence tôt."
-    i "Tu savais dans quoi tu t'engageais."
-
-    systeme "Ilona abandonne ses chaussures près du canapé et se laisse tomber au milieu des coussins, encore trop heureuse pour avoir envie de dormir."
+    systeme "Ilona abandonne ses chaussures près du canapé et se laisse tomber dans les coussins."
 
     t "On regarde quelque chose avant de se coucher ?"
     i "Tu proposes vraiment un film à cette heure-ci ?"
@@ -603,44 +570,40 @@ label arc_7_theo:
     i "D'accord. Mais si c'est nul, notre relation aura duré moins longtemps que le film."
     t "Risque accepté."
 
-    systeme "Ils lancent le film avec le volume trop bas pour les voisins. Ilona rit d'abord de Théo qui connaît certaines répliques, puis du film lui-même. Aucun des deux ne regarde l'heure."
-    stop music fadeout 2.0
-    hide theo
-    hide ilona
+    systeme "Ils lancent le film à bas volume pour les voisins. Ilona rit de Théo qui connaît les répliques, puis se tourne vers lui pour les imiter."
+
+    scene cg arc7 theo kung pow
     with dissolve
 
+    systeme "Assise en tailleur, Ilona accompagne sa réplique de grands gestes. Théo la regarde, amusé, le bras posé sur le dossier derrière elle."
+    systeme "Elle recommence, juste pour lui. Aucun des deux ne regarde l'heure."
+    stop music fadeout 2.0
+
     # ------------------------------------------------------------------
-    # 1H. Le lendemain : dix mille abonnés
+    # 1H. Dix mille abonnés, puis une soirée sans planning
     # ------------------------------------------------------------------
     scene bg arc7 tokyo studio
     with fade
     play music audio.stream loop volume 0.7 fadein 2.0
 
-    systeme "Le lendemain soir, Ilona arrive en direct avec une énergie que ni le manque de sommeil ni le café ne suffisent à expliquer. Pendant le stream, le compteur franchit les dix mille abonnés."
+    systeme "Le lendemain soir, le compteur franchit les dix mille abonnés. Ilona n'a pas encore perdu son sourire de la veille."
 
     show ilona streaming celebration at char_center
     with dissolve
 
     i "Attendez... On vient vraiment de passer les dix mille ?"
     tchat "sakura_mod : 10K 10K 10K !!!"
-    tchat "pixel_ramen : ELLE EST INARRÊTABLE CE SOIR"
-    i "Je suis parfaitement normale. C'est vous qui avez l'air lents."
     tchat "kiwi_no_kimi : quelqu'un a gagné au loto hier"
     i "Pas du tout. J'ai juste passé une très bonne soirée."
     tchat "misterclip : CE SOURIRE EST SUSPECT"
     i "On se concentre sur les dix mille et on ne mène aucune enquête, merci."
 
-    systeme "Elle enchaîne les parties, improvise un défi supplémentaire et oublie deux fois de regarder l'heure. Sa joie passe dans sa voix avant même que le tchat comprenne d'où elle vient."
-
-    i "Merci pour les dix mille. Je pensais pas dire ce nombre aussi vite. On se retrouve au prochain stream !"
+    i "Merci pour les dix mille. On se retrouve au prochain stream !"
 
     stop music fadeout 1.0
     hide ilona
     with dissolve
 
-    # ------------------------------------------------------------------
-    # 1I. Se retrouver après leurs journées
-    # ------------------------------------------------------------------
     play music audio.apart volume 0.7 loop fadein 1.0 fadeout 1.0
     scene bg arc7 tokyo house night
     with fade
@@ -649,23 +612,13 @@ label arc_7_theo:
     show ilona tokyo smile at char_left
     with dissolve
 
-    t "Dix mille."
-    i "Tu regardais ?"
-    t "Entre deux appels. Tu as débordé de vingt-sept minutes."
-    i "Je préfère retenir la première partie de ta phrase."
+    systeme "Au retour, ils échangent les morceaux de leurs journées : une machine à café en panne, un train manqué et une blague du tchat."
+
     t "Tu as été excellente."
-    i "Là, tu peux continuer."
-
-    systeme "Ilona s'assoit près de lui. Pendant quelques minutes, ils échangent les morceaux ordinaires de leurs journées : une machine à café en panne, un train manqué et une blague du tchat que Théo n'a pas comprise."
-
-    i "Et toi ? À part espionner mes horaires ?"
-    t "Deux réunions. Une avec le studio, une avec une agence. Et j'ai mangé un sandwich tellement sec qu'il avait probablement un contrat avec eux."
-    i "Journée difficile."
-    t "Elle peut encore s'améliorer."
-    i "Comment ?"
+    i "Continue, j'écoute."
     t "On va marcher dans le parc."
     i "Maintenant ?"
-    t "Tu as encore trop d'énergie pour dormir et moi, j'ai besoin de voir autre chose qu'un écran."
+    t "J'ai besoin de voir autre chose qu'un écran."
     i "Tu viens de proposer une activité sans ouvrir ton planning ?"
     t "Ne rends pas le moment bizarre."
     i "Trop tard. Je prends ma veste."
@@ -842,7 +795,7 @@ label arc_7_theo:
     scene bg arc7 tokyo house night
     with fade
 
-    systeme "À l'appartement, Ilona mange seule devant le film qu'ils avaient promis de regarder ensemble. Elle ne le lance pas."
+    systeme "À l'appartement, Ilona réchauffe son repas et s'installe sur le canapé. À l'écran, le film qu'ils avaient promis de regarder ensemble attend qu'elle appuie sur lecture."
 
     show ilona tokyo neutral at char_center
     with dissolve
@@ -854,14 +807,17 @@ label arc_7_theo:
     t "Je te rejoins au lit dès que j'ai fini. Et encore bravo pour ce soir."
     i "Merci. Bon courage."
 
-    show ilona tokyo fatigue at char_center
+    scene cg arc7 theo film attente
     with dissolve
 
-    systeme "Ilona pose le téléphone face visible sur la table basse. Au bout d'une heure, elle lance le générique du film. Au bout de deux, elle ne regarde plus que les reflets de l'écran sur le plafond."
+    systeme "Ilona pose le téléphone face visible sur la table basse, à côté de son assiette presque vide. Elle garde les mains sur les genoux. La place de Théo est libre."
+    systeme "Le menu du film éclaire doucement ses lunettes. Elle pourrait le lancer. Elle regarde encore une fois son téléphone, puis repose les yeux sur l'écran."
+    systeme "Une heure passe. Puis une autre. Elle n'appuie pas sur lecture."
+
+    scene black
+    with fade
+
     systeme "Quand Théo rentre, elle dort sur le canapé. L'assiette vide est restée devant elle et le film attend toujours qu'on appuie sur lecture."
-
-    hide ilona
-    with dissolve
 
     # ------------------------------------------------------------------
     # 1M. La semaine suivante : l'opération spéciale
@@ -930,11 +886,70 @@ label arc_7_theo:
     t "Toi aussi, tu as besoin de dormir. On mange et on va se coucher ?"
     i "Oui. D'accord."
 
-    systeme "Théo réchauffe le repas pendant qu'Ilona range le téléphone qui devait servir à lancer le film. Après avoir mangé, ils vont se coucher."
+    # Même salon que Kung Pow, mais la place à côté d'Ilona reste vide.
+    if renpy.loadable("images/scenes/cg/theo/arc7_theo_film_reporte.jpg"):
+        scene expression im.Scale("images/scenes/cg/theo/arc7_theo_film_reporte.jpg", 1920, 1080)
+    else:
+        show theo tokyo neutral at char_right
+        show ilona tokyo fatigue at char_left
+    with dissolve
+
+    systeme "Théo réchauffe le repas. Assise sur le canapé, Ilona range le téléphone qui devait lancer le film. La place à côté d'elle est libre."
+    systeme "Après avoir mangé, ils vont se coucher."
 
     hide theo
     hide ilona
     with dissolve
+
+    # ------------------------------------------------------------------
+    # 1O. Les paliers d'août et d'octobre
+    # ------------------------------------------------------------------
+    scene bg arc7 tokyo studio
+    with fade
+
+    # Avant décembre, Ilona porte encore ses cheveux longs hors stream.
+    show ilona tokyo neutral at char_left
+    show theo tokyo neutral at char_right
+    with dissolve
+
+    systeme "À la fin août, la chaîne atteint deux cent cinquante mille abonnés et les directs rassemblent autour de douze mille spectateurs. Théo cadre une photo dans le studio avant leur départ pour un restaurant calme."
+
+    t "Un peu plus à gauche."
+    i "Mon gauche ou ton gauche ?"
+    t "Le tien."
+    i "Tu aurais dû dire ça avant que je sorte du cadre."
+    t "Reviens d'un pas. Voilà. Souris."
+    i "Attends, j'ai encore mon pull."
+    t "La marque préfère un truc spontané."
+    i "Rien ne dit « spontané » comme toi qui comptes jusqu'à trois."
+
+    systeme "À la fin octobre, la chaîne atteint six cent mille abonnés et certains directs dépassent trente mille spectateurs."
+    systeme "Ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona remplace son pull par sa veste de stream. Dès que la caméra s'allume, elle sourit."
+
+    show ilona streaming smile at char_left
+    with dissolve
+
+    t "Je mets : incroyable chemin parcouru grâce à vous."
+    i "C'est pas moi, ça."
+    t "D'accord. Qu'est-ce que tu veux dire ?"
+    i "Je sais pas. Laisse-moi deux minutes."
+    t "La photo doit partir maintenant pour profiter du palier. Je peux ajouter un cœur violet."
+    i "Mets le cœur."
+
+    systeme "À chaque palier, Théo trouve le lieu où elle supportera le bruit, le texte qu'elle n'aura pas besoin de réécrire et la bonne phrase pour les partenaires. À chaque palier, Ilona sourit sur les photos."
+
+    hide ilona
+    hide theo
+    with dissolve
+
+    if arc5_theo_proposition == "partiel":
+        systeme "Avant même le diplôme, Théo avait proposé de gérer une partie de sa vie alors qu'Ilona n'était pas dans la pièce. On ne lui avait concédé que les notes. À Tokyo, le provisoire est devenu un emploi du temps entier."
+    elif arc5_theo_proposition == "laisse":
+        systeme "Avant même le diplôme, Théo avait dit : « Je gère. » Le projet d'Ilona avait changé de mains alors qu'elle n'était pas dans la pièce. À Tokyo, il n'a plus besoin d'intermédiaire."
+    elif arc5_theo_proposition == "refuse":
+        systeme "La première fois que Théo avait proposé de gérer son quotidien, on avait appelé ça une stratégie. Lui avait répondu : de l'efficacité. À Tokyo, la même efficacité a les clés de la maison."
+    elif arc5_theo_proposition == "questionne":
+        systeme "La première fois que Théo avait proposé de gérer son quotidien, on lui avait demandé pourquoi il ne parlait pas directement à Ilona. Pour Tokyo, il l'avait fait. Une offre directe n'était pas forcément une offre neutre."
 
     scene bg arc7 tokyo house night nolight
     with fade
@@ -1027,7 +1042,6 @@ label arc_7_theo:
         systeme "Il s'était excusé de croire savoir ce que les gens voulaient avant qu'ils finissent. Il avait appris la bonne phrase avant d'apprendre le bon geste."
 
     systeme "Dans le parc, Monsieur Laplage leur avait conseillé de garder une place au rien. Le carnet de planning n'en contient plus."
-    systeme "Après. Le mot est doux. C'est pour ça qu'il passe si bien."
 
     show ilona short sad at char_left
     with dissolve
@@ -1036,23 +1050,16 @@ label arc_7_theo:
     t "Alors on ajuste."
     t "Mais on ne va pas laisser une semaine difficile casser ce que tu prépares depuis des mois. L'élan, c'est rare."
 
-    systeme "Il a vu juste. Ilona est épuisée. Il a même retiré ce qui pouvait l'être."
-    systeme "Puis il a choisi, seul, ce qui devait rester. Avec Théo, être comprise et être conduite prennent souvent la même voix."
-
     hide theo
     hide ilona
     with dissolve
 
     $ renpy.pause(0.4, hard=True)
 
-    #music
     scene bg arc7 tokyo studio
     with fade
 
-    systeme "Le soir, les locaux du studio prennent le relais. En huit mois, la chance fragile est devenue une machine solide. Les miniatures changent. Les titres changent. La lumière du studio ne change jamais."
-    systeme "Ilona apprend à dire « coucou tout le monde » même les soirs où sa voix voudrait commencer par autre chose."
-    systeme "Théo avait compris depuis longtemps qu'Ilona trouvait les choses plus faciles en ligne, quand personne ne voyait ses blancs."
-    systeme "À Tokyo, presque toute sa vie se passe en ligne. Lui voit chacun de ses blancs et les remplit quand même."
+    systeme "Le soir du 6 décembre, au studio, les miniatures et les titres ont encore changé. La lumière, jamais. Ilona se prépare pour le direct."
 
     if arc5_fin_minecraft == "theo_presence":
         systeme "Quelque part, sur un serveur qu'elle n'ouvre presque plus, la maison Minecraft garde un mot de passe qui n'a pas été choisi par elle."
@@ -1060,49 +1067,6 @@ label arc_7_theo:
         systeme "Dans le couloir, Théo avait admis qu'il voulait à la fois aider Ilona et l'avoir près de lui. À Tokyo, les deux envies sont devenues impossibles à séparer."
     elif arc6_offre_theo == "aveu_vide":
         systeme "Le studio avait d'abord ressemblé à une réponse concrète. Il est maintenant la première question qui l'attend chaque matin."
-
-    show ilona short sad_alt at char_left
-    show theo tokyo neutral at char_right
-    with dissolve
-
-    systeme "À la fin août, la chaîne atteint deux cent cinquante mille abonnés et les directs rassemblent autour de douze mille spectateurs. Théo cadre une photo dans le studio avant leur départ pour un restaurant calme."
-
-    t "Un peu plus à gauche."
-    i "Mon gauche ou ton gauche ?"
-    t "Le tien."
-    i "Tu aurais dû dire ça avant que je sorte du cadre."
-    t "Reviens d'un pas. Voilà. Souris."
-    i "Attends, j'ai encore mon pull."
-    t "La marque préfère un truc spontané."
-    i "Rien ne dit « spontané » comme toi qui comptes jusqu'à trois."
-
-    systeme "À la fin octobre, la chaîne atteint six cent mille abonnés et certains directs dépassent trente mille spectateurs."
-    systeme "Ils ne vont plus au restaurant. Théo apporte un gâteau au studio et rédige le tweet pendant qu'Ilona remplace son pull par sa veste de stream. Dès que la caméra s'allume, elle sourit."
-
-    show ilona streaming smile at char_left
-    with dissolve
-
-    t "Je mets : incroyable chemin parcouru grâce à vous."
-    i "C'est pas moi, ça."
-    t "D'accord. Qu'est-ce que tu veux dire ?"
-    i "Je sais pas. Laisse-moi deux minutes."
-    t "La photo doit partir maintenant pour profiter du palier. Je peux ajouter un cœur violet."
-    i "Mets le cœur."
-
-    systeme "À chaque palier, Théo trouve le lieu où elle supportera le bruit, le texte qu'elle n'aura pas besoin de réécrire et la bonne phrase pour les partenaires. À chaque palier, Ilona sourit sur les photos."
-
-    hide ilona
-    hide theo
-    with dissolve
-
-    if arc5_theo_proposition == "partiel":
-        systeme "Avant même le diplôme, Théo avait proposé de gérer une partie de sa vie alors qu'Ilona n'était pas dans la pièce. On ne lui avait concédé que les notes. À Tokyo, le provisoire est devenu un emploi du temps entier."
-    elif arc5_theo_proposition == "laisse":
-        systeme "Avant même le diplôme, Théo avait dit : « Je gère. » Le projet d'Ilona avait changé de mains alors qu'elle n'était pas dans la pièce. À Tokyo, il n'a plus besoin d'intermédiaire."
-    elif arc5_theo_proposition == "refuse":
-        systeme "La première fois que Théo avait proposé de gérer son quotidien, on avait appelé ça une stratégie. Lui avait répondu : de l'efficacité. À Tokyo, la même efficacité a les clés de la maison."
-    elif arc5_theo_proposition == "questionne":
-        systeme "La première fois que Théo avait proposé de gérer son quotidien, on lui avait demandé pourquoi il ne parlait pas directement à Ilona. Pour Tokyo, il l'avait fait. Une offre directe n'était pas forcément une offre neutre."
 
     systeme "Cette semaine-là, la régie prépare un tournage extérieur depuis les locaux."
     systeme "Leurs caisses de matériel encombrent le studio ; ils partiront avant l'aube le lendemain du million et ne seront presque pas joignables avant le jour suivant."
@@ -1142,26 +1106,22 @@ label arc_7_theo:
     i "Bon... sur ce, gros bisous à tous, à demain pour un nouveau stream !"
 
     play music audio.sadness volume 0.7 loop fadeout 1.0 fadein 2.0
-    show ilona streaming fatigue at char_center
+    if renpy.loadable("images/scenes/cg/theo/arc7_theo_apres_millions.png"):
+        scene expression Transform("images/scenes/cg/theo/arc7_theo_apres_millions.png", xysize=(1920, 1080), fit="contain")
+    else:
+        show ilona streaming fatigue at char_center
     with dissolve
-    systeme "Dès que le stream coupe, son visage se décompose. Fatigue physique. Fatigue de l'autre genre, aussi."
+    systeme "Dès que le direct se coupe, son sourire retombe. Ses épaules se relâchent ; ses mains restent immobiles. Elle ne regarde plus la caméra."
     $ renpy.pause(1.0, hard=True)
     i "..."
 
-    systeme "Sur le deuxième écran, les statistiques continuent de bouger. Même éteint, le stream a encore l'air de demander quelque chose."
-
-    if arc3_reaction_rumeur in ("blague_desarm", "silence_paralysie"):
-        systeme "Au festival, Théo avait utilisé une rumeur pour créer deux secondes de proximité avec Ilona. Il avait appris qu'une douceur pouvait entrer avec une facture quand elle arrivait au bon moment."
-    else:
-        systeme "Au festival, Ilona avait refusé la douceur de Théo quand elle arrivait avec une facture. Plus tard, il avait tout de même utilisé une vérité comme une lame."
-    systeme "Ce soir encore, Théo n'aura besoin de rien inventer : les chiffres, la fatigue et les contrats seront tous vrais."
-
-    systeme "À Noël, Laplage avait prévenu Théo qu'un souvenir bien placé pouvait ouvrir une porte ou enfermer quelqu'un. Théo avait répondu qu'il ne forçait personne à rester."
-    systeme "Laplage avait conclu : « Non. Mais tu gardes la clé. » À Tokyo, Théo la garde toujours."
+    systeme "Le premier écran est sombre. Sur le second, les statistiques continuent de bouger. Les lumières du studio restent allumées autour d'elle, comme si la soirée pouvait continuer."
 
     # ------------------------------------------------------------------
     # 3. Théo entre, félicitations "professionnelles"
     # ------------------------------------------------------------------
+    scene bg arc7 tokyo studio
+    show ilona streaming fatigue at char_center
     show theo tokyo reassuring at char_right
     with dissolve
 
@@ -1197,8 +1157,7 @@ label arc_7_theo:
     show ilona streaming fatigue at char_center
     with dissolve
 
-    systeme "Théo voit ses doigts crispés autour du verre, le sourire tombe une demi-seconde trop tôt, le « ouais » sans air derrière."
-    systeme "Il voit la fatigue avant qu'elle trouve le mot. Son erreur n'est pas de la manquer. C'est de croire qu'il sait déjà ce qu'elle signifie."
+    systeme "Théo baisse les yeux vers ses doigts crispés autour du verre."
 
     show theo tokyo smirk at char_right
     with dissolve
@@ -1222,9 +1181,6 @@ label arc_7_theo:
     t "Ilona..."
     t "La chaîne, c'est pas un truc à côté de nous. C'est ce qu'on construit ensemble."
 
-    systeme "Il appuie à peine sur « ensemble ». Juste assez pour rappeler les nuits, les billets, les mails et tout ce qu'il a porté sans qu'elle ait à le demander."
-    systeme "Ilona voudrait que le mot lui fasse du bien. Une partie d'elle y arrive encore."
-
     i "Ton carnet de Noël, tu te souviens ? T'avais pris une phrase que j'avais dite à la plage et t'en avais fait un cadeau."
     t "Je voulais te montrer que je faisais attention."
     i "Tu fais attention. C'est pas le problème. Le problème, c'est que connaître mes goûts, ça veut pas dire savoir ce que je veux."
@@ -1246,7 +1202,7 @@ label arc_7_theo:
     t "Je sais pas quoi dire."
     i "On peut ne rien dire deux minutes."
 
-    systeme "Sur le quai du 6 avril, Théo lui avait demandé si elle avait tout. Ilona avait répondu : « J'ai ce que j'ai décidé de prendre. » Il se souvenait de chaque mot. Il n'avait pas compris qu'elle parlait déjà du droit de choisir."
+    systeme "Théo se souvient du quai : « J'ai ce que j'ai décidé de prendre. » Il regarde Ilona sans rien ajouter."
 
     systeme "Pendant deux minutes, aucun d'eux ne parle. Peu après minuit, ils éteignent les écrans, ferment les locaux et sortent."
     systeme "Avant de partir, Ilona retire sa perruque blanche et remet son pull gris. Son sourire de stream reste au studio."
@@ -1365,7 +1321,7 @@ label arc_7_theo:
     menu:
         "La réponse de Théo."
 
-        "Annuler les sponsors, écouter Ilona.":
+        "Proposer de décaler les sponsors et d'annuler le live.":
             $fade_channel("music",0.7,2.0)
             t "T'as raison. Les sponsors, ça peut attendre. Toi, c'est maintenant que ça compte."
 
@@ -1435,7 +1391,7 @@ label arc_7_theo:
 
             jump ending_neutre
 
-        "Prioriser les sponsors, la chaîne avant tout.":
+        "Maintenir le live, alléger le reste.":
             play music audio.depressed volume 0.7 loop
             $fade_channel("music",0.7,2.0)
             t "Demain après-midi, tu ne vas pas traverser Tokyo épuisée pour faire semblant de profiter d'un parc. Tu vas dormir. Moi, je vois les sponsors."

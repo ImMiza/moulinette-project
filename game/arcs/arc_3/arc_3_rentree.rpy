@@ -7,6 +7,9 @@ image bg arc3 festival courtyard = im.Scale("images/scenes/backgrounds/school/bg
 image bg arc3 classroom evening = im.Scale("images/scenes/backgrounds/school/bg_arc3_classroom_evening.jpg", 1920, 1080)
 image bg arc3 minecraft night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 
+image cg arc3 stand = "images/scenes/cg/festival/ilona_blocky_house_cafe.png"
+image cg arc3 brouillons = "images/scenes/cg/festival/allan_trois_brouillons.png"
+
 image jessy festival neutral = speaker_sprite("jessy", "images/personnages/Jessy/Festival/neutral_attentiveness.png")
 image jessy festival listening = speaker_sprite("jessy", "images/personnages/Jessy/Festival/regretful_listening.png")
 image jessy festival embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/Festival/nervous_embarrassment.png")
@@ -348,6 +351,7 @@ label arc_3_rentree:
 
     systeme "Pendant quelques minutes, le stand fonctionne presque."
 
+    show cg arc3 stand zorder 10 with dissolve
     systeme "Ilona a pris la file en charge sans que personne le lui demande. Elle annonce les commandes, présente le thème, explique la porte inutile à des inconnus qui repartent en riant."
     systeme "Elle fait ça depuis deux heures. Elle n'a pas l'air fatiguée. Elle a l'air branchée sur le secteur."
 
@@ -357,6 +361,7 @@ label arc_3_rentree:
     a "Ilona, t'as déjà pensé à faire ça ailleurs qu'à un stand de café ?"
 
     show ilona festival neutral at char_midleft
+    hide cg
     with dissolve
 
     i "Faire quoi ?"
@@ -1025,6 +1030,7 @@ label arc_3_rentree:
     with dissolve
 
     systeme "Allan reste seul dans la salle après le départ du groupe."
+    show cg arc3 brouillons zorder 10 with dissolve
     systeme "Il regarde son téléphone. Trois messages non envoyés dans les brouillons."
     systeme "Un pour Jessy. Un pour Ilona. Un pour Théo."
     systeme "Tous commencent par « En vrai, moi je pense que— »"
@@ -1032,6 +1038,7 @@ label arc_3_rentree:
 
     $ renpy.pause(1.0, hard=True)
 
+    hide cg with dissolve
     systeme "Il efface les trois. C'est plus simple comme ça."
     systeme "Allan est très bon pour expliquer ce que les autres veulent dire."
     systeme "Il ne sait juste pas encore ce qu'il veut dire, lui."
