@@ -150,6 +150,8 @@ image bg arc6 flash cinema = arc6_flashbg("images/scenes/backgrounds/city/bg_arc
 image bg arc6 flash station = arc6_flashbg("images/scenes/backgrounds/transport/bg_arc5_train_station.jpg")
 
 image bg arc6 evil theo = arc6_bg("images/scenes/cg/theo/bg_arc6_evil_theo.jpg", "images/scenes/cg/theo/bg_arc6_evil_theo.jpg")
+image cg arc6 veste = "images/scenes/cg/diplomes/trois_mots_sous_le_col.png"
+image cg arc6 cour = "images/scenes/cg/diplomes/decision_dans_la_cour.png"
 define audio.sirene = "audio/fx/prowler_sound.mp3"
 
 # SCÈNE 1 : LE STYLO VIOLET
@@ -1326,9 +1328,11 @@ label arc_6_diplomes:
 
     $ renpy.pause(1.5, hard=True)
 
+    show cg arc6 veste zorder 10 with dissolve
     if arc6_penchant == "jessy":
         systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
         systeme "Elle prend son temps. Elle raye un mot, le réécrit, souffle dessus pour que ça sèche."
+        hide cg with dissolve
         systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
 
         i "Tu regarderas ce soir."
@@ -1337,6 +1341,7 @@ label arc_6_diplomes:
     elif arc6_penchant == "indecis":
         systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col."
         systeme "Elle s'arrête au deuxième. Reste comme ça, le feutre en l'air, assez longtemps pour que ça devienne bizarre. Puis elle finit."
+        hide cg with dissolve
         systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
 
         i "Tu regarderas ce soir."
@@ -1345,6 +1350,7 @@ label arc_6_diplomes:
     else:
         systeme "Elle ouvre la veste sur ses genoux. Elle écrit trois mots au feutre, sous le col. Ça prend quatre secondes."
         systeme "Elle n'hésite sur aucun. C'est peut-être ça, le plus inquiétant."
+        hide cg with dissolve
         systeme "Elle rabat le tissu avant qu'il ait le temps de lire, et elle le lui rend plié."
 
         i "Tu regarderas ce soir."
@@ -1746,6 +1752,7 @@ label arc_6_decision:
 
     $ renpy.pause(1.2, hard=True)
 
+    show cg arc6 cour zorder 10 with dissolve
     i "Vous vous arrêtez tous les deux."
     i "Je vais le dire moi-même. Une fois. Et vous allez me laisser finir ma phrase."
 
@@ -1754,6 +1761,7 @@ label arc_6_decision:
 
     $ renpy.pause(1.5, hard=True)
 
+    hide cg
     if arc6_route == "jessy":
         jump arc_6_decision_jessy
     else:

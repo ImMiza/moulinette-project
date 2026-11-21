@@ -26,6 +26,48 @@ image bg apartment ilona door = im.Scale("images/scenes/backgrounds/tokyo/bg_bad
 image bg apartment ilona bedroom = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_ilona_bedroom.png", 1920, 1080)
 image bg tokyo bar = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.jpg", 1920, 1080)
 image bg tokyo street night = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.jpg", 1920, 1080)
+image cg bad allez rentre = "images/scenes/cg/bad_ending/allez_rentre.png"
+
+
+init python:
+    renpy.register_shader("moulinette.discovery_vignette", variables="""
+        varying vec2 v_tex_coord;
+        uniform float u_discovery_vignette;
+    """, fragment_450="""
+        vec2 centered = (v_tex_coord - vec2(0.5)) * 2.0;
+        float radius = length(centered);
+        float inner_edge = mix(0.65, 0.30, u_discovery_vignette);
+        float outer_edge = mix(1.25, 1.15, u_discovery_vignette);
+        float darkness = mix(0.20, 0.65, u_discovery_vignette);
+        float vignette = smoothstep(inner_edge, outer_edge, radius);
+        gl_FragColor.rgb *= 1.0 - darkness * vignette;
+    """)
+
+
+transform bad_ending_discovery_shock:
+    subpixel True
+    xalign 0.5
+    yalign 0.5
+    mesh True
+    shader "moulinette.discovery_vignette"
+    u_discovery_vignette 0.0
+    matrixcolor TintMatrix("#ffd0cb") * SaturationMatrix(0.80) * ContrastMatrix(1.20)
+    # Le cadrage serre garde les bords couverts pendant la secousse.
+    zoom 1.08
+    xoffset -24
+    yoffset 14
+    linear 0.04 xoffset 24 yoffset -14
+    linear 0.04 xoffset -20 yoffset 12
+    linear 0.04 xoffset 18 yoffset -10
+    linear 0.05 xoffset -14 yoffset 8
+    linear 0.05 xoffset 10 yoffset -6
+    linear 0.05 xoffset -6 yoffset 3
+    linear 0.05 xoffset 0 yoffset 0
+    # Le regard se fixe, puis le cadrage recule lentement.
+    ease 0.40 zoom 1.22
+    pause 0.60
+    # Le rouge se vide en gris bleute pendant que les bords s'assombrissent.
+    ease 5.0 zoom 1.0 matrixcolor TintMatrix("#becddd") * SaturationMatrix(0.18) * ContrastMatrix(1.12) u_discovery_vignette 1.0
 
 
 label bad_ending:
@@ -194,11 +236,13 @@ label bad_ending:
 
     show allan winter support at char_left
     show theo tokyo hesitant at char_right
+    show cg bad allez rentre zorder 10
     with dissolve
 
     systeme "Théo laisse son verre à moitié plein. Allan pose une main brève sur son épaule."
     a "Allez. Rentre."
 
+    hide cg
     hide allan
     hide theo
     with dissolve
@@ -221,6 +265,8 @@ label bad_ending:
 
     systeme "Il fait le détour par le studio, à deux rues de l'appartement. Les écrans sont noirs, les lumières éteintes. Ilona n'est jamais venue lancer le live. Elle doit déjà être rentrée, se dit-il. Elle doit se reposer."
 
+    stop music fadeout 0.0
+    stop sound fadeout 0.0
     scene bg apartment night nolight
     with fade
 
@@ -240,37 +286,37 @@ label bad_ending:
     with dissolve
 
     systeme "Avant de monter, Théo allume le couloir. Une lumière chaude s'étire jusqu'à la porte d'Ilona, mais aucune lueur ne passe dessous."
-    systeme "Théo s'engage dans le couloir."
+    systeme "Il a encore ses clés à la main. Il referme les doigts dessus et glisse le trousseau dans sa poche."
 
     scene bg apartment ilona door
     with dissolve
 
-    systeme "Devant la porte de la chambre d'Ilona, Théo toque. Rien."
+    systeme "Devant la chambre, il frappe deux petits coups et recule d'un pas pour lui laisser la place d'ouvrir."
 
     t "Ilona ? T'es réveillée ?"
-    t "Je suis désolé pour hier. Tu m'as parlé, et j'ai transformé ta réponse en planning."
-    t "Je voulais te demander ce que tu veux et écouter la réponse, cette fois."
 
-    systeme "Toujours rien."
+    t "Pour hier… J'aurais dû rester avec toi."
+    systeme "D'habitude, il aurait déjà posé une deuxième question. Cette fois, il lui laisse le temps."
 
-    t "Si tu veux que je te laisse seule, je partirai. Si tu ne veux plus de moi, je l'entendrai."
+    t "Ilona ?"
 
     $ renpy.pause(0.8, hard=True)
 
-    t "... J'entre."
-    systeme "Il abaisse la poignée."
+    systeme "Il pose la main sur la poignée. Même à travers le bois, il devrait l'entendre si elle se levait."
+    t "C'est moi. J'ouvre, d'accord ?"
+    systeme "Il pousse la porte du bout des doigts."
+    t "{cps=40}Au fait, Allan te passe le bonso-{/cps}{nw}"
 
     # ------------------------------------------------------------------
     # 6. Découverte
     # ------------------------------------------------------------------
 
-    scene bg apartment ilona bedroom
-    with {"master": Dissolve(0.8)}
-    systeme "La porte vient à peine de s'ouvrir. Théo ne voit ni l'ordinateur éteint ni le lit défait. Il ne voit qu'Ilona." with vpunch
-
-    systeme "La chambre est silencieuse. L'ordinateur est éteint. Le lit est défait."
-
-    $ renpy.pause(1.0, hard=True)
+    window hide None
+    $ renpy.pause(0.20, hard=True)
+    play music audio.sayonara loop volume 1
+    scene bg apartment ilona bedroom at bad_ending_discovery_shock
+    # Laisser la decouverte et le recul se jouer avant la premiere reaction.
+    $ renpy.pause(7.0, hard=True)
 
     t "Non."
     t "Non, non, non... Ilona, non..."
@@ -309,9 +355,8 @@ label bad_ending:
     systeme "Il a perdu Ilona. La chaîne et les contrats lui reviennent ensuite, et avec eux l'horreur d'avoir fini par confondre ce qu'ils construisaient avec celle qui le portait."
     systeme "Tout ce qu'il croyait protéger s'effondre comme un château de cartes."
 
-    scene black
-    with Dissolve(0.15)
-
+    window auto hide
+    stop music fadeout 1.5
     $ renpy.pause(2.0, hard=True)
 
 

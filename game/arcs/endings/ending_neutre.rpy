@@ -3,6 +3,10 @@
 # Attendu : Ilona reprend la main sur sa vie et le couple se sépare sans effacer
 # ce qu'il a partagé.
 
+image cg neutre appel = "images/scenes/cg/neutre/appel_du_studio.png"
+image cg neutre direct = "images/scenes/cg/neutre/dernier_direct.png"
+image cg neutre valise = "images/scenes/cg/neutre/poignee_de_la_valise.png"
+
 label ending_neutre:
     $ record_ending("neutre")
 
@@ -152,6 +156,7 @@ label ending_neutre:
 
     t "Je ne sais pas. Il faut lui demander."
 
+    show cg neutre appel zorder 10 with dissolve
     systeme "Il retire le haut-parleur et tend le téléphone à Ilona. Il ne résume pas la situation pour elle. Il ne prépare pas non plus la réponse."
     systeme "Ilona prend l'appareil. Ses doigts tremblent assez pour qu'elle doive s'y reprendre à deux fois avant de l'approcher de son oreille."
 
@@ -164,6 +169,7 @@ label ending_neutre:
 
     $ renpy.pause(0.8, hard=True)
 
+    hide cg with dissolve
     i "Je comprends pour l'appartement et pour l'équipe."
     i "Et je n'ai pas de date de retour à vous donner, parce que je ne vais pas reprendre la chaîne."
     i "IlonaGaming va s'arrêter. Je vous enverrai ma décision par écrit."
@@ -244,6 +250,7 @@ label ending_neutre:
 
     systeme "Ilona vérifie elle-même le cadre. Une mèche blanche dépasse. Elle la laisse. Puis elle lance le direct et revient s'asseoir pendant que le compteur grimpe."
 
+    show cg neutre direct zorder 10 with dissolve
     i "Bonjour."
 
     $ renpy.pause(0.8, hard=True)
@@ -257,12 +264,13 @@ label ending_neutre:
     i "Merci d'avoir été là. Prenez soin de vous."
 
     systeme "Ilona se penche vers le téléphone et coupe elle-même le direct. Il a duré moins de trois minutes. Le chat défilait trop vite pour être lu ; elle n'a essayé de retenir aucun dernier message."
-    systeme "Elle retire la perruque blanche, puis plie la veste bleue sur le dossier de la chaise. Cette fois, personne ne lui indique quand changer de costume."
 
     show theo tokyo neutral at char_right
     show ilona short sad_alt at char_left
+    hide cg
     with dissolve
 
+    systeme "Elle retire la perruque blanche, puis plie la veste bleue sur le dossier de la chaise. Cette fois, personne ne lui indique quand changer de costume."
     t "Tu veux revoir le replay ?"
     i "Non."
     t "D'accord."
@@ -521,6 +529,7 @@ label ending_neutre:
     show theo tokyo disappointed at char_right
     with dissolve
 
+    show cg neutre valise zorder 10 with dissolve
     systeme "Sur le quai, une ligne claire marque l'endroit où attendre. Théo arrête la valise juste derrière et tourne la poignée vers Ilona."
 
     t "Voilà."
@@ -529,6 +538,7 @@ label ending_neutre:
     systeme "Ses doigts se referment sur la poignée encore tiède. Le geste ne prend qu'une seconde. Aucun des deux ne trouve pourtant quelque chose à faire de ses mains ensuite."
     systeme "Le mot « reviens » monte jusqu'à la gorge de Théo. Il ne le prononce pas. Son téléphone reste dans sa poche ; il ne demande ni promesse d'écrire, ni fréquence d'appel, ni date à laquelle ils devront se reparler."
 
+    hide cg with dissolve
     t "Est-ce que je peux te prendre dans mes bras ?"
     i "Oui. Mais pas pour me retenir."
     t "D'accord."

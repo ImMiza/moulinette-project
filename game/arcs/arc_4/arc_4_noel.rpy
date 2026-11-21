@@ -7,6 +7,9 @@ image bg arc4 christmas market = im.Scale("images/scenes/backgrounds/winter/bg_a
 image bg arc4 riverside winter = im.Scale("images/scenes/backgrounds/winter/bg_arc4_riverside_winter.jpg", 1920, 1080)
 image bg arc4 minecraft winter night = im.Scale("images/scenes/backgrounds/minecraft/bg_arc2_minecraft_house_summer_night.jpg", 1920, 1080)
 
+image cg arc4 carnet = "images/scenes/cg/noel/carnet_de_theo.png"
+image cg arc4 miniature = "images/scenes/cg/noel/maison_miniature.png"
+
 image jessy winter angry = speaker_sprite("jessy", "images/personnages/Jessy/Winter/angry.png", 842, 1264)
 image jessy winter embarrassed = speaker_sprite("jessy", "images/personnages/Jessy/Winter/nervous_embarrassment.png", 842, 1264)
 image jessy winter happy = speaker_sprite("jessy", "images/personnages/Jessy/Winter/happy.png", 842, 1264)
@@ -369,6 +372,7 @@ label arc_4_noel:
     t "Un rien."
     systeme "Ilona défait le papier avec prudence."
     show ilona winter embarrassed at char_midleft
+    show cg arc4 carnet zorder 10 with dissolve
     systeme "À l'intérieur, un carnet de croquis minuscule, couverture noire, coins renforcés, avec une petite étiquette collée à l'intérieur."
     t "Tu avais dit à la plage que tu oubliais toujours les idées qui venaient quand tu étais dehors."
     t "Il est assez petit pour tenir dans ta poche."
@@ -381,6 +385,7 @@ label arc_4_noel:
     systeme "La phrase a déjà existé. Elle revient avec un papier plus joli."
     systeme "Jessy regarde les doigts d'Ilona sur le carnet. Ils ne bougent pas exactement comme quand elle tient quelque chose de neutre."
 
+    hide cg with dissolve
     $ fade_channel("music",0.6,2.0)
     menu:
         "Théo vient d'offrir à Ilona un cadeau très précis. Jessy sent quelque chose se déchirer entre rester digne et hurler."
@@ -864,6 +869,7 @@ label arc_4_noel:
             systeme "Ilona prend la boîte. Elle ne l'ouvre pas tout de suite."
             i "Qu'est-ce que c'est ?"
             j "La maison. Notre maison Minecraft. En miniature."
+            show cg arc4 miniature zorder 10 with dissolve
             systeme "Elle tire le ruban. À l'intérieur, la maison garde ses erreurs : couloir inutile, cuisine trop grande, pièce cachée."
             if arc4_cadeau_jessy == "blague_interne":
                 systeme "Un minuscule panneau indique : PIÈCE MOYENNEMENT IMPORTANTE, ÉDITION NEIGE."
@@ -883,6 +889,7 @@ label arc_4_noel:
                 i "Tu n'as pas corrigé les erreurs."
                 j "Non."
                 j "Je voulais garder ce qui a existé. Même les parties cassées."
+            hide cg with dissolve
             i "Jessy..."
             systeme "Elle pose la boîte sur la rambarde. Puis elle regarde Jessy."
             i "Je ne sais pas quoi faire avec deux cadeaux qui veulent dire des choses."
