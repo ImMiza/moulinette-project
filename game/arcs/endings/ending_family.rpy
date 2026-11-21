@@ -72,6 +72,8 @@ transform family_jessy_centre:
 
 define audio.warmCoffee = "audio/music/warm_coffee.ogg"
 define audio.newChapter = "audio/music/new_chapter.ogg"
+define audio.goodbye = "audio/music/goodbye.ogg"
+define audio.warmLife = "audio/music/warm-life.ogg"
 
 define audio.doorbell = "audio/fx/doorbell.mp3"
 
@@ -195,10 +197,9 @@ label ending_family_visite:
     j "Non. Mais j'ai l'impression d'avoir déjà parlé au monsieur."
     s "La montagne fait revenir certaines voix."
     systeme "Un silence. Sofiane met son clignotant."
-    stop music fadeout 2.0
     s "Et le GPS dit de tourner ici."
 
-    play music audio.newChapter loop volume 0.7 fadein 2.0
+    play music audio.newChapter loop volume 0.7 fadein 2.0 fadeout 1.0
     play ambiant1 audio.windBirds volume 0.4 loop
     scene bg family restaurant jour with fade
     show jessy beach neutral at char_left
@@ -215,9 +216,10 @@ label ending_family_visite:
     play sound audio.carGo volume 0.6
     hide sofiane with dissolve
     systeme "La Trueno redescend vers la route. Jessy et Ilona franchissent le portillon."
+    play sound audio.doorbell volume 0.6
     systeme "À côté de la porte coulissante, ils trouvent la sonnette. Une silhouette vient de bouger derrière les carreaux."
     j "Ça commence à me revenir."
-    play sound audio.doorbell volume 0.6
+    play sound audio.laplage volume 0.6
     show laplage neutral at char_center with dissolve
     laplage "Bonjour. Vous êtes à l'heure."
     $ renpy.pause(0.5, hard=True)
@@ -321,7 +323,6 @@ label ending_family_visite:
     systeme "Ilona tend la main vers le trousseau. Jessy en détache une clé et la lui donne."
 
     stop music fadeout 2.0
-    #play music 
     play ambiant1 audio.windBirds loop volume 0.3 fadein 1.0
     scene bg family restaurant jour with fade
     show jessy beach neutral at char_left
@@ -333,9 +334,11 @@ label ending_family_visite:
     laplage "Il est temps de vous dire au revoir."
     i "Vous reviendrez manger ? On vous garde une table."
     systeme "Monsieur Laplage regarde les tables de la cour, puis le rideau vert qui bouge légèrement devant l'entrée."
+    play music audio.goodbye loop volume 0.4 fadein 2.0
     laplage "C'est très gentil. Mais cette fois, je ne reviendrai pas."
     j "Vous partez où ?"
     laplage "Me reposer."
+    $fade_channel("music",0.7,0.5)
     scene cg family laplage adieux with Dissolve(1.2)
     systeme "Il paraît soudain fatigué. Ilona s'approche et le serre dans ses bras. Après un instant de surprise, il l'entoure d'un bras et pose une main sur sa tête."
     i "Merci. Pour cet endroit. Et pour le reste."
@@ -354,13 +357,14 @@ label ending_family_visite:
     hide laplage with Dissolve(1.5)
     systeme "Ils le regardent s'éloigner jusqu'au tournant. Il lève une dernière fois le pouce, puis les arbres le cachent."
     systeme "Ils ne reverront jamais Monsieur Laplage."
+    stop music fadeout 1.5
     pause 1.5
     jump ending_family_chez_nous
 
 
 # 3. UNE ENSEIGNE ET DU TRAVAIL
 label ending_family_chez_nous:
-    play music audio.love loop volume 0.6 fadein 2.0
+    play music audio.love loop volume 0.6 fadein 2.0 fadeout 2.0
     show jessy beach happy at char_left
     show ilona summer smile at char_right
     with dissolve
@@ -392,8 +396,7 @@ label ending_family_premier_matin:
     scene black with fade
     systeme "Quelques jours plus tard, leurs affaires arrivent dans la maison. Le dernier carton reste dans l'entrée. Ils le videront demain."
     scene bg family maison with fade
-    play music audio.love loop volume 0.7 fadein 2.0
-    play ambiant1 audio.windBirds loop volume 0.4 fadein 1.0
+    play music audio.warmLife loop volume 0.7 fadein 2.0
     show jessy beach neutral at char_left with dissolve
     systeme "Le lendemain, le soleil traverse déjà le séjour. Dans la cuisine, Jessy tient une poêle d'une main et son téléphone de l'autre."
     j "Retourner délicatement. Oui. Merci."
