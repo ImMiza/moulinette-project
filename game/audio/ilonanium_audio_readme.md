@@ -4,7 +4,7 @@ Les dix sources deposees dans `audio/to_work` produisent 27 fichiers OGG Vorbis 
 
 **Niveaux**
 
-Les nouvelles musiques visent environ -20 LUFS integres ; Reprise conserve une reserve de crete, autour de -21 LUFS. Le gain est constant, sans compression dynamique supplementaire. Les ambiances visent environ -29 a -32 LUFS ; certaines restent plus basses pour proteger leurs transitoires. Les effets courts sont ajustes individuellement, avec reserves de crete et niveaux par scene. Les fichiers deja partages par les autres arcs sont calibres dans le controleur de cette fin par un gain local.
+Les nouvelles musiques visent environ -20 LUFS integres ; Reprise conserve une reserve de crete, autour de -21 LUFS. Le gain est constant, sans compression dynamique supplementaire. Les ambiances visent environ -29 a -32 LUFS ; certaines restent plus basses pour proteger leurs transitoires. Les effets courts sont ajustes individuellement, avec reserves de crete et niveaux par scene. Les commandes de lecture indiquent le volume de chaque piste, y compris celles partagees avec les autres arcs.
 
 **Declenchements**
 
@@ -17,18 +17,16 @@ Les nouvelles musiques visent environ -20 LUFS integres ; Reprise conserve une r
 - Adieux : foule attenuee au calin ; TARDIS a l'appel de Theo et au depart.
 - Retrouvailles : apparition de Jessy sans musique ; tenue de Reprise a l'etreinte, ouverture distincte a la revelation du TAIKUN.
 - Reconquete : Vanir's Legacy au vaisseau devant l'astre ; ambiance de passerelle et trace transformee de l'AE86.
-- Alexandre : lecture libre sans musique ; Roundabout demarre a la fermeture de sa replique. L'accent repere dans le master fourni est a **45.440 s** ; le cue commence a **42.440 s**. La fleche et le sepia attendent **3.000 s de lecture audio**. Un repli temporel gere le son coupe ; le mode passer reste utilisable.
-- Retour au menu : arret explicite des sept canaux locaux.
+- Alexandre : lecture libre sans musique ; Roundabout demarre a la fermeture de sa replique. L'accent repere dans le master fourni est a **45.440 s** ; le cue commence a **42.440 s**. Une pause Ren’Py de **3.0 s** separe le lancement du cue de la fleche et du sepia.
+- Generique : fin musicale en fondu, suivie de l’arret des canaux de la scene.
 
 **TARDIS**
 
 Le master complet fourni dure 85.240 s. Le depart utilise un montage de 6.2 s. L'arrivee est un montage inverse de cette meme source de takeoff ; il ne s'agit pas d'un enregistrement BBC d'atterrissage distinct. Les deux sons mecaniques provisoires crees avant reception du TARDIS ont ete remplaces.
 
-**Controleur et tests**
+**Code audio**
 
-`arcs/endings/ending_ilonanium_audio.rpy` centralise les ressources, niveaux et fondus. Deux canaux sur le melangeur `music` permettent les chevauchements ; trois lits de lieu/matiere/moteur et deux canaux ponctuels utilisent `sfx`. Les reglages musique et effets du joueur restent applicables.
-
-`tests/ilonanium.rpy` parcourt les images et les deux relations. Il suit le declenchement automatique actuellement ecrit dans l'arc 7. `tests/ilonanium_audio.rpy` controle les silences, les entrees de musique, le repere de la fleche et le nettoyage final. Commandes SDK sur une copie isolee : `renpy.py <projet> lint` puis `renpy.py <projet> test global --report-detailed`.
+`arcs/endings/ending_ilonanium.rpy` declare les pistes propres a cette fin. Les scenes utilisent les commandes Ren’Py `play`, `stop` et `pause`. `music` joue la bande-son, `ambiant1` les ambiances et `sound` les effets ou une seconde boucle. Les effets brefs passent sur `audio` lorsque les deux boucles jouent ensemble.
 
 **Sources et credits**
 

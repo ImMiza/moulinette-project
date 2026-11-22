@@ -3,9 +3,12 @@
 # Attendu : Ilona reprend la main sur sa vie et le couple se sépare sans effacer
 # ce qu'il a partagé.
 
+image bg neutre quai = "images/scenes/backgrounds/tokyo/bg_neutre_quai.png"
 image cg neutre appel = "images/scenes/cg/neutre/appel_du_studio.png"
 image cg neutre direct = "images/scenes/cg/neutre/dernier_direct.png"
+image cg neutre calin = "images/scenes/cg/neutre/calin_appartement.png"
 image cg neutre valise = "images/scenes/cg/neutre/poignee_de_la_valise.png"
+image cg neutre etreinte quai = "images/scenes/cg/neutre/calin_quai.png"
 
 label ending_neutre:
     $ record_ending("neutre")
@@ -399,8 +402,10 @@ label ending_neutre:
     i "Mais ça ne change pas ma réponse."
     t "Je sais."
 
+    show cg neutre calin zorder 10 with dissolve
     systeme "Théo traverse enfin l'espace entre eux. Ilona pose son front contre son épaule et ferme les yeux. Ils ne s'embrassent pas. Ils ne promettent pas de se retrouver."
     systeme "Ils restent enlacés assez longtemps pour reconnaître ce qu'ils perdent, puis Ilona recule la première."
+    hide cg with dissolve
 
     i "Je n'ai pas encore choisi où aller."
     t "Tu veux de l'aide ?"
@@ -522,7 +527,7 @@ label ending_neutre:
     systeme "Après, ils parlent de la pluie annoncée, d'une fermeture de ligne et du mug bleu qu'Ilona a oublié dans un placard. Pas de leur relation. Pas de ce qu'ils auraient pu faire autrement."
     systeme "Le silence entre les phrases fait déjà suffisamment mal."
 
-    scene bg arc7 tokyo arrival
+    scene bg neutre quai
     with dissolve
 
     show ilona short sad at char_left
@@ -543,12 +548,14 @@ label ending_neutre:
     i "Oui. Mais pas pour me retenir."
     t "D'accord."
 
+    show cg neutre etreinte quai zorder 10 with dissolve
     systeme "Théo s'approche. Ilona passe les bras autour de lui et, pendant quelques secondes, la gare disparaît derrière le bruit des manteaux froissés et de leurs respirations mal tenues."
     play sound audio.trainstop volume 0.6
     systeme "Une annonce retentit. Le train entre en gare. Les portes s'ouvrent devant eux."
 
     $ renpy.pause(0.6, hard=True)
 
+    hide cg with dissolve
     systeme "Théo lâche prise le premier."
 
     show ilona short neutral at char_left

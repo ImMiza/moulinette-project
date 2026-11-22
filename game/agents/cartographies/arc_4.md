@@ -37,7 +37,7 @@ Fichiers:
 
 - Décembre ; festival = septembre (arc 3) ; plage = juillet (arc 2).
 - Carnet de Théo: minuscule, couverture noire, coins renforcés, étiquette intérieure.
-- Miniature de Jessy: maison Minecraft (couloir sans sortie, cuisine trop grande, pièce cachée/secrète), papier bleu sombre ; variante panneau « PIÈCE MOYENNEMENT IMPORTANTE, ÉDITION NEIGE ». Si non donnée: reste dans le sac « en attente ».
+- Miniature de Jessy: maison Minecraft (couloir sans sortie, cuisine trop grande, pièce cachée/secrète), papier bleu sombre ; variante panneau « PIÈCE MOYENNEMENT IMPORTANTE, ÉDITION NEIGE ». Ilona découvre la miniature quand Jessy la lui donne à la rivière (`arc4_limite_ilona == "cadeau_respirant"`). Dans les autres branches, la miniature reste dans le sac de Jessy.
 - Écharpe chère de Jessy (branche panique) → bloc de laine bleu dans un coffre Minecraft.
 - 4.5 Théo: Ilona porte l'écharpe de Théo ; rêve « streamer pour de vrai » ; Théo propose de gérer son stream.
 - Sofiane: job secret au maid café (3 mois, paie l'essence) ; Jessy/Ilona promettent de revenir et de ne rien dire. Allan/Alex savent seulement qu'il a « un service ». Enveloppe sans destinataire gardée par Sofiane (fil ouvert).
@@ -66,5 +66,5 @@ Fichiers:
 
 - Tics: « Pas X. Pas Y. Juste Z. », « La phrase claque », « Le rire aide. Un peu. ».
 - `systeme` sur-explique le sous-texte ; tout le monde parle en aphorismes → voix qui se confondent.
-- 4.5 Théo: réplique citée 3 fois et mal citée ; condition commentée (`>= 5`, `<= 2`) ≠ code (`>= 10`, `<= 8`) ; miniature « jamais regardée » alors que non offerte en `demande_theo` ; « Jessy rentré en métro » alors qu'il reste au marché.
+- 4.5 Théo: réplique citée 3 fois et mal citée ; condition commentée (`>= 5`, `<= 2`) ≠ code (`>= 10`, `<= 8`) ; « Jessy rentré en métro » alors qu'il reste au marché.
 - Code mort: `arc4_carte_sofiane_lue` toujours True ; variables sprite inutilisées ; fonds placeholder.

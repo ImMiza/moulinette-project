@@ -217,10 +217,10 @@ label arc_6_diplomes:
     # --- Rappels conditionnels : ce que chacun transporte ce matin ---
     if arc4_ilona_avec_theo:
         systeme "L'écharpe de Théo est autour de son cou. Elle ne l'a jamais rendue. Personne n'en a jamais reparlé."
-    elif arc4_cadeau_jessy == "cadeau_couteux":
+    elif arc4_limite_ilona == "cadeau_preuve":
         systeme "L'écharpe que Jessy lui a offerte en décembre dépasse de son sac. Pliée. Jamais portée. Toujours pas expliquée."
 
-    if arc4_cadeau_jessy in ("miniature_souvenir", "miniature_aveu"):
+    if arc4_limite_ilona == "cadeau_respirant":
         systeme "Il y a une petite forme carrée dans son sac. La miniature de la maison. Elle l'emporte le jour du diplôme. Elle ne le dira pas."
 
     if arc5_fin_minecraft == "theo_presence":
@@ -941,7 +941,7 @@ label arc_6_diplomes:
 
             i "Tu avais gardé l'erreur. C'est ça qui m'a eue."
             i "N'importe qui d'autre aurait corrigé le couloir pour faire joli, et m'aurait offert une maison qui n'était pas la nôtre."
-            i "Je l'ai posée sur mon bureau. Elle y est toujours. Elle prend une place débile."
+            i "D'habitude, je la garde sur mon bureau. Elle prend une place débile."
         elif arc4_limite_ilona == "parole_sans_verdict":
             i "Tu es venu sans cadeau."
             i "C'était le seul cadeau que je pouvais refuser sans blesser personne."

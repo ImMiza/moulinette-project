@@ -618,7 +618,7 @@ label arc_7_jessy_scene_5:
         i "Depuis ce matin, je me pose une question. Et plus je marche, moins elle part."
         if arc5_cinema_ensemble:
             i "En vrai, elle date pas de ce matin. Elle date du cinéma. De ta main, que t'as pas retirée."
-        elif arc4_cadeau_jessy == "miniature_aveu":
+        elif arc4_limite_ilona == "cadeau_respirant" and arc4_cadeau_jessy == "miniature_aveu":
             i "En vrai, elle date pas de ce matin. Elle date de ta miniature, à Noël. Elle ressemblait pas à un souvenir."
         else:
             i "En vrai, elle date pas de ce matin. Elle date de cette année. De toutes les fois où tu m'as écoutée jusqu'au bout."
@@ -638,7 +638,7 @@ label arc_7_jessy_scene_5:
     j "À la rivière, je pensais que si je prenais ta main, tu allais croire que j'avais déjà décidé ce qu'on était."
     i "Moi, j'ai pensé que tu allais tomber à l'eau."
     j "C'est arrivé aussi."
-    systeme "Ils rient, mais Ilona ne lâche pas le piquet. Jessy s'accroupit près d'elle sans y toucher."
+    systeme "Jessy laisse échapper un rire. Ilona garde la main sur le piquet. Il s'accroupit près d'elle sans y toucher."
     i "Tu sais ce qui m'a fait peur cette année ? Pas que tu tiennes à moi. Que parfois tu savais déjà ce que j'allais dire avant que j'ouvre la bouche."
     j "Je croyais t'aider. Je préparais des réponses pour nous deux et j'appelais ça faire attention."
     i "Et moi, je raccourcissais mes phrases pour pas te décevoir."
