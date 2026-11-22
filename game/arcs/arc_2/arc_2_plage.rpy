@@ -836,7 +836,10 @@ label arc_2_plage:
     i "Vous rendez tout ce qu'on vous apporte ?"
     laplage "Seulement ce qu'on me demande."
     show laplage thumb_up at char_center
-    laplage "Parfois, on rend un objet trop vite. Avant que la personne sache si elle en a encore besoin."
+    if boucle_passe():
+        laplage "Parfois, on rend un objet trop vite. Moi, j'ai gardé le mien trop longtemps."
+    else:
+        laplage "Parfois, on rend un objet trop vite. Avant que la personne sache si elle en a encore besoin."
     i "Et si elle ne sait pas ?"
     laplage "Alors elle revient quand elle saura."
     systeme "Ilona hésite."
@@ -844,6 +847,8 @@ label arc_2_plage:
     laplage "Alors l'objet reste là. Personne ne le force."
     show laplage neutral at char_center
     systeme "Monsieur Laplage pose une main sur le parasol, comme s'il s'apprêtait à le ranger."
+    if boucle_passe():
+        systeme "Son autre main reste un instant sur sa poche gauche, comme s'il vérifiait que quelque chose y est encore."
     i "La plage est calme, aujourd'hui."
     laplage "Oui, elle est sèche aussi."
     i "C'est une observation météo ou une phrase de Monsieur Laplage ?"

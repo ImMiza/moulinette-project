@@ -548,10 +548,16 @@ label arc_4_noel:
     laplage "Théo."
     t "Le Messi."
     systeme "Théo dit toujours ça. Personne ne sait si c'est du respect ou de l'ironie."
-    laplage "Tu te souviens de beaucoup de choses."
+    if boucle_passe():
+        laplage "Tu te souviens de beaucoup de choses. Moi aussi."
+    else:
+        laplage "Tu te souviens de beaucoup de choses."
     t "C'est une qualité."
     laplage "Souvent."
-    systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une carte qu'on ne peut pas encore lire."
+    if boucle_passe():
+        systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une vieille photo de soi qu'on n'aime pas beaucoup."
+    else:
+        systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une carte qu'on ne peut pas encore lire."
     laplage "Mais un souvenir bien placé, c'est comme une clé."
     laplage "Elle peut ouvrir une porte."
     laplage "Ou verrouiller quelqu'un dedans."
@@ -733,7 +739,10 @@ label arc_4_noel:
     laplage "Poser une limite n'est pas casser le cadeau."
     systeme "Cette fois, la phrase reste."
     i "Même si la limite fait mal à quelqu'un qui ne voulait pas mal faire ?"
-    laplage "Surtout là."
+    if boucle_passe():
+        laplage "Surtout là. Ceux qui ne veulent pas mal faire sont souvent ceux qui écoutent le moins."
+    else:
+        laplage "Surtout là."
     systeme "Ilona serre le carnet. Pas pour le garder précieusement. Pour sentir qu'elle a encore le choix de ce qu'il signifie."
     systeme "Laplage se retourne vers son stand. Il revient avec un gobelet de café chaud."
     laplage "Les décisions froides méritent une main chaude."

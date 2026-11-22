@@ -260,7 +260,10 @@ label arc_5_examens:
     show ilona frustrated at char_midleft
     
     i "C'est censé me motiver ?"
-    laplage "Non. C'est censé te faire peur."
+    if boucle_passe():
+        laplage "Non. C'est censé te faire peur. Moi, je n'ai pas eu peur à temps."
+    else:
+        laplage "Non. C'est censé te faire peur."
     
     show laplage thumb_up at char_right
     systeme "Il lève le pouce. Puis il disparaît dans les rayons, entre les sciences humaines et les romans d'horreur."
@@ -1616,6 +1619,8 @@ label arc_5_scene_3:
         laplage "C'est peut-être la question à poser. Pas à moi. À eux."
     
     systeme "Il se lève."
+    if boucle_passe():
+        systeme "Il hésite, la main sur le dossier de la chaise, comme s'il retenait une phrase qui ne lui appartient plus."
     
     laplage "Les étoiles qui demandent la permission avant de briller... ne brillent jamais."
     

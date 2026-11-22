@@ -493,7 +493,10 @@ label arc_7_jessy_scene_4:
     laplage "Je suis sur un ours. Je suis content en général."
     laplage "Et vous deux. Vous avez hésité. Vous vous êtes trompés. Vous avez appris à vous écouter. C'est long, chez les humains."
     j "Donc on est sur le bon chemin ?"
-    laplage "Cette partie-là vous appartient encore."
+    if boucle_passe():
+        laplage "Cette partie-là vous appartient encore. Je ne l'avais jamais vue, celle-là."
+    else:
+        laplage "Cette partie-là vous appartient encore."
     systeme "L'ours éternue dans le buisson. Une pluie de pétales retombe sur Laplage, qui ne cille pas."
     show laplage bear thumb_up at char_center
     play sound audio.bear volume 0.6

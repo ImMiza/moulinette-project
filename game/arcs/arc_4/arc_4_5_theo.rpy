@@ -338,7 +338,10 @@ label arc_4_5_theo:
     i "Vous... vous travaillez ici ?"
     laplage "Temporairement."
     laplage "Quelqu'un devait remplacer quelqu'un qui devait remplacer quelqu'un."
-    laplage "La chaîne s'arrête à moi pour ce soir."
+    if boucle_passe():
+        laplage "La chaîne s'arrête à moi. J'espère."
+    else:
+        laplage "La chaîne s'arrête à moi pour ce soir."
     
     systeme "Théo ne sait pas quoi faire de cette phrase. Ilona non plus."
     

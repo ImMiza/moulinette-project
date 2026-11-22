@@ -678,6 +678,8 @@ label arc_7_theo:
     laplage "Une soirée sans objectif. Une idée qui ne devient pas un projet. Un non qui ne demande pas d'explication."
 
     systeme "Théo ne répond pas. Ilona pense au stream dehors, devenu en quelques secondes une liste d'autorisations. Ce souvenir ne lui fait pas encore mal. Il accroche seulement quelque part."
+    if boucle_passe():
+        systeme "Monsieur Laplage regarde Théo. Pas Ilona. Théo. Avec la patience de quelqu'un qui se parlerait à lui-même."
 
     laplage "Le bonheur peut parler très fort. Vérifiez seulement qu'il ne répond pas à votre place."
     i "Vous faites toujours ça ? Apparaître, dire quelque chose d'inquiétant et repartir ?"

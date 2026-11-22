@@ -254,6 +254,7 @@ default souvenirs = {
 }
 
 default endings_seen = []
+default persistent.retour_dans_le_passe = False
 
 default maison_minecraft_transformation = ""
 
@@ -279,6 +280,15 @@ init python:
     def record_ending(key):
         if key not in store.endings_seen:
             store.endings_seen.append(key)
+
+    # Hors sauvegarde de partie : survit au "Nouveau jeu".
+    def boucle_passe():
+        """True si la bad ending a deja ete vue : Laplage est le Theo revenu."""
+        return bool(persistent.retour_dans_le_passe)
+
+    def enregistrer_boucle():
+        persistent.retour_dans_le_passe = True
+        renpy.save_persistent()
 
     def etat_relation():
         """Etat narratif de la relation : "proche", "fragile" ou "distant".
