@@ -557,6 +557,8 @@ label arc_3_rentree:
     i "Et Théo... quand Théo est gentil, ça..."
     systeme "Elle ne finit pas. Elle ne sait pas comment finir."
     i "Ça me repose. Et après je m'en veux."
+    if boucle_passe():
+        systeme "Au nom de Théo, la pique de Monsieur Laplage s'arrête une demi-seconde au-dessus des moules."
     laplage "Les gens confondent souvent le repos avec une destination."
     i "Vous pouvez parler normalement une fois dans votre vie ?"
     laplage "Non."

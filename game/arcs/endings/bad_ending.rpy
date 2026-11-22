@@ -26,6 +26,9 @@ image bg apartment ilona bedroom = im.Scale("images/scenes/backgrounds/tokyo/bg_
 image bg tokyo bar = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_bar_night.jpg", 1920, 1080)
 image bg tokyo street night = im.Scale("images/scenes/backgrounds/tokyo/bg_bad_ending_tokyo_street_night.jpg", 1920, 1080)
 image cg bad allez rentre = "images/scenes/cg/bad_ending/allez_rentre.png"
+image cg bad coin plie = "images/scenes/cg/bad_ending/coin_plie.png"
+image cg bad le prochain = "images/scenes/cg/bad_ending/le_prochain.png"
+image cg bad cabine = "images/scenes/cg/bad_ending/cabine_sur_le_sable.png"
 
 
 init python:
@@ -358,55 +361,238 @@ label bad_ending:
     stop music fadeout 1.5
     $ renpy.pause(2.0, hard=True)
 
+    scene black with fade
+    pause 2.0
+
+    if boucle_passe():
+        jump bad_ending_boucle_rejouee
+
 
     # ------------------------------------------------------------------
     # 7. Quarante ans plus tard - la plage
     # ------------------------------------------------------------------
+    play ambiant1 audio.wave loop volume 0.40 fadein 2.0
     scene bg arc2 beach sunset
+    show theo ilonanium older_regretful at char_right
     with fade
-    #play music audio.majulaLike loop volume 0.5 fadein 3.0
 
     systeme "Quarante ans plus tard."
-    systeme "Théo est assis au bord de la plage, dans un crépuscule qui ne change jamais vraiment. Ses cheveux ont grisonné ; la photo entre ses doigts a vieilli plus vite que son souvenir."
-    systeme "Sur l'image froissée, Ilona et lui posent devant leur appartement, le jour de leur installation à Tokyo."
-    t "..."
-    systeme "Il se demande à quoi elle ressemblerait aujourd'hui, si elle était encore là. Pendant quarante ans, il a refait cette dernière journée en déplaçant chaque parole, chaque silence et chaque minute où il aurait pu rentrer plus tôt."
+    show ilonanium_photo at Transform(pos=(0.5, 0.40), anchor=(0.5, 0.5), rotate=-3) zorder 20 with dissolve
+    systeme "Théo tient une photo entre ses doigts. Ilona et lui, serrés dans le cadre, le sourire un peu trop grand. Il se rappelle l'heure de la photo. Il a oublié qui les a fait rire."
+    systeme "Certains soirs, dans sa tête, il rentre directement. D'autres, il s'arrête au studio et l'appelle depuis la rue. Il arrive toujours devant la même porte."
+    hide ilonanium_photo with dissolve
 
     play sound audio.laplage volume 0.6
     show laplage neutral at char_left
     with dissolve
 
-    laplage "Je remplace quelqu'un qui n'était pas prévu."
-    t "Vous dites toujours ça."
-    laplage "C'est toujours vrai."
+    laplage "Je peux m'asseoir ?"
+    systeme "Théo pose la photo sur le sable et se décale."
+    t "Si j'étais rentré une heure plus tôt..."
+    laplage "Elle t'avait demandé quoi, la veille ?"
+    t "Comment vous savez ça ?"
+    laplage "Je me suis posé la question assez souvent. Réponds."
+    t "De rester avec elle l'après-midi. D'annuler le live."
+    systeme "Il lisse du pouce un coin de la photo."
+    t "J'ai gardé une heure de live. Je lui ai dit qu'après, on aurait toute la soirée."
 
-    t "Est-ce que j'aurais pu faire autrement ?"
-    laplage "Tu pouvais ouvrir la porte plus tôt. Tu l'as ouverte quand même."
-    t "Trop tard."
-    laplage "Trop tard, c'est encore une heure. Jamais, ça n'en est pas une."
+    pause 1.5
+    systeme "Laplage décroche de son manteau le petit creeper vert. Il le pose sur le sable, à côté de la photo."
+    laplage "Il reste des passages vers le passé. Seulement là où les lignes temporelles se croisent."
+    show theo ilonanium older_surprised at char_right with dissolve
+    t "...Vous vous foutez de moi ?"
+    laplage "Non."
+    t "Le passé. Comme ça. Assis sur une plage, avec un porte-clés."
+    laplage "Poche gauche. Un bloc de Minecraft. Elle l'avait perdu ici. C'est toi qui l'as retrouvé."
+    systeme "Théo plonge la main dans sa poche. Le bloc est là. Il ne l'a montré à personne."
+    t "...Admettons. Alors je peux revenir ce soir-là."
+    laplage "Le premier passage d'ici s'ouvrira dans dix ans."
+    t "Et il mène à quelle date ?"
+    laplage "Avant la rentrée d'avril. Ilona ne connaîtra Jessy que depuis une soirée de Minecraft."
+    show theo ilonanium older_regretful at char_right with dissolve
+    t "Pas ce soir-là."
+    laplage "Non. Pas ce soir-là."
+    systeme "Théo baisse les yeux vers la photo. Cette soirée n'existe plus nulle part où il pourrait entrer."
+    t "Et je pourrai revenir à aujourd'hui ?"
+    laplage "Un aller simple. Le passage se refermera derrière toi."
 
-    t "Ça fait quarante ans que je reviens m'asseoir ici. Ça ne soulage rien."
-    laplage "Ça n'a jamais été fait pour soulager. Juste pour que quelqu'un reste assis face à la mer, plutôt que de lui tourner le dos."
+    t "Elle va me prendre pour un fou. Je pourrais lui montrer la photo. Lui expliquer ce qui va se passer."
+    laplage "Et si elle te demande de la laisser tranquille ?"
 
-    show laplage thumb_up at char_left
-    with dissolve
+    show theo ilonanium older_regretful at char_right with dissolve
+    systeme "Théo ouvre la bouche. Il avait déjà trouvé par quoi commencer pour la convaincre."
+    pause 2.0
+    t "Alors il faudra que je la laisse tranquille."
+
+    show cg bad coin plie zorder 10 with dissolve
+    systeme "Laplage sort une photo de son manteau et la pose à côté de celle de Théo. Même photo. Même coin plié, usé au même endroit par le même pouce."
+    pause 1.5
+    hide cg with dissolve
+    systeme "Théo relève les yeux. Sous la moustache de Laplage, il reconnaît son propre visage."
+    t "Vous êtes… moi."
+    systeme "Laplage ne dément pas."
+    t "Vous aussi, on vous l'a donné ici ?"
+    laplage "À peu près à la même place."
+    show cg bad le prochain zorder 10 with dissolve
+    systeme "Laplage ramasse le creeper et le dépose dans la main de Théo. Une chaleur lui remonte dans le poignet."
+    laplage "Tu sentiras le passage s'ouvrir. Serre le creeper dans ta main et le TARDIS viendra."
 
     laplage "Le prochain, c'est toi."
 
-    systeme "Il tend un porte-clés en forme de bloc. Théo le prend. Il reconnaît l'objet qu'Ilona avait emporté à Tokyo et gardé jusqu'à sa dernière nuit."
-
+    hide cg
     hide laplage
     with dissolve
+    systeme "Théo sort de sa poche le porte-clés en forme de bloc qu'Ilona avait gardé à Tokyo. Il range les deux porte-clés dans la même poche, puis replie la photo."
 
-    systeme "Monsieur Laplage s'en va comme d'habitude, sans se retourner. Théo reste face à la mer, le porte-clés au creux de la paume."
-    systeme "Il avait appelé son épuisement un risque à gérer, pris son silence pour du repos et transformé sa demande d'aide en décision qu'il pouvait prendre à sa place. Ses regrets ne changent pas ce qu'il a fait. Ils ne se sont pourtant jamais tus."
-
-    t "J'aurais dû t'écouter quand tu étais encore là."
-
+    # 8. Le passage et la première apparition de Laplage
+    scene black with fade
+    centered "DIX ANS PLUS TARD"
+    scene bg arc2 beach sunset
+    with fade
+    systeme "Dix ans à ne parler à personne. Les deux porte-clés n'ont pas quitté la même poche."
+    systeme "Au bord de l'eau, le creeper se réchauffe dans la main de Théo."
+    play sound audio.ilonanium_arrival volume 0.55
+    scene cg bad cabine with dissolve
+    systeme "Un grondement monte derrière lui. Il se retourne. Une cabine bleue s'est posée sur le sable."
+    systeme "Théo glisse la photo dans son manteau, pousse la porte et monte à l'intérieur."
+    stop ambiant1 fadeout 1.0
+    play sound audio.ilonanium_departure volume 0.65
     scene black
     with fade
 
-    t "Je suis désolé, Ilona."
+    play music audio.mcnight volume 0.65 fadein 2.0
+    scene bg prologue roof night
+    show jessy minecraft at char_left
+    show ilona minecraft at char_right
+    with dissolve
+    i "Elle est vraiment trop grande."
+    j "On peut enlever des pièces."
+    i "Non. Ce serait triste."
 
-    stop music fadeout 4.0
+    play sound audio.laplage volume 0.6
+    scene bg prologue river laplage
+    show laplage minecraft at char_center
+    with dissolve
+    systeme "Au bord de la rivière, un personnage apparaît. Aucun pseudo ne flotte au-dessus de sa tête. Il lève les yeux vers la maison."
+    systeme "Dans sa poche, il referme la main sur le porte-clés en forme de bloc."
+    pause 1.0
+    m_inconnu "Construire ensemble, c'est facile."
+    pause 0.8
+    m_inconnu "Le plus difficile, c'est de ne pas casser ce que l'autre construit."
+    pause 1.5
+
+    stop sound fadeout 0.5
+    stop music fadeout 2.0
+    scene black with fade
+    $ enregistrer_boucle()
+    return
+
+
+# ----------------------------------------------------------------------
+# 7-8 bis. Bad ending rejouée alors que la boucle a déjà eu lieu
+# (persistent.retour_dans_le_passe) : Laplage est le Théo de la boucle précédente.
+# ----------------------------------------------------------------------
+label bad_ending_boucle_rejouee:
+    play ambiant1 audio.wave loop volume 0.40 fadein 2.0
+    scene bg arc2 beach sunset
+    show theo ilonanium older_regretful at char_right
+    with fade
+
+    systeme "Quarante ans plus tard."
+    show ilonanium_photo at Transform(pos=(0.5, 0.40), anchor=(0.5, 0.5), rotate=-3) zorder 20 with dissolve
+    systeme "Théo tient une photo entre ses doigts. Ilona et lui, serrés dans le cadre. Le coin est plié. Il ne se souvient pas de l'avoir plié."
+    systeme "Depuis quarante ans, une phrase lui revient plus souvent que les autres. Un serveur en tenue de maid, un soir d'hiver : « La chaîne s'arrête à moi. J'espère. »"
+    hide ilonanium_photo with dissolve
+
+    play sound audio.laplage volume 0.6
+    show laplage neutral at char_left
+    with dissolve
+
+    t "Le Messi."
+    laplage "Ça faisait longtemps que personne ne m'avait appelé comme ça."
+    systeme "Laplage s'assoit sans demander. Il a l'air plus vieux que dans les souvenirs de Théo. Plus vieux que Théo aussi, ce qui ne devrait pas être possible."
+    t "Vous étiez partout. Le festival, Noël, Tokyo. Vous disiez des phrases que je ne comprenais pas."
+    laplage "Tu les comprenais. Tu ne voulais pas qu'elles parlent de toi."
+    t "Au marché de Noël, je vous ai dit que je me souvenais de tout. Vous avez répondu « moi aussi »."
+    laplage "Je me souvenais de ce soir-là. Du bar. De l'heure de live. De la porte."
+
+    pause 1.5
+    show theo ilonanium older_surprised at char_right with dissolve
+    t "...Vous saviez."
+    laplage "Oui."
+    t "Et vous m'avez laissé faire."
+    laplage "Je suis revenu pour qu'elle puisse choisir. Pas pour choisir à ta place."
+    laplage "Je t'ai dit ce que j'aurais voulu entendre. Tu as fait ce que j'avais fait."
+    show theo ilonanium older_regretful at char_right with dissolve
+    t "Alors ça ne sert à rien."
+    laplage "Ça sert à une chose. Maintenant, tu sais que ce n'était pas une question de souvenirs."
+
+    show cg bad coin plie zorder 10 with dissolve
+    systeme "Laplage pose sa photo à côté de celle de Théo. Même photo. Même coin plié. Mais le sien est usé jusqu'à la trame, comme si deux pouces l'avaient frotté l'un après l'autre."
+    pause 1.5
+    hide cg with dissolve
+    t "Combien de fois ?"
+    laplage "Assez pour reconnaître la plage."
+    t "Et si je refuse ? Si je reste ici ?"
+    laplage "Alors quelqu'un d'autre viendra peut-être s'asseoir. Ou personne."
+
+    pause 1.0
+    systeme "Laplage décroche le creeper de son manteau et le pose sur le sable, entre les deux photos."
+    laplage "Le passage s'ouvrira dans dix ans. Avant la rentrée d'avril. Aller simple, comme la dernière fois."
+    t "La dernière fois, c'était vous."
+    laplage "La dernière fois, c'était nous."
+    t "Qu'est-ce que je fais de différent ?"
+    laplage "Ne prépare rien. Pas de discours, pas de plan, pas de photo à lui montrer."
+    laplage "Et quand elle te demandera de rester, ne garde pas une heure pour toi."
+
+    show cg bad le prochain zorder 10 with dissolve
+    systeme "Théo ramasse le creeper lui-même. Cette fois, personne ne le lui tend."
+    laplage "Le prochain, c'est encore toi."
+
+    hide cg
+    hide laplage
+    with dissolve
+    systeme "Quand Théo relève la tête, la place à côté de lui est vide. Dans le sable, une seule série de traces de pas. Les siennes."
+    systeme "Il range le creeper avec le porte-clés en forme de bloc. Il passe le pouce sur le coin plié de la photo. Cette fois, il sait pourquoi il est usé."
+
+    scene black with fade
+    centered "DIX ANS PLUS TARD"
+    scene bg arc2 beach sunset
+    with fade
+    systeme "Dix ans. Cette fois, Théo ne les a pas passés à répéter ce qu'il dirait. Il a appris à se taire."
+    systeme "Au bord de l'eau, le creeper se réchauffe dans sa main."
+    play sound audio.ilonanium_arrival volume 0.55
+    scene cg bad cabine with dissolve
+    systeme "La cabine bleue se pose sur le sable. Théo reconnaît le grincement de la porte avant de l'entendre."
+    stop ambiant1 fadeout 1.0
+    play sound audio.ilonanium_departure volume 0.65
+    scene black
+    with fade
+
+    play music audio.mcnight volume 0.65 fadein 2.0
+    scene bg prologue roof night
+    show jessy minecraft at char_left
+    show ilona minecraft at char_right
+    with dissolve
+    i "Elle est vraiment trop grande."
+    j "On peut enlever des pièces."
+    i "Non. Ce serait triste."
+    j "Même le couloir sans sortie ?"
+    i "Surtout lui."
+
+    play sound audio.laplage volume 0.6
+    scene bg prologue river laplage
+    show laplage minecraft at char_center
+    with dissolve
+    systeme "Au bord de la rivière, un personnage apparaît. Cette fois, il ne lève pas les yeux vers la maison. Il regarde Ilona."
+    pause 1.0
+    m_inconnu "Construire ensemble, c'est facile."
+    pause 0.8
+    m_inconnu "Le plus difficile, c'est de ne pas casser ce que l'autre construit."
+    pause 1.5
+    systeme "Il reste au bord de l'eau. Il ne s'approche pas."
+
+    stop sound fadeout 0.5
+    stop music fadeout 2.0
+    scene black with fade
     return

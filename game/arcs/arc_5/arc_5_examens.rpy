@@ -260,7 +260,10 @@ label arc_5_examens:
     show ilona frustrated at char_midleft
     
     i "C'est censé me motiver ?"
-    laplage "Non. C'est censé te faire peur."
+    if boucle_passe():
+        laplage "Non. C'est censé te faire peur. Moi, je n'ai pas eu peur à temps."
+    else:
+        laplage "Non. C'est censé te faire peur."
     
     show laplage thumb_up at char_right
     systeme "Il lève le pouce. Puis il disparaît dans les rayons, entre les sciences humaines et les romans d'horreur."
@@ -1616,6 +1619,8 @@ label arc_5_scene_3:
         laplage "C'est peut-être la question à poser. Pas à moi. À eux."
     
     systeme "Il se lève."
+    if boucle_passe():
+        systeme "Il hésite, la main sur le dossier de la chaise, comme s'il retenait une phrase qui ne lui appartient plus."
     
     laplage "Les étoiles qui demandent la permission avant de briller... ne brillent jamais."
     
@@ -2097,15 +2102,15 @@ label arc_5_scene_3:
     else:
         systeme "Un mois a passé. Les questions sont restées les mêmes."
 
-    if arc4_cadeau_jessy == "miniature_souvenir" and arc4_limite_ilona == "cadeau_respirant":
+    if arc4_limite_ilona == "cadeau_respirant":
         systeme "Jessy repense à la miniature de Noël. Ilona l'a emportée avec elle ce soir-là."
         systeme "Elle n'en a jamais reparlé. Jessy ne sait pas où elle l'a posée."
-    elif arc4_cadeau_jessy in ("miniature_souvenir", "discussion_honnete"):
-        systeme "Jessy repense à la miniature de Noël. Elle est toujours chez lui, dans sa boîte."
-        systeme "Il ne la lui a pas donnée ce soir-là. Il avait choisi les mots plutôt que le cadeau."
-    elif arc4_cadeau_jessy == "cadeau_couteux":
+    elif arc4_limite_ilona == "cadeau_preuve":
         systeme "L'écharpe de Noël est rangée quelque part. Ilona ne l'a jamais portée."
         systeme "Jessy n'a jamais demandé pourquoi. Certaines questions ne veulent pas de réponse."
+    elif arc4_cadeau_jessy:
+        systeme "Jessy repense à la miniature de Noël. Elle est toujours chez lui, dans sa boîte."
+        systeme "Ce soir-là, il l'a laissée au fond de son sac."
     
     if arc4_limite_ilona == "demande_theo":
         systeme "Depuis Noël, quelque chose s'est déplacé. Ilona passe plus de temps avec Théo."

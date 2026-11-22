@@ -377,6 +377,8 @@ label prologue_minecraft:
     m_inconnu "Construire ensemble, c'est facile."
     $ renpy.pause(0.6, hard=True)
     m_inconnu "Le plus difficile, c'est de ne pas casser ce que l'autre construit."
+    if boucle_passe():
+        systeme "Le personnage ne regarde pas la maison. Il regarde Ilona, longtemps, comme pour vérifier qu'elle est bien là."
     i "C'est un mod ?"
     j "J'espère que non."
     i "Il a un costume ?"

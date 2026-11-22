@@ -335,7 +335,10 @@ label arc_1_printemps:
     j "C'est votre nom ?"
     laplage "Aujourd'hui, oui."
     i "Vous travaillez ici ?"
-    laplage "Je surveille les horizons. Et parfois les offres deux pour un."
+    if boucle_passe():
+        laplage "Je surveille les horizons. Celui-ci, je le connais déjà un peu."
+    else:
+        laplage "Je surveille les horizons. Et parfois les offres deux pour un."
     show laplage thumb_up at char_center
     laplage "Choisir un bonbon, c'est déjà choisir une petite catastrophe."
     hide laplage

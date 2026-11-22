@@ -563,13 +563,15 @@ label ending_friend_promenade:
 
     show jessy beach neutral at char_left
     show ilona beach neutral at char_right
+    show laplage neutral at char_center
     with dissolve
-    "La vendeuse" "C'est à vous."
+    j "Monsieur Laplage ?"
+    laplage "C'est à vous."
     i "Bonjour. Alors... six boissons et des serviettes, s'il vous plaît."
     systeme "Jessy lui montre la liste. Ilona la lit deux fois avant de commander."
-    "La vendeuse" "Le citron, grand ou petit ?"
+    laplage "Le citron, grand ou petit ?"
     j "Grand. Il a écrit « assez » en majuscules."
-    systeme "La vendeuse leur donne un porte-gobelets en carton, puis des pailles. Ilona compte les boissons ; Jessy coince les serviettes sous son bras."
+    systeme "Laplage leur tend un porte-gobelets en carton, puis des pailles. Ilona compte les boissons. Jessy coince les serviettes sous son bras."
     i "Et voilà. Mission réussie."
     j "Il faut encore faire le trajet retour."
 
@@ -836,7 +838,8 @@ label ending_friend_photo:
 
 # 8. PARFOIS CINQ, PARFOIS TROIS
 label ending_friend_annees:
-    centered "L'ANNÉE SUIVANTE"
+    systeme "Trois semaines après la plage, Allan reçoit Jessy, Ilona et Théo. Alexandre leur envoie la photo de son nouveau balcon, avec le mètre bien visible."
+    centered "L'ÉTÉ SUIVANT"
     scene bg arc5 cafe with fade
     play music audio.cafe loop volume 0.45 fadein 1.0
     play ambiant1 audio.rainInside loop volume 0.25 fadein 1.0
@@ -917,7 +920,7 @@ label ending_friend_annees:
     stop music fadeout 1.0
     scene black with fade
     systeme "Les appels changent parfois d'heure et les rencontres réunissent rarement tout le monde. Leurs messages continuent de circuler."
-    centered "L'ANNÉE D'APRÈS"
+    centered "DEUX ANS APRÈS LA RANDONNÉE"
     scene bg arc2 minecraft house summer night with fade
     play music audio.mcnight loop volume 0.5 fadein 1.0
     show jessy minecraft at char_left

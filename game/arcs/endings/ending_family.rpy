@@ -341,8 +341,12 @@ label ending_family_visite:
     $fade_channel("music",0.7,0.5)
     scene cg family laplage adieux with Dissolve(1.2)
     systeme "Il paraît soudain fatigué. Ilona s'approche et le serre dans ses bras. Après un instant de surprise, il l'entoure d'un bras et pose une main sur sa tête."
+    if boucle_passe():
+        systeme "Il ferme les yeux. Il la garde un peu plus longtemps qu'il ne faudrait, comme quelqu'un qui pose enfin quelque chose de très lourd."
     i "Merci. Pour cet endroit. Et pour le reste."
     laplage "Vous en ferez de belles choses."
+    if boucle_passe():
+        laplage "Vieillissez ici, Ilona. Lentement."
     scene bg family restaurant jour
     show jessy beach neutral at char_left
     show laplage neutral at char_center
@@ -352,7 +356,11 @@ label ending_family_visite:
     j "Au revoir, Monsieur Laplage."
     laplage "Au revoir, Jessy. Au revoir, Ilona."
     systeme "Il franchit le portillon. Avant de prendre le sentier, il se retourne vers la maison."
-    laplage "Je peux me reposer en paix, désormais."
+    if boucle_passe():
+        systeme "Il sort de sa poche un petit creeper vert et un porte-clés en forme de bloc. Il les pose sur le poteau du portillon, comme on rend des clés qu'on n'utilisera plus."
+        laplage "Je peux me reposer en paix, désormais. La chaîne s'arrête à moi."
+    else:
+        laplage "Je peux me reposer en paix, désormais."
     show laplage thumb_up at char_center with dissolve
     hide laplage with Dissolve(1.5)
     systeme "Ils le regardent s'éloigner jusqu'au tournant. Il lève une dernière fois le pouce, puis les arbres le cachent."

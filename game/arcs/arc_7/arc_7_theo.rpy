@@ -40,6 +40,7 @@ image bg arc7 tokyo park = im.Scale("images/scenes/backgrounds/tokyo/bg_arc7_tok
 # --- Soirées cinéma : même cadrage, une place qui se vide ---
 image cg arc7 theo kung pow = Transform("images/scenes/cg/theo/arc7_theo_kung_pow.png", xysize=(1920, 1080), fit="contain")
 image cg arc7 theo film attente = Transform("images/scenes/cg/theo/arc7_theo_film_attente.png", xysize=(1920, 1080), fit="contain")
+image cg arc7 theo ilona en larmes = "images/scenes/cg/theo/arc7_theo_ilona_en_larmes.png"
 
 # --- Tenues Tokyo propres à la route Théo ---
 image ilona tokyo embarrassed = speaker_sprite("ilona", "images/personnages/Ilona/Tokyo/awkward_embarrassment.png", ILONA_SIZE[0], ILONA_SIZE[1])
@@ -677,6 +678,8 @@ label arc_7_theo:
     laplage "Une soirée sans objectif. Une idée qui ne devient pas un projet. Un non qui ne demande pas d'explication."
 
     systeme "Théo ne répond pas. Ilona pense au stream dehors, devenu en quelques secondes une liste d'autorisations. Ce souvenir ne lui fait pas encore mal. Il accroche seulement quelque part."
+    if boucle_passe():
+        systeme "Monsieur Laplage regarde Théo. Pas Ilona. Théo. Avec la patience de quelqu'un qui se parlerait à lui-même."
 
     laplage "Le bonheur peut parler très fort. Vérifiez seulement qu'il ne répond pas à votre place."
     i "Vous faites toujours ça ? Apparaître, dire quelque chose d'inquiétant et repartir ?"
@@ -1444,14 +1447,17 @@ label arc_7_theo:
             with dissolve
 
             systeme "Théo sort de la pièce."
+            scene cg arc7 theo ilona en larmes with dissolve
             i "..."
             systeme "Dans l'écran noir de son téléphone, son reflet reste pris entre le carnet de planning et les feuilles de production."
             systeme "Pendant quelques secondes, elle attend que quelqu'un dise son prénom sans le transformer en marque."
             systeme "Sa main se referme sur le porte-clés bloc que Théo avait retrouvé à la plage. La première preuve qu'il faisait attention. Il fait toujours attention. C'est justement pour ça qu'elle ne sait plus comment lui échapper."
+            window hide
             $ renpy.pause(1.5, hard=True)
 
             scene black
             with fade
             stop music fadeout 2.0
 
+            window auto
             jump bad_ending

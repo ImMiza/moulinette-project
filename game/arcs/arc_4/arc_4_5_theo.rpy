@@ -126,12 +126,7 @@ label arc_4_5_theo:
     t "Obligée par qui ?"
     i "Par... tout le monde. Les rumeurs. Jessy. Toi."
     systeme "Elle pense au carnet dans son sac. À la question de Jessy : « Son cadeau... ça veut dire quelque chose pour toi ? »"
-    if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
-        systeme "Elle pense à la miniature qu'elle n'a jamais regardée vraiment, parce que Jessy a transformé ça en épreuve de loyauté."
-    elif arc4_cadeau_jessy == "cadeau_couteux":
-        systeme "Elle pense à l'écharpe qu'elle a reçue sans vraiment la vouloir. Un cadeau né de la panique de Jessy."
-    else:
-        systeme "Elle pense à l'absence de cadeau. Jessy avait quelque chose, mais n'a pas osé le donner. Ou a choisi de parler à la place."
+    systeme "Elle aurait aimé pouvoir y réfléchir avant d'avoir à le rassurer."
     
     show theo winter defensive at char_left
     
@@ -343,7 +338,10 @@ label arc_4_5_theo:
     i "Vous... vous travaillez ici ?"
     laplage "Temporairement."
     laplage "Quelqu'un devait remplacer quelqu'un qui devait remplacer quelqu'un."
-    laplage "La chaîne s'arrête à moi pour ce soir."
+    if boucle_passe():
+        laplage "La chaîne s'arrête à moi. J'espère."
+    else:
+        laplage "La chaîne s'arrête à moi pour ce soir."
     
     systeme "Théo ne sait pas quoi faire de cette phrase. Ilona non plus."
     
@@ -426,12 +424,7 @@ label arc_4_5_theo:
     
     systeme "Ilona rentre seule. L'écharpe de Théo est toujours autour de son cou."
     
-    if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
-        systeme "Elle pense à Jessy. À la miniature qu'elle n'a pas vraiment regardée."
-    elif arc4_cadeau_jessy == "cadeau_couteux":
-        systeme "Elle pense à Jessy. À l'écharpe qu'elle a reçue sans vraiment la vouloir."
-    else:
-        systeme "Elle pense à Jessy. Au cadeau qu'il n'a pas osé lui donner."
+    systeme "Elle pense à Jessy, qu'elle a laissé au marché."
     
     systeme "Elle pense au carnet de Théo. À cette façon qu'il a de toujours avoir une réponse."
     

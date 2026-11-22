@@ -240,7 +240,7 @@ label arc_4_noel:
     menu:
         "Alexandre attend. La miniature pèse dans le sac de Jessy. Il doit décider ce qu'elle porte."
 
-        "Offrir la miniature en avouant qu'elle porte trop de choses.":
+        "Préparer un aveu pour accompagner la miniature.":
             $ arc4_cadeau_jessy = "miniature_aveu"
             $ communication += 4
             $ confiance += 2
@@ -257,7 +257,7 @@ label arc_4_noel:
             systeme "Alexandre acquiesce. Il ne peut pas le contredire."
 
 
-        "Offrir la miniature avec ses erreurs, comme témoin de ce qui a existé.":
+        "Prévoir de lui offrir la miniature comme un souvenir, avec ses erreurs.":
             $ arc4_cadeau_jessy = "miniature_souvenir"
             $ communication += 4
             $ confiance += 2
@@ -291,7 +291,7 @@ label arc_4_noel:
             systeme "Jessy achète une écharpe. Belle. Chère. Vide."
             systeme "Alexandre ne dit rien. Son silence pèse plus lourd que le prix du cadeau."
 
-        "Offrir la miniature mais en blague, pour désamorcer le poids.":
+        "Ajouter une blague à la miniature pour désamorcer le poids.":
             $ arc4_cadeau_jessy = "blague_interne"
             $ lien_jessy_ilona += 4
             show alex winter grin at char_left
@@ -548,10 +548,16 @@ label arc_4_noel:
     laplage "Théo."
     t "Le Messi."
     systeme "Théo dit toujours ça. Personne ne sait si c'est du respect ou de l'ironie."
-    laplage "Tu te souviens de beaucoup de choses."
+    if boucle_passe():
+        laplage "Tu te souviens de beaucoup de choses. Moi aussi."
+    else:
+        laplage "Tu te souviens de beaucoup de choses."
     t "C'est une qualité."
     laplage "Souvent."
-    systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une carte qu'on ne peut pas encore lire."
+    if boucle_passe():
+        systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une vieille photo de soi qu'on n'aime pas beaucoup."
+    else:
+        systeme "Laplage ne sourit pas. Il regarde Théo comme on regarde une carte qu'on ne peut pas encore lire."
     laplage "Mais un souvenir bien placé, c'est comme une clé."
     laplage "Elle peut ouvrir une porte."
     laplage "Ou verrouiller quelqu'un dedans."
@@ -733,7 +739,10 @@ label arc_4_noel:
     laplage "Poser une limite n'est pas casser le cadeau."
     systeme "Cette fois, la phrase reste."
     i "Même si la limite fait mal à quelqu'un qui ne voulait pas mal faire ?"
-    laplage "Surtout là."
+    if boucle_passe():
+        laplage "Surtout là. Ceux qui ne veulent pas mal faire sont souvent ceux qui écoutent le moins."
+    else:
+        laplage "Surtout là."
     systeme "Ilona serre le carnet. Pas pour le garder précieusement. Pour sentir qu'elle a encore le choix de ce qu'il signifie."
     systeme "Laplage se retourne vers son stand. Il revient avec un gobelet de café chaud."
     laplage "Les décisions froides méritent une main chaude."
@@ -1095,27 +1104,22 @@ label arc_4_noel:
             i "Et moi je garde la mienne du mien."
     if arc4_limite_ilona in ("cadeau_respirant", "parole_sans_verdict", "marche_silencieuse") and arc4_accueil_limite != "accuser_theo" and communication >= 25:
         show ilona winter smile at char_left
-        if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
+        if arc4_limite_ilona == "cadeau_respirant":
             systeme "Ilona ramasse le carnet. Puis la miniature."
         else:
             systeme "Ilona ramasse le carnet."
         i "Je vais garder le carnet."
         j "D'accord."
         if arc4_limite_ilona == "cadeau_respirant":
-            if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
-                i "Et je vais garder ta miniature aussi."
-                i "Mais je ne promets pas de les aimer pareil."
-                i "Ou de décider ce soir lequel compte le plus."
-                j "Je comprends."
-            else:
-                i "Et ton cadeau, je le veux."
-                i "Mais je ne promets pas de décider ce soir ce qu'il signifie."
-                j "Je comprends."
+            i "Et je vais garder ta miniature aussi."
+            i "Mais je ne promets pas de les aimer pareil."
+            i "Ou de décider ce soir lequel compte le plus."
+            j "Je comprends."
         elif arc4_limite_ilona == "parole_sans_verdict":
             i "Et un jour, peut-être, tu me donneras ton cadeau quand il ne portera plus autant de peur."
             j "Je peux attendre."
         else:
-            i "Et ton cadeau, je le veux. Mais pas ce soir."
+            i "On pourra reparler du reste un autre jour ?"
             j "Quand tu voudras."
         systeme "Ce n'est pas une victoire. C'est mieux : une chose qui n'appartient qu'à elle."
         $ lien_jessy_ilona += 1
@@ -1139,12 +1143,17 @@ label arc_4_noel:
         show ilona winter fatigue at char_left
         i "Je ne sais pas encore quoi faire de tout ça."
         j "Du carnet ?"
-        i "Du carnet. De ta miniature si tu me la donnes un jour. De toi. De Théo. De moi."
+        if arc4_limite_ilona == "cadeau_respirant":
+            i "Du carnet. De la miniature. De toi. De Théo. De moi."
+        else:
+            i "Du carnet. De toi. De Théo. De moi."
         systeme "Elle rit sans joie."
         i "Ambiance très festive."
         j "Le Père Noël va porter plainte."
         i "Il a déjà les preuves."
         systeme "Le rire aide. Un peu. Pas assez."
+        if arc4_limite_ilona == "cadeau_respirant":
+            systeme "Ilona referme la boîte et la glisse dans son sac avec le carnet."
 
     hide jessy
     hide ilona
@@ -1289,7 +1298,7 @@ label arc_4_noel:
         $ arc4_fin_minecraft = "miniature_trace"
         $ lien_jessy_ilona += 1
         $ confiance += 1
-        if arc4_cadeau_jessy in ("miniature_souvenir", "blague_interne", "miniature_aveu"):
+        if arc4_limite_ilona == "cadeau_respirant":
             $ maison_minecraft_ajouts.append("miniature_noel_arc4")
             
             if arc3_fin_minecraft == "destruction":
