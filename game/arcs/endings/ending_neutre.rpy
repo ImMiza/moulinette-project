@@ -172,11 +172,11 @@ label ending_neutre:
 
     $ renpy.pause(0.8, hard=True)
 
-    hide cg with dissolve
     i "Je comprends pour l'appartement et pour l'équipe."
     i "Et je n'ai pas de date de retour à vous donner, parce que je ne vais pas reprendre la chaîne."
     i "IlonaGaming va s'arrêter. Je vous enverrai ma décision par écrit."
     i "Merci de me l'avoir demandé directement."
+    hide cg with dissolve
 
     systeme "C'est la première fois qu'Ilona prononce la décision à voix haute. Ses doigts tremblent toujours lorsqu'elle rend le téléphone à Théo."
     systeme "La réponse coûte un appartement, une équipe et une sécurité qu'elle n'a jamais eue avant Tokyo. Le prix est réel. Cela ne transforme pas son refus en erreur."
@@ -405,7 +405,6 @@ label ending_neutre:
     show cg neutre calin zorder 10 with dissolve
     systeme "Théo traverse enfin l'espace entre eux. Ilona pose son front contre son épaule et ferme les yeux. Ils ne s'embrassent pas. Ils ne promettent pas de se retrouver."
     systeme "Ils restent enlacés assez longtemps pour reconnaître ce qu'ils perdent, puis Ilona recule la première."
-    hide cg with dissolve
 
     i "Je n'ai pas encore choisi où aller."
     t "Tu veux de l'aide ?"
@@ -414,10 +413,12 @@ label ending_neutre:
 
     systeme "La réponse lui fait mal. Théo la respecte quand même."
     systeme "Ils se séparent sans colère. Ils s'aiment encore, et c'est précisément ce qui empêche la scène de leur offrir un soulagement facile."
-
     hide theo
     hide ilona
     with dissolve
+    hide cg with dissolve
+
+    
 
     # ------------------------------------------------------------------
     # 5. Ce qu'on emporte

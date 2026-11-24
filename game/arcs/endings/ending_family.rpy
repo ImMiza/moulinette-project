@@ -149,7 +149,6 @@ label ending_family_restaurant:
     i "Je sais. On pourrait commencer petit. Quelques plats qu'on sait vraiment faire. Apprendre le reste."
     j "Ça me fait un peu peur."
     i "Moi aussi. J'ai quand même envie de visiter."
-    show jessy beach determined at char_left with dissolve
     j "Alors on visite."
     systeme "Il compose le numéro. Ilona se penche au-dessus de la table pour écouter."
     j "Bonjour, je vous appelle pour le restaurant. L'annonce est toujours disponible ?"
@@ -159,7 +158,6 @@ label ending_family_restaurant:
     j "On peut, oui. Nous serons deux."
     "La voix au téléphone" "Très bien. Sonnez. Même si vous me voyez déjà par la fenêtre."
     systeme "L'appel se termine. Jessy regarde le numéro."
-    show jessy beach neutral at char_left with dissolve
     j "Je connais cette voix."
     i "C'est qui ?"
     j "J'arrive pas à la remettre. Il a une façon de dire bonjour... comme s'il savait la fin de la conversation."
@@ -329,7 +327,7 @@ label ending_family_visite:
     show laplage neutral at char_center
     show ilona summer neutral at char_right
     with dissolve
-    
+
     systeme "Les documents rangés, ils raccompagnent Monsieur Laplage dans la cour. Il s'arrête près du portillon."
     laplage "Il est temps de vous dire au revoir."
     i "Vous reviendrez manger ? On vous garde une table."
@@ -463,13 +461,13 @@ label ending_family_premier_matin:
     scene bg family pancakes reussi with dissolve
     systeme "Elle retourne le pancake. Il retombe bien à plat. Tous les deux se penchent pour inspecter le résultat."
     j "Ah oui. Nettement plus rond."
+    i "Merci. J'ouvre un restaurant prochainement."
+    j "J'ai entendu dire que ton associé avait du potentiel."
+    i "Il fait des coussins comestibles. C'est assez rare."
     scene bg family maison
     show jessy beach happy at char_left
     show ilona house smile at char_right
     with dissolve
-    i "Merci. J'ouvre un restaurant prochainement."
-    j "J'ai entendu dire que ton associé avait du potentiel."
-    i "Il fait des coussins comestibles. C'est assez rare."
     systeme "Ils terminent la pâte ensemble. Jessy s'occupe du thé ; Ilona surveille la cuisson. Ils se gênent deux fois en cherchant le même tiroir et finissent par laisser la confiture sur la table basse."
     systeme "Quelques minutes plus tard, ils s'installent sur le canapé avec leurs assiettes. Par l'ouverture sur le jardin, une petite brise fait bouger le rideau."
     j "Attends, je prends le raté."
@@ -725,7 +723,7 @@ label ending_family_repas:
     show micka party neutral at char_center
     with dissolve
     mi "Moi, je me suis marié."
-    #play sound 
+    #play sound
     systeme "Le couteau d'Alexandre s'arrête au-dessus de son assiette."
     show alex party awkward at char_right with dissolve
     x "Pardon ?"
@@ -1051,7 +1049,7 @@ label ending_family_annonce:
     # Révélation en une seule coupe : nouveau décor et sprite papa ensemble.
     stop ambiant1
     scene bg family jardin soir
-    play music auio.springHope loop volume 0.7
+    play music audio.springHope loop volume 0.7
     show jessy papa neutral at char_center
     with None
     pause 1.5
@@ -1081,14 +1079,14 @@ label ending_family_lucy:
     scene cg family lucy hug with Dissolve(1.0)
     systeme "Jessy s'accroupit. Lucy se jette contre lui avant même qu'il ait fini d'ouvrir les bras."
     j "Merci, ma chérie. Elles sont magnifiques."
-    scene bg family jardin soir
-    show jessy papa neutral at char_left
-    show lucy neutral at char_center
-    with dissolve
     family_lucy "La petite, elle s'est cassée. Je l'ai prise quand même."
     j "On lui trouvera un tout petit verre."
     family_lucy "Celui avec le canard !"
     j "Parfait. Il attendait une mission importante."
+    scene bg family jardin soir
+    show jessy papa neutral at char_left
+    show lucy neutral at char_center
+    with dissolve
     systeme "Elle pose un doigt sur une fleur jaune."
     family_lucy "Celle-là, c'est un soleil. Et celle-là, c'est toi."
     j "Je suis celle qui a perdu un pétale ?"

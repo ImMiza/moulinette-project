@@ -13,7 +13,7 @@
 # brièvement à l'ouverture de la porte, puis traitée sur écran noir.
 
 # --- Audio : pistes temporaires reutilisees depuis les assets existants ---
-define audio.sayonara = "audio/music/Sayo-nara.ogg"
+define audio.sayonara = "audio/music/ddlc-sayori-death-music-rz-3-gu-5.ogg"
 define audio.majulaLike = "audio/music/Majula.ogg"
 define audio.bar = "audio/music/bar_jazz.ogg"
 
@@ -314,8 +314,8 @@ label bad_ending:
     # ------------------------------------------------------------------
 
     window hide None
-    $ renpy.pause(0.20, hard=True)
     play music audio.sayonara loop volume 1
+    $ renpy.pause(0.20, hard=True)
     scene bg apartment ilona bedroom at bad_ending_discovery_shock
     # Laisser la decouverte et le recul se jouer avant la premiere reaction.
     $ renpy.pause(7.0, hard=True)
