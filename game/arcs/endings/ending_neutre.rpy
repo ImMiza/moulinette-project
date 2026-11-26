@@ -603,4 +603,4 @@ label ending_neutre:
 
     systeme "Cette fois, personne ne remplit le blanc à sa place."
 
-    return
+    jump generique

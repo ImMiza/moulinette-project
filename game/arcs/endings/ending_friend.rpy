@@ -1198,4 +1198,4 @@ label ending_friend_generique:
     stop music fadeout 2.0
     stop ambiant1 fadeout 1.0
     scene black with fade
-    return
+    jump generique

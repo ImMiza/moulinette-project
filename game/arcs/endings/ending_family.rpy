@@ -1163,4 +1163,4 @@ label ending_family_generique:
     centered "Merci d'avoir partagé leur histoire."
     stop music fadeout 2.0
     scene black with fade
-    return
+    jump generique

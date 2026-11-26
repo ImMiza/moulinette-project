@@ -1029,4 +1029,4 @@ label ending_ilonanium_alexandre:
     stop music fadeout 0.0
     stop ambiant1 fadeout 0.0
     stop sound fadeout 0.0
-    return
+    jump generique
