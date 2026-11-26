@@ -8,6 +8,8 @@ define audio.ilonanium_vanir = "audio/music/ilonanium_vanirs_legacy.ogg"
 define audio.ilonanium_reprise_wait = "audio/music/ilonanium_reprise_attente.ogg"
 define audio.ilonanium_reprise = "audio/music/ilonanium_reprise_retrouvailles.ogg"
 define audio.ilonanium_roundabout = "audio/music/ilonanium_roundabout_cue.ogg"
+define audio.cozySuspense = "audio/music/cozy-suspense.ogg"
+define audio.AncientAwakened = "audio/music/IXION_Ancient_Awakened.ogg"
 
 define audio.ilonanium_street = "audio/ambience/ilonanium_street.ogg"
 define audio.ilonanium_ocean = "audio/ambience/ilonanium_ocean.ogg"
@@ -239,10 +241,11 @@ label ending_ilonanium_silence:
     stop music fadeout 2.0
     scene black with fade
     centered "MARDI"
+    play music audio.cozySuspense volume 0.7 fadin 2.0 fadeout 2.0
     scene bg friend chambre jessy with fade
     systeme "À neuf heures, Jessy demande si elle a mieux dormi. À midi, son message n'a toujours pas été lu."
     systeme "Il prépare à manger. Revient devant son téléphone."
-    play sound audio.ilonanium_call volume 0.65
+    play sound audio.ilonanium_call volume 0.6
     systeme "Lance un appel."
     pause 2.4
     stop sound fadeout 0.0
@@ -254,10 +257,10 @@ label ending_ilonanium_silence:
     s "Moi non plus."
     systeme "Alexandre ne répond pas. Théo écrit depuis Tokyo : il n'a pas eu de nouvelles non plus."
     systeme "Jessy pose le téléphone à côté de son assiette."
-    play sound audio.ilonanium_phone volume 0.85
+    play sound audio.ilonanium_phone volume 0.6
     systeme "Il vibre avant qu'il ait touché ses baguettes. Un message d'Ilona."
     i "Je crois que ça va pas."
-    play sound audio.ilonanium_call volume 0.75
+    play sound audio.ilonanium_call volume 0.6
     systeme "Il rappelle tout de suite. Une sonnerie. Deux."
     pause 2.4
     stop sound fadeout 0.0
@@ -270,7 +273,7 @@ label ending_ilonanium_silence:
 # 3. CHEZ ELLE — ILONA ?
 label ending_ilonanium_chez_elle:
     scene bg ilonanium rue with fade
-    play ambiant1 audio.ilonanium_street loop volume 0.75 fadeout 1.0 fadein 1.0
+    play ambiant1 audio.ilonanium_street loop volume 0.4 fadeout 1.0 fadein 1.0
     systeme "Devant chez Ilona, un vélo passe. Une fenêtre se ferme dans la maison voisine. Rien ne semble avoir changé."
     systeme "Jessy sonne. Attend. Frappe à la porte."
     j "Ilona ? C'est Jessy."
@@ -289,17 +292,17 @@ label ending_ilonanium_chez_elle:
     j "Je vais appeler les secours."
     i "Oui. S'il te plaît."
     systeme "Il compose le 119 et donne l'adresse."
-    play sound audio.ilonanium_glass volume 0.70
+    play sound audio.ilonanium_glass volume 0.6
     systeme "Pendant qu'il décrit son état, un verre glisse sur la table."
     systeme "Jessy tend la main pour le rattraper. Le verre s'arrête au bord. Puis il tombe, de travers, en direction d'Ilona."
     i "Ça l'a déjà fait."
     show jessy ilonanium beach_determined at ilonanium_left
     j "Quoi ?"
-    play ambiant1 audio.ilonanium_gravity loop volume 0.30 fadeout 2.0 fadein 2.0
+    play ambiant1 audio.ilonanium_gravity loop volume 0.40 fadeout 2.0 fadein 2.0
     scene cg ilonanium attraction with dissolve
     systeme "Une cuillère rejoint le verre. Sur le sol, le téléphone bouge à son tour. La table est droite. Le plancher aussi."
     i "Les choses viennent vers moi."
-    play music audio.tensePiano loop volume 0.57 fadeout 1.0 fadein 2.0
+    play music audio.tensePiano loop volume 0.7 fadeout 1.0 fadein 2.0
     systeme "Dans le combiné, une voix demande à Jessy de répéter. Il regarde la cuillère, maintenant suspendue au-dessus du tapis."
     j "Il faut venir vite."
     jump ending_ilonanium_bascule
@@ -310,8 +313,8 @@ label ending_ilonanium_bascule:
     systeme "Ilona serre sa main. Les rideaux se tendent vers l'intérieur, alors que la fenêtre est fermée."
     i "J'ai l'impression que ça tire. Partout. Mais de dedans."
     j "On va sortir. Tu peux t'appuyer sur moi ?"
-    play sound audio.ilonanium_wood loop volume 0.55 fadeout 1.0 fadein 1.0
-    play ambiant1 audio.ilonanium_gravity loop volume 0.60 fadeout 0.3 fadein 0.8
+    play sound audio.ilonanium_wood loop volume 0.7 fadeout 1.0 fadein 1.0
+    play ambiant1 audio.ilonanium_gravity loop volume 0.40 fadeout 0.3 fadein 0.8
     scene cg ilonanium gravite with dissolve
     systeme "Elle essaie. Ses pieds quittent le sol avant qu'elle soit debout. Jessy l'attrape à la taille."
     with hpunch
@@ -319,7 +322,7 @@ label ending_ilonanium_bascule:
     systeme "La poignée s'arrache de la porte. Le bois se courbe vers eux. Jessy recule, entraîné malgré lui. Son téléphone lui échappe et disparaît dans une lumière pâle."
     # Le bois cesse avant le dialogue : la gravite garde seule la tension.
     stop sound fadeout 0.8
-    play audio audio.ilonanium_laplage volume 0.75
+    play sound audio.laplage volume 0.6
     scene cg ilonanium laplage with Fade(0.1, 0.0, 0.4, color="#fff")
     laplage "Ne tirez pas sur elle. Prenez ma main."
     j "Monsieur Laplage ? Comment vous..."
@@ -360,14 +363,14 @@ label ending_ilonanium_bascule:
 label ending_ilonanium_catastrophe:
     systeme "Jessy voit encore le visage d'Ilona au milieu de la lumière. Elle cherche ses yeux."
     j "Ilona !"
-    play music audio.ilonanium_across loop volume 0.8 fadeout 1.0 fadein 1.0
-    play ambiant1 audio.ilonanium_gravity loop volume 0.80 fadeout 0.3 fadein 1.5
+    play music audio.ilonanium_across loop volume 0.7 fadeout 1.0 fadein 1.0
+    play ambiant1 audio.ilonanium_gravity loop volume 0.4 fadeout 0.3 fadein 1.5
     scene cg ilonanium maison with Dissolve(1.5)
     systeme "La maison se courbe autour de la lumière. Dans la rue, les toitures et les câbles se tendent vers Ilona."
     scene cg ilonanium arrachement with dissolve
     systeme "Laplage saisit Jessy par l'épaule et l'entraîne dans le TARDIS. Derrière la porte de la cabine bleue, l'espace s'ouvre sur une salle immense. Jessy tend encore la main vers Ilona quand la porte se referme."
     # Le moteur part apres la fermeture de la porte, puis cede au refuge.
-    play sound audio.ilonanium_departure volume 0.75
+    play sound audio.ilonanium_departure volume 0.6
     scene black with Fade(0.1, 0.1, 0.5, color="#fff")
     pause 2.3
     stop sound fadeout 0.6
