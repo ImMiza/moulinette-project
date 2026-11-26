@@ -244,7 +244,7 @@ label ending_ilonanium_silence:
     stop music fadeout 2.0
     scene black with fade
     centered "MARDI"
-    play music audio.cozySuspense volume 0.7 fadin 2.0 fadeout 2.0
+    play music audio.cozySuspense volume 0.7 fadein 2.0 fadeout 2.0
     scene bg friend chambre jessy with fade
     systeme "À neuf heures, Jessy demande si elle a mieux dormi. À midi, son message n'a toujours pas été lu."
     systeme "Il prépare à manger. Revient devant son téléphone."
@@ -294,6 +294,7 @@ label ending_ilonanium_chez_elle:
     i "Je sais pas. J'ai dormi. Après... j'ai perdu l'heure."
     j "Je vais appeler les secours."
     i "Oui. S'il te plaît."
+    stop music fadeout 4.0
     systeme "Il compose le 119 et donne l'adresse."
     play sound audio.ilonanium_glass volume 0.6
     systeme "Pendant qu'il décrit son état, un verre glisse sur la table."

@@ -211,7 +211,7 @@ label ending_family_visite:
     s "Je reste dans le coin. Appelez quand vous avez fini."
     i "Merci, Sofiane. Vraiment."
     s "Prenez votre temps. J'ai quelques virages à saluer."
-    play sound audio.carGo volume 0.6
+    play sound audio.carGo volume 0.4
     hide sofiane with dissolve
     systeme "La Trueno redescend vers la route. Jessy et Ilona franchissent le portillon."
     play sound audio.doorbell volume 0.6
@@ -881,6 +881,7 @@ label ending_family_fete:
     window hide
     pause 8.0
     window show
+    play music audio.barjazz loop volume 0.6 fadein 1.0 fadeout 1.0
     systeme "Il n'en faut pas davantage à Jessy pour perdre tout contrôle de son rire. Théo tient encore trois secondes avant de rire aussi."
     scene bg family fete fin with dissolve
     show jessy party happy at char_left
@@ -894,7 +895,6 @@ label ending_family_fete:
     t "Parce que je tiens encore debout."
     show ilona party neutral at char_center with dissolve
     i "Sofiane, tu surveilles les chaises. Je surveille les deux idiots."
-    #play music audio.barjazz loop volume 0.6 fadein 1.0
     systeme "Allan remet le fond musical de la soirée. Les deux adversaires décident que ça fera parfaitement l'affaire."
     systeme "Allan annonce le combat dans une cuillère. Sous les guirlandes, Micka applaudit comme si la salle était immense. Alexandre compte un rythme qui ne correspond à aucune musique présente."
     systeme "Jessy prend une pose héroïque. Théo pivote, rate son demi-tour et se rattrape au dossier d'une chaise."
