@@ -10,6 +10,9 @@ define audio.ilonanium_reprise = "audio/music/ilonanium_reprise_retrouvailles.og
 define audio.ilonanium_roundabout = "audio/music/ilonanium_roundabout_cue.ogg"
 define audio.cozySuspense = "audio/music/cozy-suspense.ogg"
 define audio.AncientAwakened = "audio/music/IXION_Ancient_Awakened.ogg"
+define audio.ilonanium_roundabout1 = "audio/music/ilonanium-roundabout-1.ogg"
+define audio.ilonanium_roundabout2 = "audio/music/ilonanium-roundabout-2.ogg"
+define audio.ilonanium_roundabout3 = "audio/music/ilonanium-roundabout-3.ogg"
 
 define audio.ilonanium_street = "audio/ambience/ilonanium_street.ogg"
 define audio.ilonanium_ocean = "audio/ambience/ilonanium_ocean.ogg"
@@ -985,19 +988,23 @@ label ending_ilonanium_alexandre:
     stop music fadeout 0.0
     stop ambiant1 fadeout 0.0
     stop sound fadeout 0.0
-    systeme "Quelque part sur l'Ilonanium..."
+    centered "Quelque part sur l'Ilonanium..."
+    play music audio.ilonanium_roundabout1 noloop volume 1.00
     scene bg ilonanium maison alex with fade
     systeme "Une maison tient debout au milieu des champs. Au soleil couchant, la fumée monte encore de sa cheminée."
+    stop music fadeout 2.5
+    play music audio.ilonanium_roundabout2 noloop volume 1.00
     scene bg ilonanium alex with dissolve
     systeme "À l'abri de son toit de chaume, Alexandre contemple l'horizon, une main posée sur sa canne."
     x "N'est-ce pas magnifique ?"
+    stop music fadeout 2.5
     window hide
     # Extrait monte : attaque du groupe exactement 3.0 s apres le depart.
-    play music audio.ilonanium_roundabout noloop volume 0.85 fadeout 0.0 fadein 0.04
-    pause 3.0
+    play music audio.ilonanium_roundabout3 noloop volume 0.85 fadeout 0.0 fadein 0.04
+    pause 4.0
     show bg ilonanium alex at ilonanium_jojo_sepia
     show screen ilonanium_to_be_continued
-    pause 3.0
+    pause 6.0
     hide screen ilonanium_to_be_continued
     scene black with fade
     centered "SPECIAL ENDING\n\nILONANIUM{w=3.0}{nw}"
