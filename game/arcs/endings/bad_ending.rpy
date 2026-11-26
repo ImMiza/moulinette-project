@@ -486,7 +486,7 @@ label bad_ending:
     stop music fadeout 2.0
     scene black with fade
     $ enregistrer_boucle()
-    return
+    jump generique
 
 
 # ----------------------------------------------------------------------
@@ -596,4 +596,4 @@ label bad_ending_boucle_rejouee:
     stop sound fadeout 0.5
     stop music fadeout 2.0
     scene black with fade
-    return
+    jump generique
